@@ -4,10 +4,10 @@ import { Components } from "@mui/material";
 const style: Interpolation<{ theme: Theme }> = {
 	borderRadius: "0.3125rem",
 	textTransform: "capitalize",
-	fontFamily: "Inter, sans-serif",
 	fontWeight: "400",
 	fontSize: "0.9rem",
-	boxShadow: "none",		
+	boxShadow: "none",
+	padding: "9px 16px",
 	
 	":focus": {
 		boxShadow: "none",		
