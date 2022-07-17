@@ -1,8 +1,13 @@
 import { createTheme } from "@mui/material/styles";
 import { ButtonOverride } from "./override";
+import { TextFieldOverride } from "./override/TextField";
 
 const dark = createTheme({
+	typography: {
+		fontFamily: ["Inter"].join(",")
+	},
 	palette: {
+		mode: "dark",
 		primary: {
 			main: "#9C10FF",
 			light: "#D28FFF",
@@ -20,6 +25,7 @@ const dark = createTheme({
 	},
 	components: {
 		...ButtonOverride,	
+		...TextFieldOverride,	
 	},
 });
 
