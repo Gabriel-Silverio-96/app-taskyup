@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import { ButtonOverride } from "./override";
 
 const dark = createTheme({
 	palette: {
@@ -13,10 +14,13 @@ const dark = createTheme({
 			dark: "#FFB710"
 		},
 		background: {
-			paper: "#303134",
-			default: "#202124",
-		}
-	}
+			paper: "#1A191A",
+			default: "#090909",
+		},
+	},
+	components: {
+		...ButtonOverride,	
+	},
 });
 
 export default dark;
