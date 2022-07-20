@@ -4,10 +4,12 @@ import React from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Footer, IconButton, TextFieldPassword, Title } from "./styles";
+import { ISignInView } from "./types/SignIn.component";
 
-const SignInView: React.FC<any> = (props) => {
-	const { register, handleSubmit, showPassword, handleShowPassword } = props;
-	return (
+const SignInView: React.FC<ISignInView> = (props) => {
+	const { register, handleSubmit, showPassword, handleShowPassword, errors } = props;
+	
+	return (		
 		<Grid container spacing={0}
 			direction="column"
 			alignItems="center"
@@ -23,11 +25,25 @@ const SignInView: React.FC<any> = (props) => {
 				<form onSubmit={handleSubmit((data: any) => console.log(data))}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
-							<TextField label="Email" size="small" fullWidth {...register("email")} />
+							<TextField 
+								label="Email" 
+								size="small" 
+								fullWidth 
+								{...register("email")} 
+								error={errors.email && Boolean(errors.email)}
+								helperText={errors.email ? errors.email?.message : ""}
+							/>
 						</Grid>
 						<Grid item>
 							<TextFieldPassword>
-								<TextField label="Password" size="small" type={showPassword ? "text" : "password"} fullWidth {...register("password")} />
+								<TextField 
+									label="Password"
+									size="small" 
+									type={showPassword ? "text" : "password"} 
+									fullWidth {...register("password")} 	
+									error={errors.password && Boolean(errors.password)}	
+									helperText={errors.password ? errors.password?.message : ""}							
+								/>
 								<IconButton onClick={handleShowPassword}>
 									{showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
 								</IconButton>
