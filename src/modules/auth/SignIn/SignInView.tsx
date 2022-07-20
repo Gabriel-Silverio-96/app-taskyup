@@ -1,5 +1,5 @@
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
-import Logo from "common/components/Logo";
+import Logo from "shared/components/Logo";
 import React from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ const SignInView: React.FC<ISignInView> = (props) => {
 			direction="column"
 			alignItems="center"
 			justifyContent="center"
-			style={{ minHeight: "100vh" }}>
+			sx={{ minHeight: "100vh" }}>
 			<Grid item sx={{ minWidth: "20rem" }}>
 				<Logo size={125} />
 				<Title>

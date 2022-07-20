@@ -1,5 +1,5 @@
 import { useThemeContext } from "common/context/ThemeContext";
-import React from "react";
+import React, { memo } from "react";
 import LogoView from "./LogoView";
 import { ILogo } from "./types/Logo.component";
 
@@ -10,4 +10,4 @@ const Logo: React.FC<ILogo> = ({ size = 143.146, isoType }) => {
 	return <LogoView {...{ logoColor, size, isoType }} />;
 };
 
-export default Logo;
+export default memo(Logo);
