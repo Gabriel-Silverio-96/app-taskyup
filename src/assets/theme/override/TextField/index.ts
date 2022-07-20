@@ -14,6 +14,12 @@ const style: Interpolation<{ theme: Theme }> = {
 		paddingTop: theme.spacing(1.3),
 		paddingBottom: theme.spacing(1.3),	
 	},
+	"> p": {
+		marginLeft: 0,
+		":first-letter": {
+			textTransform: "uppercase"
+		}
+	}
 };
 
 export const TextFieldOverride: Components = {
