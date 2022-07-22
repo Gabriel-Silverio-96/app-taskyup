@@ -1,4 +1,4 @@
-import { useThemeContext } from "common/context/ThemeContext";
+import { useThemeContext } from "shared/common/context/ThemeContext";
 import React, { memo } from "react";
 import LogoView from "./LogoView";
 import { ILogo } from "./types/Logo.component";
