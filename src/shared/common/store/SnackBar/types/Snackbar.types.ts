@@ -6,7 +6,7 @@ export interface ISnackBarState extends SnackbarProps {
     severety: AlertColor;
 }
 
-export interface ISnackBarAction {
+export interface ISnackbarAction {
     type: TypeSnackBar;
     payload: ISnackBarState;
 }

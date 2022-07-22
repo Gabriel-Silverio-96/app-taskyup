@@ -1,4 +1,4 @@
-import { ISnackBarAction, ISnackBarState } from "./types/Snackbar.types";
+import { ISnackbarAction, ISnackBarState } from "./types/Snackbar.types";
 
 export const SNACKBAR_OPEN_TYPE = "SNACKBAR_OPEN";
 export const SNACKBAR_CLOSE_TYPE = "SNACKBAR_CLOSE";
@@ -9,7 +9,7 @@ const INITIAL_STATE: ISnackBarState = {
 	severety: "success"
 };
 
-export default function (state = INITIAL_STATE, action: ISnackBarAction) {
+export default function (state = INITIAL_STATE, action: ISnackbarAction) {
 	const { payload, type } = action;
 	switch (type) {
 	case SNACKBAR_OPEN_TYPE:
