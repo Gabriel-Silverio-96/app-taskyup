@@ -1,12 +1,12 @@
-import { AlertColor } from "@mui/material";
+import { AlertColor, SnackbarProps } from "@mui/material";
 
-export interface ISnackBarState {
-    open: boolean;
-    message: string;
+export type TypeSnackBar = "SNACKBAR_OPEN" | "SNACKBAR_CLOSE"
+
+export interface ISnackBarState extends SnackbarProps {
     severety: AlertColor;
 }
 
 export interface ISnackBarAction {
-    type: "SNACKBAR_OPEN";
+    type: TypeSnackBar;
     payload: ISnackBarState;
 }
