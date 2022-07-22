@@ -10,6 +10,7 @@ const SnackBarView: React.FC<ISnackBarView> = ({ snackBarProps, snackBarClose })
 			onClose={snackBarClose}
 			autoHideDuration={!autoHideDuration ? 3000 : autoHideDuration}
 			anchorOrigin={{ vertical: "top", horizontal: "right" }}
+			transitionDuration={0}
 		>
 			<Alert severity={severity}>{message}</Alert>
 		</Snackbar>
