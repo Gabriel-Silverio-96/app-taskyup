@@ -20,13 +20,7 @@ export const Title = styled("div")(
             margin: 0;
             color: ${theme.palette.grey[700]}
         }
-    `,
-    
-	{
-		h4: {
-			fontWeight: "700"
-		}
-	}
+    `   
 );
     
 export const Footer = styled("footer")(

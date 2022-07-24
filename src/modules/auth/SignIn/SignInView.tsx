@@ -19,7 +19,7 @@ const SignInView: React.FC<ISignInView> = (props) => {
 			<Grid item sx={{ minWidth: "20rem" }}>
 				<Logo size={125} />
 				<Title>
-					<Typography variant="h4">Sign in</Typography>
+					<Typography variant="h4" fontWeight={700}>Sign in</Typography>
 					<p>Welcome back! ❤️</p>
 				</Title>
 
