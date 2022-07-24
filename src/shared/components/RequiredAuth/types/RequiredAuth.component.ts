@@ -1,5 +1,5 @@
 import React from "react";
 
-export interface IRouteCustom {
+export interface IRequiredAuth {
     children: React.ReactElement;    
 }
