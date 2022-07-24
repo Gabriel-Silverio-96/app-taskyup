@@ -29,8 +29,7 @@ const SignInView: React.FC<ISignInView> = (props) => {
 							<TextField 
 								label="Email" 
 								size="small" 
-								fullWidth 
-								value="email@email.com"
+								fullWidth 								
 								{...register("email")} 
 								error={errors.email && Boolean(errors.email)}
 								helperText={errors.email ? errors.email?.message : ""}
@@ -43,7 +42,6 @@ const SignInView: React.FC<ISignInView> = (props) => {
 									label="Password"
 									size="small" 
 									type={showPassword ? "text" : "password"}
-									value="123456789" 
 									fullWidth {...register("password")} 	
 									error={errors.password && Boolean(errors.password)}	
 									helperText={errors.password ? errors.password?.message : ""}							
