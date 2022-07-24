@@ -5,16 +5,17 @@ import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { BackgroundSignUp, Title, Footer } from "./styles";
 
-const SignUpView: React.FC<any> = () => {
+const SignUpView: React.FC<any> = (props) => {
+	const { register, errors, handleSubmit } = props;
 	return (
 		<Grid container justifyContent="space-around" sx={{ minHeight: "100vh" }}>
-			<Grid item md={6}>				
+			<Grid item md={6}>
 				<BackgroundSignUp>
 					<Typography variant="h3" fontWeight={700}>Time to create your account</Typography>
 					<p>You are a few steps to improve your organization</p>
 				</BackgroundSignUp>
 			</Grid>
-			<Grid item md={6} 
+			<Grid item md={6}
 				justifyContent="center"
 				display="flex"
 				alignItems="center"
@@ -28,36 +29,47 @@ const SignUpView: React.FC<any> = () => {
 						<p>Fill the form ✏️</p>
 					</Title>
 
-					<form onSubmit={() => ""}>
+					<form onSubmit={handleSubmit((data: any) => console.log(data))}>
 						<Grid container direction="column" spacing={5}>
 							<Grid item>
-								<TextField 
-									label="Full name" 
-									size="small" 
-									fullWidth 								
-								/>
-							</Grid>
-							<Grid item>
-								<TextField 
-									label="Email" 
-									size="small" 
-									fullWidth 								
-								/>
-							</Grid>
-							<Grid item>
-								<TextField 
-									label="Password"
-									size="small" 
+								<TextField
+									label="Full name"
+									size="small"
 									fullWidth
+									{...register("full_name")}
+									error={errors.full_name && Boolean(errors.full_name)}
+									helperText={errors.full_name ? errors.full_name?.message : ""}
+									autoComplete="off"
 								/>
 							</Grid>
 							<Grid item>
-								<LoadingButton 							
-									fullWidth 
+								<TextField
+									label="Email"
+									size="small"
+									fullWidth
+									{...register("email")}
+									error={errors.email && Boolean(errors.email)}
+									helperText={errors.email ? errors.email?.message : ""}
+									autoComplete="off"
+								/>
+							</Grid>
+							<Grid item>
+								<TextField
+									label="Password"
+									size="small"
+									fullWidth
+									{...register("password")}
+									error={errors.password && Boolean(errors.password)}	
+									helperText={errors.password ? errors.password?.message : ""}
+								/>
+							</Grid>
+							<Grid item>
+								<LoadingButton
+									fullWidth
 									variant="contained"
 									type="submit"
 								>
-								    Sign up
+									Sign up
 								</LoadingButton>
 							</Grid>
 						</Grid>
@@ -68,9 +80,9 @@ const SignUpView: React.FC<any> = () => {
 						<Grid display="flex" justifyContent="center" alignItems="center" flexDirection="column">
 							<Link to="/auth/signin">
 								<Typography variant="body1" textAlign="center" sx={{ mt: 3, mb: 3 }}>
-                                    Do you have an account? Login
+									Do you have an account? Login
 								</Typography>
-							</Link>							
+							</Link>
 						</Grid>
 					</Grid>
 				</Footer>
