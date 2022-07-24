@@ -1,13 +1,14 @@
-import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
-import Logo from "shared/components/Logo";
+import LoadingButton from "@mui/lab/LoadingButton";
+import { Divider, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Logo from "shared/components/Logo";
 import { Footer, IconButton, TextFieldPassword, Title } from "./styles";
 import { ISignInView } from "./types/SignIn.component";
 
 const SignInView: React.FC<ISignInView> = (props) => {
-	const { register, handleSubmit, showPassword, handleShowPassword, errors } = props;
+	const { register, handleSubmit, fetchSignIn, isLoading, showPassword, handleShowPassword, errors } = props;
 	
 	return (		
 		<Grid container spacing={0}
@@ -22,13 +23,14 @@ const SignInView: React.FC<ISignInView> = (props) => {
 					<p>Welcome back! ❤️</p>
 				</Title>
 
-				<form onSubmit={handleSubmit((data: any) => console.log(data))}>
+				<form onSubmit={handleSubmit(fetchSignIn)}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
 							<TextField 
 								label="Email" 
 								size="small" 
 								fullWidth 
+								value="email@email.com"
 								{...register("email")} 
 								error={errors.email && Boolean(errors.email)}
 								helperText={errors.email ? errors.email?.message : ""}
@@ -40,7 +42,8 @@ const SignInView: React.FC<ISignInView> = (props) => {
 								<TextField 
 									label="Password"
 									size="small" 
-									type={showPassword ? "text" : "password"} 
+									type={showPassword ? "text" : "password"}
+									value="123456789" 
 									fullWidth {...register("password")} 	
 									error={errors.password && Boolean(errors.password)}	
 									helperText={errors.password ? errors.password?.message : ""}							
@@ -51,7 +54,14 @@ const SignInView: React.FC<ISignInView> = (props) => {
 							</TextFieldPassword>
 						</Grid>
 						<Grid item>
-							<Button fullWidth variant="contained" type="submit">Sign in</Button>
+							<LoadingButton 							
+								fullWidth 
+								variant="contained"
+								type="submit"
+								loading={isLoading}
+							>
+								Sign in
+							</LoadingButton>
 						</Grid>
 					</Grid>
 				</form>
