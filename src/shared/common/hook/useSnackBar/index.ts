@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SNACKBAR_CLOSE_TYPE, SNACKBAR_OPEN_TYPE } from "shared/common/store/SnackBar/SnackBar.reducer";
 import { ISnackBarState } from "shared/common/store/SnackBar/types/Snackbar.types";
 import { createAction } from "shared/common/store/store.action";
-import { ISnackbarProps } from "./types/UseSnackBar.types";
+import { ISnackbarProps } from "./types/useSnackBar.types";
 
 export default function useSnackBar() {
 	const dispatch = useDispatch();

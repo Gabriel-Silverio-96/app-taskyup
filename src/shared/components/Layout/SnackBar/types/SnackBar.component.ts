@@ -1,4 +1,4 @@
-import { ISnackbarProps } from "shared/common/hook/useSnackBar/types/UseSnackBar.types";
+import { ISnackbarProps } from "shared/common/hook/useSnackBar/types/useSnackBar.types";
 
 export interface ISnackBarView {
     snackBarProps: ISnackbarProps;
