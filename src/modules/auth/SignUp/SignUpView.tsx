@@ -3,10 +3,11 @@ import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
-import { BackgroundSignUp, Title, Footer } from "./styles";
+import { BackgroundSignUp, Footer, Title } from "./styles";
+import { ISignUpView } from "./types/SignUp.component";
 
-const SignUpView: React.FC<any> = (props) => {
-	const { register, errors, handleSubmit } = props;
+const SignUpView: React.FC<ISignUpView> = (props) => {
+	const { register, errors, handleSubmit, fetchSignUp, isLoading } = props;
 	return (
 		<Grid container justifyContent="space-around" sx={{ minHeight: "100vh" }}>
 			<Grid item md={6}>
@@ -29,7 +30,7 @@ const SignUpView: React.FC<any> = (props) => {
 						<p>Fill the form ✏️</p>
 					</Title>
 
-					<form onSubmit={handleSubmit((data: any) => console.log(data))}>
+					<form onSubmit={handleSubmit(fetchSignUp)}>
 						<Grid container direction="column" spacing={5}>
 							<Grid item>
 								<TextField
@@ -68,6 +69,7 @@ const SignUpView: React.FC<any> = (props) => {
 									fullWidth
 									variant="contained"
 									type="submit"
+									loading={isLoading}
 								>
 									Sign up
 								</LoadingButton>
