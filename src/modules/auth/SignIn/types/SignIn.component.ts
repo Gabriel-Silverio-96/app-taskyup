@@ -1,38 +1,24 @@
-import { FieldErrors, UseFormReturn } from "react-hook-form";
-import { ISignInForm } from "../shared/schema/types/types.schema";
+import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
-export interface ISignInView extends Omit<UseFormReturn<ISignInForm>, UnwantedKeys> {
-    showPassword: boolean;
-    handleShowPassword: () => void;
-    errors: FieldErrors<ISignInForm>;
-    fetchSignIn: (dataUser: IDataUser) => void;
-    isLoading: boolean;
-}
-
-export interface IDataUser {
+export interface ISignInForm {
     email: string;
     password: string;
 }
 
-export interface IFetchSignInResponse {
-    type_message: string;
-    message: string;
+export interface ISignInView {
+    register: UseFormRegister<ISignInForm>;
+    handleSubmit: UseFormHandleSubmit<ISignInForm>;
+    showPassword: boolean;
+    handleShowPassword: () => void;
+    errors: FieldErrors<ISignInForm>;
+    fetchSignIn: (dataUser: ISignInForm) => void;
+    isLoading: boolean;
+}
+
+export interface IFetchSignInResponse extends IFetchResponseDefault {
     token: string;
     user_data: {
         full_name: string;
     }
 }
-
-type UnwantedKeys = "watch" |
-    "getValues" |
-    "getFieldState" |
-    "setError" |
-    "clearErrors" |
-    "setValue" |
-    "trigger" |
-    "formState" |
-    "resetField" |
-    "reset" |
-    "unregister" |
-    "control" |
-    "setFocus" 
