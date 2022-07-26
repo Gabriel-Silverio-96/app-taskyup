@@ -31,7 +31,7 @@ const SignIn: React.FC = () => {
 			localStorage.setItem("@taskyup.token", token);
 			localStorage.setItem("@taskyup.user_data", JSON.stringify(user_data));
 			dispatch(createAction(SIGNIN_TYPE, { isAuthenticated: true, user_data }));
-			return navigate("/board");
+			return navigate("/dashboard");
 		} catch (error) {
 			setIsLoading(false);
 			console.error("SignIn ", error);
