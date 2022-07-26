@@ -3,27 +3,30 @@ import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
-import { BackgroundSignUp, Footer, Title } from "./styles";
+import { BackgroundSignUp, Footer, GridForm, Title } from "./styles";
 import { ISignUpView } from "./types/SignUp.component";
 
 const SignUpView: React.FC<ISignUpView> = (props) => {
 	const { register, errors, handleSubmit, fetchSignUp, isLoading } = props;
 	return (
 		<Grid container justifyContent="space-around" sx={{ minHeight: "100vh" }}>
-			<Grid item md={6}>
+			<Grid item md={6} sm={12}>
 				<BackgroundSignUp>
 					<Typography variant="h3" fontWeight={700}>Time to create your account</Typography>
 					<p>You are a few steps to improve your organization</p>
 				</BackgroundSignUp>
 			</Grid>
-			<Grid item md={6}
+			<Grid 
+				item 
+				md={6}
+				sm={12}
 				justifyContent="center"
 				display="flex"
 				alignItems="center"
 				flexDirection="column"
-				sx={{ minWidth: "20rem" }}
+				sx={{ minWidth: "20rem", marginTop: "2rem" }}
 			>
-				<div style={{ minWidth: "20rem" }}>
+				<GridForm>
 					<Logo size={125} />
 					<Title>
 						<Typography variant="h4" fontWeight={700}>Sign up</Typography>
@@ -76,7 +79,7 @@ const SignUpView: React.FC<ISignUpView> = (props) => {
 							</Grid>
 						</Grid>
 					</form>
-				</div>
+				</GridForm>
 				<Footer>
 					<Grid container direction="column">
 						<Grid display="flex" justifyContent="center" alignItems="center" flexDirection="column">

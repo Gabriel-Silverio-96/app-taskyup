@@ -26,6 +26,10 @@ export const Title = styled("div")(
     `,  
 );
 
+export const GridForm = styled("div")({
+	width: "min(20rem, 100%)"
+});
+
 export const Footer = styled("footer")(
 	({ theme }) => `
         a {
