@@ -2,6 +2,7 @@ import { CssBaseline } from "@mui/material";
 import { createBrowserHistory } from "history";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import { store } from "shared/common/store";
 import Layout from "shared/components/Layout";
 import setupInterceptors from "shared/services/setupInterceptors";
@@ -15,10 +16,12 @@ setupInterceptors(history, store);
 root.render(
 	<Provider store={store}>
 		<ThemeProvider>
-			<Layout>
-				<CssBaseline />
-				<MainRoutes />
-			</Layout>
+			<BrowserRouter>
+				<Layout>
+					<CssBaseline />
+					<MainRoutes />
+				</Layout>
+			</BrowserRouter>
 		</ThemeProvider>
 	</Provider>
 );
