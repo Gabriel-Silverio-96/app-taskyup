@@ -1,4 +1,4 @@
-import { ClickAwayListener, IconButton } from "@mui/material";
+import { ClickAwayListener, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { FiUser } from "react-icons/fi";
 import Dropdown from "./Dropdown";
@@ -7,6 +7,7 @@ import { Header } from "./style";
 const HeaderView: React.FC<any> = ({ isOpen, toogleDropdown, toogleDropdownAway }) => {
 	return (
 		<Header>
+			<Typography variant="h5" fontWeight={700}>Dashboard</Typography>
 			<nav>
 				<Dropdown open={isOpen}>
 					<ClickAwayListener onClickAway={toogleDropdownAway}>
