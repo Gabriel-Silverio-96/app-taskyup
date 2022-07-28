@@ -13,7 +13,7 @@ export const Drawer = styled("div")(
             grid-row: 1 / 4;
         }
 
-        main {
+        section {
             grid-column: 4;
         }
     `
