@@ -21,7 +21,7 @@ const DropdownView: React.FC<any> = ({ children, open }) => {
 					</ListItem>
 					<Divider sx={{mt: 2, mb: 2}}/>
 					<ListItem disablePadding>
-						<ListItemText primary="Exit" />
+						<ListItemText primary="Log out" />
 					</ListItem>
 				</List>
 			)}
