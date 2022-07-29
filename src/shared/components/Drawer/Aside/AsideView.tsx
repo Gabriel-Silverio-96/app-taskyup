@@ -1,7 +1,7 @@
 import { TreeItem, TreeView } from "@mui/lab";
 import { Button, IconButton, Typography } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiChevronDown, FiChevronLeft, FiChevronRight, FiPlus } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import Logo from "shared/components/Logo";
@@ -11,9 +11,9 @@ const AsideView: React.FC<any> = (props) => {
 	const { openAside, toogleOpenAside } = props;
 
 	return (
-		<Aside>
-			<AsideHeader>
-				<Logo size={100} />
+		<Aside open={openAside}>
+			<AsideHeader open={openAside}>
+				<Logo size={100} isoType={!openAside} />
 				<IconButton
 					color="primary"
 					aria-label={openAside ? "close-aside" : "open-aside"}
@@ -23,9 +23,15 @@ const AsideView: React.FC<any> = (props) => {
 					{openAside ? <FiChevronLeft /> : <FiChevronRight />}
 				</IconButton>
 			</AsideHeader>
-			<Button variant="contained" fullWidth>New board</Button>
+			<Button
+				variant="contained"
+				fullWidth
+				sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
+			>
+				{openAside ? "New board" : <FiPlus />}
+			</Button>
 
-			<TreeViewContainer>
+			<TreeViewContainer open={openAside}>
 				<Typography variant="button" fontWeight={700}>BOARDS</Typography>
 				<TreeView
 					aria-label="file system navigator"
