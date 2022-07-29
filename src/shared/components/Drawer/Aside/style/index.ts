@@ -35,14 +35,14 @@ export const Aside = styled("aside")(
 
 export const AsideHeader = styled("div")(
 	({ theme }) => `        
-        margin-top: ${theme.spacing(1)};
+        margin-top: ${theme.spacing(0.8)};
         margin-bottom: ${theme.spacing(6)};
 
         .MuiIconButton-root {
             position: absolute;
-            right: -${theme.spacing(1.2)};
+            right: ${theme.spacing(1.8)};
             top: ${theme.spacing(2.6)};
-            background-color: ${theme.palette.grey[900]};
+            background-color: ${theme.palette.background.paper};
 
             :hover {
                 background-color: ${theme.palette.primary.main};

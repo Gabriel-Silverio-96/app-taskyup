@@ -16,7 +16,7 @@ const AsideView: React.FC<any> = (props) => {
 				<Logo size={100} />
 				<IconButton
 					color="primary"
-					aria-label="open-sidebar"
+					aria-label={openAside ? "close-aside" : "open-aside"}
 					size="small"
 					onClick={toogleOpenAside}
 				>
