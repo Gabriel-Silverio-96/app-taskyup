@@ -2,6 +2,7 @@ import { styled } from "@mui/material";
 
 export const Aside = styled("aside")(
 	({ theme }) => `        
+        position: relative;
         background-color: ${theme.palette.common.black};
         height: 100vh;
         width: ${theme.spacing(25)};
@@ -36,6 +37,20 @@ export const AsideHeader = styled("div")(
 	({ theme }) => `        
         margin-top: ${theme.spacing(1)};
         margin-bottom: ${theme.spacing(6)};
+
+        .MuiIconButton-root {
+            position: absolute;
+            right: -${theme.spacing(1.2)};
+            top: ${theme.spacing(2.6)};
+            background-color: ${theme.palette.grey[900]};
+
+            :hover {
+                background-color: ${theme.palette.primary.main};
+                svg {
+                    stroke: ${theme.palette.common.white};
+                }
+            }
+        }
 
     `
 );
