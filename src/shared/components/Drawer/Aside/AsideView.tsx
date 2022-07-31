@@ -5,6 +5,7 @@ import { FiChevronDown, FiChevronLeft, FiChevronRight, FiPlus } from "react-icon
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import Logo from "shared/components/Logo";
+import DialogNewBoard from "../DialogNewBoard";
 import { Aside, AsideHeader, TreeViewContainer } from "./style";
 
 const AsideView: React.FC<any> = (props) => {
@@ -45,6 +46,7 @@ const AsideView: React.FC<any> = (props) => {
 					<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
 				</TreeView>
 			</TreeViewContainer>
+			<DialogNewBoard />
 		</Aside>
 	);
 };
