@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 import { ButtonOverride } from "./override";
+import { DialogOverride } from "./override/Dialog";
+import { SelectOverride } from "./override/Select";
 import { TextFieldOverride } from "./override/TextField";
 
 const light = createTheme({
@@ -18,6 +20,8 @@ const light = createTheme({
 	components: {
 		...ButtonOverride,
 		...TextFieldOverride,	
+		...DialogOverride,	
+		...SelectOverride,
 	},
 });
 
