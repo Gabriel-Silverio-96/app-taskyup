@@ -5,6 +5,7 @@ import DialogNewBoardView from "./DialogNewBoardView";
 const DialogNewBoard: React.FC = () => {
 	const theme = useTheme();	
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));	
+	
 	return <DialogNewBoardView  {...{ fullScreen }} />;
 };
 
