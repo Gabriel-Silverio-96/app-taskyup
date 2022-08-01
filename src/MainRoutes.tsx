@@ -11,7 +11,6 @@ const MainRoutes:React.FC = () => {
 			<Route path="/auth/signup" element={<SignUp />} />
 
 			<Route path="/dashboard" element={<RequiredAuth><Board /></RequiredAuth>} />
-
 			<Route path="*" element={<h1>404</h1>} />				
 		</Routes>
 	);
