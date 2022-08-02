@@ -61,7 +61,7 @@ const DialogNewBoardView: React.FC<any> = (props) => {
 				</form>
 			</DialogContent>
 			<DialogActions>
-				<Button variant="text">Save</Button>
+				<Button variant="contained">Save</Button>
 			</DialogActions>
 		</Dialog>
 	);
