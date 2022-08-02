@@ -9,7 +9,7 @@ import DialogNewBoard from "../DialogNewBoard";
 import { Aside, AsideHeader, TreeViewContainer } from "./style";
 
 const AsideView: React.FC<any> = (props) => {
-	const { openAside, toogleOpenAside } = props;
+	const { openAside, toogleOpenAside, openDialog, openDialogNewBoard, closeDialogNewBoard } = props;
 
 	return (
 		<Aside open={openAside}>
@@ -28,6 +28,7 @@ const AsideView: React.FC<any> = (props) => {
 				variant="contained"
 				fullWidth
 				sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
+				onClick={openDialogNewBoard}
 			>
 				{openAside ? "New board" : <FiPlus />}
 			</Button>
@@ -46,7 +47,7 @@ const AsideView: React.FC<any> = (props) => {
 					<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
 				</TreeView>
 			</TreeViewContainer>
-			<DialogNewBoard />
+			<DialogNewBoard {...{ openDialog, openDialogNewBoard, closeDialogNewBoard }}/>
 		</Aside>
 	);
 };

@@ -17,16 +17,16 @@ import { MdOutlineClose } from "react-icons/md";
 import React from "react";
 
 const DialogNewBoardView: React.FC<any> = (props) => {
-	const { fullScreen } = props;
+	const { fullScreen, openDialog, closeDialogNewBoard } = props;
 	return (
-		<Dialog open fullWidth fullScreen={fullScreen} maxWidth="xs">
+		<Dialog open={openDialog} fullWidth fullScreen={fullScreen} maxWidth="xs">
 			<DialogTitle sx={{marginBottom: "1rem"}}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Grid item>
 						<Typography variant="h6" fontWeight={700}>New Board</Typography>
 					</Grid>
 					<Grid item> 
-						<IconButton><MdOutlineClose /></IconButton>
+						<IconButton onClick={closeDialogNewBoard}><MdOutlineClose /></IconButton>
 					</Grid>
 				</Grid>
 			</DialogTitle>
