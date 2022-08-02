@@ -19,7 +19,13 @@ import React from "react";
 const DialogNewBoardView: React.FC<any> = (props) => {
 	const { fullScreen, openDialog, closeDialogNewBoard } = props;
 	return (
-		<Dialog open={openDialog} fullWidth fullScreen={fullScreen} maxWidth="xs">
+		<Dialog 
+			fullWidth
+			maxWidth="xs"
+			open={openDialog} 
+			fullScreen={fullScreen}
+			onClose={closeDialogNewBoard}
+		>
 			<DialogTitle sx={{marginBottom: "1rem"}}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Grid item>
@@ -34,11 +40,7 @@ const DialogNewBoardView: React.FC<any> = (props) => {
 				<form>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
-							<TextField
-								label="Board name"
-								size="small"
-								fullWidth
-							/>
+							<TextField label="Board name" size="small" fullWidth />
 						</Grid>
 						<Grid item>
 							<FormControl fullWidth>
