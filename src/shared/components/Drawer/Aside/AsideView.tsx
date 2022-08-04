@@ -7,9 +7,16 @@ import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import Logo from "shared/components/Logo";
 import DialogNewBoard from "../DialogNewBoard";
 import { Aside, AsideHeader, TreeViewContainer } from "./style";
+import { IAsideView } from "./types/Aside.component";
 
-const AsideView: React.FC<any> = (props) => {
-	const { openAside, toogleOpenAside, openDialog, openDialogNewBoard, closeDialogNewBoard } = props;
+const AsideView: React.FC<IAsideView> = (props) => {
+	const { 
+		openAside, 
+		openDialog, 
+		toogleOpenAside,
+		openDialogNewBoard,
+		closeDialogNewBoard 
+	} = props;
 
 	return (
 		<Aside open={openAside}>
