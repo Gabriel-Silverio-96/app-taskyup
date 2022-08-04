@@ -10,16 +10,14 @@ const DialogNewBoard: React.FC<any> = ({ openDialog, closeDialogNewBoard }) => {
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const { register, handleSubmit,	formState: { errors }, reset }  
-		= useForm({ resolver: yupResolver(schema), mode: "all" });
-	
+		= useForm({ resolver: yupResolver(schema), mode: "all" });	
 
 	const fetchDialogNewBoard = (dataNewBoard: any) => {
 		console.log(dataNewBoard);
 	};
 
-	const resetForm = () => !openDialog && reset();
-	useMemo(resetForm, [openDialog]);
-
+	useMemo(() => !openDialog && reset(), [openDialog]);
+	
 	return (
 		<DialogNewBoardView
 			{...{
