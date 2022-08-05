@@ -19,7 +19,7 @@ const SignIn: React.FC = () => {
 	const dispatch = useDispatch();
 	const [isLoading, setIsLoading] = useState(false);
 	const [showPassword, setShowPassword] = useState(false);
-	const handleShowPassword = () => setShowPassword(prevState => !prevState);
+	const handleShowPassword = () => setShowPassword(prevState => !prevState);	
 
 	const fetchSignIn = useCallback(async (dataUser: ISignInForm) => {
 		try {
@@ -30,6 +30,8 @@ const SignIn: React.FC = () => {
 			
 			localStorage.setItem("@taskyup.token", token);
 			localStorage.setItem("@taskyup.user_data", JSON.stringify(user_data));
+			api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+			
 			dispatch(createAction(SIGNIN_TYPE, { isAuthenticated: true, user_data }));
 			return navigate("/dashboard");
 		} catch (error) {
