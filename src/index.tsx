@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "shared/common/store";
 import Layout from "shared/components/Layout";
+import Session from "shared/components/Session";
 import setupInterceptors from "shared/services/setupInterceptors";
 import MainRoutes from "./MainRoutes";
 import { ThemeProvider } from "./shared/common/context/ThemeContext";
@@ -17,10 +18,12 @@ root.render(
 	<Provider store={store}>
 		<ThemeProvider>
 			<BrowserRouter>
-				<Layout>
-					<CssBaseline />
-					<MainRoutes />
-				</Layout>
+				<Session>
+					<Layout>
+						<CssBaseline />
+						<MainRoutes />
+					</Layout>
+				</Session>
 			</BrowserRouter>
 		</ThemeProvider>
 	</Provider>
