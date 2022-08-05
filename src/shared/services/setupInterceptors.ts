@@ -43,7 +43,7 @@ const setupInterceptors = (history: BrowserHistory, store: Store) => {
 			api.defaults.headers.common["Authorization"] = "";            
 			localStorage.removeItem("@taskyup.token");
 			localStorage.removeItem("@taskyup.user_data");
-			history.push("/auth/sigin");
+			history.push("/auth/signin");
 			break;
 
 		case 403:
