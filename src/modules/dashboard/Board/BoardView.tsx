@@ -1,10 +1,23 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-const BoardView: React.FC<any> = () => {
+const BoardView: React.FC<any> = ({board, isLoading}) => {
 	return (
 		<Box component="section" sx={{ flexGrow: 1, p: 3 }}>
-			<Typography paragraph>
+			<ul>
+				{isLoading && <p style={{color: "red"}}>Loading,,,,</p>}
+				{
+					board && (
+						board.map((item: any) => 
+							<li key={item.board_id} style={{color: "white"}}>{item.title}</li>
+						)
+					)
+				}
+
+			</ul>
+
+
+			{/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
           enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
@@ -31,7 +44,8 @@ const BoardView: React.FC<any> = () => {
           eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
           posuere sollicitudin aliquam ultrices sagittis orci a.
 			</Typography>
-		</Box>		
+            */}
+		</Box>		 
 	);
 };
 
