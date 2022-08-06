@@ -67,5 +67,26 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
             text-decoration: none;
             color: ${theme.palette.text.primary}
         }
+
+        .MuiCollapse-root {
+            .MuiCollapse-wrapper {
+                height: ${theme.spacing(25)} !important;
+                overflow: hidden auto;                
+
+                ::-webkit-scrollbar-thumb {
+                    background-color: ${theme.palette.grey[900]};
+                    border-radius: 2rem;
+                    cursor: all-scroll;
+                }
+
+                ::-webkit-scrollbar {    
+                    width: ${theme.spacing(0.7)};    
+                    height: ${theme.spacing(0.7)};
+                    background-color: ${theme.palette.grey[200]};
+                    border-radius: 2rem;    
+                    cursor: all-scroll;
+                }
+            }
+        }        
     `
 );
