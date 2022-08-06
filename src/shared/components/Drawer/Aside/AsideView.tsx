@@ -4,6 +4,7 @@ import React from "react";
 import { FiChevronDown, FiChevronLeft, FiChevronRight, FiPlus } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
+import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import DialogNewBoard from "../DialogNewBoard";
 import { Aside, AsideHeader, TreeViewContainer } from "./style";
@@ -11,6 +12,7 @@ import { IAsideView } from "./types/Aside.component";
 
 const AsideView: React.FC<IAsideView> = (props) => {
 	const { 
+		board,
 		openAside, 
 		openDialog, 
 		toogleOpenAside,
@@ -43,12 +45,18 @@ const AsideView: React.FC<IAsideView> = (props) => {
 			<TreeViewContainer open={openAside}>
 				<Typography variant="button" fontWeight={700}>BOARDS</Typography>
 				<TreeView
-					aria-label="file system navigator"
+					aria-label="menu navigator"
 					defaultCollapseIcon={<FiChevronDown />}
 					defaultExpandIcon={<FiChevronRight />}
 				>
 					<TreeItem nodeId="1" label={<><GoNote />Notes</>}>
-						<TreeItem nodeId="2" label="Title note" />
+						{board && (
+							board.map(({board_id, title}) => (
+								<Link to={`/notes/board_id=${board_id}`} key={board_id}>
+									<TreeItem nodeId={board_id} label={title} />
+								</Link>
+							))
+						)}							
 					</TreeItem>
 					<TreeItem nodeId="3" label={<><MdOutlineNotes />Text</>} disabled />
 					<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
