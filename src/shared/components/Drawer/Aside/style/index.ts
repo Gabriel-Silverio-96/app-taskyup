@@ -64,7 +64,6 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         display: ${open ? "block" : "none"}; 
 
         a {
-            text-decoration: none;
             color: ${theme.palette.text.primary}
         }
 
