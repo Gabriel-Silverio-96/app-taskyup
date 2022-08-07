@@ -3,7 +3,7 @@ import { styled } from "@mui/material";
 export const Drawer = styled("div")(
 	({ theme }) => `
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 0fr);
 
         header {
             grid-column: span 3;
