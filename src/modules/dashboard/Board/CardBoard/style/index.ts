@@ -8,8 +8,12 @@ export const CardBoardContainer = styled("div")(
             transition: .3s;
             border-color: ${theme.palette.primary.main};
         }
-    }    
-    `
+    }
+
+    a {
+        color: ${theme.palette.text.primary}
+    }
+`
 );
 
 export const CardIcon = styled("div")(
