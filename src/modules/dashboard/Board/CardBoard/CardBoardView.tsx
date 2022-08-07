@@ -16,12 +16,14 @@ const CardBoardView: React.FC<any> = props => {
 							<Card sx={{ height: 120 }}>
 								<CardContent>
 									<CardHeader>
-										<CardIcon>
-											{boardIcon[boardItem.type_board]}
-											<Typography color="text.secondary"gutterBottom sx={{ fontSize: 12 }}>
-												{boardItem.type_board}
-											</Typography>
-										</CardIcon>
+										<Link to={`/notes/${boardItem.board_id}`}>
+											<CardIcon>
+												{boardIcon[boardItem.type_board]}
+												<Typography color="text.secondary"gutterBottom sx={{ fontSize: 12 }}>
+													{boardItem.type_board}
+												</Typography>
+											</CardIcon>
+										</Link>
 										<IconButton sx={{p: 0}}>
 											<BsThreeDots />
 										</IconButton>
