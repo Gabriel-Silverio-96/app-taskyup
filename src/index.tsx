@@ -1,5 +1,6 @@
 import { CssBaseline } from "@mui/material";
 import { QueryClientProvider } from "@tanstack/react-query";
+import GlobalStylesMui from "assets/theme/override/GlobalStyles";
 import { createBrowserHistory } from "history";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
@@ -24,6 +25,7 @@ root.render(
 					<Session>
 						<Layout>
 							<CssBaseline />
+							<GlobalStylesMui />
 							<MainRoutes />
 						</Layout>
 					</Session>
