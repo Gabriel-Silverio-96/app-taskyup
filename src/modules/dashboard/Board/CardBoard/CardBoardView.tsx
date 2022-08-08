@@ -6,7 +6,17 @@ import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
 import { BsThreeDots } from "react-icons/bs";
 
 const CardBoardView: React.FC<any> = props => {
-	const { board, boardIcon, palette, handleClick, handleClose, anchorEl, isOpenMenu, handleBoardID } = props;
+	const { 
+		board,
+		boardIcon,
+		isLoading,
+		palette,
+		openMenu,
+		closeMenu,
+		anchorEl,
+		isOpenMenu,
+		handleBoardID,
+	 } = props;
 		
 	return (
 		<Grid container spacing={2}>
@@ -28,21 +38,21 @@ const CardBoardView: React.FC<any> = props => {
 										<IconButton sx={ { p: 0 } } 
 											onClick={(event: MouseEvent<HTMLButtonElement>) => {
 												handleBoardID(boardItem.board_id);
-												handleClick(event);
+												openMenu(event);
 											}}>
 											<BsThreeDots />
 										</IconButton>
 										<Menu 
 											anchorEl={anchorEl}
 											open={isOpenMenu}
-											onClose={handleClose}											
+											onClose={closeMenu}											
 											transitionDuration={0}
 											autoFocus={false}
 											anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     										transformOrigin={{ vertical: "top", horizontal: "right" }}
 										>
-											<MenuItem onClick={handleClose}>Edit</MenuItem>
-											<MenuItem onClick={handleClose} sx={ { color: palette.error.main } }>
+											<MenuItem onClick={closeMenu}>Edit</MenuItem>
+											<MenuItem onClick={closeMenu} sx={ { color: palette.error.main } }>
 												Delete
 											</MenuItem>
 										</Menu>

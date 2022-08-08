@@ -14,11 +14,11 @@ const CardBoard: React.FC = () => {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
 
-	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleClose = () => {
+	const closeMenu = () => {
 		setBoardID("");
 		setAnchorEl(null);
 	};
@@ -37,8 +37,8 @@ const CardBoard: React.FC = () => {
 				boardIcon,
 				isLoading,
 				palette,
-				handleClick,
-				handleClose,
+				openMenu,
+				closeMenu,
 				anchorEl,
 				isOpenMenu,
 				handleBoardID,
