@@ -9,13 +9,22 @@ const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
 	const { board, isLoading } = useFetchBoard();
 
+	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+	const isOpenMenu = Boolean(anchorEl);
+
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+	  setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => setAnchorEl(null);
+
 	const boardIcon = {
 		notes: <GoNote size={15} color={palette.secondary.main} />,
 		text: <MdOutlineNotes color={palette.secondary.main}/>,
 		kanban: <MdOutlineSpaceDashboard color={palette.secondary.main}/>,
 	};
 
-	return <CardBoardView {...{ board, boardIcon, isLoading }} />;
+	return <CardBoardView {...{ board, boardIcon, isLoading, palette, handleClick, handleClose, anchorEl, isOpenMenu }} />;
 };
 
 export default CardBoard;

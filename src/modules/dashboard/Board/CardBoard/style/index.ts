@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Menu as MenuMui, styled } from "@mui/material";
 
 export const CardBoardContainer = styled("div")(
 	({ theme }) => `
@@ -30,3 +30,12 @@ export const CardHeader = styled("div")({
 	alignItem: "center",
 	justifyContent: "space-between"
 });
+
+export const Menu = styled(MenuMui)(
+	({ theme }) => `    
+        .MuiPaper-root   {
+            box-shadow: none;
+            background: ${theme.palette.background.paper};
+        }
+    `
+);

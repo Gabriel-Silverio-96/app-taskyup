@@ -1,12 +1,13 @@
-import { Card, CardContent, Grid, IconButton, Typography } from "@mui/material";
-import React from "react";
+import { Card, CardContent, Grid, IconButton, MenuItem, Typography } from "@mui/material";
+import React, { MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
-import { CardBoardContainer, CardHeader, CardIcon } from "./style";
+import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
 import { BsThreeDots } from "react-icons/bs";
 
 const CardBoardView: React.FC<any> = props => {
-	const { board, boardIcon } = props;
+	const { board, boardIcon, palette, handleClick, handleClose, anchorEl, isOpenMenu } = props;
+		
 	return (
 		<Grid container spacing={2}>
 			{board &&
@@ -19,14 +20,31 @@ const CardBoardView: React.FC<any> = props => {
 										<Link to={`/notes/${boardItem.board_id}`}>
 											<CardIcon>
 												{boardIcon[boardItem.type_board]}
-												<Typography color="text.secondary"gutterBottom sx={{ fontSize: 12 }}>
+												<Typography color="text.secondary" gutterBottom sx={{ fontSize: 12 }}>
 													{boardItem.type_board}
 												</Typography>
 											</CardIcon>
 										</Link>
-										<IconButton sx={{p: 0}}>
+										<IconButton sx={ { p: 0 } } 
+											onClick={(event: MouseEvent<HTMLButtonElement>) => {												
+												handleClick(event);
+											}}>
 											<BsThreeDots />
 										</IconButton>
+										<Menu 
+											anchorEl={anchorEl}
+											open={isOpenMenu}
+											onClose={handleClose}											
+											transitionDuration={0}
+											autoFocus={false}
+											anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+    										transformOrigin={{ vertical: "top", horizontal: "right" }}
+										>
+											<MenuItem onClick={handleClose}>Edit</MenuItem>
+											<MenuItem onClick={handleClose} sx={ { color: palette.error.main } }>
+												Delete
+											</MenuItem>
+										</Menu>
 									</CardHeader>
 									<Link to={`/notes/${boardItem.board_id}`}>
 										<Typography
