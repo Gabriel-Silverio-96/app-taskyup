@@ -6,7 +6,7 @@ import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
 import { BsThreeDots } from "react-icons/bs";
 
 const CardBoardView: React.FC<any> = props => {
-	const { board, boardIcon, palette, handleClick, handleClose, anchorEl, isOpenMenu } = props;
+	const { board, boardIcon, palette, handleClick, handleClose, anchorEl, isOpenMenu, handleBoardID } = props;
 		
 	return (
 		<Grid container spacing={2}>
@@ -26,7 +26,8 @@ const CardBoardView: React.FC<any> = props => {
 											</CardIcon>
 										</Link>
 										<IconButton sx={ { p: 0 } } 
-											onClick={(event: MouseEvent<HTMLButtonElement>) => {												
+											onClick={(event: MouseEvent<HTMLButtonElement>) => {
+												handleBoardID(boardItem.board_id);
 												handleClick(event);
 											}}>
 											<BsThreeDots />
