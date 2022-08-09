@@ -9,5 +9,6 @@ export interface IFetchBoard {
 export interface IUseFetchBoard {
     isError: boolean;
     isLoading: boolean;
+	isFetching: boolean;
     board: IFetchBoard[] | any;
 }

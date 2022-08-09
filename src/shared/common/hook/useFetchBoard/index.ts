@@ -8,8 +8,9 @@ const useFetchBoard = (): IUseFetchBoard => {
 		const { data } = await api.get("/board") as AxiosResponse<IFetchBoard[]>;
 		return data;
 	};
-	const { isError, isLoading, data: board } = useQuery(["board"], fetchBoard);
-	return { isError, isLoading, board };
+	const { isError, isLoading, data: board, isFetching } = useQuery(["board"], fetchBoard);
+		
+	return { isError, isLoading, isFetching, board };
 };
 
 export default useFetchBoard;
