@@ -1,8 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useQueryClient } from "@tanstack/react-query";
+import { AxiosResponse } from "axios";
 import React, { memo, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import DialogNewBoardView from "./DialogNewBoardView";
 import schema from "./shared/schema";
@@ -22,7 +24,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 	const fetchDialogNewBoard = async (dataNewBoard: IDialogNewBoardForm) => {
 		try {	
 			setIsLoading(true);
-			await api.post("board/create", dataNewBoard) as any;
+			await api.post("board/create", dataNewBoard) as AxiosResponse<IFetchResponseDefault>;
 			queryClient.invalidateQueries(["board"]);			
 			closeDialogNewBoard();
 		} catch (error) {
