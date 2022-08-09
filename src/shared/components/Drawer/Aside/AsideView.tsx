@@ -6,7 +6,7 @@ import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
-import DialogNewBoard from "../DialogNewBoard";
+import DialogNewBoard from "./DialogNewBoard";
 import { Aside, AsideHeader, TreeViewContainer } from "./style";
 import { IAsideView } from "./types/Aside.component";
 
