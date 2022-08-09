@@ -9,7 +9,7 @@ import CardBoardView from "./CardBoardView";
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
 	const { setBoardID } = useContextBoard();
-	const { board, isLoading } = useFetchBoard();
+	const { board, isFetching } = useFetchBoard();
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
@@ -35,7 +35,7 @@ const CardBoard: React.FC = () => {
 			{...{
 				board,
 				boardIcon,
-				isLoading,
+				isFetching,
 				palette,
 				openMenu,
 				closeMenu,

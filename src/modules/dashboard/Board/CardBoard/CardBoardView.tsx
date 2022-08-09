@@ -1,15 +1,15 @@
-import { Card, CardContent, Grid, IconButton, MenuItem, Typography } from "@mui/material";
+import { Card, CardContent, CircularProgress, Fade, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
-import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
+import { CardBoardContainer, CardHeader, CardIcon, Loading, Menu } from "./style";
 import { BsThreeDots } from "react-icons/bs";
 
 const CardBoardView: React.FC<any> = props => {
 	const { 
 		board,
 		boardIcon,
-		isLoading,
+		isFetching,
 		palette,
 		openMenu,
 		closeMenu,
@@ -17,9 +17,17 @@ const CardBoardView: React.FC<any> = props => {
 		isOpenMenu,
 		handleBoardID,
 	 } = props;
-		
+			
 	return (
 		<Grid container spacing={2}>
+			<Fade in={isFetching}>
+				<Grid item md={12} sx={{paddingTop: "0 !important", height: !isFetching ? 10 : "inherit"}}>
+					<Loading>
+						<CircularProgress size={15} color="primary"/>
+						<Typography variant="caption">Loading</Typography>
+					</Loading>
+				</Grid>
+			</Fade>
 			{board &&
 				board.map((boardItem: IFetchBoard) => (
 					<Grid item xl={2} md={3} xs={12} key={boardItem.board_id}>
@@ -36,6 +44,7 @@ const CardBoardView: React.FC<any> = props => {
 											</CardIcon>
 										</Link>
 										<IconButton sx={ { p: 0 } } 
+											disabled={isFetching}
 											onClick={(event: MouseEvent<HTMLButtonElement>) => {
 												handleBoardID(boardItem.board_id);
 												openMenu(event);
@@ -46,7 +55,6 @@ const CardBoardView: React.FC<any> = props => {
 											anchorEl={anchorEl}
 											open={isOpenMenu}
 											onClose={closeMenu}											
-											transitionDuration={0}
 											autoFocus={false}
 											anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     										transformOrigin={{ vertical: "top", horizontal: "right" }}
