@@ -56,6 +56,7 @@ const CardBoardView: React.FC<any> = props => {
 											open={isOpenMenu}
 											onClose={closeMenu}											
 											autoFocus={false}
+											transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
 											anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     										transformOrigin={{ vertical: "top", horizontal: "right" }}
 										>
