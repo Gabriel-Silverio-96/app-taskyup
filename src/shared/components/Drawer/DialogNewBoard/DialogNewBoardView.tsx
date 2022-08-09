@@ -1,5 +1,5 @@
+import { LoadingButton } from "@mui/lab";
 import {
-	Button,
 	Dialog,
 	DialogActions,
 	DialogContent,
@@ -9,8 +9,9 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { IDialogNewBoardView } from "./types/DialogNewBoard.component";
 
-const DialogNewBoardView: React.FC<any> = (props) => {
+const DialogNewBoardView: React.FC<IDialogNewBoardView> = (props) => {
 	const { 
 		register,
 		fullScreen,
@@ -19,6 +20,7 @@ const DialogNewBoardView: React.FC<any> = (props) => {
 		handleSubmit,
 		fetchDialogNewBoard,
 		errors,
+		isLoading
 	} = props;
 	return (
 		<Dialog 
@@ -34,7 +36,9 @@ const DialogNewBoardView: React.FC<any> = (props) => {
 						<Typography variant="h6" fontWeight={700}>New Board</Typography>
 					</Grid>
 					<Grid item> 
-						<IconButton onClick={closeDialogNewBoard}><MdOutlineClose /></IconButton>
+						<IconButton onClick={closeDialogNewBoard} disabled={isLoading}>
+							<MdOutlineClose />
+						</IconButton>
 					</Grid>
 				</Grid>
 			</DialogTitle>
@@ -74,7 +78,14 @@ const DialogNewBoardView: React.FC<any> = (props) => {
 				</form>
 			</DialogContent>
 			<DialogActions>
-				<Button form="form-new-board" variant="contained" type="submit">Save</Button>
+				<LoadingButton 							
+					form="form-new-board"
+					variant="contained"
+					type="submit"
+					loading={isLoading}
+				>
+					Save
+				</LoadingButton>				
 			</DialogActions>
 		</Dialog>
 	);
