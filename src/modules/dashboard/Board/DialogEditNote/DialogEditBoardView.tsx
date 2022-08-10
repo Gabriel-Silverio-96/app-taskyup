@@ -23,7 +23,7 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 		<Dialog 
 			fullWidth
 			maxWidth="xs"
-			open
+			open={false}
 			fullScreen={fullScreen}
 			onClose={() => ""}
 		>
