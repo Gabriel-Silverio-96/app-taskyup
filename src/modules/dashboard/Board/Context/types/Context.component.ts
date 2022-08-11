@@ -7,4 +7,6 @@ export interface IContextProviderBoard {
 export interface IContextBoard {
     boardID: string;
     setBoardID: React.Dispatch<React.SetStateAction<string>>;
+    isOpenDialogEditBoard: boolean;
+    setIsOpenDialogEditBoard: React.Dispatch<React.SetStateAction<boolean>>;
 }
