@@ -7,20 +7,24 @@ import { useForm } from "react-hook-form";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import { useContextBoard } from "../Context";
+import useDialogBoard from "../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./shared/schema";
 import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 
 const DialogEditBoard: React.FC<any> = () => {
 	const theme = useTheme();
-	const { boardID, setBoardID } = useContextBoard();
 	const queryClient = useQueryClient();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-	const [ isLoading, setIsLoading ] = useState(false);
 
+	const { boardID, isOpenDialogEditBoard } = useContextBoard();
+	const { closeDialogEditBoard } = useDialogBoard();
+	
+	const [ isLoading, setIsLoading ] = useState(false);
+		
 	const { register, handleSubmit,	formState: { errors } }  
 		= useForm({ resolver: yupResolver(schema), mode: "all" });	
-		
+	
 	const fetchDialogEditBoard = async (dataEditBoard: IDialogEditBoardForm) => {
 		try {	
 			setIsLoading(true);
@@ -29,11 +33,10 @@ const DialogEditBoard: React.FC<any> = () => {
 		} catch (error) {
 			console.error("DialogEditBoard ", error);			
 		} finally {
-			setIsLoading(false);
-			setBoardID("");
+			setIsLoading(false);			
 		}
-	};
-		
+	};	
+	
 	return (
 		<DialogEditBoardView
 			{...{
@@ -42,7 +45,9 @@ const DialogEditBoard: React.FC<any> = () => {
 				handleSubmit,
 				fetchDialogEditBoard,
 				errors,
-				isLoading
+				isLoading,
+				isOpenDialogEditBoard,
+				closeDialogEditBoard,
 			}}
 		/>
 	);

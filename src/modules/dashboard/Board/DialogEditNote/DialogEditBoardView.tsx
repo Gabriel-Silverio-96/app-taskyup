@@ -17,15 +17,17 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 		handleSubmit,
 		fetchDialogEditBoard,
 		errors,
-		isLoading
+		isLoading,
+		isOpenDialogEditBoard,
+		closeDialogEditBoard,
 	} = props;
 	return (
 		<Dialog 
 			fullWidth
 			maxWidth="xs"
-			open={false}
+			open={isOpenDialogEditBoard}
 			fullScreen={fullScreen}
-			onClose={() => ""}
+			onClose={closeDialogEditBoard}
 		>
 			<DialogTitle sx={{marginBottom: "1rem"}}>
 				<Grid container alignItems="center" justifyContent="space-between">
@@ -33,7 +35,7 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 						<Typography variant="h6" fontWeight={700}>Edit Board</Typography>
 					</Grid>
 					<Grid item> 
-						<IconButton onClick={() => ""} disabled={isLoading}>
+						<IconButton onClick={closeDialogEditBoard} disabled={isLoading}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -43,12 +45,12 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 				<form 
 					id="form-new-board"
 					onSubmit={handleSubmit(fetchDialogEditBoard)}>
-					<Grid container direction="column" spacing={5}>
+					<Grid container direction="column" spacing={5}>						
 						<Grid item>
 							<TextField 
 								label="Board name"
 								size="small"
-								fullWidth 
+								fullWidth
 								{...register("title")}
 								error={errors.title && Boolean(errors.title)}
 								helperText={errors.title ? errors.title?.message : ""}
