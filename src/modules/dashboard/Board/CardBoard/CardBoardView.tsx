@@ -16,6 +16,7 @@ const CardBoardView: React.FC<any> = props => {
 		anchorEl,
 		isOpenMenu,
 		handleBoardID,
+		openDialogEditBoard
 	 } = props;
 			
 	return (
@@ -60,7 +61,7 @@ const CardBoardView: React.FC<any> = props => {
 											anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     										transformOrigin={{ vertical: "top", horizontal: "right" }}
 										>
-											<MenuItem onClick={closeMenu}>Edit</MenuItem>
+											<MenuItem onClick={() => openDialogEditBoard(closeMenu)}>Edit</MenuItem>
 											<MenuItem onClick={closeMenu} sx={ { color: palette.error.main } }>
 												Delete
 											</MenuItem>
