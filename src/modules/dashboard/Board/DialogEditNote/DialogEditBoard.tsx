@@ -9,7 +9,7 @@ import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./shared/schema";
-import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
+import { IDialogEditBoardForm, IFetchUniqueBoard } from "./types/DialogEditBoard.component";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -19,12 +19,17 @@ const DialogEditBoard = () => {
 	const { boardID, isOpenDialogEditBoard } = useContextBoard();
 	const { closeDialogEditBoard } = useDialogBoard();
 	const [ isLoading, setIsLoading ] = useState(false);
-	const { register, handleSubmit, formState: { errors }, setValue } = useForm({ resolver: yupResolver(schema), mode: "all" });	
+	const { 
+		register, 
+		handleSubmit, 
+		formState: { errors }, 
+		setValue 
+	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
 	const fetchUniqueBoard = async () => {				
 		try {			
 			setIsLoading(true);
-			const { data } = await api.get(`/board/board_id=${boardID}`) as AxiosResponse<any>;
+			const { data } = await api.get(`/board/board_id=${boardID}`) as AxiosResponse<IFetchUniqueBoard>;
 			setValue("title", data.title);			
 		} catch (error) {
 			console.log("fetchUniqueBoard ", error);			
@@ -32,16 +37,14 @@ const DialogEditBoard = () => {
 			setIsLoading(false);
 		}
 	};
+	useEffect(() => {isOpenDialogEditBoard && fetchUniqueBoard();}, [isOpenDialogEditBoard]);
 
-	useEffect(() => {
-		isOpenDialogEditBoard && fetchUniqueBoard();
-	}, [isOpenDialogEditBoard]);
-
-	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(async (dataEditBoard: IDialogEditBoardForm) => {
-		await api.patch(`board/edit/board_id=${boardID}`, dataEditBoard);
-		queryClient.invalidateQueries(["board"]);	
-		closeDialogEditBoard();		
-	});
+	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
+		async (dataEditBoard: IDialogEditBoardForm) => {
+			await api.patch(`board/edit/board_id=${boardID}`, dataEditBoard);
+			queryClient.invalidateQueries(["board"]);	
+			closeDialogEditBoard();		
+		});
 	
 	return (
 		<DialogEditBoardView
