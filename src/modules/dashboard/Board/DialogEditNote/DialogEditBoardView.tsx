@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import Date from "shared/components/Date";
 
 const DialogEditBoardView: React.FC<any> = (props) => {
 	const { 
@@ -63,8 +64,9 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 			<DialogActions>
 				<Grid container justifyContent="space-between" alignItems="center">
 					<Grid item md="auto">
-						<Typography variant="caption" color="GrayText">
-							Created at 27/02/2022
+						<Typography variant="caption" color="GrayText" display="flex" alignItems="center" sx={{ gap: 0.5 } }>
+							Created at
+							<Date {...register("created_at")} />
 						</Typography>
 					</Grid>
 					<Grid item md="auto">
