@@ -18,6 +18,7 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 		fetchDialogEditBoard,
 		errors,
 		isLoading,
+		isSaving,
 		isOpenDialogEditBoard,
 		closeDialogEditBoard,
 	} = props;
@@ -27,7 +28,7 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 			maxWidth="xs"
 			open={isOpenDialogEditBoard}
 			fullScreen={fullScreen}
-			onClose={closeDialogEditBoard}
+			onClose={!isSaving ? closeDialogEditBoard : () => ""}
 		>
 			<DialogTitle sx={{marginBottom: "1rem"}}>
 				<Grid container alignItems="center" justifyContent="space-between">
@@ -35,7 +36,7 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 						<Typography variant="h6" fontWeight={700}>Edit Board</Typography>
 					</Grid>
 					<Grid item> 
-						<IconButton onClick={closeDialogEditBoard} disabled={isLoading}>
+						<IconButton onClick={closeDialogEditBoard} disabled={isSaving}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -71,7 +72,7 @@ const DialogEditBoardView: React.FC<any> = (props) => {
 							form="form-new-board"
 							variant="contained"
 							type="submit"
-							loading={isLoading}
+							loading={isSaving}
 						>
 							Save
 						</LoadingButton>				

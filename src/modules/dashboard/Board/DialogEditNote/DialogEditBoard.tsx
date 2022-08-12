@@ -1,10 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
-import { useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
@@ -12,30 +11,37 @@ import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./shared/schema";
 import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 
-const DialogEditBoard: React.FC<any> = () => {
+const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const { boardID, isOpenDialogEditBoard } = useContextBoard();
 	const { closeDialogEditBoard } = useDialogBoard();
-	
 	const [ isLoading, setIsLoading ] = useState(false);
-		
-	const { register, handleSubmit,	formState: { errors } }  
-		= useForm({ resolver: yupResolver(schema), mode: "all" });	
-	
-	const fetchDialogEditBoard = async (dataEditBoard: IDialogEditBoardForm) => {
-		try {	
+	const { register, handleSubmit, formState: { errors }, setValue } = useForm({ resolver: yupResolver(schema), mode: "all" });	
+
+	const fetchUniqueBoard = async () => {				
+		try {			
 			setIsLoading(true);
-			await api.patch(`board/edit/board_id=${boardID}`, dataEditBoard) as AxiosResponse<IFetchResponseDefault>;
-			queryClient.invalidateQueries(["board"]);			
+			const { data } = await api.get(`/board/board_id=${boardID}`) as AxiosResponse<any>;
+			setValue("title", data.title);			
 		} catch (error) {
-			console.error("DialogEditBoard ", error);			
+			console.log("fetchUniqueBoard ", error);			
 		} finally {
-			setIsLoading(false);			
+			setIsLoading(false);
 		}
-	};	
+	};
+
+	useEffect(() => {
+		isOpenDialogEditBoard && fetchUniqueBoard();
+	}, [isOpenDialogEditBoard]);
+
+	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(async (dataEditBoard: IDialogEditBoardForm) => {
+		await api.patch(`board/edit/board_id=${boardID}`, dataEditBoard);
+		queryClient.invalidateQueries(["board"]);	
+		closeDialogEditBoard();		
+	});
 	
 	return (
 		<DialogEditBoardView
@@ -43,12 +49,13 @@ const DialogEditBoard: React.FC<any> = () => {
 				register,
 				fullScreen,
 				handleSubmit,
-				fetchDialogEditBoard,
+				fetchDialogEditBoard,				
 				errors,
 				isLoading,
+				isSaving,
 				isOpenDialogEditBoard,
 				closeDialogEditBoard,
-			}}
+			}}			
 		/>
 	);
 };
