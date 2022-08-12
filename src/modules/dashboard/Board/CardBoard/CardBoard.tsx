@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import useFetchBoard from "shared/common/hook/useFetchBoard";
@@ -47,4 +47,4 @@ const CardBoard: React.FC = () => {
 	);
 };
 
-export default CardBoard;
+export default memo(CardBoard);
