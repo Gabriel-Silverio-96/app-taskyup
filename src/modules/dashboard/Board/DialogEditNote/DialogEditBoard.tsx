@@ -5,6 +5,7 @@ import { AxiosResponse } from "axios";
 import { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import api from "shared/services/api";
+import dateFormat from "shared/util/dateFormat";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
@@ -31,6 +32,7 @@ const DialogEditBoard = () => {
 			setIsLoading(true);
 			const { data } = await api.get(`/board/board_id=${boardID}`) as AxiosResponse<IFetchUniqueBoard>;
 			setValue("title", data.title);			
+			setValue("created_at", dateFormat(data.created_at));			
 		} catch (error) {
 			console.log("fetchUniqueBoard ", error);			
 		} finally {
