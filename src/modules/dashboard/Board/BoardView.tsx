@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import CardBoard from "./CardBoard";
-import DialogEditBoard from "./DialogEditNote";
+import DialogEditBoard from "./DialogEditBoard";
 
 const BoardView: React.FC = () => {
 	return (
