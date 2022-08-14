@@ -2,7 +2,11 @@ import { useContextBoard } from "modules/dashboard/Board/Context";
 import { IUseDialogBoard } from "./types/UseDialogBoard";
 
 const useDialogBoard = (): IUseDialogBoard => {
-	const { setBoardID, setIsOpenDialogEditBoard } = useContextBoard();
+	const {
+		setBoardID,
+		setIsOpenDialogEditBoard,
+		setIsOpenDialogDeleteSingleBoard,
+	} = useContextBoard();
 
 	const openDialogEditBoard = (closeMenu: () => void) => {
 		setIsOpenDialogEditBoard(true);
@@ -14,6 +18,21 @@ const useDialogBoard = (): IUseDialogBoard => {
 		setBoardID("");
 	};
 
-	return { openDialogEditBoard, closeDialogEditBoard };
+	const openDialogDeleteSingleBoard = (closeMenu: () => void) => {
+		setIsOpenDialogDeleteSingleBoard(true);
+		closeMenu();
+	};
+
+	const closeDialogDeleteSingleBoard = () => {
+		setIsOpenDialogDeleteSingleBoard(false);
+		setBoardID("");
+	};
+
+	return {
+		openDialogEditBoard,
+		closeDialogEditBoard,
+		openDialogDeleteSingleBoard,
+		closeDialogDeleteSingleBoard,
+	};
 };
 export default useDialogBoard;
