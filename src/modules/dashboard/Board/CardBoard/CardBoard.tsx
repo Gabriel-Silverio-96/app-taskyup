@@ -10,7 +10,7 @@ import CardBoardView from "./CardBoardView";
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
 	const { setBoardID } = useContextBoard();
-	const { openDialogEditBoard } = useDialogBoard();
+	const { openDialogEditBoard, openDialogDeleteSingleBoard } = useDialogBoard();
 	const { board, isFetching } = useFetchBoard();
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -42,6 +42,7 @@ const CardBoard: React.FC = () => {
 				isOpenMenu,
 				handleBoardID,
 				openDialogEditBoard,
+				openDialogDeleteSingleBoard
 			}}
 		/>
 	);
