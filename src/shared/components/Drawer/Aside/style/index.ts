@@ -69,7 +69,7 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
 
         .MuiCollapse-root {
             .MuiCollapse-wrapper {
-                height: ${theme.spacing(25)} !important;
+                max-height: ${theme.spacing(25)} !important;
                 overflow: hidden auto;                
 
                 ::-webkit-scrollbar-thumb {
