@@ -12,7 +12,8 @@ export const Dropdown = styled("div")(
             top: ${theme.spacing(5)};
             right: ${theme.spacing(0.9)};
             border-radius: 0.2rem;
-            border: ${theme.spacing(0.1)} solid ${theme.palette.common.black};            
+            border: 
+            ${theme.palette.mode === "light" ? `${theme.spacing(0.1)} solid ${theme.palette.grey[200]}`	: "transparent"};            
 
             a {
                 text-decoration: none;
