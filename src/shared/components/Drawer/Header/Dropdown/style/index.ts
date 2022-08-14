@@ -3,6 +3,8 @@ import { styled } from "@mui/material";
 export const Dropdown = styled("div")(
 	({ theme }) => `
        position: relative;
+       z-index: 1;
+              
        .MuiList-root {
             max-width: ${theme.spacing(28)};
             width: ${theme.spacing(16)};
