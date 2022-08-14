@@ -1,9 +1,10 @@
-import { Card, CardContent, CircularProgress, Fade, Grid, IconButton, MenuItem, Typography } from "@mui/material";
+import { Card, CardContent, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
+import { BsThreeDots } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
-import { CardBoardContainer, CardHeader, CardIcon, Loading, Menu } from "./style";
-import { BsThreeDots } from "react-icons/bs";
+import Loading from "shared/components/Loading";
+import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
 
 const CardBoardView: React.FC<any> = props => {
 	const { 
@@ -21,14 +22,7 @@ const CardBoardView: React.FC<any> = props => {
 			
 	return (
 		<Grid container spacing={2}>
-			<Fade in={isFetching}>
-				<Grid item md={12} sx={{paddingTop: "0 !important", height: !isFetching ? 10 : "inherit"}}>
-					<Loading>
-						<CircularProgress size={15} color="primary"/>
-						<Typography variant="caption">Loading</Typography>
-					</Loading>
-				</Grid>
-			</Fade>
+			<Loading isLoading={isFetching} backdrop />
 			{board &&
 				board.map((boardItem: IFetchBoard) => (
 					<Grid item xl={2} md={3} xs={12} key={boardItem.board_id}>
