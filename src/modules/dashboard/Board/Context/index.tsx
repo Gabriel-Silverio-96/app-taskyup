@@ -6,12 +6,15 @@ export const ContextBoard = createContext({} as IContextBoard);
 export const ContextProviderBoard:React.FC<IContextProviderBoard> = ({ children }) => {
 	const [boardID, setBoardID] = useState("");
 	const [isOpenDialogEditBoard, setIsOpenDialogEditBoard] = useState(false);
+	const [isOpenDialogDeleteSingleBoard, setIsOpenDialogDeleteSingleBoard] = useState(false);
 	
 	const value = {
 		boardID,
 		setBoardID,
 		isOpenDialogEditBoard, 
-		setIsOpenDialogEditBoard
+		setIsOpenDialogEditBoard,
+		isOpenDialogDeleteSingleBoard, 
+		setIsOpenDialogDeleteSingleBoard
 	};
 
 	return (
