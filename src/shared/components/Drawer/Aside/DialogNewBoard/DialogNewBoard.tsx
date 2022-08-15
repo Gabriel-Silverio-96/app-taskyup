@@ -1,10 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
-import { useQueryClient } from "@tanstack/react-query";
-import { AxiosResponse } from "axios";
-import React, { memo, useMemo, useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import React, { memo, useMemo } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import DialogNewBoardView from "./DialogNewBoardView";
 import schema from "./shared/schema";
@@ -14,25 +12,21 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 	const theme = useTheme();
 	const queryClient = useQueryClient();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-	const [ isLoading, setIsLoading ] = useState(false);
 
 	const { register, handleSubmit,	formState: { errors }, reset }  
 		= useForm({ resolver: yupResolver(schema), mode: "all" });	
 		
 	useMemo(() => !openDialog && reset(), [openDialog]);
 
-	const fetchDialogNewBoard = async (dataNewBoard: IDialogNewBoardForm) => {
-		try {	
-			setIsLoading(true);
-			await api.post("board/create", dataNewBoard) as AxiosResponse<IFetchResponseDefault>;
-			queryClient.invalidateQueries(["board"]);			
-			closeDialogNewBoard();
-		} catch (error) {
-			console.error("DialogNewBoard ", error);			
-		} finally {
-			setIsLoading(false);
-		}
+	const fetchDialogBoard = async (dataNewBoard: IDialogNewBoardForm) => {
+		const { data } = await api.post("board/create", dataNewBoard);
+		closeDialogNewBoard();
+		return data;
 	};
+
+	const { mutate: fetchDialogNewBoard, isLoading } = useMutation(fetchDialogBoard, {
+		onSuccess: () => queryClient.invalidateQueries(["board"])			
+	});
 		
 	return (
 		<DialogNewBoardView
