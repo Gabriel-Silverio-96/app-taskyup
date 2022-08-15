@@ -28,7 +28,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = (props) => {
 			maxWidth="xs"
 			open={openDialog} 
 			fullScreen={fullScreen}
-			onClose={closeDialogNewBoard}
+			onClose={!isLoading ? closeDialogNewBoard : () => ""}
 		>
 			<DialogTitle sx={{marginBottom: "1rem"}}>
 				<Grid container alignItems="center" justifyContent="space-between">
