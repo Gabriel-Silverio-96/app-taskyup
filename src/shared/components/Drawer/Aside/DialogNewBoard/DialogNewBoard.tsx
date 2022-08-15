@@ -18,13 +18,13 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 		
 	useMemo(() => !openDialog && reset(), [openDialog]);
 
-	const fetchDialogBoard = async (dataNewBoard: IDialogNewBoardForm) => {
+	const mutationDialogNewBoard = async (dataNewBoard: IDialogNewBoardForm) => {
 		const { data } = await api.post("board/create", dataNewBoard);
 		closeDialogNewBoard();
 		return data;
 	};
 
-	const { mutate: fetchDialogNewBoard, isLoading } = useMutation(fetchDialogBoard, {
+	const { mutate: fetchDialogNewBoard, isLoading } = useMutation(mutationDialogNewBoard, {
 		onSuccess: () => queryClient.invalidateQueries(["board"])			
 	});
 		
