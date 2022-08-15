@@ -57,7 +57,9 @@ const CardBoardView: React.FC<any> = props => {
     										transformOrigin={{ vertical: "top", horizontal: "right" }}
 										>
 											<MenuItem onClick={() => openDialogEditBoard(closeMenu)}>Edit</MenuItem>
-											<MenuItem onClick={() => openDialogDeleteSingleBoard(closeMenu)} sx={ { color: palette.error.main } }>
+											<MenuItem onClick={() => openDialogDeleteSingleBoard(closeMenu)} 
+												sx={ { color: palette.error.main } }
+											>
 												Delete
 											</MenuItem>
 										</Menu>
@@ -66,8 +68,14 @@ const CardBoardView: React.FC<any> = props => {
 										<Typography
 											variant="h6"
 											component="div"
-											fontWeight={800}>
-											{boardItem.title}
+											fontWeight={800}
+											fontSize={16}
+										>
+											{
+												boardItem.title.length > 30 
+													? `${boardItem.title.substring(0, 30).trim()}...`
+													: boardItem.title
+											}
 										</Typography>
 									</Link>
 								</CardContent>
