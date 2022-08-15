@@ -24,7 +24,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 		return data;
 	};
 
-	const { mutate: fetchDialogNewBoard, isLoading } = useMutation(mutationDialogNewBoard, {
+	const { mutate: fetchDialogNewBoard, isLoading: isSaving } = useMutation(mutationDialogNewBoard, {
 		onSuccess: () => queryClient.invalidateQueries(["board"])			
 	});
 		
@@ -38,7 +38,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 				handleSubmit,
 				fetchDialogNewBoard,
 				errors,
-				isLoading
+				isSaving
 			}}
 		/>
 	);
