@@ -23,7 +23,9 @@ const AsideView: React.FC<IAsideView> = (props) => {
 	return (
 		<Aside open={openAside}>
 			<AsideHeader open={openAside}>
-				<Logo size={100} isoType={!openAside} />
+				<Link to="/dashboard">
+					<Logo size={100} isoType={!openAside} />
+				</Link>
 				<IconButton
 					color="primary"
 					aria-label={openAside ? "close-aside" : "open-aside"}
