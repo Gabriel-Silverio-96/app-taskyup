@@ -52,7 +52,7 @@ const AsideView: React.FC<IAsideView> = (props) => {
 					<TreeItem nodeId="1" label={<><GoNote />Notes</>}>
 						{board && (
 							board.map(({board_id, title}) => (
-								<Link to={`/notes/board_id=${board_id}`} key={board_id}>
+								<Link to={`/notes/${board_id}`} key={board_id}>
 									<TreeItem nodeId={board_id} 
 										label={title.length > 15 ? `${title.substring(0, 15).trim()}...` : title} 
 									/>
