@@ -1,4 +1,5 @@
 import SignUp from "modules/auth/SignUp";
+import Note from "modules/notes/Note";
 import { Route, Routes } from "react-router-dom";
 import RequiredAuth from "shared/components/RequiredAuth";
 import SignIn from "./modules/auth/SignIn";
@@ -11,7 +12,9 @@ const MainRoutes:React.FC = () => {
 			<Route path="/auth/signup" element={<SignUp />} />
 
 			<Route path="/dashboard" element={<RequiredAuth><Board /></RequiredAuth>} />
-			<Route path="*" element={<h1>404</h1>} />				
+			<Route path="/notes/:id" element={<RequiredAuth><Note /></RequiredAuth>} />				
+
+			<Route path="*" element={<h1>404</h1>} />
 		</Routes>
 	);
 };
