@@ -36,9 +36,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 						sx={{ mt: 1 }}
 					>
 						<Tooltip arrow title="Comming soon" placement="top">
-							<MenuItem disabled>
-                                Members
-							</MenuItem>
+							<MenuItem>Members</MenuItem>
 						</Tooltip>
 						<MenuItem onClick={closeMenu} sx={ { color: palette.error.main } }>
                             Delete all
