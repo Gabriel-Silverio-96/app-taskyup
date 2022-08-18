@@ -1,5 +1,5 @@
 import { TreeItem, TreeView } from "@mui/lab";
-import { Button, IconButton, Typography } from "@mui/material";
+import { Button, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { FiChevronDown, FiChevronLeft, FiChevronRight, FiPlus } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
@@ -62,8 +62,12 @@ const AsideView: React.FC<IAsideView> = (props) => {
 							))
 						)}							
 					</TreeItem>
-					<TreeItem nodeId="3" label={<><MdOutlineNotes />Text</>} disabled />
-					<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
+					<Tooltip title="Comming soon" placement="right">
+						<TreeItem nodeId="3" label={<><MdOutlineNotes />Text</>} disabled />
+					</Tooltip>
+					<Tooltip title="Comming soon" placement="right">
+						<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
+					</Tooltip>
 				</TreeView>
 			</TreeViewContainer>
 			<DialogNewBoard {...{ openDialog, openDialogNewBoard, closeDialogNewBoard }}/>
