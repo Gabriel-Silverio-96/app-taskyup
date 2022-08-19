@@ -12,7 +12,7 @@ const MainRoutes:React.FC = () => {
 			<Route path="/auth/signup" element={<SignUp />} />
 
 			<Route path="/dashboard" element={<RequiredAuth><Board /></RequiredAuth>} />
-			<Route path="/notes/:id" element={<RequiredAuth><Note /></RequiredAuth>} />				
+			<Route path="/notes/:board_id" element={<RequiredAuth><Note /></RequiredAuth>} />				
 
 			<Route path="*" element={<h1>404</h1>} />
 		</Routes>
