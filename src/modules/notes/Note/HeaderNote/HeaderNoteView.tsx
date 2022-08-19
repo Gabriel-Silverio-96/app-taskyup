@@ -5,15 +5,15 @@ import { Nav } from "./style";
 import { IHeaderNoteView } from "./types/HeaderNote.component";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
-	const { isOpenMenu, anchorEl, openMenu, closeMenu, palette, boardData } = props;
+	const { isOpenMenu, anchorEl, openMenu, closeMenu, palette, data } = props;
 	
 	return (
 		<Grid container alignItems="center">
 			<Grid item xl={6} md={6} sm={6} xs={12}>
 				<Typography variant="h6" fontWeight={800}>
-					{boardData && (
+					{data && (
 						<>
-							{boardData.title}
+							{data.title}
 							<IconButton sx={{ ml: 1 }}>
 								<FiEdit size={14} color={palette.grey[800]} />
 							</IconButton>

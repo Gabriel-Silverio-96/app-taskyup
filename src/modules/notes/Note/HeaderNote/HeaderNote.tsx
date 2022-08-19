@@ -2,6 +2,7 @@ import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import HeaderNoteView from "./HeaderNoteView";
 
@@ -20,11 +21,11 @@ const HeaderNote: React.FC = () => {
 		return data;
 	};
 
-	const { data: boardData, refetch } = useQuery(["single_board"], fetchSingleBoard,
+	const { data, refetch } = useQuery<IFetchSingleBoard>(["single_board"], fetchSingleBoard,
 		{ cacheTime: 0, onError: () => navigate("/dashboard"), retry: false }
 	);
 	useEffect(() => {refetch();}, [boardID]);
-
+	
 	return (
 		<HeaderNoteView
 			{...{
@@ -33,7 +34,7 @@ const HeaderNote: React.FC = () => {
 				openMenu,
 				closeMenu,
 				palette,
-				boardData,
+				data,
 			}}
 		/>
 	);

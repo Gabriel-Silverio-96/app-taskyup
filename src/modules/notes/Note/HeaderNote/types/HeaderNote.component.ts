@@ -1,4 +1,5 @@
 import { Palette } from "@mui/material";
+import { IFetchSingleBoard } from "shared/common/types/Fetch";
 
 export interface IHeaderNoteView {
     isOpenMenu: boolean;
@@ -6,5 +7,5 @@ export interface IHeaderNoteView {
     openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
     closeMenu: () => void;
     palette: Palette;
-    boardData: any;
+    data: IFetchSingleBoard | undefined;
 }
