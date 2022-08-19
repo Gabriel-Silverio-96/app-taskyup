@@ -63,10 +63,14 @@ const AsideView: React.FC<IAsideView> = (props) => {
 						)}							
 					</TreeItem>
 					<Tooltip title="Comming soon" placement="right">
-						<TreeItem nodeId="3" label={<><MdOutlineNotes />Text</>} disabled />
+						<span>
+							<TreeItem nodeId="3" label={<><MdOutlineNotes />Text</>} disabled />
+						</span>
 					</Tooltip>
 					<Tooltip title="Comming soon" placement="right">
-						<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
+						<span>
+							<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
+						</span>
 					</Tooltip>
 				</TreeView>
 			</TreeViewContainer>
