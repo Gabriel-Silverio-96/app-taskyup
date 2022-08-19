@@ -29,7 +29,9 @@ const LoadingView: React.FC<ILoading> = props => {
 					<LoadingComponent />
 				</Backdrop>
 			) : (
-				<LoadingComponent />
+				<div>
+					<LoadingComponent />
+				</div>
 			)}
 		</Fade>
 	);
