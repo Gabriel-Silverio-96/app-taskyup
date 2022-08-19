@@ -6,4 +6,5 @@ export interface IHeaderNoteView {
     openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
     closeMenu: () => void;
     palette: Palette;
+    boardData: any;
 }
