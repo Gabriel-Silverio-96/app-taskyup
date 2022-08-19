@@ -4,13 +4,14 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import dateFormat from "shared/util/dateFormat";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./shared/schema";
-import { IDialogEditBoardForm, IFetchUniqueBoard } from "./types/DialogEditBoard.component";
+import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -27,19 +28,19 @@ const DialogEditBoard = () => {
 		setValue 
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
-	const fetchUniqueBoard = async () => {				
+	const fetchSingleBoard = async () => {				
 		try {			
 			setIsLoading(true);
-			const { data } = await api.get(`/board/board_id=${boardID}`) as AxiosResponse<IFetchUniqueBoard>;
+			const { data } = await api.get(`/board/board_id=${boardID}`) as AxiosResponse<IFetchSingleBoard>;
 			setValue("title", data.title);			
 			setValue("created_at", dateFormat(data.created_at));			
 		} catch (error) {
-			console.log("fetchUniqueBoard ", error);			
+			console.log("fetchSingleBoard ", error);			
 		} finally {
 			setIsLoading(false);
 		}
 	};
-	useEffect(() => {isOpenDialogEditBoard && fetchUniqueBoard();}, [isOpenDialogEditBoard]);
+	useEffect(() => {isOpenDialogEditBoard && fetchSingleBoard();}, [isOpenDialogEditBoard]);
 
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
 		async (dataEditBoard: IDialogEditBoardForm) => {
