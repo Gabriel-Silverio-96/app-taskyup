@@ -25,7 +25,7 @@ const LoadingView: React.FC<ILoading> = props => {
 	return (
 		<Fade in={isLoading}>
 			{backdrop ? (
-				<Backdrop open>
+				<Backdrop open sx={{ zIndex: 1 }}>
 					<LoadingComponent />
 				</Backdrop>
 			) : (
