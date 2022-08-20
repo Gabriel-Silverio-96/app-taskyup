@@ -8,7 +8,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	const { isOpenMenu, anchorEl, openMenu, closeMenu, palette, data } = props;
 	
 	return (
-		<Grid container alignItems="center">
+		<Grid container alignItems="center" sx={{ mb: 3 }}>
 			<Grid item xl={6} md={6} sm={6} xs={12}>
 				<Typography variant="h6" fontWeight={800}>
 					{data && (
