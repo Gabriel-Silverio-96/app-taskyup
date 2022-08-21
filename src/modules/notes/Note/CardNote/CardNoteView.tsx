@@ -2,34 +2,55 @@ import { CardContent, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { FiEye, FiTrash2 } from "react-icons/fi";
 import Loading from "shared/components/Loading";
-import { CardNoteContainer, Card, CardAction, CardBar } from "./style";
+import { Card, CardAction, CardBar, CardNoteContainer } from "./style";
+import { ICardNotesView } from "./types/CardNote.component";
 
-const CardNoteView: React.FC<any> = (props) => {
-	const { palette } = props;
+const CardNoteView: React.FC<ICardNotesView> = props => {
+	const { palette, notes, isLoading } = props;
 	return (
 		<Grid container spacing={2}>
-			<Loading isLoading={false} backdrop />            
-			<Grid item xl={2} md={3} xs={12}>
-				<CardNoteContainer>
-					<Card sx={{ height: 130 }}>
-						<CardContent>
-						    <Typography variant="body1" fontWeight={800}>Title note here</Typography>
-						    <Typography variant="body2" fontSize={13} color="GrayText" sx={{ mt: 1 }}>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-							</Typography>		
-							<CardAction id="card-action">
-								<IconButton onClick={() => console.log("Trash")}>
-									<FiTrash2 color={palette.error.main} size={20} />
-								</IconButton>
-								<IconButton onClick={() => console.log("Eye")}>
-									<FiEye size={20} />
-								</IconButton>
-							</CardAction>
-						</CardContent>
-						<CardBar color="green"/>							
-					</Card>
-				</CardNoteContainer>
-			</Grid>
+			<Loading isLoading={isLoading} backdrop />
+			{notes && !notes.list_notes?.length && (
+				<Grid item md={12} sx={{ mt: 1 }}>
+					<Typography variant="body2" fontWeight={800}>You have not created any notes</Typography>
+					<Typography variant="caption" color="GrayText">Create a note 😊</Typography>
+				</Grid>
+			)}
+			{notes &&
+				notes.list_notes?.map(({ note_id, title_note, observation, color_note }) => (
+					<Grid item xl={2} md={3} xs={12} key={note_id}>
+						<CardNoteContainer>
+							<Card sx={{ height: 130 }}>
+								<CardContent>
+									<Typography variant="body1" fontWeight={800}>
+										{title_note}
+									</Typography>
+									<Typography
+										variant="body2"
+										fontSize={13}
+										color="GrayText"
+										sx={{ mt: 1 }}>
+										{observation}
+									</Typography>
+									<CardAction id="card-action">
+										<IconButton
+											onClick={() => console.log("Trash")}>
+											<FiTrash2
+												color={palette.error.main}
+												size={20}
+											/>
+										</IconButton>
+										<IconButton
+											onClick={() => console.log("Eye")}>
+											<FiEye size={20} />
+										</IconButton>
+									</CardAction>
+								</CardContent>
+								<CardBar color={color_note} />
+							</Card>
+						</CardNoteContainer>
+					</Grid>
+				))}
 		</Grid>
 	);
 };
