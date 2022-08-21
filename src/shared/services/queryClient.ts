@@ -1,11 +1,11 @@
 import { QueryClient } from "@tanstack/react-query";
 
-const fifteenMinutesInMs = 1000 * 60 * 15;
+const fiveMinutesInMs = 1000 * 60 * 5;
 
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
-			staleTime: fifteenMinutesInMs,
+			staleTime: fiveMinutesInMs,
 		},
 	},
 });
