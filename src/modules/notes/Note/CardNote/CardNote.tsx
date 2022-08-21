@@ -14,9 +14,7 @@ const CardNote: React.FC = () => {
 		return data;
 	};
 
-	const fiveMinutesInMs = 1000 * 60 * 5;
-	const { data: notes, refetch, isFetching: isLoading } = useQuery(["notes"], fetchNotes, 
-		{ refetchOnWindowFocus: true, staleTime: fiveMinutesInMs });
+	const { data: notes, refetch, isFetching: isLoading } = useQuery(["notes"], fetchNotes);
 	useEffect(() => {refetch();}, [boardID]);
 
 	return <CardNoteView {...{ palette, notes, isLoading }} />;
