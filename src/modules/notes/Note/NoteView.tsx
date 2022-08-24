@@ -3,7 +3,7 @@ import React from "react";
 import CardNote from "./CardNote";
 import HeaderNote from "./HeaderNote";
 
-const NoteView: React.FC<any> = () => {
+const NoteView = () => {
 	return (
 		<Box component="section" sx={{ flexGrow: 1, p: 3 }}>
 			<HeaderNote />
