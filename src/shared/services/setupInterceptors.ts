@@ -1,11 +1,11 @@
 import { AxiosResponse } from "axios";
-import { BrowserHistory } from "history";
 import { Store } from "redux";
+import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { SNACKBAR_OPEN_TYPE } from "shared/common/store/SnackBar/SnackBar.reducer";
 import { createAction } from "shared/common/store/store.action";
 import api from "./api";
 
-const setupInterceptors = (history: BrowserHistory, store: Store) => {
+const setupInterceptors = (store: Store) => {
 	api.interceptors.response.use(response => {
 		const { status, data } = response;        
 		if (data.type_message || data.message) {
@@ -40,10 +40,10 @@ const setupInterceptors = (history: BrowserHistory, store: Store) => {
 			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
 				{ open: true, message: data.message, severity: "info" }
 			));
+			store.dispatch(createAction(SIGNIN_TYPE, { isAuthenticated: false, user_data: {} }));
 			api.defaults.headers.common["Authorization"] = "";            
 			localStorage.removeItem("@taskyup.token");
-			localStorage.removeItem("@taskyup.user_data");
-			history.push("/auth/signin");
+			localStorage.removeItem("@taskyup.user_data");			
 			break;
 
 		case 403:
