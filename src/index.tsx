@@ -1,7 +1,6 @@
 import { CssBaseline } from "@mui/material";
 import { QueryClientProvider } from "@tanstack/react-query";
 import GlobalStylesMui from "assets/theme/override/GlobalStyles";
-import { createBrowserHistory } from "history";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -14,8 +13,7 @@ import MainRoutes from "./MainRoutes";
 import { ThemeProvider } from "./shared/common/context/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
-const history = createBrowserHistory();
-setupInterceptors(history, store);
+setupInterceptors(store);
 
 root.render(
 	<Provider store={store}>
