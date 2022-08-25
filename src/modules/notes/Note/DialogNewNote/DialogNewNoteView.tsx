@@ -2,9 +2,10 @@ import { LoadingButton } from "@mui/lab";
 import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, TextField, Typography } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import ColorPicker from "shared/components/ColorPicker";
 
 const DialogNewNoteView: React.FC<any> = (props) => {
-	const { fullScreen } = props;
+	const { fullScreen, register, submit } = props;
 	const isSaving = false;
 	return (
 		<Dialog
@@ -26,16 +27,21 @@ const DialogNewNoteView: React.FC<any> = (props) => {
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<form method="POST" id="form-new-note" onSubmit={() => ""}>
+				<form method="POST" id="form-new-note" onSubmit={submit}>
 					<Grid container direction="column" spacing={5}>						
 						<Grid item>
-							<input type="color" />
+							<ColorPicker 
+								label="Select color" 
+								id="dialog-new-note-color-picker"
+								{...register("color_note")}
+							/>
 						</Grid>
 						<Grid item>
 							<TextField 
 								label="Title note"
 								size="small"
 								fullWidth
+								{...register("title_note")}
 							/>
 						</Grid>
 						<Grid item>
@@ -45,6 +51,7 @@ const DialogNewNoteView: React.FC<any> = (props) => {
 								fullWidth
 								multiline
 								rows={8}
+								{...register("observation")}
 							/>
 						</Grid>
 					</Grid>
