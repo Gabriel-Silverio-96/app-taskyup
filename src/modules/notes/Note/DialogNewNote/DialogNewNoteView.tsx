@@ -5,7 +5,7 @@ import { MdOutlineClose } from "react-icons/md";
 import ColorPicker from "shared/components/ColorPicker";
 
 const DialogNewNoteView: React.FC<any> = (props) => {
-	const { fullScreen, register, submit } = props;
+	const { fullScreen, register, submit, errors } = props;
 	const isSaving = false;
 	return (
 		<Dialog
@@ -42,6 +42,8 @@ const DialogNewNoteView: React.FC<any> = (props) => {
 								size="small"
 								fullWidth
 								{...register("title_note")}
+								error={errors.title_note && Boolean(errors.title_note)}
+								helperText={errors.title_note ? errors.title_note?.message : ""}
 							/>
 						</Grid>
 						<Grid item>
@@ -52,6 +54,8 @@ const DialogNewNoteView: React.FC<any> = (props) => {
 								multiline
 								rows={8}
 								{...register("observation")}
+								error={errors.observation && Boolean(errors.observation)}
+								helperText={errors.observation ? errors.observation?.message : ""}
 							/>
 						</Grid>
 					</Grid>
