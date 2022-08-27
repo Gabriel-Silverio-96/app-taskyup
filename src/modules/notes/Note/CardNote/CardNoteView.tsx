@@ -23,14 +23,22 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 							<Card sx={{ height: 130 }}>
 								<CardContent>
 									<Typography variant="body1" fontWeight={800}>
-										{title_note}
+										{
+											title_note.length > 30 
+												? `${title_note.substring(0, 30).trim()}...`
+												: title_note
+										}
 									</Typography>
 									<Typography
 										variant="body2"
 										fontSize={13}
 										color="GrayText"
 										sx={{ mt: 1 }}>
-										{observation}
+										{
+											observation.length > 50 
+												? `${observation.substring(0, 50).trim()}...`
+												: observation
+										}
 									</Typography>
 									<CardAction id="card-action">
 										<IconButton
