@@ -7,4 +7,6 @@ export interface IContextProviderNote {
 export interface IContextNote {
     isOpenDialogNewNote: boolean;
     setIsOpenDialogNewNote: React.Dispatch<React.SetStateAction<boolean>>;
+    isOpenDialogEditNote: boolean;
+    setIsOpenDialogEditNote: React.Dispatch<React.SetStateAction<boolean>>;
 }
