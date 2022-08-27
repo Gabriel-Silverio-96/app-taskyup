@@ -28,7 +28,7 @@ const DialogNewNote: React.FC = () => {
 		return data;
 	};
 
-	const { mutate: fetchDialogNewBoard, isLoading: isSaving } = useMutation(mutationDialogNewBoard, {
+	const { mutate: fetchDialogNewNote, isLoading: isSaving } = useMutation(mutationDialogNewBoard, {
 		onSuccess: () => queryClient.invalidateQueries(["notes"])
 	});
 
@@ -38,7 +38,7 @@ const DialogNewNote: React.FC = () => {
 				fullScreen,
 				register,
 				handleSubmit,
-				fetchDialogNewBoard,
+				fetchDialogNewNote,
 				errors,
 				isOpenDialogNewNote,
 				closeDialogNewNote,

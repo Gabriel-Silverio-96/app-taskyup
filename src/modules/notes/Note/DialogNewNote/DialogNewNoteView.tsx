@@ -3,9 +3,19 @@ import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, Te
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import ColorPicker from "shared/components/ColorPicker";
+import { IDialogNewNoteView } from "./types/DialogNewNotes.component";
 
-const DialogNewNoteView: React.FC<any> = (props) => {
-	const { fullScreen, register, handleSubmit, fetchDialogNewBoard, errors, isOpenDialogNewNote, closeDialogNewNote, isSaving } = props;
+const DialogNewNoteView: React.FC<IDialogNewNoteView> = (props) => {
+	const { 
+		fullScreen, 
+		register,
+		handleSubmit, 
+		fetchDialogNewNote, 
+		errors, 
+		isOpenDialogNewNote, 
+		closeDialogNewNote, 
+		isSaving 
+	} = props;
 	return (
 		<Dialog
 			fullWidth
@@ -27,7 +37,7 @@ const DialogNewNoteView: React.FC<any> = (props) => {
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<form method="POST" id="form-new-note" onSubmit={handleSubmit(fetchDialogNewBoard)}>
+				<form method="POST" id="form-new-note" onSubmit={handleSubmit(fetchDialogNewNote)}>
 					<Grid container direction="column" spacing={5}>						
 						<Grid item>
 							<ColorPicker 
