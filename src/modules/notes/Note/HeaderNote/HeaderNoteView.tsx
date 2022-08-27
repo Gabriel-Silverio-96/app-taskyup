@@ -23,8 +23,8 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 			</Grid>
 			<Grid item xl={6} md={6} sm={6} xs={12}>
 				<Nav>
-					<Button variant="contained">
-						<FiPlus size={20} onClick={openDialogNewNote} />
+					<Button variant="contained" onClick={openDialogNewNote}>
+						<FiPlus size={20} />
 					</Button>
 					<Button variant="outlined" color="inherit" onClick={openMenu}>
 						<FiMoreHorizontal size={20} />
