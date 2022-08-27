@@ -83,7 +83,6 @@ const DialogNewNoteView: React.FC<IDialogNewNoteView> = (props) => {
 				</LoadingButton>	
 			</DialogActions>
 		</Dialog>
-
 	);
 };
 
