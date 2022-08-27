@@ -9,4 +9,6 @@ export interface IContextNote {
     setIsOpenDialogNewNote: React.Dispatch<React.SetStateAction<boolean>>;
     isOpenDialogEditNote: boolean;
     setIsOpenDialogEditNote: React.Dispatch<React.SetStateAction<boolean>>;
+    noteID: string;
+    setNoteID: React.Dispatch<React.SetStateAction<string>>;
 }
