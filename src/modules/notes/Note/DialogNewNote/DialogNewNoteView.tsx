@@ -5,13 +5,14 @@ import { MdOutlineClose } from "react-icons/md";
 import ColorPicker from "shared/components/ColorPicker";
 
 const DialogNewNoteView: React.FC<any> = (props) => {
-	const { fullScreen, register, handleSubmit, fetchDialogNewBoard, errors, isSaving } = props;
+	const { fullScreen, register, handleSubmit, fetchDialogNewBoard, errors, isOpenDialogNewNote, closeDialogNewNote, isSaving } = props;
 	return (
 		<Dialog
 			fullWidth
 			maxWidth="sm"
-			open={true}
+			open={isOpenDialogNewNote}
 			fullScreen={fullScreen}
+			onClose={!isSaving ? closeDialogNewNote : () => ""}
 		>
 			<DialogTitle sx={ { mb: 2 }}>
 				<Grid container alignItems="center" justifyContent="space-between">
@@ -19,7 +20,7 @@ const DialogNewNoteView: React.FC<any> = (props) => {
 						<Typography variant="h6" fontWeight={700}>New note</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton disabled={isSaving}>
+						<IconButton onClick={closeDialogNewNote} disabled={isSaving}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
