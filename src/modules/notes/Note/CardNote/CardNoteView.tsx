@@ -6,7 +6,7 @@ import { Card, CardAction, CardBar, CardNoteContainer } from "./style";
 import { ICardNotesView } from "./types/CardNote.component";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
-	const { palette, notes, isLoading } = props;
+	const { palette, notes, isLoading, openDialogEditNote } = props;
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isLoading} backdrop />
@@ -41,7 +41,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 											/>
 										</IconButton>
 										<IconButton
-											onClick={() => console.log("Eye")}>
+											onClick={() => openDialogEditNote(note_id)}>
 											<FiEye size={20} />
 										</IconButton>
 									</CardAction>

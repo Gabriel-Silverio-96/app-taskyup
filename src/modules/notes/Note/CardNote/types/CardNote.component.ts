@@ -14,4 +14,5 @@ export interface ICardNotesView {
         list_notes: INotes[] | undefined 
     };
     isLoading: boolean;
+	openDialogEditNote: (noteID: string) => void;
 }
