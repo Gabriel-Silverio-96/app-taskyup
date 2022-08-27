@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import api from "shared/services/api";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
-import { IDialogNewNoteForm } from "../shared/types";
+import { IDialogNoteForm } from "../shared/types";
 import DialogNewNoteView from "./DialogNewNoteView";
 import schema from "./schema";
 
@@ -19,10 +19,10 @@ const DialogNewNote: React.FC = () => {
 	const { closeDialogNewNote } = useDialogNote();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-	const {	register, handleSubmit,	formState: { errors }, reset } = useForm<IDialogNewNoteForm>({ resolver: yupResolver(schema), mode: "all" });
+	const {	register, handleSubmit,	formState: { errors }, reset } = useForm<IDialogNoteForm>({ resolver: yupResolver(schema), mode: "all" });
 	useMemo(() => !isOpenDialogNewNote && reset(), [isOpenDialogNewNote]);
 
-	const mutationDialogNewBoard = async (dataNewNote: IDialogNewNoteForm) => {
+	const mutationDialogNewBoard = async (dataNewNote: IDialogNoteForm) => {
 		const { data } = await api.post(`notes/create/board_id=${boardID}`, dataNewNote	);
 		closeDialogNewNote();
 		return data;

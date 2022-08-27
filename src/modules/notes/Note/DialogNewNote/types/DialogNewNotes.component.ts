@@ -1,12 +1,12 @@
 import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
-import { IDialogNewNoteForm } from "../../shared/types";
+import { IDialogNoteForm } from "../../shared/types";
 
 export interface IDialogNewNoteView {
     fullScreen: boolean;
-    register: UseFormRegister<IDialogNewNoteForm>;
-    handleSubmit: UseFormHandleSubmit<IDialogNewNoteForm>;
-    fetchDialogNewNote: (dataNewNote: IDialogNewNoteForm) => void;
-    errors: FieldErrors<IDialogNewNoteForm>;
+    register: UseFormRegister<IDialogNoteForm>;
+    handleSubmit: UseFormHandleSubmit<IDialogNoteForm>;
+    fetchDialogNewNote: (dataNewNote: IDialogNoteForm) => void;
+    errors: FieldErrors<IDialogNoteForm>;
     isOpenDialogNewNote: boolean;
     closeDialogNewNote: () => void;
     isSaving: boolean;
