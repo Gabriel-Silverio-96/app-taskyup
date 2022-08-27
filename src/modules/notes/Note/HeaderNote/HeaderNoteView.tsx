@@ -5,7 +5,7 @@ import { Nav } from "./style";
 import { IHeaderNoteView } from "./types/HeaderNote.component";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
-	const { isOpenMenu, anchorEl, openMenu, closeMenu, palette, data } = props;
+	const { isOpenMenu, openDialogNewNote, anchorEl, openMenu, closeMenu, palette, data } = props;
 	
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
@@ -24,7 +24,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 			<Grid item xl={6} md={6} sm={6} xs={12}>
 				<Nav>
 					<Button variant="contained">
-						<FiPlus size={20} />
+						<FiPlus size={20} onClick={openDialogNewNote} />
 					</Button>
 					<Button variant="outlined" color="inherit" onClick={openMenu}>
 						<FiMoreHorizontal size={20} />

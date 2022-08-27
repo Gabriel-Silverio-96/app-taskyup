@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
+import useDialogNote from "../shared/hook/useDialogNote";
 import HeaderNoteView from "./HeaderNoteView";
 
 const HeaderNote: React.FC = () => {
@@ -12,6 +13,7 @@ const HeaderNote: React.FC = () => {
 	const { palette } = useTheme();
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
+	const { openDialogNewNote } = useDialogNote();
 
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
 	const closeMenu = () => setAnchorEl(null);
@@ -30,6 +32,7 @@ const HeaderNote: React.FC = () => {
 		<HeaderNoteView
 			{...{
 				isOpenMenu,
+				openDialogNewNote,
 				anchorEl,
 				openMenu,
 				closeMenu,
