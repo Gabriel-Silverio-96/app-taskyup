@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import CardNote from "./CardNote";
+import DialogEditNote from "./DialogEditNote";
 import DialogNewNote from "./DialogNewNote";
 import HeaderNote from "./HeaderNote";
 
@@ -9,6 +10,7 @@ const NoteView = () => {
 			<HeaderNote />
 			<CardNote />
 			<DialogNewNote />
+			<DialogEditNote />
 		</Box>	
 	);
 };
