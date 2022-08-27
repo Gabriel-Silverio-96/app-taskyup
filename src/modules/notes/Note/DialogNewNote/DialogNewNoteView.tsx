@@ -34,6 +34,7 @@ const DialogNewNoteView: React.FC<any> = (props) => {
 								label="Select color" 
 								id="dialog-new-note-color-picker"
 								{...register("color_note")}
+								defaultValue="#9C10FF"
 							/>
 						</Grid>
 						<Grid item>

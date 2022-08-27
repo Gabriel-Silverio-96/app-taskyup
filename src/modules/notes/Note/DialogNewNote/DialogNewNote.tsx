@@ -19,19 +19,7 @@ const DialogNewNote: React.FC = () => {
 	const { closeDialogNewNote } = useDialogNote();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-		reset,
-	} = useForm<IDialogNewNoteForm>({
-		resolver: yupResolver(schema),
-		mode: "all",
-		defaultValues: {
-			color_note: theme.palette.primary.main,
-		},
-	});
-
+	const {	register, handleSubmit,	formState: { errors }, reset } = useForm<IDialogNewNoteForm>({ resolver: yupResolver(schema), mode: "all" });
 	useMemo(() => !isOpenDialogNewNote && reset(), [isOpenDialogNewNote]);
 
 	const mutationDialogNewBoard = async (dataNewNote: IDialogNewNoteForm) => {
