@@ -69,15 +69,15 @@ const DialogEditNote: React.FC = () => {
 	return (
 		<DialogEditNoteView
 			{...{
-				fullScreen,
-				closeDialogEditNote,
-				isOpenDialogEditNote,
-				register,
+				fullScreen, 
+				register, 
 				handleSubmit,
 				fetchDialogEditNote,
-				isLoading,
-				isSaving,
-				errors,
+				errors, 
+				closeDialogEditNote, 
+				isOpenDialogEditNote, 
+				isLoading, 
+				isSaving
 			}}
 		/>
 	);

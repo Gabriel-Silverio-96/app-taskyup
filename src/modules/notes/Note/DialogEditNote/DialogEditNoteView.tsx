@@ -5,18 +5,19 @@ import { MdOutlineClose } from "react-icons/md";
 import ColorPicker from "shared/components/ColorPicker";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
+import { IDialogEditNoteView } from "./types/DialogEditNote.component";
 
-const DialogEditNoteView: React.FC<any> = (props) => {
+const DialogEditNoteView: React.FC<IDialogEditNoteView> = (props) => {
 	const { 
 		fullScreen, 
-		closeDialogEditNote, 
-		isOpenDialogEditNote, 
 		register, 
 		handleSubmit,
 		fetchDialogEditNote,
+		errors, 
+		closeDialogEditNote, 
+		isOpenDialogEditNote, 
 		isLoading, 
-		isSaving,
-		errors 
+		isSaving
 	} = props;
 	const loadingGrid = { display: isLoading ? "flex" : "none", mb: 5 };
 	return (
