@@ -50,7 +50,6 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) 
 					</Grid>
 					<Grid item md="auto">
 						<LoadingButton 							
-							form="form-new-board"
 							variant="contained"
 							type="submit"
 							loading={isDeleting}
