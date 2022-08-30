@@ -6,6 +6,7 @@ export const ContextNote = createContext({} as IContextNote);
 export const ContextProviderNote:React.FC<IContextProviderNote> = ({ children }) => {
 	const [isOpenDialogNewNote, setIsOpenDialogNewNote] = useState(false);
 	const [isOpenDialogEditNote, setIsOpenDialogEditNote] = useState(false);
+	const [isOpenDialogDeleteSingleNote, setIsOpenDialogDeleteSingleNote] = useState(false);
 	const [noteID, setNoteID] = useState("");
 	
 	const value = {
@@ -13,6 +14,8 @@ export const ContextProviderNote:React.FC<IContextProviderNote> = ({ children })
 		setIsOpenDialogNewNote,
 		isOpenDialogEditNote, 
 		setIsOpenDialogEditNote,
+		isOpenDialogDeleteSingleNote, 
+		setIsOpenDialogDeleteSingleNote,
 		noteID, 
 		setNoteID
 	};
