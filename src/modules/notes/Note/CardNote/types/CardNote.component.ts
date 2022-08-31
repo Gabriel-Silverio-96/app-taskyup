@@ -15,4 +15,5 @@ export interface ICardNotesView {
     };
     isLoading: boolean;
 	openDialogEditNote: (noteID: string) => void;
+	openDialogDeleteSingleNote: (noteID: string) => void;
 }

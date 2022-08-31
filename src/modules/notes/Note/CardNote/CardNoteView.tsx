@@ -6,7 +6,7 @@ import { Card, CardAction, CardBar, CardNoteContainer } from "./style";
 import { ICardNotesView } from "./types/CardNote.component";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
-	const { palette, notes, isLoading, openDialogEditNote } = props;
+	const { palette, notes, isLoading, openDialogEditNote, openDialogDeleteSingleNote } = props;
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isLoading} backdrop />
@@ -42,7 +42,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 									</Typography>
 									<CardAction id="card-action">
 										<IconButton
-											onClick={() => console.log("Trash")}>
+											onClick={() => openDialogDeleteSingleNote(note_id)}>
 											<FiTrash2
 												color={palette.error.main}
 												size={20}

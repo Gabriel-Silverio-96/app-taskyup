@@ -9,7 +9,7 @@ import CardNoteView from "./CardNoteView";
 const CardNote: React.FC = () => {
 	const { board_id: boardID } = useParams();
 	const { palette } = useTheme();
-	const { openDialogEditNote } = useDialogNote();
+	const { openDialogEditNote, openDialogDeleteSingleNote } = useDialogNote();
 
 	const fetchNotes = async () => {
 		const { data } = await api.get(`/notes/list/board_id=${boardID}`);
@@ -19,7 +19,7 @@ const CardNote: React.FC = () => {
 	const { data: notes, refetch, isFetching: isLoading } = useQuery(["notes"], fetchNotes);
 	useEffect(() => {refetch();}, [boardID]);
 
-	return <CardNoteView {...{ palette, notes, isLoading, openDialogEditNote }} />;
+	return <CardNoteView {...{ palette, notes, isLoading, openDialogEditNote, openDialogDeleteSingleNote }} />;
 };
 
 export default memo(CardNote);
