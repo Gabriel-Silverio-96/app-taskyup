@@ -2,7 +2,7 @@ import { useContextNote } from "modules/notes/Note/Context";
 import { IUseDialogNote } from "./types/UseDialogNote";
 
 const useDialogNote = (): IUseDialogNote => {
-	const { setIsOpenDialogNewNote, setIsOpenDialogEditNote, setNoteID } = useContextNote();
+	const { setIsOpenDialogNewNote, setIsOpenDialogEditNote, setNoteID, setIsOpenDialogDeleteSingleNote } = useContextNote();
 
 	const openDialogNewNote = () => setIsOpenDialogNewNote(true);
 	const closeDialogNewNote = () => setIsOpenDialogNewNote(false);
@@ -17,11 +17,23 @@ const useDialogNote = (): IUseDialogNote => {
 		setNoteID("");
 	};
 
+	const openDialogDeleteSingleNote = (noteID: string) => {
+		setIsOpenDialogDeleteSingleNote(true);
+		setNoteID(noteID);
+	};
+
+	const closeDialogDeleteSingleNote = () => {
+		setIsOpenDialogDeleteSingleNote(false);
+		setNoteID("");
+	};
+
 	return {
 		openDialogNewNote,
 		closeDialogNewNote,
 		openDialogEditNote,
-		closeDialogEditNote
+		closeDialogEditNote,
+		openDialogDeleteSingleNote,
+		closeDialogDeleteSingleNote
 	};
 };
 export default useDialogNote;
