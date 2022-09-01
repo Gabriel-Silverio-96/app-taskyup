@@ -11,8 +11,9 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { IDialogDeleteSingleNoteView } from "./types/DialogDeleteSingleNote.component";
 
-const DialogDeleteSingleNoteView: React.FC<any> = (props) => {
+const DialogDeleteSingleNoteView: React.FC<IDialogDeleteSingleNoteView> = (props) => {
 	const { isOpenDialogDeleteSingleNote, closeDialogDeleteSingleNote } = props;
 	return (
 		<Dialog fullWidth maxWidth="xs" 
