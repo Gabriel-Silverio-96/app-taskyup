@@ -14,11 +14,16 @@ import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteSingleNoteView } from "./types/DialogDeleteSingleNote.component";
 
 const DialogDeleteSingleNoteView: React.FC<IDialogDeleteSingleNoteView> = (props) => {
-	const { isOpenDialogDeleteSingleNote, closeDialogDeleteSingleNote } = props;
+	const { 
+		isOpenDialogDeleteSingleNote, 
+		closeDialogDeleteSingleNote, 
+		fetchDeleteThisNote,
+		isDeleting
+	 } = props;
 	return (
 		<Dialog fullWidth maxWidth="xs" 
 			open={isOpenDialogDeleteSingleNote}
-			onClose={closeDialogDeleteSingleNote}
+			onClose={!isDeleting ? closeDialogDeleteSingleNote : () => ""}
 		>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
@@ -31,7 +36,7 @@ const DialogDeleteSingleNoteView: React.FC<IDialogDeleteSingleNoteView> = (props
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton onClick={closeDialogDeleteSingleNote}>
+						<IconButton onClick={closeDialogDeleteSingleNote} disabled={isDeleting}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -45,12 +50,12 @@ const DialogDeleteSingleNoteView: React.FC<IDialogDeleteSingleNoteView> = (props
 			<DialogActions>
 				<Grid container	justifyContent="space-between" alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined" onClick={closeDialogDeleteSingleNote}>
+						<Button variant="outlined" onClick={closeDialogDeleteSingleNote} disabled={isDeleting}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" type="submit">
+						<LoadingButton variant="contained" onClick={fetchDeleteThisNote} loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>
