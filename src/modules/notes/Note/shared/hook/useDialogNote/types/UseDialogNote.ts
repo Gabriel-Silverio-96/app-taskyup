@@ -5,4 +5,6 @@ export interface IUseDialogNote {
     closeDialogEditNote: () => void;
     openDialogDeleteSingleNote: (noteID: string) => void;
     closeDialogDeleteSingleNote: () => void;
+    openDialogDeleteAllNotes: () => void;
+    closeDialogDeleteAllNotes: () => void;
 }
