@@ -13,7 +13,7 @@ const HeaderNote: React.FC = () => {
 	const { palette } = useTheme();
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
-	const { openDialogNewNote } = useDialogNote();
+	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
 
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
 	const closeMenu = () => setAnchorEl(null);
@@ -28,11 +28,17 @@ const HeaderNote: React.FC = () => {
 	);
 	useEffect(() => {refetch();}, [boardID]);
 	
+	const openDialogDeleteAllNotesAndCloseMenu = () => {
+		openDialogDeleteAllNotes();
+		closeMenu();
+	};
+
 	return (
 		<HeaderNoteView
 			{...{
 				isOpenMenu,
 				openDialogNewNote,
+				openDialogDeleteAllNotesAndCloseMenu,
 				anchorEl,
 				openMenu,
 				closeMenu,

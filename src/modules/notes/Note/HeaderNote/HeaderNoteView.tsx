@@ -5,7 +5,16 @@ import { Nav } from "./style";
 import { IHeaderNoteView } from "./types/HeaderNote.component";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
-	const { isOpenMenu, openDialogNewNote, anchorEl, openMenu, closeMenu, palette, data } = props;
+	const { 
+		isOpenMenu, 
+		openDialogNewNote, 
+		openDialogDeleteAllNotesAndCloseMenu, 
+		anchorEl, 
+		openMenu, 
+		closeMenu, 
+		palette, 
+		data
+	} = props;
 	
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
@@ -42,8 +51,8 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 						<Tooltip arrow title="Comming soon" placement="top">
 							<MenuItem>Members</MenuItem>
 						</Tooltip>
-						<MenuItem onClick={closeMenu} sx={ { color: palette.error.main } }>
-                            Delete all
+						<MenuItem onClick={openDialogDeleteAllNotesAndCloseMenu} sx={ { color: palette.error.main } }>
+                            Delete all notes
 						</MenuItem>
 					</Menu>                    
 				</Nav>

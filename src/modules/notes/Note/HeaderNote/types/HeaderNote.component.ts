@@ -4,6 +4,7 @@ import { IFetchSingleBoard } from "shared/common/types/Fetch";
 export interface IHeaderNoteView {
     isOpenMenu: boolean;
     openDialogNewNote: () => void;
+    openDialogDeleteAllNotesAndCloseMenu: () => void;
     anchorEl: null | HTMLElement;
     openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
     closeMenu: () => void;
