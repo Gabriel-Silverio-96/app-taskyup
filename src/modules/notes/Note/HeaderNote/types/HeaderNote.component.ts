@@ -3,6 +3,7 @@ import { IFetchSingleBoard } from "shared/common/types/Fetch";
 
 export interface IHeaderNoteView {
     isOpenMenu: boolean;
+    totalOfNotes: number;
     openDialogNewNote: () => void;
     openDialogDeleteAllNotesAndCloseMenu: () => void;
     anchorEl: null | HTMLElement;

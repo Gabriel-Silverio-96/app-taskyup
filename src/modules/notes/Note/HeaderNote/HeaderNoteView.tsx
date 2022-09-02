@@ -7,6 +7,7 @@ import { IHeaderNoteView } from "./types/HeaderNote.component";
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	const { 
 		isOpenMenu, 
+		totalOfNotes,
 		openDialogNewNote, 
 		openDialogDeleteAllNotesAndCloseMenu, 
 		anchorEl, 
@@ -51,7 +52,11 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 						<Tooltip arrow title="Comming soon" placement="top">
 							<MenuItem>Members</MenuItem>
 						</Tooltip>
-						<MenuItem onClick={openDialogDeleteAllNotesAndCloseMenu} sx={ { color: palette.error.main } }>
+						<MenuItem 
+							disabled={totalOfNotes <= 1}
+							onClick={openDialogDeleteAllNotesAndCloseMenu} 
+							sx={ { color: palette.error.main } }
+						>
                             Delete all notes
 						</MenuItem>
 					</Menu>                    
