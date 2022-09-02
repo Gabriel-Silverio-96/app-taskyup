@@ -11,16 +11,16 @@ const DialogDeleteSingleBoard: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { isOpenDialogDeleteSingleBoard, boardID } = useContextBoard();
 	const { closeDialogDeleteSingleBoard } = useDialogBoard();
-
-	const fetchDialogDeleteSingleBoard = async () => {
+	
+	const mutationDialogDeleteSingleBoard = async () => {
 		const { data } = await api.delete(`board/delete/board_id=${boardID}`) as AxiosResponse<IFetchResponseDefault>;
 		queryClient.invalidateQueries(["board"]);
 		closeDialogDeleteSingleBoard();
 		return data;
 	};
-
-	const { mutate: fetchDeleteThisBoard, isLoading: isDeleting } = useMutation(
-		fetchDialogDeleteSingleBoard, { onError: () => closeDialogDeleteSingleBoard() }
+	
+	const { mutate: fetchDialogDeleteSingleBoard, isLoading: isDeleting } = useMutation(
+		mutationDialogDeleteSingleBoard, { onError: () => closeDialogDeleteSingleBoard() }
 	);
 
 	return (
@@ -28,7 +28,7 @@ const DialogDeleteSingleBoard: React.FC = () => {
 			{...{
 				isOpenDialogDeleteSingleBoard,
 				closeDialogDeleteSingleBoard,
-				fetchDeleteThisBoard,
+				fetchDialogDeleteSingleBoard,
 				isDeleting
 			}}
 		/>

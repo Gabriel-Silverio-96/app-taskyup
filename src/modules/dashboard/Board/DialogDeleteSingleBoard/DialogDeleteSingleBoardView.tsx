@@ -13,7 +13,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteSingleBoard } from "./types/DialogDeleteSingleBoard.component";
 
 const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) => {
-	const { isOpenDialogDeleteSingleBoard, closeDialogDeleteSingleBoard, fetchDeleteThisBoard, isDeleting } = props;
+	const { isOpenDialogDeleteSingleBoard, closeDialogDeleteSingleBoard, fetchDialogDeleteSingleBoard, isDeleting } = props;
 	return (
 		<Dialog 
 			fullWidth
@@ -53,7 +53,7 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) 
 							variant="contained"
 							type="submit"
 							loading={isDeleting}
-							onClick={fetchDeleteThisBoard}
+							onClick={fetchDialogDeleteSingleBoard}
 						>
                             Yes
 						</LoadingButton>				
