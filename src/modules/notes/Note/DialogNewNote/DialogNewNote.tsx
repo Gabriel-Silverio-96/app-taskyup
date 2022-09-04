@@ -20,7 +20,7 @@ const DialogNewNote: React.FC = () => {
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const {	register, handleSubmit,	formState: { errors }, reset } = useForm<IDialogNoteForm>({ resolver: yupResolver(schema), mode: "all" });
-	useMemo(() => !isOpenDialogNewNote && reset(), [isOpenDialogNewNote]);
+	useMemo(() => isOpenDialogNewNote && reset(), [isOpenDialogNewNote]);
 
 	const mutationDialogNewBoard = async (dataNewNote: IDialogNoteForm) => {
 		const { data } = await api.post(`notes/create/board_id=${boardID}`, dataNewNote	);
