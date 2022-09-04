@@ -22,6 +22,7 @@ export const Dropdown = styled("div")(
             }
 
             li {
+                cursor: pointer;
                 .MuiListItemText-root {
                     .MuiTypography-root {
                         font-size: ${theme.typography.subtitle2.fontSize};

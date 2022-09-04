@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Dropdown } from "./style";
 
-const DropdownView: React.FC<any> = ({ children, open }) => {
+const DropdownView: React.FC<any> = ({ children, open, logout }) => {
 	return (
 		<Dropdown>
 			{children}
@@ -20,7 +20,7 @@ const DropdownView: React.FC<any> = ({ children, open }) => {
 						</Link>
 					</ListItem>
 					<Divider sx={{mt: 2, mb: 2}}/>
-					<ListItem disablePadding>
+					<ListItem disablePadding onClick={logout}>
 						<ListItemText primary="Log out" />
 					</ListItem>
 				</List>
