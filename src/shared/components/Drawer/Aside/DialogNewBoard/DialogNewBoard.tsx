@@ -13,10 +13,14 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 	const queryClient = useQueryClient();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-	const { register, handleSubmit,	formState: { errors }, reset }  
-		= useForm({ resolver: yupResolver(schema), mode: "all" });	
+	const { 
+		register, 
+		handleSubmit,
+		formState : { errors },
+		reset 
+	} = useForm({ resolver: yupResolver(schema), mode: "all" });	
 		
-	useMemo(() => !openDialog && reset(), [openDialog]);
+	useMemo(() => openDialog && reset(), [openDialog]);
 
 	const mutationDialogNewBoard = async (dataNewBoard: IDialogNewBoardForm) => {
 		const { data } = await api.post("board/create", dataNewBoard);
