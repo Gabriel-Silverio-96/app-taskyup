@@ -2,8 +2,9 @@ import { Divider, List, ListItem, ListItemText } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Dropdown } from "./style";
+import { IDropdownView } from "./types/Dropdown.component";
 
-const DropdownView: React.FC<any> = ({ children, open, logout }) => {
+const DropdownView: React.FC<IDropdownView> = ({ children, open, logout }) => {
 	return (
 		<Dropdown>
 			{children}
