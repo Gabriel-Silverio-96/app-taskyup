@@ -11,9 +11,15 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { IDialogDeleteAllNotesView } from "./types/DialogDeleteAllNotes.component";
 
-const DialogDeleteAllNotesView: React.FC<any> = (props) => {
-	const {isOpenDialogDeleteAllNotes, closeDialogDeleteAllNotes, fetchDeleteAllNotes, isDeleting } = props;
+const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = (props) => {
+	const {
+		isOpenDialogDeleteAllNotes, 
+		closeDialogDeleteAllNotes, 
+		fetchDeleteAllNotes, 
+		isDeleting 
+	} = props;
 	return (
 		<Dialog fullWidth maxWidth="xs" 
 			open={isOpenDialogDeleteAllNotes}
