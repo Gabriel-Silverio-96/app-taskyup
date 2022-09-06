@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { Title, Footer } from "./styles";
 
-const ForgotPasswordView: React.FC = () => {
+const ForgotPasswordView: React.FC<any>= (props) => {
+	const { register, errors, onSubmit } = props;
 	return (
 		<Grid container spacing={0}
 			direction="column"
@@ -18,14 +19,16 @@ const ForgotPasswordView: React.FC = () => {
 					<Typography variant="h4" fontWeight={700}>Forgot<br /> my password</Typography>
 					<p>Which email is registered on Taskyup</p>
 				</Title>
-
-				<form>
+				<form onSubmit={onSubmit}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
 							<TextField 
 								label="Email" 
 								size="small" 
-								fullWidth 								
+								fullWidth 
+								{...register("email")}
+								error={errors.email && Boolean(errors.email)}								
+								helperText={errors.email ? errors.email?.message : ""}
 							/>
 						</Grid>
 						<Grid item>
@@ -39,7 +42,6 @@ const ForgotPasswordView: React.FC = () => {
 						</Grid>
 					</Grid>
 				</form>
-
 				<Footer>
 					<Grid container direction="column">
 						<Grid display="flex" justifyContent="center" alignItems="center" flexDirection="column">
