@@ -1,8 +1,56 @@
+import LoadingButton from "@mui/lab/LoadingButton";
+import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
+import Logo from "shared/components/Logo";
+import { Title, Footer } from "./styles";
 
-const ForgotPasswordView: React.FC<any> = () => {
+const ForgotPasswordView: React.FC = () => {
 	return (
-		<h1>Forgot</h1>
+		<Grid container spacing={0}
+			direction="column"
+			alignItems="center"
+			justifyContent="center"
+			sx={{ minHeight: "100vh" }}>
+			<Grid item sx={{ minWidth: "20rem" }}>
+				<Logo size={125} />
+				<Title>
+					<Typography variant="h4" fontWeight={700}>Forgot<br /> my password</Typography>
+					<p>Which email is registered on Taskyup</p>
+				</Title>
+
+				<form>
+					<Grid container direction="column" spacing={5}>
+						<Grid item>
+							<TextField 
+								label="Email" 
+								size="small" 
+								fullWidth 								
+							/>
+						</Grid>
+						<Grid item>
+							<LoadingButton 							
+								fullWidth 
+								variant="contained"
+								type="submit"
+							>
+								Send
+							</LoadingButton>
+						</Grid>
+					</Grid>
+				</form>
+
+				<Footer>
+					<Grid container direction="column">
+						<Grid display="flex" justifyContent="center" alignItems="center" flexDirection="column">
+							<Link to="/auth/signin">
+								<Typography variant="body1" textAlign="center" sx={{ mt: 3, mb: 3 }}>Sign in</Typography>
+							</Link>
+						</Grid>
+					</Grid>
+				</Footer>
+			</Grid>
+		</Grid>
 	);
 };
 
