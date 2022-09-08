@@ -4,8 +4,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { Title, Footer } from "./styles";
+import { IForgotPasswordView } from "./types";
 
-const ForgotPasswordView: React.FC<any>= (props) => {
+const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 	const { register, errors, onSubmit } = props;
 	return (
 		<Grid container spacing={0}
