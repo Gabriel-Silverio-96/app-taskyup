@@ -6,6 +6,7 @@ import useFetchBoard from "shared/common/hook/useFetchBoard";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
+import { IBoardIcon } from "./types/CardBoard.component";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
@@ -23,7 +24,7 @@ const CardBoard: React.FC = () => {
 	const closeMenu = () => setAnchorEl(null);
 	const handleBoardID = (boardID: string) => setBoardID(boardID);
 	
-	const boardIcon = {
+	const boardIcon: IBoardIcon = {
 		notes: <GoNote size={15} color={palette.secondary.main} />,
 		text: <MdOutlineNotes color={palette.secondary.main} />,
 		kanban: <MdOutlineSpaceDashboard color={palette.secondary.main} />,

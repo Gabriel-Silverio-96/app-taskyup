@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import Loading from "shared/components/Loading";
 import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
+import { IBoardIcon, ICardBoardView } from "./types/CardBoard.component";
 
-const CardBoardView: React.FC<any> = props => {
+const CardBoardView: React.FC<ICardBoardView> = props => {
 	const { 
 		board,
 		boardIcon,
@@ -39,7 +40,7 @@ const CardBoardView: React.FC<any> = props => {
 									<CardHeader>
 										<Link to={`/notes/${boardItem.board_id}`}>
 											<CardIcon>
-												{boardIcon[boardItem.type_board]}
+												{boardIcon[boardItem.type_board as keyof IBoardIcon]}
 												<Typography color="text.secondary" gutterBottom sx={{ fontSize: 12 }}>
 													{boardItem.type_board}
 												</Typography>
