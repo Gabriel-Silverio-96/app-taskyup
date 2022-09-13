@@ -7,7 +7,7 @@ import { Title, Footer } from "./styles";
 import { IForgotPasswordView } from "./types";
 
 const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
-	const { register, errors, onSubmit } = props;
+	const { register, errors, onSubmit, isLoading } = props;
 	return (
 		<Grid container spacing={0}
 			direction="column"
@@ -37,6 +37,7 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 								fullWidth 
 								variant="contained"
 								type="submit"
+								loading={isLoading}
 							>
 								Send
 							</LoadingButton>

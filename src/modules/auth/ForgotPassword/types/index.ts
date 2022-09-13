@@ -7,5 +7,6 @@ export interface IForgotPasswordForm {
 export interface IForgotPasswordView {
     register: UseFormRegister<IForgotPasswordForm>;
     errors: FieldErrors<IForgotPasswordForm>
+    isLoading: boolean;
     onSubmit: () => void;
 }
