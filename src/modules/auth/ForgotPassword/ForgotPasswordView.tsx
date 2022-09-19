@@ -60,7 +60,7 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 				<Footer>
 					<Grid container direction="column">
 						<Grid display="flex" justifyContent="center" alignItems="center" flexDirection="column">
-							<Link to="/auth/signin" isLoading={isLoading}>
+							<Link to="/auth/signin" disabled={isLoading}>
 								<Typography variant="body1" textAlign="center" sx={{ mt: 3, mb: 3 }}> 
 									Sign in
 								</Typography>
