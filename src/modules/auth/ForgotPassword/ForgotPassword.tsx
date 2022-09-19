@@ -4,7 +4,7 @@ import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import ForgotPasswordView from "./ForgotPasswordView";
 import resolverSchema from "./schema";
-import { IForgotPasswordForm } from "./types";
+import { IEmailSend, IForgotPasswordForm } from "./types";
 
 const ForgotPassword: React.FC = () => {
 	const {
@@ -14,12 +14,16 @@ const ForgotPassword: React.FC = () => {
 	} = useForm<IForgotPasswordForm>({ resolver: resolverSchema, mode: "all" });
 
 	const [isLoading, setIsLoading] = useState(false);	
+	const [emailSend, setEmailSend] = useState<IEmailSend>({ email: "", isSendEmail: false });
+		
 	const fetchForgotPassword = async (form: IForgotPasswordForm) => {
 		try {
 			setIsLoading(true);
 			await api.post<IFetchResponseDefault>("auth/forgot-password", form);			
+			setEmailSend({ email: form.email, isSendEmail: true });
 		} catch (error) {
 			console.error("ForgotPassword ", error);
+			setEmailSend( { email: "", isSendEmail: false} );
 		} finally {
 			setIsLoading(false);
 		}		
@@ -27,7 +31,7 @@ const ForgotPassword: React.FC = () => {
 	const onSubmit = handleSubmit(fetchForgotPassword);
 	
 	return (
-		<ForgotPasswordView {...{ register, errors, onSubmit, isLoading }} />
+		<ForgotPasswordView {...{ register, errors, onSubmit, isLoading, emailSend }} />
 	);
 };
 

@@ -1,4 +1,6 @@
 import { styled } from "@mui/material";
+import { Link as LinkRouterDom } from "react-router-dom";
+import { ILinkStyle } from "./types";
     
 export const Title = styled("div")(
 	({ theme }) => `
@@ -21,4 +23,10 @@ export const Footer = styled("footer")(
             width: 50%
         }
     `,
+);
+
+export const Link = styled(LinkRouterDom)<ILinkStyle>(
+	({ isLoading }) => `
+        pointer-events: ${isLoading ? "none" : "auto"} 
+    `
 );
