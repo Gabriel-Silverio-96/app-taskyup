@@ -1,3 +1,3 @@
 export interface ILinkStyle {
-    isLoading: boolean;
+    disabled: boolean;
 }

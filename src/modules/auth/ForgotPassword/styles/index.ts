@@ -26,7 +26,7 @@ export const Footer = styled("footer")(
 );
 
 export const Link = styled(LinkRouterDom)<ILinkStyle>(
-	({ isLoading }) => `
-        pointer-events: ${isLoading ? "none" : "auto"} 
+	({ disabled }) => `
+        pointer-events: ${disabled ? "none" : "auto"} 
     `
 );
