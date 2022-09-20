@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import ResetPasswordView from "./ResetPasswordView";
 
 const ResetPassword: React.FC = () => {
-	return <ResetPasswordView />;
+	const [showPassword, setShowPassword] = useState(false);
+	const handleShowPassword = () => setShowPassword(prevState => !prevState);
+
+	return <ResetPasswordView {...{ showPassword, handleShowPassword }} />;
 };
 
 export default ResetPassword;
