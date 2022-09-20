@@ -3,24 +3,27 @@ import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Logo from "shared/components/Logo";
-import { TextFieldPassword, Title, IconButton } from "./styles";
+import { IconButton, TextFieldPassword, Title } from "./styles";
 
 const ResetPasswordView: React.FC<any> = (props) => {    
-	const { showPassword, handleShowPassword } = props;
-    
+	const { showPassword, handleShowPassword, register, onSubmit, errors } = props;
+
 	return (
-		<Grid container spacing={0}
+		<Grid 
+			container 
+			spacing={0}
 			direction="column"
 			alignItems="center"
 			justifyContent="center"
-			sx={{ minHeight: "100vh" }}>
+			sx={{ minHeight: "100vh" }}            
+		>
 			<Grid item sx={{ minWidth: "20rem" }}>
 				<Logo size={125} />
 				<Title>
 					<Typography variant="h4" fontWeight={700}>Reset<br /> password</Typography>
-					<p>Lorem ipsum</p>
+					<p>Create new password bellow</p>
 				</Title>
-				<form>
+				<form onSubmit={onSubmit}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
 							<TextFieldPassword>
@@ -28,7 +31,10 @@ const ResetPasswordView: React.FC<any> = (props) => {
 									label="Password"
 									size="small" 
 									fullWidth
+									{...register("password")}
 									type={showPassword ? "text" : "password"}
+									error={errors.password && Boolean(errors.password)}	
+									helperText={errors.password ? errors.password?.message : ""}							
 								/>
 								<IconButton onClick={handleShowPassword}>
 									{showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
