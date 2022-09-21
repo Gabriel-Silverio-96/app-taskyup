@@ -5,8 +5,9 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { IconButton, TextFieldPassword, Title, Footer } from "./styles";
+import { IResetPasswordView } from "./types";
 
-const ResetPasswordView: React.FC<any> = (props) => {    
+const ResetPasswordView: React.FC<IResetPasswordView> = (props) => {    
 	const { 
 		showPassword, 
 		handleShowPassword, 
