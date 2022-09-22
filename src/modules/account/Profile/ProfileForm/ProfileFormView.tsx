@@ -4,13 +4,21 @@ import React from "react";
 import Loading from "shared/components/Loading";
 
 const ProfileFormView: React.FC<any> = (props) => {
-	const { register, isLoading, errors, profileUserData, onSubmit } = props;	
+	const { 
+		register, 
+		isLoading, 
+		errors, 
+		profileUserData, 
+		handleSubmit, 
+		fetchEditProfileForm, 
+		isSaving 
+	} = props;	
 
 	return (
 		<>
 			<Loading backdrop isLoading={isLoading} />
 			<Typography variant="h5" sx={{ mb: 5 }}>Hi, Camila</Typography>
-			<form method="post" onSubmit={onSubmit}>
+			<form method="post" onSubmit={handleSubmit(fetchEditProfileForm)}>
 				<Grid container direction="column" spacing={5}>
 					<Grid item>
 						<TextField 
@@ -39,6 +47,7 @@ const ProfileFormView: React.FC<any> = (props) => {
 						<LoadingButton
 							variant="contained"
 							type="submit"
+							loading={isSaving}
 						>
                             Save
 						</LoadingButton>

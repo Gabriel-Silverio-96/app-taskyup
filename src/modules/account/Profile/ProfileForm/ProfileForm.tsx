@@ -1,7 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useForm } from "react-hook-form";
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
@@ -17,6 +18,7 @@ const ProfileForm: React.FC = () => {
 		resolver: yupResolver(schema),
 		mode: "all",
 	});
+	const queryClient = useQueryClient();
 
 	const fetchProfileForm = async () => {
 		const { data } = await api.get("auth/account");
@@ -34,13 +36,30 @@ const ProfileForm: React.FC = () => {
 		{ onSuccess: onSuccessFetchProfileForm }
 	);
 
-	const fetchSaveProfileForm = (form: IProfileUserData) => console.log(form);
+	const mutationProfileForm = async (form: IProfileUserData) => {
+		const { data } = await api.put("auth/account", form);
+		return data;
+	};
 
-	const onSubmit = handleSubmit(fetchSaveProfileForm);
+	const { mutate: fetchEditProfileForm, isLoading: isSaving } = useMutation<
+		IProfileUserData,
+		IFetchResponseDefault,
+		any
+	>(mutationProfileForm, {
+		onSuccess: () => queryClient.invalidateQueries(["profile_form"]),
+	});
 
 	return (
 		<ProfileFormView
-			{...{ register, isLoading, errors, profileUserData, onSubmit }}
+			{...{
+				register,
+				isLoading,
+				errors,
+				profileUserData,
+				handleSubmit,
+				fetchEditProfileForm,
+				isSaving,
+			}}
 		/>
 	);
 };
