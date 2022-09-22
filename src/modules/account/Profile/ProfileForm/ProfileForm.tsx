@@ -1,8 +1,10 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useForm } from "react-hook-form";
 import api from "shared/services/api";
 import ProfileFormView from "./ProfileFormView";
+import schema from "./schema";
 import { IProfileUserData } from "./types";
 
 const ProfileForm: React.FC = () => {
@@ -11,10 +13,13 @@ const ProfileForm: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 		setValue,
-	} = useForm<IProfileUserData>();
+	} = useForm<IProfileUserData>({
+		resolver: yupResolver(schema),
+		mode: "all",
+	});
 
 	const fetchProfileForm = async () => {
-		const { data } = (await api.get("auth/account"));
+		const { data } = await api.get("auth/account");
 		return data;
 	};
 
@@ -35,7 +40,7 @@ const ProfileForm: React.FC = () => {
 
 	return (
 		<ProfileFormView
-			{...{ register, isLoading, profileUserData, onSubmit }}
+			{...{ register, isLoading, errors, profileUserData, onSubmit }}
 		/>
 	);
 };

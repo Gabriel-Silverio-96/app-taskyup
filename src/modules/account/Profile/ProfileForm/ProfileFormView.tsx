@@ -4,7 +4,7 @@ import React from "react";
 import Loading from "shared/components/Loading";
 
 const ProfileFormView: React.FC<any> = (props) => {
-	const { register, isLoading, profileUserData, onSubmit } = props;	
+	const { register, isLoading, errors, profileUserData, onSubmit } = props;	
 
 	return (
 		<>
@@ -18,7 +18,10 @@ const ProfileFormView: React.FC<any> = (props) => {
 							size="small" 
 							fullWidth
 							defaultValue={profileUserData?.full_name}
-							{...register("full_name")}							
+							{...register("full_name")}	
+							autoComplete="off"	
+							error={errors.full_name && Boolean(errors.full_name)}
+							helperText={errors.full_name ? errors.full_name?.message : ""}
 						/>
 					</Grid>
 					<Grid item>
