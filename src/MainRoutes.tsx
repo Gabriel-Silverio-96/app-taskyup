@@ -1,6 +1,7 @@
 import ResetPassword from "modules/auth/ResetPassword";
 import SignUp from "modules/auth/SignUp";
 import Note from "modules/notes/Note";
+import Profile from "modules/account/Profile";
 import { Route, Routes } from "react-router-dom";
 import RequiredAuth from "shared/components/RequiredAuth";
 import ForgotPassword from "./modules/auth/ForgotPassword";
@@ -14,6 +15,8 @@ const MainRoutes:React.FC = () => {
 			<Route path="/auth/signup" element={<SignUp />} />
 			<Route path="/auth/forgot-password" element={<ForgotPassword />} />
 			<Route path="/auth/reset-password/:token" element={<ResetPassword />} />
+
+			<Route path="/profile" element={<RequiredAuth><Profile /></RequiredAuth>} />
 
 			<Route path="/dashboard" element={<RequiredAuth><Board /></RequiredAuth>} />
 			<Route path="/notes/:board_id" element={<RequiredAuth><Note /></RequiredAuth>} />				
