@@ -14,10 +14,11 @@ const ProfileFormView: React.FC<any> = (props) => {
 		isSaving 
 	} = props;	
 
+	const firstName = profileUserData?.full_name.split(" ").shift();
 	return (
 		<>
 			<Loading backdrop isLoading={isLoading} />
-			<Typography variant="h5" sx={{ mb: 5 }}>Hi, Camila</Typography>
+			<Typography variant="h5" sx={{ mb: 5 }}>Hi, {firstName}</Typography>
 			<form method="post" onSubmit={handleSubmit(fetchEditProfileForm)}>
 				<Grid container direction="column" spacing={5}>
 					<Grid item>
@@ -52,8 +53,7 @@ const ProfileFormView: React.FC<any> = (props) => {
                             Save
 						</LoadingButton>
 					</Grid>
-				</Grid>
-                
+				</Grid>                
 			</form>
 		</>
 	);
