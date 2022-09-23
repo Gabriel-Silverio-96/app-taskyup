@@ -15,11 +15,6 @@ const DropdownView: React.FC<IDropdownView> = ({ children, open, logout }) => {
 							<ListItemText primary="Profile" />
 						</Link>
 					</ListItem>
-					<ListItem disablePadding>
-						<Link to="/setting">
-						    <ListItemText primary="Setting" />
-						</Link>
-					</ListItem>
 					<Divider sx={{mt: 2, mb: 2}}/>
 					<ListItem disablePadding onClick={logout}>
 						<ListItemText primary="Log out" />
