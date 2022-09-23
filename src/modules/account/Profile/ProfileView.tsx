@@ -15,9 +15,6 @@ const ProfileView: React.FC<any> = () => {
 			>
 				<Grid item sx={{ minWidth: "20rem" }}>
 					<Grid item>
-						<Typography variant="body1" color="GrayText" sx={{ mb: 5 }}>
-						    Geral
-						</Typography>
 						<ProfileForm />
 					</Grid>
 				</Grid>
