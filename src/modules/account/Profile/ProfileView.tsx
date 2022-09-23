@@ -1,8 +1,8 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import ProfileForm from "./ProfileForm";
 
-const ProfileView: React.FC<any> = () => {
+const ProfileView: React.FC = () => {
 	return (
 		<Box component="section" sx={{ flexGrow: 1, p: 3 }}>
 			<Grid
