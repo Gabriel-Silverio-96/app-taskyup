@@ -2,8 +2,9 @@ import { LoadingButton } from "@mui/lab";
 import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import Loading from "shared/components/Loading";
+import { IProfileFormView } from "./types";
 
-const ProfileFormView: React.FC<any> = (props) => {
+const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 	const { 
 		register, 
 		isLoading, 
