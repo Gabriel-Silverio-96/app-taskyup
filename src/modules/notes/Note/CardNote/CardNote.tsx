@@ -1,16 +1,18 @@
 import { useTheme } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "shared/services/api";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
+import { IListNotes } from "./types/CardNote.component";
 
 const CardNote: React.FC = () => {
 	const { board_id: boardID } = useParams();
 	const { setTotalOfNotes } = useContextNote();
 	const { palette } = useTheme();
+	const queryClient = useQueryClient();
 	const { openDialogEditNote, openDialogDeleteSingleNote } = useDialogNote();
 
 	const fetchNotes = async () => {
@@ -26,7 +28,14 @@ const CardNote: React.FC = () => {
 		isFetching: isLoading,
 	} = useQuery(["notes"], fetchNotes, { onSuccess });
 
-	useEffect(() => {refetch();}, [boardID]);
+	useEffect(() => {
+		refetch();
+		const setListNotesEmptyUnmount = () => {
+			const unmountDataListNotesEmpty = { notes: { list_notes: [] }};
+			queryClient.setQueryData<IListNotes | any>(["notes"], unmountDataListNotesEmpty );
+		};
+		return () => setListNotesEmptyUnmount();
+	}, [boardID]);
 
 	return (
 		<CardNoteView
