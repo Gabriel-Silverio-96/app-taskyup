@@ -6,7 +6,7 @@ import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
-import { IProfileUserData } from "./types";
+import { IProfileFormForm, IProfileUserData } from "./types";
 
 const ProfileForm: React.FC = () => {
 	const {
@@ -36,8 +36,9 @@ const ProfileForm: React.FC = () => {
 		{ onSuccess: onSuccessFetchProfileForm }
 	);
 
-	const mutationProfileForm = async (form: IProfileUserData) => {
-		const { data } = await api.put("auth/account", form);
+	const mutationProfileForm = async (form: IProfileFormForm) => {
+		const { full_name } = form;		
+		const { data } = await api.put("auth/account", { full_name });
 		return data;
 	};
 
