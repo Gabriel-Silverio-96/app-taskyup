@@ -28,10 +28,11 @@ const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 							size="small" 
 							fullWidth
 							defaultValue={profileUserData?.full_name}
-							{...register("full_name")}	
+							InputLabelProps={{ shrink: true }}
 							autoComplete="off"	
 							error={errors.full_name && Boolean(errors.full_name)}
 							helperText={errors.full_name ? errors.full_name?.message : ""}
+							{...register("full_name")}
 						/>
 					</Grid>
 					<Grid item>
@@ -42,6 +43,7 @@ const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 							aria-disabled="true"
 							fullWidth				
 							defaultValue={profileUserData?.email}
+							InputLabelProps={{ shrink: true }}
 							{...register("email")}			
 						/>
 					</Grid>
