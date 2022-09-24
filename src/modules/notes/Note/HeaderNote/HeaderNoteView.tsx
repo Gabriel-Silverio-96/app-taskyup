@@ -24,7 +24,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 					{data && (
 						<>
 							{data.title}
-							<IconButton sx={{ ml: 1 }}>
+							<IconButton sx={{ ml: 1, display: "none" }}>
 								<FiEdit size={14} color={palette.grey[800]} />
 							</IconButton>
 						</>
