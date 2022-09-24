@@ -30,11 +30,11 @@ const CardNote: React.FC = () => {
 
 	useEffect(() => {
 		refetch();
-		const setListNotesEmptyUnmount = () => {
+		const leaveEmptyListNotesUnmount = () => {
 			const unmountDataListNotesEmpty = { notes: { list_notes: [] }};
 			queryClient.setQueryData<IListNotes | any>(["notes"], unmountDataListNotesEmpty );
 		};
-		return () => setListNotesEmptyUnmount();
+		return () => leaveEmptyListNotesUnmount();
 	}, [boardID]);
 
 	return (
