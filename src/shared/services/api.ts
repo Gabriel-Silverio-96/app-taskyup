@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL = process.env.ENVIRONMENT === "production" 
-	? "https://apimynotes.herokuapp.com" : "http://localhost:4041";
+	? "https://api-mynotes-production.up.railway.app" : "http://localhost:4041";
 
 const ONE_MINUTE = 60000;
 
