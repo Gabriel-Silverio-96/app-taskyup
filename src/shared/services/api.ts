@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = process.env.ENVIRONMENT === "production" 
+const baseURL = process.env.REACT_APP_ENVIRONMENT === "production" 
 	? "https://api-mynotes-production.up.railway.app" : "http://localhost:4041";
 
 const ONE_MINUTE = 60000;
