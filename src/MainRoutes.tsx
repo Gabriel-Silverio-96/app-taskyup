@@ -2,7 +2,7 @@ import ResetPassword from "modules/auth/ResetPassword";
 import SignUp from "modules/auth/SignUp";
 import Note from "modules/notes/Note";
 import Profile from "modules/account/Profile";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate  } from "react-router-dom";
 import RequiredAuth from "shared/components/RequiredAuth";
 import ForgotPassword from "./modules/auth/ForgotPassword";
 import SignIn from "./modules/auth/SignIn";
@@ -12,6 +12,7 @@ import Page404 from "modules/error/Page404";
 const MainRoutes:React.FC = () => {
 	return (
 		<Routes>
+			<Route path="/" element={<Navigate replace to="/auth/signin" />} />
 			<Route path="/auth/signin" element={<SignIn />} />
 			<Route path="/auth/signup" element={<SignUp />} />
 			<Route path="/auth/forgot-password" element={<ForgotPassword />} />
