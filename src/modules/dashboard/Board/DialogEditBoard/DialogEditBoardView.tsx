@@ -11,8 +11,9 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
+import { IDialogEditBoardView } from "./types/DialogEditBoard.component";
 
-const DialogEditBoardView: React.FC<any> = (props) => {
+const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
 	const { 
 		register,
 		fullScreen,
