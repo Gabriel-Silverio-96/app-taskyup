@@ -2,8 +2,8 @@ import { LoadingButton } from "@mui/lab";
 import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "shared/components/Logo";
-import { BackgroundSignUp, Footer, GridForm, Title } from "./styles";
+import Greeting from "shared/components/Greeting";
+import { BackgroundSignUp, Footer, GridForm } from "./styles";
 import { ISignUpView } from "./types/SignUp.component";
 
 const SignUpView: React.FC<ISignUpView> = (props) => {
@@ -27,12 +27,10 @@ const SignUpView: React.FC<ISignUpView> = (props) => {
 				sx={{ minWidth: "20rem", marginTop: "2rem" }}
 			>
 				<GridForm>
-					<Logo size={125} />
-					<Title>
-						<Typography variant="h4" fontWeight={700}>Sign up</Typography>
-						<p>Fill the form ✏️</p>
-					</Title>
-
+					<Greeting 
+						title="Sign up"
+						subtitle="Fill the form ✏️"
+					/>
 					<form onSubmit={handleSubmit(fetchSignUp)}>
 						<Grid container direction="column" spacing={5}>
 							<Grid item>
