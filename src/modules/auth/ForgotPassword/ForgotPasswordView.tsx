@@ -1,16 +1,15 @@
-/* eslint-disable no-constant-condition */
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import Greeting from "shared/components/Greeting";
-import { Footer, Link, Title } from "./styles";
+import { Footer, Link } from "./styles";
 import { IForgotPasswordView } from "./types";
 
 const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 	const { register, errors, onSubmit, isLoading, emailSend } = props;
 
 	const titleMessage = emailSend.isSendEmail ? "Check your email"	: "Forgot password";
-	const subtitleMessage = true
+	const subtitleMessage = emailSend.isSendEmail
 		? `An email is on its way to ${emailSend.email}
 			with instructions for reset your password.`
 		: "Which email is registered on TaskYup";
@@ -26,7 +25,7 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 					title={titleMessage}
 					subtitle={subtitleMessage}
 				/>				
-				{!emailSend.isSendEmail ? (
+				{!emailSend.isSendEmail && (
 					<>
 						<form onSubmit={onSubmit}>
 							<Grid container direction="column" spacing={5}>
@@ -53,14 +52,6 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 							</Grid>
 						</form>
 					</>
-				) : (
-					<Title>
-						<Typography variant="h4" fontWeight={700}>Check your email</Typography>
-						<Typography>
-							An email is on its way to <strong>{emailSend.email}</strong><br/>
-							with instructions for reset your password.
-						</Typography>
-					</Title>
 				)}
 				<Footer>
 					<Grid container direction="column">
