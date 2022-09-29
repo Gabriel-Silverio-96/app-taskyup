@@ -3,8 +3,8 @@ import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Logo from "shared/components/Logo";
-import { IconButton, TextFieldPassword, Title, Footer } from "./styles";
+import Greeting from "shared/components/Greeting";
+import { Footer, IconButton, TextFieldPassword } from "./styles";
 import { IResetPasswordView } from "./types";
 
 const ResetPasswordView: React.FC<IResetPasswordView> = (props) => {    
@@ -14,10 +14,15 @@ const ResetPasswordView: React.FC<IResetPasswordView> = (props) => {
 		register, 
 		onSubmit, 
 		errors, 
-		isSaving, 
-		resetPasswordSuccess 
+		isSaving, 		
+		resetPasswordSuccess
 	} = props;
-
+	
+	const titleMessage = resetPasswordSuccess ? "Successfully" : "Reset password";
+	const subtitleMessage = resetPasswordSuccess
+		? "Your password has been reset successfully"
+		: "Create new password bellow";
+		
 	return (
 		<Grid 
 			container 
@@ -27,14 +32,13 @@ const ResetPasswordView: React.FC<IResetPasswordView> = (props) => {
 			justifyContent="center"
 			sx={{ minHeight: "100vh" }}            
 		>
-			<Grid item sx={{ minWidth: "20rem" }}>
-				<Logo size={125} />
+			<Grid item sx={{ minWidth: "20rem" }}>				
+				<Greeting 
+					title={titleMessage}
+					subtitle={subtitleMessage}
+				/>				
 				{!resetPasswordSuccess ? (
-					<>
-						<Title>
-							<Typography variant="h4" fontWeight={700}>Reset<br /> password</Typography>
-							<p>Create new password bellow</p>
-						</Title>
+					<>					
 						<form onSubmit={onSubmit}>
 							<Grid container direction="column" spacing={5}>
 								<Grid item>
@@ -64,28 +68,20 @@ const ResetPasswordView: React.FC<IResetPasswordView> = (props) => {
 									</LoadingButton>
 								</Grid>
 							</Grid>
-						</form>
+						</form>						
 					</>
 				) : (
-					<>
-						<Title>
-							<Typography variant="h4" fontWeight={700}>Successfully</Typography>
-							<Typography>
-							    Your password has been reset successfully
-							</Typography>
-						</Title>
-						<Footer>
-							<Grid container direction="column">
-								<Grid display="flex" justifyContent="center" alignItems="center" flexDirection="column">
-									<Link to="/auth/signin">
-										<Typography variant="body1" textAlign="center" sx={{ mt: 3, mb: 3 }}> 
-									Sign in
-										</Typography>
-									</Link>
-								</Grid>
+					<Footer>
+						<Grid container direction="column">
+							<Grid display="flex" justifyContent="center" alignItems="center" flexDirection="column">
+								<Link to="/auth/signin">
+									<Typography variant="body1" textAlign="center" sx={{ mt: 3, mb: 3 }}> 
+											Sign in
+									</Typography>
+								</Link>
 							</Grid>
-						</Footer>
-					</>
+						</Grid>
+					</Footer>
 				)}
 			</Grid>
 		</Grid>
