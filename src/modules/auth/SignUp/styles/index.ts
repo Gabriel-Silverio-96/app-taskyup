@@ -16,16 +16,6 @@ export const BackgroundSignUp = styled("div")(
     `
 );
 
-export const Title = styled("div")(
-	({ theme }) => `
-        margin: ${theme.spacing(8, 0, 5)};
-        p {
-            margin: 0;
-            color: ${theme.palette.grey[700]}
-        }
-    `,  
-);
-
 export const GridForm = styled("div")({
 	width: "min(20rem, 100%)"
 });
