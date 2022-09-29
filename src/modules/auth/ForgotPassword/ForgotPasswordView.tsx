@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
@@ -8,6 +9,12 @@ import { IForgotPasswordView } from "./types";
 const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 	const { register, errors, onSubmit, isLoading, emailSend } = props;
 
+	const titleMessage = emailSend.isSendEmail ? "Check your email"	: "Forgot password";
+	const subtitleMessage = true
+		? `An email is on its way to ${emailSend.email}
+			with instructions for reset your password.`
+		: "Which email is registered on TaskYup";
+
 	return (
 		<Grid container spacing={0}
 			direction="column"
@@ -16,8 +23,8 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 			sx={{ minHeight: "100vh" }}>
 			<Grid item sx={{ minWidth: "20rem" }}>
 				<Greeting 
-					title="Forgot password"
-					subtitle="Which email is registered on TaskYup"
+					title={titleMessage}
+					subtitle={subtitleMessage}
 				/>				
 				{!emailSend.isSendEmail ? (
 					<>
