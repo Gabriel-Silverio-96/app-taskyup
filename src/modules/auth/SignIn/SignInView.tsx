@@ -3,8 +3,8 @@ import { Divider, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Greeting from "shared/components/Greeting";
-import { Footer, IconButton, TextFieldPassword } from "./styles";
+import Logo from "shared/components/Logo";
+import { Footer, IconButton, TextFieldPassword, Title } from "./styles";
 import { ISignInView } from "./types/SignIn.component";
 
 const SignInView: React.FC<ISignInView> = (props) => {
@@ -17,10 +17,12 @@ const SignInView: React.FC<ISignInView> = (props) => {
 			justifyContent="center"
 			sx={{ minHeight: "100vh" }}>
 			<Grid item sx={{ minWidth: "20rem" }}>
-				<Greeting 
-					title="Sign in"
-					subtitle="Welcome back! ❤️"
-				/>
+				<Logo size={125} />
+				<Title>
+					<Typography variant="h4" fontWeight={700}>Sign in</Typography>
+					<p>Welcome back! ❤️</p>
+				</Title>
+
 				<form onSubmit={handleSubmit(fetchSignIn)}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
