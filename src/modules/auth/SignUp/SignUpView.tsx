@@ -59,6 +59,7 @@ const SignUpView: React.FC<ISignUpView> = (props) => {
 								<TextField
 									label="Password"
 									size="small"
+									type="password"
 									fullWidth
 									{...register("password")}
 									error={errors.password && Boolean(errors.password)}	
