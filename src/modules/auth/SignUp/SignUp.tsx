@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import schema from "./shared/schema";
+import schema from "./schema";
 import SignUpView from "./SignUpView";
 import { ISignUpForm } from "./types/SignUp.component";
 
