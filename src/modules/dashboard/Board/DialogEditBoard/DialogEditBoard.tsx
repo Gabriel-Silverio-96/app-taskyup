@@ -9,7 +9,7 @@ import dateFormat from "shared/util/dateFormat";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
-import schema from "./shared/schema";
+import schema from "./schema";
 import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 
 const DialogEditBoard = () => {

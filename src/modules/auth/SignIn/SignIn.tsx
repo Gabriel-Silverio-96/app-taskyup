@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
-import schema from "./shared/schema";
+import schema from "./schema";
 import SignInView from "./SignInView";
 import { IFetchSignInResponse, ISignInForm } from "./types/SignIn.component";
 
