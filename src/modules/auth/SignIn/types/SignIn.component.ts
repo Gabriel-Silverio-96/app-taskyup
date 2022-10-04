@@ -9,8 +9,6 @@ export interface ISignInForm {
 export interface ISignInView {
     register: UseFormRegister<ISignInForm>;
     handleSubmit: UseFormHandleSubmit<ISignInForm>;
-    showPassword: boolean;
-    handleShowPassword: () => void;
     errors: FieldErrors<ISignInForm>;
     fetchSignIn: (dataUser: ISignInForm) => void;
     isLoading: boolean;

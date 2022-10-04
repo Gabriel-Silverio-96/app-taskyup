@@ -18,8 +18,6 @@ const SignIn: React.FC = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const [isLoading, setIsLoading] = useState(false);
-	const [showPassword, setShowPassword] = useState(false);
-	const handleShowPassword = () => setShowPassword(prevState => !prevState);	
 
 	const fetchSignIn = useCallback(async (dataUser: ISignInForm) => {
 		try {
@@ -47,8 +45,6 @@ const SignIn: React.FC = () => {
 				handleSubmit,
 				fetchSignIn,
 				isLoading,
-				showPassword,
-				handleShowPassword,
 				errors
 			}} />
 	);

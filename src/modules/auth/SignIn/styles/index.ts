@@ -1,9 +1,5 @@
 import { IconButton as IconButtonMui, styled } from "@mui/material";
 
-export const TextFieldPassword = styled("div")({
-	position: "relative"
-});
-
 export const IconButton = styled(IconButtonMui)(
 	({ theme }) => `
         position: absolute;

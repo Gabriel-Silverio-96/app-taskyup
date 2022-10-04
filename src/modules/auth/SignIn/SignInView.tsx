@@ -1,14 +1,14 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Divider, Grid, TextField, Typography } from "@mui/material";
 import React from "react";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";
-import { Footer, IconButton, TextFieldPassword } from "./styles";
+import TextFieldPassword from "shared/components/TextFieldPassword";
+import { Footer } from "./styles";
 import { ISignInView } from "./types/SignIn.component";
 
 const SignInView: React.FC<ISignInView> = (props) => {
-	const { register, handleSubmit, fetchSignIn, isLoading, showPassword, handleShowPassword, errors } = props;
+	const { register, handleSubmit, fetchSignIn, isLoading, errors } = props;
 	
 	return (		
 		<Grid container spacing={0}
@@ -35,19 +35,7 @@ const SignInView: React.FC<ISignInView> = (props) => {
 							/>
 						</Grid>
 						<Grid item>
-							<TextFieldPassword>
-								<TextField 
-									label="Password"
-									size="small" 
-									type={showPassword ? "text" : "password"}
-									fullWidth {...register("password")} 	
-									error={errors.password && Boolean(errors.password)}	
-									helperText={errors.password ? errors.password?.message : ""}							
-								/>
-								<IconButton onClick={handleShowPassword}>
-									{showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-								</IconButton>
-							</TextFieldPassword>
+							<TextFieldPassword {...{ register, errors }}/>
 						</Grid>
 						<Grid item>
 							<LoadingButton 							
