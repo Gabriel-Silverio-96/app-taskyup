@@ -3,6 +3,7 @@ import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";
+import TextFieldPassword from "shared/components/TextFieldPassword";
 import { BackgroundSignUp, Footer, GridForm } from "./styles";
 import { ISignUpView } from "./types/SignUp.component";
 
@@ -56,15 +57,7 @@ const SignUpView: React.FC<ISignUpView> = (props) => {
 								/>
 							</Grid>
 							<Grid item>
-								<TextField
-									label="Password"
-									size="small"
-									type="password"
-									fullWidth
-									{...register("password")}
-									error={errors.password && Boolean(errors.password)}	
-									helperText={errors.password ? errors.password?.message : ""}
-								/>
+								<TextFieldPassword {...{ register, errors }}/>
 							</Grid>
 							<Grid item>
 								<LoadingButton
