@@ -71,6 +71,9 @@ const setupInterceptors = (store: Store) => {
 			break;
 
 		default:
+			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
+				{ open: true, message: unexpectedErrorMessage, severity: "error" }
+			));
 			break;
 		}
 
