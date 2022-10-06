@@ -17,11 +17,9 @@ const ResetPassword: React.FC = () => {
 		mode: "all",
 	});
 
-	const { token } = useParams();
-	const [showPassword, setShowPassword] = useState(false);
+	const { token } = useParams();	
 	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
-	const [isSaving, setIsSaving] = useState(false);
-	const handleShowPassword = () => setShowPassword(prevState => !prevState);
+	const [isSaving, setIsSaving] = useState(false);	
 
 	const fetchResetPassword = async (form: IFormResetPassword) => {
 		try {
@@ -40,8 +38,6 @@ const ResetPassword: React.FC = () => {
 	return (
 		<ResetPasswordView
 			{...{
-				showPassword,
-				handleShowPassword,
 				register,
 				onSubmit,
 				errors,
