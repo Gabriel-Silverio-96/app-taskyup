@@ -1,16 +1,14 @@
 import LoadingButton from "@mui/lab/LoadingButton";
-import { Grid, TextField, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";
-import { Footer, IconButton, TextFieldPassword } from "./styles";
+import TextFieldPassword from "shared/components/TextFieldPassword";
+import { Footer } from "./styles";
 import { IResetPasswordView } from "./types";
 
 const ResetPasswordView: React.FC<IResetPasswordView> = (props) => {    
 	const { 
-		showPassword, 
-		handleShowPassword, 
 		register, 
 		onSubmit, 
 		errors, 
@@ -42,20 +40,7 @@ const ResetPasswordView: React.FC<IResetPasswordView> = (props) => {
 						<form onSubmit={onSubmit}>
 							<Grid container direction="column" spacing={5}>
 								<Grid item>
-									<TextFieldPassword>
-										<TextField 
-											label="Password"
-											size="small" 
-											fullWidth
-											{...register("password")}
-											type={showPassword ? "text" : "password"}
-											error={errors.password && Boolean(errors.password)}	
-											helperText={errors.password ? errors.password?.message : ""}							
-										/>
-										<IconButton onClick={handleShowPassword}>
-											{showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-										</IconButton>
-									</TextFieldPassword>
+									<TextFieldPassword {...{ register, errors }}/>									
 								</Grid>
 								<Grid item>
 									<LoadingButton 							
