@@ -5,8 +5,6 @@ export interface IFormResetPassword {
 }
 
 export interface IResetPasswordView {
-    showPassword: boolean;
-    handleShowPassword: () => void;
     register: UseFormRegister<IFormResetPassword>;
     onSubmit: () => void;
     errors: FieldErrors<IFormResetPassword>;
