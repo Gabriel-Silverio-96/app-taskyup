@@ -98,3 +98,23 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         }        
     `
 );
+
+export const TreeViewContainerItem = styled("div")(
+	({ theme }) => `                
+            ul {
+                padding: 0;
+                list-style: none;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: ${theme.spacing(1)};
+
+                    > svg path {
+                        stroke: ${theme.palette.common.white}
+                    }
+                }
+            }
+        }
+    `
+);
