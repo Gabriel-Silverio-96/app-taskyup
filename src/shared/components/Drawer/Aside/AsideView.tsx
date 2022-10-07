@@ -1,13 +1,14 @@
 import { TreeItem, TreeView } from "@mui/lab";
-import { Button, IconButton, Tooltip, Typography } from "@mui/material";
+import { Button, Divider, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { FiChevronDown, FiChevronLeft, FiChevronRight, FiPlus } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
+import { GrHomeRounded } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import DialogNewBoard from "./DialogNewBoard";
-import { Aside, AsideHeader, TreeViewContainer } from "./style";
+import { Aside, AsideHeader, TreeViewContainer, TreeViewContainerItem } from "./style";
 import { IAsideView } from "./types/Aside.component";
 
 const AsideView: React.FC<IAsideView> = (props) => {
@@ -45,7 +46,19 @@ const AsideView: React.FC<IAsideView> = (props) => {
 			</Button>
 
 			<TreeViewContainer open={openAside}>
-				<Typography variant="button" fontWeight={700}>BOARDS</Typography>
+				<TreeViewContainerItem>
+					<Typography variant="button" fontWeight={700}>DASHBOARD</Typography>
+					<ul>
+						<Link to="/dashboard">
+							<li>
+								<GrHomeRounded size={12} /> 
+								<Typography variant="body2">Home</Typography>
+							</li>
+						</Link>
+					</ul>
+					<Divider sx={{ my: 3 }} />
+				</TreeViewContainerItem>
+				<Typography variant="button" fontWeight={700}>MY BOARDS</Typography>
 				<TreeView
 					aria-label="menu navigator"
 					defaultCollapseIcon={<FiChevronDown />}
