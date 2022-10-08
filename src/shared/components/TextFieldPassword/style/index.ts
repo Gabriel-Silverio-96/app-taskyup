@@ -1,7 +1,11 @@
 import { styled, IconButton as IconButtonMui } from "@mui/material";
 
 export const TextFieldPassword = styled("div")({
-	position: "relative"
+	position: "relative",
+
+	".MuiFormControl-root .MuiFormHelperText-root": {
+		whiteSpace: "pre-line"
+	}
 });
 
 export const IconButton = styled(IconButtonMui)(
