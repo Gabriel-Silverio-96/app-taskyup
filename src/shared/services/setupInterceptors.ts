@@ -1,3 +1,4 @@
+import { AlertColor } from "@mui/material";
 import { AxiosResponse } from "axios";
 import { Store } from "redux";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
@@ -5,21 +6,20 @@ import { SNACKBAR_OPEN_TYPE } from "shared/common/store/SnackBar/SnackBar.reduce
 import { createAction } from "shared/common/store/store.action";
 import api from "./api";
 
-const setupInterceptors = (store: Store) => {
+const setupInterceptors = (store: Store) => {	
+	const snackbarStoreAction = (message: string, severity: AlertColor) => {
+		store.dispatch(createAction(SNACKBAR_OPEN_TYPE, { open: true, message, severity }));
+	};
 	api.interceptors.response.use(response => {
 		const { status, data } = response;        
 		if (data.type_message || data.message) {
 			switch (status) {
 			case 200:
-				store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-					{ open: true, message: data.message, severity: "success" }
-				));
+				snackbarStoreAction(data.message, "success");
 				break;
 
 			case 201:
-				store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-					{ open: true, message: data.message, severity: "success" }
-				));
+				snackbarStoreAction(data.message, "success");
 				break;
 
 			default:
@@ -29,17 +29,12 @@ const setupInterceptors = (store: Store) => {
 		return response;
 	}, error => {
 		const unexpectedErrorMessage = "An unexpected error has occurred, please try again later";
-		if (error.response === undefined) {
-			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-				{ open: true, message: unexpectedErrorMessage, severity: "error" }
-			));
-		}
-		const { status, data } = error.response as AxiosResponse<any>;
+		if (error.response === undefined) snackbarStoreAction(unexpectedErrorMessage, "error");			
+		
+		const { status, data } = error.response as AxiosResponse<any>;		
 		switch (status) {
 		case 401:
-			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-				{ open: true, message: data.message, severity: "info" }
-			));
+			snackbarStoreAction(data.message, "info");			
 			store.dispatch(createAction(SIGNIN_TYPE, { isAuthenticated: false, user_data: {} }));
 			api.defaults.headers.common["Authorization"] = "";            
 			localStorage.removeItem("@taskyup.token");
@@ -47,33 +42,23 @@ const setupInterceptors = (store: Store) => {
 			break;
 
 		case 403:
-			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-				{ open: true, message: data.message, severity: "warning" }
-			));
+			snackbarStoreAction(data.message, "warning");			
 			break;
 
 		case 404:
-			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-				{ open: true, message: data.message, severity: "error" }
-			));
+			snackbarStoreAction(data.message, "error");			
 			break;
         
 		case 429:
-			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-				{ open: true, message: data.message, severity: "info" }
-			));
+			snackbarStoreAction(data.message, "info");			
 			break;
 
 		case 500:
-			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-				{ open: true, message: data.message, severity: "error" }
-			));
+			snackbarStoreAction(data.message, "error");			
 			break;
 
 		default:
-			store.dispatch(createAction(SNACKBAR_OPEN_TYPE,
-				{ open: true, message: unexpectedErrorMessage, severity: "error" }
-			));
+			snackbarStoreAction(unexpectedErrorMessage, "error");
 			break;
 		}
 
