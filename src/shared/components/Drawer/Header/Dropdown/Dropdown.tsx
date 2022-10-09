@@ -11,7 +11,6 @@ const Dropdown: React.FC<IDropdown> = ({ children, open }) => {
 	const logout = () => {
 		localStorage.removeItem("@taskyup.token");
 		localStorage.removeItem("@taskyup.user_data");
-		localStorage.removeItem("@taskyup.access_last_page");
 
 		queryClient.clear();		
 		navigate("/auth/signin");
