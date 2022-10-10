@@ -14,13 +14,16 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 		openMenu, 
 		closeMenu, 
 		palette, 
-		data
+		data,
+		isMediumScreen,
 	} = props;
 	
+	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
+
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
-			<Grid item xl={6} md={6} sm={6} xs={12}>
-				<Typography variant="h6" fontWeight={800}>
+			<Grid item xl={6} md={6} sm={8} xs={8}>
+				<Typography variant={variantMediumScreen} fontWeight={800}>
 					{data && (
 						<>
 							{data.title}
@@ -31,7 +34,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 					)}
 				</Typography>
 			</Grid>
-			<Grid item xl={6} md={6} sm={6} xs={12}>
+			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
 					<Button variant="contained" onClick={openDialogNewNote}>
 						<FiPlus size={20} />

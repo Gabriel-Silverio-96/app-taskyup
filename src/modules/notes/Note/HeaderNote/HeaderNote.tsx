@@ -1,6 +1,6 @@
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
@@ -10,9 +10,12 @@ import HeaderNoteView from "./HeaderNoteView";
 
 const HeaderNote: React.FC = () => {
 	const { board_id: boardID } = useParams();
-	const { totalOfNotes } = useContextNote();	
+	const { totalOfNotes } = useContextNote();
+
+	const { palette, breakpoints } = useTheme();
+	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
+		
 	const navigate = useNavigate();
-	const { palette } = useTheme();
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
 	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
@@ -45,6 +48,7 @@ const HeaderNote: React.FC = () => {
 				anchorEl,
 				openMenu,
 				closeMenu,
+				isMediumScreen,
 				palette,
 				data,
 			}}
@@ -52,4 +56,4 @@ const HeaderNote: React.FC = () => {
 	);
 };
 
-export default HeaderNote;
+export default memo(HeaderNote);

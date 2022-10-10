@@ -9,6 +9,7 @@ export interface IHeaderNoteView {
     anchorEl: null | HTMLElement;
     openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
     closeMenu: () => void;
+    isMediumScreen: boolean;
     palette: Palette;
     data: IFetchSingleBoard | undefined;
 }
