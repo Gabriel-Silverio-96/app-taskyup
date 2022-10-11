@@ -8,3 +8,9 @@ export const Header = styled("header")(
         padding: ${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(3)};
     `
 );
+
+export const Nav = styled("nav")(
+	() => `
+        z-index: 2;
+    `
+);

@@ -2,7 +2,7 @@ import { ClickAwayListener, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { FiUser } from "react-icons/fi";
 import Dropdown from "./Dropdown";
-import { Header } from "./style";
+import { Header, Nav } from "./style";
 import { IHeaderView } from "./types/Header.component";
 
 const HeaderView: React.FC<IHeaderView> = (props) => {
@@ -15,7 +15,7 @@ const HeaderView: React.FC<IHeaderView> = (props) => {
 			>
 				{currentPageTitle ? currentPageTitle : "TaskYup"}
 			</Typography>
-			<nav>
+			<Nav>
 				<Dropdown open={isOpen}>
 					<ClickAwayListener onClickAway={toogleDropdownAway}>
 						<IconButton onClick={toogleDropdown}>
@@ -23,7 +23,7 @@ const HeaderView: React.FC<IHeaderView> = (props) => {
 						</IconButton>
 					</ClickAwayListener>
 				</Dropdown>
-			</nav>
+			</Nav>
 		</Header>
 	);
 };
