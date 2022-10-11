@@ -32,6 +32,21 @@ export const Aside = styled("aside")<IAsideStyle>(
                 }
             }
         }
+
+        @media (max-width: 576px) {
+            width: ${open ? theme.spacing(25) : theme.spacing(1)};
+            padding: ${open ? theme.spacing(2) : 0};    
+            
+            > button {
+                display: ${open ? "flex" : "none"};
+            }
+
+            > div {
+                a {
+                    display: ${open ? "flex" : "none"};
+                }
+            }
+        }
     `
 );
 
