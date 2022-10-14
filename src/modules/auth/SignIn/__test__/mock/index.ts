@@ -17,7 +17,7 @@ const INCORRECT_EMAIL_PASSWORD_RESPONSE_MOCK = {
 };
 
 const AUTHENTICATION_SUCCESS_RESPONSE_MOCK = {
-	message: "Successful authentication when the user authentication success",
+	message: "Successful authentication",
 	token: faker.datatype.uuid(),
 	type_message: "success",
 	user_data: {
