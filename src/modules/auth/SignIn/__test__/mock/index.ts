@@ -2,12 +2,13 @@ import { faker } from "@faker-js/faker";
 
 const SIGNIN_MOCK = {
 	email: faker.internet.email(),
-	password: faker.internet.password()
+	password: faker.internet.password(),
+	fullName: faker.name.fullName()
 };
 
 const USER_NOT_EXIST_MOCK = {
+	message: "Unregistered user, create an account",
 	type_message: "warning",
-	message: "Unregistered user, create an account"
 };
 
 const INCORRECT_EMAIL_PASSWORD_MOCK = {
