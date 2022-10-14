@@ -53,5 +53,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "axios-mock-adapter": "^1.21.2"
+  }
 }
