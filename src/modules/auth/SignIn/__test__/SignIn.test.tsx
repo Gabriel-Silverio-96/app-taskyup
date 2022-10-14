@@ -5,12 +5,13 @@ import api from "shared/services/api";
 import { EMAIL_MESSAGE_VALIDATION_MOCK, PASSWORD_MESSAGE_VALIDATION_MOCK } from "shared/util/test/message";
 import render from "shared/util/test/render";
 import SignIn from "../SignIn";
-import { USER_NOT_EXIST_MOCK } from "./mock";
+import { INCORRECT_EMAIL_PASSWORD_MOCK, SIGNIN_MOCK, USER_NOT_EXIST_MOCK } from "./mock";
 
 const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
 afterEach(cleanup);
 
+const { email, password } = SIGNIN_MOCK;
 const { requiredEmail, validationEmail } = EMAIL_MESSAGE_VALIDATION_MOCK;
 const { validationPassword } = PASSWORD_MESSAGE_VALIDATION_MOCK;
 
@@ -73,9 +74,9 @@ describe("Component <SignIn />", () => {
 		render(<SignIn />);		
 		await act(() => {
 			const inputEmail = screen.getByLabelText(LABEL_EMAIL);
-			userEvent.type(inputEmail, "email@email.com");
+			userEvent.type(inputEmail, email);
 			const inputPassword = screen.getByLabelText(LABEL_PASSWORD);
-			userEvent.type(inputPassword, "123456");			
+			userEvent.type(inputPassword, password);			
 				
 			const buttonSubmit = screen.getByRole("button", { name: "Sign in" });
 			userEvent.click(buttonSubmit);
@@ -83,6 +84,26 @@ describe("Component <SignIn />", () => {
 
 		await waitFor(() => {
 		 	const snackbarMessage = screen.getByText(USER_NOT_EXIST_MOCK.message);		
+		 	expect(snackbarMessage).toBeInTheDocument();
+		});
+	});	
+
+	test.only(`Should show message '${INCORRECT_EMAIL_PASSWORD_MOCK.message}' when the user does not exist`, async () => {
+		mock.onPost("auth/login").reply(403, INCORRECT_EMAIL_PASSWORD_MOCK);
+		
+		render(<SignIn />);		
+		await act(() => {
+			const inputEmail = screen.getByLabelText(LABEL_EMAIL);
+			userEvent.type(inputEmail, email);
+			const inputPassword = screen.getByLabelText(LABEL_PASSWORD);
+			userEvent.type(inputPassword, password);			
+				
+			const buttonSubmit = screen.getByRole("button", { name: "Sign in" });
+			userEvent.click(buttonSubmit);
+		});
+
+		await waitFor(() => {
+		 	const snackbarMessage = screen.getByText(INCORRECT_EMAIL_PASSWORD_MOCK.message);		
 		 	expect(snackbarMessage).toBeInTheDocument();
 		});
 	});	
