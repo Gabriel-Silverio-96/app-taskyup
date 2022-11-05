@@ -15,26 +15,39 @@ const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
 afterEach(cleanup);
 
-const { email, password } = SIGNIN_MOCK;
+const { email, password, fullName } = SIGNIN_MOCK;
 
 const LABEL_EMAIL = /email/i;
 const LABEL_PASSWORD = /password/i;
+
+const EACH_EMAIL_VALIDATION_CASES = [
+	{
+		label: LABEL_EMAIL,
+		value: fullName,
+		messageTest: "Should show validation message when written a value other than email",
+	},
+	{
+		label: LABEL_EMAIL,
+		value: email.slice(0, -3),
+		messageTest: "Should show validation message when written in half",
+	},
+];
 
 const EACH_AUTHENTICATION_REQUEST_CASES = [
 	{
 		status: 403,
 		mockData: USER_NOT_EXIST_RESPONSE_MOCK,
-		message: USER_NOT_EXIST_RESPONSE_MOCK.message,
+		messageTest: USER_NOT_EXIST_RESPONSE_MOCK.message,
 	},
 	{
 		status: 403,
 		mockData: INCORRECT_EMAIL_PASSWORD_RESPONSE_MOCK,
-		message: INCORRECT_EMAIL_PASSWORD_RESPONSE_MOCK.message,
+		messageTest: INCORRECT_EMAIL_PASSWORD_RESPONSE_MOCK.message,
 	},
 	{
 		status: 200,
 		mockData: AUTHENTICATION_SUCCESS_RESPONSE_MOCK,
-		message: AUTHENTICATION_SUCCESS_RESPONSE_MOCK.message,
+		messageTest: AUTHENTICATION_SUCCESS_RESPONSE_MOCK.message,
 	},
 ];
 
@@ -76,8 +89,21 @@ describe("Component <SignIn />", () => {
 		expect(passwordMessage).toBeInTheDocument();
 	});
 
+	test.each(EACH_EMAIL_VALIDATION_CASES)(
+		"$messageTest",
+		async ({ label, value }) => {
+			render(<SignIn />);
+			const inputEmail = screen.getByLabelText(label);
+			userEvent.type(inputEmail, value);
+
+			const messageValidation = /email must be a valid email/i;
+			const emailMessage = await screen.findByText(messageValidation);
+			expect(emailMessage).toBeInTheDocument();
+		}
+	);
+
 	test.each(EACH_AUTHENTICATION_REQUEST_CASES)(
-		"Should show message $message",
+		"Should show message snackbar $messageTest",
 		async ({ status, mockData }) => {
 			mock.onPost("auth/login").reply(status, mockData);
 
