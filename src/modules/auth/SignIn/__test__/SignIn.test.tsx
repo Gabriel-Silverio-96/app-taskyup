@@ -15,7 +15,7 @@ const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
 afterEach(cleanup);
 
-const { email, password, fullName } = SIGNIN_MOCK;
+const { email, password } = SIGNIN_MOCK;
 
 const LABEL_EMAIL = /email/i;
 const LABEL_PASSWORD = /password/i;

@@ -3,7 +3,6 @@ import { faker } from "@faker-js/faker";
 const SIGNIN_MOCK = {
 	email: faker.internet.email(),
 	password: faker.internet.password(),
-	fullName: faker.name.fullName()
 };
 
 const USER_NOT_EXIST_RESPONSE_MOCK = {
