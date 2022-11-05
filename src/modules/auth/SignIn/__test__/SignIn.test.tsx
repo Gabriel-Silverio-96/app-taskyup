@@ -20,8 +20,6 @@ const { email, password, fullName } = SIGNIN_MOCK;
 const LABEL_EMAIL = /email/i;
 const LABEL_PASSWORD = /password/i;
 
-const messageValidation = /email must be a valid email/i;
-
 const EACH_AUTHENTICATION_REQUEST_CASES = [
 	{
 		status: 403,
