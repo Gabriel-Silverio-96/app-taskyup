@@ -21,20 +21,6 @@ const LABEL_EMAIL = /email/i;
 const LABEL_PASSWORD = /password/i;
 
 const messageValidation = /email must be a valid email/i;
-const EACH_EMAIL_VALIDATION_CASES = [
-	{
-		label: LABEL_EMAIL,
-		value: fullName,
-		messageValidation,
-		messageTest: "a value other than email",
-	},
-	{
-		label: LABEL_EMAIL,
-		value: email.slice(0, -3),
-		messageValidation,
-		messageTest: "in half",
-	},
-];
 
 const EACH_AUTHENTICATION_REQUEST_CASES = [
 	{
@@ -91,18 +77,6 @@ describe("Component <SignIn />", () => {
 		);
 		expect(passwordMessage).toBeInTheDocument();
 	});
-
-	test.each(EACH_EMAIL_VALIDATION_CASES)(
-		"Should show validation message when written $messageTest",
-		async ({ label, value, messageValidation }) => {
-			render(<SignIn />);
-			const inputEmail = screen.getByLabelText(label);
-			userEvent.type(inputEmail, value);
-
-			const emailMessage = await screen.findByText(messageValidation);
-			expect(emailMessage).toBeInTheDocument();
-		}
-	);
 
 	test.each(EACH_AUTHENTICATION_REQUEST_CASES)(
 		"Should show message $message",
