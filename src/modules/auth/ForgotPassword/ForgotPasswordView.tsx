@@ -26,32 +26,30 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 					subtitle={subtitleMessage}
 				/>				
 				{!sendEmail.isSending && (
-					<>
-						<form onSubmit={onSubmit}>
-							<Grid container direction="column" spacing={5}>
-								<Grid item>
-									<TextField 
-										label="Email" 
-										size="small" 
-										fullWidth 
-										{...register("email")}
-										error={errors.email && Boolean(errors.email)}								
-										helperText={errors.email ? errors.email?.message : ""}
-									/>
-								</Grid>
-								<Grid item>
-									<LoadingButton 							
-										fullWidth 
-										variant="contained"
-										type="submit"
-										loading={isLoading}
-									>
-										Send
-									</LoadingButton>
-								</Grid>
+					<form onSubmit={onSubmit}>
+						<Grid container direction="column" spacing={5}>
+							<Grid item>
+								<TextField 
+									label="Email" 
+									size="small" 
+									fullWidth 
+									{...register("email")}
+									error={errors.email && Boolean(errors.email)}								
+									helperText={errors.email ? errors.email?.message : ""}
+								/>
 							</Grid>
-						</form>
-					</>
+							<Grid item>
+								<LoadingButton 							
+									fullWidth 
+									variant="contained"
+									type="submit"
+									loading={isLoading}
+								>
+										Send
+								</LoadingButton>
+							</Grid>
+						</Grid>
+					</form>
 				)}
 				<Footer>
 					<Grid container direction="column">
