@@ -4,15 +4,15 @@ export interface IForgotPasswordForm {
 	email: string;
 }
 
-export interface IEmailSend {
+export interface ISendEmail {
 	email: string;
-	isSendEmail: boolean;
+	isSending: boolean;
 }
 
 export interface IForgotPasswordView {
 	register: UseFormRegister<IForgotPasswordForm>;
 	errors: FieldErrors<IForgotPasswordForm>;
 	isLoading: boolean;
-	emailSend: IEmailSend;
+	sendEmail: ISendEmail;
 	onSubmit: () => void;
 }
