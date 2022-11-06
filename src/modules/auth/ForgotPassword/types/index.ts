@@ -13,6 +13,6 @@ export interface IForgotPasswordView {
 	register: UseFormRegister<IForgotPasswordForm>;
 	errors: FieldErrors<IForgotPasswordForm>;
 	isLoading: boolean;
-	emailSend: ISendEmail;
+	sendEmail: ISendEmail;
 	onSubmit: () => void;
 }
