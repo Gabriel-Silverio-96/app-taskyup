@@ -6,11 +6,11 @@ import { Footer, Link } from "./styles";
 import { IForgotPasswordView } from "./types";
 
 const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
-	const { register, errors, onSubmit, isLoading, emailSend } = props;
+	const { register, errors, onSubmit, isLoading, sendEmail } = props;
 
-	const titleMessage = emailSend.isSendEmail ? "Check your email"	: "Forgot password";
-	const subtitleMessage = emailSend.isSendEmail
-		? `An email is on its way to ${emailSend.email}
+	const titleMessage = sendEmail.isSending ? "Check your email"	: "Forgot password";
+	const subtitleMessage = sendEmail.isSending
+		? `An email is on its way to ${sendEmail.email}
 			with instructions for reset your password.`
 		: "Which email is registered on TaskYup";
 
@@ -25,7 +25,7 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 					title={titleMessage}
 					subtitle={subtitleMessage}
 				/>				
-				{!emailSend.isSendEmail && (
+				{!sendEmail.isSending && (
 					<>
 						<form onSubmit={onSubmit}>
 							<Grid container direction="column" spacing={5}>
