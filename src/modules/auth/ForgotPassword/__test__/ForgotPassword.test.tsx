@@ -5,7 +5,7 @@ import { act } from "react-dom/test-utils";
 import api from "shared/services/api";
 import render from "shared/util/test/render";
 import ForgotPassword from "../ForgotPassword";
-import { FORGOT_PASSWORD_MOCK, UNREGISTERED_USER_MOCK, REGISTERED_USER_MOCK } from "./mock";
+import { FORGOT_PASSWORD_MOCK, UNREGISTERED_USER_RESPONSE_MOCK, REGISTERED_USER_RESPONSE_MOCK } from "./mock";
 
 const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
@@ -27,8 +27,8 @@ describe("Component <ForgotPassword />", () => {
 		expect(container).toBeEmptyDOMElement();
 	}); 
 
-	test(`Should show message ${UNREGISTERED_USER_MOCK.message} when the user has no account`, async () => {
-		mock.onPost("auth/forgot-password").reply(403, UNREGISTERED_USER_MOCK);
+	test(`Should show message ${UNREGISTERED_USER_RESPONSE_MOCK.message} when the user has no account`, async () => {
+		mock.onPost("auth/forgot-password").reply(403, UNREGISTERED_USER_RESPONSE_MOCK);
 
 		render(<ForgotPassword />);
 		await act(() => {
@@ -40,13 +40,13 @@ describe("Component <ForgotPassword />", () => {
 		});
 
 		await waitFor(() => {
-			const snackbarMessage = screen.getByText(UNREGISTERED_USER_MOCK.message);				
+			const snackbarMessage = screen.getByText(UNREGISTERED_USER_RESPONSE_MOCK.message);				
 		   	expect(snackbarMessage).toBeInTheDocument();
 	   });
 	});
 
-	test(`Should show message ${REGISTERED_USER_MOCK.message} when the user has account`, async () => {
-		mock.onPost("auth/forgot-password").reply(200, REGISTERED_USER_MOCK);
+	test(`Should show message ${REGISTERED_USER_RESPONSE_MOCK.message} when the user has account`, async () => {
+		mock.onPost("auth/forgot-password").reply(200, REGISTERED_USER_RESPONSE_MOCK);
 
 		const { container } = render(<ForgotPassword />);
 		await act(() => {
@@ -58,7 +58,7 @@ describe("Component <ForgotPassword />", () => {
 		});
 
 		await waitFor(() => {
-			const snackbarMessage = screen.getByText(REGISTERED_USER_MOCK.message);				
+			const snackbarMessage = screen.getByText(REGISTERED_USER_RESPONSE_MOCK.message);				
 			expect(snackbarMessage).toBeInTheDocument();
 
 			const form = container.querySelector("form");
