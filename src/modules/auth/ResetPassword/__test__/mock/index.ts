@@ -6,9 +6,14 @@ const RESET_PASSWORD_MOCK = {
 };
 
 const INVALID_TOKEN_MOCK = {
-	// err: { name: faker.lorem.sentence(), message: faker.lorem.sentence() },
+	err: { name: faker.lorem.sentence(), message: faker.lorem.sentence() },
 	message: "Invalid token",
 	type_message: "error",
 };
 
-export { RESET_PASSWORD_MOCK, INVALID_TOKEN_MOCK };
+const RESET_PASSWORD_SUCCESS_MOCK = {
+	message: "Password updated",
+	type_message: "success",
+};
+
+export { RESET_PASSWORD_MOCK, INVALID_TOKEN_MOCK, RESET_PASSWORD_SUCCESS_MOCK };
