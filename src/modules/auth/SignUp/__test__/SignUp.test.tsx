@@ -4,7 +4,7 @@ import MockAdapter from "axios-mock-adapter";
 import api from "shared/services/api";
 import render from "shared/util/test/render";
 import SignUp from "../SignUp";
-import { CREATE_ACCOUNT_SUCCESS_MOCK, EMAIL_REGISTERED_MOCK, SIGNUP_MOCK } from "./mock";
+import { CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK, EMAIL_REGISTERED_RESPONSE_MOCK, SIGNUP_MOCK } from "./mock";
 
 const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
@@ -19,13 +19,13 @@ const LABEL_PASSWORD = /password/i;
 const EACH_AUTHENTICATION_REQUEST_CASES = [
 	{
 		status: 403,		
-		mockData: EMAIL_REGISTERED_MOCK,
-		messageTest: EMAIL_REGISTERED_MOCK.message,
+		mockData: EMAIL_REGISTERED_RESPONSE_MOCK,
+		messageTest: EMAIL_REGISTERED_RESPONSE_MOCK.message,
 	},
 	{
 		status: 201,		
-		mockData: CREATE_ACCOUNT_SUCCESS_MOCK,
-		messageTest: CREATE_ACCOUNT_SUCCESS_MOCK.message,
+		mockData: CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK,
+		messageTest: CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK.message,
 	},
 ];
 
