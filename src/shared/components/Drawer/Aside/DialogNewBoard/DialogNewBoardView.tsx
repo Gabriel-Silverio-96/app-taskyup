@@ -67,7 +67,10 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = (props) => {
 								fullWidth
 								{...register("board_type_id")}	
 								error={errors.board_type_id && Boolean(errors.board_type_id)}
-								helperText={errors.board_type_id ? errors.board_type_id?.message : ""}
+								helperText={errors.board_type_id ? errors.board_type_id?.message : ""}		
+								inputProps={{
+									"data-testid": "board-type-id-input-inside-select"
+								}}						
 							>
 								<MenuItem value="1f819d7d-11b5-4742-be86-2286ef50b5d5">Notes</MenuItem>
 								<MenuItem value="7b784aee-0133-4d6a-b14b-8dbbe19e9428" disabled>Text</MenuItem>
