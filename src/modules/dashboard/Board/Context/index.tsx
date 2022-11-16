@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { IContextBoard, IContextProviderBoard } from "./types/Context.component";
 
-export const ContextBoard = createContext({} as IContextBoard);
+export const ContextBoard = createContext<IContextBoard | undefined>(undefined);
 
 export const ContextProviderBoard:React.FC<IContextProviderBoard> = ({ children }) => {
 	const [boardID, setBoardID] = useState("");
@@ -22,4 +22,11 @@ export const ContextProviderBoard:React.FC<IContextProviderBoard> = ({ children 
 	);
 };
 
-export const useContextBoard = () => useContext(ContextBoard);
+export const useContextBoard = () => {
+	const context = useContext(ContextBoard);
+	if(context === undefined) {
+		throw new Error("useContextBoard must be used within a ContextProviderBoard");
+	}
+
+	return context;
+};
