@@ -10,7 +10,7 @@ const BOARD_MOCK = {
 	}	
 };
 
-const LIST_BOARD_MOCK_SUCCESS_REPOSNSE_MOCK = [{
+const LIST_BOARD_MOCK_SUCCESS_RESPONSE_MOCK = [{
 	board_id: faker.datatype.uuid(),
 	title: board_name,	
 	type_board: "notes",
@@ -18,9 +18,9 @@ const LIST_BOARD_MOCK_SUCCESS_REPOSNSE_MOCK = [{
 	members_board: [faker.name.fullName()]
 }];
 
-const CREATE_BOARD_SUCCESS_REPOSNSE_MOCK = {
+const CREATE_BOARD_SUCCESS_RESPONSE_MOCK = {
 	message: "Board created successfully",
 	type_message: "success"
 };
 
-export { BOARD_MOCK, LIST_BOARD_MOCK_SUCCESS_REPOSNSE_MOCK, CREATE_BOARD_SUCCESS_REPOSNSE_MOCK };
+export { BOARD_MOCK, LIST_BOARD_MOCK_SUCCESS_RESPONSE_MOCK, CREATE_BOARD_SUCCESS_RESPONSE_MOCK };
