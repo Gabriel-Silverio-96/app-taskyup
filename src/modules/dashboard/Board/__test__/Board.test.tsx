@@ -27,7 +27,7 @@ describe("Component <Board />", () => {
 		expect(container).toBeEmptyDOMElement();
 	});	
 
-	test.only("Create new board type notes", async () => {
+	test("Create new board type notes", async () => {
 		mock.onPost("board/create").reply(201, CREATE_BOARD_SUCCESS_REPOSNSE_MOCK);
 		mock.onGet("board").reply(200, LIST_BOARD_MOCK_SUCCESS_REPOSNSE_MOCK);
 
