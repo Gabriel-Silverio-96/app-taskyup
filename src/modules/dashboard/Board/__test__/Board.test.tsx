@@ -5,7 +5,7 @@ import { act } from "react-dom/test-utils";
 import api from "shared/services/api";
 import renderRequiredAuth from "shared/util/test/renderRequiredAuth";
 import Board from "../Board";
-import { BOARD_MOCK, CREATE_BOARD_SUCCESS_REPOSNSE_MOCK } from "./mock";
+import { BOARD_MOCK, CREATE_BOARD_SUCCESS_REPOSNSE_MOCK, LIST_BOARD_MOCK_SUCCESS_REPOSNSE_MOCK } from "./mock";
 
 const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
@@ -27,8 +27,10 @@ describe("Component <Board />", () => {
 		expect(container).toBeEmptyDOMElement();
 	});	
 
-	test("Create new board type notes", async () => {
+	test.only("Create new board type notes", async () => {
 		mock.onPost("board/create").reply(201, CREATE_BOARD_SUCCESS_REPOSNSE_MOCK);
+		mock.onGet("board").reply(200, LIST_BOARD_MOCK_SUCCESS_REPOSNSE_MOCK);
+
 		renderRequiredAuth(<Board />);
 
 		const buttonNewBoard = screen.getByRole("button", { name: "New board" });
@@ -48,6 +50,9 @@ describe("Component <Board />", () => {
 		await waitFor(() => {			
 			const snackbarMessage = screen.getByText(CREATE_BOARD_SUCCESS_REPOSNSE_MOCK.message);
 			expect(snackbarMessage).toBeInTheDocument();
+
+			const boardTitleWasCreated = screen.getByText(LIST_BOARD_MOCK_SUCCESS_REPOSNSE_MOCK[0].title);
+			expect(boardTitleWasCreated).toBeInTheDocument();
 		});				
 	});
 });
