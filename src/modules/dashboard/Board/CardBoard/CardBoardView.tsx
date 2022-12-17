@@ -4,6 +4,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import Loading from "shared/components/Loading";
+import CardBoardEmpty from "./CardBoardEmpty";
 import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
 import { IBoardIcon, ICardBoardView } from "./types/CardBoard.component";
 
@@ -25,12 +26,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isFetching} backdrop />
-			{board && !board.length && (
-				<Grid item md={12} sx={{ mt: 1 }}>
-					<Typography variant="body2" fontWeight={800}>You have not created any board</Typography>
-					<Typography variant="caption" color="GrayText">Create a board 😊</Typography>
-				</Grid>
-			)}
+			<CardBoardEmpty board={board}/>
 			{board &&
 				board.map((boardItem: IFetchBoard) => (
 					<Grid item xl={2} md={3} xs={12} key={boardItem.board_id}>
