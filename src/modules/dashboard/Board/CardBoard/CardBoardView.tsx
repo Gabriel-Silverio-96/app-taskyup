@@ -51,7 +51,9 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 											onClick={(event: MouseEvent<HTMLButtonElement>) => {
 												handleBoardID(boardItem.board_id);
 												openMenu(event);
-											}}>
+											}}
+											data-testid="button-card-board-options"
+										>
 											<BsThreeDots />
 										</IconButton>
 										<Menu 
@@ -77,6 +79,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 											component="div"
 											fontWeight={800}
 											fontSize={16}
+											data-testid="card-board-title"
 										>
 											{
 												boardItem.title.length > 30 
