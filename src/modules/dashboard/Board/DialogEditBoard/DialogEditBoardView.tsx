@@ -66,6 +66,9 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
 										{...register("title")}
 										error={errors.title && Boolean(errors.title)}
 										helperText={errors.title ? errors.title?.message : ""}
+										inputProps={{
+											"data-testid": "input-edit"
+										}}
 									/>
 								</Grid>
 							</Grid>
