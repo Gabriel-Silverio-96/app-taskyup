@@ -41,5 +41,10 @@ export const Menu = styled(MenuMui)(
             box-shadow: none;
             background: ${theme.palette.background.paper};
         }
+
+        ul > li {
+            font-size: ${theme.typography.caption.fontSize};
+            padding-bottom: 0;
+        }
     `
 );
