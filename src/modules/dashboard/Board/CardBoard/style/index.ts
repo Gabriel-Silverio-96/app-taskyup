@@ -44,7 +44,11 @@ export const Menu = styled(MenuMui)(
 
         ul > li {
             font-size: ${theme.typography.caption.fontSize};
-            padding-bottom: 0;
+            padding-bottom: ${theme.spacing(0.5)};
+
+            > svg {
+                margin-right: ${theme.spacing(1)};
+            }
         }
     `
 );
