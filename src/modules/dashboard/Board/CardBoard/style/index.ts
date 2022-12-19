@@ -4,6 +4,7 @@ export const CardBoardContainer = styled("div")(
 	({ theme }) => `
     .MuiPaper-root {
         border: 1px solid transparent;
+        border-radius: ${theme.spacing(1)};
         :hover {
             transition: .3s;
             border-color: ${theme.palette.primary.main};
@@ -33,7 +34,10 @@ export const CardHeader = styled("div")({
 
 export const Menu = styled(MenuMui)(
 	({ theme }) => `    
-        .MuiPaper-root   {
+    
+    .MuiPaper-root   {
+            width: ${theme.spacing(15)};
+            border-radius: ${theme.spacing(1)};
             box-shadow: none;
             background: ${theme.palette.background.paper};
         }
