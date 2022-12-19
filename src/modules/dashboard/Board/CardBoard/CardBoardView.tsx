@@ -1,6 +1,8 @@
 import { Card, CardContent, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
+import { AiOutlineDelete } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
+import { FiEdit, FiImage } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import Loading from "shared/components/Loading";
@@ -68,11 +70,16 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 												anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
 												transformOrigin={{ vertical: "top", horizontal: "right" }}
 											>
-												<MenuItem onClick={() => openDialogEditBoard(closeMenu)}>Edit</MenuItem>
+												<MenuItem onClick={() => openDialogEditBoard(closeMenu)}>
+													<FiEdit /> Edit
+												</MenuItem>
+												<MenuItem disabled>
+													<FiImage /> Background
+												</MenuItem>
 												<MenuItem onClick={() => openDialogDeleteSingleBoard(closeMenu)} 
 													sx={ { color: palette.error.main } }
 												>
-													Delete
+													<AiOutlineDelete /> Delete
 												</MenuItem>
 											</Menu>
 										</CardHeader>
