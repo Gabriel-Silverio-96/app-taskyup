@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { memo, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
@@ -18,6 +18,8 @@ const DialogEditBoard = () => {
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const { boardID, isOpenDialogEditBoard } = useContextBoard();
+	const [backgroundImage, setBackgroundImage] = useState("");
+
 	const { closeDialogEditBoard } = useDialogBoard();
 	const {
 		register,
@@ -34,6 +36,7 @@ const DialogEditBoard = () => {
 	const onSuccess = (data: IFetchSingleBoard) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
+		setBackgroundImage(data.background_image);
 	};
 
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleBoard>(
@@ -42,8 +45,13 @@ const DialogEditBoard = () => {
 		{ cacheTime: 0, onSuccess, retry: false, enabled: false }
 	);
 
-	useEffect(() => {isOpenDialogEditBoard && refetch();}, [isOpenDialogEditBoard]);
-
+	useEffect(() => {
+		if(isOpenDialogEditBoard) {
+			refetch();
+		}
+		return () => setBackgroundImage("");		
+	}, [isOpenDialogEditBoard]);
+	
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
 		async (dataEditBoard: IDialogEditBoardForm) => {
 			await api.patch(`board/edit/board_id=${boardID}`, dataEditBoard);
@@ -64,6 +72,7 @@ const DialogEditBoard = () => {
 				isSaving,
 				isOpenDialogEditBoard,
 				closeDialogEditBoard,
+				backgroundImage
 			}}
 		/>
 	);

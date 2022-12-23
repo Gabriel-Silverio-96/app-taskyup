@@ -11,6 +11,7 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
+import DialogBackground from "./DialogBackground";
 import { IDialogEditBoardView } from "./types/DialogEditBoard.component";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
@@ -24,6 +25,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
 		isSaving,
 		isOpenDialogEditBoard,
 		closeDialogEditBoard,
+		backgroundImage
 	} = props;
 
 	const loadingGrid = { display: isLoading ? "flex" : "none", mb: 5 };
@@ -36,7 +38,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
 			fullScreen={fullScreen}
 			onClose={!isSaving && !isLoading ? closeDialogEditBoard : () => ""}
 		>
-			<DialogTitle sx={{marginBottom: "1rem"}}>
+			<DialogTitle>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Grid item>
 						<Typography variant="h6" fontWeight={700}>Edit Board</Typography>
@@ -53,7 +55,8 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
 			</Grid>
 			{!isLoading && (
 				<>
-					<DialogContent>
+					<DialogContent sx={{pt: 0}}>	
+						<DialogBackground {...{ backgroundImage }} />					
 						<form 
 							id="form-new-board"
 							onSubmit={handleSubmit(fetchDialogEditBoard)}>
