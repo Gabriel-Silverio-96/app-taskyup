@@ -29,18 +29,18 @@ export const CardIcon = styled("div")(
 export const CardHeader = styled("div")({
 	display: "flex",
 	alignItem: "center",
-	justifyContent: "space-between"
+	justifyContent: "space-between",
 });
 
 export const Menu = styled(MenuMui)(
 	({ theme }) => `    
     
-    .MuiPaper-root   {
-            width: ${theme.spacing(15)};
-            border-radius: ${theme.spacing(1)};
-            box-shadow: none;
-            background: ${theme.palette.background.paper};
-        }
+    .MuiPaper-root {
+        width: ${theme.spacing(15)};
+        border-radius: ${theme.spacing(1)};
+        box-shadow: none;
+        background: ${theme.palette.background.paper};
+    }
 
         ul > li {
             font-size: ${theme.typography.caption.fontSize};

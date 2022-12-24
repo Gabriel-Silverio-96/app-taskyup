@@ -105,7 +105,7 @@ export const MenuSearch = styled("div")(
         
         > button {
             position: absolute;
-            right: ${theme.spacing(2.25)};
+            right: ${theme.spacing(2.25)};;
         }
     `
 );

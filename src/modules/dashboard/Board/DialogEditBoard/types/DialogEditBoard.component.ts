@@ -14,6 +14,5 @@ export interface IDialogEditBoardView {
     isLoading: boolean;
     isSaving: boolean;
     isOpenDialogEditBoard: boolean;
-    backgroundImage: string;
     closeDialogEditBoard: () => void;
 }

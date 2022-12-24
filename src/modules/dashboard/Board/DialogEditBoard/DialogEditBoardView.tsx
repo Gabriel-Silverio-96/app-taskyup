@@ -3,19 +3,21 @@ import {
 	Dialog,
 	DialogActions,
 	DialogContent,
-	DialogTitle, Grid,
-	IconButton, TextField,
+	DialogTitle,
+	Grid,
+	IconButton,
+	TextField,
 	Typography
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
-import DialogBackground from "./DialogBackground";
+import DialogBackground	from "./DialogBackground";
 import { IDialogEditBoardView } from "./types/DialogEditBoard.component";
 
-const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
-	const { 
+const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
+	const {
 		register,
 		fullScreen,
 		handleSubmit,
@@ -24,8 +26,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
 		isLoading,
 		isSaving,
 		isOpenDialogEditBoard,
-		closeDialogEditBoard,
-		backgroundImage
+		closeDialogEditBoard,		
 	} = props;
 
 	const loadingGrid = { display: isLoading ? "flex" : "none", mb: 5 };
@@ -55,9 +56,9 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = (props) => {
 			</Grid>
 			{!isLoading && (
 				<>
-					<DialogContent sx={{pt: 0}}>	
-						<DialogBackground {...{ backgroundImage }} />					
-						<form 
+					<DialogContent sx={{ pt: 0 }}>
+						<DialogBackground />
+						<form
 							id="form-new-board"
 							onSubmit={handleSubmit(fetchDialogEditBoard)}>
 							<Grid container direction="column" spacing={5}>						
