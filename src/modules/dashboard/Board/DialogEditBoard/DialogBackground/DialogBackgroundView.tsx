@@ -1,5 +1,5 @@
 import {
-	Button, TextField
+	Button, TextField, Typography
 } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -35,15 +35,16 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				onClose={closeMenu}
 				transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
 				anchorOrigin={{ vertical: "bottom",	horizontal: "right" }}
-				transformOrigin={{ vertical: "top",	horizontal: "right" }}>
-
+				transformOrigin={{ vertical: "top",	horizontal: "right" }}
+			>					
+				<Typography variant="subtitle1" fontWeight={800}>Choose a background</Typography>
 				<MenuSearch>
 					<TextField placeholder="Search" />	
 					<Button>
 						<BiSearch size={25} />
 					</Button>							
 				</MenuSearch>
-				<MenuImages>
+				<MenuImages>					
 					{images.map((image: any) => (
 						<figure key={image.id}>
 							<img src={image.image_url} />

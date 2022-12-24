@@ -95,6 +95,8 @@ export const MenuImagesFooter = styled("div")(
 
 export const MenuSearch = styled("div")(
 	({ theme }) => `
+        margin-top: ${theme.spacing(2)};
+        
         .MuiFormControl-root  {
             width: 100%;
         }
