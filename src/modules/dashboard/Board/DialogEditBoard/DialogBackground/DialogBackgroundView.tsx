@@ -20,7 +20,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 	const thereBackgroundImage = Boolean(backgroundImage);
 
 	return (
-		<DialogBackground backgroundImage={backgroundImage}>
+		<DialogBackground backgroundimage={backgroundImage}>
 			<Button
 				variant="contained"
 				size="small"
