@@ -14,13 +14,13 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		closeMenu,
 		anchorEl,
 		images,
+		dialogBackgroundImage
 	} = props;
 
-	const backgroundImage = "https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";    
-	const thereBackgroundImage = Boolean(backgroundImage);
+	const thereBackgroundImage = Boolean(dialogBackgroundImage);
 
 	return (
-		<DialogBackground backgroundimage={backgroundImage}>
+		<DialogBackground backgroundimage={dialogBackgroundImage}>
 			<Button
 				variant="contained"
 				size="small"

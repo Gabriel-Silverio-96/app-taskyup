@@ -15,7 +15,7 @@ import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
-	const { boardID, isOpenDialogEditBoard } = useContextBoard();
+	const { boardID, isOpenDialogEditBoard, setDialogBackgroundImage } = useContextBoard();
 	
 	const { closeDialogEditBoard } = useDialogBoard();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -35,7 +35,7 @@ const DialogEditBoard = () => {
 	const onSuccess = (data: IFetchSingleBoard) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
-		// setBackgroundImage(data.background_image);
+		setDialogBackgroundImage(data.background_image);
 	};
 
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleBoard>(
@@ -48,7 +48,7 @@ const DialogEditBoard = () => {
 		if(isOpenDialogEditBoard) {
 			refetch();
 		}
-		// return () => setBackgroundImage("");		
+		return () => setDialogBackgroundImage("");		
 	}, [isOpenDialogEditBoard]);
 	
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(

@@ -1,9 +1,11 @@
-import React, { memo, useState } from "react";
+import React, { memo, useContext, useState } from "react";
+import { useContextBoard } from "../../Context";
 import { INITIAL_STATE_IMAGES } from "./constant";
 import DialogBackgroundView from "./DialogBackgroundView";
 
 const DialogBackground: React.FC = () => {
 	const [images, setImages] = useState(INITIAL_STATE_IMAGES);
+	const {dialogBackgroundImage} = useContextBoard();
 
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -21,6 +23,7 @@ const DialogBackground: React.FC = () => {
 				closeMenu,
 				anchorEl,
 				images,
+				dialogBackgroundImage
 			}}
 		/>
 	);
