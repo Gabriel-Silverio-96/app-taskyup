@@ -11,4 +11,6 @@ export interface IContextBoard {
     setIsOpenDialogEditBoard: React.Dispatch<React.SetStateAction<boolean>>;
     isOpenDialogDeleteSingleBoard: boolean;
     setIsOpenDialogDeleteSingleBoard: React.Dispatch<React.SetStateAction<boolean>>;
+    dialogBackgroundImage: string;
+    setDialogBackgroundImage: React.Dispatch<React.SetStateAction<string>>;
 }
