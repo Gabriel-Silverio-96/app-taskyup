@@ -15,7 +15,7 @@ import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
-	const { boardID, isOpenDialogEditBoard, setDialogBackgroundImage } = useContextBoard();
+	const { boardID, isOpenDialogEditBoard, dialogBackgroundImage ,setDialogBackgroundImage } = useContextBoard();
 	
 	const { closeDialogEditBoard } = useDialogBoard();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -53,7 +53,9 @@ const DialogEditBoard = () => {
 	
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
 		async (dataEditBoard: IDialogEditBoardForm) => {
-			await api.patch(`board/edit/board_id=${boardID}`, dataEditBoard);
+			const data = { ...dataEditBoard, background_image: dialogBackgroundImage };
+			await api.patch(`board/edit/board_id=${boardID}`, data);
+			
 			queryClient.invalidateQueries(["board"]);
 			closeDialogEditBoard();
 		}
