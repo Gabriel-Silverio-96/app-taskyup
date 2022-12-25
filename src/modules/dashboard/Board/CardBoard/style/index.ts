@@ -1,13 +1,18 @@
 import { Menu as MenuMui, styled } from "@mui/material";
+import { ICardBoardStyle } from "./types/CardBoard.style";
 
-export const CardBoardContainer = styled("div")(
-	({ theme }) => `
+export const CardBoardContainer = styled("div")<ICardBoardStyle>(
+	({ theme, backgroundimage }) => `
+    
     .MuiPaper-root {
-        border: 1px solid transparent;
-        border-radius: ${theme.spacing(1)};
+        border-radius: ${theme.spacing(1)};        
+        background-image: ${backgroundimage && `linear-gradient(#000000bf, #000000bf), url(${backgroundimage})`};
+        background-repeat: no-repeat;
+        background-size: cover;
+
         :hover {
             transition: .3s;
-            border-color: ${theme.palette.primary.main};
+            border: 1px solid ${theme.palette.primary.main};
         }
     }
 

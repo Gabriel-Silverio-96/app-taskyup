@@ -39,7 +39,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 
 					return (
 						<Grid item xl={2} md={3} xs={12} key={boardItem.board_id}>
-							<CardBoardContainer>
+							<CardBoardContainer backgroundimage={boardItem.background_image}>
 								<Card sx={{ height: 120 }}>
 									<CardContent>
 										<CardHeader>

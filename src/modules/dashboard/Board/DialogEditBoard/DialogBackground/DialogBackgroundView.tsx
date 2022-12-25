@@ -26,9 +26,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 			<Button
 				variant="contained"
 				size="small"
-				onClick={(
-					event: MouseEvent<HTMLButtonElement>
-				) => openMenu(event)}>
+				onClick={(event: MouseEvent<HTMLButtonElement>) => openMenu(event)}>
 				<FiEdit size={15} />
 			</Button>
 			<Menu
