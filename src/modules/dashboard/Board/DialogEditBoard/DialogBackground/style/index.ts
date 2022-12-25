@@ -55,7 +55,7 @@ export const MenuImages = styled("div")(
         gap: 1rem;
         flex-wrap: wrap;
         justify-content: space-around;
-        margin-top: ${theme.spacing(2)};
+        margin-top: ${theme.spacing(1)};
         position: relative;
 
         figure {
@@ -89,22 +89,9 @@ export const MenuImages = styled("div")(
     `
 );
 
-export const MenuImagesFooter = styled("div")(
-	({ theme }) => `
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        bottom: 0rem;
-        width: 100%;
-        background-color: ${theme.palette.background.paper};
-        padding: ${theme.spacing(1, 0)};
-    `
-);
-
 export const MenuSearch = styled("div")(
 	({ theme }) => `
-        margin: ${theme.spacing(2, 0)};
+        margin: ${theme.spacing(2, 0, 1)};
         
         .MuiFormControl-root  {
             width: 100%;
@@ -118,5 +105,18 @@ export const MenuSearch = styled("div")(
             position: absolute;
             right: ${theme.spacing(2.25)};
         }
+    `
+);
+
+export const MenuImagesFooter = styled("div")(
+	({ theme }) => `
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        bottom: 0rem;
+        width: 100%;
+        background-color: ${theme.palette.background.paper};
+        padding: ${theme.spacing(1, 0)};
     `
 );
