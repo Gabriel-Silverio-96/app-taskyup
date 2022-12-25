@@ -7,6 +7,7 @@ import { BiSearch } from "react-icons/bi";
 import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from "./style";
+import { TImage } from "./types/DialogBackground.types";
 
 const DialogBackgroundView: React.FC<any> = (props) => {
 	const {
@@ -59,7 +60,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				<Loading isLoading={isLoadingImages} message="Loading images" />
 				{handleErrorRequest}
 				<MenuImages>					
-					{images.photos.map((image: any) => (
+					{images.photos.map((image: TImage) => (
 						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
 							<img src={image.src.tiny} alt={image.alt} />							
 							<a href={image.photographer_url} target="blank" rel="noopener noreferrer">
