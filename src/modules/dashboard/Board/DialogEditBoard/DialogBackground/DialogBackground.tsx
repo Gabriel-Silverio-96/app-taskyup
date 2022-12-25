@@ -4,16 +4,16 @@ import { INITIAL_STATE_IMAGES } from "./constant";
 import DialogBackgroundView from "./DialogBackgroundView";
 
 const DialogBackground: React.FC = () => {
-	const [images, setImages] = useState(INITIAL_STATE_IMAGES);
 	const { dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
+	const [images, setImages] = useState(INITIAL_STATE_IMAGES);
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
 
-	const closeMenu = () => setAnchorEl(null);
-	const isOpenMenu = Boolean(anchorEl);
+	const closeMenu = () => setAnchorEl(null);	
 
 	const onChooseBackground = (background_image: string) => setDialogBackgroundImage(background_image);		
 	const onRemoveBackground = () => setDialogBackgroundImage("");		
@@ -21,8 +21,7 @@ const DialogBackground: React.FC = () => {
 	return (
 		<DialogBackgroundView
 			{...{	
-				openMenu,
-				isOpenMenu,
+				openMenu,				
 				closeMenu,
 				anchorEl,
 				images,

@@ -9,8 +9,7 @@ import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from
 
 const DialogBackgroundView: React.FC<any> = (props) => {
 	const {
-		openMenu,
-		isOpenMenu,
+		openMenu,		
 		closeMenu,
 		anchorEl,
 		images,
@@ -19,6 +18,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		onRemoveBackground
 	} = props;
 
+	const isOpenMenu = Boolean(anchorEl);
 	const thereBackgroundImage = Boolean(dialogBackgroundImage);
 
 	return (
