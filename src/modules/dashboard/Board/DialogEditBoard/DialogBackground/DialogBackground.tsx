@@ -11,6 +11,7 @@ const DialogBackground: React.FC = () => {
 	const [pagination, setPagination] = useState(1);
 	const [queryImage, setQueryImage] = useState("");
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [isLoadingImages, setIsLoadingImages] = useState(false);
 
 	const menuRef = useRef<HTMLDivElement | null>(null);
 	
@@ -23,6 +24,7 @@ const DialogBackground: React.FC = () => {
 		
 	const searchImage = async (resetPagination?: boolean) => {
 		try {
+			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
 			const { data } = await api.get(`images/search?query=${queryImage}&page=${page}`) as any;
 
@@ -30,6 +32,8 @@ const DialogBackground: React.FC = () => {
 			resetPagination && setPagination(1);
 		} catch (error) {
 			setImages({ photos: [] });
+		} finally {
+			setIsLoadingImages(false);
 		}		
 	};
 
@@ -70,7 +74,8 @@ const DialogBackground: React.FC = () => {
 				pagination,
 				nextPage,
 				prevPage,
-				menuRef
+				menuRef,
+				isLoadingImages
 			}}
 		/>
 	);

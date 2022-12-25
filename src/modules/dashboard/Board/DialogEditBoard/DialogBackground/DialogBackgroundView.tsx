@@ -5,6 +5,7 @@ import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { FiEdit, FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import Loading from "shared/components/Loading";
 import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from "./style";
 
 const DialogBackgroundView: React.FC<any> = (props) => {
@@ -21,7 +22,8 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		pagination,
 		nextPage,
 		prevPage,
-		menuRef
+		menuRef,
+		isLoadingImages
 	} = props;
 
 	const isOpenMenu = Boolean(anchorEl);
@@ -50,6 +52,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 						<BiSearch size={25} />
 					</Button>							
 				</MenuSearch>
+				<Loading isLoading={isLoadingImages} message="Loading images" />
 				<MenuImages>					
 					{images.photos.map((image: any) => (
 						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>

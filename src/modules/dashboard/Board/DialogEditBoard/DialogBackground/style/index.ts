@@ -55,7 +55,7 @@ export const MenuImages = styled("div")(
         gap: 1rem;
         flex-wrap: wrap;
         justify-content: space-around;
-        margin-top: ${theme.spacing(3)};
+        margin-top: ${theme.spacing(2)};
         position: relative;
 
         figure {
@@ -104,7 +104,7 @@ export const MenuImagesFooter = styled("div")(
 
 export const MenuSearch = styled("div")(
 	({ theme }) => `
-        margin-top: ${theme.spacing(2)};
+        margin: ${theme.spacing(2, 0)};
         
         .MuiFormControl-root  {
             width: 100%;
