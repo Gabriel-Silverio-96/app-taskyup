@@ -14,7 +14,9 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		closeMenu,
 		anchorEl,
 		images,
-		dialogBackgroundImage
+		dialogBackgroundImage,
+		onChooseBackground,
+		onRemoveBackground
 	} = props;
 
 	const thereBackgroundImage = Boolean(dialogBackgroundImage);
@@ -46,7 +48,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				</MenuSearch>
 				<MenuImages>					
 					{images.map((image: any) => (
-						<figure key={image.id}>
+						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
 							<img src={image.src.tiny} alt={image.alt} />							
 							<a href={image.photographer_url} target="blank" rel="noopener noreferrer">
 								<figcaption>
@@ -63,9 +65,6 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 							<Button variant="text" onClick={closeMenu}>
                                 Close
 							</Button>
-							<Button variant="contained">
-                                Save
-							</Button>
 						</div>
 					</MenuImagesFooter>
 				</MenuImages>
@@ -74,7 +73,9 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				variant="contained"
 				color="error"
 				size="small"
-				disabled={!thereBackgroundImage}>
+				disabled={!thereBackgroundImage}
+				onClick={onRemoveBackground}
+			>
 				<AiOutlineDelete size={15} />
 			</Button>
 		</DialogBackground>
