@@ -6,6 +6,7 @@ export interface IFetchResponseDefault {
 export interface IFetchSingleBoard {
     title: string;
     board_type_id: string;
+    background_image: string;
     created_at: string;
 }
 
@@ -20,4 +21,36 @@ export enum EStatusErrorCode {
     NotFound = 404,
     TooManyRequests = 429,
     InternalServerError = 500,			
+}
+
+export interface IPhotos {
+    id: number;
+    width: number;
+    height: number;
+    url: string;
+    photographer: string;
+    photographer_url: string;
+    photographer_id: number;
+    avg_color: string;
+    src: {
+        original: string;
+        large2x: string;
+        large: string;
+        medium: string;
+        small: string;
+        portrait: string;
+        landscape: string;
+        tiny: string;
+    }
+    liked: boolean;
+    alt: string;
+}
+
+export interface IFetchSearchImages {
+    page: number;
+    per_page: number;
+    photos: IPhotos[];
+    total_results: number;
+    next_page: string;
+    error?: string;
 }

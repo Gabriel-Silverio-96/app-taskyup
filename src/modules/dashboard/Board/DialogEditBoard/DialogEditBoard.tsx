@@ -15,10 +15,11 @@ import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
-	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
-	const { boardID, isOpenDialogEditBoard } = useContextBoard();
+	const { boardID, isOpenDialogEditBoard, dialogBackgroundImage ,setDialogBackgroundImage } = useContextBoard();
+	
 	const { closeDialogEditBoard } = useDialogBoard();
+	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+	
 	const {
 		register,
 		handleSubmit,
@@ -34,6 +35,7 @@ const DialogEditBoard = () => {
 	const onSuccess = (data: IFetchSingleBoard) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
+		setDialogBackgroundImage(data.background_image);
 	};
 
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleBoard>(
@@ -42,11 +44,18 @@ const DialogEditBoard = () => {
 		{ cacheTime: 0, onSuccess, retry: false, enabled: false }
 	);
 
-	useEffect(() => {isOpenDialogEditBoard && refetch();}, [isOpenDialogEditBoard]);
-
+	useEffect(() => {
+		if(isOpenDialogEditBoard) {
+			refetch();
+		}
+		return () => setDialogBackgroundImage("");		
+	}, [isOpenDialogEditBoard]);
+	
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
 		async (dataEditBoard: IDialogEditBoardForm) => {
-			await api.patch(`board/edit/board_id=${boardID}`, dataEditBoard);
+			const data = { ...dataEditBoard, background_image: dialogBackgroundImage };
+			await api.patch(`board/edit/board_id=${boardID}`, data);
+			
 			queryClient.invalidateQueries(["board"]);
 			closeDialogEditBoard();
 		}

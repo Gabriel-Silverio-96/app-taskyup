@@ -3,6 +3,7 @@ export interface IFetchBoard {
 	title: string;
 	type_board: string;
 	created_at: string;
+	background_image: string;
 	members_board: string[];
 }
 

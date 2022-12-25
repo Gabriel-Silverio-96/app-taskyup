@@ -7,6 +7,7 @@ export const ContextProviderBoard:React.FC<IContextProviderBoard> = ({ children 
 	const [boardID, setBoardID] = useState("");
 	const [isOpenDialogEditBoard, setIsOpenDialogEditBoard] = useState(false);
 	const [isOpenDialogDeleteSingleBoard, setIsOpenDialogDeleteSingleBoard] = useState(false);
+	const [dialogBackgroundImage, setDialogBackgroundImage] = useState("");
 	
 	const value = {
 		boardID,
@@ -14,7 +15,9 @@ export const ContextProviderBoard:React.FC<IContextProviderBoard> = ({ children 
 		isOpenDialogEditBoard, 
 		setIsOpenDialogEditBoard,
 		isOpenDialogDeleteSingleBoard, 
-		setIsOpenDialogDeleteSingleBoard
+		setIsOpenDialogDeleteSingleBoard,
+		dialogBackgroundImage, 
+		setDialogBackgroundImage
 	};
 
 	return (

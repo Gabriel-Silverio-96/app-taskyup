@@ -2,7 +2,7 @@ import { Card, CardContent, Grid, IconButton, MenuItem, Typography } from "@mui/
 import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
-import { FiEdit, FiImage } from "react-icons/fi";
+import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import Loading from "shared/components/Loading";
@@ -39,7 +39,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 
 					return (
 						<Grid item xl={2} md={3} xs={12} key={boardItem.board_id}>
-							<CardBoardContainer>
+							<CardBoardContainer backgroundimage={boardItem.background_image}>
 								<Card sx={{ height: 120 }}>
 									<CardContent>
 										<CardHeader>
@@ -72,9 +72,6 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 											>
 												<MenuItem onClick={() => openDialogEditBoard(closeMenu)}>
 													<FiEdit /> Edit
-												</MenuItem>
-												<MenuItem disabled>
-													<FiImage /> Background
 												</MenuItem>
 												<MenuItem onClick={() => openDialogDeleteSingleBoard(closeMenu)} 
 													sx={ { color: palette.error.main } }
