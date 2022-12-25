@@ -62,6 +62,7 @@ const DialogBackground: React.FC = () => {
 	return (
 		<DialogBackgroundView
 			{...{	
+				queryImage,
 				openMenu,				
 				closeMenu,
 				anchorEl,

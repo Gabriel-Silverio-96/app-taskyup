@@ -1,15 +1,16 @@
 import {
-	Button, IconButton, TextField, Typography
+	Button, IconButton, TextField
 } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { FiEdit, FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from "./style";
 
 const DialogBackgroundView: React.FC<any> = (props) => {
 	const {
+		queryImage,
 		openMenu,		
 		closeMenu,
 		anchorEl,
@@ -28,6 +29,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 
 	const isOpenMenu = Boolean(anchorEl);
 	const thereBackgroundImage = Boolean(dialogBackgroundImage);
+	const disabledButtonSearch = Boolean(!queryImage);
 
 	return (
 		<DialogBackground backgroundimage={dialogBackgroundImage}>
@@ -48,7 +50,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 			>				
 				<MenuSearch>
 					<TextField placeholder="Search" onChange={onChange} />	
-					<Button onClick={() => searchImage(true)}>
+					<Button onClick={() => searchImage(true)} disabled={disabledButtonSearch}>
 						<BiSearch size={25} />
 					</Button>							
 				</MenuSearch>
