@@ -15,7 +15,9 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		images,
 		dialogBackgroundImage,
 		onChooseBackground,
-		onRemoveBackground
+		onRemoveBackground,
+		searchImage,
+		onChange
 	} = props;
 
 	const isOpenMenu = Boolean(anchorEl);
@@ -36,11 +38,10 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
 				anchorOrigin={{ vertical: "bottom",	horizontal: "right" }}
 				transformOrigin={{ vertical: "top",	horizontal: "right" }}
-			>					
-				<Typography variant="subtitle1" fontWeight={800}>Choose a background</Typography>
+			>				
 				<MenuSearch>
-					<TextField placeholder="Search" />	
-					<Button>
+					<TextField placeholder="Search" onChange={onChange} />	
+					<Button onClick={searchImage}>
 						<BiSearch size={25} />
 					</Button>							
 				</MenuSearch>
