@@ -61,6 +61,10 @@ export const MenuImages = styled("div")(
         figure {
             margin: 0;
 
+            a {
+                color: ${theme.palette.common.white};
+            }
+
             img {
                 object-fit: cover;
                 width: ${theme.spacing(10)};
@@ -75,7 +79,7 @@ export const MenuImages = styled("div")(
             }
 
             figcaption {
-                font-size: ${theme.typography.caption.fontSize};
+                font-size: 0.6rem;
             }
         }
     `

@@ -47,10 +47,12 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				<MenuImages>					
 					{images.map((image: any) => (
 						<figure key={image.id}>
-							<img src={image.image_url} />
-							<figcaption>
-								{image.photographer_name}
-							</figcaption>
+							<img src={image.src.tiny} alt={image.alt} />							
+							<a href={image.photographer_url} target="blank" rel="noopener noreferrer">
+								<figcaption>
+									{image.photographer}
+								</figcaption>
+							</a>
 						</figure>
 					))}
 					<MenuImagesFooter>
