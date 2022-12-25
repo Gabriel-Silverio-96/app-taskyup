@@ -33,7 +33,7 @@ const DialogBackground: React.FC = () => {
 			setImages(data);
 			resetPagination && setPagination(1);
 		} catch (error) {
-			setImages({ photos: [] });
+			setImages({ photos: [], error: "Service unavailable, please try again later" });
 		} finally {
 			setIsLoadingImages(false);
 		}		

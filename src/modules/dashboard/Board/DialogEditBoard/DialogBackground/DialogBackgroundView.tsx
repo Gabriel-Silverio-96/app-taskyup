@@ -1,5 +1,5 @@
 import {
-	Button, IconButton, TextField
+	Button, IconButton, TextField, Typography
 } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -31,6 +31,8 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 	const thereBackgroundImage = Boolean(dialogBackgroundImage);
 	const disabledButtonSearch = Boolean(!queryImage);
 
+	const handleErrorRequest = images.error && <Typography variant="caption">{images.error}</Typography>;
+
 	return (
 		<DialogBackground backgroundimage={dialogBackgroundImage}>
 			<Button
@@ -55,6 +57,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 					</Button>							
 				</MenuSearch>
 				<Loading isLoading={isLoadingImages} message="Loading images" />
+				{handleErrorRequest}
 				<MenuImages>					
 					{images.photos.map((image: any) => (
 						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
