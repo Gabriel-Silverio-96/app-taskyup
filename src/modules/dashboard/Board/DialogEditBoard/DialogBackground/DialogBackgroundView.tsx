@@ -17,7 +17,10 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		onChooseBackground,
 		onRemoveBackground,
 		searchImage,
-		onChange
+		onChange,
+		pagination,
+		nextPage,
+		prevPage
 	} = props;
 
 	const isOpenMenu = Boolean(anchorEl);
@@ -41,12 +44,12 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 			>				
 				<MenuSearch>
 					<TextField placeholder="Search" onChange={onChange} />	
-					<Button onClick={searchImage}>
+					<Button onClick={() => searchImage(true)}>
 						<BiSearch size={25} />
 					</Button>							
 				</MenuSearch>
 				<MenuImages>					
-					{images.map((image: any) => (
+					{images.photos.map((image: any) => (
 						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
 							<img src={image.src.tiny} alt={image.alt} />							
 							<a href={image.photographer_url} target="blank" rel="noopener noreferrer">
@@ -63,10 +66,10 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 							</Button>
 						</div>
 						<div>
-							<IconButton>
+							<IconButton disabled={pagination === 1} onClick={prevPage}>
 								<FiChevronLeft size={15} />
 							</IconButton>
-							<IconButton>
+							<IconButton disabled={images.photos.length < 9} onClick={nextPage}>
 								<FiChevronRight size={15} />
 							</IconButton>
 						</div>

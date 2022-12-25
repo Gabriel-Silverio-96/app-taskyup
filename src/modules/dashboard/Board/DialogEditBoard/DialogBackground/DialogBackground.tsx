@@ -1,4 +1,4 @@
-import React, { ChangeEvent, memo, useState } from "react";
+import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import api from "shared/services/api";
 import { useContextBoard } from "../../Context";
 import { INITIAL_STATE_IMAGES } from "./constant";
@@ -17,20 +17,30 @@ const DialogBackground: React.FC = () => {
 	};
 
 	const closeMenu = () => setAnchorEl(null);	
-
-	const onChooseBackground = (background_image: string) => setDialogBackgroundImage(background_image);		
-	const onRemoveBackground = () => setDialogBackgroundImage("");		
-
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => setQueryImage(event.target.value);
 		
-	const searchImage = async () => {
+	const searchImage = async (resetPagination?: boolean) => {
 		try {
-			const { data } = await api.get(`images/search?query=${queryImage}&page=${pagination}`) as any;
-			setImages(data.photos);
+			const page = resetPagination ? 1 : pagination;
+			const { data } = await api.get(`images/search?query=${queryImage}&page=${page}`) as any;
+
+			setImages(data);
+			resetPagination && setPagination(1);
 		} catch (error) {
-			setImages([]);
+			setImages({ photos: [] });
 		}		
 	};
+
+	useEffect(() => {
+		const alreadyRequest = queryImage && pagination !== 1;
+		if(alreadyRequest) searchImage();
+	}, [pagination]);
+
+	const nextPage = () => setPagination(prevState => prevState + 1);
+	const prevPage = () => setPagination(prevState => prevState - 1);
+
+	const onChooseBackground = (background_image: string) => setDialogBackgroundImage(background_image);		
+	const onRemoveBackground = () => setDialogBackgroundImage("");
 
 	return (
 		<DialogBackgroundView
@@ -43,7 +53,10 @@ const DialogBackground: React.FC = () => {
 				onChooseBackground,
 				onRemoveBackground,
 				searchImage,
-				onChange
+				onChange,
+				pagination,
+				nextPage,
+				prevPage
 			}}
 		/>
 	);
