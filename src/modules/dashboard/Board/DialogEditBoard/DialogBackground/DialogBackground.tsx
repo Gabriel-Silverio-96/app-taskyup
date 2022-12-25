@@ -1,4 +1,4 @@
-import React, { ChangeEvent, memo, useEffect, useState } from "react";
+import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
 import api from "shared/services/api";
 import { useContextBoard } from "../../Context";
 import { INITIAL_STATE_IMAGES } from "./constant";
@@ -12,6 +12,8 @@ const DialogBackground: React.FC = () => {
 	const [queryImage, setQueryImage] = useState("");
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
+	const menuRef = useRef<HTMLDivElement | null>(null);
+	
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -35,13 +37,24 @@ const DialogBackground: React.FC = () => {
 		const alreadyRequest = queryImage && pagination !== 1;
 		if(alreadyRequest) searchImage();
 	}, [pagination]);
+	
+	const menuScrollTop = () => {
+		const paperRoot = menuRef.current?.children.item(2);
+		paperRoot?.scroll(0, 0);
+	};
 
-	const nextPage = () => setPagination(prevState => prevState + 1);
-	const prevPage = () => setPagination(prevState => prevState - 1);
-
+	const nextPage = () => {
+		setPagination(prevState => prevState + 1);
+		menuScrollTop();
+	};
+	const prevPage = () => {
+		setPagination(prevState => prevState - 1);
+		menuScrollTop();
+	};
+	
 	const onChooseBackground = (background_image: string) => setDialogBackgroundImage(background_image);		
 	const onRemoveBackground = () => setDialogBackgroundImage("");
-
+		
 	return (
 		<DialogBackgroundView
 			{...{	
@@ -56,7 +69,8 @@ const DialogBackground: React.FC = () => {
 				onChange,
 				pagination,
 				nextPage,
-				prevPage
+				prevPage,
+				menuRef
 			}}
 		/>
 	);

@@ -20,7 +20,8 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		onChange,
 		pagination,
 		nextPage,
-		prevPage
+		prevPage,
+		menuRef
 	} = props;
 
 	const isOpenMenu = Boolean(anchorEl);
@@ -40,7 +41,8 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				onClose={closeMenu}
 				transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
 				anchorOrigin={{ vertical: "bottom",	horizontal: "right" }}
-				transformOrigin={{ vertical: "top",	horizontal: "right" }}
+				transformOrigin={{ vertical: "top",	horizontal: "right" }}		
+				ref={menuRef}
 			>				
 				<MenuSearch>
 					<TextField placeholder="Search" onChange={onChange} />	
