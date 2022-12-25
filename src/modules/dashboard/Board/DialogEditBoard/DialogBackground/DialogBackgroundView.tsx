@@ -1,10 +1,10 @@
 import {
-	Button, TextField, Typography
+	Button, IconButton, TextField, Typography
 } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from "./style";
 
 const DialogBackgroundView: React.FC<any> = (props) => {
@@ -57,12 +57,17 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 					))}
 					<MenuImagesFooter>
 						<div>
-                        
-						</div>
-						<div>
 							<Button variant="text" onClick={closeMenu}>
                                 Close
 							</Button>
+						</div>
+						<div>
+							<IconButton>
+								<FiChevronLeft size={15} />
+							</IconButton>
+							<IconButton>
+								<FiChevronRight size={15} />
+							</IconButton>
 						</div>
 					</MenuImagesFooter>
 				</MenuImages>

@@ -89,6 +89,7 @@ export const MenuImagesFooter = styled("div")(
 	({ theme }) => `
         display: flex;
         justify-content: space-between;
+        align-items: center;
         position: sticky;
         bottom: 0rem;
         width: 100%;
