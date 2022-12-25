@@ -1,18 +1,21 @@
+import { AxiosResponse } from "axios";
 import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
+import { IFetchSearchImages } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import { useContextBoard } from "../../Context";
 import { INITIAL_STATE_IMAGES } from "./constant";
 import DialogBackgroundView from "./DialogBackgroundView";
+import { IImages } from "./types/DialogBackground.types";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
-	const [images, setImages] = useState(INITIAL_STATE_IMAGES);
+	const [images, setImages] = useState<IImages | IFetchSearchImages>(INITIAL_STATE_IMAGES);
 	const [pagination, setPagination] = useState(1);
 	const [queryImage, setQueryImage] = useState("");
-	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const [isLoadingImages, setIsLoadingImages] = useState(false);
 
+	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const menuRef = useRef<HTMLDivElement | null>(null);
 	
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,7 +29,7 @@ const DialogBackground: React.FC = () => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
-			const { data } = await api.get(`images/search?query=${queryImage}&page=${page}`) as any;
+			const { data } = await api.get(`images/search?query=${queryImage}&page=${page}`) as AxiosResponse<IFetchSearchImages>;
 
 			setImages(data);
 			resetPagination && setPagination(1);
