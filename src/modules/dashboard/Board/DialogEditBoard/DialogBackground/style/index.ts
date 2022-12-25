@@ -80,6 +80,10 @@ export const MenuImages = styled("div")(
 
             figcaption {
                 font-size: 0.6rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: ${theme.spacing(9.625)};
             }
         }
     `
