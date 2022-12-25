@@ -1,4 +1,3 @@
-import { AxiosResponse } from "axios";
 import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
 import { IFetchSearchImages } from "shared/common/types/Fetch";
 import api from "shared/services/api";
@@ -29,7 +28,7 @@ const DialogBackground: React.FC = () => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
-			const { data } = await api.get(`images/search?query=${queryImage}&page=${page}`) as AxiosResponse<IFetchSearchImages>;
+			const { data } = await api.get<IFetchSearchImages>(`images/search?query=${queryImage}&page=${page}`);
 
 			setImages(data);
 			resetPagination && setPagination(1);
