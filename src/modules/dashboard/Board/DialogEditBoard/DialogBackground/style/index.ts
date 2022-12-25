@@ -5,7 +5,7 @@ export const DialogBackground = styled("div")<IDialogBackgroundStyle>(
 	({ theme, backgroundimage }) => `
         width: 100%;
         height: ${theme.spacing(15)};
-        background: ${theme.palette.grey[900]};
+        background: #00000059;
         margin-bottom: ${theme.spacing(3)};     
         padding: ${theme.spacing(2)};
         border-radius: ${theme.spacing(1)};     
