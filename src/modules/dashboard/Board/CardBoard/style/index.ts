@@ -7,6 +7,7 @@ export const CardBoardContainer = styled("div")<ICardBoardStyle>(
     .MuiPaper-root {
         border-radius: ${theme.spacing(1)};        
         background-image: ${backgroundimage && `linear-gradient(#000000bf, #000000bf), url(${backgroundimage})`};
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
 
