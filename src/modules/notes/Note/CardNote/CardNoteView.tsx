@@ -2,6 +2,7 @@ import { CardContent, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { FiEye, FiTrash2 } from "react-icons/fi";
 import Loading from "shared/components/Loading";
+import NoteNotCreatedMessage from "./NoteNotCreatedMessage";
 import { Card, CardAction, CardBar, CardNoteContainer } from "./style";
 import { ICardNotesView } from "./types/CardNote.component";
 
@@ -10,12 +11,8 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isLoading} backdrop />
-			{notes && notes.list_notes?.length === 0 && (
-				<Grid item md={12} sx={{ mt: 1 }}>
-					<Typography variant="body2" fontWeight={800}>You have not created any notes</Typography>
-					<Typography variant="caption" color="GrayText">Create a note 😊</Typography>
-				</Grid>
-			)}
+			<NoteNotCreatedMessage notes={notes}/>
+
 			{notes &&
 				notes.list_notes?.map(({ note_id, title_note, observation, color_note }) => (
 					<Grid item xl={2} md={3} xs={12} key={note_id}>
