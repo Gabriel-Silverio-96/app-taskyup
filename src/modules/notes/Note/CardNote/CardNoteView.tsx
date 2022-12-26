@@ -10,7 +10,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isLoading} backdrop />
-			{notes && !notes.list_notes?.length && (
+			{notes && notes.list_notes?.length === 0 && (
 				<Grid item md={12} sx={{ mt: 1 }}>
 					<Typography variant="body2" fontWeight={800}>You have not created any notes</Typography>
 					<Typography variant="caption" color="GrayText">Create a note 😊</Typography>
