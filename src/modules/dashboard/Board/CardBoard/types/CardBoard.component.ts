@@ -3,15 +3,15 @@ import React from "react";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import { FunctionNonValueReturning } from "shared/types";
 
-export interface IBoardIcon {
-    notes: JSX.Element;
-    text: JSX.Element;
-    kanban: JSX.Element;    
+export interface ITypeBoard<T = JSX.Element> {
+    notes: T;
+    text: T;
+    kanban: T;    
 }
 
 export interface ICardBoardView {
 	board: IFetchBoard[];
-	boardIcon: IBoardIcon;
+	boardIcon: ITypeBoard;
 	isFetching: boolean;
 	palette: Palette;
 	openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;

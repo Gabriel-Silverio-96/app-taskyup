@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import Loading from "shared/components/Loading";
 import CardBoardEmpty from "./CardBoardEmpty";
+import { linkPathBoard } from "./constant";
 import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
-import { IBoardIcon, ICardBoardView } from "./types/CardBoard.component";
+import { ITypeBoard, ICardBoardView } from "./types/CardBoard.component";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {
 	const { 
@@ -35,7 +36,9 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 						? `${boardItem.title.substring(0, 30).trim()}...`
 						: boardItem.title;
 												
-					const icon = boardIcon[boardItem.type_board as keyof IBoardIcon];
+					const icon = boardIcon[boardItem.type_board as keyof ITypeBoard];					
+					const pathBoard = linkPathBoard[boardItem.type_board as keyof ITypeBoard<string>];
+					const linkBoard = `/${pathBoard}/${boardItem.board_id}`;
 
 					return (
 						<Grid item xl={2} md={3} xs={12} key={boardItem.board_id}>
@@ -43,7 +46,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 								<Card sx={{ height: 120 }}>
 									<CardContent>
 										<CardHeader>
-											<Link to={`/notes/${boardItem.board_id}`}>
+											<Link to={linkBoard}>
 												<CardIcon>
 													{icon}
 													<Typography color="text.secondary" gutterBottom sx={{ fontSize: 12 }}>
@@ -80,7 +83,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 												</MenuItem>
 											</Menu>
 										</CardHeader>
-										<Link to={`/notes/${boardItem.board_id}`}>
+										<Link to={linkBoard}>
 											<Typography
 												variant="h6"
 												component="div"
