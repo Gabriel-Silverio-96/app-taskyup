@@ -29,8 +29,7 @@ const CardBoard: React.FC = () => {
 		text: <MdOutlineNotes color={palette.secondary.main} />,
 		kanban: <MdOutlineSpaceDashboard color={palette.secondary.main} />,
 	};
-	
-	
+
 	return (
 		<CardBoardView
 			{...{
