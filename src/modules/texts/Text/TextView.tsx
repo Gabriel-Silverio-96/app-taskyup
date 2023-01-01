@@ -1,9 +1,11 @@
 import React from "react";
+import HeaderText from "./HeaderText";
 
-const TextView: React.FC<any> = (props) => {
-	const {state} = props;
+const TextView: React.FC<any> = () => {
 	return (
-		<h1>{state}</h1>
+		<>
+			<HeaderText />
+		</>
 	);
 };
 

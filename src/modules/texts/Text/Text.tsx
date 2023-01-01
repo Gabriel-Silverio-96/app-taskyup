@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import TextView from "./TextView";
 
 const Text: React.FC = () => {
-	const [state, setState] = useState<string>("Mynotes");
-
-	return <TextView {... {state}} />;
+	return <TextView />;
 };
 
 export default Text;
