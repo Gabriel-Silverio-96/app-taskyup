@@ -8,16 +8,17 @@ import { CardContainer, CardContent, CardCreateText, CardHeader, CardText } from
 import { ICardTextView, IText } from "./types/CardText.component";
 
 const CardTextView: React.FC<ICardTextView> = props => {
-	const { palette, data, isLoading } = props;
+	const { palette, data, isLoading, createText, isCreatingText } = props;
 
 	if(isLoading) {
 		return <Loading isLoading backdrop />;
 	}
-
+	
 	return (
 		<CardContainer>
+			<Loading isLoading={isCreatingText} backdrop message="Creating text" />
 			<div>
-				<CardCreateText>
+				<CardCreateText onClick={createText} role="button">
 					<FiPlus size={40} />
 					<Typography variant="caption">Create</Typography>
 				</CardCreateText>
