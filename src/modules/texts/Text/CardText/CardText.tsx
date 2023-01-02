@@ -10,9 +10,7 @@ const CardText: React.FC = () => {
 	const { palette } = useTheme();
 	const { board_id } = useParams();
 
-	const { data } = useQuery(
-		["texts", { variables: board_id }],
-		() => fetchTexts(board_id),
+	const { data } = useQuery(["texts", { variables: board_id }], () => fetchTexts(board_id),
 		{ cacheTime: ONE_HOUR_IN_MILLISECOND }
 	);
 
