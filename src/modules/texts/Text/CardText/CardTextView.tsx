@@ -4,8 +4,9 @@ import { FiEye, FiPlus, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import dateFormat from "shared/util/dateFormat";
 import { CardContainer, CardContent, CardCreateText, CardHeader, CardText } from "./style";
+import { ICardTextView, IText } from "./types/CardText.component";
 
-const CardTextView: React.FC<any> = props => {
+const CardTextView: React.FC<ICardTextView> = props => {
 	const { palette, data } = props;
 	return (
 		<CardContainer>
@@ -15,7 +16,7 @@ const CardTextView: React.FC<any> = props => {
 					<Typography variant="caption">Create</Typography>
 				</CardCreateText>
 			</div>
-			{data && data.texts.map((text: any) => {
+			{data && data.texts.map((text: IText) => {
 				const createdAt = dateFormat(text.created_at);
 				const linkTo = `/text/edit/${text.text_id}`;
 

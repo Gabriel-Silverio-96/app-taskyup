@@ -12,7 +12,7 @@ const CardText: React.FC = () => {
 
 	const { data } = useQuery(["texts", { variables: board_id }], () => fetchTexts(board_id),
 		{ cacheTime: ONE_HOUR_IN_MILLISECOND }
-	);
+	);	
 
 	return <CardTextView {...{ palette, data }} />;
 };
