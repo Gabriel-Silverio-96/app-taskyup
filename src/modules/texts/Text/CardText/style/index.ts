@@ -1,7 +1,7 @@
 import { styled, Card as CardMui } from "@mui/material";
 
 export const CardContainer = styled("div")(    
-	({ theme }) => `
+	() => `
         display: grid;
         gap: 1rem;
 
@@ -82,5 +82,14 @@ export const CardContent = styled("div")(
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        p {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+        }
     `
 );
