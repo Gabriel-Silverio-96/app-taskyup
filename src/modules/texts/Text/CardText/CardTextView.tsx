@@ -2,12 +2,18 @@ import { IconButton, Typography } from "@mui/material";
 import React from "react";
 import { FiEye, FiPlus, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import Loading from "shared/components/Loading";
 import dateFormat from "shared/util/dateFormat";
 import { CardContainer, CardContent, CardCreateText, CardHeader, CardText } from "./style";
 import { ICardTextView, IText } from "./types/CardText.component";
 
 const CardTextView: React.FC<ICardTextView> = props => {
-	const { palette, data } = props;
+	const { palette, data, isLoading } = props;
+
+	if(isLoading) {
+		return <Loading isLoading backdrop />;
+	}
+
 	return (
 		<CardContainer>
 			<div>

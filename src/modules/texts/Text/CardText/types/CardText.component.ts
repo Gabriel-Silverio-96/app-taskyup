@@ -14,4 +14,5 @@ export interface IFetchTexts {
 export interface ICardTextView {
     palette: Palette;   
     data: IFetchTexts | undefined;   
+    isLoading: boolean;
 }
