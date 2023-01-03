@@ -1,5 +1,4 @@
-import { useMediaQuery, useTheme } from "@mui/material";
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 import HeaderTextView from "./HeaderTextView";
 
 const HeaderText: React.FC = () => {
