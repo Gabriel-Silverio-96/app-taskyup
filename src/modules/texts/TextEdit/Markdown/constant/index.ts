@@ -1,0 +1,1 @@
+export const INITIAL_STATE_DATA = { text: "", title_text: "", created_at: "" };

@@ -5,8 +5,8 @@ const MarkdownView: React.FC<any> = (props) => {
 	const { data, renderHTML, onChange } = props;
 	
 	return (
-		<Markdown defaultValue={data.text}  value={data.text} renderHTML={renderHTML} onChange={onChange}/>
+		<Markdown value={data.text} renderHTML={renderHTML} onChange={onChange}/>
 	);
 };
 
-export default MarkdownView;
+export default MarkdownView;	
