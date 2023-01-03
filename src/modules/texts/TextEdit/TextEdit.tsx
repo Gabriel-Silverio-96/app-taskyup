@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import TextEditView from "./TextEditView";
 
 const TextEdit: React.FC = () => {
-	const [state, setState] = useState<string>("Mynotes");
-
-	return <TextEditView {... {state}} />;
+	return <TextEditView />;
 };
 
 export default TextEdit;

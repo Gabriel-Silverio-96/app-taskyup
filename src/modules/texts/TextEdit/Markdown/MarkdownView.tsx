@@ -2,9 +2,10 @@ import "react-markdown-editor-lite/lib/index.css";
 import { Markdown } from "./style";
 
 const MarkdownView: React.FC<any> = (props) => {
-	const { value, setValue, renderHTML } = props;
+	const { data, renderHTML, onChange } = props;
+	
 	return (
-		<Markdown defaultValue={value} renderHTML={renderHTML} onChange={(event: any) => setValue(event.html)}/>
+		<Markdown defaultValue={data.text}  value={data.text} renderHTML={renderHTML} onChange={onChange}/>
 	);
 };
 
