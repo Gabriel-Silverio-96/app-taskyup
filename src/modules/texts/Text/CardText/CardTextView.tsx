@@ -8,7 +8,7 @@ import { CardContainer, CardContent, CardCreateText, CardHeader, CardText } from
 import { ICardTextView, IText } from "./types/CardText.component";
 
 const CardTextView: React.FC<ICardTextView> = props => {
-	const { palette, data, isLoading, createText, isCreatingText } = props;
+	const { palette, data, isLoading, createText, isCreatingText, board_id } = props;
 
 	if(isLoading) {
 		return <Loading isLoading backdrop />;
@@ -25,7 +25,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 			</div>
 			{data && data.texts.map((text: IText) => {
 				const createdAt = dateFormat(text.created_at);
-				const linkTo = `/text/edit/${text.text_id}`;
+				const linkTo = `/text/edit?text_id=${text.text_id}&board_id=${board_id}`;
 
 				return (
 					<div key={text.text_id}>

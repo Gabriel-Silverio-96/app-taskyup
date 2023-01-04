@@ -32,7 +32,7 @@ const CardText: React.FC = () => {
 		}
 	};
 
-	return <CardTextView {...{ palette, data, isLoading, createText, isCreatingText }} />;
+	return <CardTextView {...{ palette, data, isLoading, createText, isCreatingText, board_id }} />;
 };
 
 export default memo(CardText);

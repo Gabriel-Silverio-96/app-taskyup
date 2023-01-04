@@ -21,4 +21,5 @@ export interface ICardTextView {
     isLoading: boolean;
     createText: () => void;
     isCreatingText: boolean;
+    board_id: string | undefined;
 }
