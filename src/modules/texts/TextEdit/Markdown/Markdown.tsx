@@ -1,13 +1,16 @@
 import MarkdownIt from "markdown-it";
 import React, { memo, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import api from "shared/services/api";
 import { INITIAL_STATE_DATA } from "./constant";
 import MarkdownView from "./MarkdownView";
 import { IFetchText, TRenderHTML } from "./types/Markdown.component";
 
 const Markdown: React.FC = () => {
-	const { text_id } = useParams();
+	const [searchParams] = useSearchParams();
+	const text_id = searchParams.get("text_id");
+	const board_id = searchParams.get("board_id");
+	
 	const [data, setData] = useState<IFetchText>(INITIAL_STATE_DATA);
 
 	const renderHTML = (text: string): TRenderHTML => {
@@ -29,7 +32,7 @@ const Markdown: React.FC = () => {
 	}, [text_id]);
 
 	const onChange = ({ text }: { text: string }) =>
-		setData(prevState => ({ ...prevState, text: text }));
+		setData(prevState => ({ ...prevState, text: text }));	
 
 	return <MarkdownView {...{ data, renderHTML, onChange }} />;
 };
