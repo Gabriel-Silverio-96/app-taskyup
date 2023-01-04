@@ -1,5 +1,5 @@
 import MarkdownIt from "markdown-it";
-import React, { memo, useEffect, useState } from "react";
+import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { INITIAL_STATE_DATA } from "./constant";
 import MarkdownView from "./MarkdownView";
@@ -30,8 +30,13 @@ const Markdown: React.FC = () => {
 		getText();
 	}, [text_id]);
 
-	const onChange = ({ text }: { text: string }) =>
+	const onChangeText = ({ text }: { text: string }) =>
 		setData(prevState => ({ ...prevState, text: text }));	
+
+	const onChangeTextTitle = (event: ChangeEvent<HTMLInputElement>) => {
+		const { value } = event.target;		
+		setData(prevState => ({ ...prevState, title_text: value }));	
+	};
 
 	const saveText = async () => {
 		try {
@@ -39,9 +44,9 @@ const Markdown: React.FC = () => {
 		} catch (error) {
 			console.error("SaveText ", error);			
 		}
-	};
+	};	
 
-	return <MarkdownView {...{ data, renderHTML, onChange, saveText }} />;
+	return <MarkdownView {...{ data, renderHTML, onChangeText, saveText, onChangeTextTitle }} />;
 };
 
 export default memo(Markdown);
