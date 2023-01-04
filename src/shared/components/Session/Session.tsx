@@ -27,12 +27,14 @@ const Session: React.FC<ISession> = ({ children }) => {
 	}, []);
 
 	const location = useLocation();	
-	const [lastPageAccessed, setLastPageAccessed] = useLocalStorage("@taskyup.last_page_accessed", location.pathname);
+	const path = `${location.pathname}${location.search}`;	
+	
+	const [lastPageAccessed, setLastPageAccessed] = useLocalStorage("@taskyup.last_page_accessed", path);
 	const { isAuthenticated } = useSelector((state: { auth: IAuthState }) => state.auth);	
 	const navigate = useNavigate();	
 	
 	useEffect(() => {
-		setLastPageAccessed(location.pathname);
+		setLastPageAccessed(path);
 	}, [location]);
 	
 	useEffect(() => {
