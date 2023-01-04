@@ -4,7 +4,7 @@ import { FiTrash } from "react-icons/fi";
 import { Nav, TextField } from "./style";
 import { IHeaderTextView } from "./types/HeaderText.component";
 
-const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
+const HeaderTextView: React.FC<IHeaderTextView> = () => {
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
 			<Grid item xl={6} md={6} sm={8} xs={8}>

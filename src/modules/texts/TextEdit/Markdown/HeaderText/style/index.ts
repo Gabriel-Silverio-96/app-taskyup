@@ -1,4 +1,4 @@
-import { styled, Menu as MenuMui } from "@mui/material";
+import { styled } from "@mui/material";
 
 export const Nav = styled("nav")(    
 	({ theme }) => `
