@@ -12,6 +12,7 @@ const Markdown: React.FC = () => {
 	const board_id = searchParams.get("board_id");
 	
 	const [data, setData] = useState<IData>(INITIAL_STATE_DATA);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const renderHTML = (text: string): TRenderHTML => {
 		const mdParser = new MarkdownIt({ breaks: false });
@@ -20,11 +21,13 @@ const Markdown: React.FC = () => {
 
 	useEffect(() => {
 		const getText = async () => {
-			try {
+			try {				
 				const data = await fetchText(text_id);
 				setData(data);
 			} catch (error) {
-				console.error("TextEdit ", error);
+				console.error("TextEdit ", error);				
+			} finally {
+				setIsLoading(false);
 			}
 		};
 		getText();
@@ -46,7 +49,7 @@ const Markdown: React.FC = () => {
 		}
 	};	
 
-	return <MarkdownView {...{ data, renderHTML, onChangeText, saveText, onChangeTextTitle }} />;
+	return <MarkdownView {...{ data, renderHTML, onChangeText, saveText, onChangeTextTitle, isLoading }} />;
 };
 
 export default memo(Markdown);
