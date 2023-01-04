@@ -1,3 +1,3 @@
 export interface IHeaderTextView {
-	isMediumScreen?: boolean;
+	saveText: () => void;
 }

@@ -3,11 +3,11 @@ import HeaderText from "./HeaderText";
 import { Markdown } from "./style";
 
 const MarkdownView: React.FC<any> = (props) => {
-	const { data, renderHTML, onChange } = props;
+	const { data, renderHTML, onChange, saveText } = props;
 	
 	return (
 		<>
-			<HeaderText />
+			<HeaderText {...{ saveText }}/>
 			<Markdown value={data.text} renderHTML={renderHTML} onChange={onChange}/>
 		</>
 	);

@@ -3,7 +3,7 @@ import React, { memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { INITIAL_STATE_DATA } from "./constant";
 import MarkdownView from "./MarkdownView";
-import { fetchText } from "./service";
+import { fetchEditText, fetchText } from "./service";
 import { IData, TRenderHTML } from "./types/Markdown.component";
 
 const Markdown: React.FC = () => {
@@ -33,7 +33,15 @@ const Markdown: React.FC = () => {
 	const onChange = ({ text }: { text: string }) =>
 		setData(prevState => ({ ...prevState, text: text }));	
 
-	return <MarkdownView {...{ data, renderHTML, onChange }} />;
+	const saveText = async () => {
+		try {
+			await fetchEditText({ board_id, text_id, data });
+		} catch (error) {
+			console.error("SaveText ", error);			
+		}
+	};
+
+	return <MarkdownView {...{ data, renderHTML, onChange, saveText }} />;
 };
 
 export default memo(Markdown);

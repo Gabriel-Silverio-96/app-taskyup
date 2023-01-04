@@ -9,7 +9,7 @@ const fetchText = async (text_id: TFetchParams) => {
 
 const fetchEditText = async ({ board_id, text_id, data }: IFetchEditText) => {
 	const params = { params: { board_id, text_id } };
-	const { data: res } = await api.post<IFetchResponseDefault>("/text/edit", { data }, params);
+	const { data: res } = await api.patch<IFetchResponseDefault>("/text/edit", { ...data }, params);
 	return res;
 };
 

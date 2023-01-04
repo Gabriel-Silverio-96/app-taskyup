@@ -7,7 +7,7 @@ export interface IFetchText {
 }
 
 export interface IFetchEditText {
-    board_id: string;
-    text_id: string;
+    board_id: TFetchParams;
+    text_id: TFetchParams;
     data: IFetchText;
 }
