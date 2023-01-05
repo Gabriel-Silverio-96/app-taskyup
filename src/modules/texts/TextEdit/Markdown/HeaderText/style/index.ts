@@ -6,7 +6,7 @@ export const Nav = styled("nav")(
         gap: ${theme.spacing(1)};
         justify-content: flex-end;
 
-        button:first-child {
+        button:first-of-type {
             color: ${theme.palette.common.white};
         }
     `
