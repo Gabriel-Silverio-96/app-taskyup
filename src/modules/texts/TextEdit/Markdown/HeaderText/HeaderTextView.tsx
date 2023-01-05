@@ -13,9 +13,6 @@ const HeaderTextView: React.FC<IHeaderText> = ({ saveText, titleText, onChangeTe
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
 					<Button variant="contained" onClick={saveText}>Save</Button>  				
-					<Button variant="contained" color="error">
-						<FiTrash size={18} />	
-					</Button>  				
 				</Nav>
 			</Grid>
 		</Grid>
