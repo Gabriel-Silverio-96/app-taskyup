@@ -13,6 +13,7 @@ const Markdown: React.FC = () => {
 	
 	const [data, setData] = useState<IData>(INITIAL_STATE_DATA);
 	const [isLoading, setIsLoading] = useState(true);
+	const [isSaving, setIsSaving] = useState(false);
 
 	const renderHTML = (text: string): TRenderHTML => {
 		const mdParser = new MarkdownIt({ breaks: false });
@@ -43,13 +44,17 @@ const Markdown: React.FC = () => {
 
 	const saveText = async () => {
 		try {
+			setIsSaving(true);
 			await fetchEditText({ board_id, text_id, data });
 		} catch (error) {
 			console.error("SaveText ", error);			
+		} finally {
+			setIsSaving(false);
 		}
+		
 	};	
 
-	return <MarkdownView {...{ data, renderHTML, onChangeText, saveText, onChangeTextTitle, isLoading }} />;
+	return <MarkdownView {...{ data, renderHTML, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving }} />;
 };
 
 export default memo(Markdown);
