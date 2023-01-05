@@ -1,6 +1,5 @@
 import { Button, Grid } from "@mui/material";
 import React from "react";
-import { FiTrash } from "react-icons/fi";
 import { Nav, TextField } from "./style";
 import { IHeaderText } from "./types/HeaderText.component";
 
