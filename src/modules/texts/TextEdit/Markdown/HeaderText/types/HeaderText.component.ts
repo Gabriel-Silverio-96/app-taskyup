@@ -5,3 +5,7 @@ export interface IHeaderText {
 	titleText: string;
 	onChangeTextTitle: (event: ChangeEvent<HTMLInputElement>) => void;
 }
+
+export interface IHeaderTextView  extends IHeaderText {
+	backPage: string;
+}
