@@ -23,7 +23,7 @@ const CardText: React.FC = () => {
 			const { text_id } = await fetchCreateText(board_id);
 			queryClient.invalidateQueries(["texts"]);
 			
-			const redirectTo = `/text/edit/${text_id}`;
+			const redirectTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
 			navigate(redirectTo);			
 		} catch (error) {
 			console.error("CardText", error);			
