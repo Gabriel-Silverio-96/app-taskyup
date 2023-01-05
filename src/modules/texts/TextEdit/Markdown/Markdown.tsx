@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import MarkdownIt from "markdown-it";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -7,6 +8,8 @@ import { fetchEditText, fetchText } from "./service";
 import { IData, TRenderHTML } from "./types/Markdown.component";
 
 const Markdown: React.FC = () => {
+	const queryClient = useQueryClient();
+
 	const [searchParams] = useSearchParams();
 	const text_id = searchParams.get("text_id");
 	const board_id = searchParams.get("board_id");
@@ -46,6 +49,8 @@ const Markdown: React.FC = () => {
 		try {
 			setIsSaving(true);
 			await fetchEditText({ board_id, text_id, data });
+			queryClient.invalidateQueries(["texts"]);
+
 		} catch (error) {
 			console.error("SaveText ", error);			
 		} finally {
