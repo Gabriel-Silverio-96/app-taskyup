@@ -12,10 +12,12 @@ import {
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 
+const DialogDeleteSingleTextView: React.FC<any> = (props) => {
+	const { dialogDeleteSingleText, closeDialogDeleteSingleText } = props;
+	const { open } = dialogDeleteSingleText;
 
-const DialogDeleteSingleTextView: React.FC<any> = () => {
 	return (
-		<Dialog fullWidth maxWidth="xs" open={false}>
+		<Dialog fullWidth maxWidth="xs" open={open}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -27,7 +29,7 @@ const DialogDeleteSingleTextView: React.FC<any> = () => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton>
+						<IconButton onClick={closeDialogDeleteSingleText}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -41,7 +43,7 @@ const DialogDeleteSingleTextView: React.FC<any> = () => {
 			<DialogActions>
 				<Grid container	justifyContent="space-between" alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined">
+						<Button variant="outlined" onClick={closeDialogDeleteSingleText}>
 							No
 						</Button>
 					</Grid>

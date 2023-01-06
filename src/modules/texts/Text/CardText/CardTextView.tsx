@@ -8,7 +8,15 @@ import { CardContainer, CardContent, CardCreateText, CardHeader, CardText } from
 import { ICardTextView, IText } from "./types/CardText.component";
 
 const CardTextView: React.FC<ICardTextView> = props => {
-	const { palette, data, isLoading, createText, isCreatingText, board_id } = props;
+	const { 
+		palette,
+		data,
+		isLoading,
+		createText,
+		isCreatingText,
+		board_id,
+		openDialogDeleteSingleText,		 
+	} = props;
 
 	if(isLoading) {
 		return <Loading isLoading backdrop />;
@@ -23,15 +31,15 @@ const CardTextView: React.FC<ICardTextView> = props => {
 					<Typography variant="caption">Create</Typography>
 				</CardCreateText>
 			</div>
-			{data && data.texts.map((text: IText) => {
-				const createdAt = dateFormat(text.created_at);
-				const linkTo = `/text/edit?text_id=${text.text_id}&board_id=${board_id}`;
+			{data && data.texts.map(({title_text, text_id ,created_at}: IText) => {
+				const createdAt = dateFormat(created_at);
+				const linkTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
 
 				return (
-					<div key={text.text_id}>
+					<div key={text_id}>
 						<CardText>
 							<CardHeader>
-								<IconButton>
+								<IconButton onClick={() => openDialogDeleteSingleText(text_id)}>
 									<FiTrash color={palette.error.main} size={20} />
 								</IconButton>
 								<Link to={linkTo}>
@@ -42,7 +50,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 							</CardHeader>
 							<CardContent>
 								<Typography variant="body1" fontWeight={800}>
-									{text.title_text}
+									{title_text}
 								</Typography>
 								<Typography variant="caption" color="GrayText">
                             		Created at {createdAt}

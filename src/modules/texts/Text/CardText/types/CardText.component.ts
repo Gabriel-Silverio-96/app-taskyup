@@ -22,4 +22,5 @@ export interface ICardTextView {
     createText: () => void;
     isCreatingText: boolean;
     board_id: string | undefined;
+    openDialogDeleteSingleText: (textID: string) => void;
 }

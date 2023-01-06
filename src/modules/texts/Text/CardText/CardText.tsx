@@ -2,6 +2,7 @@ import { useTheme } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
 import { useParams, useNavigate  } from "react-router-dom";
+import useDialogText from "../hooks/useDialogText";
 import CardTextView from "./CardTextView";
 import { ONE_HOUR_IN_MILLISECOND } from "./constant";
 import { fetchTexts, fetchCreateText } from "./service";
@@ -9,9 +10,11 @@ import { fetchTexts, fetchCreateText } from "./service";
 const CardText: React.FC = () => {
 	const { palette } = useTheme();
 	const { board_id } = useParams();
-	const [isCreatingText, setIsCreatingText] = useState(false);
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
+	const { openDialogDeleteSingleText } = useDialogText();
+
+	const [ isCreatingText, setIsCreatingText ] = useState(false);
 
 	const { data, isFetching: isLoading } = useQuery(["texts", { variables: board_id }], () => fetchTexts(board_id),
 		{ cacheTime: ONE_HOUR_IN_MILLISECOND }
@@ -32,7 +35,19 @@ const CardText: React.FC = () => {
 		}
 	};
 
-	return <CardTextView {...{ palette, data, isLoading, createText, isCreatingText, board_id }} />;
+	return (
+		<CardTextView
+			{...{
+				palette,
+				data,
+				isLoading,
+				createText,
+				isCreatingText,
+				board_id,
+				openDialogDeleteSingleText,
+			}}
+		/>
+	);
 };
 
 export default memo(CardText);
