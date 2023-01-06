@@ -13,11 +13,13 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 
 const DialogDeleteSingleTextView: React.FC<any> = (props) => {
-	const { dialogDeleteSingleText, closeDialogDeleteSingleText } = props;
+	const { dialogDeleteSingleText, closeDialogDeleteSingleText, fetchDelete, isDeleting } = props;
 	const { open } = dialogDeleteSingleText;
 
+	const onClose = !isDeleting ? closeDialogDeleteSingleText : () => "";
+
 	return (
-		<Dialog fullWidth maxWidth="xs" open={open}>
+		<Dialog fullWidth maxWidth="xs" open={open} onClose={onClose}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -29,7 +31,7 @@ const DialogDeleteSingleTextView: React.FC<any> = (props) => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton onClick={closeDialogDeleteSingleText}>
+						<IconButton onClick={closeDialogDeleteSingleText} disabled={isDeleting}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -43,12 +45,12 @@ const DialogDeleteSingleTextView: React.FC<any> = (props) => {
 			<DialogActions>
 				<Grid container	justifyContent="space-between" alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined" onClick={closeDialogDeleteSingleText}>
+						<Button variant="outlined" onClick={closeDialogDeleteSingleText} disabled={isDeleting}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained">
+						<LoadingButton variant="contained" onClick={fetchDelete} loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>
