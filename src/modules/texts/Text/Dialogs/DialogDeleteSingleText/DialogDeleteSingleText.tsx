@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { memo } from "react";
 import { useContextText } from "../../Context";
 import useDialogText from "../../hooks/useDialogText";
 import DialogDeleteSingleTextView from "./DialogDeleteSingleTextView";
@@ -19,9 +19,7 @@ const DialogDeleteSingleText: React.FC = () => {
 		}
 	};
 
-	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(
-		() => fetchDeleteSingleText(textID), optionMutation		
-	);
+	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(() => fetchDeleteSingleText(textID), optionMutation);
 
 	return (
 		<DialogDeleteSingleTextView
@@ -35,4 +33,4 @@ const DialogDeleteSingleText: React.FC = () => {
 	);
 };
 
-export default DialogDeleteSingleText;
+export default memo(DialogDeleteSingleText);

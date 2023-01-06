@@ -11,11 +11,17 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { IDialogDeleteSingleTextView } from "./types/DialogDeleteSingleText.component";
 
-const DialogDeleteSingleTextView: React.FC<any> = (props) => {
-	const { dialogDeleteSingleText, closeDialogDeleteSingleText, fetchDelete, isDeleting } = props;
+const DialogDeleteSingleTextView: React.FC<IDialogDeleteSingleTextView> = (props) => {
+	const { 
+		dialogDeleteSingleText, 
+		closeDialogDeleteSingleText, 
+		fetchDelete, 
+		isDeleting 
+	} = props;
+
 	const { open } = dialogDeleteSingleText;
-
 	const onClose = !isDeleting ? closeDialogDeleteSingleText : () => "";
 
 	return (
