@@ -7,4 +7,6 @@ export interface IHeaderTextView {
 	isOpenMenu: boolean;
 	openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
 	closeMenu: () => void;
+	openDialogDeleteAllTexts: (boardID: string) => void;
+	board_id: string | undefined;
 }

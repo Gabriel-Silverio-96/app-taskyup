@@ -5,7 +5,17 @@ import { Nav, Menu } from "./style";
 import { IHeaderTextView } from "./types/HeaderText.component";
 
 const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
-	const { palette, isMediumScreen, anchorEl, isOpenMenu, openMenu, closeMenu } = props;
+	const { 
+		palette, 
+		isMediumScreen, 
+		anchorEl, 
+		isOpenMenu, 
+		openMenu, 
+		closeMenu, 
+		openDialogDeleteAllTexts,
+		board_id
+	} = props;
+
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
 
 	return (
@@ -35,8 +45,12 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 						</Tooltip>
 						<MenuItem 
 							sx={ { color: palette.error.main } }
+							onClick={() => {
+								openDialogDeleteAllTexts(board_id!);
+								closeMenu();
+							}}
 						>
-                            Delete all text
+                            Delete all texts
 						</MenuItem>
 					</Menu>   
 				</Nav>
