@@ -48,6 +48,13 @@ export const CardCreateText = styled(CardPatternText)(
         flex-direction: column;
         gap: ${theme.spacing(1)};        
         cursor: pointer;
+        transition: .3s;
+        border: ${theme.spacing(0.2)} solid transparent;
+        
+        :hover {
+            border-color: ${theme.palette.primary.main};
+            background-color: ${theme.palette.background.paper};
+        }
     `
 );
 
