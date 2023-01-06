@@ -1,7 +1,7 @@
 import React from "react";
 import CardText from "./CardText";
 import { ContextProviderText } from "./Context";
-import DialogDeleteAllText from "./Dialogs/DialogDeleteAllText";
+import DialogDeleteAllText from "./Dialogs/DialogDeleteAllTexts";
 import DialogDeleteSingleText from "./Dialogs/DialogDeleteSingleText";
 import HeaderText from "./HeaderText";
 

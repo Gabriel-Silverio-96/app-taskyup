@@ -12,11 +12,11 @@ import {
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 
-const DialogDeleteAllTextView: React.FC<any> = () => {
+const DialogDeleteAllTextsView: React.FC<any> = () => {
 	const isDeleting = false;
 
 	return (
-		<Dialog fullWidth maxWidth="xs" open>
+		<Dialog fullWidth maxWidth="xs" open={false}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -57,4 +57,4 @@ const DialogDeleteAllTextView: React.FC<any> = () => {
 	);
 };
 
-export default DialogDeleteAllTextView;
+export default DialogDeleteAllTextsView;
