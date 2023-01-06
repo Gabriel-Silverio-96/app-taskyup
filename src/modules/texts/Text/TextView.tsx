@@ -1,6 +1,7 @@
 import React from "react";
 import CardText from "./CardText";
 import { ContextProviderText } from "./Context";
+import DialogDeleteAllText from "./Dialogs/DialogDeleteAllText";
 import DialogDeleteSingleText from "./Dialogs/DialogDeleteSingleText";
 import HeaderText from "./HeaderText";
 
@@ -10,6 +11,7 @@ const TextView: React.FC<any> = () => {
 			<HeaderText />
 			<CardText />
 			<DialogDeleteSingleText />
+			<DialogDeleteAllText />
 		</ContextProviderText>
 	);
 };
