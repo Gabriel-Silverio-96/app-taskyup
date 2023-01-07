@@ -11,8 +11,9 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { IDialogDeleteAllTextsView } from "./types/DialogDeleteAllTexts.component";
 
-const DialogDeleteAllTextsView: React.FC<any> = (props) => {
+const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = (props) => {
 	const { dialogDeleteAllText, closeDialogDeleteAllTexts, fetchDeleteAll, isDeleting } = props;
 
 	const { open } = dialogDeleteAllText;
