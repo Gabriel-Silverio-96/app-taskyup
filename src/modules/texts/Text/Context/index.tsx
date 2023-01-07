@@ -9,12 +9,15 @@ const INITIAL_STATE_DIALOG_DELETE_ALL_TEXT = { open: false, boardID: "" };
 export const ContextProviderText: React.FC<IContextProviderText> = ({ children }) => {
 	const [ dialogDeleteSingleText, setDialogDeleteSingleText ] = useState<IDialogDeleteSingleText>(INITIAL_STATE_DIALOG_DELETE_SINGLE_TEXT);
 	const [ dialogDeleteAllText, setDialogDeleteAllText ] = useState<IDialogDeleteAllText>(INITIAL_STATE_DIALOG_DELETE_ALL_TEXT);
+	const [ titleText, seTitleText ] = useState("");
 
 	const value = {
 		dialogDeleteSingleText, 
 		setDialogDeleteSingleText,
 		dialogDeleteAllText, 
-		setDialogDeleteAllText
+		setDialogDeleteAllText,
+		titleText, 
+		seTitleText		
 	};
 
 	return <ContextText.Provider value={value}>{children}</ContextText.Provider>;

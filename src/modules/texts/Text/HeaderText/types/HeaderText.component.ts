@@ -1,6 +1,7 @@
 import { Palette } from "@mui/material";
 
 export interface IHeaderTextView {
+	titleText: string;
 	palette: Palette;
 	isMediumScreen: boolean;
 	anchorEl: null | HTMLElement;
