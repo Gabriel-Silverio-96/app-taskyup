@@ -32,7 +32,7 @@ const DialogEditBoard = () => {
 		return data;
 	};
 
-	const onSuccess = (data: IFetchSingleBoard) => {
+	const onSuccessQuery = (data: IFetchSingleBoard) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
@@ -41,7 +41,7 @@ const DialogEditBoard = () => {
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleBoard>(
 		["dialog_edit_board"],
 		fetchSingleBoard,
-		{ cacheTime: 0, onSuccess, retry: false, enabled: false }
+		{ cacheTime: 0, onSuccess: onSuccessQuery, retry: false, enabled: false }
 	);
 
 	useEffect(() => {
@@ -50,15 +50,20 @@ const DialogEditBoard = () => {
 		}
 		return () => setDialogBackgroundImage("");		
 	}, [isOpenDialogEditBoard]);
+
+	const onSuccessMutation = () => Promise.all([
+		queryClient.invalidateQueries(["board"]),
+		queryClient.invalidateQueries(["menu"])
+	]);
+
 	
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
 		async (dataEditBoard: IDialogEditBoardForm) => {
 			const data = { ...dataEditBoard, background_image: dialogBackgroundImage };
 			await api.patch(`board/edit/board_id=${boardID}`, data);
 			
-			queryClient.invalidateQueries(["board"]);
 			closeDialogEditBoard();
-		}
+		}, { onSuccess: onSuccessMutation }		
 	);
 
 	return (

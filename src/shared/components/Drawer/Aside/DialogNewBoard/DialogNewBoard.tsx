@@ -28,8 +28,13 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 		return data;
 	};
 
+	const onSuccess = () => Promise.all([
+		queryClient.invalidateQueries(["board"]),
+		queryClient.invalidateQueries(["menu"])
+	]);
+
 	const { mutate: fetchDialogNewBoard, isLoading: isSaving } = useMutation(mutationDialogNewBoard, {
-		onSuccess: () => queryClient.invalidateQueries(["board"])			
+		onSuccess
 	});
 		
 	return (

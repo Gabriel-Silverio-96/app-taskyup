@@ -13,14 +13,18 @@ const DialogDeleteSingleBoard: React.FC = () => {
 	const { closeDialogDeleteSingleBoard } = useDialogBoard();
 	
 	const mutationDialogDeleteSingleBoard = async () => {
-		const { data } = await api.delete(`board/delete/board_id=${boardID}`) as AxiosResponse<IFetchResponseDefault>;
-		queryClient.invalidateQueries(["board"]);
+		const { data } = await api.delete(`board/delete/board_id=${boardID}`) as AxiosResponse<IFetchResponseDefault>;		
 		closeDialogDeleteSingleBoard();
 		return data;
 	};
+
+	const onSuccess = () => Promise.all([
+		queryClient.invalidateQueries(["board"]),
+		queryClient.invalidateQueries(["menu"])
+	]);
 	
 	const { mutate: fetchDialogDeleteSingleBoard, isLoading: isDeleting } = useMutation(
-		mutationDialogDeleteSingleBoard, { onError: () => closeDialogDeleteSingleBoard() }
+		mutationDialogDeleteSingleBoard, { onError: () => closeDialogDeleteSingleBoard(), onSuccess }
 	);
 
 	return (
