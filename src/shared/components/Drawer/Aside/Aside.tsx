@@ -1,11 +1,11 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
-import useFetchBoard from "shared/common/hook/useFetchBoard";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import AsideView from "./AsideView";
+import { fetchMenu } from "./service";
 
 const Aside: React.FC = () => {
 	const [openAside, setOpenAside] = useLocalStorage("@taskyup.aside.open", true);
-	const { board } = useFetchBoard();
 	const [openDialog, setOpenDialog] = useState(false);
 
 	const toogleOpenAside = () => setOpenAside(prevState => !prevState);
@@ -13,10 +13,12 @@ const Aside: React.FC = () => {
 	const openDialogNewBoard = () => setOpenDialog(prevState => !prevState);
 	const closeDialogNewBoard = () => setOpenDialog(false);
 
+	const { data: menu } = useQuery(["menu"], fetchMenu);
+
 	return (
 		<AsideView
 			{...{
-				board,
+				menu,
 				openAside,
 				toogleOpenAside,
 				openDialog,

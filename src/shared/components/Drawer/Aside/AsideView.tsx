@@ -13,7 +13,7 @@ import { IAsideView } from "./types/Aside.component";
 
 const AsideView: React.FC<IAsideView> = (props) => {
 	const { 
-		board,
+		menu,
 		openAside, 
 		openDialog, 
 		toogleOpenAside,
@@ -60,13 +60,13 @@ const AsideView: React.FC<IAsideView> = (props) => {
 				</TreeViewContainerItem>
 				<Typography variant="button" fontWeight={700}>MY BOARDS</Typography>
 				<TreeView
-					aria-label="menu navigator"
+					aria-label="menu-navigator"
 					defaultCollapseIcon={<FiChevronDown />}
 					defaultExpandIcon={<FiChevronRight />}
 				>
 					<TreeItem nodeId="1" label={<><GoNote />Notes</>}>
-						{board && (
-							board.map(({board_id, title}) => (
+						{menu && (
+							menu.notes.map(({ board_id, title }) => (
 								<Link to={`/notes/${board_id}`} key={board_id}>
 									<TreeItem nodeId={board_id} 
 										label={title.length > 15 ? `${title.substring(0, 15).trim()}...` : title} 
@@ -75,11 +75,17 @@ const AsideView: React.FC<IAsideView> = (props) => {
 							))
 						)}							
 					</TreeItem>
-					<Tooltip title="Comming soon" placement="right">
-						<span>
-							<TreeItem nodeId="3" label={<><MdOutlineNotes />Text</>} disabled />
-						</span>
-					</Tooltip>
+					<TreeItem nodeId="2" label={<><MdOutlineNotes />Text</>}>
+						{menu && (
+							menu.texts.map(({ board_id, title }) => (
+								<Link to={`/texts/${board_id}`} key={board_id}>
+									<TreeItem nodeId={board_id} 
+										label={title.length > 15 ? `${title.substring(0, 15).trim()}...` : title} 
+									/>
+								</Link>
+							))
+						)}							
+					</TreeItem>
 					<Tooltip title="Comming soon" placement="right">
 						<span>
 							<TreeItem nodeId="4" label={<><MdOutlineSpaceDashboard />Kanban</>} disabled />
