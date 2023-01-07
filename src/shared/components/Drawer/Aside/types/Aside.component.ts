@@ -1,7 +1,7 @@
-import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
+import { IFetchMenu } from "../service/types/Aside.service";
 
 export interface IAsideView {
-    board: IFetchBoard[];
+    menu: IFetchMenu | undefined;
     openAside: boolean;
     openDialog: boolean;
     toogleOpenAside: () => void;

@@ -1,0 +1,1 @@
+export const ONE_HOUR_IN_MILLISECOND = 60 * 60 * 1000;

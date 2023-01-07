@@ -8,6 +8,8 @@ import ForgotPassword from "./modules/auth/ForgotPassword";
 import SignIn from "./modules/auth/SignIn";
 import Board from "./modules/dashboard/Board";
 import Page404 from "modules/error/Page404";
+import Text from "modules/texts/Text";
+import TextEdit from "modules/texts/TextEdit";
 
 const MainRoutes:React.FC = () => {
 	return (
@@ -22,6 +24,8 @@ const MainRoutes:React.FC = () => {
 
 			<Route path="/dashboard" element={<RequiredAuth><Board /></RequiredAuth>} />
 			<Route path="/notes/:board_id" element={<RequiredAuth><Note /></RequiredAuth>} />				
+			<Route path="/texts/:board_id" element={<RequiredAuth><Text /></RequiredAuth>} />				
+			<Route path="/text/edit" element={<RequiredAuth><TextEdit /></RequiredAuth>} />				
 
 			<Route path="*" element={<Page404 />} />
 		</Routes>
