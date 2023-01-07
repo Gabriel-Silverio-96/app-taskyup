@@ -13,13 +13,13 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 
 const DialogDeleteAllTextsView: React.FC<any> = (props) => {
-	const { dialogDeleteAllText, closeDialogDeleteAllTexts } = props;
+	const { dialogDeleteAllText, closeDialogDeleteAllTexts, fetchDeleteAll, isDeleting } = props;
 
 	const { open } = dialogDeleteAllText;
-	const isDeleting = false;
+	const onClose = !isDeleting ? closeDialogDeleteAllTexts : () => "";
 
 	return (
-		<Dialog fullWidth maxWidth="xs" open={open}>
+		<Dialog fullWidth maxWidth="xs" open={open} onClose={onClose}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -50,7 +50,7 @@ const DialogDeleteAllTextsView: React.FC<any> = (props) => {
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" loading={isDeleting}>
+						<LoadingButton variant="contained" onClick={fetchDeleteAll} loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>
