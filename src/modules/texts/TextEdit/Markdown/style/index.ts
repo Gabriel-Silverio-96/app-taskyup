@@ -22,6 +22,23 @@ export const Markdown = styled(MdEditor)(
                     .button-type-image, .button-type-clear, .button-type-undo, .button-type-redo {
                         display: none;
                     }
+                    .button-type-header {
+                        .drop-wrap {
+                            background-color: ${theme.palette.background.paper};
+                            border: 0;
+
+                            .header-list {
+                                .list-item {
+                                    color: ${theme.palette.grey[600]};                                         
+
+                                    :hover {
+                                        background-color: transparent;
+                                        color: ${theme.palette.primary.main};                                             
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             background-color: ${theme.palette.background.paper};
