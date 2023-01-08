@@ -71,7 +71,7 @@ export const Markdown = styled(MdEditor)(
             }
 
             .sec-html {
-                background-color: ${theme.palette.grey[300]};     
+                background-color: ${theme.palette.common.white};     
             }
         }
     `
