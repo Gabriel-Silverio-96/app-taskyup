@@ -19,9 +19,11 @@ export const Markdown = styled(MdEditor)(
                             color: ${theme.palette.common.white};     
                         }   
                     }
+
                     .button-type-image, .button-type-clear, .button-type-undo, .button-type-redo {
                         display: none;
                     }
+
                     .button-type-header {
                         .drop-wrap {
                             background-color: ${theme.palette.background.paper};
@@ -29,12 +31,29 @@ export const Markdown = styled(MdEditor)(
 
                             .header-list {
                                 .list-item {
-                                    color: ${theme.palette.grey[600]};                                         
+                                    color: ${theme.palette.grey[600]};
 
                                     :hover {
                                         background-color: transparent;
-                                        color: ${theme.palette.primary.main};                                             
+                                        color: ${theme.palette.primary.main};
                                     }
+                                }
+                            }
+                        }
+                    }
+
+                    .button-type-table {
+                        .drop-wrap {
+                            background-color: ${theme.palette.background.paper};
+                            border: 0;
+
+                            .table-list {
+                                .list-item {
+                                    background-color: ${theme.palette.grey[600]};
+                                }
+                                
+                                .active {
+                                    background-color: ${theme.palette.primary.light};
                                 }
                             }
                         }
