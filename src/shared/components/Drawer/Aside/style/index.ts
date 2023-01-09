@@ -5,7 +5,6 @@ export const Aside = styled("aside")<IAsideStyle>(
 	({ open, theme }) => `                
         position: relative;
         background-color: ${theme.palette.common.black};
-        height: 100vh;
         width: ${open ? theme.spacing(25) : theme.spacing(7)};
         padding: ${theme.spacing(2)};          
         transition: width 0.2s ease-out;
