@@ -10,6 +10,7 @@ import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./schema";
+import { fetchSingleBoard } from "./service";
 import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 
 const DialogEditBoard = () => {
@@ -27,21 +28,15 @@ const DialogEditBoard = () => {
 		setValue,
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
-	const fetchSingleBoard = async () => {
-		const { data } = await api.get(`/board/board_id=${boardID}`);
-		return data;
-	};
-
 	const onSuccessQuery = (data: IFetchSingleBoard) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
 	};
 
-	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleBoard>(
-		["dialog_edit_board"],
-		fetchSingleBoard,
-		{ cacheTime: 0, onSuccess: onSuccessQuery, retry: false, enabled: false }
+	const optionQuery = { onSuccess: onSuccessQuery, cacheTime: 0, retry: false, enabled: false };
+	const { refetch, isFetching: isLoading } = useQuery(["dialog_edit_board"], () => fetchSingleBoard(boardID),
+		optionQuery
 	);
 
 	useEffect(() => {
