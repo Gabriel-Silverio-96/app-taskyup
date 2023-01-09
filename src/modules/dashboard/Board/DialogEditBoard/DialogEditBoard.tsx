@@ -37,13 +37,13 @@ const DialogEditBoard = () => {
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
 	};
-
 	const optionQuery = {
 		onSuccess: onSuccessQuery,
 		cacheTime: 0,
 		retry: false,
 		enabled: false,
 	};
+
 	const { refetch, isFetching: isLoading } = useQuery(
 		["dialog_edit_board"],
 		() => fetchSingleBoard(boardID),
@@ -64,14 +64,14 @@ const DialogEditBoard = () => {
 		]);
 		closeDialogEditBoard();
 	};
+	const optionMutation = { onSuccess: onSuccessMutation };
 
 	const mutationFetchEditBoard = async (dataEdited: IDialogEditBoardForm) => {
 		await fetchEditBoard(dataEdited, boardID, dialogBackgroundImage);
 	};
 
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
-		mutationFetchEditBoard,
-		{ onSuccess: onSuccessMutation }
+		mutationFetchEditBoard, optionMutation		
 	);
 
 	return (
