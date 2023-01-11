@@ -1,4 +1,4 @@
-import { Menu as MenuMui, styled } from "@mui/material";
+import { Menu as MenuMui, CardContent as CardContentMui ,styled } from "@mui/material/";
 import { ICardBoardStyle } from "./types/CardBoard.style";
 
 export const CardBoardContainer = styled("div")<ICardBoardStyle>(
@@ -37,6 +37,20 @@ export const CardHeader = styled("div")({
 	alignItem: "center",
 	justifyContent: "space-between",
 });
+
+export const CardContent = styled(CardContentMui)(
+	() => `
+        a {
+            h6 {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    `
+);
 
 export const Menu = styled(MenuMui)(
 	({ theme }) => `    

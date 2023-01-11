@@ -1,15 +1,14 @@
-import { Card, CardContent, Grid, IconButton, MenuItem, Typography } from "@mui/material";
+import { Card, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import Loading from "shared/components/Loading";
 import CardBoardEmpty from "./CardBoardEmpty";
 import { linkPathBoard } from "./constant";
-import { CardBoardContainer, CardHeader, CardIcon, Menu } from "./style";
-import { ITypeBoard, ICardBoardView } from "./types/CardBoard.component";
+import { CardBoardContainer, CardContent, CardHeader, CardIcon, Menu } from "./style";
+import { ICardBoardView, ITypeBoard } from "./types/CardBoard.component";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {
 	const { 
@@ -31,18 +30,14 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 			<Loading isLoading={isFetching} backdrop />
 			<CardBoardEmpty board={board}/>
 			{board &&
-				board.map((boardItem: IFetchBoard) => {
-					const title = boardItem.title.length > 30 
-						? `${boardItem.title.substring(0, 30).trim()}...`
-						: boardItem.title;
-												
-					const icon = boardIcon[boardItem.type_board as keyof ITypeBoard];					
-					const pathBoard = linkPathBoard[boardItem.type_board as keyof ITypeBoard<string>];
-					const linkBoard = `/${pathBoard}/${boardItem.board_id}`;
+				board.map(({ title, type_board, board_id, background_image }) => {													
+					const icon = boardIcon[type_board as keyof ITypeBoard];					
+					const pathBoard = linkPathBoard[type_board as keyof ITypeBoard<string>];
+					const linkBoard = `/${pathBoard}/${board_id}`;
 
 					return (
-						<Grid item xl={2} md={3} xs={12} key={boardItem.board_id}>
-							<CardBoardContainer backgroundimage={boardItem.background_image}>
+						<Grid item xl={2} md={3} xs={12} key={board_id}>
+							<CardBoardContainer backgroundimage={background_image}>
 								<Card sx={{ height: 120 }}>
 									<CardContent>
 										<CardHeader>
@@ -50,14 +45,14 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 												<CardIcon>
 													{icon}
 													<Typography color="text.secondary" gutterBottom sx={{ fontSize: 12 }}>
-														{boardItem.type_board}
+														{type_board}
 													</Typography>
 												</CardIcon>
 											</Link>
 											<IconButton sx={ { p: 0 } } 
 												disabled={isFetching}
 												onClick={(event: MouseEvent<HTMLButtonElement>) => {
-													handleBoardID(boardItem.board_id);
+													handleBoardID(board_id);
 													openMenu(event);
 												}}
 												data-testid="button-card-board-options"
@@ -85,8 +80,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 										</CardHeader>
 										<Link to={linkBoard}>
 											<Typography
-												variant="h6"
-												component="div"
+												variant="h6"												
 												fontWeight={800}
 												fontSize={16}
 												data-testid="card-board-title"

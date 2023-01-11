@@ -84,7 +84,17 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         .MuiCollapse-root {
             .MuiCollapse-wrapper {
                 max-height: ${theme.spacing(25)} !important;
-                overflow: hidden auto;                
+                overflow: hidden auto;   
+                
+                .MuiCollapse-wrapperInner {
+                    a > li > div .MuiTreeItem-label {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
 
                 ::-webkit-scrollbar-thumb {
                     background-color: ${theme.palette.grey[900]};
@@ -122,7 +132,7 @@ export const TreeViewContainerItem = styled("div")(
                 li {
                     display: flex;
                     align-items: center;
-                    gap: ${theme.spacing(1)};
+                    gap: ${theme.spacing(1)};                 
 
                     > svg path {
                         stroke: ${theme.palette.common.white}
