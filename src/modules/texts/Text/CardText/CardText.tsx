@@ -22,7 +22,7 @@ const CardText: React.FC = () => {
 		{ cacheTime: ONE_HOUR_IN_MILLISECOND, onSuccess: ({ title }) => seTitleText(title) }
 	);	
 	
-	useEffect(() => {data && seTitleText(data.title);}, []);
+	useEffect(() => {data && seTitleText(data.title);}, [board_id]);
 
 	const createText = async () => {
 		try {
