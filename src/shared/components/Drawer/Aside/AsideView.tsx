@@ -68,9 +68,7 @@ const AsideView: React.FC<IAsideView> = (props) => {
 						{menu && (
 							menu.notes.map(({ board_id, title }) => (
 								<Link to={`/notes/${board_id}`} key={board_id}>
-									<TreeItem nodeId={board_id} 
-										label={title.length > 15 ? `${title.substring(0, 15).trim()}...` : title} 
-									/>
+									<TreeItem nodeId={board_id} label={title} />
 								</Link>
 							))
 						)}							
@@ -79,9 +77,7 @@ const AsideView: React.FC<IAsideView> = (props) => {
 						{menu && (
 							menu.texts.map(({ board_id, title }) => (
 								<Link to={`/texts/${board_id}`} key={board_id}>
-									<TreeItem nodeId={board_id} 
-										label={title.length > 15 ? `${title.substring(0, 15).trim()}...` : title} 
-									/>
+									<TreeItem nodeId={board_id} label={title} />
 								</Link>
 							))
 						)}							
