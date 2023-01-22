@@ -1,14 +1,14 @@
 import { QueryClient } from "@tanstack/react-query";
 
-const fiveMinutesInMs = 1000 * 60 * 5;
-const oneSecondInMs = 1000;
+const ONE_HOUR_IN_MILLISECOND = 1000 * 60 * 60;
+const ONE_SECOND_IN_MILLISECOND = 1000;
 
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
-			staleTime: fiveMinutesInMs,
+			staleTime: ONE_HOUR_IN_MILLISECOND,
 			retry: 3,	
-			retryDelay: oneSecondInMs 		
+			retryDelay: ONE_SECOND_IN_MILLISECOND 		
 		},
 	},
 });
