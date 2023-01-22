@@ -2,10 +2,10 @@ import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
-import api from "shared/services/api";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
+import fetchNotes from "./service";
 
 const CardNote: React.FC = () => {
 	const { board_id } = useParams();
@@ -13,17 +13,12 @@ const CardNote: React.FC = () => {
 	const { palette } = useTheme();	
 	const { openDialogEditNote, openDialogDeleteSingleNote } = useDialogNote();
 
-	const fetchNotes = async () => {
-		const { data } = await api.get(`/notes/list/board_id=${board_id}`);
-		return data;
-	};
-
 	const onSuccess = ({ list_notes }: any) => setTotalOfNotes(list_notes.length);
 
 	const {
 		data: notes,
 		isFetching: isLoading,
-	} = useQuery(["notes", { variable: board_id }], fetchNotes, { onSuccess });
+	} = useQuery(["notes", { variable: board_id }], () => fetchNotes(board_id), { onSuccess });
 
 	return (
 		<CardNoteView

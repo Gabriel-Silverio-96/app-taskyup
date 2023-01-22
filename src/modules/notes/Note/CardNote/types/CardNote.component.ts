@@ -10,7 +10,7 @@ export interface INote {
 
 export interface IListNotes<T = undefined> {
 	notes: {
-		list_notes: INote[] | T
+		list_notes: INote[] | T;
 	}
 }
 
