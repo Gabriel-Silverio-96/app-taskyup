@@ -1,6 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
@@ -28,10 +28,9 @@ const HeaderNote: React.FC = () => {
 		return data;
 	};
 
-	const { data, refetch } = useQuery<IFetchSingleBoard>(["single_board"], fetchSingleBoard,
-		{ cacheTime: 0, onError: () => navigate("/dashboard"), retry: false }
+	const { data, isFetching } = useQuery<IFetchSingleBoard>(["single_board", { variable: boardID }], fetchSingleBoard,
+		{ onError: () => navigate("/dashboard") }
 	);
-	useEffect(() => {refetch();}, [boardID]);
 	
 	const openDialogDeleteAllNotesAndCloseMenu = () => {
 		openDialogDeleteAllNotes();
@@ -51,6 +50,7 @@ const HeaderNote: React.FC = () => {
 				isMediumScreen,
 				palette,
 				data,
+				isFetching
 			}}
 		/>
 	);

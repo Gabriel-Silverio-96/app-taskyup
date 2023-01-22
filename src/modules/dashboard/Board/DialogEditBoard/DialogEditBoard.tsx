@@ -61,6 +61,7 @@ const DialogEditBoard = () => {
 		Promise.all([
 			queryClient.invalidateQueries(["board"]),
 			queryClient.invalidateQueries(["menu"]),
+			queryClient.invalidateQueries(["single_board"]),
 		]);
 		closeDialogEditBoard();
 	};

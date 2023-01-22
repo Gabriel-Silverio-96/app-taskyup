@@ -1,4 +1,4 @@
-import { Button, Grid, IconButton, MenuItem, Tooltip, Typography } from "@mui/material";
+import { Button, Grid, IconButton, MenuItem, Skeleton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { FiEdit, FiMoreHorizontal, FiPlus } from "react-icons/fi";
 import { Nav } from "./style";
@@ -14,9 +14,10 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 		anchorEl, 
 		openMenu, 
 		closeMenu, 
+		isMediumScreen,
 		palette, 
 		data,
-		isMediumScreen,
+		isFetching
 	} = props;
 	
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
@@ -24,16 +25,20 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
 			<Grid item xl={6} md={6} sm={8} xs={8}>
-				<Typography variant={variantMediumScreen} fontWeight={800}>
-					{data && (
-						<>
-							{data.title}
-							<IconButton sx={{ ml: 1, display: "none" }}>
-								<FiEdit size={14} color={palette.grey[800]} />
-							</IconButton>
-						</>
-					)}
-				</Typography>
+				{isFetching ? (
+					<Skeleton variant="rectangular" width={210} height={32} />
+				) : (
+					<Typography variant={variantMediumScreen} fontWeight={800}>
+						{data && (
+							<>
+								{data.title}
+								<IconButton sx={{ ml: 1, display: "none" }}>
+									<FiEdit size={14} color={palette.grey[800]} />
+								</IconButton>
+							</>
+						)}
+					</Typography>
+				)}
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
