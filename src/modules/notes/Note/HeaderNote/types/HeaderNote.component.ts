@@ -12,4 +12,5 @@ export interface IHeaderNoteView {
     isMediumScreen: boolean;
     palette: Palette;
     data: IFetchSingleBoard | undefined;
+    isFetching: boolean;
 }
