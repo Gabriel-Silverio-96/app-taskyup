@@ -8,6 +8,8 @@ export interface INote {
 	created_at: string;
 }
 
+export type TListNotes = { list_notes: INote[] } | any;
+
 export interface IListNotes<T = undefined> {
 	notes: {
 		list_notes: INote[] | T;
