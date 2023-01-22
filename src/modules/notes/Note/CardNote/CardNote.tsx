@@ -12,20 +12,18 @@ const CardNote: React.FC = () => {
 	const { setTotalOfNotes } = useContextNote();
 	const { palette } = useTheme();	
 	const { openDialogEditNote, openDialogDeleteSingleNote } = useDialogNote();
-
+	
+	const queryKey = ["notes", { variable: board_id }];
 	const onSuccess = ({ list_notes }: any) => setTotalOfNotes(list_notes.length);
-
-	const {
-		data: notes,
-		isFetching: isLoading,
-	} = useQuery(["notes", { variable: board_id }], () => fetchNotes(board_id), { onSuccess });
+	
+	const { data, isFetching } = useQuery(queryKey, () => fetchNotes(board_id), { onSuccess });
 
 	return (
 		<CardNoteView
 			{...{
 				palette,
-				notes,
-				isLoading,
+				data,
+				isFetching,
 				openDialogEditNote,
 				openDialogDeleteSingleNote,
 			}}

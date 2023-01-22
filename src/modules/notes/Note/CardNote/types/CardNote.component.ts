@@ -14,9 +14,12 @@ export interface IListNotes<T = undefined> {
 	}
 }
 
-export interface ICardNotesView extends IListNotes {
+export interface ICardNotesView {
 	palette: Palette;	
-    isLoading: boolean;
+    isFetching: boolean;
+	data: {
+		list_notes: INote[] | undefined;
+	};
 	openDialogEditNote: (noteID: string) => void;
 	openDialogDeleteSingleNote: (noteID: string) => void;
 }
