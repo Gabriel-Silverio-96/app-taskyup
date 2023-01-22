@@ -8,15 +8,20 @@ export interface INote {
 	created_at: string;
 }
 
+export type TListNotes = { list_notes: INote[] } | any;
+
 export interface IListNotes<T = undefined> {
 	notes: {
-		list_notes: INote[] | T
+		list_notes: INote[] | T;
 	}
 }
 
-export interface ICardNotesView extends IListNotes {
+export interface ICardNotesView {
 	palette: Palette;	
-    isLoading: boolean;
+    isFetching: boolean;
+	data: {
+		list_notes: INote[] | undefined;
+	};
 	openDialogEditNote: (noteID: string) => void;
 	openDialogDeleteSingleNote: (noteID: string) => void;
 }
