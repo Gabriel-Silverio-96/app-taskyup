@@ -62,6 +62,7 @@ const DialogEditBoard = () => {
 			queryClient.invalidateQueries(["board"]),
 			queryClient.invalidateQueries(["menu"]),
 			queryClient.invalidateQueries(["single_board"]),
+			queryClient.invalidateQueries(["texts"]),
 		]);
 		closeDialogEditBoard();
 	};
