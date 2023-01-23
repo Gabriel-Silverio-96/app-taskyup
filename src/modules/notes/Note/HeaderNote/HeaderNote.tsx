@@ -22,17 +22,17 @@ const HeaderNote: React.FC = () => {
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
 	const closeMenu = () => setAnchorEl(null);
 
+	const openDialogDeleteAllNotesAndCloseMenu = () => {
+		openDialogDeleteAllNotes();
+		closeMenu();
+	};
+
 	const queryKey = ["single_board", { variable: boardID }];
 	const options = { onError: () => navigate("/dashboard") };
 	const queryFetch = () => fetchSingleBoard(boardID);
 
 	const { data, isFetching } = useQuery<IFetchSingleBoard>(queryKey, queryFetch, options);
 	
-	const openDialogDeleteAllNotesAndCloseMenu = () => {
-		openDialogDeleteAllNotes();
-		closeMenu();
-	};
-
 	return (
 		<HeaderNoteView
 			{...{
