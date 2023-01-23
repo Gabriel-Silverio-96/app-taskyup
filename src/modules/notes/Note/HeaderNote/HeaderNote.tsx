@@ -17,8 +17,8 @@ const HeaderNote: React.FC = () => {
 	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
 	
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	
 	const isOpenMenu = Boolean(anchorEl);
-
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
 	const closeMenu = () => setAnchorEl(null);
 
@@ -32,7 +32,7 @@ const HeaderNote: React.FC = () => {
 	const queryFetch = () => fetchSingleBoard(boardID);
 
 	const { data, isFetching } = useQuery<IFetchSingleBoard>(queryKey, queryFetch, options);
-	
+
 	return (
 		<HeaderNoteView
 			{...{
