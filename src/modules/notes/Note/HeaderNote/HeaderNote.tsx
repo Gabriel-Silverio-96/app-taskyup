@@ -9,16 +9,15 @@ import HeaderNoteView from "./HeaderNoteView";
 import fetchSingleBoard from "./service";
 
 const HeaderNote: React.FC = () => {
-	const { board_id: boardID } = useParams();
+	const navigate = useNavigate();
 	const { totalOfNotes } = useContextNote();
-	
+	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
+	const { board_id: boardID } = useParams();
 	const { palette, breakpoints } = useTheme();
 	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
 	
-	const navigate = useNavigate();
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
-	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
 
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
 	const closeMenu = () => setAnchorEl(null);
