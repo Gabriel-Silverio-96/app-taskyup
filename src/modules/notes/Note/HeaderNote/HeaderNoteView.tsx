@@ -1,9 +1,8 @@
-import { Button, Grid, IconButton, MenuItem, Skeleton, Tooltip, Typography } from "@mui/material";
+import { Button, Grid, MenuItem, Skeleton, Tooltip, Typography } from "@mui/material";
 import React from "react";
-import { FiEdit, FiMoreHorizontal, FiPlus } from "react-icons/fi";
-import { Nav } from "./style";
+import { FiMoreHorizontal, FiPlus } from "react-icons/fi";
+import { Menu, Nav } from "./style";
 import { IHeaderNoteView } from "./types/HeaderNote.component";
-import { Menu } from "./style";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	const { 
@@ -21,6 +20,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	} = props;
 	
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
+	const title = data && data.title;
 
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
@@ -29,14 +29,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 					<Skeleton variant="rectangular" width={210} height={32} />
 				) : (
 					<Typography variant={variantMediumScreen} fontWeight={800}>
-						{data && (
-							<>
-								{data.title}
-								<IconButton sx={{ ml: 1, display: "none" }}>
-									<FiEdit size={14} color={palette.grey[800]} />
-								</IconButton>
-							</>
-						)}
+						{title}
 					</Typography>
 				)}
 			</Grid>
