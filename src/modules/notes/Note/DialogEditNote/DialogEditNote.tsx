@@ -47,7 +47,7 @@ const DialogEditNote: React.FC = () => {
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(
 		["dialog_edit_note"],
 		fetchSingleNote,
-		{ cacheTime: 0, onSuccess: onSuccessFetchSingleNote, retry: false, enabled: false }
+		{ onSuccess: onSuccessFetchSingleNote, retry: false, enabled: false }
 	);
 
 	useEffect(() => {

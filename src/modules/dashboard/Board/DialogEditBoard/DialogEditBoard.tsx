@@ -39,7 +39,6 @@ const DialogEditBoard = () => {
 	};
 	const optionQuery = {
 		onSuccess: onSuccessQuery,
-		cacheTime: 0,
 		retry: false,
 		enabled: false,
 	};

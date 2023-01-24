@@ -5,7 +5,6 @@ import { useParams, useNavigate  } from "react-router-dom";
 import { useContextText } from "../Context";
 import useDialogText from "../hooks/useDialogText";
 import CardTextView from "./CardTextView";
-import { ONE_HOUR_IN_MILLISECOND } from "./constant";
 import { fetchTexts, fetchCreateText } from "./service";
 
 const CardText: React.FC = () => {
@@ -19,7 +18,7 @@ const CardText: React.FC = () => {
 	const [ isCreatingText, setIsCreatingText ] = useState(false);
 
 	const { data, isFetching: isLoading } = useQuery(["texts", { variables: board_id }], () => fetchTexts(board_id),
-		{ cacheTime: ONE_HOUR_IN_MILLISECOND, onSuccess: ({ title }) => seTitleText(title) }
+		{ onSuccess: ({ title }) => seTitleText(title) }
 	);	
 	
 	useEffect(() => {data && seTitleText(data.title);}, [board_id]);
