@@ -33,20 +33,21 @@ const DialogEditNote: React.FC = () => {
 		mode: "all",
 	});
 
-	const onSuccessFetchSingleNote = (data: IFetchSingleNote) => {
+	const queryKey = ["dialog_edit_note"];
+	const queryFn = () => fetchSingleNote(noteID);
+	
+	const onSuccessQuery = (data: IFetchSingleNote) => {
 		setValue("color_note", data.color_note);
 		setValue("title_note", data.title_note);
 		setValue("observation", data.observation);
 		setValue("note_created_at", dateFormat(data.created_at));
 	};
+	const optionsQuery = { onSuccess: onSuccessQuery, retry: false, enabled: false };
 
-	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(
-		["dialog_edit_note"], () => fetchSingleNote(noteID),
-		{ onSuccess: onSuccessFetchSingleNote, retry: false, enabled: false }
-	);
+	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
-		!!Object.keys(errors).length && clearErrors();
+		Object.keys(errors).length > 0 && clearErrors();
 		isOpenDialogEditNote && refetch();
 	}, [isOpenDialogEditNote]);
 
