@@ -4,14 +4,13 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import api from "shared/services/api";
 import dateFormat from "shared/util/dateFormat";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import { IDialogNoteForm } from "../shared/types";
 import DialogEditNoteView from "./DialogEditNoteView";
 import schema from "./schema";
-import { fetchSingleNote } from "./service";
+import { fetchEditNote, fetchSingleNote } from "./service";
 import { IFetchSingleNote } from "./types/DialogEditNote.component";
 
 const DialogEditNote: React.FC = () => {
@@ -42,8 +41,8 @@ const DialogEditNote: React.FC = () => {
 		setValue("observation", data.observation);
 		setValue("note_created_at", dateFormat(data.created_at));
 	};
-	const optionsQuery = { onSuccess: onSuccessQuery, retry: false, enabled: false };
 
+	const optionsQuery = { onSuccess: onSuccessQuery, retry: false, enabled: false };
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
@@ -51,16 +50,15 @@ const DialogEditNote: React.FC = () => {
 		isOpenDialogEditNote && refetch();
 	}, [isOpenDialogEditNote]);
 
-	const mutationDialogEditNote = async (dataEditNote: IDialogNoteForm) => {
-		await api.put("/notes/edit", dataEditNote, {
-			params: { note_id: noteID, board_id: boardID },
-		});
+	const mutationFn = (form: IDialogNoteForm) => fetchEditNote({ form, noteID, boardID });
+
+	const onSuccessMutation = () => {
+		queryClient.invalidateQueries(["notes"]);
 		closeDialogEditNote();
 	};
 
-	const { mutate: fetchDialogEditNote, isLoading: isSaving } = useMutation(mutationDialogEditNote, {
-		onSuccess: () => queryClient.invalidateQueries(["notes"])
-	});
+	const optionsMutation = { onSuccess: onSuccessMutation };
+	const { mutate: fetchDialogEditNote, isLoading: isSaving } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogEditNoteView
