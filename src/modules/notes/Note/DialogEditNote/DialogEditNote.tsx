@@ -32,9 +32,6 @@ const DialogEditNote: React.FC = () => {
 		mode: "all",
 	});
 
-	const queryKey = ["dialog_edit_note"];
-	const queryFn = () => fetchSingleNote(noteID);
-	
 	const onSuccessQuery = (data: IFetchSingleNote) => {
 		setValue("color_note", data.color_note);
 		setValue("title_note", data.title_note);
@@ -42,7 +39,10 @@ const DialogEditNote: React.FC = () => {
 		setValue("note_created_at", dateFormat(data.created_at));
 	};
 
+	const queryKey = ["dialog_edit_note"];
+	const queryFn = () => fetchSingleNote(noteID);
 	const optionsQuery = { onSuccess: onSuccessQuery, retry: false, enabled: false };
+
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
@@ -50,14 +50,14 @@ const DialogEditNote: React.FC = () => {
 		isOpenDialogEditNote && refetch();
 	}, [isOpenDialogEditNote]);
 
-	const mutationFn = (form: IDialogNoteForm) => fetchEditNote({ form, noteID, boardID });
-
 	const onSuccessMutation = () => {
 		queryClient.invalidateQueries(["notes"]);
 		closeDialogEditNote();
 	};
-
+	
+	const mutationFn = (form: IDialogNoteForm) => fetchEditNote({ form, noteID, boardID });
 	const optionsMutation = { onSuccess: onSuccessMutation };
+
 	const { mutate: fetchDialogEditNote, isLoading: isSaving } = useMutation(mutationFn, optionsMutation);
 
 	return (
