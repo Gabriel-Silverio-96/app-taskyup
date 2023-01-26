@@ -13,5 +13,4 @@ const fetchEditNote = async (data: IEditNoteData) => {
 	await api.put("/notes/edit", form, params);	
 };
 
-
 export { fetchSingleNote, fetchEditNote };
