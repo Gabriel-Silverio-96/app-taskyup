@@ -37,16 +37,16 @@ const DialogEditBoard = () => {
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
 	};
-	const optionQuery = {
+	const optionsQuery = {
 		onSuccess: onSuccessQuery,
 		retry: false,
 		enabled: false,
 	};
-
+	
 	const { refetch, isFetching: isLoading } = useQuery(
 		["dialog_edit_board"],
 		() => fetchSingleBoard(boardID),
-		optionQuery
+		optionsQuery
 	);
 
 	useEffect(() => {
