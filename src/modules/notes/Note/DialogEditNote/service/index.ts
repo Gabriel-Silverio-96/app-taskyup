@@ -1,8 +1,8 @@
 import api from "shared/services/api";
-import { IEditNoteData, IFetchSingleNote } from "../types/DialogEditNote.component";
+import { IEditNoteData } from "../types/DialogEditNote.component";
 
 const fetchSingleNote = async (noteID: string) => {
-	const { data } = await api.get<IFetchSingleNote>(`notes/note_id=${noteID}`);
+	const { data } = await api.get(`notes/note_id=${noteID}`);
 	return data;
 };
 
