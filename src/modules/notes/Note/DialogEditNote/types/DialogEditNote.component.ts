@@ -8,6 +8,12 @@ export interface IFetchSingleNote {
     created_at: string;
 }
 
+export interface IEditNoteData {
+    form: IDialogNoteForm;
+    noteID: string;
+    boardID: string | undefined;
+}
+
 export interface IDialogEditNoteView {
     fullScreen: boolean;
     closeDialogEditNote: () => void;

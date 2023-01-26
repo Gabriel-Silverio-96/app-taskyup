@@ -4,13 +4,13 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import api from "shared/services/api";
 import dateFormat from "shared/util/dateFormat";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import { IDialogNoteForm } from "../shared/types";
 import DialogEditNoteView from "./DialogEditNoteView";
 import schema from "./schema";
+import { fetchEditNote, fetchSingleNote } from "./service";
 import { IFetchSingleNote } from "./types/DialogEditNote.component";
 
 const DialogEditNote: React.FC = () => {
@@ -32,39 +32,33 @@ const DialogEditNote: React.FC = () => {
 		mode: "all",
 	});
 
-	const fetchSingleNote = async () => {
-		const { data } = await api.get(`notes/note_id=${noteID}`);
-		return data;
-	};
-
-	const onSuccessFetchSingleNote = (data: IFetchSingleNote) => {
+	const onSuccessQuery = (data: IFetchSingleNote) => {
 		setValue("color_note", data.color_note);
 		setValue("title_note", data.title_note);
 		setValue("observation", data.observation);
 		setValue("note_created_at", dateFormat(data.created_at));
 	};
 
-	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(
-		["dialog_edit_note"],
-		fetchSingleNote,
-		{ onSuccess: onSuccessFetchSingleNote, retry: false, enabled: false }
-	);
+	const queryKey = ["dialog_edit_note"];
+	const queryFn = () => fetchSingleNote(noteID);
+	const optionsQuery = { onSuccess: onSuccessQuery, retry: false, enabled: false };
+
+	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
-		!!Object.keys(errors).length && clearErrors();
+		Object.keys(errors).length > 0 && clearErrors();
 		isOpenDialogEditNote && refetch();
 	}, [isOpenDialogEditNote]);
 
-	const mutationDialogEditNote = async (dataEditNote: IDialogNoteForm) => {
-		await api.put("/notes/edit", dataEditNote, {
-			params: { note_id: noteID, board_id: boardID },
-		});
+	const onSuccessMutation = () => {
+		queryClient.invalidateQueries(["notes"]);
 		closeDialogEditNote();
 	};
+	
+	const mutationFn = (form: IDialogNoteForm) => fetchEditNote({ form, noteID, boardID });
+	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: fetchDialogEditNote, isLoading: isSaving } = useMutation(mutationDialogEditNote, {
-		onSuccess: () => queryClient.invalidateQueries(["notes"])
-	});
+	const { mutate: fetchDialogEditNote, isLoading: isSaving } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogEditNoteView
