@@ -18,14 +18,14 @@ const DialogDeleteSingleNote: React.FC = () => {
 	const mutationFn = () => fetchDialogDeleteSingleNote(noteID);	
 	const optionsMutation = { onSuccess: onSuccessMutation};
 	
-	const { mutate: fetchDeleteThisNote, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
+	const { mutate: fetchDeleteSingleNote, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogDeleteSingleNoteView
 			{...{
 				isOpenDialogDeleteSingleNote,
 				closeDialogDeleteSingleNote,
-				fetchDeleteThisNote,
+				fetchDeleteSingleNote,
 				isDeleting
 			}}
 		/>
