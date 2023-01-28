@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
-import { useContextNote } from "../Context";
-import useDialogNote from "../shared/hook/useDialogNote";
+import { useContextNote } from "../../Context";
+import useDialogNote from "../../shared/hook/useDialogNote";
 import DialogDeleteSingleNoteView from "./DialogDeleteSingleNoteView";
 import fetchDialogDeleteSingleNote from "./service";
 
