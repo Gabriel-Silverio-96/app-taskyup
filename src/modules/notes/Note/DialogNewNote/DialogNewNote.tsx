@@ -32,15 +32,15 @@ const DialogNewNote: React.FC = () => {
 
 	useEffect(() => reset(), [isOpenDialogNewNote]);
 
-	const onSuccessMutation = {
-		onSuccess: () => {
-			queryClient.invalidateQueries(["notes"]);
-			closeDialogNewNote();
-		}
+	const onSuccessMutation =  () => {
+		queryClient.invalidateQueries(["notes"]);
+		closeDialogNewNote();
 	};
-
+	
 	const mutationFn = (form: IDialogNoteForm) => fetchCreateNote({ form, boardID });	
-	const { mutate: fetchDialogNewNote, isLoading: isSaving } = useMutation(mutationFn, onSuccessMutation);
+	const optionsMutation = { onSuccess: onSuccessMutation};
+
+	const { mutate: fetchDialogNewNote, isLoading: isSaving } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogNewNoteView
