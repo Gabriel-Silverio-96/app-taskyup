@@ -30,6 +30,7 @@ const DialogEditBoard = () => {
 		handleSubmit,
 		formState: { errors },
 		setValue,
+		clearErrors
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
 	const onSuccessQuery = (data: IFetchSingleBoard) => {
@@ -45,10 +46,12 @@ const DialogEditBoard = () => {
 	const { refetch, isFetching: isLoading } = useQuery(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
-		if (isOpenDialogEditBoard) {
-			refetch();
-		}
-		return () => setDialogBackgroundImage("");
+		if (isOpenDialogEditBoard) refetch();
+
+		return () => {
+			clearErrors();
+			setDialogBackgroundImage("");
+		}; 
 	}, [isOpenDialogEditBoard]);
 
 	const onSuccessMutation = () => {
