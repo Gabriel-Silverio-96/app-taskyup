@@ -11,3 +11,8 @@ export interface IDialogNewNoteView {
     closeDialogNewNote: () => void;
     isSaving: boolean;
 }
+
+export interface ICreateNoteData {
+    form: IDialogNoteForm;
+    boardID: string | undefined;
+}
