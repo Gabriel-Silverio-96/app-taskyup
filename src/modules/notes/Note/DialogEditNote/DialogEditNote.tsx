@@ -15,11 +15,12 @@ import { IFetchSingleNote } from "./types/DialogEditNote.component";
 
 const DialogEditNote: React.FC = () => {
 	const theme = useTheme();
-	const queryClient = useQueryClient();
 	const { board_id: boardID } = useParams();
-	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+	
+	const queryClient = useQueryClient();
 	const { isOpenDialogEditNote, noteID } = useContextNote();
 	const { closeDialogEditNote } = useDialogNote();
+	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const {
 		register,
