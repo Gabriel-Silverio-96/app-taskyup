@@ -1,8 +1,8 @@
 import CardNote from "./CardNote";
 import DialogDeleteAllNotes from "./DialogDeleteAllNotes";
 import DialogDeleteSingleNote from "./DialogDeleteSingleNote";
-import DialogEditNote from "./DialogEditNote";
-import DialogNewNote from "./DialogNewNote";
+import DialogEditNote from "./Dialogs/DialogEditNote";
+import DialogNewNote from "./Dialogs/DialogNewNote";
 import HeaderNote from "./HeaderNote";
 
 const NoteView = () => {

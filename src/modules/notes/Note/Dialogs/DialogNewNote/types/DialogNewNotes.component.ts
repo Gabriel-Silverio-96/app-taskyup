@@ -1,5 +1,5 @@
+import { IDialogNoteForm } from "modules/notes/Note/shared/types";
 import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
-import { IDialogNoteForm } from "../../shared/types";
 
 export interface IDialogNewNoteView {
     fullScreen: boolean;
