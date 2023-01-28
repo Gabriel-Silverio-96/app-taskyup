@@ -26,7 +26,7 @@ const DialogEditNote: React.FC = () => {
 		handleSubmit,
 		setValue,
 		formState: { errors },
-		clearErrors,
+		reset,
 	} = useForm<IDialogNoteForm>({
 		resolver: yupResolver(schema),
 		mode: "all",
@@ -46,8 +46,9 @@ const DialogEditNote: React.FC = () => {
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
-		Object.keys(errors).length > 0 && clearErrors();
-		isOpenDialogEditNote && refetch();
+		if(isOpenDialogEditNote) refetch();
+
+		return () => reset();
 	}, [isOpenDialogEditNote]);
 
 	const onSuccessMutation = () => {
