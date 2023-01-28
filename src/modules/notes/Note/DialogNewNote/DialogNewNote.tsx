@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import React, { memo, useMemo } from "react";
+import React, { memo, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import api from "shared/services/api";
@@ -13,14 +13,15 @@ import schema from "./schema";
 
 const DialogNewNote: React.FC = () => {
 	const theme = useTheme();
-	const queryClient = useQueryClient();
 	const { board_id: boardID } = useParams();
+
+	const queryClient = useQueryClient();
 	const { isOpenDialogNewNote } = useContextNote();
 	const { closeDialogNewNote } = useDialogNote();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const {	register, handleSubmit,	formState: { errors }, reset } = useForm<IDialogNoteForm>({ resolver: yupResolver(schema), mode: "all" });
-	useMemo(() => isOpenDialogNewNote && reset(), [isOpenDialogNewNote]);
+	useEffect(() => reset(), [isOpenDialogNewNote]);
 
 	const mutationDialogNewBoard = async (dataNewNote: IDialogNoteForm) => {
 		const { data } = await api.post(`notes/create/board_id=${boardID}`, dataNewNote	);
