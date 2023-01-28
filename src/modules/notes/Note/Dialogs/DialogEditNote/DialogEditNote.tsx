@@ -5,9 +5,9 @@ import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import dateFormat from "shared/util/dateFormat";
-import { useContextNote } from "../Context";
-import useDialogNote from "../shared/hook/useDialogNote";
-import { IDialogNoteForm } from "../shared/types";
+import { useContextNote } from "../../Context";
+import useDialogNote from "../../shared/hook/useDialogNote";
+import { IDialogNoteForm } from "../../shared/types";
 import DialogEditNoteView from "./DialogEditNoteView";
 import schema from "./schema";
 import { fetchEditNote, fetchSingleNote } from "./service";
@@ -15,18 +15,19 @@ import { IFetchSingleNote } from "./types/DialogEditNote.component";
 
 const DialogEditNote: React.FC = () => {
 	const theme = useTheme();
-	const queryClient = useQueryClient();
 	const { board_id: boardID } = useParams();
-	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+	
+	const queryClient = useQueryClient();
 	const { isOpenDialogEditNote, noteID } = useContextNote();
 	const { closeDialogEditNote } = useDialogNote();
+	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const {
 		register,
 		handleSubmit,
 		setValue,
 		formState: { errors },
-		clearErrors,
+		reset,
 	} = useForm<IDialogNoteForm>({
 		resolver: yupResolver(schema),
 		mode: "all",
@@ -46,8 +47,9 @@ const DialogEditNote: React.FC = () => {
 	const { refetch, isFetching: isLoading } = useQuery<IFetchSingleNote>(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
-		Object.keys(errors).length > 0 && clearErrors();
-		isOpenDialogEditNote && refetch();
+		if(isOpenDialogEditNote) refetch();
+
+		return () => reset();
 	}, [isOpenDialogEditNote]);
 
 	const onSuccessMutation = () => {

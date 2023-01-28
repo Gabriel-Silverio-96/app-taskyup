@@ -1,6 +1,6 @@
 export interface IDialogDeleteSingleNoteView {
     isOpenDialogDeleteSingleNote: boolean;
     closeDialogDeleteSingleNote: () => void;
-    fetchDeleteThisNote: () => void;
+    fetchDeleteSingleNote: () => void;
     isDeleting: boolean;
 }

@@ -1,5 +1,5 @@
+import { IDialogNoteForm } from "modules/notes/Note/shared/types";
 import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
-import { IDialogNoteForm } from "../../shared/types";
 
 export interface IDialogNewNoteView {
     fullScreen: boolean;
@@ -10,4 +10,9 @@ export interface IDialogNewNoteView {
     isOpenDialogNewNote: boolean;
     closeDialogNewNote: () => void;
     isSaving: boolean;
+}
+
+export interface ICreateNoteData {
+    form: IDialogNoteForm;
+    boardID: string | undefined;
 }

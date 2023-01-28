@@ -28,10 +28,10 @@ const HeaderNote: React.FC = () => {
 	};
 
 	const queryKey = ["single_board", { variable: boardID }];
-	const options = { onError: () => navigate("/dashboard") };
-	const queryFetch = () => fetchSingleBoard(boardID);
+	const optionsQuery = { onError: () => navigate("/dashboard") };
+	const queryFn = () => fetchSingleBoard(boardID);
 
-	const { data, isFetching } = useQuery<IFetchSingleBoard>(queryKey, queryFetch, options);
+	const { data, isFetching } = useQuery<IFetchSingleBoard>(queryKey, queryFn, optionsQuery);
 
 	return (
 		<HeaderNoteView
