@@ -1,5 +1,5 @@
 import CardNote from "./CardNote";
-import DialogDeleteAllNotes from "./DialogDeleteAllNotes";
+import DialogDeleteAllNotes from "./Dialogs/DialogDeleteAllNotes";
 import DialogDeleteSingleNote from "./Dialogs/DialogDeleteSingleNote";
 import DialogEditNote from "./Dialogs/DialogEditNote";
 import DialogNewNote from "./Dialogs/DialogNewNote";
