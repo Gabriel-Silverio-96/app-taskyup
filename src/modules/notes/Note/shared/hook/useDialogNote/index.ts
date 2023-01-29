@@ -14,10 +14,10 @@ const useDialogNote = (): IUseDialogNote => {
 	const openDialogNewNote = useCallback(() => setIsOpenDialogNewNote(true),  []);
 	const closeDialogNewNote = useCallback(() => setIsOpenDialogNewNote(false), []);
 
-	const openDialogEditNote = (noteID: string) => {
+	const openDialogEditNote = useCallback((noteID: string) => {
 		setIsOpenDialogEditNote(true);
 		setNoteID(noteID);
-	};
+	}, []);
 
 	const closeDialogEditNote = useCallback(() => {
 		setIsOpenDialogEditNote(false);
