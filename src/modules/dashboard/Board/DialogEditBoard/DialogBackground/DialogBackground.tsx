@@ -20,8 +20,11 @@ const DialogBackground: React.FC = () => {
 	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
-
-	const closeMenu = () => setAnchorEl(null);	
+	const closeMenu = () => {
+		setAnchorEl(null);
+		setImages(INITIAL_STATE_IMAGES);
+	};	
+	
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => setQueryImage(event.target.value);
 		
 	const searchImage = async (resetPagination?: boolean) => {
