@@ -33,6 +33,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 	const disabledButtonSearch = Boolean(!queryImage);
 
 	const handleErrorRequest = images.error && <Typography variant="caption">{images.error}</Typography>;
+	const noResults = images.total_results === 0 && <Typography variant="caption" display="block" textAlign="center">No results found</Typography>;
 
 	return (
 		<DialogBackground backgroundimage={dialogBackgroundImage}>
@@ -58,7 +59,10 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 					</Button>							
 				</MenuSearch>
 				<Loading isLoading={isLoadingImages} message="Loading images" />
+
 				{handleErrorRequest}
+				{noResults}
+
 				<MenuImages>					
 					{images.photos.map((image: TImage) => (
 						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
