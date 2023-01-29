@@ -16,7 +16,7 @@ export const Aside = styled("aside")<IAsideStyle>(
                 }
 
                 .MuiTreeItem-content {         
-                    margin-top: ${theme.spacing(1)};                              
+                    margin-top: ${theme.spacing(0.5)};                              
                     padding: ${theme.spacing(0.8)} ${theme.spacing(0.8)} ${theme.spacing(0.8)} 0;
                     :hover {
                         background-color: transparent;
@@ -24,7 +24,7 @@ export const Aside = styled("aside")<IAsideStyle>(
                 }
 
                 .MuiTreeItem-label {
-                    font-size: 0.9rem;
+                    font-size: 0.8rem;
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
@@ -82,6 +82,8 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         }
 
         .MuiCollapse-root {
+            margin-left: 0;
+
             .MuiCollapse-wrapper {
                 max-height: ${theme.spacing(25)} !important;
                 overflow: hidden auto;   
@@ -115,7 +117,7 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
                         linear-gradient(0deg, rgb(0 0 0 / 0%) 20%, 
                         ${theme.palette.mode === "dark" ? theme.palette.common.black : theme.palette.common.white} 100%
                     );
-                    height: ${theme.spacing(7.5)};
+                    height: ${theme.spacing(4)};
                     width: 100%;
                 }
             }
