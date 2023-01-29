@@ -11,38 +11,32 @@ const useDialogNote = (): IUseDialogNote => {
 		setIsOpenDialogDeleteAllNotes,
 	} = useContextNote();
 
-	const openDialogNewNote = () => setIsOpenDialogNewNote(true);
-	const closeDialogNewNote = () => setIsOpenDialogNewNote(false);
+	const openDialogNewNote = useCallback(() => setIsOpenDialogNewNote(true),  []);
+	const closeDialogNewNote = useCallback(() => setIsOpenDialogNewNote(false), []);
 
 	const openDialogEditNote = (noteID: string) => {
 		setIsOpenDialogEditNote(true);
 		setNoteID(noteID);
 	};
 
-	const closeDialogEditNote = () => {
+	const closeDialogEditNote = useCallback(() => {
 		setIsOpenDialogEditNote(false);
 		setNoteID("");
-	};
+	}, []);
 
-	const openDialogDeleteSingleNote = (noteID: string) => {
+	const openDialogDeleteSingleNote = useCallback((noteID: string) => {
 		setIsOpenDialogDeleteSingleNote(true);
 		setNoteID(noteID);
-	};
+	}, []);
 
-	const closeDialogDeleteSingleNote = () => {
+	const closeDialogDeleteSingleNote = useCallback(() => {
 		setIsOpenDialogDeleteSingleNote(false);
 		setNoteID("");
-	};
+	}, []);
 
-	const openDialogDeleteAllNotes = useCallback(
-		() => setIsOpenDialogDeleteAllNotes(true),
-		[]
-	);
+	const openDialogDeleteAllNotes = useCallback(() => setIsOpenDialogDeleteAllNotes(true),	[]);
 
-	const closeDialogDeleteAllNotes = useCallback(
-		() => setIsOpenDialogDeleteAllNotes(false),
-		[]
-	);
+	const closeDialogDeleteAllNotes = useCallback(() => setIsOpenDialogDeleteAllNotes(false), []);
 
 	return {
 		openDialogNewNote,
