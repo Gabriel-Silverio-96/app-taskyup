@@ -17,9 +17,8 @@ const DialogDeleteSingleBoard: React.FC = () => {
 		]);
 		closeDialogDeleteSingleBoard();
 	};
-	const onError = () => closeDialogDeleteSingleBoard();
-
-	const optionsMutation = { onError, onSuccess };
+	
+	const optionsMutation = { onSuccess };
 	const mutationFn = () => fetchDeleteSingleBoard(boardID);
 
 	const { mutate: fetchDialogDeleteSingleBoard, isLoading} = useMutation(mutationFn, optionsMutation);
