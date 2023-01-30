@@ -23,13 +23,8 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) 
 	const onClose = !isLoading ? closeDialogDeleteSingleBoard : () => "";
 
 	return (
-		<Dialog 
-			fullWidth
-			maxWidth="xs"
-			open={isOpenDialogDeleteSingleBoard}			
-			onClose={onClose}
-		>
-			<DialogTitle sx={{marginBottom: "1rem"}}>
+		<Dialog fullWidth maxWidth="xs"	open={isOpenDialogDeleteSingleBoard} onClose={onClose}>
+			<DialogTitle sx={{ marginBottom: "1rem" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Grid item>
 						<Typography variant="h6" fontWeight={700}>Delete Board</Typography>
