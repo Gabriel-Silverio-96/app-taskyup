@@ -30,22 +30,19 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 	} = props;
 
 	const loadingGrid = { display: isLoading ? "flex" : "none", mb: 5 };
+	
+	const onClose = !isSaving && !isLoading ? closeDialogEditBoard : () => "";
+	const disabledIconButtonClose = isLoading || isSaving;
 
 	return (
-		<Dialog 
-			fullWidth
-			maxWidth="xs"
-			open={isOpenDialogEditBoard}
-			fullScreen={fullScreen}
-			onClose={!isSaving && !isLoading ? closeDialogEditBoard : () => ""}
-		>
+		<Dialog fullWidth maxWidth="xs"	open={isOpenDialogEditBoard} fullScreen={fullScreen} onClose={onClose}>
 			<DialogTitle>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Grid item>
 						<Typography variant="h6" fontWeight={700}>Edit Board</Typography>
 					</Grid>
 					<Grid item> 
-						<IconButton onClick={closeDialogEditBoard} disabled={isLoading || isSaving}>
+						<IconButton onClick={closeDialogEditBoard} disabled={disabledIconButtonClose}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>

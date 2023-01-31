@@ -51,7 +51,7 @@ const DialogEditBoard = () => {
 		return () => {
 			clearErrors();
 			setDialogBackgroundImage("");
-		}; 
+		};
 	}, [isOpenDialogEditBoard]);
 
 	const onSuccessMutation = () => {
@@ -63,14 +63,15 @@ const DialogEditBoard = () => {
 		]);
 		closeDialogEditBoard();
 	};
-	const optionMutation = { onSuccess: onSuccessMutation };
 
-	const mutationFetchEditBoard = async (dataEdited: IDialogEditBoardForm) => {
-		await fetchEditBoard(dataEdited, boardID, dialogBackgroundImage);
-	};
+	const mutationFn = (dataEdited: IDialogEditBoardForm) =>
+		fetchEditBoard(dataEdited, boardID, dialogBackgroundImage);
+
+	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
-		mutationFetchEditBoard, optionMutation		
+		mutationFn,
+		optionsMutation
 	);
 
 	return (
