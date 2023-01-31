@@ -16,3 +16,9 @@ export interface IDialogEditBoardView {
     isOpenDialogEditBoard: boolean;
     closeDialogEditBoard: () => void;
 }
+
+export interface IFetchEditBoard {
+	form: IDialogEditBoardForm;
+	boardID: string;
+	background_image: string;
+}

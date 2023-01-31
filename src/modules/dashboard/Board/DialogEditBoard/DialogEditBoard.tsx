@@ -64,8 +64,8 @@ const DialogEditBoard = () => {
 		closeDialogEditBoard();
 	};
 
-	const mutationFn = (dataEdited: IDialogEditBoardForm) =>
-		fetchEditBoard(dataEdited, boardID, dialogBackgroundImage);
+	const mutationFn = (form: IDialogEditBoardForm) =>
+		fetchEditBoard({ form, background_image: dialogBackgroundImage, boardID });
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
