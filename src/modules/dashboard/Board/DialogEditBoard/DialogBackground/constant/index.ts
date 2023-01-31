@@ -32,3 +32,5 @@ export const INITIAL_STATE_IMAGES = {
 		},
 	]
 };
+
+export const ERROR_STATE_IMAGES = { photos: [], error: "Service unavailable, please try again later" };

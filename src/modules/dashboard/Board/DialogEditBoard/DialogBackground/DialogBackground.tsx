@@ -1,7 +1,7 @@
 import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
 import { IFetchSearchImages } from "shared/common/types/Fetch";
 import { useContextBoard } from "../../Context";
-import { INITIAL_STATE_IMAGES } from "./constant";
+import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constant";
 import DialogBackgroundView from "./DialogBackgroundView";
 import fetchSearchImage from "./service";
 import { IImages } from "./types/DialogBackground.types";
@@ -36,7 +36,7 @@ const DialogBackground: React.FC = () => {
 			setImages(data);			
 			resetPagination && setPagination(1);
 		} catch (error) {			
-			setImages({ photos: [], error: "Service unavailable, please try again later" });
+			setImages(ERROR_STATE_IMAGES);
 			console.error("DialogBackground", error);
 		} finally {
 			setIsLoadingImages(false);
