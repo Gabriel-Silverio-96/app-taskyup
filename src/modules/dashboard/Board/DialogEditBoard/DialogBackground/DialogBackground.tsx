@@ -1,9 +1,9 @@
 import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
 import { IFetchSearchImages } from "shared/common/types/Fetch";
-import api from "shared/services/api";
 import { useContextBoard } from "../../Context";
 import { INITIAL_STATE_IMAGES } from "./constant";
 import DialogBackgroundView from "./DialogBackgroundView";
+import fetchSearchImage from "./service";
 import { IImages } from "./types/DialogBackground.types";
 
 const DialogBackground: React.FC = () => {
@@ -31,9 +31,9 @@ const DialogBackground: React.FC = () => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
-			const { data } = await api.get<IFetchSearchImages>(`images/search?query=${queryImage}&page=${page}`);
+			const { data } = await fetchSearchImage(queryImage, page);
 
-			setImages(data);
+			setImages(data);			
 			resetPagination && setPagination(1);
 		} catch (error) {			
 			setImages({ photos: [], error: "Service unavailable, please try again later" });
