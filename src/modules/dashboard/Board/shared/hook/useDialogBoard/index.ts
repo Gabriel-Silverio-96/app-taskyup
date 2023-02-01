@@ -1,4 +1,5 @@
 import { useContextBoard } from "modules/dashboard/Board/Context";
+import { useCallback } from "react";
 import { IUseDialogBoard } from "./types/UseDialogBoard";
 
 const useDialogBoard = (): IUseDialogBoard => {
@@ -8,25 +9,25 @@ const useDialogBoard = (): IUseDialogBoard => {
 		setIsOpenDialogDeleteSingleBoard,
 	} = useContextBoard();
 
-	const openDialogEditBoard = (closeMenu: () => void) => {
+	const openDialogEditBoard = useCallback((closeMenu: () => void) => {
 		setIsOpenDialogEditBoard(true);
 		closeMenu();
-	};
+	}, []);
 
-	const closeDialogEditBoard = () => {
+	const closeDialogEditBoard = useCallback(() => {
 		setIsOpenDialogEditBoard(false);
 		setBoardID("");
-	};
+	}, []);
 
-	const openDialogDeleteSingleBoard = (closeMenu: () => void) => {
+	const openDialogDeleteSingleBoard = useCallback((closeMenu: () => void) => {
 		setIsOpenDialogDeleteSingleBoard(true);
 		closeMenu();
-	};
+	}, []);
 
-	const closeDialogDeleteSingleBoard = () => {
+	const closeDialogDeleteSingleBoard = useCallback(() => {
 		setIsOpenDialogDeleteSingleBoard(false);
 		setBoardID("");
-	};
+	}, []);
 
 	return {
 		openDialogEditBoard,
