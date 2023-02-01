@@ -5,8 +5,8 @@ import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import dateFormat from "shared/util/dateFormat";
-import { useContextBoard } from "../Context";
-import useDialogBoard from "../shared/hook/useDialogBoard";
+import { useContextBoard } from "../../Context";
+import useDialogBoard from "../../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./schema";
 import { fetchEditBoard, fetchSingleBoard } from "./service";
@@ -51,7 +51,7 @@ const DialogEditBoard = () => {
 		return () => {
 			clearErrors();
 			setDialogBackgroundImage("");
-		}; 
+		};
 	}, [isOpenDialogEditBoard]);
 
 	const onSuccessMutation = () => {
@@ -63,14 +63,15 @@ const DialogEditBoard = () => {
 		]);
 		closeDialogEditBoard();
 	};
-	const optionMutation = { onSuccess: onSuccessMutation };
 
-	const mutationFetchEditBoard = async (dataEdited: IDialogEditBoardForm) => {
-		await fetchEditBoard(dataEdited, boardID, dialogBackgroundImage);
-	};
+	const mutationFn = (form: IDialogEditBoardForm) =>
+		fetchEditBoard({ form, background_image: dialogBackgroundImage, boardID });
+
+	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
-		mutationFetchEditBoard, optionMutation		
+		mutationFn,
+		optionsMutation
 	);
 
 	return (

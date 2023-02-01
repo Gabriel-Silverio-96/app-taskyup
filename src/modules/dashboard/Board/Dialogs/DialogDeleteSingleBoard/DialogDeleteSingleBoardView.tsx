@@ -13,21 +13,24 @@ import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteSingleBoard } from "./types/DialogDeleteSingleBoard.component";
 
 const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) => {
-	const { isOpenDialogDeleteSingleBoard, closeDialogDeleteSingleBoard, fetchDialogDeleteSingleBoard, isDeleting } = props;
+	const { 
+		isOpenDialogDeleteSingleBoard, 
+		closeDialogDeleteSingleBoard, 
+		fetchDialogDeleteSingleBoard, 
+		isLoading 
+	} = props;
+
+	const onClose = !isLoading ? closeDialogDeleteSingleBoard : () => "";
+
 	return (
-		<Dialog 
-			fullWidth
-			maxWidth="xs"
-			open={isOpenDialogDeleteSingleBoard}			
-			onClose={!isDeleting ? closeDialogDeleteSingleBoard : () => ""}
-		>
-			<DialogTitle sx={{marginBottom: "1rem"}}>
+		<Dialog fullWidth maxWidth="xs"	open={isOpenDialogDeleteSingleBoard} onClose={onClose}>
+			<DialogTitle sx={{ marginBottom: "1rem" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<Grid item>
 						<Typography variant="h6" fontWeight={700}>Delete Board</Typography>
 					</Grid>
 					<Grid item> 
-						<IconButton onClick={closeDialogDeleteSingleBoard} disabled={isDeleting}>
+						<IconButton onClick={closeDialogDeleteSingleBoard} disabled={isLoading}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -43,7 +46,7 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) 
 					<Grid item md="auto">
 						<Button variant="outlined" 
 							onClick={closeDialogDeleteSingleBoard}
-							disabled={isDeleting}
+							disabled={isLoading}
 						>
 							No
 						</Button>
@@ -52,7 +55,7 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) 
 						<LoadingButton 							
 							variant="contained"
 							type="submit"
-							loading={isDeleting}
+							loading={isLoading}
 							onClick={fetchDialogDeleteSingleBoard}
 						>
                             Yes
