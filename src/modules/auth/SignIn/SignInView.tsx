@@ -8,20 +8,23 @@ import { Footer } from "./styles";
 import { ISignInView } from "./types/SignIn.component";
 
 const SignInView: React.FC<ISignInView> = (props) => {
-	const { register, handleSubmit, fetchSignIn, isLoading, errors } = props;
+	const { register, handleSubmit, signInSubmit, isLoading, errors } = props;
 	
 	return (		
-		<Grid container spacing={0}
-			direction="column"
-			alignItems="center"
-			justifyContent="center"
-			sx={{ minHeight: "100vh" }}>
+		<Grid 
+			container 
+			spacing={0}
+		 	direction="column"
+		  	alignItems="center"
+		   	justifyContent="center"
+			sx={{ minHeight: "100vh" }}
+		>
 			<Grid item sx={{ minWidth: "20rem" }}>
 				<Greeting 
 					title="Sign in"
 					subtitle="Welcome back! ❤️"
 				/>
-				<form onSubmit={handleSubmit(fetchSignIn)}>
+				<form onSubmit={handleSubmit(signInSubmit)}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
 							<TextField 
