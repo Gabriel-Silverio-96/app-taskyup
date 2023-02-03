@@ -9,13 +9,13 @@ const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 		register, 
 		isLoading, 
 		errors, 
-		profileUserData, 
+		data, 
 		handleSubmit, 
 		fetchEditProfileForm, 
 		isSaving 
 	} = props;	
 
-	const firstName = profileUserData?.full_name.split(" ").shift();
+	const firstName = data?.full_name.split(" ").shift();
 	return (
 		<>
 			<Loading backdrop isLoading={isLoading} />
@@ -27,7 +27,7 @@ const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 							label="Full name" 
 							size="small" 
 							fullWidth
-							defaultValue={profileUserData?.full_name}
+							defaultValue={data?.full_name}
 							InputLabelProps={{ shrink: true }}
 							autoComplete="off"	
 							error={errors.full_name && Boolean(errors.full_name)}
@@ -42,7 +42,7 @@ const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 							disabled
 							aria-disabled="true"
 							fullWidth				
-							defaultValue={profileUserData?.email}
+							defaultValue={data?.email}
 							InputLabelProps={{ shrink: true }}
 							{...register("email")}			
 						/>
