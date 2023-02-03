@@ -2,11 +2,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
-import api from "shared/services/api";
 import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
-import { IProfileFormForm, IProfileUserData } from "./types";
+import { fetchEditProfile, fetchProfile } from "./service";
+import { IFetchProfile, IProfileForm } from "./types";
 
 const ProfileForm: React.FC = () => {
 	const {
@@ -14,41 +13,29 @@ const ProfileForm: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 		setValue,
-	} = useForm<IProfileUserData>({
+	} = useForm<IProfileForm>({
 		resolver: yupResolver(schema),
 		mode: "all",
 	});
+
 	const queryClient = useQueryClient();
 
-	const fetchProfileForm = async () => {
-		const { data } = await api.get("auth/account");
-		return data;
-	};
-
-	const onSuccessFetchProfileForm = (data: IProfileUserData) => {
+	const osSuccessQuery = (data: IFetchProfile) => {
 		setValue("full_name", data.full_name);
 		setValue("email", data.email);
 	};
 
-	const { data: profileUserData, isLoading } = useQuery<IProfileUserData>(
-		["profile_form"],
-		fetchProfileForm,
-		{ onSuccess: onSuccessFetchProfileForm }
-	);
+	const queryKey = ["profile_form"];
+	const optionsQuery = { onSuccess: osSuccessQuery };
 
-	const mutationProfileForm = async (form: IProfileFormForm) => {
-		const { full_name } = form;		
-		const { data } = await api.put("auth/account", { full_name });
-		return data;
+	const { data, isLoading } = useQuery<IFetchProfile>(queryKey, fetchProfile, optionsQuery);
+
+	const onSuccessMutation = () => {
+		queryClient.invalidateQueries(["profile_form"]);
 	};
 
-	const { mutate: fetchEditProfileForm, isLoading: isSaving } = useMutation<
-		IProfileUserData,
-		IFetchResponseDefault,
-		any
-	>(mutationProfileForm, {
-		onSuccess: () => queryClient.invalidateQueries(["profile_form"]),
-	});
+	const optionsMutation = { onSuccess: onSuccessMutation };
+	const { mutate: fetchEditProfileForm, isLoading: isSaving } = useMutation(fetchEditProfile, optionsMutation);
 
 	return (
 		<ProfileFormView
@@ -56,7 +43,7 @@ const ProfileForm: React.FC = () => {
 				register,
 				isLoading,
 				errors,
-				profileUserData,
+				data,
 				handleSubmit,
 				fetchEditProfileForm,
 				isSaving,
