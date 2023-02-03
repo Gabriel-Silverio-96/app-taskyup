@@ -10,6 +10,6 @@ export interface ISignUpView {
     register: UseFormRegister<ISignUpForm>;
     handleSubmit: UseFormHandleSubmit<ISignUpForm>;
     errors: FieldErrors<ISignUpForm>;
-    fetchSignUp: (dataUser: ISignUpForm) => void;
+    signUpSubmit: (form: ISignUpForm) => void;
     isLoading: boolean;
 }

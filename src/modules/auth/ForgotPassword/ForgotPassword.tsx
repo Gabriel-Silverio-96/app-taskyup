@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
-import api from "shared/services/api";
+import { INITAL_STATE_SEND_EMAIL } from "./constant";
 import ForgotPasswordView from "./ForgotPasswordView";
 import resolverSchema from "./schema";
-import { ISendEmail, IForgotPasswordForm } from "./types";
+import fetchForgotPassword from "./service";
+import { IForgotPasswordForm, ISendEmail } from "./types";
 
 const ForgotPassword: React.FC = () => {
 	const {
@@ -14,21 +14,22 @@ const ForgotPassword: React.FC = () => {
 	} = useForm<IForgotPasswordForm>({ resolver: resolverSchema, mode: "all" });
 
 	const [isLoading, setIsLoading] = useState(false);	
-	const [sendEmail, setSendEmail] = useState<ISendEmail>({ email: "", isSending: false });
+	const [sendEmail, setSendEmail] = useState<ISendEmail>(INITAL_STATE_SEND_EMAIL);
 		
-	const fetchForgotPassword = async (form: IForgotPasswordForm) => {
+	const fetchForgotSubmit = async (form: IForgotPasswordForm) => {
 		try {
 			setIsLoading(true);
-			await api.post<IFetchResponseDefault>("auth/forgot-password", form);			
+			await fetchForgotPassword(form);
+			
 			setSendEmail({ email: form.email, isSending: true });
 		} catch (error) {
-			console.error("ForgotPassword ", error);
-			setSendEmail( { email: "", isSending: false} );
+			console.error("ForgotPassword ", error);			
+			setSendEmail(INITAL_STATE_SEND_EMAIL);
 		} finally {
 			setIsLoading(false);
 		}		
 	};
-	const onSubmit = handleSubmit(fetchForgotPassword);
+	const onSubmit = handleSubmit(fetchForgotSubmit);
 	
 	return (
 		<ForgotPasswordView {...{ register, errors, onSubmit, isLoading, sendEmail }} />

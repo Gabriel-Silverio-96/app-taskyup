@@ -15,16 +15,16 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 		: "Which email is registered on TaskYup";
 
 	return (
-		<Grid container spacing={0}
+		<Grid 
+			container 
+			spacing={0}
 			direction="column"
 			alignItems="center"
 			justifyContent="center"
-			sx={{ minHeight: "100vh" }}>
+			sx={{ minHeight: "100vh" }}
+		>
 			<Grid item sx={{ minWidth: "20rem" }}>
-				<Greeting 
-					title={titleMessage}
-					subtitle={subtitleMessage}
-				/>				
+				<Greeting title={titleMessage} subtitle={subtitleMessage} />				
 				{!sendEmail.isSending && (
 					<form onSubmit={onSubmit}>
 						<Grid container direction="column" spacing={5}>

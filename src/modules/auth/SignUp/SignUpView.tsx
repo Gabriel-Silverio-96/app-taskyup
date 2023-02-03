@@ -8,7 +8,7 @@ import { BackgroundSignUp, Footer, GridForm } from "./styles";
 import { ISignUpView } from "./types/SignUp.component";
 
 const SignUpView: React.FC<ISignUpView> = (props) => {
-	const { register, errors, handleSubmit, fetchSignUp, isLoading } = props;
+	const { register, errors, handleSubmit, signUpSubmit, isLoading } = props;
 	return (
 		<Grid container justifyContent="space-around" sx={{ minHeight: "100vh" }}>
 			<Grid item md={6} sm={12}>
@@ -32,7 +32,7 @@ const SignUpView: React.FC<ISignUpView> = (props) => {
 						title="Sign up"
 						subtitle="Fill the form ✏️"
 					/>
-					<form onSubmit={handleSubmit(fetchSignUp)}>
+					<form onSubmit={handleSubmit(signUpSubmit)}>
 						<Grid container direction="column" spacing={5}>
 							<Grid item>
 								<TextField

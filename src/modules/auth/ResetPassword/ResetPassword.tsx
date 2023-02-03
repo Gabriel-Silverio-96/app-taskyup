@@ -2,9 +2,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import api from "shared/services/api";
 import ResetPasswordView from "./ResetPasswordView";
 import schema from "./schema";
+import fetchResetPassword from "./service";
 import { IFormResetPassword } from "./types";
 
 const ResetPassword: React.FC = () => {
@@ -16,15 +16,17 @@ const ResetPassword: React.FC = () => {
 		resolver: yupResolver(schema),
 		mode: "all",
 	});
-
+	
 	const { token } = useParams();	
+
 	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);	
 
-	const fetchResetPassword = async (form: IFormResetPassword) => {
+	const resetPasswordSubmit = async (form: IFormResetPassword) => {
 		try {
 			setIsSaving(true);
-			await api.post(`auth/reset-password/token=${token}`, form);
+			await fetchResetPassword({ form, token });
+			
 			setResetPasswordSuccess(true);
 		} catch (error) {
 			setResetPasswordSuccess(false);
@@ -33,7 +35,7 @@ const ResetPassword: React.FC = () => {
 			setIsSaving(false);
 		}
 	};
-	const onSubmit = handleSubmit(fetchResetPassword);
+	const onSubmit = handleSubmit(resetPasswordSubmit);
 
 	return (
 		<ResetPasswordView
