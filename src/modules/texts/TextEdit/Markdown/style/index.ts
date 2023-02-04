@@ -27,6 +27,21 @@ export const Markdown = styled("section")(
                     color: #cfcfcf;
 
                     .markdown-body {
+                        .bytemd-mermaid {
+                            svg {                                
+                                g {
+                                    .pieTitleText {
+                                        fill: ${theme.palette.common.white} !important;
+                                    }
+                                }
+                                .legend {
+                                    text {
+                                        fill: ${theme.palette.common.white} !important;
+                                    }
+                                }
+                            }
+                        }
+
                         .contains-task-list {
                             list-style: none;
                             padding-left: 0;
@@ -51,9 +66,10 @@ export const Markdown = styled("section")(
                             }
                         }
 
-                        blockquote {
+                        blockquote, pre {
                             background-color: ${blueGrey[900]};
                             padding: ${theme.spacing(1)};
+                            margin: ${theme.spacing(2, 0)};
                         }
 
                         a {
