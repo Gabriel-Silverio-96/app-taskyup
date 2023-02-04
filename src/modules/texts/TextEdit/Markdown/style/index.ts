@@ -30,6 +30,25 @@ export const Markdown = styled("section")(
                         .contains-task-list {
                             list-style: none;
                             padding-left: 0;
+
+                            .task-list-item {
+                                display: flex;
+                                align-items: center;
+                                gap: ${theme.spacing(1)};
+
+                                input:not(:checked) {
+                                    opacity: 0.3;
+                                }
+
+                                input:checked {
+                                    -webkit-appearance: none;
+                                    -moz-appearance: none;
+                                    background: ${blue[500]};
+                                    border-radius: ${theme.spacing(0.2)};
+                                    height: 13px;
+                                    width: 13px;
+                                }
+                            }
                         }
 
                         blockquote {
@@ -38,7 +57,7 @@ export const Markdown = styled("section")(
                         }
 
                         a {
-                            color: ${blue[400]};
+                            color: ${blue[500]};
                         }
 
                         table, td, th {
