@@ -50,7 +50,7 @@ export const Markdown = styled("section")(
                             border-collapse: collapse;                            
 
                             tr {
-                                :nth-child(even){
+                                :nth-of-type(even){
                                     background-color: ${theme.palette.grey[800]};;
                                 }
 
