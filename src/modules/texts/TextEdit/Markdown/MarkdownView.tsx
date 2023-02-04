@@ -1,10 +1,12 @@
-import "react-markdown-editor-lite/lib/index.css";
+import { Editor } from "@bytemd/react";
+import "bytemd/dist/index.css";
 import Loading from "shared/components/Loading";
+import { PLUGINS } from "./constant";
 import HeaderText from "./HeaderText";
 import { Markdown } from "./style";
 
 const MarkdownView: React.FC<any> = (props) => {
-	const { data, renderHTML, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving } = props;
+	const { data, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving } = props;
 	
 	if(isLoading) {
 		return <Loading isLoading backdrop />;
@@ -14,7 +16,13 @@ const MarkdownView: React.FC<any> = (props) => {
 		<>
 			<Loading isLoading={isSaving} backdrop />
 			<HeaderText {...{ saveText, titleText: data.title_text, onChangeTextTitle }}/>
-			<Markdown value={data.text} renderHTML={renderHTML} onChange={onChangeText}/>
+			<Markdown>
+				<Editor
+					value={data.text}
+					onChange={onChangeText}
+					plugins={PLUGINS}
+				/>
+			</Markdown>
 		</>
 	);
 };

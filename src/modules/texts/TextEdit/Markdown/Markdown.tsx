@@ -37,8 +37,8 @@ const Markdown: React.FC = () => {
 		getText();
 	}, [text_id]);
 
-	const onChangeText = ({ text }: { text: string }) =>
-		setData(prevState => ({ ...prevState, text: text }));	
+	const onChangeText = (text: string) => setData(prevState => ({ ...prevState, text }));
+	
 
 	const onChangeTextTitle = (event: ChangeEvent<HTMLInputElement>) => {
 		const { value } = event.target;		
