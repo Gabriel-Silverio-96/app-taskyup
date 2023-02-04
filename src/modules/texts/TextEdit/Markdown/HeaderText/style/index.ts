@@ -16,9 +16,25 @@ export const TextTitle = styled("div")(
 	({ theme }) => `
         display: flex;
         flex-direction: column;
+        position: relative;
 
-        span {
+        > span {
             color: ${theme.palette.error.main};
+            position: absolute;
+            bottom: -25px;
+        }
+    `
+);
+
+export const Breadcrumbs = styled("div")(
+	({ theme }) => `
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: ${theme.spacing(0.8)};
+
+        > span {
+            color: ${theme.palette.grey[600]};           
         }
     `
 );
@@ -26,17 +42,28 @@ export const TextTitle = styled("div")(
 export const TextField = styled("input")(
 	({ theme }) => `
         font-family: ${theme.typography.fontFamily};
-        font-weight: 800;
-        font-size: 1.25rem;
+        font-weight: 400;
+        font-size: ${theme.spacing(1.5)};
         color: white;
         background: transparent;
         border: 1px solid transparent;        
-        padding: 0.5rem 0.8rem;
+        border-right: 0;
+        border-left: 0;
+        border-top: 0;
+        padding: ${theme.spacing(0.625, 0)};
         transition: .3s;
         width: min-content;
 
         :hover {
             border-color: ${theme.palette.grey[700]};
+        }
+
+        :focus {
+            border-color: ${theme.palette.grey[700]};
+        }
+
+        :focus-visible {
+            outline: none;
         }
     `
 );
