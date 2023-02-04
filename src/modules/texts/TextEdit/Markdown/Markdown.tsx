@@ -1,11 +1,10 @@
 import { useQueryClient } from "@tanstack/react-query";
-import MarkdownIt from "markdown-it";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { INITIAL_STATE_DATA } from "./constant";
 import MarkdownView from "./MarkdownView";
 import { fetchEditText, fetchText } from "./service";
-import { IData, TRenderHTML } from "./types/Markdown.component";
+import { IData } from "./types/Markdown.component";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -17,11 +16,6 @@ const Markdown: React.FC = () => {
 	const [data, setData] = useState<IData>(INITIAL_STATE_DATA);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isSaving, setIsSaving] = useState(false);
-
-	const renderHTML = (text: string): TRenderHTML => {
-		const mdParser = new MarkdownIt({ breaks: false });
-		return mdParser.render(text);
-	};
 
 	useEffect(() => {
 		const getText = async () => {
@@ -37,9 +31,8 @@ const Markdown: React.FC = () => {
 		getText();
 	}, [text_id]);
 
-	const onChangeText = ({ text }: { text: string }) =>
-		setData(prevState => ({ ...prevState, text: text }));	
-
+	const onChangeText = (text: string) => setData(prevState => ({ ...prevState, text }));
+	
 	const onChangeTextTitle = (event: ChangeEvent<HTMLInputElement>) => {
 		const { value } = event.target;		
 		setData(prevState => ({ ...prevState, title_text: value }));	
@@ -59,7 +52,7 @@ const Markdown: React.FC = () => {
 		
 	};	
 
-	return <MarkdownView {...{ data, renderHTML, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving }} />;
+	return <MarkdownView {...{ data, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving }} />;
 };
 
 export default memo(Markdown);

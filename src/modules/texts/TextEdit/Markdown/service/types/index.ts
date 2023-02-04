@@ -1,8 +1,9 @@
 export type TFetchParams = string | null;
 
 export interface IFetchText {
-    text: string;
+    title_board: string;
     title_text: string;
+    text: string;
     created_at: string;
 }
 
