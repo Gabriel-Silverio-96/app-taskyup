@@ -61,6 +61,32 @@ export const Markdown = styled("section")(
                         }
                     }
                 }
+
+                .bytemd-sidebar {
+                    border: 0;                    
+                    .bytemd-sidebar-close {
+                        color: ${theme.palette.common.white};                        
+                    }
+                    .bytemd-help {
+                        h2 {
+                            color: ${theme.palette.common.white};
+                        }       
+                    }
+
+                    .bytemd-toc {
+                        h2 {
+                            color: ${theme.palette.common.white};
+                        }   
+
+                        ul {
+                            .bytemd-toc-active {
+                                background-color: ${theme.palette.primary.main};
+                                color: ${theme.palette.common.white};
+                                border-radius: ${theme.spacing(0.5)};
+                            }
+                        }
+                    }
+                }
             }
 
             .bytemd-status {
