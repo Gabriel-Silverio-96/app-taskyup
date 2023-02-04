@@ -7,9 +7,8 @@ export const Markdown = styled("section")(
             position: fixed;
             inset: 0;
             border: none;
-            height: 100vh !important;      
+            height: auto !important;      
             filter: invert(1);
-        }
-       
+        }       
     `
 );
