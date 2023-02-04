@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bytemd/plugin-frontmatter": "^1.20.2",
+    "@bytemd/plugin-mermaid": "^1.20.2",
+    "@bytemd/react": "^1.20.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@hookform/resolvers": "^2.9.6",
