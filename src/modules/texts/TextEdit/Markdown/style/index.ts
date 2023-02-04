@@ -111,6 +111,18 @@ export const Markdown = styled("section")(
             .bytemd-status {
                 border: 0;
                 color: ${theme.palette.common.white};
+                .bytemd-status-right {
+                    label {
+                        input:checked {
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            background: ${blue[500]};
+                            border-radius: ${theme.spacing(0.2)};
+                            height: 13px;
+                            width: 13px;
+                        }
+                    }
+                }
             }
 
             .bytemd-toolbar {
