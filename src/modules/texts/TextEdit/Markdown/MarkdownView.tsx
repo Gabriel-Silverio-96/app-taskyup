@@ -4,8 +4,9 @@ import Loading from "shared/components/Loading";
 import { PLUGINS } from "./constant";
 import HeaderText from "./HeaderText";
 import { Markdown } from "./style";
+import { IMarkdownView } from "./types/Markdown.component";
 
-const MarkdownView: React.FC<any> = (props) => {
+const MarkdownView: React.FC<IMarkdownView> = (props) => {
 	const { data, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving } = props;
 	const { title_board, title_text, text } = data;
 	
