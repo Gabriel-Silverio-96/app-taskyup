@@ -7,6 +7,7 @@ import { Markdown } from "./style";
 
 const MarkdownView: React.FC<any> = (props) => {
 	const { data, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving } = props;
+	const { title_board, title_text, text } = data;
 	
 	if(isLoading) {
 		return <Loading isLoading backdrop />;
@@ -15,13 +16,9 @@ const MarkdownView: React.FC<any> = (props) => {
 	return (
 		<>
 			<Loading isLoading={isSaving} backdrop />
-			<HeaderText {...{ saveText, titleText: data.title_text, onChangeTextTitle }}/>
+			<HeaderText {...{ saveText, onChangeTextTitle }} titleBoard={title_board} titleText={title_text} />
 			<Markdown>
-				<Editor
-					value={data.text}
-					onChange={onChangeText}
-					plugins={PLUGINS}
-				/>
+				<Editor value={text} onChange={onChangeText} plugins={PLUGINS} />
 			</Markdown>
 		</>
 	);

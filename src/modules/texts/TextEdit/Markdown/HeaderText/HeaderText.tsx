@@ -3,13 +3,13 @@ import { useSearchParams } from "react-router-dom";
 import HeaderTextView from "./HeaderTextView";
 import { IHeaderText } from "./types/HeaderText.component";
 
-const HeaderText: React.FC<IHeaderText> = ({ saveText, titleText, onChangeTextTitle }) => {	
+const HeaderText: React.FC<IHeaderText> = ({ saveText, titleBoard, titleText, onChangeTextTitle }) => {	
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 
 	const backPage = `/texts/${board_id}`;
 
-	return <HeaderTextView {...{ saveText, titleText, onChangeTextTitle, backPage }} />;
+	return <HeaderTextView {...{ saveText, titleBoard, titleText, onChangeTextTitle, backPage }} />;
 };
 
 export default memo(HeaderText);
