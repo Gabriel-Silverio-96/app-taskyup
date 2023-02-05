@@ -1,0 +1,33 @@
+import { styled } from "@mui/material";
+
+export const Templates = styled("section")(
+	({ theme }) => `
+        width: auto;
+        height: ${theme.spacing(30)};
+        padding: ${theme.spacing(5)}; 
+        border-radius: ${theme.spacing(1)};
+        background-color: ${theme.palette.grey[900]};
+        border: 1px solid ${theme.palette.grey[800]};
+        margin-bottom: ${theme.spacing(3)};
+    `
+);
+
+export const CardTemplate = styled("div")(
+	() => `
+          cursor: pointer;
+          width: min-content;
+    `
+);
+
+export const CardContent = styled("div")(
+	({ theme }) => `
+        width: ${theme.spacing(19)};
+        height: ${theme.spacing(19)};
+        border-radius: ${theme.spacing(1)};
+        background-color: ${theme.palette.grey[800]};        
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    `
+);
