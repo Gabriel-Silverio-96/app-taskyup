@@ -8,12 +8,16 @@ import { IHeaderTextView } from "./types/HeaderText.component";
 const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 	const { 
 		titleText,
+		palette,
 		isMediumScreen, 
 		openDialogDeleteAllTexts,
-		board_id
+		board_id,
+		toogleTemplates,
+		isOpenTemplates
 	} = props;
 
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
+	const lightColorIcon = isOpenTemplates ? palette.secondary.main : palette.common.white;
 
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
@@ -24,8 +28,8 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
-					<IconButton>
-						<MdOutlineLightbulb size={18} />
+					<IconButton onClick={toogleTemplates}>
+						<MdOutlineLightbulb color={lightColorIcon} size={18} />
 					</IconButton>
 					<Tooltip arrow title="Members comming soon" placement="top">
 						<IconButton>

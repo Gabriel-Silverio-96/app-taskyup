@@ -6,4 +6,6 @@ export interface IHeaderTextView {
 	isMediumScreen: boolean;
 	openDialogDeleteAllTexts: (boardID: string) => void;
 	board_id: string | undefined;
+	toogleTemplates: () => void;
+	isOpenTemplates: boolean;
 }

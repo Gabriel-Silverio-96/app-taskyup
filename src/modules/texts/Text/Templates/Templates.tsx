@@ -1,8 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
+import { useContextText } from "../Context";
 import TemplatesView from "./TemplatesView";
 
 const Templates: React.FC = () => {
-	return <TemplatesView />;
+	const { isOpenTemplates } = useContextText();
+	
+	return <TemplatesView {...{ isOpenTemplates }}/>;
 };
 
-export default Templates;
+export default memo(Templates);

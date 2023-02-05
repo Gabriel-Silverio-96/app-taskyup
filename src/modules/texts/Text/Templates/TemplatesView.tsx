@@ -9,8 +9,9 @@ import IconTodo from "./components/IconTodo";
 import { CardContent, CardTemplate, Templates } from "./style";
 
 const TemplatesView: React.FC<any> = (props) => {	
+	const { isOpenTemplates } = props;
 	return (
-		<Templates>
+		<Templates open={isOpenTemplates}>
 			<CardTemplate>
 				<CardContent>
 					<IconTable />

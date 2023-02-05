@@ -7,11 +7,13 @@ import HeaderTextView from "./HeaderTextView";
 
 const HeaderText: React.FC = () => {
 	const { board_id } = useParams();
-	const { titleText } = useContextText();
+	const { titleText, isOpenTemplates, setIsOpenTemplates } = useContextText();
 	const { openDialogDeleteAllTexts } = useDialogText();
 
 	const { palette, breakpoints } = useTheme();
 	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
+
+	const toogleTemplates = () => setIsOpenTemplates(prevState => !prevState);
 
 	return (
 		<HeaderTextView
@@ -20,7 +22,9 @@ const HeaderText: React.FC = () => {
 				palette,
 				isMediumScreen,			
 				openDialogDeleteAllTexts,
-				board_id
+				board_id,
+				toogleTemplates,
+				isOpenTemplates
 			}}
 		/>
 	);

@@ -1,7 +1,8 @@
 import { styled } from "@mui/material";
+import { ITemplatesStyled } from "./types";
 
-export const Templates = styled("section")(
-	({ theme }) => `
+export const Templates = styled("section")<ITemplatesStyled>(
+	({ theme, open }) => `
         width: auto;
         height: ${theme.spacing(30)};
         padding: ${theme.spacing(5)}; 
@@ -9,8 +10,8 @@ export const Templates = styled("section")(
         background-color: ${theme.palette.grey[900]};
         border: 1px solid ${theme.palette.grey[800]};
         margin-bottom: ${theme.spacing(3)};
-        display: flex;
-        gap: ${theme.spacing(2)};
+        display: ${open ? "flex" : "none"};
+        gap: ${theme.spacing(2)};        
     `
 );
 
