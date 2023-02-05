@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React from "react";
 import IconCode from "./components/IconCode";
 import IconFlowChart from "./components/IconFlowChart";
@@ -8,8 +8,7 @@ import IconTable from "./components/IconTable";
 import IconTodo from "./components/IconTodo";
 import { CardContent, CardTemplate, Templates } from "./style";
 
-const TemplatesView: React.FC<any> = (props) => {
-	
+const TemplatesView: React.FC<any> = (props) => {	
 	return (
 		<Templates>
 			<CardTemplate>
