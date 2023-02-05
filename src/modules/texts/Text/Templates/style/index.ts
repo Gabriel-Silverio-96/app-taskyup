@@ -9,6 +9,8 @@ export const Templates = styled("section")(
         background-color: ${theme.palette.grey[900]};
         border: 1px solid ${theme.palette.grey[800]};
         margin-bottom: ${theme.spacing(3)};
+        display: flex;
+        gap: ${theme.spacing(2)};
     `
 );
 
