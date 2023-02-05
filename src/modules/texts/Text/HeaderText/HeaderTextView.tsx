@@ -1,18 +1,14 @@
-import { Button, Grid, MenuItem, Tooltip, Typography } from "@mui/material";
+import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
-import { FiMoreHorizontal } from "react-icons/fi";
-import { Nav, Menu } from "./style";
+import { FiTrash, FiUsers } from "react-icons/fi";
+import { MdOutlineLightbulb } from "react-icons/md";
+import { Nav } from "./style";
 import { IHeaderTextView } from "./types/HeaderText.component";
 
 const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 	const { 
 		titleText,
-		palette, 
 		isMediumScreen, 
-		anchorEl, 
-		isOpenMenu, 
-		openMenu, 
-		closeMenu, 
 		openDialogDeleteAllTexts,
 		board_id
 	} = props;
@@ -28,32 +24,17 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
-					<Button variant="outlined" color="inherit" onClick={openMenu}>
-						<FiMoreHorizontal size={20} />
-					</Button>
-					<Menu 
-						anchorEl={anchorEl}
-						open={isOpenMenu}
-						onClose={closeMenu}
-						autoFocus={false}
-						transitionDuration={{ appear: 0, enter: 0, exit: 0 }}
-						anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-						transformOrigin={{ vertical: "top", horizontal: "right" }}
-						sx={{ mt: 1 }}
-					>
-						<Tooltip arrow title="Comming soon" placement="top">
-							<MenuItem>Members</MenuItem>
-						</Tooltip>
-						<MenuItem 
-							sx={ { color: palette.error.main } }
-							onClick={() => {
-								openDialogDeleteAllTexts(board_id!);
-								closeMenu();
-							}}
-						>
-                            Delete all texts
-						</MenuItem>
-					</Menu>   
+					<IconButton>
+						<MdOutlineLightbulb size={18} />
+					</IconButton>
+					<Tooltip arrow title="Members comming soon" placement="top">
+						<IconButton>
+							<FiUsers size={18} />
+						</IconButton>
+					</Tooltip>
+					<IconButton onClick={() => openDialogDeleteAllTexts(board_id!)}>
+						<FiTrash size={18} />
+					</IconButton>
 				</Nav>
 			</Grid>
 		</Grid>
