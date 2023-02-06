@@ -1094,6 +1094,13 @@
     remark-frontmatter "^4.0.1"
     vfile "^5.3.6"
 
+"@bytemd/plugin-gemoji@^1.20.2":
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/@bytemd/plugin-gemoji/-/plugin-gemoji-1.20.2.tgz#cb014b7604c593bdd762d3cae20eebf863115ba4"
+  integrity sha512-j8ABqKs3Ugd4o3kxK0Qn2kfgNuG7wXpFZyB9f7tE3pxNoltgYZxYFBut9M5McuvCgsYHVobE67lQ3GxneB6zuw==
+  dependencies:
+    remark-gemoji "^7.0.1"
+
 "@bytemd/plugin-gfm@^1.20.2":
   version "1.20.2"
   resolved "https://registry.yarnpkg.com/@bytemd/plugin-gfm/-/plugin-gfm-1.20.2.tgz#910ec657aa817b928867650ca151ef11ccce46b1"
@@ -5305,6 +5312,11 @@ functions-have-names@^1.2.2:
   resolved "https://registry.npmjs.org/functions-have-names/-/functions-have-names-1.2.3.tgz"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
+gemoji@^7.0.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/gemoji/-/gemoji-7.1.0.tgz#165403777681a9690d649aabd104da037bdd7739"
+  integrity sha512-wI0YWDIfQraQMDs0yXAVQiVBZeMm/rIYssf8LZlMDdssKF19YqJKOHkv4zvwtVQTBJ0LNmErv1S+DqlVUudz8g==
+
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
@@ -9004,6 +9016,16 @@ remark-frontmatter@^4.0.1:
     mdast-util-frontmatter "^1.0.0"
     micromark-extension-frontmatter "^1.0.0"
     unified "^10.0.0"
+
+remark-gemoji@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/remark-gemoji/-/remark-gemoji-7.0.1.tgz#42488adb9a0731dc82cdcde45f8e7bd61d795303"
+  integrity sha512-vhjuntkvYxRgM4Um6L5N7B3SrNu3eX6jNqpqAywpAvSYPbmDPNL3I5E6zWm+KPCyh3OpKRc5OPnz7SifggzePw==
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    gemoji "^7.0.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
 
 remark-gfm@^3.0.1:
   version "3.0.1"
