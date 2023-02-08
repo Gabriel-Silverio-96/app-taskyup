@@ -11,10 +11,6 @@ export interface IFetchTexts {
     texts: IText[];   
 }
 
-export interface IFetchCreateText {
-    text_id: string;   
-}
-
 export interface ICardTextView {
     palette: Palette;   
     data: IFetchTexts | undefined;   

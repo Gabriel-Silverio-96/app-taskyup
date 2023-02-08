@@ -1,4 +1,4 @@
-import fetchTemplateText from "../../service";
+import { fetchTemplateText } from "../../service";
 import { Template } from "../../types/Template.component";
 import TableTemplate from "../../model-templates/Table.MD";
 import { ITemplates } from "./types";
@@ -11,7 +11,6 @@ const selectTemplate = (template: Template) => {
 	};
 
 	const body = templates[template] || defaultTemplate;	
-
 	return body;
 };
 
