@@ -2,6 +2,7 @@ import { fetchTemplateText } from "../../service";
 import { Template } from "../../types/Template.component";
 import TableTemplate from "../../model-templates/Table.md";
 import TodoTemplate from "../../model-templates/Todo.md";
+import ReadmeTemplate from "../../model-templates/Readme.md";
 import { ITemplates } from "./types";
 
 const selectTemplate = (template: Template) => {
@@ -10,6 +11,7 @@ const selectTemplate = (template: Template) => {
 	const templates: ITemplates = {
 		text: TableTemplate,
 		todo: TodoTemplate,
+		readme: ReadmeTemplate,
 	};
 
 	const body = templates[template] || defaultTemplate;	

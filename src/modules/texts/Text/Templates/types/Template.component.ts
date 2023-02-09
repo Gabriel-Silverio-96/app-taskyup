@@ -1,1 +1,1 @@
-export type Template = "text" | "todo";
+export type Template = "text" | "todo" | "readme";
