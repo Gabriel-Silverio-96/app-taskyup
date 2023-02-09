@@ -19,7 +19,7 @@ const TemplatesView: React.FC<any> = (props) => {
 				<Typography variant="caption">Table</Typography>
 			</CardTemplate>
 				
-			<CardTemplate>
+			<CardTemplate onClick={() => createTextTemplate("todo")}>
 				<CardContent>
 					<IconTodo />
 				</CardContent>

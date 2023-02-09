@@ -1,3 +1,6 @@
+type path = RequestInfo | URL;
+
 export interface ITemplates {
-    text: RequestInfo | URL;
+    text: path;
+    todo: path;
 }

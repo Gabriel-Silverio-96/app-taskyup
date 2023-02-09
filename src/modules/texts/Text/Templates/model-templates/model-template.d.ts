@@ -1,1 +1,1 @@
-declare module "*.MD"
+declare module "*.md"

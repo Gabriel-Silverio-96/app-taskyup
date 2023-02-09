@@ -1,13 +1,15 @@
 import { fetchTemplateText } from "../../service";
 import { Template } from "../../types/Template.component";
-import TableTemplate from "../../model-templates/Table.MD";
+import TableTemplate from "../../model-templates/Table.md";
+import TodoTemplate from "../../model-templates/Todo.md";
 import { ITemplates } from "./types";
 
 const selectTemplate = (template: Template) => {
 	const defaultTemplate = TableTemplate;
 
 	const templates: ITemplates = {
-		text: TableTemplate
+		text: TableTemplate,
+		todo: TodoTemplate,
 	};
 
 	const body = templates[template] || defaultTemplate;	
@@ -16,10 +18,9 @@ const selectTemplate = (template: Template) => {
 
 const mountBody = async (template: Template) => {
 	const dateNow = Date.now();
-	const title_text = `Text ${dateNow}`;	
+	const title_text = `Template ${dateNow}`;	
 
 	const markdown = selectTemplate(template);
-
 	try {
 		const text = await fetchTemplateText(markdown);
 		const data = { title_text, text };
