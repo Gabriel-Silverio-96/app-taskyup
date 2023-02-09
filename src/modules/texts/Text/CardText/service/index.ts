@@ -1,5 +1,4 @@
 import api from "shared/services/api";
-import { IFetchCreateText } from "../../types";
 import { IFetchTexts } from "../types/CardText.component";
 
 const fetchTexts = async (board_id: string | undefined) => {
@@ -7,13 +6,4 @@ const fetchTexts = async (board_id: string | undefined) => {
 	return data;
 };
 
-const fetchCreateText = async (board_id: string | undefined) => {
-	const dateNow = Date.now();
-	const title_text = `TaskYup text ${dateNow}`;	
-
-	const { data } = await api.post<IFetchCreateText>(`/text/board_id=${board_id}`, { title_text, text: "" });
-	return data;
-};
-
-
-export { fetchTexts, fetchCreateText };
+export default fetchTexts;
