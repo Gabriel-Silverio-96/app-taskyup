@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React from "react";
 import IconCode from "./components/IconCode";
-import IconFlowChart from "./components/IconFlowChart";
+import IconDiagram from "./components/IconDiagram";
 import IconGuide from "./components/IconGuide";
 import IconReadme from "./components/IconReadme";
 import IconTable from "./components/IconTable";
@@ -47,11 +47,11 @@ const TemplatesView: React.FC<any> = (props) => {
 				<Typography variant="caption">Code</Typography>
 			</CardTemplate>	
 
-			<CardTemplate>
+			<CardTemplate onClick={() => createTextTemplate("diagram")}>
 				<CardContent>
-					<IconFlowChart />
+					<IconDiagram />
 				</CardContent>
-				<Typography variant="caption">Flow chart</Typography>
+				<Typography variant="caption">Diagram</Typography>
 			</CardTemplate>					
 		</Templates>
 	);

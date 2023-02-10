@@ -3,6 +3,7 @@ import { Template } from "../../types/Template.component";
 import TableTemplate from "../../model-templates/table.md";
 import TodoTemplate from "../../model-templates/todo.md";
 import ReadmeTemplate from "../../model-templates/readme.md";
+import DiagramTemplate from "../../model-templates/diagram.md";
 import { ITemplates } from "./types";
 
 const selectTemplate = (template: Template) => {
@@ -12,6 +13,7 @@ const selectTemplate = (template: Template) => {
 		text: TableTemplate,
 		todo: TodoTemplate,
 		readme: ReadmeTemplate,
+		diagram: DiagramTemplate,
 	};
 
 	const body = templates[template] || defaultTemplate;	

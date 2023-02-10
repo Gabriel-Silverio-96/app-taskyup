@@ -4,4 +4,5 @@ export interface ITemplates {
     text: path;
     todo: path;
     readme: path;
+    diagram: path;
 }
