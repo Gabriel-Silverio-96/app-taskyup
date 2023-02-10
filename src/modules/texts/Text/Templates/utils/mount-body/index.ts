@@ -1,8 +1,8 @@
 import fetchTemplateText from "../../service";
 import { Template } from "../../types/Template.component";
-import TableTemplate from "../../model-templates/Table.md";
-import TodoTemplate from "../../model-templates/Todo.md";
-import ReadmeTemplate from "../../model-templates/Readme.md";
+import TableTemplate from "../../model-templates/table.md";
+import TodoTemplate from "../../model-templates/todo.md";
+import ReadmeTemplate from "../../model-templates/readme.md";
 import { ITemplates } from "./types";
 
 const selectTemplate = (template: Template) => {
