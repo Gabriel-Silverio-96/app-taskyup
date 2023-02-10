@@ -4,6 +4,7 @@ import TableTemplate from "../../model-templates/table.md";
 import TodoTemplate from "../../model-templates/todo.md";
 import ReadmeTemplate from "../../model-templates/readme.md";
 import DiagramTemplate from "../../model-templates/diagram.md";
+import CodeTemplate from "../../model-templates/code.md";
 import { ITemplates } from "./types";
 
 const selectTemplate = (template: Template) => {
@@ -13,6 +14,7 @@ const selectTemplate = (template: Template) => {
 		text: TableTemplate,
 		todo: TodoTemplate,
 		readme: ReadmeTemplate,
+		code: CodeTemplate,
 		diagram: DiagramTemplate,
 	};
 
