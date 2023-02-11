@@ -17,6 +17,8 @@ export interface IContextText {
     setDialogDeleteAllText: Dispatch<SetStateAction<IDialogDeleteAllText>>;
     titleText: string;
     seTitleText: Dispatch<SetStateAction<string>>;
+    isOpenTemplates: boolean;
+    setIsOpenTemplates: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IContextProviderText {

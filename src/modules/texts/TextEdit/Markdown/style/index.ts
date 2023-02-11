@@ -27,6 +27,9 @@ export const Markdown = styled("section")(
                     color: #cfcfcf;
 
                     .markdown-body {
+                        h1 {
+                            font-size: ${theme.spacing(4)};
+                        }
                         .bytemd-mermaid {
                             svg {                                
                                 g {
@@ -78,6 +81,7 @@ export const Markdown = styled("section")(
 
                         table, td, th {
                             border: 1px solid ${theme.palette.grey[500]};
+                            text-align: left;
                         }
                           
                         table {

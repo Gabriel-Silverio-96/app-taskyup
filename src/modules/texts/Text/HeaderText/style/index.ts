@@ -3,7 +3,7 @@ import { styled, Menu as MenuMui } from "@mui/material";
 export const Nav = styled("nav")(    
 	({ theme }) => `
         display: flex;
-        gap: ${theme.spacing(1)};
+        gap: ${theme.spacing(0.5)};
         justify-content: flex-end;
         
         button {

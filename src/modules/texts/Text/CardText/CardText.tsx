@@ -4,8 +4,10 @@ import React, { memo, useEffect, useState } from "react";
 import { useParams, useNavigate  } from "react-router-dom";
 import { useContextText } from "../Context";
 import useDialogText from "../hooks/useDialogText";
+import fetchCreateText from "../service";
 import CardTextView from "./CardTextView";
-import { fetchTexts, fetchCreateText } from "./service";
+import fetchTexts  from "./service";
+import mountBody from "./utils/mount-body";
 
 const CardText: React.FC = () => {
 	const { seTitleText } = useContextText();
@@ -26,7 +28,8 @@ const CardText: React.FC = () => {
 	const createText = async () => {
 		try {
 			setIsCreatingText(true);
-			const { text_id } = await fetchCreateText(board_id);
+			const body = mountBody();
+			const { data: { text_id } } = await fetchCreateText(board_id, body);
 			queryClient.invalidateQueries(["texts"]);
 			
 			const redirectTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
