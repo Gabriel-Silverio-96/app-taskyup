@@ -15,7 +15,6 @@ export const Templates = styled("div")(
         padding: ${theme.spacing(3)}; 
         border-radius: ${theme.spacing(1)};
         background-color: ${theme.palette.grey[900]};
-        border: 1px solid ${theme.palette.grey[800]};
         margin-bottom: ${theme.spacing(3)};        
         overflow-y: hidden;                       
 
