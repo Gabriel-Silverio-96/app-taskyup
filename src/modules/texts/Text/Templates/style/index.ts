@@ -73,6 +73,6 @@ export const TemplateLinearGradient = styled("div")(
         border-radius: ${theme.spacing(1)};
         position: absolute;
         top: ${theme.spacing(1)};
-        right: 1px;
+        right: 0px;
     `
 );
