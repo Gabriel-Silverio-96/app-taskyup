@@ -14,7 +14,7 @@ export interface IFetchTexts {
 export interface ICardTextView {
     palette: Palette;   
     data: IFetchTexts | undefined;   
-    isLoading: boolean;
+    isFetching: boolean;
     createText: () => void;
     isCreatingText: boolean;
     board_id: string | undefined;

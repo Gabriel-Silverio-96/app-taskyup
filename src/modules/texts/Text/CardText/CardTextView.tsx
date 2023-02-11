@@ -11,14 +11,14 @@ const CardTextView: React.FC<ICardTextView> = props => {
 	const { 
 		palette,
 		data,
-		isLoading,
+		isFetching,
 		createText,
 		isCreatingText,
 		board_id,
 		openDialogDeleteSingleText,		 
 	} = props;
 
-	if(isLoading) {
+	if(isFetching) {
 		return <Loading isLoading backdrop />;
 	}
 	
@@ -31,7 +31,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 					<Typography variant="caption">Create</Typography>
 				</CardCreateText>
 			</div>
-			{data && data.texts.map(({title_text, text_id ,created_at}: IText) => {
+			{data && data.texts.map(({ title_text, text_id, created_at }: IText) => {
 				const createdAt = dateFormat(created_at);
 				const linkTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
 
