@@ -30,9 +30,9 @@ const Templates: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess };
-	const { mutate: createTextTemplate } = useMutation(mutationFn, optionsMutation);
+	const { mutate: createTextTemplate, isLoading } = useMutation(mutationFn, optionsMutation);
 
-	return <TemplatesView {...{ isOpenTemplates, createTextTemplate }} />;
+	return <TemplatesView {...{ isOpenTemplates, createTextTemplate, isLoading }} />;
 };
 
 export default memo(Templates);
