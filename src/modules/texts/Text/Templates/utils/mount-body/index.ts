@@ -8,14 +8,14 @@ import CodeTemplate from "../../model-templates/code.md";
 import { ITemplates } from "./types";
 
 const selectTemplate = (template: Template) => {
-	const defaultTemplate = TableTemplate;
+	const defaultTemplate = { title_text: "TaskYup", text: TableTemplate };
 
 	const templates: ITemplates = {
-		text: TableTemplate,
-		todo: TodoTemplate,
-		readme: ReadmeTemplate,
-		code: CodeTemplate,
-		diagram: DiagramTemplate,
+		table: { title_text: "Text template", markdown: TableTemplate },
+		todo: { title_text: "Todo template", markdown: TodoTemplate },
+		readme: { title_text: "Readme template", markdown: ReadmeTemplate },
+		code: { title_text: "Code template", markdown: CodeTemplate },
+		diagram: { title_text: "Diagram template", markdown: DiagramTemplate },
 	};
 
 	const body = templates[template] || defaultTemplate;	
@@ -23,19 +23,16 @@ const selectTemplate = (template: Template) => {
 };
 
 const mountBody = async (template: Template) => {
-	const dateNow = Date.now();
-	const title_text = `Template ${dateNow}`;	
-
-	const markdown = selectTemplate(template);
+	const { title_text, markdown } = selectTemplate(template);
 	try {
 		const text = await fetchTemplateText(markdown);
 		const data = { title_text, text };
 
 		return data;
 	} catch (error) {
-		console.log("mountBody ", error);		
+		console.error("mountBody ", error);		
 
-		const data = { title_text, text: "There was a problem and the template was not generated" };		
+		const data = { title_text, text: "There was a problem and the template was not generated" };
 		return data;
 	}
 };

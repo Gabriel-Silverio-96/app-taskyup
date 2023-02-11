@@ -1,9 +1,12 @@
-type path = RequestInfo | URL;
+interface ITemplate {
+    title_text: string;
+    markdown: RequestInfo | URL;
+}
 
 export interface ITemplates {
-    text: path;
-    todo: path;
-    readme: path;
-    code: path;
-    diagram: path;
+    table: ITemplate;
+    todo: ITemplate;
+    readme: ITemplate;
+    code: ITemplate;
+    diagram: ITemplate;
 }
