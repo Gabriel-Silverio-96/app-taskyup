@@ -1,5 +1,5 @@
 import { styled } from "@mui/material";
-import { blue, blueGrey } from "@mui/material/colors";
+import { blue, blueGrey, lime } from "@mui/material/colors";
 
 export const Markdown = styled("section")(    
 	({ theme }) => `
@@ -30,6 +30,7 @@ export const Markdown = styled("section")(
                         h1 {
                             font-size: ${theme.spacing(4)};
                         }
+
                         .bytemd-mermaid {
                             svg {                                
                                 g {
@@ -70,9 +71,22 @@ export const Markdown = styled("section")(
                         }
 
                         blockquote, pre {
-                            background-color: ${blueGrey[900]};
                             padding: ${theme.spacing(1)};
                             margin: ${theme.spacing(2, 0)};
+                            
+                            code {
+                                background-color: ${blueGrey[50]};
+                                filter: invert(1);
+                                border-radius: ${theme.spacing(1)};
+
+                                .hljs-keyword {
+                                    color:  ${lime[800]};
+                                }
+
+                                .hljs-comment {
+                                    color: ${theme.palette.grey[500]};
+                                }
+                            }
                         }
 
                         a {
