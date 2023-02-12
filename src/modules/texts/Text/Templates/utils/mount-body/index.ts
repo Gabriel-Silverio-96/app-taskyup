@@ -8,10 +8,10 @@ import CodeTemplate from "../../model-templates/code.md";
 import { ITemplates } from "./types";
 
 const selectTemplate = (template: Template) => {
-	const defaultTemplate = { title_text: "TaskYup", text: TableTemplate };
+	const defaultTemplate = { title_text: "Table template", text: TableTemplate };
 
 	const templates: ITemplates = {
-		table: { title_text: "Text template", markdown: TableTemplate },
+		table: { title_text: "Table template", markdown: TableTemplate },
 		todo: { title_text: "Todo template", markdown: TodoTemplate },
 		readme: { title_text: "Readme template", markdown: ReadmeTemplate },
 		code: { title_text: "Code template", markdown: CodeTemplate },
