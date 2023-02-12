@@ -70,10 +70,20 @@ export const Markdown = styled("section")(
                             }
                         }
 
+                        p {
+                            code {
+                                background-color: ${theme.palette.grey[200]};
+                                color: ${theme.palette.common.black};
+                                padding: ${theme.spacing(0.3)};
+                                border-radius: ${theme.spacing(0.3)};
+                            }
+                        }
+
                         blockquote, pre {
                             padding: ${theme.spacing(1)};
                             margin: ${theme.spacing(2, 0)};
-                            
+                            padding: 0;
+
                             code {
                                 background-color: ${blueGrey[50]};
                                 filter: invert(1);
