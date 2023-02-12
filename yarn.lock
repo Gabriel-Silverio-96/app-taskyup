@@ -1108,6 +1108,13 @@
   dependencies:
     remark-gfm "^3.0.1"
 
+"@bytemd/plugin-highlight@^1.20.2":
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/@bytemd/plugin-highlight/-/plugin-highlight-1.20.2.tgz#f98d1a3ba4377a9ea15878447bf5ec1474d229e5"
+  integrity sha512-OBm0SkH4ecKyRC+h7CPUQhbp9dDus/WIpTlialhZ3ueKk/PRwRcstiuzQNXwYDBjgUQPBapmCukITN7oFliZBg==
+  dependencies:
+    highlight.js "^11.7.0"
+
 "@bytemd/plugin-mermaid@^1.20.2":
   version "1.20.2"
   resolved "https://registry.yarnpkg.com/@bytemd/plugin-mermaid/-/plugin-mermaid-1.20.2.tgz#ed1839448985dd46874ad7859aefe078d81ce68f"
@@ -5586,6 +5593,11 @@ he@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+
+highlight.js@^11.7.0:
+  version "11.7.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.7.0.tgz#3ff0165bc843f8c9bce1fd89e2fda9143d24b11e"
+  integrity sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ==
 
 history@^5.2.0:
   version "5.3.0"
