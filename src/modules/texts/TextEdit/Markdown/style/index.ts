@@ -33,14 +33,13 @@ export const Markdown = styled("section")(
 
                         .bytemd-mermaid {
                             svg {                                
-                                g {
-                                    .pieTitleText {
-                                        fill: ${theme.palette.common.white} !important;
-                                    }
-                                }
+                                background-color: ${theme.palette.grey[200]};
+                                border-radius: ${theme.spacing(1)};
+                                height: auto;
+
                                 .legend {
-                                    text {
-                                        fill: ${theme.palette.common.white} !important;
+                                    rect {
+                                        stroke: ${theme.palette.common.black} !important;
                                     }
                                 }
                             }
