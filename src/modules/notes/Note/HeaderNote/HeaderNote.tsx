@@ -1,6 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import { useContextNote } from "../Context";
@@ -12,19 +12,13 @@ const HeaderNote: React.FC = () => {
 	const navigate = useNavigate();
 	const { totalOfNotes } = useContextNote();
 	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
+	
 	const { board_id: boardID } = useParams();
-	const { palette, breakpoints } = useTheme();
+	const { breakpoints } = useTheme();
 	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
-	
-	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-	
-	const isOpenMenu = Boolean(anchorEl);
-	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
-	const closeMenu = () => setAnchorEl(null);
 
 	const openDialogDeleteAllNotesAndCloseMenu = () => {
 		openDialogDeleteAllNotes();
-		closeMenu();
 	};
 
 	const queryKey = ["single_board", { variable: boardID }];
@@ -36,15 +30,10 @@ const HeaderNote: React.FC = () => {
 	return (
 		<HeaderNoteView
 			{...{
-				isOpenMenu,
 				totalOfNotes,
-				openDialogNewNote,
-				openDialogDeleteAllNotesAndCloseMenu,
-				anchorEl,
-				openMenu,
-				closeMenu,
+				openDialogNewNote, 
+				openDialogDeleteAllNotesAndCloseMenu, 
 				isMediumScreen,
-				palette,
 				data,
 				isFetching
 			}}
