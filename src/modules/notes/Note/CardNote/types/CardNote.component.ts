@@ -1,27 +1,14 @@
 import { Palette } from "@mui/material";
+import { INote } from "../../types/Note.component";
 
-export interface INote {
-	note_id: string;
-	color_note: string;
-	title_note: string;
-	observation: string;
-	created_at: string;
-}
-
-export type TListNotes = { list_notes: INote[] } | any;
-
-export interface IListNotes<T = undefined> {
-	notes: {
-		list_notes: INote[] | T;
-	}
-}
-
-export interface ICardNotesView {
-	palette: Palette;	
-    isFetching: boolean;
+export interface ICardNote {
 	data: {
 		list_notes: INote[] | undefined;
 	};
+}
+
+export interface ICardNotesView extends ICardNote {
+	palette: Palette;	
 	openDialogEditNote: (noteID: string) => void;
 	openDialogDeleteSingleNote: (noteID: string) => void;
 }

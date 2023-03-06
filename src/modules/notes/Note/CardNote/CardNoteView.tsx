@@ -1,17 +1,15 @@
 import { Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { FiEye, FiTrash2 } from "react-icons/fi";
-import Loading from "shared/components/Loading";
 import NoteNotCreatedMessage from "./NoteNotCreatedMessage";
-import { Card, CardContent, CardAction, CardBar, CardNoteContainer } from "./style";
+import { Card, CardAction, CardBar, CardContent, CardNoteContainer } from "./style";
 import { ICardNotesView } from "./types/CardNote.component";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
-	const { palette, data, isFetching, openDialogEditNote, openDialogDeleteSingleNote } = props;
+	const { palette, data, openDialogEditNote, openDialogDeleteSingleNote } = props;
 	return (
-		<Grid container spacing={2}>
-			<Loading isLoading={isFetching} backdrop />
-			<NoteNotCreatedMessage notes={data}/>
+		<Grid container spacing={2}>			
+			<NoteNotCreatedMessage />
 			
 			{data &&
 				data.list_notes?.map(({ note_id, title_note, observation, color_note }) => {	
