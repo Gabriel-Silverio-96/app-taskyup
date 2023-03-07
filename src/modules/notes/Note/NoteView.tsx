@@ -9,11 +9,12 @@ import HeaderNote from "./HeaderNote";
 
 const NoteView:React.FC<any> = (props) => {
 	const { data, isFetching } = props;
+	
 	return (
 		<ContextProviderNote>		
 			<Loading isLoading={isFetching} backdrop />
-			<HeaderNote />
-			<CardNote data={data} />
+			<HeaderNote {...{ data }} />
+			<CardNote {...{ data }} />
 			<DialogNewNote />
 			<DialogEditNote />
 			<DialogDeleteSingleNote />

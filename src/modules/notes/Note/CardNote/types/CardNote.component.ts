@@ -3,7 +3,8 @@ import { INote } from "../../types/Note.component";
 
 export interface ICardNote {
 	data: {
-		list_notes: INote[] | undefined;
+		total_notes: number;
+		notes: INote[] | undefined;
 	};
 }
 
@@ -11,4 +12,8 @@ export interface ICardNotesView extends ICardNote {
 	palette: Palette;	
 	openDialogEditNote: (noteID: string) => void;
 	openDialogDeleteSingleNote: (noteID: string) => void;
+}
+
+export interface INoteNotCreatedMessage {
+	total_notes: number;
 }

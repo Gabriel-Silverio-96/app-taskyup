@@ -1,4 +1,4 @@
-import { Grid, IconButton, Skeleton, Tooltip, Typography } from "@mui/material";
+import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { FiPlus, FiTrash, FiUsers } from "react-icons/fi";
 import { Nav } from "./style";
@@ -6,27 +6,21 @@ import { IHeaderNoteView } from "./types/HeaderNote.component";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	const { 
-		totalOfNotes,
+		data,
 		openDialogNewNote, 
 		openDialogDeleteAllNotesAndCloseMenu, 
 		isMediumScreen,
-		data,
-		isFetching
+		isDisabledIconButtonTrash
 	} = props;
 	
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
-	const title = data && data.title;
-
+	
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
 			<Grid item xl={6} md={6} sm={8} xs={8}>
-				{isFetching ? (
-					<Skeleton variant="rectangular" width={210} height={32} />
-				) : (
-					<Typography variant={variantMediumScreen} fontWeight={800}>
-						{title}
-					</Typography>
-				)}
+				<Typography variant={variantMediumScreen} fontWeight={800}>
+					{data?.board_title}
+				</Typography>
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
@@ -40,7 +34,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 					</Tooltip>
 					<IconButton 
 						onClick={openDialogDeleteAllNotesAndCloseMenu}
-					 	disabled={totalOfNotes <= 1}
+					 	disabled={!isDisabledIconButtonTrash}
 					 >
 						<FiTrash size={18} />
 					</IconButton>			

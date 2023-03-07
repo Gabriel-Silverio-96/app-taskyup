@@ -7,13 +7,11 @@ export interface INote {
 }
 
 export interface IFetchGetNotes<T = undefined> {
-	notes: {
-		board_title: string;
-		total_notes: number;
-		list_notes: INote[] | T;
-	}
+	board_title: string;
+	total_notes: number;
+	notes: INote[] | T;
 }
 
 export interface IListNotes {
-    list_notes: INote[] | undefined;
+    notes: INote[] | undefined;
 }
