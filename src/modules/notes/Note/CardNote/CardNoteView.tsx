@@ -9,7 +9,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 	const { palette, data, openDialogEditNote, openDialogDeleteSingleNote } = props;
 	return (
 		<Grid container spacing={2}>			
-			<NoteNotCreatedMessage total_notes={data.total_notes} />
+			<NoteNotCreatedMessage totalNotes={data?.total_notes} />
 			
 			{data &&
 				data.notes?.map(({ note_id, title_note, observation, color_note }) => {	

@@ -15,5 +15,5 @@ export interface ICardNotesView extends ICardNote {
 }
 
 export interface INoteNotCreatedMessage {
-	total_notes: number;
+	totalNotes: number;
 }
