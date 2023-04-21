@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { IContextNote, IContextProviderNote } from "./types/Context.component";
 
-export const ContextNote = createContext({} as IContextNote);
+export const ContextNote = createContext<IContextNote | undefined>(undefined);
 
 export const ContextProviderNote:React.FC<IContextProviderNote> = ({ children }) => {
 	const [isOpenDialogNewNote, setIsOpenDialogNewNote] = useState(false);
