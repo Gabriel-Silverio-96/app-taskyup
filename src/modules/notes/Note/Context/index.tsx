@@ -31,4 +31,11 @@ export const ContextProviderNote:React.FC<IContextProviderNote> = ({ children })
 	);
 };
 
-export const useContextNote = () => useContext(ContextNote);
+export const useContextNote = () => {
+	const context = useContext(ContextNote);
+	if(context === undefined) {
+		throw new Error("useContextNote must be used within a ContextProviderNote");
+	}
+
+	return context;
+};
