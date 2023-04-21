@@ -6,5 +6,4 @@ export interface IHeaderNoteView {
     isMediumScreen: boolean;
     data: IFetchSingleBoard | undefined;
     isFetching: boolean;
-    isDisabledDeleteAllNotesButton: boolean;
 }
