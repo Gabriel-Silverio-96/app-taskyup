@@ -6,17 +6,12 @@ import { IHeaderNoteView } from "./types/HeaderNote.component";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	const { 
-		isOpenMenu, 
-		totalOfNotes,
 		openDialogNewNote, 
-		openDialogDeleteAllNotesAndCloseMenu, 
-		anchorEl, 
-		openMenu, 
-		closeMenu, 
+		openDialogDeleteAllNotes, 
 		isMediumScreen,
-		palette, 
 		data,
-		isFetching
+		isFetching,
+		isDisabledDeleteAllNotesButton
 	} = props;
 	
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
@@ -43,7 +38,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 							<FiUsers size={18} />
 						</IconButton>
 					</Tooltip>
-					<IconButton disabled={totalOfNotes <= 1} onClick={openDialogDeleteAllNotesAndCloseMenu}>
+					<IconButton disabled={isDisabledDeleteAllNotesButton} onClick={openDialogDeleteAllNotes}>
 						<FiTrash size={18} />
 					</IconButton>					                  
 				</Nav>
