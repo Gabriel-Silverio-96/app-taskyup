@@ -1,7 +1,7 @@
-import { Grid, IconButton, MenuItem, Skeleton, Tooltip, Typography } from "@mui/material";
+import { Grid, IconButton, Skeleton, Tooltip, Typography } from "@mui/material";
 import React from "react";
-import { FiMoreHorizontal, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
-import { Menu, Nav } from "./style";
+import { FiPlus, FiTrash, FiUsers } from "react-icons/fi";
+import { Nav } from "./style";
 import { IHeaderNoteView } from "./types/HeaderNote.component";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
