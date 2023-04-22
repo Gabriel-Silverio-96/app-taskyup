@@ -11,7 +11,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 		titleBoard, 
 		titleText, 
 		onChangeTextTitle, 
-		backPage, 
+		linkPreviousPage, 
 		disableButtonSave, 
 		handleMessageError 
 	} = props;	
@@ -34,7 +34,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 			</Grid>
 			<Grid item md={3}>
 				<Nav>
-					<Link to={backPage}>
+					<Link to={linkPreviousPage}>
 						<Button	variant="text">
 							Back
 						</Button>

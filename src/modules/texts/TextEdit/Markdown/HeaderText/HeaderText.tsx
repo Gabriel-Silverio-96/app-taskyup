@@ -7,7 +7,7 @@ const HeaderText: React.FC<IHeaderText> = ({ saveText, titleBoard, titleText, on
 	const [ searchParams ] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 
-	const backPage = `/texts/${board_id}`;
+	const linkPreviousPage = `/texts/${board_id}`;
 
 	const disableButtonSave = titleText.length < 3;
 	const handleMessageError = titleText.length < 3 && "Minimum of 3 characters";
@@ -19,7 +19,7 @@ const HeaderText: React.FC<IHeaderText> = ({ saveText, titleBoard, titleText, on
 				titleBoard,
 				titleText,
 				onChangeTextTitle,
-				backPage,
+				linkPreviousPage,
 				disableButtonSave,
 				handleMessageError,
 			}}
