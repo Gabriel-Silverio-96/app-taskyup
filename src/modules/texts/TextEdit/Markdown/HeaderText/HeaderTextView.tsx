@@ -14,7 +14,9 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 	return (
 		<Grid container alignItems="center" justifyContent="space-between" sx={{ mb: 3 }}>
 			<Grid item md={3}>
-				<Logo size={100} />
+				<Link to="/dashboard">
+					<Logo size={100} />
+				</Link>
 			</Grid>
 			<Grid item md={3}>
 				<Breadcrumbs>
