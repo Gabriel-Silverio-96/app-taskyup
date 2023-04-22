@@ -6,10 +6,15 @@ import { Nav, TextTitle, TextField, Breadcrumbs } from "./style";
 import {  IHeaderTextView } from "./types/HeaderText.component";
 
 const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
-	const { saveText, titleBoard, titleText, onChangeTextTitle, backPage } = props;
-
-	const disableButtonSave = titleText.length < 3;
-	const handleMessageError = titleText.length < 3 && "Minimum of 3 characters";
+	const { 
+		saveText, 
+		titleBoard, 
+		titleText, 
+		onChangeTextTitle, 
+		backPage, 
+		disableButtonSave, 
+		handleMessageError 
+	} = props;	
 
 	return (
 		<Grid container alignItems="center" justifyContent="space-between" sx={{ mb: 3 }}>

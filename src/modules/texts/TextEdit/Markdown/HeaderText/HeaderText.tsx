@@ -9,7 +9,22 @@ const HeaderText: React.FC<IHeaderText> = ({ saveText, titleBoard, titleText, on
 
 	const backPage = `/texts/${board_id}`;
 
-	return <HeaderTextView {...{ saveText, titleBoard, titleText, onChangeTextTitle, backPage }} />;
+	const disableButtonSave = titleText.length < 3;
+	const handleMessageError = titleText.length < 3 && "Minimum of 3 characters";
+
+	return (
+		<HeaderTextView
+			{...{
+				saveText,
+				titleBoard,
+				titleText,
+				onChangeTextTitle,
+				backPage,
+				disableButtonSave,
+				handleMessageError,
+			}}
+		/>
+	);
 };
 
 export default memo(HeaderText);
