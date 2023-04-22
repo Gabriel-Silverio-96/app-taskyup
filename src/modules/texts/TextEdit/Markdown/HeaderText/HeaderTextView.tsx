@@ -22,10 +22,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 				<Breadcrumbs>
 					<Typography variant="caption">{titleBoard} /</Typography>
 					<TextTitle>
-						<TextField					
-							value={titleText}
-							onChange={onChangeTextTitle}
-						/>
+						<TextField value={titleText} onChange={onChangeTextTitle} />
 						<Typography variant="caption">{handleMessageError}</Typography>
 					</TextTitle>
 				</Breadcrumbs>
@@ -37,11 +34,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 							Back
 						</Button>
 					</Link>
-					<Button
-						variant="contained"
-						onClick={saveText}
-						disabled={disableButtonSave}
-					>
+					<Button	variant="contained"	onClick={saveText} disabled={disableButtonSave}>
 						Save
 					</Button>
 				</Nav>

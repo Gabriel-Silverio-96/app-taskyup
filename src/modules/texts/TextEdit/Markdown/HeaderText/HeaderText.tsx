@@ -4,7 +4,7 @@ import HeaderTextView from "./HeaderTextView";
 import { IHeaderText } from "./types/HeaderText.component";
 
 const HeaderText: React.FC<IHeaderText> = ({ saveText, titleBoard, titleText, onChangeTextTitle }) => {	
-	const [searchParams] = useSearchParams();
+	const [ searchParams ] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 
 	const backPage = `/texts/${board_id}`;
