@@ -7,6 +7,8 @@ export interface IHeaderText {
 	onChangeTextTitle: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface IHeaderTextView  extends IHeaderText {
-	backPage: string;
+export interface IHeaderTextView extends IHeaderText {
+	linkPreviousPage: string;
+	disableButtonSave: boolean;
+	handleMessageError: false | string;
 }
