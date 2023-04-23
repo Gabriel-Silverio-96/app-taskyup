@@ -1,33 +1,29 @@
 import { styled, Card as CardMui } from "@mui/material";
 
-export const CardContainer = styled("div")(    
+export const CardContainer = styled("div")(
 	() => `
         display: grid;
         gap: 1rem;
 
-        @media (min-width: 1920px) {
-            grid-template-columns: repeat(8, 1fr) !important;
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(2, 1fr);
         }
-
-        @media (min-width: 1400px) {
-            grid-template-columns: repeat(6, 1fr);
-        }
-
-        @media (max-width: 1400px) {
-            grid-template-columns: repeat(6, 1fr);
-        }
-
-        @media (max-width: 992px) {
+    
+        @media (min-width: 768px) {
             grid-template-columns: repeat(4, 1fr);
         }
     
-        @media (max-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(6, 1fr);
         }
-
-        @media (max-width: 576px) {
-            grid-template-columns: repeat(1, 1fr);
-        }    
+    
+        @media (min-width: 1400px) {
+            grid-template-columns: repeat(6, 1fr);
+        }
+    
+        @media (min-width: 1920px) {
+            grid-template-columns: repeat(8, 1fr);
+        }
     `
 );
 
@@ -35,7 +31,7 @@ export const CardPatternText = styled(CardMui)(
 	({ theme }) => `
         width: auto;
         height: ${theme.spacing(30)};
-        border-radius: ${theme.spacing(1)};
+        border-radius: ${theme.spacing(1)}; 
     `
 );
 
