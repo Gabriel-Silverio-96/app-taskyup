@@ -4,7 +4,7 @@ import { IAsideStyle } from "./types/Aside.style";
 export const Aside = styled("aside")<IAsideStyle>(
 	({ open, theme }) => `                
         position: relative;
-        background-color: ${theme.palette.common.black};
+        background-color: ${open ? theme.palette.common.black : "transparent"};
         width: ${open ? theme.spacing(25) : theme.spacing(7)};
         padding: ${theme.spacing(2)};          
         transition: width 0.2s ease-out;
@@ -32,18 +32,16 @@ export const Aside = styled("aside")<IAsideStyle>(
             }
         }
 
-        @media (max-width: 576px) {
-            width: ${open ? theme.spacing(25) : theme.spacing(1)};
-            padding: ${open ? theme.spacing(2) : 0};    
-            
-            > button {
-                display: ${open ? "flex" : "none"};
-            }
+        width: ${open ? theme.spacing(25) : theme.spacing(1)};
+        padding: ${open ? theme.spacing(2) : 0};            
 
-            > div {
-                a {
-                    display: ${open ? "flex" : "none"};
-                }
+        > button {
+            display: ${open ? "flex" : "none"};
+        }
+
+        > div {
+            a {
+                display: ${open ? "flex" : "none"};
             }
         }
     `
@@ -54,11 +52,15 @@ export const AsideHeader = styled("div")<IAsideStyle>(
         margin-top: ${theme.spacing(0.8)};
         margin-bottom: ${theme.spacing(6)};
 
+        a {
+            width: fit-content;
+        }
+
         .MuiIconButton-root {
             position: absolute;
             transform: scale(0.8);
             right: ${open ? theme.spacing(1.8) : `-${theme.spacing(2.2)}`};
-            top: ${theme.spacing(2.6)};
+            top: ${theme.spacing(2.5)};
             background-color: ${theme.palette.background.paper};
 
             :hover {
