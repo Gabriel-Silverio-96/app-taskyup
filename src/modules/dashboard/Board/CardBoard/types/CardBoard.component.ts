@@ -1,6 +1,5 @@
 import { Palette } from "@mui/material";
 import React from "react";
-import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import { FunctionNonValueReturning } from "shared/types";
 
 export interface ITypeBoard<T = JSX.Element> {
@@ -9,8 +8,17 @@ export interface ITypeBoard<T = JSX.Element> {
     kanban: T;    
 }
 
+export interface IFetchBoard {
+	board_id: string;
+	title: string;
+	type_board: string;
+	created_at: string;
+	background_image: string;
+	members_board: string[];
+}
+
 export interface ICardBoardView {
-	board: IFetchBoard[];
+	board: IFetchBoard[] | undefined;
 	boardIcon: ITypeBoard;
 	isFetching: boolean;
 	palette: Palette;

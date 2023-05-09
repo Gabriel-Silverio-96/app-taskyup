@@ -1,5 +1,5 @@
-import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
+import { IFetchBoard } from "../../types/CardBoard.component";
 
 export interface ICardBoardEmpty {
-    board: IFetchBoard[];
+    board: IFetchBoard[] | undefined;
 }

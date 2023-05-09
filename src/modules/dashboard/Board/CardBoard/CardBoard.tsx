@@ -1,18 +1,18 @@
 import { useTheme } from "@mui/material";
+import { useQuery } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
-import useFetchBoard from "shared/common/hook/useFetchBoard";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
+import fetchBoard from "./service";
 import { ITypeBoard } from "./types/CardBoard.component";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
 	const { setBoardID } = useContextBoard();
 	const { openDialogEditBoard, openDialogDeleteSingleBoard } = useDialogBoard();
-	const { board, isFetching } = useFetchBoard();
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
@@ -29,6 +29,9 @@ const CardBoard: React.FC = () => {
 		text: <MdOutlineNotes color={palette.secondary.main} />,
 		kanban: <MdOutlineSpaceDashboard color={palette.secondary.main} />,
 	};
+
+	const queryKey = ["board"];
+	const { data: board, isFetching } = useQuery(queryKey, fetchBoard);
 
 	return (
 		<CardBoardView
