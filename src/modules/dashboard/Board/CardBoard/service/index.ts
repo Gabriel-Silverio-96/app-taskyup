@@ -1,5 +1,5 @@
-import { IFetchBoard } from "shared/common/hook/useFetchBoard/types/UseFetchBoard.types";
 import api from "shared/services/api";
+import { IFetchBoard } from "../types/CardBoard.component";
 
 const fetchBoard = async () => {
 	const { data } = await api.get<IFetchBoard[]>("/board");
