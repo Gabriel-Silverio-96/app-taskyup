@@ -6,10 +6,12 @@ import { IFetchSingleBoard } from "shared/common/types/Fetch";
 import useDialogNote from "../shared/hook/useDialogNote";
 import HeaderNoteView from "./HeaderNoteView";
 import fetchSingleBoard from "./service";
+import { useContextNote } from "../Context";
 
 const HeaderNote: React.FC = () => {
 	const navigate = useNavigate();
 	const { board_id } = useParams();
+	const { countNotes } = useContextNote();
 
 	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
 	const { breakpoints } = useTheme();
@@ -29,6 +31,7 @@ const HeaderNote: React.FC = () => {
 				isMediumScreen,
 				data,
 				isFetching,
+				countNotes
 			}}
 		/>
 	);

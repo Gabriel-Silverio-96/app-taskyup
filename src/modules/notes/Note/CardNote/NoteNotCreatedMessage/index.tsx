@@ -1,9 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 import React, { memo } from "react";
-import { IListNotes } from "../types/CardNote.component";
+import { INoteNotCreatedMessage } from "./types/NoteNotCreatedMessage.component";
 
-const NoteNotCreatedMessage: React.FC<IListNotes> = ({ notes }) => {
-	const thereNotes = notes && notes.list_notes?.length === 0;
+const NoteNotCreatedMessage: React.FC<INoteNotCreatedMessage> = ({ count }) => {
+	const thereNotes = count === 0;
 
 	return (
 		<>

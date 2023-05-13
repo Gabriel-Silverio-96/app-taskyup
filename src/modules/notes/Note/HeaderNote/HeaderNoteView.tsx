@@ -11,6 +11,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 		isMediumScreen,
 		data,
 		isFetching,
+		countNotes
 	} = props;
 	
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
@@ -37,7 +38,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 							<FiUsers size={18} />
 						</IconButton>
 					</Tooltip>
-					<IconButton onClick={openDialogDeleteAllNotes}>
+					<IconButton onClick={openDialogDeleteAllNotes} disabled={countNotes === 0}>
 						<FiTrash size={18} />
 					</IconButton>					                  
 				</Nav>

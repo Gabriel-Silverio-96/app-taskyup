@@ -6,4 +6,5 @@ export interface IHeaderNoteView {
     isMediumScreen: boolean;
     data: IFetchSingleBoard | undefined;
     isFetching: boolean;
+    countNotes: number;
 }
