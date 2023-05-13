@@ -11,7 +11,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isFetching} backdrop />
-			<NoteNotCreatedMessage notes={data}/>
+			<NoteNotCreatedMessage count={data?.count}/>
 			
 			{data &&
 				data.list_notes?.map(({ note_id, title_note, observation, color_note }) => {	
