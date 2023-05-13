@@ -3,11 +3,11 @@ import React, { memo } from "react";
 import { INoteNotCreatedMessage } from "./types/NoteNotCreatedMessage.component";
 
 const NoteNotCreatedMessage: React.FC<INoteNotCreatedMessage> = ({ count }) => {
-	const thereNotes = count === 0;
+	const hasNotes = count === 0;
 
 	return (
 		<>
-			{thereNotes && (
+			{hasNotes && (
 				<Grid item md={12} sx={{ mt: 1 }}>
 					<Typography variant="body2" fontWeight={800}>
 						You have not created any notes
