@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
-import fetchNotes from "./service";
+import fetchGetNotes from "./service";
 import { TCount } from "./types/CardNote.component";
 
 const CardNote: React.FC = () => {
@@ -15,7 +15,7 @@ const CardNote: React.FC = () => {
 	const { openDialogEditNote, openDialogDeleteSingleNote } = useDialogNote();
 	
 	const queryKey = ["notes", { variable: board_id }];
-	const queryFn = () => fetchNotes(board_id);
+	const queryFn = () => fetchGetNotes(board_id);
 
 	const onSuccess = ({ count }: TCount) => setCountNotes(count);	
 	
