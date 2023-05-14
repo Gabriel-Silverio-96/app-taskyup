@@ -1,7 +1,8 @@
 import { Palette } from "@mui/material";
+import { IFetchGetSingleBoard } from "shared/common/hook/useFetchGetSingleBoard/types/useFetchGetSingleBoard.types";
 
 export interface IHeaderTextView {
-	titleText: string;
+	data: IFetchGetSingleBoard | undefined;
 	palette: Palette;
 	isMediumScreen: boolean;
 	openDialogDeleteAllTexts: (boardID: string) => void;
