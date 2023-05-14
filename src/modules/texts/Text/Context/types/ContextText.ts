@@ -14,7 +14,9 @@ export interface IContextText {
     dialogDeleteSingleText: IDialogDeleteSingleText;
     setDialogDeleteSingleText: Dispatch<SetStateAction<IDialogDeleteSingleText>>;
     dialogDeleteAllText: IDialogDeleteAllText;
-    setDialogDeleteAllText: Dispatch<SetStateAction<IDialogDeleteAllText>>;    
+    setDialogDeleteAllText: Dispatch<SetStateAction<IDialogDeleteAllText>>;
+    countText: number;
+    setCountText: Dispatch<SetStateAction<number>>;
     isOpenTemplates: boolean;
     setIsOpenTemplates: Dispatch<SetStateAction<boolean>>;
 }

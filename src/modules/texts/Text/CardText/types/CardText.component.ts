@@ -7,6 +7,7 @@ export interface IText {
 }
 
 export interface IFetchTexts {
+    count: number;
     title: string;   
     texts: IText[];   
 }

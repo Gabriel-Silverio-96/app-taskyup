@@ -8,6 +8,7 @@ import { IHeaderTextView } from "./types/HeaderText.component";
 const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 	const { 
 		data,
+		countText, 
 		palette,
 		isMediumScreen, 
 		openDialogDeleteAllTexts,
@@ -36,7 +37,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 							<FiUsers size={18} />
 						</IconButton>
 					</Tooltip>
-					<IconButton onClick={() => openDialogDeleteAllTexts(board_id!)}>
+					<IconButton onClick={() => openDialogDeleteAllTexts(board_id!)} disabled={countText === 0}>
 						<FiTrash size={18} />
 					</IconButton>
 				</Nav>

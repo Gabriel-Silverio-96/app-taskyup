@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useDialogText from "../hooks/useDialogText";
 import fetchCreateText from "../service";
@@ -8,9 +8,11 @@ import { IFetchCreateText } from "../types";
 import CardTextView from "./CardTextView";
 import fetchTexts from "./service";
 import mountBody from "./utils/mount-body";
+import { useContextText } from "../Context";
 
 const CardText: React.FC = () => {	
 	const { palette } = useTheme();
+	const { setCountText } = useContextText();
 	const { board_id } = useParams();
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
@@ -19,7 +21,12 @@ const CardText: React.FC = () => {
 	const queryKey = ["texts", { variables: board_id }];
 	const queryFn = () => fetchTexts(board_id);	
 	
-	const { data, isFetching } = useQuery(queryKey, queryFn);	
+	const onSuccessQuery = ({ count }: any) => setCountText(count);	
+
+	const optiosQuery = { onSuccess: onSuccessQuery };
+	const { data, isFetching } = useQuery(queryKey, queryFn, optiosQuery);	
+
+	useEffect(() => {data && setCountText(data.count);}, [board_id]);
 
 	const mutationFn = async () => {
 		const body = mountBody();

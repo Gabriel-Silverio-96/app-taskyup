@@ -9,7 +9,7 @@ import useFetchGetSingleBoard from "shared/common/hook/useFetchGetSingleBoard";
 const HeaderText: React.FC = () => {
 	const { board_id } = useParams();
 	const { data } = useFetchGetSingleBoard(board_id);
-	const { isOpenTemplates, setIsOpenTemplates } = useContextText();
+	const { isOpenTemplates, setIsOpenTemplates, countText } = useContextText();
 	const { openDialogDeleteAllTexts } = useDialogText();
 
 	const { palette, breakpoints } = useTheme();
@@ -21,6 +21,7 @@ const HeaderText: React.FC = () => {
 		<HeaderTextView
 			{...{
 				data,
+				countText,
 				palette,
 				isMediumScreen,			
 				openDialogDeleteAllTexts,
