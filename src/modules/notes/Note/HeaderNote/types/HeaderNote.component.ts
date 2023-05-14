@@ -1,10 +1,10 @@
-import { IFetchSingleBoard } from "shared/common/types/Fetch";
+import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
 
 export interface IHeaderNoteView {
     openDialogNewNote: () => void;
     openDialogDeleteAllNotes: () => void;
     isMediumScreen: boolean;
-    data: IFetchSingleBoard | undefined;
+    data: IFetchGetSingleBoard | undefined;
     isFetching: boolean;
     countNotes: number;
 }

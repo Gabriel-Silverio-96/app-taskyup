@@ -3,7 +3,7 @@ export interface IFetchResponseDefault {
     message: string;
 }
 
-export interface IFetchSingleBoard {
+export interface IFetchGetSingleBoard {
     title: string;
     board_type_id: string;
     background_image: string;

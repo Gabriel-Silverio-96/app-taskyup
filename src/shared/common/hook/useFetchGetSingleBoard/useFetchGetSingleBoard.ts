@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchGetSingleBoard } from "./types/useFetchGetSingleBoard.types";
 
 const useFetchGetSingleBoard = (boardID: string | undefined) => {
 	const fetchGetSingleBoard = async () => {

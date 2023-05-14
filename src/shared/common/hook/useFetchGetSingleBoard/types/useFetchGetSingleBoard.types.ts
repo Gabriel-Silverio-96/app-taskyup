@@ -1,9 +1,4 @@
-export interface IFetchGetSingleBoard {
-	title: string;
-	board_type_id: string;
-	background_image: string;
-	created_at: string;
-}
+import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
 
 export interface IUseFetchGetSingleBoard {
     data: IFetchGetSingleBoard;
