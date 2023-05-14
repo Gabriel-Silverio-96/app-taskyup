@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
@@ -18,8 +18,9 @@ const CardNote: React.FC = () => {
 	const queryFn = () => fetchGetNotes(board_id);
 
 	const onSuccess = ({ count }: TCount) => setCountNotes(count);	
-	
 	const { data, isFetching } = useQuery(queryKey, queryFn, { onSuccess });
+
+	useEffect(() => {data && setCountNotes(data.count);}, [board_id]);
 
 	return (
 		<CardNoteView
