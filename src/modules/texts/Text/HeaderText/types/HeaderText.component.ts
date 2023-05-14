@@ -1,5 +1,5 @@
 import { Palette } from "@mui/material";
-import { IFetchGetSingleBoard } from "shared/common/hook/useFetchGetSingleBoard/types/useFetchGetSingleBoard.types";
+import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
 
 export interface IHeaderTextView {
 	data: IFetchGetSingleBoard | undefined;
