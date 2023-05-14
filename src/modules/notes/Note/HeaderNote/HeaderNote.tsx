@@ -8,7 +8,7 @@ import HeaderNoteView from "./HeaderNoteView";
 
 const HeaderNote: React.FC = () => {
 	const { board_id } = useParams();
-	const { data, isFetching } = useFetchGetSingleBoard(board_id);
+	const { data } = useFetchGetSingleBoard(board_id);
 	const { countNotes } = useContextNote();
 
 	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
@@ -18,11 +18,10 @@ const HeaderNote: React.FC = () => {
 	return (
 		<HeaderNoteView
 			{...{
+				data,
 				openDialogNewNote,
 				openDialogDeleteAllNotes,
 				isMediumScreen,
-				data,
-				isFetching,
 				countNotes
 			}}
 		/>

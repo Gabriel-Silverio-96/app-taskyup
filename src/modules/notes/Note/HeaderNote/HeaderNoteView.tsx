@@ -1,4 +1,4 @@
-import { Grid, IconButton, Skeleton, Tooltip, Typography } from "@mui/material";
+import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { FiPlus, FiTrash, FiUsers } from "react-icons/fi";
 import { Nav } from "./style";
@@ -6,11 +6,10 @@ import { IHeaderNoteView } from "./types/HeaderNote.component";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	const { 
+		data,
 		openDialogNewNote, 
 		openDialogDeleteAllNotes, 
 		isMediumScreen,
-		data,
-		isFetching,
 		countNotes
 	} = props;
 	
@@ -19,13 +18,9 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
 			<Grid item xl={6} md={6} sm={8} xs={8}>
-				{isFetching ? (
-					<Skeleton variant="rectangular" width={210} height={32} />
-				) : (
-					<Typography variant={variantMediumScreen} fontWeight={800}>
-						{data?.title}
-					</Typography>
-				)}
+				<Typography variant={variantMediumScreen} fontWeight={800}>
+					{data?.title}
+				</Typography>
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
