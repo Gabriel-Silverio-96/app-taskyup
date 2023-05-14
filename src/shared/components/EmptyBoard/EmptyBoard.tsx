@@ -1,19 +1,17 @@
 import { Grid, Typography } from "@mui/material";
 import React, { memo } from "react";
-import { IListNotes } from "../types/CardNote.component";
+import { IEmptyBoard } from "./types/EmptyBoard.component";
 
-const NoteNotCreatedMessage: React.FC<IListNotes> = ({ notes }) => {
-	const thereNotes = notes && notes.list_notes?.length === 0;
-
+const EmptyBoard: React.FC<IEmptyBoard> = ({ title, message, show }) => {
 	return (
 		<>
-			{thereNotes && (
+			{show && (
 				<Grid item md={12} sx={{ mt: 1 }}>
 					<Typography variant="body2" fontWeight={800}>
-						You have not created any notes
+						{title}
 					</Typography>
 					<Typography variant="caption" color="GrayText">
-						Create a note 😊
+						{message}                        
 					</Typography>
 				</Grid>
 			)}
@@ -21,4 +19,4 @@ const NoteNotCreatedMessage: React.FC<IListNotes> = ({ notes }) => {
 	);
 };
 
-export default memo(NoteNotCreatedMessage);
+export default memo(EmptyBoard);

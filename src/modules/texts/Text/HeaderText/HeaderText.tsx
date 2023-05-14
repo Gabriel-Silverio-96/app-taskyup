@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom";
 import { useContextText } from "../Context";
 import useDialogText from "../hooks/useDialogText";
 import HeaderTextView from "./HeaderTextView";
+import useFetchGetSingleBoard from "shared/common/hook/useFetchGetSingleBoard";
 
 const HeaderText: React.FC = () => {
 	const { board_id } = useParams();
-	const { titleText, isOpenTemplates, setIsOpenTemplates } = useContextText();
+	const { data } = useFetchGetSingleBoard(board_id);
+	const { isOpenTemplates, setIsOpenTemplates, countText } = useContextText();
 	const { openDialogDeleteAllTexts } = useDialogText();
 
 	const { palette, breakpoints } = useTheme();
@@ -18,13 +20,14 @@ const HeaderText: React.FC = () => {
 	return (
 		<HeaderTextView
 			{...{
-				titleText,
+				data,
+				countText,
 				palette,
 				isMediumScreen,			
 				openDialogDeleteAllTexts,
 				board_id,
 				toogleTemplates,
-				isOpenTemplates
+				isOpenTemplates,
 			}}
 		/>
 	);

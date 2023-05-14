@@ -7,13 +7,14 @@ import { IHeaderTextView } from "./types/HeaderText.component";
 
 const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 	const { 
-		titleText,
+		data,
+		countText, 
 		palette,
 		isMediumScreen, 
 		openDialogDeleteAllTexts,
 		board_id,
 		toogleTemplates,
-		isOpenTemplates
+		isOpenTemplates,
 	} = props;
 
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
@@ -23,7 +24,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
 			<Grid item xl={6} md={6} sm={8} xs={8}>
 				<Typography variant={variantMediumScreen} fontWeight={800}>
-					{titleText}
+					{data?.title}
 				</Typography>
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
@@ -36,7 +37,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 							<FiUsers size={18} />
 						</IconButton>
 					</Tooltip>
-					<IconButton onClick={() => openDialogDeleteAllTexts(board_id!)}>
+					<IconButton onClick={() => openDialogDeleteAllTexts(board_id!)} disabled={countText === 0}>
 						<FiTrash size={18} />
 					</IconButton>
 				</Nav>

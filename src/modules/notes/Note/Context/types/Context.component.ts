@@ -13,8 +13,8 @@ export interface IContextNote {
     setIsOpenDialogDeleteSingleNote: React.Dispatch<React.SetStateAction<boolean>>;
     isOpenDialogDeleteAllNotes: boolean;
     setIsOpenDialogDeleteAllNotes: React.Dispatch<React.SetStateAction<boolean>>;
-    totalOfNotes: number;
-    setTotalOfNotes: React.Dispatch<React.SetStateAction<number>>;
+    countNotes: number;
+    setCountNotes: React.Dispatch<React.SetStateAction<number>>;
     noteID: string;
     setNoteID: React.Dispatch<React.SetStateAction<string>>;
 }

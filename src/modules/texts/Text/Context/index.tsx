@@ -9,7 +9,7 @@ const INITIAL_STATE_DIALOG_DELETE_ALL_TEXT = { open: false, boardID: "" };
 export const ContextProviderText: React.FC<IContextProviderText> = ({ children }) => {
 	const [ dialogDeleteSingleText, setDialogDeleteSingleText ] = useState<IDialogDeleteSingleText>(INITIAL_STATE_DIALOG_DELETE_SINGLE_TEXT);
 	const [ dialogDeleteAllText, setDialogDeleteAllText ] = useState<IDialogDeleteAllText>(INITIAL_STATE_DIALOG_DELETE_ALL_TEXT);
-	const [ titleText, seTitleText ] = useState("");
+	const [ countText, setCountText ] = useState(0);
 	const [ isOpenTemplates, setIsOpenTemplates ] = useState(false);
 
 	const value = {
@@ -17,8 +17,8 @@ export const ContextProviderText: React.FC<IContextProviderText> = ({ children }
 		setDialogDeleteSingleText,
 		dialogDeleteAllText, 
 		setDialogDeleteAllText,
-		titleText, 
-		seTitleText,
+		countText, 
+		setCountText,
 		isOpenTemplates, 
 		setIsOpenTemplates
 	};

@@ -8,18 +8,18 @@ export interface INote {
 	created_at: string;
 }
 
-export type TListNotes = { list_notes: INote[] } | any;
+export type TCount = {count: number} | any;
 
 export interface IListNotes<T = undefined> {
-	notes: {
-		list_notes: INote[] | T;
-	}
+	count: number;
+	list_notes: INote[] | T;
 }
 
 export interface ICardNotesView {
 	palette: Palette;	
     isFetching: boolean;
 	data: {
+		count: number;
 		list_notes: INote[] | undefined;
 	};
 	openDialogEditNote: (noteID: string) => void;
