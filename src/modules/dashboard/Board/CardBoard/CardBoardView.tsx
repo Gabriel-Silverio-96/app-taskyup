@@ -5,10 +5,10 @@ import { BsThreeDots } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Loading from "shared/components/Loading";
-import CardBoardEmpty from "./CardBoardEmpty";
 import { linkPathBoard } from "./constant";
 import { CardBoardContainer, CardContent, CardHeader, CardIcon, Menu } from "./style";
 import { ICardBoardView, ITypeBoard } from "./types/CardBoard.component";
+import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {
 	const { 
@@ -28,7 +28,12 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isFetching} backdrop />
-			<CardBoardEmpty board={board}/>
+			<EmptyBoard 
+				show={board?.length === 0} 
+				title="You have not created any board" 
+				message="Create a board 😊" 
+			/>
+
 			{board &&
 				board.map(({ title, type_board, board_id, background_image }) => {													
 					const icon = boardIcon[type_board as keyof ITypeBoard];					
