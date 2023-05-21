@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { INITAL_STATE_SEND_EMAIL } from "./constant";
 import ForgotPasswordView from "./ForgotPasswordView";
 import resolverSchema from "./schema";
-import fetchForgotPassword from "./service";
+import fetchPostForgotPassword from "./service";
 import { IForgotPasswordForm, ISendEmail } from "./types";
 
 const ForgotPassword: React.FC = () => {
@@ -19,7 +19,7 @@ const ForgotPassword: React.FC = () => {
 	const fetchForgotSubmit = async (form: IForgotPasswordForm) => {
 		try {
 			setIsLoading(true);
-			await fetchForgotPassword(form);
+			await fetchPostForgotPassword(form);
 			
 			setSendEmail({ email: form.email, isSending: true });
 		} catch (error) {
