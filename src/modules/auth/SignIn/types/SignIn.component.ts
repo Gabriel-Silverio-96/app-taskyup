@@ -14,7 +14,7 @@ export interface ISignInView {
     isLoading: boolean;
 }
 
-export interface IFetchSignInResponse extends IFetchResponseDefault {
+export interface IFetchPostSignInResponse extends IFetchResponseDefault {
     token: string;
     user_data: {
         full_name: string;
