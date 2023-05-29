@@ -10,7 +10,7 @@ export interface INote {
 
 export type TCount = {count: number} | any;
 
-export interface IListNotes<T = undefined> {
+export interface IFetchGetNotes<T = undefined> {
 	count: number;
 	list_notes: INote[] | T;
 }
