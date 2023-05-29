@@ -29,10 +29,10 @@ const ForgotPassword: React.FC = () => {
 			setIsLoading(false);
 		}		
 	};
-	const onSubmit = handleSubmit(fetchForgotSubmit);
+	const forgotPasswordSubmit = handleSubmit(fetchForgotSubmit);
 	
 	return (
-		<ForgotPasswordView {...{ register, errors, onSubmit, isLoading, sendEmail }} />
+		<ForgotPasswordView {...{ register, errors, forgotPasswordSubmit, isLoading, sendEmail }} />
 	);
 };
 

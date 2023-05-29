@@ -14,5 +14,5 @@ export interface IForgotPasswordView {
 	errors: FieldErrors<IForgotPasswordForm>;
 	isLoading: boolean;
 	sendEmail: ISendEmail;
-	onSubmit: () => void;
+	forgotPasswordSubmit: () => void;
 }
