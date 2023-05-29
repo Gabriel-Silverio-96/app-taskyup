@@ -6,7 +6,7 @@ import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
-import fetchBoard from "./service";
+import fetchGetBoard from "./service";
 import { ITypeBoard } from "./types/CardBoard.component";
 
 const CardBoard: React.FC = () => {
@@ -31,7 +31,7 @@ const CardBoard: React.FC = () => {
 	};
 
 	const queryKey = ["board"];
-	const { data: board, isFetching } = useQuery(queryKey, fetchBoard);
+	const { data: board, isFetching } = useQuery(queryKey, fetchGetBoard);
 
 	return (
 		<CardBoardView
