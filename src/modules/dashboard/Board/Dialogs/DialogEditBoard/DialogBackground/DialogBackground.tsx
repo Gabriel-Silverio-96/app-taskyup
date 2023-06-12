@@ -1,15 +1,15 @@
 import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
-import { IFetchSearchImages } from "shared/common/types/Fetch";
+import { IFetchGetSearchImages } from "shared/common/types/Fetch";
 import { useContextBoard } from "../../../Context";
 import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constant";
 import DialogBackgroundView from "./DialogBackgroundView";
-import fetchSearchImage from "./service";
+import fetchGetSearchImage from "./service";
 import { IImages } from "./types/DialogBackground.types";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
-	const [images, setImages] = useState<IImages | IFetchSearchImages>(INITIAL_STATE_IMAGES);
+	const [images, setImages] = useState<IImages | IFetchGetSearchImages>(INITIAL_STATE_IMAGES);
 	const [pagination, setPagination] = useState(1);
 	const [queryImage, setQueryImage] = useState("");
 	const [isLoadingImages, setIsLoadingImages] = useState(false);
@@ -31,7 +31,7 @@ const DialogBackground: React.FC = () => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
-			const { data } = await fetchSearchImage(queryImage, page);
+			const { data } = await fetchGetSearchImage(queryImage, page);
 
 			setImages(data);			
 			resetPagination && setPagination(1);

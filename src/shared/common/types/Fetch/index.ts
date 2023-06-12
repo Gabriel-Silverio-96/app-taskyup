@@ -46,7 +46,7 @@ export interface IPhotos {
     alt: string;
 }
 
-export interface IFetchSearchImages {
+export interface IFetchGetSearchImages {
     page: number;
     per_page: number;
     photos: IPhotos[];
