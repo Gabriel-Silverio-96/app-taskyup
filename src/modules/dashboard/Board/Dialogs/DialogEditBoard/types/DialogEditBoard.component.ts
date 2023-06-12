@@ -17,7 +17,7 @@ export interface IDialogEditBoardView {
     closeDialogEditBoard: () => void;
 }
 
-export interface IFetchEditBoard {
+export interface IFetchPatchBoard {
 	form: IDialogEditBoardForm;
 	boardID: string;
 	background_image: string;
