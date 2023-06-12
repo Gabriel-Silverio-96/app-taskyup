@@ -9,7 +9,7 @@ import { useContextBoard } from "../../Context";
 import useDialogBoard from "../../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./schema";
-import { fetchEditBoard, fetchSingleBoard } from "./service";
+import { fetchPatchBoard, fetchGetOneBoard } from "./service";
 import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
 
 const DialogEditBoard = () => {
@@ -41,7 +41,7 @@ const DialogEditBoard = () => {
 
 	const optionsQuery = { onSuccess: onSuccessQuery, retry: false,	enabled: false };
 	const queryKey = ["dialog_edit_board"];
-	const queryFn = () => fetchSingleBoard(boardID);
+	const queryFn = () => fetchGetOneBoard(boardID);
 
 	const { refetch, isFetching: isLoading } = useQuery(queryKey, queryFn, optionsQuery);
 
@@ -65,7 +65,7 @@ const DialogEditBoard = () => {
 	};
 
 	const mutationFn = (form: IDialogEditBoardForm) =>
-		fetchEditBoard({ form, background_image: dialogBackgroundImage, boardID });
+		fetchPatchBoard({ form, background_image: dialogBackgroundImage, boardID });
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
