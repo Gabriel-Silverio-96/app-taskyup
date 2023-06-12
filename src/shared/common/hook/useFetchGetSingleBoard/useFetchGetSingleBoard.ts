@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
+import { IFetchGetOneBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 
 const useFetchGetSingleBoard = (boardID: string | undefined) => {
 	const fetchGetSingleBoard = async () => {
-		const { data } = await api.get<IFetchGetSingleBoard>(`/board/board_id=${boardID}`);
+		const { data } = await api.get<IFetchGetOneBoard>(`/board/board_id=${boardID}`);
 		return data;
 	};
 

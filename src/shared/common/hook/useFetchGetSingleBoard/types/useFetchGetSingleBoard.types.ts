@@ -1,7 +1,7 @@
-import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
+import { IFetchGetOneBoard } from "shared/common/types/Fetch";
 
 export interface IUseFetchGetSingleBoard {
-    data: IFetchGetSingleBoard;
+    data: IFetchGetOneBoard;
     isError: boolean;
     isFetching: boolean;
 }

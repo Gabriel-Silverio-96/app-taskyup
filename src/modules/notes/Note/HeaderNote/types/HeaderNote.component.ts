@@ -1,7 +1,7 @@
-import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
+import { IFetchGetOneBoard } from "shared/common/types/Fetch";
 
 export interface IHeaderNoteView {
-    data: IFetchGetSingleBoard | undefined;
+    data: IFetchGetOneBoard | undefined;
     openDialogNewNote: () => void;
     openDialogDeleteAllNotes: () => void;
     isMediumScreen: boolean;
