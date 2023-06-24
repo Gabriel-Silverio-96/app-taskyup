@@ -16,6 +16,6 @@ export interface IProfileFormView {
     errors: FieldErrors<IFetchGetProfile>;
     data: IFetchGetProfile | undefined; 
     handleSubmit: UseFormHandleSubmit<IFetchGetProfile>;
-    fetchEditProfileForm: (form: IFetchGetProfile) => void;
+    mutate: (form: IFetchGetProfile) => void;
     isSaving: boolean;
 }

@@ -35,7 +35,7 @@ const ProfileForm: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
-	const { mutate: fetchEditProfileForm, isLoading: isSaving } = useMutation(fetchPutProfile, optionsMutation);
+	const { mutate, isLoading: isSaving } = useMutation(fetchPutProfile, optionsMutation);
 
 	return (
 		<ProfileFormView
@@ -45,7 +45,7 @@ const ProfileForm: React.FC = () => {
 				errors,
 				data,
 				handleSubmit,
-				fetchEditProfileForm,
+				mutate,
 				isSaving,
 			}}
 		/>

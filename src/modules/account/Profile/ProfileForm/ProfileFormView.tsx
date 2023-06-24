@@ -11,7 +11,7 @@ const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 		errors, 
 		data, 
 		handleSubmit, 
-		fetchEditProfileForm, 
+		mutate, 
 		isSaving 
 	} = props;	
 
@@ -20,7 +20,7 @@ const ProfileFormView: React.FC<IProfileFormView> = (props) => {
 		<>
 			<Loading backdrop isLoading={isLoading} />
 			<Typography variant="h5" sx={{ mb: 5 }}>Hi, {firstName}</Typography>
-			<form method="post" onSubmit={handleSubmit(fetchEditProfileForm)}>
+			<form method="post" onSubmit={handleSubmit(mutate)}>
 				<Grid container direction="column" spacing={5}>
 					<Grid item>
 						<TextField 
