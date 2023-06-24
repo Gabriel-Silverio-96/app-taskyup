@@ -7,10 +7,10 @@ const fetchGetProfileService = async () => {
 	return data;
 };
 
-const fetchPutProfile = async (payload: TFetchPutProfile) => {
+const fetchPutProfileService = async (payload: TFetchPutProfile) => {
 	const { full_name } = payload;
 	const response = await api.put<IFetchResponseDefault>("auth/account", { full_name });
 	return response;
 };
 
-export { fetchGetProfileService, fetchPutProfile };
+export { fetchGetProfileService, fetchPutProfileService };
