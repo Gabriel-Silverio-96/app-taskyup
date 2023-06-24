@@ -7,10 +7,10 @@ const fetchGetProfile = async () => {
 	return data;
 };
 
-const fetchEditProfile = async (form: IProfileForm) => {
+const fetchPutProfile = async (form: IProfileForm) => {
 	const { full_name } = form;		
 	const response = await api.put<IFetchResponseDefault>("auth/account", { full_name });    
 	return response;
 };
 
-export { fetchGetProfile, fetchEditProfile };
+export { fetchGetProfile, fetchPutProfile };

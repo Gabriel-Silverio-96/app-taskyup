@@ -4,7 +4,7 @@ import React, { memo } from "react";
 import { useForm } from "react-hook-form";
 import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
-import { fetchEditProfile, fetchGetProfile } from "./service";
+import { fetchPutProfile, fetchGetProfile } from "./service";
 import { IFetchGetProfile, IProfileForm } from "./types";
 
 const ProfileForm: React.FC = () => {
@@ -35,7 +35,7 @@ const ProfileForm: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
-	const { mutate: fetchEditProfileForm, isLoading: isSaving } = useMutation(fetchEditProfile, optionsMutation);
+	const { mutate: fetchEditProfileForm, isLoading: isSaving } = useMutation(fetchPutProfile, optionsMutation);
 
 	return (
 		<ProfileFormView
