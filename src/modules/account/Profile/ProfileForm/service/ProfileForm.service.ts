@@ -2,7 +2,7 @@ import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import { IFetchGetProfileResponse, TFetchPutProfile } from "../types";
 
-const fetchGetProfile = async () => {
+const fetchGetProfileService = async () => {
 	const { data } = await api.get<IFetchGetProfileResponse>("auth/account");
 	return data;
 };
@@ -13,4 +13,4 @@ const fetchPutProfile = async (payload: TFetchPutProfile) => {
 	return response;
 };
 
-export { fetchGetProfile, fetchPutProfile };
+export { fetchGetProfileService, fetchPutProfile };

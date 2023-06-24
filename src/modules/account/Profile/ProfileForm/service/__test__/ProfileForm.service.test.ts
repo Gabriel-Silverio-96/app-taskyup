@@ -1,5 +1,5 @@
 import MockAdapter from "axios-mock-adapter";
-import { fetchGetProfile } from "../ProfileForm.service";
+import { fetchGetProfileService } from "../ProfileForm.service";
 import api from "shared/services/api";
 import { FETCH_GET_PROFILE_RESPONSE_MOCK } from "./mock/ProfileForm.service.mock";
 import { cleanup } from "@testing-library/react";
@@ -11,10 +11,10 @@ beforeAll(() => mock.reset());
 afterEach(cleanup);
 afterAll(() => mock.restore());
 
-describe("fetchGetProfile", () => {
+describe("fetchGetProfileService", () => {
 	test("Should return method GET", async () => {		
 		mock.onGet(URL).reply(200, FETCH_GET_PROFILE_RESPONSE_MOCK);
-		await fetchGetProfile();       				
+		await fetchGetProfileService();       				
 		
 		const [ intercept ] = mock.history.get;
 		const { method } = intercept;
@@ -24,7 +24,7 @@ describe("fetchGetProfile", () => {
 
 	test("Should make request at correct URL", async () => {		
 		mock.onGet(URL).reply(200, FETCH_GET_PROFILE_RESPONSE_MOCK);
-		await fetchGetProfile();       				
+		await fetchGetProfileService();       				
 		
 		const [ intercept ] = mock.history.get;
 		const { url } = intercept;
@@ -34,7 +34,7 @@ describe("fetchGetProfile", () => {
 
 	test("Should return profile data", async () => {
 		mock.onGet(URL).reply(200, FETCH_GET_PROFILE_RESPONSE_MOCK);
-		const response = await fetchGetProfile();       		
+		const response = await fetchGetProfileService();       		
 
 		expect(response).toEqual(FETCH_GET_PROFILE_RESPONSE_MOCK);	
 	});
