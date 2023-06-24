@@ -1,9 +1,9 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchProfile, IProfileForm } from "../types";
+import { IFetchGetProfile, IProfileForm } from "../types";
 
 const fetchGetProfile = async () => {
-	const { data } = await api.get<IFetchProfile>("auth/account");
+	const { data } = await api.get<IFetchGetProfile>("auth/account");
 	return data;
 };
 

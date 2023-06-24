@@ -1,6 +1,6 @@
 import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
 
-export interface IFetchProfile {
+export interface IFetchGetProfile {
     full_name: string;
     email: string;
 }
@@ -11,11 +11,11 @@ export interface IProfileForm {
 }
 
 export interface IProfileFormView {
-    register: UseFormRegister<IFetchProfile>;
+    register: UseFormRegister<IFetchGetProfile>;
     isLoading: boolean;
-    errors: FieldErrors<IFetchProfile>;
-    data: IFetchProfile | undefined; 
-    handleSubmit: UseFormHandleSubmit<IFetchProfile>;
-    fetchEditProfileForm: (form: IFetchProfile) => void;
+    errors: FieldErrors<IFetchGetProfile>;
+    data: IFetchGetProfile | undefined; 
+    handleSubmit: UseFormHandleSubmit<IFetchGetProfile>;
+    fetchEditProfileForm: (form: IFetchGetProfile) => void;
     isSaving: boolean;
 }
