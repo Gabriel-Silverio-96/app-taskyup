@@ -2,7 +2,7 @@ import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import { IFetchProfile, IProfileForm } from "../types";
 
-const fetchProfile = async () => {
+const fetchGetProfile = async () => {
 	const { data } = await api.get<IFetchProfile>("auth/account");
 	return data;
 };
@@ -13,4 +13,4 @@ const fetchEditProfile = async (form: IProfileForm) => {
 	return response;
 };
 
-export { fetchProfile, fetchEditProfile };
+export { fetchGetProfile, fetchEditProfile };
