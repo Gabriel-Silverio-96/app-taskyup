@@ -4,8 +4,8 @@ import React, { memo } from "react";
 import { useForm } from "react-hook-form";
 import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
-import { fetchEditProfile, fetchProfile } from "./service";
-import { IFetchProfile, IProfileForm } from "./types";
+import { fetchPutProfileService, fetchGetProfileService } from "./service";
+import { IFetchGetProfileResponse, IProfileForm } from "./types";
 
 const ProfileForm: React.FC = () => {
 	const {
@@ -20,7 +20,7 @@ const ProfileForm: React.FC = () => {
 
 	const queryClient = useQueryClient();
 
-	const osSuccessQuery = (data: IFetchProfile) => {
+	const osSuccessQuery = (data: IFetchGetProfileResponse) => {
 		setValue("full_name", data.full_name);
 		setValue("email", data.email);
 	};
@@ -28,14 +28,12 @@ const ProfileForm: React.FC = () => {
 	const queryKey = ["profile_form"];
 	const optionsQuery = { onSuccess: osSuccessQuery };
 
-	const { data, isLoading } = useQuery<IFetchProfile>(queryKey, fetchProfile, optionsQuery);
+	const { data, isLoading } = useQuery<IFetchGetProfileResponse>(queryKey, fetchGetProfileService, optionsQuery);
 
-	const onSuccessMutation = () => {
-		queryClient.invalidateQueries(["profile_form"]);
-	};
-
+	const onSuccessMutation = () => queryClient.invalidateQueries(["profile_form"]);
 	const optionsMutation = { onSuccess: onSuccessMutation };
-	const { mutate: fetchEditProfileForm, isLoading: isSaving } = useMutation(fetchEditProfile, optionsMutation);
+
+	const { mutate, isLoading: isSaving } = useMutation(fetchPutProfileService, optionsMutation);
 
 	return (
 		<ProfileFormView
@@ -45,7 +43,7 @@ const ProfileForm: React.FC = () => {
 				errors,
 				data,
 				handleSubmit,
-				fetchEditProfileForm,
+				mutate,
 				isSaving,
 			}}
 		/>
