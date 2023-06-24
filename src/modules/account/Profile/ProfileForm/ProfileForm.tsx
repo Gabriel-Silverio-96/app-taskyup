@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
 import { fetchPutProfile, fetchGetProfile } from "./service";
-import { IFetchGetProfile, IProfileForm } from "./types";
+import { IFetchGetProfileResponse, IProfileForm } from "./types";
 
 const ProfileForm: React.FC = () => {
 	const {
@@ -20,14 +20,14 @@ const ProfileForm: React.FC = () => {
 
 	const queryClient = useQueryClient();
 
-	const osSuccessQuery = (data: IFetchGetProfile) => {
+	const osSuccessQuery = (data: IFetchGetProfileResponse) => {
 		setValue("full_name", data.full_name);
 		setValue("email", data.email);
 	};
 
 	const queryKey = ["profile_form"];
 	const optionsQuery = { onSuccess: osSuccessQuery };
-	const { data, isLoading } = useQuery<IFetchGetProfile>(queryKey, fetchGetProfile, optionsQuery);
+	const { data, isLoading } = useQuery<IFetchGetProfileResponse>(queryKey, fetchGetProfile, optionsQuery);
 
 	const onSuccessMutation = () => queryClient.invalidateQueries(["profile_form"]);
 	const optionsMutation = { onSuccess: onSuccessMutation };

@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchGetProfile, IProfileForm } from "../types";
+import { IFetchGetProfileResponse, IProfileForm } from "../types";
 
 const fetchGetProfile = async () => {
-	const { data } = await api.get<IFetchGetProfile>("auth/account");
+	const { data } = await api.get<IFetchGetProfileResponse>("auth/account");
 	return data;
 };
 
