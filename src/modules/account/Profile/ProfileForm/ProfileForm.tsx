@@ -27,12 +27,11 @@ const ProfileForm: React.FC = () => {
 
 	const queryKey = ["profile_form"];
 	const optionsQuery = { onSuccess: osSuccessQuery };
-
 	const { data, isLoading } = useQuery<IFetchGetProfile>(queryKey, fetchGetProfile, optionsQuery);
 
 	const onSuccessMutation = () => queryClient.invalidateQueries(["profile_form"]);
 	const optionsMutation = { onSuccess: onSuccessMutation };
-	
+
 	const { mutate, isLoading: isSaving } = useMutation(fetchPutProfile, optionsMutation);
 
 	return (
