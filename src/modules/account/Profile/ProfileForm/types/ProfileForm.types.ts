@@ -10,7 +10,7 @@ export interface IProfileForm {
     email: string;
 }
 
-export type TFetchPutProfile = IProfileForm;
+export type TFetchPutProfileService = IProfileForm;
 
 export interface IProfileFormView {
     register: UseFormRegister<IFetchGetProfileResponse>;
