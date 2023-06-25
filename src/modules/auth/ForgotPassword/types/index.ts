@@ -4,6 +4,8 @@ export interface IForgotPasswordForm {
 	email: string;
 }
 
+export type TFetchPostForgotPasswordService = IForgotPasswordForm;
+
 export interface ISendEmail {
 	email: string;
 	isSending: boolean;
