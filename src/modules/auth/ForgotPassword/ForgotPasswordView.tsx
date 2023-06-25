@@ -8,7 +8,7 @@ import { IForgotPasswordView } from "./types";
 const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 	const { register, errors, onSubmit, isLoading, sendEmail } = props;
 
-	const titleMessage = sendEmail.isSending ? "Check your email"	: "Forgot password";
+	const titleMessage = sendEmail.isSending ? "Check your email" : "Forgot password";
 	const subtitleMessage = sendEmail.isSending
 		? `An email is on its way to ${sendEmail.email}
 			with instructions for reset your password.`
@@ -33,9 +33,9 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 									label="Email" 
 									size="small" 
 									fullWidth 
-									{...register("email")}
 									error={errors.email && Boolean(errors.email)}								
 									helperText={errors.email ? errors.email?.message : ""}
+									{...register("email")}
 								/>
 							</Grid>
 							<Grid item>
@@ -45,7 +45,7 @@ const ForgotPasswordView: React.FC<IForgotPasswordView>= (props) => {
 									type="submit"
 									loading={isLoading}
 								>
-										Send
+									Send
 								</LoadingButton>
 							</Grid>
 						</Grid>
