@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { INITAL_STATE_SEND_EMAIL } from "./constant";
+import { INITAL_STATE_SEND_EMAIL } from "./constants";
 import ForgotPasswordView from "./ForgotPasswordView";
 import resolverSchema from "./schema";
 import { fetchPostForgotPasswordService } from "./service";
