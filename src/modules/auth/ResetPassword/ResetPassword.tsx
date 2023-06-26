@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import ResetPasswordView from "./ResetPasswordView";
 import schema from "./schema";
-import fetchPostResetPassword from "./service";
+import { fetchPostResetPassword } from "./service";
 import { IFormResetPassword } from "./types";
 
 const ResetPassword: React.FC = () => {
