@@ -8,16 +8,11 @@ import { fetchPostResetPassword } from "./service";
 import { IFormResetPassword } from "./types";
 
 const ResetPassword: React.FC = () => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<IFormResetPassword>({
+	const { token } = useParams();	
+	const { register, handleSubmit, formState: { errors } } = useForm<IFormResetPassword>({
 		resolver: yupResolver(schema),
 		mode: "all",
 	});
-	
-	const { token } = useParams();	
 
 	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);	
