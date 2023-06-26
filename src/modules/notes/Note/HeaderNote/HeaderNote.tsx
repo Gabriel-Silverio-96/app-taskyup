@@ -1,6 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import React, { memo } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import useFetchGetSingleBoard from "shared/common/hook/useFetchGetSingleBoard/useFetchGetSingleBoard";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";

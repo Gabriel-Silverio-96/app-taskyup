@@ -38,7 +38,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 				board.map(({ title, type_board, board_id, background_image }) => {													
 					const icon = boardIcon[type_board as keyof ITypeBoard];					
 					const pathBoard = linkPathBoard[type_board as keyof ITypeBoard<string>];
-					const linkBoard = `/${pathBoard}?board_id=${board_id}`;
+					const linkBoard = `/${pathBoard}?board_id=${board_id}&note_id=8addb14a-6b9b-4418-9d28-3e50ee2a403a&open_dialog=true`;
 
 					return (
 						<Grid item xl={2} md={3} xs={12} key={board_id}>

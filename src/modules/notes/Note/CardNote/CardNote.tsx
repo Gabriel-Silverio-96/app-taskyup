@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import {  useSearchParams } from "react-router-dom";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";

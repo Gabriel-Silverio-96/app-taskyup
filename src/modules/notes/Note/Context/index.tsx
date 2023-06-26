@@ -1,11 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { IContextNote, IContextProviderNote } from "./types/Context.component";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
+import { log } from "console";
 
 export const ContextNote = createContext<IContextNote | undefined>(undefined);
 
 export const ContextProviderNote:React.FC<IContextProviderNote> = ({ children }) => {
-	const params = useParams();	
+	const [searchParams] = useSearchParams();
+	const open_dialog = searchParams.get("open_dialog");
+	const note_id = searchParams.get("note_id");
 	
 	const [isOpenDialogNewNote, setIsOpenDialogNewNote] = useState(false);
 	const [isOpenDialogEditNote, setIsOpenDialogEditNote] = useState(false);
@@ -15,9 +18,9 @@ export const ContextProviderNote:React.FC<IContextProviderNote> = ({ children })
 	const [countNotes, setCountNotes] = useState(0);
 	
 	useEffect(() => {
-		if(params.open_dialog) setIsOpenDialogEditNote(true);	
-		if(params.note_id) setNoteID(params.note_id);			
-	}, [params]);
+		if(open_dialog) setIsOpenDialogEditNote(true);	
+		if(note_id) setNoteID(note_id);			
+	}, [searchParams]);
 
 	const value = {
 		isOpenDialogNewNote, 
