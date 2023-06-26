@@ -12,7 +12,7 @@ export interface IResetPasswordView {
     resetPasswordSuccess: boolean;
 }
 
-export interface IFetchResetPassword {
+export interface IFetchPostResetPassword {
     form: IFormResetPassword;
     token: string | undefined;
 }
