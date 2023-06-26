@@ -11,7 +11,7 @@ export interface IFetchSingleNote {
 export interface IEditNoteData {
     form: IDialogNoteForm;
     noteID: string;
-    boardID: string | undefined;
+    boardID: string | undefined | null;
 }
 
 export interface IDialogEditNoteView {

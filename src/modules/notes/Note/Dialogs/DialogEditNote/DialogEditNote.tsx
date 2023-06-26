@@ -3,7 +3,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import dateFormat from "shared/util/dateFormat";
 import { useContextNote } from "../../Context";
 import useDialogNote from "../../shared/hook/useDialogNote";
@@ -15,7 +15,9 @@ import { IFetchSingleNote } from "./types/DialogEditNote.component";
 
 const DialogEditNote: React.FC = () => {
 	const theme = useTheme();
-	const { board_id: boardID } = useParams();
+	const [searchParams] = useSearchParams();
+	const board_id = searchParams.get("board_id");
+	
 	
 	const queryClient = useQueryClient();
 	const { isOpenDialogEditNote, noteID } = useContextNote();
@@ -57,7 +59,7 @@ const DialogEditNote: React.FC = () => {
 		closeDialogEditNote();
 	};
 	
-	const mutationFn = (form: IDialogNoteForm) => fetchEditNote({ form, noteID, boardID });
+	const mutationFn = (form: IDialogNoteForm) => fetchEditNote({ form, noteID, boardID: board_id });
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const { mutate: fetchDialogEditNote, isLoading: isSaving } = useMutation(mutationFn, optionsMutation);
