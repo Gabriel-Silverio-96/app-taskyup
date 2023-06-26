@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
@@ -9,7 +9,9 @@ import fetchGetNotes from "./service";
 import { TCount } from "./types/CardNote.component";
 
 const CardNote: React.FC = () => {
-	const { board_id } = useParams();
+	const [searchParams] = useSearchParams();
+	const board_id = searchParams.get("board_id");
+	
 	const { setCountNotes } = useContextNote();
 	const { palette } = useTheme();	
 	const { openDialogEditNote, openDialogDeleteSingleNote } = useDialogNote();

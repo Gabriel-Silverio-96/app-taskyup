@@ -23,7 +23,7 @@ const MainRoutes:React.FC = () => {
 			<Route path="/profile" element={<RequiredAuth><Profile /></RequiredAuth>} />
 
 			<Route path="/dashboard" element={<RequiredAuth><Board /></RequiredAuth>} />
-			<Route path="/notes/:board_id" element={<RequiredAuth><Note /></RequiredAuth>} />				
+			<Route path="/notes" element={<RequiredAuth><Note /></RequiredAuth>} />				
 			<Route path="/texts/:board_id" element={<RequiredAuth><Text /></RequiredAuth>} />				
 			<Route path="/text/edit" element={<RequiredAuth drawer={false}><TextEdit /></RequiredAuth>} />				
 
