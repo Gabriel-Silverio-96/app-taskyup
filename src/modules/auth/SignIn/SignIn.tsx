@@ -9,7 +9,7 @@ import api from "shared/services/api";
 import schema from "./schema";
 import { fetchPostSignIn } from "./service";
 import SignInView from "./SignInView";
-import { ISignInForm } from "./types/SignIn.component";
+import { ISignInForm } from "./types/SignIn.types";
 
 const SignIn: React.FC = () => {
 	const {
