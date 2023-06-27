@@ -7,7 +7,7 @@ import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
 import schema from "./schema";
-import fetchPostSignIn from "./service";
+import { fetchPostSignIn } from "./service";
 import SignInView from "./SignInView";
 import { ISignInForm } from "./types/SignIn.component";
 

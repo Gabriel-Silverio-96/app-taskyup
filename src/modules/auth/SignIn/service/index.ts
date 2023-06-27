@@ -6,4 +6,4 @@ const fetchPostSignIn = async (payload: TypeFetchPostSignIn) => {
 	return response;
 };
 
-export default fetchPostSignIn;
+export { fetchPostSignIn };
