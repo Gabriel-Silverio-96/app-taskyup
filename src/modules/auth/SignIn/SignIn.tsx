@@ -7,9 +7,9 @@ import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
 import schema from "./schema";
-import fetchSignIn from "./service";
+import { fetchPostSignInService } from "./service";
 import SignInView from "./SignInView";
-import { ISignInForm } from "./types/SignIn.component";
+import { ISignInForm } from "./types";
 
 const SignIn: React.FC = () => {
 	const {
@@ -26,7 +26,7 @@ const SignIn: React.FC = () => {
 	const signInSubmit = useCallback(async (form: ISignInForm) => {
 		try {
 			setIsLoading(true);
-			const { data } = await fetchSignIn(form);
+			const { data } = await fetchPostSignInService(form);
 			const { token, user_data } = data;
 			
 			localStorage.setItem("@taskyup.token", token);
