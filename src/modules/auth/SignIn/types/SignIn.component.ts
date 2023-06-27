@@ -6,6 +6,8 @@ export interface ISignInForm {
     password: string;
 }
 
+export type TypeFetchPostSignIn = ISignInForm;
+
 export interface ISignInView {
     register: UseFormRegister<ISignInForm>;
     handleSubmit: UseFormHandleSubmit<ISignInForm>;

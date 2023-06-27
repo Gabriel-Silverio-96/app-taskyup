@@ -1,8 +1,8 @@
 import api from "shared/services/api";
-import { IFetchSignInResponse, ISignInForm } from "../types/SignIn.component";
+import { IFetchSignInResponse, TypeFetchPostSignIn } from "../types/SignIn.component";
 
-const fetchPostSignIn = async (form: ISignInForm) => {
-	const response = await api.post<IFetchSignInResponse>("auth/login", form);    
+const fetchPostSignIn = async (payload: TypeFetchPostSignIn) => {
+	const response = await api.post<IFetchSignInResponse>("auth/login", payload);    
 	return response;
 };
 
