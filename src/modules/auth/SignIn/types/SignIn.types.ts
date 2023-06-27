@@ -6,7 +6,7 @@ export interface ISignInForm {
     password: string;
 }
 
-export type TypeFetchPostSignIn = ISignInForm;
+export type TypeFetchPostSignInService = ISignInForm;
 
 export interface ISignInView {
     register: UseFormRegister<ISignInForm>;
@@ -16,7 +16,7 @@ export interface ISignInView {
     isLoading: boolean;
 }
 
-export interface IFetchSignInResponse extends IFetchResponseDefault {
+export interface IFetchPostSignInResponse extends IFetchResponseDefault {
     token: string;
     user_data: {
         full_name: string;
