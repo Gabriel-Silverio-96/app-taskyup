@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import schema from "./schema";
-import fetchPostSignUpService from "./service";
+import { fetchPostSignUpService } from "./service";
 import SignUpView from "./SignUpView";
 import { ISignUpForm } from "./types/SignUp.component";
 
