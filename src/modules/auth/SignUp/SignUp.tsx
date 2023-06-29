@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import schema from "./schema";
-import fetchPostSignUp from "./service";
+import fetchPostSignUpService from "./service";
 import SignUpView from "./SignUpView";
 import { ISignUpForm } from "./types/SignUp.component";
 
@@ -20,7 +20,7 @@ const SignUp: React.FC = () => {
 	const signUpSubmit = useCallback(async (form: ISignUpForm) => {
 		try {
 			setIsLoading(true);
-			await fetchPostSignUp(form);
+			await fetchPostSignUpService(form);
 			
 			return navigate("/auth/signin");
 		} catch (error) {
