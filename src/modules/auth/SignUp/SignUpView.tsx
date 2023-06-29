@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";
 import TextFieldPassword from "shared/components/TextFieldPassword";
 import { BackgroundSignUp, Footer, GridForm } from "./styles";
-import { ISignUpView } from "./types/SignUp.component";
+import { ISignUpView } from "./types/SignUp.types";
 
 const SignUpView: React.FC<ISignUpView> = (props) => {
 	const { register, errors, handleSubmit, signUpSubmit, isLoading } = props;

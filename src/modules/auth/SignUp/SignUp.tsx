@@ -3,9 +3,9 @@ import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import schema from "./schema";
-import fetchSignUp from "./service";
+import { fetchPostSignUpService } from "./service";
 import SignUpView from "./SignUpView";
-import { ISignUpForm } from "./types/SignUp.component";
+import { ISignUpForm } from "./types";
 
 const SignUp: React.FC = () => {
 	const { 
@@ -20,7 +20,7 @@ const SignUp: React.FC = () => {
 	const signUpSubmit = useCallback(async (form: ISignUpForm) => {
 		try {
 			setIsLoading(true);
-			await fetchSignUp(form);
+			await fetchPostSignUpService(form);
 			
 			return navigate("/auth/signin");
 		} catch (error) {

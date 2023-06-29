@@ -1,10 +1,2 @@
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
-import api from "shared/services/api";
-import { ISignUpForm } from "../types/SignUp.component";
-
-const fetchSignUp = async (form: ISignUpForm) => {
-	const response = await api.post<IFetchResponseDefault>("auth/create-account", form);
-	return response;
-};
-
-export default fetchSignUp;
+export * as default from "./SignUp.service";
+export * from "./SignUp.service";
