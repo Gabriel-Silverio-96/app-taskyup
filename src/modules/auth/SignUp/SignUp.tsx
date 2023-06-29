@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import schema from "./schema";
 import { fetchPostSignUpService } from "./service";
 import SignUpView from "./SignUpView";
-import { ISignUpForm } from "./types/SignUp.component";
+import { ISignUpForm } from "./types";
 
 const SignUp: React.FC = () => {
 	const { 
