@@ -2,16 +2,12 @@ import { Palette } from "@mui/material";
 import React from "react";
 import { FunctionNonValueReturning } from "shared/types";
 
-export interface ITypeBoard<T = JSX.Element> {
-    notes: T;
-    text: T;
-    kanban: T;    
-}
+export type TypeBoard = "notes" | "texts" | "kanban";
 
 export interface IFetchGetBoardResponse {
 	board_id: string;
 	title: string;
-	type_board: string;
+	type_board: TypeBoard;
 	created_at: string;
 	background_image: string;
 	members_board: string[];
@@ -19,7 +15,6 @@ export interface IFetchGetBoardResponse {
 
 export interface ICardBoardView {
 	board: IFetchGetBoardResponse[] | undefined;
-	boardIcon: ITypeBoard;
 	isFetching: boolean;
 	palette: Palette;
 	openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
