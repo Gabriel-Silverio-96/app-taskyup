@@ -5,7 +5,6 @@ import { BsThreeDots } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Loading from "shared/components/Loading";
-import { linkPathBoard } from "./constant";
 import { CardBoardContainer, CardContent, CardHeader, CardIcon, Menu } from "./style";
 import { ICardBoardView, ITypeBoard } from "./types/CardBoard.types";
 import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
@@ -37,8 +36,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 			{board &&
 				board.map(({ title, type_board, board_id, background_image }) => {													
 					const icon = boardIcon[type_board as keyof ITypeBoard];					
-					const pathBoard = linkPathBoard[type_board as keyof ITypeBoard<string>];
-					const linkBoard = `/${pathBoard}/${board_id}`;
+					const linkBoard = `/${type_board}/${board_id}`;
 
 					return (
 						<Grid item xl={2} md={3} xs={12} key={board_id}>
