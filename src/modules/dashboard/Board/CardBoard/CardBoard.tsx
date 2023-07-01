@@ -6,8 +6,8 @@ import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
-import fetchBoard from "./service";
-import { ITypeBoard } from "./types/CardBoard.component";
+import { fetchGetBoardService } from "./service";
+import { ITypeBoard } from "./types/CardBoard.types";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
@@ -17,9 +17,7 @@ const CardBoard: React.FC = () => {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
 
-	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
-		setAnchorEl(event.currentTarget);
-	};
+	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
 
 	const closeMenu = () => setAnchorEl(null);
 	const handleBoardID = (boardID: string) => setBoardID(boardID);
@@ -31,7 +29,7 @@ const CardBoard: React.FC = () => {
 	};
 
 	const queryKey = ["board"];
-	const { data: board, isFetching } = useQuery(queryKey, fetchBoard);
+	const { data: board, isFetching } = useQuery(queryKey, fetchGetBoardService);
 
 	return (
 		<CardBoardView

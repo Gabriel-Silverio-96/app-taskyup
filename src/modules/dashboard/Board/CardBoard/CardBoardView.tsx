@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Loading from "shared/components/Loading";
 import { linkPathBoard } from "./constant";
 import { CardBoardContainer, CardContent, CardHeader, CardIcon, Menu } from "./style";
-import { ICardBoardView, ITypeBoard } from "./types/CardBoard.component";
+import { ICardBoardView, ITypeBoard } from "./types/CardBoard.types";
 import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {

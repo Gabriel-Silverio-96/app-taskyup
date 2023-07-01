@@ -1,4 +1,4 @@
-import { ITypeBoard } from "../types/CardBoard.component";
+import { ITypeBoard } from "../types/CardBoard.types";
 
 const linkPathBoard: ITypeBoard<string> = {
 	notes: "notes",
