@@ -8,7 +8,7 @@ export interface ITypeBoard<T = JSX.Element> {
     kanban: T;    
 }
 
-export interface IFetchBoard {
+export interface IFetchGetBoardResponse {
 	board_id: string;
 	title: string;
 	type_board: string;
@@ -18,7 +18,7 @@ export interface IFetchBoard {
 }
 
 export interface ICardBoardView {
-	board: IFetchBoard[] | undefined;
+	board: IFetchGetBoardResponse[] | undefined;
 	boardIcon: ITypeBoard;
 	isFetching: boolean;
 	palette: Palette;
