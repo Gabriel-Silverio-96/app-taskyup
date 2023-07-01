@@ -9,8 +9,7 @@ describe("Function selectBoardIcon()", () => {
 		const typeBoard = "notes";
 		const expectedIcon = <GoNote size={15} color={iconColor} />;
   
-		const result = selectBoardIcon(typeBoard, iconColor);
-  
+		const result = selectBoardIcon(typeBoard, iconColor);  
 		expect(result).toEqual(expectedIcon);
 	});
   
