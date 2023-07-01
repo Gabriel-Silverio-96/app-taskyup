@@ -1,9 +1,2 @@
-import api from "shared/services/api";
-import { IFetchBoard } from "../types/CardBoard.component";
-
-const fetchGetBoardService = async () => {
-	const { data } = await api.get<IFetchBoard[]>("/board");
-	return data;
-};
-
-export default fetchGetBoardService;
+export * as default from "./CardBoard.service";
+export * from "./CardBoard.service";

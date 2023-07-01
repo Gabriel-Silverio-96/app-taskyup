@@ -6,7 +6,7 @@ import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
-import fetchGetBoardService from "./service";
+import { fetchGetBoardService } from "./service";
 import { ITypeBoard } from "./types/CardBoard.component";
 
 const CardBoard: React.FC = () => {
