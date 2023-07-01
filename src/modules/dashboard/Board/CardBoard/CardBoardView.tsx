@@ -35,7 +35,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 
 			{board &&
 				board.map(({ title, type_board, board_id, background_image }) => {													
-					const icon = selectBoardIcon(type_board, palette.secondary.main);					
+					const boardIcon = selectBoardIcon(type_board, palette.secondary.main);					
 					const linkBoard = `/${type_board}/${board_id}`;
 
 					return (
@@ -46,7 +46,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 										<CardHeader>
 											<Link to={linkBoard}>
 												<CardIcon>
-													{icon}
+													{boardIcon}
 													<Typography color="text.secondary" gutterBottom sx={{ fontSize: 12 }}>
 														{type_board}
 													</Typography>
