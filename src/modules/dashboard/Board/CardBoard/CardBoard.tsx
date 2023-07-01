@@ -7,7 +7,7 @@ import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
 import { fetchGetBoardService } from "./service";
-import { ITypeBoard } from "./types/CardBoard.component";
+import { ITypeBoard } from "./types/CardBoard.types";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
