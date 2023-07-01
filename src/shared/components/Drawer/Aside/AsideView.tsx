@@ -73,7 +73,7 @@ const AsideView: React.FC<IAsideView> = (props) => {
 							))
 						)}							
 					</TreeItem>
-					<TreeItem nodeId="2" label={<><MdOutlineNotes />Text</>}>
+					<TreeItem nodeId="2" label={<><MdOutlineNotes />Texts</>}>
 						{menu && (
 							menu.texts.map(({ board_id, title }) => (
 								<Link to={`/texts/${board_id}`} key={board_id}>
