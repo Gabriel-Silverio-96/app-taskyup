@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { IDialogDeleteSingleBoard } from "./types/DialogDeleteSingleBoard.types";
+import { IDialogDeleteSingleBoard } from "./types";
 
 const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoard> = (props) => {
 	const { 
