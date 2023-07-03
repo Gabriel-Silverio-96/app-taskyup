@@ -10,13 +10,13 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { IDialogDeleteSingleBoardView } from "./types";
+import { IDialogDeleteOneBoardView } from "./types";
 
-const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoardView> = (props) => {
+const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = (props) => {
 	const { 
 		isOpenDialogDeleteSingleBoard, 
 		closeDialogDeleteSingleBoard, 
-		dialogDeleteSingleBoardSubmit, 
+		dialogDeleteOneBoardSubmit, 
 		isLoading 
 	} = props;
 
@@ -56,7 +56,7 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoardView> = (pro
 							variant="contained"
 							type="submit"
 							loading={isLoading}
-							onClick={dialogDeleteSingleBoardSubmit}
+							onClick={dialogDeleteOneBoardSubmit}
 						>
                             Yes
 						</LoadingButton>				
@@ -67,4 +67,4 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoardView> = (pro
 	);
 };
 
-export default DialogDeleteSingleBoardView;
+export default DialogDeleteOneBoardView;

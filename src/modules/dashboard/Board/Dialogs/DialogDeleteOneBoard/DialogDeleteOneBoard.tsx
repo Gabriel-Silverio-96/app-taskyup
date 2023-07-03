@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
-import useDialogBoard from "../../shared/hook/useDialogBoard";
-import { useContextBoard } from "../../Context";
-import DialogDeleteSingleBoardView from "./DialogDeleteSingleBoardView";
+import useDialogBoard from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { useContextBoard } from "modules/dashboard/Board/Context";
+import DialogDeleteOneBoardView from "./DialogDeleteOneBoardView";
 import { fetchDeleteOneBoardService } from "./service";
 
-const DialogDeleteSingleBoard: React.FC = () => {
+const DialogDeleteOneBoard: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { isOpenDialogDeleteSingleBoard, boardID } = useContextBoard();
 	const { closeDialogDeleteSingleBoard } = useDialogBoard();
@@ -21,18 +21,18 @@ const DialogDeleteSingleBoard: React.FC = () => {
 	const optionsMutation = { onSuccess };
 	const mutationFn = () => fetchDeleteOneBoardService(boardID);
 
-	const { mutate: dialogDeleteSingleBoardSubmit, isLoading} = useMutation(mutationFn, optionsMutation);
+	const { mutate: dialogDeleteOneBoardSubmit, isLoading} = useMutation(mutationFn, optionsMutation);
 
 	return (
-		<DialogDeleteSingleBoardView
+		<DialogDeleteOneBoardView
 			{...{
 				isOpenDialogDeleteSingleBoard,
 				closeDialogDeleteSingleBoard,
-				dialogDeleteSingleBoardSubmit,
+				dialogDeleteOneBoardSubmit,
 				isLoading
 			}}
 		/>
 	);
 };
 
-export default memo(DialogDeleteSingleBoard);
+export default memo(DialogDeleteOneBoard);
