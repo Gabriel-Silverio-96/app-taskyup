@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import useDialogBoard from "../../shared/hook/useDialogBoard";
 import { useContextBoard } from "../../Context";
 import DialogDeleteSingleBoardView from "./DialogDeleteSingleBoardView";
-import fetchDeleteOneBoardService from "./service";
+import { fetchDeleteOneBoardService } from "./service";
 
 const DialogDeleteSingleBoard: React.FC = () => {
 	const queryClient = useQueryClient();
