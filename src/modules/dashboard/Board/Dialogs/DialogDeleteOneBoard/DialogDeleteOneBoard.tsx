@@ -5,7 +5,7 @@ import { useContextBoard } from "modules/dashboard/Board/Context";
 import DialogDeleteOneBoardView from "./DialogDeleteOneBoardView";
 import { fetchDeleteOneBoardService } from "./service";
 
-const DialogDeleteSingleBoard: React.FC = () => {
+const DialogDeleteOneBoard: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { isOpenDialogDeleteSingleBoard, boardID } = useContextBoard();
 	const { closeDialogDeleteSingleBoard } = useDialogBoard();
@@ -35,4 +35,4 @@ const DialogDeleteSingleBoard: React.FC = () => {
 	);
 };
 
-export default memo(DialogDeleteSingleBoard);
+export default memo(DialogDeleteOneBoard);
