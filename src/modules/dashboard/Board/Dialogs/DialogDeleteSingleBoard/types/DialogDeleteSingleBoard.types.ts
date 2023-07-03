@@ -1,4 +1,4 @@
-export interface IDialogDeleteSingleBoard {
+export interface IDialogDeleteSingleBoardView {
     isOpenDialogDeleteSingleBoard: boolean;
     closeDialogDeleteSingleBoard: () => void;
     fetchDialogDeleteSingleBoard: () => void;
