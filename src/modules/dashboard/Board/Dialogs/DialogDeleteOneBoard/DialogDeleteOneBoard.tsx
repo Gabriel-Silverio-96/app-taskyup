@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
-import useDialogBoard from "../../shared/hook/useDialogBoard";
-import { useContextBoard } from "../../Context";
+import useDialogBoard from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { useContextBoard } from "modules/dashboard/Board/Context";
 import DialogDeleteOneBoardView from "./DialogDeleteOneBoardView";
 import { fetchDeleteOneBoardService } from "./service";
 
