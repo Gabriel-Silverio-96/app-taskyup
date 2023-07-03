@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import useDialogBoard from "../../shared/hook/useDialogBoard";
 import { useContextBoard } from "../../Context";
-import DialogDeleteSingleBoardView from "./DialogDeleteSingleBoardView";
+import DialogDeleteOneBoardView from "./DialogDeleteOneBoardView";
 import { fetchDeleteOneBoardService } from "./service";
 
 const DialogDeleteSingleBoard: React.FC = () => {
@@ -24,7 +24,7 @@ const DialogDeleteSingleBoard: React.FC = () => {
 	const { mutate: dialogDeleteSingleBoardSubmit, isLoading} = useMutation(mutationFn, optionsMutation);
 
 	return (
-		<DialogDeleteSingleBoardView
+		<DialogDeleteOneBoardView
 			{...{
 				isOpenDialogDeleteSingleBoard,
 				closeDialogDeleteSingleBoard,

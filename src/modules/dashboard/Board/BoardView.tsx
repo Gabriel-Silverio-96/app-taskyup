@@ -1,6 +1,6 @@
 import React from "react";
 import CardBoard from "./CardBoard";
-import DialogDeleteSingleBoard from "./Dialogs/DialogDeleteSingleBoard";
+import DialogDeleteOneBoard from "./Dialogs/DialogDeleteOneBoard";
 import DialogEditBoard from "./Dialogs/DialogEditBoard";
 
 const BoardView: React.FC = () => {
@@ -8,7 +8,7 @@ const BoardView: React.FC = () => {
 		<>
 			<CardBoard />	
 			<DialogEditBoard />	
-			<DialogDeleteSingleBoard />	
+			<DialogDeleteOneBoard />	
 		</>		 
 	);
 };
