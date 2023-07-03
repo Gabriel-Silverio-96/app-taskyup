@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import useDialogBoard from "../../shared/hook/useDialogBoard";
 import { useContextBoard } from "../../Context";
 import DialogDeleteSingleBoardView from "./DialogDeleteSingleBoardView";
-import fetchDeleteSingleBoard from "./service";
+import fetchDeleteOneBoardService from "./service";
 
 const DialogDeleteSingleBoard: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -19,7 +19,7 @@ const DialogDeleteSingleBoard: React.FC = () => {
 	};
 	
 	const optionsMutation = { onSuccess };
-	const mutationFn = () => fetchDeleteSingleBoard(boardID);
+	const mutationFn = () => fetchDeleteOneBoardService(boardID);
 
 	const { mutate: fetchDialogDeleteSingleBoard, isLoading} = useMutation(mutationFn, optionsMutation);
 
