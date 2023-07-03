@@ -1,2 +1,2 @@
-export * as default from "./DialogDeleteSingleBoard.service";
-export * from "./DialogDeleteSingleBoard.service";
+export * as default from "./DialogDeleteOneBoard.service";
+export * from "./DialogDeleteOneBoard.service";
