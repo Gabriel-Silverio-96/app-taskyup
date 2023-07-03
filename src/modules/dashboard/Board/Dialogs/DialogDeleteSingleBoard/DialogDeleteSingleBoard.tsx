@@ -21,14 +21,14 @@ const DialogDeleteSingleBoard: React.FC = () => {
 	const optionsMutation = { onSuccess };
 	const mutationFn = () => fetchDeleteOneBoardService(boardID);
 
-	const { mutate: fetchDialogDeleteSingleBoard, isLoading} = useMutation(mutationFn, optionsMutation);
+	const { mutate: dialogDeleteSingleBoardSubmit, isLoading} = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogDeleteSingleBoardView
 			{...{
 				isOpenDialogDeleteSingleBoard,
 				closeDialogDeleteSingleBoard,
-				fetchDialogDeleteSingleBoard,
+				dialogDeleteSingleBoardSubmit,
 				isLoading
 			}}
 		/>
