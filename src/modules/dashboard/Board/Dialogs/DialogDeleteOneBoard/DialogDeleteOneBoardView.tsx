@@ -12,7 +12,7 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteSingleBoardView } from "./types";
 
-const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoardView> = (props) => {
+const DialogDeleteOneBoardView: React.FC<IDialogDeleteSingleBoardView> = (props) => {
 	const { 
 		isOpenDialogDeleteSingleBoard, 
 		closeDialogDeleteSingleBoard, 
@@ -67,4 +67,4 @@ const DialogDeleteSingleBoardView: React.FC<IDialogDeleteSingleBoardView> = (pro
 	);
 };
 
-export default DialogDeleteSingleBoardView;
+export default DialogDeleteOneBoardView;
