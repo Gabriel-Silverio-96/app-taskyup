@@ -11,16 +11,15 @@ import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./schema";
 import { fetchPatchBoardService, fetchGetOneBoardService } from "./service";
 import { IDialogEditBoardForm } from "./types";
+import useSnackBar from "shared/common/hook/useSnackBar";
+
+export const MESSAGE_ERROR_UPDATE_BOARD = "There was an error and it was not possible to update the board";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
-	const {
-		boardID,
-		isOpenDialogEditBoard,
-		dialogBackgroundImage,
-		setDialogBackgroundImage,
-	} = useContextBoard();
+	const { snackBarError } = useSnackBar();
+	const {	boardID, isOpenDialogEditBoard,	dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
 	const { closeDialogEditBoard } = useDialogBoard();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -55,13 +54,18 @@ const DialogEditBoard = () => {
 	}, [isOpenDialogEditBoard]);
 
 	const onSuccessMutation = async () => {
-		await Promise.all([
-			queryClient.invalidateQueries(["board"]),
-			queryClient.invalidateQueries(["menu"]),
-			queryClient.invalidateQueries(["get_single_board"]),
-			queryClient.invalidateQueries(["texts"]),
-		]);
-		closeDialogEditBoard();
+		try {
+			await Promise.all([
+				queryClient.invalidateQueries(["board"]),				
+				queryClient.invalidateQueries(["menu"]),
+				queryClient.invalidateQueries(["get_single_board"]),
+				queryClient.invalidateQueries(["texts"]),
+			]);
+		} catch (error) {
+			snackBarError({ message: MESSAGE_ERROR_UPDATE_BOARD });
+		} finally {
+			closeDialogEditBoard();
+		}		
 	};
 
 	const mutationFn = (form: IDialogEditBoardForm) =>
