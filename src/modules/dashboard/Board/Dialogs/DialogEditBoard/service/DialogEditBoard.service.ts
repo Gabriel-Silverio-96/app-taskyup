@@ -1,6 +1,6 @@
 import { IFetchResponseDefault, IFetchGetSingleBoard } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchPatchBoardService } from "../types/DialogEditBoard.component";
+import { IFetchPatchBoardService } from "../types";
 
 const fetchGetOneBoardService = async (boardID: string) => {
 	const { data } = await api.get<IFetchGetSingleBoard>(`/board/board_id=${boardID}`);

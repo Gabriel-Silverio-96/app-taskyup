@@ -14,7 +14,7 @@ import { MdOutlineClose } from "react-icons/md";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
 import DialogBackground	from "./DialogBackground";
-import { IDialogEditBoardView } from "./types/DialogEditBoard.component";
+import { IDialogEditBoardView } from "./types";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 	const {

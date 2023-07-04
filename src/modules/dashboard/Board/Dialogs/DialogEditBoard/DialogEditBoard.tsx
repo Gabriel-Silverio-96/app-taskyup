@@ -10,7 +10,7 @@ import useDialogBoard from "../../shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./schema";
 import { fetchPatchBoardService, fetchGetOneBoardService } from "./service";
-import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
+import { IDialogEditBoardForm } from "./types";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
