@@ -54,8 +54,8 @@ const DialogEditBoard = () => {
 		};
 	}, [isOpenDialogEditBoard]);
 
-	const onSuccessMutation = () => {
-		Promise.all([
+	const onSuccessMutation = async () => {
+		await Promise.all([
 			queryClient.invalidateQueries(["board"]),
 			queryClient.invalidateQueries(["menu"]),
 			queryClient.invalidateQueries(["get_single_board"]),
