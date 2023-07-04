@@ -21,7 +21,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		register,
 		fullScreen,
 		handleSubmit,
-		fetchDialogEditBoard,
+		dialogEditBoardSubmit,
 		errors,
 		isLoading,
 		isSaving,
@@ -57,7 +57,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 						<DialogBackground />
 						<form
 							id="form-new-board"
-							onSubmit={handleSubmit(fetchDialogEditBoard)}>
+							onSubmit={handleSubmit(dialogEditBoardSubmit)}>
 							<Grid container direction="column" spacing={5}>						
 								<Grid item>
 									<TextField 
