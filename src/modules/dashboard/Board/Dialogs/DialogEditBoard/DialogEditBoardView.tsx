@@ -14,14 +14,14 @@ import { MdOutlineClose } from "react-icons/md";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
 import DialogBackground	from "./DialogBackground";
-import { IDialogEditBoardView } from "./types/DialogEditBoard.component";
+import { IDialogEditBoardView } from "./types";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 	const {
 		register,
 		fullScreen,
 		handleSubmit,
-		fetchDialogEditBoard,
+		dialogEditBoardSubmit,
 		errors,
 		isLoading,
 		isSaving,
@@ -57,7 +57,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 						<DialogBackground />
 						<form
 							id="form-new-board"
-							onSubmit={handleSubmit(fetchDialogEditBoard)}>
+							onSubmit={handleSubmit(dialogEditBoardSubmit)}>
 							<Grid container direction="column" spacing={5}>						
 								<Grid item>
 									<TextField 

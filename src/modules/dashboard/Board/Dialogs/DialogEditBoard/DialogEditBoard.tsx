@@ -5,22 +5,21 @@ import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
 import dateFormat from "shared/util/dateFormat";
-import { useContextBoard } from "../../Context";
-import useDialogBoard from "../../shared/hook/useDialogBoard";
+import { useContextBoard } from "modules/dashboard/Board/Context";
+import useDialogBoard from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./schema";
-import { fetchEditBoard, fetchSingleBoard } from "./service";
-import { IDialogEditBoardForm } from "./types/DialogEditBoard.component";
+import { fetchPatchBoardService, fetchGetOneBoardService } from "./service";
+import { IDialogEditBoardForm } from "./types";
+import useSnackBar from "shared/common/hook/useSnackBar";
+
+export const MESSAGE_ERROR_UPDATE_BOARD = "There was an error and it was not possible to update the board";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
-	const {
-		boardID,
-		isOpenDialogEditBoard,
-		dialogBackgroundImage,
-		setDialogBackgroundImage,
-	} = useContextBoard();
+	const { snackBarError } = useSnackBar();
+	const {	boardID, isOpenDialogEditBoard,	dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
 	const { closeDialogEditBoard } = useDialogBoard();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -41,7 +40,7 @@ const DialogEditBoard = () => {
 
 	const optionsQuery = { onSuccess: onSuccessQuery, retry: false,	enabled: false };
 	const queryKey = ["dialog_edit_board"];
-	const queryFn = () => fetchSingleBoard(boardID);
+	const queryFn = () => fetchGetOneBoardService(boardID);
 
 	const { refetch, isFetching: isLoading } = useQuery(queryKey, queryFn, optionsQuery);
 
@@ -54,22 +53,27 @@ const DialogEditBoard = () => {
 		};
 	}, [isOpenDialogEditBoard]);
 
-	const onSuccessMutation = () => {
-		Promise.all([
-			queryClient.invalidateQueries(["board"]),
-			queryClient.invalidateQueries(["menu"]),
-			queryClient.invalidateQueries(["get_single_board"]),
-			queryClient.invalidateQueries(["texts"]),
-		]);
-		closeDialogEditBoard();
+	const onSuccessMutation = async () => {
+		try {
+			await Promise.all([
+				queryClient.invalidateQueries(["board"]),				
+				queryClient.invalidateQueries(["menu"]),
+				queryClient.invalidateQueries(["get_single_board"]),
+				queryClient.invalidateQueries(["texts"]),
+			]);
+		} catch (error) {
+			snackBarError({ message: MESSAGE_ERROR_UPDATE_BOARD });
+		} finally {
+			closeDialogEditBoard();
+		}		
 	};
 
 	const mutationFn = (form: IDialogEditBoardForm) =>
-		fetchEditBoard({ form, background_image: dialogBackgroundImage, boardID });
+		fetchPatchBoardService({ form, background_image: dialogBackgroundImage, boardID });
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: fetchDialogEditBoard, isLoading: isSaving } = useMutation(
+	const { mutate: dialogEditBoardSubmit, isLoading: isSaving } = useMutation(
 		mutationFn,
 		optionsMutation
 	);
@@ -80,7 +84,7 @@ const DialogEditBoard = () => {
 				register,
 				fullScreen,
 				handleSubmit,
-				fetchDialogEditBoard,
+				dialogEditBoardSubmit,
 				errors,
 				isLoading,
 				isSaving,

@@ -9,7 +9,7 @@ export interface IDialogEditBoardView {
     register: UseFormRegister<IDialogEditBoardForm>;
     fullScreen: boolean;
     handleSubmit: UseFormHandleSubmit<IDialogEditBoardForm>;
-    fetchDialogEditBoard: (form: IDialogEditBoardForm) => void;
+    dialogEditBoardSubmit: (form: IDialogEditBoardForm) => void;
     errors: FieldErrors<IDialogEditBoardForm>;
     isLoading: boolean;
     isSaving: boolean;
@@ -17,7 +17,7 @@ export interface IDialogEditBoardView {
     closeDialogEditBoard: () => void;
 }
 
-export interface IFetchEditBoard {
+export interface IFetchPatchBoardService {
 	form: IDialogEditBoardForm;
 	boardID: string;
 	background_image: string;
