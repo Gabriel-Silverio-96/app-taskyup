@@ -55,6 +55,7 @@ const DialogEditBoard = () => {
 
 	const onSuccessMutation = async () => {
 		try {
+			closeDialogEditBoard();
 			await Promise.all([
 				queryClient.invalidateQueries(["board"]),				
 				queryClient.invalidateQueries(["menu"]),
@@ -63,9 +64,7 @@ const DialogEditBoard = () => {
 			]);
 		} catch (error) {
 			snackBarError({ message: MESSAGE_ERROR_UPDATE_BOARD });
-		} finally {
-			closeDialogEditBoard();
-		}		
+		} 
 	};
 
 	const mutationFn = (form: IDialogEditBoardForm) =>
