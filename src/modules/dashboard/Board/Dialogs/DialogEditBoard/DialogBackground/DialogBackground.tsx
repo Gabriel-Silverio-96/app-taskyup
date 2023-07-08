@@ -1,15 +1,14 @@
-import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
-import { IFetchSearchImages } from "shared/common/types/Fetch";
 import { useContextBoard } from "modules/dashboard/Board/Context";
-import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
+import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
 import DialogBackgroundView from "./DialogBackgroundView";
+import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
 import { fetchGetSearchImageService } from "./service";
-import { IImages, IImagesErrorResponse } from "./types";
+import { TypeImages } from "./types";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
-	const [images, setImages] = useState<IImagesErrorResponse | IImages | IFetchSearchImages>(INITIAL_STATE_IMAGES);
+	const [images, setImages] = useState<TypeImages>(INITIAL_STATE_IMAGES);
 	const [pagination, setPagination] = useState(1);
 	const [queryImage, setQueryImage] = useState("");
 	const [isLoadingImages, setIsLoadingImages] = useState(false);

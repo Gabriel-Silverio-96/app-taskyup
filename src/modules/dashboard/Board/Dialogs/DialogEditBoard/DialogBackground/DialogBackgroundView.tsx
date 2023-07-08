@@ -7,7 +7,7 @@ import { BiSearch } from "react-icons/bi";
 import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from "./style";
-import { IDialogBackgroundView, TImage } from "./types/DialogBackground.types";
+import { IDialogBackgroundView, TypeImage } from "./types";
 
 const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 	const {
@@ -64,7 +64,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 				{noResults}
 
 				<MenuImages>					
-					{images.photos.map((image: TImage) => (
+					{images.photos.map((image: TypeImage) => (
 						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
 							<img src={image.src.tiny} alt={image.alt} />							
 							<a href={image.photographer_url} target="blank" rel="noopener noreferrer">

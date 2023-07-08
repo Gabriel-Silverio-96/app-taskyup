@@ -18,16 +18,16 @@ export interface IImages {
     total_results?: number;
 }
 
-export type IImagesErrorResponse = IImages;
+export type TypeImages = IImages | IFetchSearchImages
 
-export type TImage = IPhotos | IPhotosFetch;
+export type TypeImage = IPhotos | IPhotosFetch;
 
 export interface IDialogBackgroundView {
     queryImage: string;
     openMenu: (event: MouseEvent<HTMLButtonElement>) => void;		
     closeMenu: () => void;
     anchorEl: null | HTMLElement;
-    images: IImagesErrorResponse | IImages | IFetchSearchImages;
+    images: TypeImages;
     dialogBackgroundImage: string;
     onChooseBackground: (background_image: string) => void;
     onRemoveBackground: () => void;
