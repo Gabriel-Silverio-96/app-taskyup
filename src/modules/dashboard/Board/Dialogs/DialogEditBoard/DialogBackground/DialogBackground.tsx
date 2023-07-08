@@ -4,12 +4,12 @@ import { useContextBoard } from "modules/dashboard/Board/Context";
 import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
 import DialogBackgroundView from "./DialogBackgroundView";
 import { fetchGetSearchImageService } from "./service";
-import { IImages } from "./types/DialogBackground.types";
+import { IImages, IImagesErrorResponse } from "./types";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
-	const [images, setImages] = useState<IImages | IFetchSearchImages>(INITIAL_STATE_IMAGES);
+	const [images, setImages] = useState<IImagesErrorResponse | IImages | IFetchSearchImages>(INITIAL_STATE_IMAGES);
 	const [pagination, setPagination] = useState(1);
 	const [queryImage, setQueryImage] = useState("");
 	const [isLoadingImages, setIsLoadingImages] = useState(false);

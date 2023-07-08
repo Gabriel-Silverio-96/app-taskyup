@@ -7,9 +7,9 @@ import { BiSearch } from "react-icons/bi";
 import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from "./style";
-import { TImage } from "./types/DialogBackground.types";
+import { IDialogBackgroundView, TImage } from "./types/DialogBackground.types";
 
-const DialogBackgroundView: React.FC<any> = (props) => {
+const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 	const {
 		queryImage,
 		openMenu,		
