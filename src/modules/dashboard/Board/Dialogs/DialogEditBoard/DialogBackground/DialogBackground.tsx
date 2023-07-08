@@ -1,5 +1,5 @@
 import { useContextBoard } from "modules/dashboard/Board/Context";
-import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, MouseEvent, memo, useEffect, useRef, useState } from "react";
 import DialogBackgroundView from "./DialogBackgroundView";
 import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
 import { fetchGetSearchImageService } from "./service";
@@ -13,10 +13,10 @@ const DialogBackground: React.FC = () => {
 	const [queryImage, setQueryImage] = useState("");
 	const [isLoadingImages, setIsLoadingImages] = useState(false);
 
-	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 	const menuRef = useRef<HTMLDivElement | null>(null);
 	
-	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+	const openMenu = (event: MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
 	const closeMenu = () => {

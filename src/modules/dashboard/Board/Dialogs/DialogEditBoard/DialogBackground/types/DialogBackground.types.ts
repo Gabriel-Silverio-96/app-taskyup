@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEvent, MouseEvent, Ref } from "react";
 import {  IFetchSearchImages, IPhotos as IPhotosFetch } from "shared/common/types/Fetch";
 
 interface IPhotos {
@@ -26,7 +26,7 @@ export interface IDialogBackgroundView {
     queryImage: string;
     openMenu: (event: MouseEvent<HTMLButtonElement>) => void;		
     closeMenu: () => void;
-    anchorEl: null | HTMLElement;
+    anchorEl: HTMLElement | null;
     images: TypeImages;
     dialogBackgroundImage: string;
     onChooseBackground: (background_image: string) => void;
@@ -36,6 +36,6 @@ export interface IDialogBackgroundView {
     pagination: number;
     nextPage: () => void;
     prevPage: () => void;
-    menuRef: React.Ref<HTMLDivElement> | null;
+    menuRef: Ref<HTMLDivElement> | null;
     isLoadingImages: boolean;
 }
