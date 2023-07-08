@@ -18,7 +18,7 @@ export interface IImages {
     total_results?: number;
 }
 
-export type TypeImages = IImages | IFetchSearchImages
+export type TypeImages = IImages | IFetchSearchImages;
 
 export type TypeImage = IPhotos | IPhotosFetch;
 
