@@ -1,23 +1,22 @@
-import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
-import { IFetchSearchImages } from "shared/common/types/Fetch";
-import { useContextBoard } from "../../../Context";
-import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constant";
+import { useContextBoard } from "modules/dashboard/Board/Context";
+import React, { ChangeEvent, MouseEvent, memo, useEffect, useRef, useState } from "react";
 import DialogBackgroundView from "./DialogBackgroundView";
-import fetchSearchImage from "./service";
-import { IImages } from "./types/DialogBackground.types";
+import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
+import { fetchGetSearchImageService } from "./service";
+import { TypeImages } from "./types";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
 
-	const [images, setImages] = useState<IImages | IFetchSearchImages>(INITIAL_STATE_IMAGES);
+	const [images, setImages] = useState<TypeImages>(INITIAL_STATE_IMAGES);
 	const [pagination, setPagination] = useState(1);
 	const [queryImage, setQueryImage] = useState("");
 	const [isLoadingImages, setIsLoadingImages] = useState(false);
 
-	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 	const menuRef = useRef<HTMLDivElement | null>(null);
 	
-	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+	const openMenu = (event: MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
 	const closeMenu = () => {
@@ -27,11 +26,11 @@ const DialogBackground: React.FC = () => {
 	
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => setQueryImage(event.target.value);
 		
-	const searchImage = async (resetPagination?: boolean) => {
+	const dialogBackgroundSubmit = async (resetPagination?: boolean) => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
-			const { data } = await fetchSearchImage(queryImage, page);
+			const { data } = await fetchGetSearchImageService(queryImage, page);
 
 			setImages(data);			
 			resetPagination && setPagination(1);
@@ -44,8 +43,8 @@ const DialogBackground: React.FC = () => {
 	};
 
 	useEffect(() => {
-		const alreadyRequest = queryImage && pagination !== 1;
-		if(alreadyRequest) searchImage();
+		const shouldFetchImages = queryImage && pagination !== 1;
+		if(shouldFetchImages) dialogBackgroundSubmit();
 	}, [pagination]);
 	
 	const menuScrollTop = () => {
@@ -62,8 +61,8 @@ const DialogBackground: React.FC = () => {
 		menuScrollTop();
 	};
 	
-	const onChooseBackground = (background_image: string) => setDialogBackgroundImage(background_image);		
-	const onRemoveBackground = () => setDialogBackgroundImage("");
+	const handleBackgroundImageSelection = (background_image: string) => setDialogBackgroundImage(background_image);		
+	const handleBackgroundRemoval = () => setDialogBackgroundImage("");
 		
 	return (
 		<DialogBackgroundView
@@ -74,9 +73,9 @@ const DialogBackground: React.FC = () => {
 				anchorEl,
 				images,
 				dialogBackgroundImage,
-				onChooseBackground,
-				onRemoveBackground,
-				searchImage,
+				handleBackgroundImageSelection,
+				handleBackgroundRemoval,
+				dialogBackgroundSubmit,
 				onChange,
 				pagination,
 				nextPage,

@@ -7,9 +7,9 @@ import { BiSearch } from "react-icons/bi";
 import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { DialogBackground, Menu, MenuImages, MenuImagesFooter, MenuSearch } from "./style";
-import { TImage } from "./types/DialogBackground.types";
+import { IDialogBackgroundView, TypeImage } from "./types";
 
-const DialogBackgroundView: React.FC<any> = (props) => {
+const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 	const {
 		queryImage,
 		openMenu,		
@@ -17,9 +17,9 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		anchorEl,
 		images,
 		dialogBackgroundImage,
-		onChooseBackground,
-		onRemoveBackground,
-		searchImage,
+		handleBackgroundImageSelection,
+		handleBackgroundRemoval,
+		dialogBackgroundSubmit,
 		onChange,
 		pagination,
 		nextPage,
@@ -29,11 +29,11 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 	} = props;
 
 	const isOpenMenu = Boolean(anchorEl);
-	const thereBackgroundImage = Boolean(dialogBackgroundImage);
+	const disabledButtonDelete = Boolean(dialogBackgroundImage);
 	const disabledButtonSearch = Boolean(!queryImage);
 
-	const handleErrorRequest = images.error && <Typography variant="caption">{images.error}</Typography>;
-	const noResults = images.total_results === 0 && <Typography variant="caption" display="block" textAlign="center">No results found</Typography>;
+	const messageError = images.error && <Typography variant="caption">{images.error}</Typography>;
+	const messageNoResultsFound = images.total_results === 0 && <Typography variant="caption" display="block" textAlign="center">No results found</Typography>;
 
 	return (
 		<DialogBackground backgroundimage={dialogBackgroundImage}>
@@ -54,18 +54,18 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 			>				
 				<MenuSearch>
 					<TextField placeholder="Search" onChange={onChange} />	
-					<Button onClick={() => searchImage(true)} disabled={disabledButtonSearch}>
+					<Button onClick={() => dialogBackgroundSubmit(true)} disabled={disabledButtonSearch}>
 						<BiSearch size={25} />
 					</Button>							
 				</MenuSearch>
 				<Loading isLoading={isLoadingImages} message="Loading images" />
 
-				{handleErrorRequest}
-				{noResults}
+				{messageError}
+				{messageNoResultsFound}
 
 				<MenuImages>					
-					{images.photos.map((image: TImage) => (
-						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
+					{images.photos.map((image: TypeImage) => (
+						<figure key={image.id} onClick={() => handleBackgroundImageSelection(image.src.tiny)}>
 							<img src={image.src.tiny} alt={image.alt} />							
 							<a href={image.photographer_url} target="blank" rel="noopener noreferrer">
 								<figcaption>
@@ -95,8 +95,8 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 				variant="contained"
 				color="error"
 				size="small"
-				disabled={!thereBackgroundImage}
-				onClick={onRemoveBackground}
+				disabled={!disabledButtonDelete}
+				onClick={handleBackgroundRemoval}
 			>
 				<AiOutlineDelete size={15} />
 			</Button>
