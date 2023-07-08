@@ -19,7 +19,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 		dialogBackgroundImage,
 		onChooseBackground,
 		onRemoveBackground,
-		searchImage,
+		handleGetSearchImage,
 		onChange,
 		pagination,
 		nextPage,
@@ -54,7 +54,7 @@ const DialogBackgroundView: React.FC<any> = (props) => {
 			>				
 				<MenuSearch>
 					<TextField placeholder="Search" onChange={onChange} />	
-					<Button onClick={() => searchImage(true)} disabled={disabledButtonSearch}>
+					<Button onClick={() => handleGetSearchImage(true)} disabled={disabledButtonSearch}>
 						<BiSearch size={25} />
 					</Button>							
 				</MenuSearch>
