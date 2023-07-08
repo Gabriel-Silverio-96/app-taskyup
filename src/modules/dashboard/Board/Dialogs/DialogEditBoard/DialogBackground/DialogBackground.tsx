@@ -26,7 +26,7 @@ const DialogBackground: React.FC = () => {
 	
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => setQueryImage(event.target.value);
 		
-	const handleGetSearchImage = async (resetPagination?: boolean) => {
+	const dialogBackgroundSubmit = async (resetPagination?: boolean) => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
@@ -44,7 +44,7 @@ const DialogBackground: React.FC = () => {
 
 	useEffect(() => {
 		const shouldFetchImages = queryImage && pagination !== 1;
-		if(shouldFetchImages) handleGetSearchImage();
+		if(shouldFetchImages) dialogBackgroundSubmit();
 	}, [pagination]);
 	
 	const menuScrollTop = () => {
@@ -75,7 +75,7 @@ const DialogBackground: React.FC = () => {
 				dialogBackgroundImage,
 				handleBackgroundImageSelection,
 				handleBackgroundRemoval,
-				handleGetSearchImage,
+				dialogBackgroundSubmit,
 				onChange,
 				pagination,
 				nextPage,

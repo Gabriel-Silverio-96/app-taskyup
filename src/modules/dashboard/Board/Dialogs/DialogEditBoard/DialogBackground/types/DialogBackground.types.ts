@@ -31,7 +31,7 @@ export interface IDialogBackgroundView {
     dialogBackgroundImage: string;
     handleBackgroundImageSelection: (background_image: string) => void;
     handleBackgroundRemoval: () => void;
-    handleGetSearchImage: (resetPagination?: boolean) => void;
+    dialogBackgroundSubmit: (resetPagination?: boolean) => void;
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     pagination: number;
     nextPage: () => void;
