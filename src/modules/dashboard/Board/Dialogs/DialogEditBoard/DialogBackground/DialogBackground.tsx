@@ -1,7 +1,7 @@
 import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
 import { IFetchSearchImages } from "shared/common/types/Fetch";
 import { useContextBoard } from "../../../Context";
-import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constant";
+import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
 import DialogBackgroundView from "./DialogBackgroundView";
 import { fetchGetSearchImageService } from "./service";
 import { IImages } from "./types/DialogBackground.types";
