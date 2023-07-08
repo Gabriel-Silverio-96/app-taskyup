@@ -3,7 +3,7 @@ import { IFetchSearchImages } from "shared/common/types/Fetch";
 import { useContextBoard } from "../../../Context";
 import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constant";
 import DialogBackgroundView from "./DialogBackgroundView";
-import fetchSearchImage from "./service";
+import fetchGetSearchImageService from "./service";
 import { IImages } from "./types/DialogBackground.types";
 
 const DialogBackground: React.FC = () => {
@@ -31,7 +31,7 @@ const DialogBackground: React.FC = () => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
-			const { data } = await fetchSearchImage(queryImage, page);
+			const { data } = await fetchGetSearchImageService(queryImage, page);
 
 			setImages(data);			
 			resetPagination && setPagination(1);
