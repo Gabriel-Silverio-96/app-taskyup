@@ -17,8 +17,8 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 		anchorEl,
 		images,
 		dialogBackgroundImage,
-		onChooseBackground,
-		onRemoveBackground,
+		handleBackgroundImageSelection,
+		handleBackgroundRemoval,
 		handleGetSearchImage,
 		onChange,
 		pagination,
@@ -65,7 +65,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 
 				<MenuImages>					
 					{images.photos.map((image: TypeImage) => (
-						<figure key={image.id} onClick={() => onChooseBackground(image.src.tiny)}>
+						<figure key={image.id} onClick={() => handleBackgroundImageSelection(image.src.tiny)}>
 							<img src={image.src.tiny} alt={image.alt} />							
 							<a href={image.photographer_url} target="blank" rel="noopener noreferrer">
 								<figcaption>
@@ -96,7 +96,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 				color="error"
 				size="small"
 				disabled={!thereBackgroundImage}
-				onClick={onRemoveBackground}
+				onClick={handleBackgroundRemoval}
 			>
 				<AiOutlineDelete size={15} />
 			</Button>

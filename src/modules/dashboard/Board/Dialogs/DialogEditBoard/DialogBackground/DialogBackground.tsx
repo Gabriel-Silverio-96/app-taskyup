@@ -61,8 +61,8 @@ const DialogBackground: React.FC = () => {
 		menuScrollTop();
 	};
 	
-	const onChooseBackground = (background_image: string) => setDialogBackgroundImage(background_image);		
-	const onRemoveBackground = () => setDialogBackgroundImage("");
+	const handleBackgroundImageSelection = (background_image: string) => setDialogBackgroundImage(background_image);		
+	const handleBackgroundRemoval = () => setDialogBackgroundImage("");
 		
 	return (
 		<DialogBackgroundView
@@ -73,8 +73,8 @@ const DialogBackground: React.FC = () => {
 				anchorEl,
 				images,
 				dialogBackgroundImage,
-				onChooseBackground,
-				onRemoveBackground,
+				handleBackgroundImageSelection,
+				handleBackgroundRemoval,
 				handleGetSearchImage,
 				onChange,
 				pagination,

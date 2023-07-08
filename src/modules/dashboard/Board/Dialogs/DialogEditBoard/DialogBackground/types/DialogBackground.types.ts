@@ -29,8 +29,8 @@ export interface IDialogBackgroundView {
     anchorEl: HTMLElement | null;
     images: TypeImages;
     dialogBackgroundImage: string;
-    onChooseBackground: (background_image: string) => void;
-    onRemoveBackground: () => void;
+    handleBackgroundImageSelection: (background_image: string) => void;
+    handleBackgroundRemoval: () => void;
     handleGetSearchImage: (resetPagination?: boolean) => void;
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     pagination: number;
