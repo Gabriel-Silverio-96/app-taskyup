@@ -33,7 +33,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 	const disabledButtonSearch = Boolean(!queryImage);
 
 	const messageError = images.error && <Typography variant="caption">{images.error}</Typography>;
-	const noResults = images.total_results === 0 && <Typography variant="caption" display="block" textAlign="center">No results found</Typography>;
+	const messageNoResultsFound = images.total_results === 0 && <Typography variant="caption" display="block" textAlign="center">No results found</Typography>;
 
 	return (
 		<DialogBackground backgroundimage={dialogBackgroundImage}>
@@ -61,7 +61,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 				<Loading isLoading={isLoadingImages} message="Loading images" />
 
 				{messageError}
-				{noResults}
+				{messageNoResultsFound}
 
 				<MenuImages>					
 					{images.photos.map((image: TypeImage) => (
