@@ -29,10 +29,10 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 	} = props;
 
 	const isOpenMenu = Boolean(anchorEl);
-	const thereBackgroundImage = Boolean(dialogBackgroundImage);
+	const disabledButtonDelete = Boolean(dialogBackgroundImage);
 	const disabledButtonSearch = Boolean(!queryImage);
 
-	const handleErrorRequest = images.error && <Typography variant="caption">{images.error}</Typography>;
+	const messageError = images.error && <Typography variant="caption">{images.error}</Typography>;
 	const noResults = images.total_results === 0 && <Typography variant="caption" display="block" textAlign="center">No results found</Typography>;
 
 	return (
@@ -60,7 +60,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 				</MenuSearch>
 				<Loading isLoading={isLoadingImages} message="Loading images" />
 
-				{handleErrorRequest}
+				{messageError}
 				{noResults}
 
 				<MenuImages>					
@@ -95,7 +95,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = (props) => {
 				variant="contained"
 				color="error"
 				size="small"
-				disabled={!thereBackgroundImage}
+				disabled={!disabledButtonDelete}
 				onClick={handleBackgroundRemoval}
 			>
 				<AiOutlineDelete size={15} />
