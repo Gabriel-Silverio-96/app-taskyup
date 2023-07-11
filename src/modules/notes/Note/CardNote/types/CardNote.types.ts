@@ -8,9 +8,9 @@ export interface INote {
 	created_at: string;
 }
 
-export type TCount = {count: number} | any;
+export type TypeCount = {count: number} | any;
 
-export interface IListNotes<T = undefined> {
+export interface IFetchGetNotesResponse<T = undefined> {
 	count: number;
 	list_notes: INote[] | T;
 }
