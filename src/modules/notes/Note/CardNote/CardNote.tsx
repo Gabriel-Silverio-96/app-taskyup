@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
-import fetchGetNotesService from "./service";
+import { fetchGetNotesService } from "./service";
 import { TCount } from "./types/CardNote.component";
 
 const CardNote: React.FC = () => {

@@ -6,4 +6,4 @@ const fetchGetNotesService = async (board_id: string | undefined ) => {
 	return data;
 };
 
-export default fetchGetNotesService;
+export { fetchGetNotesService };
