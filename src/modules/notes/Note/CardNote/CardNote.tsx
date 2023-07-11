@@ -6,7 +6,7 @@ import { useContextNote } from "../Context";
 import useDialogNote from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
 import { fetchGetNotesService } from "./service";
-import { TCount } from "./types/CardNote.component";
+import { TCount } from "./types";
 
 const CardNote: React.FC = () => {
 	const { board_id } = useParams();

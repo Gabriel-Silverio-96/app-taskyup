@@ -4,7 +4,7 @@ import { FiEye, FiTrash2 } from "react-icons/fi";
 import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 import Loading from "shared/components/Loading";
 import { Card, CardAction, CardBar, CardContent, CardNoteContainer } from "./style";
-import { ICardNotesView } from "./types/CardNote.component";
+import { ICardNotesView } from "./types/CardNote.types";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
 	const { palette, data, isFetching, openDialogEditNote, openDialogDeleteSingleNote } = props;
