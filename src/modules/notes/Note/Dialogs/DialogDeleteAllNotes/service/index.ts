@@ -5,4 +5,4 @@ const fetchDeleteAllNotesService = async (boardID: string | undefined) => {
 	await api.delete<IFetchResponseDefault>(`notes/delete-all/board_id=${boardID}`);
 };
 
-export default fetchDeleteAllNotesService;
+export { fetchDeleteAllNotesService };
