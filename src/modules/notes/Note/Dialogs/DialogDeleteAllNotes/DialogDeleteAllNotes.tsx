@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useContextNote } from "../../Context";
 import useDialogNote from "../../shared/hook/useDialogNote";
 import DialogDeleteAllNotesView from "./DialogDeleteAllNotesView";
-import fetchDialogDeleteAllNotes from "./service";
+import fetchDeleteAllNotesService from "./service";
 
 const DialogDeleteAllNotes: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -18,7 +18,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 		closeDialogDeleteAllNotes();
 	}; 
 
-	const mutationFn = () => fetchDialogDeleteAllNotes(boardID);
+	const mutationFn = () => fetchDeleteAllNotesService(boardID);
 	const optionsMutation = { onSuccess: onSuccessMutation};
 
 	const { mutate: fetchDeleteAllNotes, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
