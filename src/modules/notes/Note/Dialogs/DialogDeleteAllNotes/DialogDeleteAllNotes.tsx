@@ -19,7 +19,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 	}; 
 
 	const mutationFn = () => fetchDeleteAllNotesService(board_id);
-	const optionsMutation = { onSuccess: onSuccessMutation};
+	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const { mutate: dialogDeleteAllNotesSubmit, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
 
