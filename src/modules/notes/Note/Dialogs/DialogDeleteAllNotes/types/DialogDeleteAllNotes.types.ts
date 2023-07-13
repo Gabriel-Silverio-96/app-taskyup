@@ -1,6 +1,6 @@
 export interface IDialogDeleteAllNotesView {
     isOpenDialogDeleteAllNotes: boolean;
     closeDialogDeleteAllNotes: () => void;
-    fetchDeleteAllNotes: () => any;
+    dialogDeleteAllNotesSubmit: () => any;
     isDeleting: boolean;
 }
