@@ -11,13 +11,13 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { IDialogDeleteAllNotesView } from "./types/DialogDeleteAllNotes.component";
+import { IDialogDeleteAllNotesView } from "./types";
 
 const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = (props) => {
 	const {
 		isOpenDialogDeleteAllNotes, 
 		closeDialogDeleteAllNotes, 
-		fetchDeleteAllNotes, 
+		dialogDeleteAllNotesSubmit, 
 		isDeleting 
 	} = props;
 	return (
@@ -55,7 +55,7 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = (props) =>
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" onClick={fetchDeleteAllNotes} loading={isDeleting}>
+						<LoadingButton variant="contained" onClick={dialogDeleteAllNotesSubmit} loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>

@@ -1,14 +1,14 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
-import { useContextNote } from "../../Context";
-import useDialogNote from "../../shared/hook/useDialogNote";
+import { useContextNote } from "modules/notes/Note/Context";
+import useDialogNote from "modules/notes/Note/shared/hook/useDialogNote";
 import DialogDeleteAllNotesView from "./DialogDeleteAllNotesView";
-import fetchDialogDeleteAllNotes from "./service";
+import { fetchDeleteAllNotesService } from "./service";
 
 const DialogDeleteAllNotes: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { board_id: boardID } = useParams();
+	const { board_id } = useParams();
 	
 	const { isOpenDialogDeleteAllNotes } = useContextNote();
 	const { closeDialogDeleteAllNotes } = useDialogNote();
@@ -18,17 +18,17 @@ const DialogDeleteAllNotes: React.FC = () => {
 		closeDialogDeleteAllNotes();
 	}; 
 
-	const mutationFn = () => fetchDialogDeleteAllNotes(boardID);
-	const optionsMutation = { onSuccess: onSuccessMutation};
+	const mutationFn = () => fetchDeleteAllNotesService(board_id);
+	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: fetchDeleteAllNotes, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
+	const { mutate: dialogDeleteAllNotesSubmit, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogDeleteAllNotesView
 			{...{
 				isOpenDialogDeleteAllNotes,
 				closeDialogDeleteAllNotes,
-				fetchDeleteAllNotes,
+				dialogDeleteAllNotesSubmit,
 				isDeleting
 			}}
 		/>
