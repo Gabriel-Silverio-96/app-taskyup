@@ -8,7 +8,7 @@ import { fetchDeleteAllNotesService } from "./service";
 
 const DialogDeleteAllNotes: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { board_id: boardID } = useParams();
+	const { board_id } = useParams();
 	
 	const { isOpenDialogDeleteAllNotes } = useContextNote();
 	const { closeDialogDeleteAllNotes } = useDialogNote();
@@ -18,7 +18,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 		closeDialogDeleteAllNotes();
 	}; 
 
-	const mutationFn = () => fetchDeleteAllNotesService(boardID);
+	const mutationFn = () => fetchDeleteAllNotesService(board_id);
 	const optionsMutation = { onSuccess: onSuccessMutation};
 
 	const { mutate: fetchDeleteAllNotes, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
