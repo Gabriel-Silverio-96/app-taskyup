@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useContextNote } from "../../Context";
 import useDialogNote from "../../shared/hook/useDialogNote";
 import DialogDeleteSingleNoteView from "./DialogDeleteSingleNoteView";
-import fetchDeleteOneNoteService from "./service";
+import { fetchDeleteOneNoteService } from "./service";
 
 const DialogDeleteSingleNote: React.FC = () => {
 	const queryClient = useQueryClient();
