@@ -10,6 +10,7 @@ import Logo from "shared/components/Logo";
 import DialogNewBoard from "./DialogNewBoard";
 import { Aside, AsideHeader, TreeViewContainer, TreeViewContainerItem } from "./style";
 import { IAsideView } from "./types/Aside.component";
+import LinkTreeItem from "./components/LinkTreeItem/LinkTreeItem";
 
 const AsideView: React.FC<IAsideView> = (props) => {
 	const { 
@@ -65,22 +66,10 @@ const AsideView: React.FC<IAsideView> = (props) => {
 					defaultExpandIcon={<FiChevronRight />}
 				>
 					<TreeItem nodeId="1" label={<><GoNote />Notes</>}>
-						{menu && (
-							menu.notes.map(({ board_id, title }) => (
-								<Link to={`/notes/${board_id}`} key={board_id}>
-									<TreeItem nodeId={board_id} label={title} />
-								</Link>
-							))
-						)}							
+						<LinkTreeItem menu={menu} slug="notes" />
 					</TreeItem>
 					<TreeItem nodeId="2" label={<><MdOutlineNotes />Texts</>}>
-						{menu && (
-							menu.texts.map(({ board_id, title }) => (
-								<Link to={`/texts/${board_id}`} key={board_id}>
-									<TreeItem nodeId={board_id} label={title} />
-								</Link>
-							))
-						)}							
+						<LinkTreeItem menu={menu} slug="texts" />
 					</TreeItem>
 					<Tooltip title="Comming soon" placement="right">
 						<span>
