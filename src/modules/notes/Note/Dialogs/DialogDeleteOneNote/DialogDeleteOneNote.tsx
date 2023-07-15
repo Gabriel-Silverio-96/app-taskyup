@@ -2,10 +2,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useContextNote } from "modules/notes/Note/Context";
 import useDialogNote from "modules/notes/Note/shared/hook/useDialogNote";
-import DialogDeleteSingleNoteView from "./DialogDeleteSingleNoteView";
+import DialogDeleteOneNoteView from "./DialogDeleteOneNoteView";
 import { fetchDeleteOneNoteService } from "./service";
 
-const DialogDeleteSingleNote: React.FC = () => {
+const DialogDeleteOneNote: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { isOpenDialogDeleteSingleNote, noteID } = useContextNote();
 	const { closeDialogDeleteSingleNote } = useDialogNote();
@@ -21,7 +21,7 @@ const DialogDeleteSingleNote: React.FC = () => {
 	const { mutate: dialogDeleteOneNoteSubmit, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
 
 	return (
-		<DialogDeleteSingleNoteView
+		<DialogDeleteOneNoteView
 			{...{
 				isOpenDialogDeleteSingleNote,
 				closeDialogDeleteSingleNote,
@@ -32,4 +32,4 @@ const DialogDeleteSingleNote: React.FC = () => {
 	);
 };
 
-export default memo(DialogDeleteSingleNote);
+export default memo(DialogDeleteOneNote);
