@@ -17,7 +17,7 @@ const DialogDeleteSingleNoteView: React.FC<IDialogDeleteSingleNoteView> = (props
 	const { 
 		isOpenDialogDeleteSingleNote, 
 		closeDialogDeleteSingleNote, 
-		fetchDeleteSingleNote,
+		dialogDeleteOneNoteSubmit,
 		isDeleting
 	 } = props;
 	return (
@@ -55,7 +55,7 @@ const DialogDeleteSingleNoteView: React.FC<IDialogDeleteSingleNoteView> = (props
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" onClick={fetchDeleteSingleNote} loading={isDeleting}>
+						<LoadingButton variant="contained" onClick={dialogDeleteOneNoteSubmit} loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>
