@@ -22,7 +22,7 @@ describe("Component <LinkTreeItem />", () => {
 		expect(secondLink).toHaveAttribute("href", secondLinkExpected);
 	});
 
-	test("Render nothing when menu is 'undefined'", () => {
+	test("Render nothing when menu is 'falsy'", () => {
 		render(<Router><LinkTreeItem menu={undefined} slug="texts" /></Router>);
 		
 		const links = screen.queryAllByRole("link");
