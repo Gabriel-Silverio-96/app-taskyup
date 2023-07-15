@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { IDialogDeleteSingleNoteView } from "./types/DialogDeleteSingleNote.component";
+import { IDialogDeleteSingleNoteView } from "./types";
 
 const DialogDeleteSingleNoteView: React.FC<IDialogDeleteSingleNoteView> = (props) => {
 	const { 
