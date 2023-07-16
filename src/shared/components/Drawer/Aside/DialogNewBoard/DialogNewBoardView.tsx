@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { IDialogNewBoardView } from "./types/DialogNewBoard.component";
+import { ID_NOTES, ID_TEXTS, ID_KANBAN } from "./constants";
 
 const DialogNewBoardView: React.FC<IDialogNewBoardView> = (props) => {
 	const { 
@@ -72,9 +73,9 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = (props) => {
 									"data-testid": "board-type-id-input-inside-select"
 								}}						
 							>
-								<MenuItem value="1f819d7d-11b5-4742-be86-2286ef50b5d5">Notes</MenuItem>
-								<MenuItem value="43fa2ae7-48eb-4e1c-a746-617a643fee45">Texts</MenuItem>
-								<MenuItem value="1cf4ff82-59bd-4733-890c-c9226ea0df2f" disabled>Kanban</MenuItem>
+								<MenuItem value={ID_NOTES}>Notes</MenuItem>
+								<MenuItem value={ID_TEXTS}>Texts</MenuItem>
+								<MenuItem value={ID_KANBAN} disabled>Kanban</MenuItem>
 							</TextField>
 						</Grid>
 					</Grid>
