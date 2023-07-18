@@ -1,16 +1,5 @@
 import { TextField as TextFieldMui, styled } from "@mui/material";
 
-export const FormNoteEdit = styled("form")(
-	() => `
-        > div {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-    `
-);
-
 export const FormHeaderNoteEdit = styled("div")(    
 	({ theme }) => `
         .MuiFormControl-root {
