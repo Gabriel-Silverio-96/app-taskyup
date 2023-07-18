@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderNoteEdit from "./components/HeaderNoteEdit/FormNoteEdit";
+import FormNoteEdit from "./components/FormNoteEdit";
 import { Grid } from "@mui/material";
 
 const NoteEditView: React.FC = () => {
@@ -8,7 +8,7 @@ const NoteEditView: React.FC = () => {
 			<Grid item xs={12}>
 				<Grid container justifyContent="center">
 					<Grid item md={12}>
-						<HeaderNoteEdit />	
+						<FormNoteEdit />	
 					</Grid>
 				</Grid>
 			</Grid>
