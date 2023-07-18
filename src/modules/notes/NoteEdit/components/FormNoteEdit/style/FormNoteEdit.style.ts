@@ -1,11 +1,13 @@
-import { styled } from "@mui/material";
+import { TextField as TextFieldMui, styled } from "@mui/material";
 
 export const FormNoteEdit = styled("form")(
 	() => `
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
     `
 );
 
@@ -32,6 +34,21 @@ export const FormActionNoteEdit = styled("div")(
 	({ theme }) => `
         button:first-of-type {
             color: ${theme.palette.common.white};
+        }
+    `
+);
+
+export const TextFieldMultiple = styled(TextFieldMui)(    
+	() => `        
+        > div {
+            padding: 0;
+            > textarea {
+                padding: 0;
+            }
+
+            > fieldset {
+                border: 0;
+            }
         }
     `
 );

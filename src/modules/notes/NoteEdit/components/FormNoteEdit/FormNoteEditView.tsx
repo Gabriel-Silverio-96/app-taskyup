@@ -1,18 +1,37 @@
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Grid } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import React from "react";
-import { FormNoteEdit, FormHeaderNoteEdit, FormActionNoteEdit } from "./style";
+import { FormNoteEdit, FormHeaderNoteEdit, FormActionNoteEdit, TextFieldMultiple } from "./style";
+import ColorPicker from "shared/components/ColorPicker";
 
 const FormNoteEditView: React.FC = () => {
 	return (
 		<FormNoteEdit>
-			<FormHeaderNoteEdit>
-				<TextField placeholder="Title note" />
-			</FormHeaderNoteEdit>
-			<FormActionNoteEdit>
-				<Button variant="text" type="button">Back</Button>
-				<LoadingButton variant="contained" type="submit">Save</LoadingButton>
-			</FormActionNoteEdit>
+			<Grid container spacing={4}>
+				<Grid item md={8}>
+					<FormHeaderNoteEdit>
+						<TextField placeholder="Title note" />
+					</FormHeaderNoteEdit>
+				</Grid>
+				<Grid item md={4} textAlign="right">
+					<FormActionNoteEdit>
+						<Button variant="text" type="button">Back</Button>
+						<LoadingButton variant="contained" type="submit">Save</LoadingButton>
+					</FormActionNoteEdit>
+				</Grid>
+				<Grid item md={12}>
+					<ColorPicker label="Select color" />
+				</Grid>
+				<Grid item md={12}>
+					<TextFieldMultiple 
+						placeholder="Observation"
+						size="small"
+						fullWidth
+						multiline
+						rows={10}
+					/>
+				</Grid>
+			</Grid>
 		</FormNoteEdit>
 	);
 };
