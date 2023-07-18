@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderNoteEdit from "./components/HeaderNoteEdit/HeaderNoteEdit";
+import HeaderNoteEdit from "./components/HeaderNoteEdit/FormNoteEdit";
 import { Grid } from "@mui/material";
 
 const NoteEditView: React.FC = () => {

@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-export const HeaderNoteEdit = styled("div")(
+export const FormNoteEdit = styled("form")(
 	() => `
         display: flex;
         align-items: center;
@@ -9,7 +9,7 @@ export const HeaderNoteEdit = styled("div")(
     `
 );
 
-export const HeaderNoteContent = styled("div")(    
+export const FormHeaderNoteEdit = styled("div")(    
 	({ theme }) => `
         .MuiFormControl-root {
             > div {
@@ -28,7 +28,7 @@ export const HeaderNoteContent = styled("div")(
     `
 );
 
-export const HeaderNoteEditAction = styled("div")(    
+export const FormActionNoteEdit = styled("div")(    
 	({ theme }) => `
         button:first-of-type {
             color: ${theme.palette.common.white};

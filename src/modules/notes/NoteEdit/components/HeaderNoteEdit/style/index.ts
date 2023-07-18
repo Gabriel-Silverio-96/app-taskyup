@@ -1,2 +1,2 @@
-export * as default from "./HeaderNoteEdit.style";
-export * from "./HeaderNoteEdit.style";
+export * as default from "./FormNoteEdit.style";
+export * from "./FormNoteEdit.style";
