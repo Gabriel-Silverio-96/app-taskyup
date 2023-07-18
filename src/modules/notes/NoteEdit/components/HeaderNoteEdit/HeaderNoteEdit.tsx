@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import HeaderNoteEditView from "./HeaderNoteEditView";
 
 const HeaderNoteEdit: React.FC = () => {
 	return <HeaderNoteEditView />;
 };
 
-export default HeaderNoteEdit;
+export default memo(HeaderNoteEdit);

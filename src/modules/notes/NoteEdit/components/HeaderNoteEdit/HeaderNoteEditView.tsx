@@ -1,8 +1,19 @@
+import { TextField, Button } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 import React from "react";
+import { HeaderNoteEdit, HeaderNoteContent, HeaderNoteEditAction } from "./style";
 
 const HeaderNoteEditView: React.FC = () => {
 	return (
-		<h1>Header Note</h1>
+		<HeaderNoteEdit>
+			<HeaderNoteContent>
+				<TextField placeholder="Title note" />
+			</HeaderNoteContent>
+			<HeaderNoteEditAction>
+				<Button variant="text">Back</Button>
+				<LoadingButton variant="contained">Save</LoadingButton>
+			</HeaderNoteEditAction>
+		</HeaderNoteEdit>
 	);
 };
 

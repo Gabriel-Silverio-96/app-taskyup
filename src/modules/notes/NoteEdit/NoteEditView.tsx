@@ -1,11 +1,18 @@
 import React from "react";
 import HeaderNoteEdit from "./components/HeaderNoteEdit/HeaderNoteEdit";
+import { Grid } from "@mui/material";
 
 const NoteEditView: React.FC = () => {
 	return (
-		<>
-			<HeaderNoteEdit />		
-		</>
+		<Grid container maxWidth={800} margin="auto">
+			<Grid item xs={12}>
+				<Grid container justifyContent="center">
+					<Grid item md={12}>
+						<HeaderNoteEdit />	
+					</Grid>
+				</Grid>
+			</Grid>
+		</Grid>
 	);
 };
 
