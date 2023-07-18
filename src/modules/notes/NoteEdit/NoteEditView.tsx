@@ -1,8 +1,12 @@
 import React from "react";
+import HeaderNoteEdit from "./components/HeaderNoteEdit/HeaderNoteEdit";
 
-const NoteEditView: React.FC<any> = props => {
-	const { state } = props;
-	return <h1>{state}</h1>;
+const NoteEditView: React.FC = () => {
+	return (
+		<>
+			<HeaderNoteEdit />		
+		</>
+	);
 };
 
 export default NoteEditView;
