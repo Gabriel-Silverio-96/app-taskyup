@@ -10,6 +10,7 @@ import Board from "./modules/dashboard/Board";
 import Page404 from "modules/error/Page404";
 import Text from "modules/texts/Text";
 import TextEdit from "modules/texts/TextEdit";
+import NoteEdit from "modules/notes/NoteEdit/NoteEdit";
 
 const MainRoutes:React.FC = () => {
 	return (
@@ -23,7 +24,9 @@ const MainRoutes:React.FC = () => {
 			<Route path="/profile" element={<RequiredAuth><Profile /></RequiredAuth>} />
 
 			<Route path="/dashboard" element={<RequiredAuth><Board /></RequiredAuth>} />
-			<Route path="/notes/:board_id" element={<RequiredAuth><Note /></RequiredAuth>} />				
+			<Route path="/notes/:board_id" element={<RequiredAuth><Note /></RequiredAuth>} />		
+			<Route path="/note/edit" element={<RequiredAuth><NoteEdit /></RequiredAuth>} />	
+				
 			<Route path="/texts/:board_id" element={<RequiredAuth><Text /></RequiredAuth>} />				
 			<Route path="/text/edit" element={<RequiredAuth drawer={false}><TextEdit /></RequiredAuth>} />				
 
