@@ -1,11 +1,15 @@
 import React from "react";
 import FormNoteEdit from "./components/FormNoteEdit";
 import { Grid } from "@mui/material";
+import Loading from "shared/components/Loading/Loading";
 
 const NoteEditView: React.FC<any> = (props) => {
-	const { register, handleSubmit, noteEditSubmit, errors } = props;
+	const { register, handleSubmit, noteEditSubmit, errors, isFetching } = props;
+
+	if(isFetching) return <Loading isLoading backdrop />;
+
 	return (
-		<Grid container maxWidth={800} margin="auto">
+		<Grid container maxWidth={800} margin="auto">		
 			<Grid item xs={12}>
 				<Grid container justifyContent="center">
 					<Grid item md={12}>
