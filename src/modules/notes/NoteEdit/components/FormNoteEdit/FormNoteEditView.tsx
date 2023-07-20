@@ -16,6 +16,7 @@ const FormNoteEditView: React.FC<any> = ({register, handleSubmit, noteEditSubmit
 							placeholder="Title note" 
 							error={errors.title_note && Boolean(errors.title_note)}
 							helperText={errors.title_note ? errors.title_note?.message : ""}
+							autoComplete="off"
 						/>
 					</FormHeaderNoteEdit>
 				</Grid>
