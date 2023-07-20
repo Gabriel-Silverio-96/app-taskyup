@@ -7,11 +7,11 @@ import ColorPicker from "shared/components/ColorPicker";
 const FormNoteEditView: React.FC<any> = ({register, handleSubmit, noteEditSubmit, errors}) => {
 	
 	return (
-		<form onSubmit={handleSubmit(noteEditSubmit)}>
+		<form method="POST" onSubmit={handleSubmit(noteEditSubmit)}>
 			<Grid container spacing={4}>
 				<Grid item md={8} xs={8}>
 					<FormHeaderNoteEdit>
-						<TextField 
+						<TextField
 							{...register("title_note")} 
 							placeholder="Title note" 
 							error={errors.title_note && Boolean(errors.title_note)}
