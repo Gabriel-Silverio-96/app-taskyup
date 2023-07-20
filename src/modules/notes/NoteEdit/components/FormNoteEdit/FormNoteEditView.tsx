@@ -3,8 +3,10 @@ import { LoadingButton } from "@mui/lab";
 import React from "react";
 import { FormHeaderNoteEdit, FormActionNoteEdit, TextFieldMultiple } from "./style";
 import ColorPicker from "shared/components/ColorPicker";
+import { Link } from "react-router-dom";
 
-const FormNoteEditView: React.FC<any> = ({register, handleSubmit, noteEditSubmit, errors}) => {
+const FormNoteEditView: React.FC<any> = (props) => {	
+	const { register, handleSubmit, noteEditSubmit, errors, linkPreviousPage } = props;
 	
 	return (
 		<form method="POST" onSubmit={handleSubmit(noteEditSubmit)}>
@@ -22,7 +24,9 @@ const FormNoteEditView: React.FC<any> = ({register, handleSubmit, noteEditSubmit
 				</Grid>
 				<Grid item md={4} xs={4} textAlign="right">
 					<FormActionNoteEdit>
-						<Button variant="text" type="button">Back</Button>
+						<Link to={linkPreviousPage}>
+							<Button variant="text" type="button">Back</Button>
+						</Link>
 						<LoadingButton variant="contained" type="submit">Save</LoadingButton>
 					</FormActionNoteEdit>
 				</Grid>
