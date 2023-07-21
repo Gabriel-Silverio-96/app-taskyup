@@ -8,6 +8,7 @@ import HeaderNoteView from "./HeaderNoteView";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchPostCreateNoteService } from "./service/HeaderNote.service";
 import { FORM_CREATE_NOTE } from "./constants";
+import { IFetchPostCreateNoteResponse } from "./types";
 
 const HeaderNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -21,8 +22,8 @@ const HeaderNote: React.FC = () => {
 	const { breakpoints } = useTheme();
 	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
 
-	const onSuccess = async ({data}: any) => {
-		const { note_id } = data.results;
+	const onSuccess = async (response: IFetchPostCreateNoteResponse) => {
+		const { note_id } = response.results;
 		
 		const redirectTo = `/note/edit?note_id=${note_id}&board_id=${board_id}`;
 		navigate(redirectTo);	
