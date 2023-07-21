@@ -5,9 +5,10 @@ import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 import Loading from "shared/components/Loading";
 import { Card, CardAction, CardBar, CardContent, CardNoteContainer } from "./style";
 import { ICardNotesView } from "./types";
+import { Link } from "react-router-dom";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
-	const { palette, data, isFetching, openDialogEditNote, openDialogDeleteSingleNote } = props;
+	const { board_id, palette, data, isFetching, openDialogDeleteSingleNote } = props;
 
 	return (
 		<Grid container spacing={2}>
@@ -19,7 +20,8 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 			/>
 			
 			{data &&
-				data.list_notes?.map(({ note_id, title_note, observation, color_note }) => {	
+				data.list_notes?.map(({ note_id, title_note, observation, color_note }) => {
+					const redirectTo = `/note/edit?note_id=${note_id}&board_id=${board_id}`;
 					return (
 						<Grid item xl={2} md={3} xs={12} key={note_id}>
 							<CardNoteContainer>
@@ -36,17 +38,14 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 											{observation}
 										</Typography>
 										<CardAction id="card-action">
-											<IconButton
-												onClick={() => openDialogDeleteSingleNote(note_id)}>
-												<FiTrash2
-													color={palette.error.main}
-													size={20}
-												/>
+											<IconButton	onClick={() => openDialogDeleteSingleNote(note_id)}>
+												<FiTrash2 color={palette.error.main} size={20} />
 											</IconButton>
-											<IconButton
-												onClick={() => openDialogEditNote(note_id)}>
-												<FiEye size={20} />
-											</IconButton>
+											<Link to={redirectTo}>
+												<IconButton>
+													<FiEye size={20} />
+												</IconButton>
+											</Link>
 										</CardAction>
 									</CardContent>
 									<CardBar color={color_note} />
