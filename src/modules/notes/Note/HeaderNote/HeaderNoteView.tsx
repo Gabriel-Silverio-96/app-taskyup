@@ -7,10 +7,10 @@ import { IHeaderNoteView } from "./types/HeaderNote.component";
 const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 	const { 
 		data,
-		openDialogNewNote, 
 		openDialogDeleteAllNotes, 
 		isMediumScreen,
-		countNotes
+		countNotes,
+		handleClickCreateNote
 	} = props;
 	
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";	
@@ -24,7 +24,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = (props) => {
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
-					<IconButton onClick={openDialogNewNote}>
+					<IconButton onClick={handleClickCreateNote}>
 						<FiPlus size={18} />
 					</IconButton>
 					<Tooltip arrow title="Members comming soon" placement="top">
