@@ -38,9 +38,9 @@ const NoteEdit: React.FC = () => {
 	const mutationFn = (form: INoteEditForm) => fetchPutNoteService({ payload: form, note_id, board_id });
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: noteEditSubmit } = useMutation(mutationFn, optionsMutation);
+	const { mutate: noteEditSubmit, isLoading: isSaving } = useMutation(mutationFn, optionsMutation);
 
-	return <NoteEditView {...{ register, handleSubmit, noteEditSubmit, errors, isFetching }} />;
+	return <NoteEditView {...{ register, handleSubmit, noteEditSubmit, errors, isFetching, isSaving }} />;
 };
 
 export default NoteEdit;

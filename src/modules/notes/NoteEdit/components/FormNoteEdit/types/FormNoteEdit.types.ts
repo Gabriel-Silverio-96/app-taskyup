@@ -6,6 +6,7 @@ export interface IFormNoteEdit {
     handleSubmit: UseFormHandleSubmit<INoteEditForm>;
     noteEditSubmit: (form: INoteEditForm) => void;
     errors: FieldErrors<INoteEditForm>;
+    isSaving: boolean;
 }
 
 export interface IFormNoteEditView extends IFormNoteEdit {

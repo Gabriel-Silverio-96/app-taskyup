@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { IFormNoteEditView } from "./types";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = (props) => {	
-	const { register, handleSubmit, noteEditSubmit, errors, linkPreviousPage } = props;
+	const { register, handleSubmit, noteEditSubmit, errors, linkPreviousPage, isSaving } = props;
 	
 	return (
 		<form onSubmit={handleSubmit(noteEditSubmit)}>
@@ -28,7 +28,7 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = (props) => {
 						<Link to={linkPreviousPage}>
 							<Button variant="text" type="button">Back</Button>
 						</Link>
-						<LoadingButton variant="contained" type="submit">Save</LoadingButton>
+						<LoadingButton variant="contained" type="submit" loading={isSaving}>Save</LoadingButton>
 					</FormActionNoteEdit>
 				</Grid>
 				<Grid item md={12} xs={12}>

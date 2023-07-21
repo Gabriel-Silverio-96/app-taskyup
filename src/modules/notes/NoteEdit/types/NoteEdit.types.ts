@@ -19,6 +19,7 @@ export interface INoteEditView {
     noteEditSubmit: (form: INoteEditForm) => void;
     errors: FieldErrors<INoteEditForm>;
     isFetching: boolean;
+    isSaving: boolean;
 }
 
 export interface IFetchPutNoteService {
