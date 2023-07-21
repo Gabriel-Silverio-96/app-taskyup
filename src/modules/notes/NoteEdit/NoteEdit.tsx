@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import NoteEditView from "./NoteEditView";
 import schema from "./schema";
@@ -30,7 +30,9 @@ const NoteEdit: React.FC = () => {
 	const queryFn = () => fetchGetOneNoteService(note_id);
 	const optionsQuery = { onSuccess: onSuccessQuery };
 
-	const { isFetching } = useQuery<IFetchGetOneNoteResponse>(queryKey, queryFn, optionsQuery);
+	const { isFetching, refetch } = useQuery<IFetchGetOneNoteResponse>(queryKey, queryFn, optionsQuery);
+
+	useEffect(() => {refetch();}, []); 
 
 	const onSuccessMutation = async () => await queryClient.invalidateQueries(["notes"]);	
 	const mutationFn = (form: INoteEditForm) => fetchPutNoteService({ payload: form, note_id, board_id });
