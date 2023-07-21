@@ -16,12 +16,12 @@ export interface IFetchGetNotesResponse<T = undefined> {
 }
 
 export interface ICardNotesView {
+	board_id: string | undefined;
 	palette: Palette;	
     isFetching: boolean;
 	data: {
 		count: number;
 		list_notes: INote[] | undefined;
-	};
-	openDialogEditNote: (noteID: string) => void;
+	};	
 	openDialogDeleteSingleNote: (noteID: string) => void;
 }

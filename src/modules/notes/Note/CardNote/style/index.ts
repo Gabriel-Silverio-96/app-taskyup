@@ -56,7 +56,7 @@ export const CardAction = styled("div")(
         transition: .3s;
         cursor: pointer;
         display: flex;
-        align-items: baseline;
+        align-items: flex-start;
         justify-content: end;
         padding: ${theme.spacing(1)} ${theme.spacing(0.5)};
 `);

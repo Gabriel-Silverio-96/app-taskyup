@@ -21,10 +21,11 @@ const CardNote: React.FC = () => {
 	const { data, isFetching } = useQuery(queryKey, queryFn, { onSuccess });
 
 	useEffect(() => {data && setCountNotes(data.count);}, [board_id]);
-
+	
 	return (
 		<CardNoteView
 			{...{
+				board_id,
 				palette,
 				data,
 				isFetching,
