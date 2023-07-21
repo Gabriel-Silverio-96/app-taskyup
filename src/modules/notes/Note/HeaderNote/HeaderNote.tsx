@@ -33,7 +33,7 @@ const HeaderNote: React.FC = () => {
 	
 	const optionsMutation = { onSuccess };
 	const mutationFn = () => fetchPostCreateNoteService({ board_id, payload: FORM_CREATE_NOTE });
-	const { mutate } = useMutation(mutationFn, optionsMutation);
+	const { mutate, isLoading } = useMutation(mutationFn, optionsMutation);
 
 	const handleClickCreateNote = () => mutate();	
 
@@ -45,7 +45,8 @@ const HeaderNote: React.FC = () => {
 				openDialogDeleteAllNotes,
 				isMediumScreen,
 				countNotes,
-				handleClickCreateNote
+				handleClickCreateNote,
+				isLoading
 			}}
 		/>
 	);

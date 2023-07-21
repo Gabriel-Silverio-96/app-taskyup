@@ -6,6 +6,7 @@ export interface IHeaderNoteView {
     openDialogDeleteAllNotes: () => void;
     isMediumScreen: boolean;
     countNotes: number;
+    isLoading: boolean;
 }
 
 export interface IFetchPostCreateNoteResponse extends IFetchResponseDefault {
