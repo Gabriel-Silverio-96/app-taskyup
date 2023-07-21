@@ -31,7 +31,7 @@ const HeaderNote: React.FC = () => {
 	};
 	
 	const optionsMutation = { onSuccess };
-	const mutationFn = () => fetchPostCreateNoteService({ board_id, form: FORM_CREATE_NOTE });
+	const mutationFn = () => fetchPostCreateNoteService({ board_id, payload: FORM_CREATE_NOTE });
 	const { mutate } = useMutation(mutationFn, optionsMutation);
 
 	const handleClickCreateNote = () => mutate();	
