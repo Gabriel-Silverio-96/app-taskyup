@@ -2,8 +2,9 @@ import React from "react";
 import FormNoteEdit from "./components/FormNoteEdit";
 import { Grid } from "@mui/material";
 import Loading from "shared/components/Loading/Loading";
+import { INoteEditView } from "./types";
 
-const NoteEditView: React.FC<any> = (props) => {
+const NoteEditView: React.FC<INoteEditView> = (props) => {
 	const { register, handleSubmit, noteEditSubmit, errors, isFetching } = props;
 
 	if(isFetching) return <Loading isLoading backdrop />;

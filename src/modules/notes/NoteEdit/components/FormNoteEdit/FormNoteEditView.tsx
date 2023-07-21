@@ -4,12 +4,13 @@ import React from "react";
 import { FormHeaderNoteEdit, FormActionNoteEdit, TextFieldMultiple } from "./style";
 import ColorPicker from "shared/components/ColorPicker";
 import { Link } from "react-router-dom";
+import { IFormNoteEditView } from "./types";
 
-const FormNoteEditView: React.FC<any> = (props) => {	
+const FormNoteEditView: React.FC<IFormNoteEditView> = (props) => {	
 	const { register, handleSubmit, noteEditSubmit, errors, linkPreviousPage } = props;
 	
 	return (
-		<form method="POST" onSubmit={handleSubmit(noteEditSubmit)}>
+		<form onSubmit={handleSubmit(noteEditSubmit)}>
 			<Grid container spacing={4}>
 				<Grid item md={8} xs={8}>
 					<FormHeaderNoteEdit>

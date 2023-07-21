@@ -1,8 +1,9 @@
 import React from "react";
 import FormNoteEditView from "./FormNoteEditView";
 import { useSearchParams } from "react-router-dom";
+import { IFormNoteEdit } from "./types";
 
-const FormNoteEdit: React.FC<any> = ({ register, handleSubmit, noteEditSubmit, errors }) => {
+const FormNoteEdit: React.FC<IFormNoteEdit> = ({ register, handleSubmit, noteEditSubmit, errors }) => {
 	const [ searchParams ] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 
