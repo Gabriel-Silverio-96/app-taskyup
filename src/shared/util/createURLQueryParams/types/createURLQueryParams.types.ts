@@ -1,9 +1,11 @@
-export type TypeQueryParams = { [ key: string ]: unknown };
+export interface IQueryParams { 
+    [ key: string ]: unknown;
+}
 
 export interface ICreateURLQueryParams {
-   (baseUrl: string, queryParams: TypeQueryParams): string;
+   (baseUrl: string, queryParams: IQueryParams): string;
 }
 
 export interface ISerializeQueryParams {
-    (queryParamsKeys: Array<string>, queryParams: TypeQueryParams): string;
+    (queryParamsKeys: Array<string>, queryParams: IQueryParams): string;
 }
