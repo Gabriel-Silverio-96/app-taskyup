@@ -9,6 +9,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchPostCreateNoteService } from "./service/HeaderNote.service";
 import { FORM_CREATE_NOTE } from "./constants";
 import { IFetchPostCreateNoteResponse } from "./types";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const HeaderNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -25,7 +26,7 @@ const HeaderNote: React.FC = () => {
 	const onSuccess = async (response: IFetchPostCreateNoteResponse) => {
 		const { note_id } = response.results;
 		
-		const redirectTo = `/note/edit?note_id=${note_id}&board_id=${board_id}`;
+		const redirectTo = createURLQueryParams("/note/edit", { note_id, board_id });
 		navigate(redirectTo);	
 
 		await queryClient.invalidateQueries(["notes"]);	

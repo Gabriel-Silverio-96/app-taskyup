@@ -9,6 +9,7 @@ import CardTextView from "./CardTextView";
 import fetchTexts from "./service";
 import mountBody from "./utils/mount-body";
 import { useContextText } from "../Context";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const CardText: React.FC = () => {	
 	const { palette } = useTheme();
@@ -38,7 +39,7 @@ const CardText: React.FC = () => {
 	const onSuccessMutation = ({ text_id }: IFetchCreateText) => {
 		queryClient.invalidateQueries(["texts"]);
 
-		const redirectTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
+		const redirectTo = createURLQueryParams("/text/edit", { text_id, board_id });
 		navigate(redirectTo);	
 	};
 

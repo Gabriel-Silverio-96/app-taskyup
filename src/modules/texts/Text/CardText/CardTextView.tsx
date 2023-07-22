@@ -6,6 +6,7 @@ import Loading from "shared/components/Loading";
 import dateFormat from "shared/util/dateFormat";
 import { CardContainer, CardContent, CardCreateText, CardHeader, CardText } from "./style";
 import { ICardTextView, IText } from "./types/CardText.component";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const CardTextView: React.FC<ICardTextView> = props => {
 	const { 
@@ -33,7 +34,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 			</div>
 			{data && data.texts.map(({ title_text, text_id, created_at }: IText) => {
 				const createdAt = dateFormat(created_at);
-				const linkTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
+				const linkTo = createURLQueryParams("/text/edit", { text_id, board_id });
 
 				return (
 					<div key={text_id}>
