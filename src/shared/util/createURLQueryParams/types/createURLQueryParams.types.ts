@@ -1,4 +1,4 @@
-export type TypeQueryParams = { [ key: string ]: string | number };
+export type TypeQueryParams = { [ key: string ]: unknown };
 
 export interface ICreateURLQueryParams {
    (baseUrl: string, queryParams: TypeQueryParams): string;
