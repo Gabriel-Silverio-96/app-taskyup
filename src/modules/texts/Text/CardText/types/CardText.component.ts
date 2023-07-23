@@ -6,7 +6,7 @@ export interface IText {
     created_at: string;
 }
 
-export interface IFetchTexts {
+export interface IFetchGetAllTextResponse {
     count: number;
     title: string;   
     texts: IText[];   
@@ -14,7 +14,7 @@ export interface IFetchTexts {
 
 export interface ICardTextView {
     palette: Palette;   
-    data: IFetchTexts | undefined;   
+    data: IFetchGetAllTextResponse | undefined;   
     isFetching: boolean;
     createText: () => void;
     isCreatingText: boolean;

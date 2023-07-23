@@ -6,7 +6,7 @@ import useDialogText from "../hooks/useDialogText";
 import fetchCreateText from "../service";
 import { IFetchCreateText } from "../types";
 import CardTextView from "./CardTextView";
-import fetchTexts from "./service";
+import fetchGetAllTextService from "./service";
 import mountBody from "./utils/mount-body";
 import { useContextText } from "../Context";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
@@ -20,7 +20,7 @@ const CardText: React.FC = () => {
 	const { openDialogDeleteSingleText } = useDialogText();
 
 	const queryKey = ["texts", { variables: board_id }];
-	const queryFn = () => fetchTexts(board_id);	
+	const queryFn = () => fetchGetAllTextService(board_id);	
 	
 	const onSuccessQuery = ({ count }: any) => setCountText(count);	
 

@@ -1,9 +1,9 @@
 import api from "shared/services/api";
-import { IFetchTexts } from "../types/CardText.component";
+import { IFetchGetAllTextResponse } from "../types/CardText.component";
 
-const fetchTexts = async (board_id: string | undefined) => {
-	const { data } = await api.get<IFetchTexts>(`/text/list/board_id=${board_id}`);
+const fetchGetAllTextService = async (board_id: string | undefined) => {
+	const { data } = await api.get<IFetchGetAllTextResponse>(`/text/list/board_id=${board_id}`);
 	return data;
 };
 
-export default fetchTexts;
+export default fetchGetAllTextService;
