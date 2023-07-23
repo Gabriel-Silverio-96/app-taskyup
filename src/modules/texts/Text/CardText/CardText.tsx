@@ -10,6 +10,7 @@ import {  fetchGetAllTextService } from "./service";
 import { mountBodyText } from "./utils/mount-body-text";
 import { useContextText } from "../Context";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { IFetchGetAllTextResponse } from "./types";
 
 const CardText: React.FC = () => {	
 	const { palette } = useTheme();
@@ -22,10 +23,10 @@ const CardText: React.FC = () => {
 	const queryKey = ["texts", { variables: board_id }];
 	const queryFn = () => fetchGetAllTextService(board_id);	
 	
-	const onSuccessQuery = ({ count }: any) => setCountText(count);	
+	const onSuccessQuery = ({ count }: IFetchGetAllTextResponse) => setCountText(count);	
 
 	const optiosQuery = { onSuccess: onSuccessQuery };
-	const { data, isFetching } = useQuery(queryKey, queryFn, optiosQuery);	
+	const { data, isFetching } = useQuery<IFetchGetAllTextResponse>(queryKey, queryFn, optiosQuery);	
 
 	useEffect(() => {data && setCountText(data.count);}, [board_id]);
 
