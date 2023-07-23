@@ -6,7 +6,7 @@ import useDialogText from "../hooks/useDialogText";
 import fetchCreateText from "../service";
 import { IFetchCreateText } from "../types";
 import CardTextView from "./CardTextView";
-import fetchGetAllTextService from "./service";
+import {  fetchGetAllTextService } from "./service";
 import mountBody from "./utils/mount-body";
 import { useContextText } from "../Context";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
