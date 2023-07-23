@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Loading from "shared/components/Loading";
 import dateFormat from "shared/util/dateFormat";
 import { CardContainer, CardContent, CardCreateText, CardHeader, CardText } from "./style";
-import { ICardTextView, IText } from "./types/CardText.component";
+import { ICardTextView, IText } from "./types";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const CardTextView: React.FC<ICardTextView> = props => {
