@@ -44,7 +44,7 @@ const CardText: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
-	const { mutate: createText, isLoading: isCreatingText } = useMutation(mutationFn, optionsMutation);
+	const { mutate: handleClickCreateText, isLoading: isCreatingText } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<CardTextView
@@ -52,7 +52,7 @@ const CardText: React.FC = () => {
 				palette,
 				data,
 				isFetching,
-				createText,
+				handleClickCreateText,
 				isCreatingText,
 				board_id,
 				openDialogDeleteSingleText,

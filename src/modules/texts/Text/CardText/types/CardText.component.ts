@@ -16,7 +16,7 @@ export interface ICardTextView {
     palette: Palette;   
     data: IFetchGetAllTextResponse | undefined;   
     isFetching: boolean;
-    createText: () => void;
+    handleClickCreateText: () => void;
     isCreatingText: boolean;
     board_id: string | undefined;
     openDialogDeleteSingleText: (textID: string) => void;

@@ -13,7 +13,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 		palette,
 		data,
 		isFetching,
-		createText,
+		handleClickCreateText,
 		isCreatingText,
 		board_id,
 		openDialogDeleteSingleText,		 
@@ -27,7 +27,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 		<CardContainer>
 			<Loading isLoading={isCreatingText} backdrop message="Creating text" />
 			<div>
-				<CardCreateText onClick={createText} role="button">
+				<CardCreateText onClick={handleClickCreateText} role="button">
 					<FiPlus size={40} />
 					<Typography variant="caption">Create</Typography>
 				</CardCreateText>
