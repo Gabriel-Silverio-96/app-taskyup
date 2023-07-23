@@ -7,7 +7,7 @@ import fetchCreateText from "../service";
 import { IFetchCreateText } from "../types";
 import CardTextView from "./CardTextView";
 import {  fetchGetAllTextService } from "./service";
-import mountBody from "./utils/mount-body";
+import { mountBodyText } from "./utils/mount-body-text";
 import { useContextText } from "../Context";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
@@ -30,17 +30,17 @@ const CardText: React.FC = () => {
 	useEffect(() => {data && setCountText(data.count);}, [board_id]);
 
 	const mutationFn = async () => {
-		const body = mountBody();
+		const body = mountBodyText();
 		const { data } = await fetchCreateText(board_id, body);
 
 		return data;
 	};
 
-	const onSuccessMutation = ({ text_id }: IFetchCreateText) => {
-		queryClient.invalidateQueries(["texts"]);
-
+	const onSuccessMutation = async ({ text_id }: IFetchCreateText) => {
 		const redirectTo = createURLQueryParams("/text/edit", { text_id, board_id });
 		navigate(redirectTo);	
+
+		await queryClient.invalidateQueries(["texts"]);
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
