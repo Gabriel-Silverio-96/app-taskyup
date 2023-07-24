@@ -3,4 +3,5 @@ export interface IHeaderView {
     currentPageTitle: string | undefined;
     toogleDropdown: () => void;
     toogleDropdownAway: () => void;
+    handleClickOpenDialogSearchAll: () => void;
 }

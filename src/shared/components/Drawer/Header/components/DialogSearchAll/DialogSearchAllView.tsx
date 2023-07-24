@@ -11,9 +11,11 @@ import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 
-const DialogSearchAllView: React.FC<any> = () => {
+const DialogSearchAllView: React.FC<any> = (props) => {
+	const { dialogSearchAll, handleClickCloseDialogSearchAll } = props;
+
 	return (
-		<Dialog fullWidth maxWidth="md" open>
+		<Dialog fullWidth maxWidth="md" open={dialogSearchAll.open}>
 			<DialogTitle>
 				<Grid
 					container
@@ -25,7 +27,7 @@ const DialogSearchAllView: React.FC<any> = () => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton>
+						<IconButton onClick={handleClickCloseDialogSearchAll}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
