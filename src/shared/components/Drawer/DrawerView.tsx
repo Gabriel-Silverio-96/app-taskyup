@@ -2,6 +2,7 @@ import React from "react";
 import Aside from "./Aside";
 import Header from "./Header";
 import { Drawer } from "./style";
+import DialogSearchAll from "./Header/components/DialogSearchAll/DialogSearchAll";
 
 const DrawerView: React.FC<any> = ({ children }) => {
 	return (
@@ -9,6 +10,7 @@ const DrawerView: React.FC<any> = ({ children }) => {
 			<Header />
 			<Aside />
 			{children}
+			<DialogSearchAll />
 		</Drawer>
 	);
 };
