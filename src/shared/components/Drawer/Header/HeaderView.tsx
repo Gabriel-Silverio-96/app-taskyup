@@ -4,6 +4,7 @@ import { FiUser } from "react-icons/fi";
 import Dropdown from "./Dropdown";
 import { Header, Nav } from "./style";
 import { IHeaderView } from "./types/Header.component";
+import { BiSearch } from "react-icons/bi";
 
 const HeaderView: React.FC<IHeaderView> = (props) => {
 	const { isOpen, currentPageTitle, toogleDropdown, toogleDropdownAway } = props;	
@@ -16,6 +17,9 @@ const HeaderView: React.FC<IHeaderView> = (props) => {
 				{currentPageTitle ? currentPageTitle : "TaskYup"}
 			</Typography>
 			<Nav>
+				<IconButton>
+					<BiSearch size={18}/>
+				</IconButton>
 				<Dropdown open={isOpen}>
 					<ClickAwayListener onClickAway={toogleDropdownAway}>
 						<IconButton onClick={toogleDropdown}>
