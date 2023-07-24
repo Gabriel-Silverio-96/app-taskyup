@@ -7,7 +7,8 @@ import { IHeaderView } from "./types/Header.component";
 import { BiSearch } from "react-icons/bi";
 
 const HeaderView: React.FC<IHeaderView> = (props) => {
-	const { isOpen, currentPageTitle, toogleDropdown, toogleDropdownAway } = props;	
+	const { isOpen, currentPageTitle, toogleDropdown, toogleDropdownAway, handleClickOpenDialogSearchAll } = props;	
+	
 	return (
 		<Header>
 			<Typography variant="h5" 
@@ -17,7 +18,7 @@ const HeaderView: React.FC<IHeaderView> = (props) => {
 				{currentPageTitle ? currentPageTitle : "TaskYup"}
 			</Typography>
 			<Nav>
-				<IconButton>
+				<IconButton onClick={handleClickOpenDialogSearchAll}>
 					<BiSearch size={18}/>
 				</IconButton>
 				<Dropdown open={isOpen}>
