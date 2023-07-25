@@ -11,9 +11,9 @@ export const TextFieldWithIconButton = styled("div")(
         }
         
         > button {
-            position: absolute;
-            right: ${theme.spacing(2.5)};
-            bottom: ${theme.spacing(3)};
+            position: sticky;
+            left: ${theme.spacing(102)};
+            bottom: ${theme.spacing(115)};
         }
     `
 );

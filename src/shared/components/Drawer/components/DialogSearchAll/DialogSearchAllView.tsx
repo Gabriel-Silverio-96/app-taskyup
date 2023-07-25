@@ -12,8 +12,15 @@ import { BiSearch } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 import { TextFieldWithIconButton } from "./style";
 
-const DialogSearchAllView: React.FC<any> = (props) => {
-	const { dialogSearchAll, handleClickCloseDialogSearchAll } = props;
+const DialogSearchAllView: React.FC<any> = props => {
+	const {
+		register,
+		handleSubmit,
+		dialogSearchAllSubmit,
+		errors,
+		dialogSearchAll,
+		handleClickCloseDialogSearchAll,
+	} = props;
 
 	return (
 		<Dialog fullWidth maxWidth="md" open={dialogSearchAll.open}>
@@ -35,15 +42,22 @@ const DialogSearchAllView: React.FC<any> = (props) => {
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<form>
+				<form onSubmit={handleSubmit(dialogSearchAllSubmit)}>
 					<Grid container>
 						<Grid item md>
 							<TextFieldWithIconButton>
-								<TextField label="What you looking for?" variant="standard" fullWidth />
-								<IconButton>
+								<TextField
+									label="What you looking for?"
+									variant="standard"
+									fullWidth
+									{...register("query")}
+									error={errors.query && Boolean(errors.query)}
+									helperText={errors.query ? errors.query?.message: ""}
+								/>
+								<IconButton type="submit">
 									<BiSearch size={18} />
-								</IconButton>            
-							</TextFieldWithIconButton>                
+								</IconButton>
+							</TextFieldWithIconButton>
 						</Grid>
 					</Grid>
 				</form>
