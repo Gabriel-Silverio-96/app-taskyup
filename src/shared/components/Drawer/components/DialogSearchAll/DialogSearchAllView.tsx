@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
+import { TextFieldWithIconButton } from "./style";
 
 const DialogSearchAllView: React.FC<any> = (props) => {
 	const { dialogSearchAll, handleClickCloseDialogSearchAll } = props;
@@ -37,10 +38,12 @@ const DialogSearchAllView: React.FC<any> = (props) => {
 				<form>
 					<Grid container>
 						<Grid item md>
-							<TextField label="What you looking for?" variant="standard" fullWidth />
-							<IconButton>
-								<BiSearch size={18} />
-							</IconButton>                            
+							<TextFieldWithIconButton>
+								<TextField label="What you looking for?" variant="standard" fullWidth />
+								<IconButton>
+									<BiSearch size={18} />
+								</IconButton>            
+							</TextFieldWithIconButton>                
 						</Grid>
 					</Grid>
 				</form>
