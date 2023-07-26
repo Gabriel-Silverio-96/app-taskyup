@@ -11,6 +11,7 @@ import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 import { TextFieldWithIconButton } from "./style";
+import TableDialogSearchAll from "./components/TableDialogSearchAll/TableDialogSearchAll";
 
 const DialogSearchAllView: React.FC<any> = props => {
 	const {
@@ -20,6 +21,8 @@ const DialogSearchAllView: React.FC<any> = props => {
 		errors,
 		dialogSearchAll,
 		handleClickCloseDialogSearchAll,
+		data,
+		isLoading
 	} = props;
 
 	return (
@@ -61,6 +64,7 @@ const DialogSearchAllView: React.FC<any> = props => {
 						</Grid>
 					</Grid>
 				</form>
+				<TableDialogSearchAll {...{ data, isLoading }} />
 			</DialogContent>
 		</Dialog>
 	);

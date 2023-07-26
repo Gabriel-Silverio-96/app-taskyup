@@ -36,6 +36,8 @@ const DialogSearchAll: React.FC = () => {
 				errors,
 				dialogSearchAll,
 				handleClickCloseDialogSearchAll,
+				data,
+				isLoading
 			}}
 		/>
 	);
