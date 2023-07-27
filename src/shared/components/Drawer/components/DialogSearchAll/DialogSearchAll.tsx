@@ -20,10 +20,13 @@ const DialogSearchAll: React.FC = () => {
 	const handleClickCloseDialogSearchAll = () => dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
 
 	const mutationFn = ({ query }: IDialogSearchAllForm) => fetchGetSearchAllService({ query });
-	const { data, mutate: dialogSearchAllSubmit, isLoading } = useMutation(mutationFn);
+	const { data, mutate: dialogSearchAllSubmit, isLoading, reset: resetMutation } = useMutation(mutationFn);
 
 	useEffect(() => {
-		return () => reset();
+		return () => {
+			reset();
+			resetMutation();
+		};
 	}, [dialogSearchAll]);
 
 
