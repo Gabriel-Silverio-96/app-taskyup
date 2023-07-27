@@ -1,0 +1,1 @@
+export type TYPE_BOARD = "texts" | "notes";
