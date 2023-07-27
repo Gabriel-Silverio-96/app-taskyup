@@ -56,6 +56,7 @@ const DialogSearchAllView: React.FC<any> = props => {
 									{...register("query")}
 									error={errors.query && Boolean(errors.query)}
 									helperText={errors.query ? errors.query?.message: ""}
+									autoComplete="off"
 								/>
 								<IconButton type="submit">
 									<BiSearch size={18} />
