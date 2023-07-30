@@ -53,7 +53,7 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 						<Grid item md>
 							<TextFieldWithIconButton>
 								<TextField
-									label="What you looking for?"
+									label="What are you looking for?"
 									variant="standard"
 									fullWidth
 									{...register("query")}
