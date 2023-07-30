@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 import { GridColDef, GridRowsProp } from "@mui/x-data-grid";
 
 export interface ITableDialogSearchAll {
-    data: IFetchGetSearchAllResponse;
+    data: IFetchGetSearchAllResponse | undefined;
     isLoading: boolean;
     paginationModel: IPaginationModel;
     setPaginationModel: Dispatch<SetStateAction<IPaginationModel>>;
