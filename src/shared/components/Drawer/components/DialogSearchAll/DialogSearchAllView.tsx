@@ -22,7 +22,9 @@ const DialogSearchAllView: React.FC<any> = props => {
 		dialogSearchAll,
 		handleClickCloseDialogSearchAll,
 		data,
-		isLoading
+		isLoading,
+		paginationModel, 
+		setPaginationModel
 	} = props;
 
 	return (
@@ -65,7 +67,7 @@ const DialogSearchAllView: React.FC<any> = props => {
 						</Grid>
 					</Grid>
 				</form>
-				<TableDialogSearchAll {...{ data, isLoading }} />
+				<TableDialogSearchAll {...{ data, isLoading, paginationModel, setPaginationModel }} />
 			</DialogContent>
 		</Dialog>
 	);

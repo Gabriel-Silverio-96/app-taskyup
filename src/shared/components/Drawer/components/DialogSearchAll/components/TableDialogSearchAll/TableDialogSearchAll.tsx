@@ -35,7 +35,7 @@ const getActions: any = (params: any) => {
 	];
 };
 
-const TableDialogSearchAll: React.FC<any> = ({ data, isLoading }) => {
+const TableDialogSearchAll: React.FC<any> = ({ data, isLoading, paginationModel, setPaginationModel }) => {
 	const rows: GridRowsProp = data?.results || [];
 
 	const columns: GridColDef[] = [
@@ -45,7 +45,9 @@ const TableDialogSearchAll: React.FC<any> = ({ data, isLoading }) => {
 		{ field: "actions", type: "actions", getActions },
 	];
 
-	return <TableDialogSearchAllView {... { data, rows, columns, isLoading }} />;
+	const hadlePaginationModelChange = (values: any) => setPaginationModel(values);
+		
+	return <TableDialogSearchAllView {... { data, rows, columns, isLoading, paginationModel, hadlePaginationModelChange  }} />;
 };
 
 export default TableDialogSearchAll;

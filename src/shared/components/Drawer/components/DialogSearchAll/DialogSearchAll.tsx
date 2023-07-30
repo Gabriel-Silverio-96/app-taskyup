@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAll/DialogSearchAll.reduce";
@@ -10,6 +10,7 @@ import DialogSearchAllView from "./DialogSearchAllView";
 import schema from "./schema";
 import { fetchGetSearchAllService } from "./service";
 import { IDialogSearchAllForm } from "./types/DialogSearchAll.types";
+import { IPaginationModel } from "shared/common/types/AppTypes";
 
 const DialogSearchAll: React.FC = () => {
 	const dispatch = useDispatch();
@@ -26,11 +27,18 @@ const DialogSearchAll: React.FC = () => {
 		mode: "all",
 	});
 
+	const [paginationModel, setPaginationModel] = useState<IPaginationModel>({ pageSize: 10, page: 0 });	  
+
 	const handleClickCloseDialogSearchAll = () =>
 		dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
 
 	const queryKey = ["get_search_all"];
-	const queryFn = () => fetchGetSearchAllService(getValues());
+	const queryFn = () => {
+		const { page, pageSize } = paginationModel;
+		const payload = {...getValues(), pageNumber: page, pageSize };
+
+		return fetchGetSearchAllService(payload);
+	};
 	const { data, isLoading, refetch } = useQuery(queryKey, queryFn);
 
 	useEffect(() => {
@@ -38,6 +46,10 @@ const DialogSearchAll: React.FC = () => {
 			reset();
 		};
 	}, [dialogSearchAll]);
+
+	useEffect(() => {
+		refetch();
+	}, [paginationModel]);
 
 	const dialogSearchAllSubmit = () => refetch();
 
@@ -52,6 +64,8 @@ const DialogSearchAll: React.FC = () => {
 				handleClickCloseDialogSearchAll,
 				data,
 				isLoading,
+				paginationModel, 
+				setPaginationModel
 			}}
 		/>
 	);
