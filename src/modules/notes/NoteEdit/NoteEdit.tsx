@@ -32,7 +32,7 @@ const NoteEdit: React.FC = () => {
 
 	const { isFetching, refetch } = useQuery<IFetchGetOneNoteResponse>(queryKey, queryFn, optionsQuery);
 
-	useEffect(() => {refetch();}, []); 
+	useEffect(() => {refetch();}, [board_id,  note_id]); 
 
 	const onSuccessMutation = async () => await queryClient.invalidateQueries(["notes"]);	
 	const mutationFn = (form: INoteEditForm) => fetchPutNoteService({ payload: form, note_id, board_id });

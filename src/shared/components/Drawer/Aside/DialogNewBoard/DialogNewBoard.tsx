@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import React, { memo, useMemo } from "react";
+import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import api from "shared/services/api";
 import DialogNewBoardView from "./DialogNewBoardView";
@@ -20,7 +20,9 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({ openDialog, closeDialogNewB
 		reset 
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });	
 		
-	useMemo(() => openDialog && reset(), [openDialog]);
+	useEffect(() => {
+		return () => reset();
+	}, [openDialog]);
 
 	const mutationDialogNewBoard = async (dataNewBoard: IDialogNewBoardForm) => {
 		const { data } = await api.post("board/create", dataNewBoard);
