@@ -12,8 +12,9 @@ import { BiSearch } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 import { TextFieldWithIconButton } from "./style";
 import TableDialogSearchAll from "./components/TableDialogSearchAll/TableDialogSearchAll";
+import { DialogSearchAllView } from "./types";
 
-const DialogSearchAllView: React.FC<any> = props => {
+const DialogSearchAllView: React.FC<DialogSearchAllView> = props => {
 	const {
 		register,
 		handleSubmit,

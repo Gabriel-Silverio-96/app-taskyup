@@ -1,3 +1,8 @@
+import { Dispatch, SetStateAction } from "react";
+import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
+import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types/DialogSearchAll.types";
+import { IPaginationModel } from "shared/common/types/AppTypes";
+
 export interface IDialogSearchAllForm {
     query: string;
 }
@@ -22,4 +27,17 @@ export interface IFetchGetSearchAllResponse {
 	offset: number;
 	countResult: number;
     results: Array<IFetchGetSearchAllResponseResults>;
+}
+
+export interface DialogSearchAllView {
+    register: UseFormRegister<IDialogSearchAllForm>;
+    handleSubmit: UseFormHandleSubmit<IDialogSearchAllForm>;
+    dialogSearchAllSubmit: () => void;
+    errors:FieldErrors<IDialogSearchAllForm>;
+    dialogSearchAll: IDialogSearchAllState;
+    handleClickCloseDialogSearchAll: () => void;
+    data: IFetchGetSearchAllResponse | undefined;
+    isLoading: boolean;
+    paginationModel: IPaginationModel;
+    setPaginationModel: Dispatch<SetStateAction<IPaginationModel>>;
 }
