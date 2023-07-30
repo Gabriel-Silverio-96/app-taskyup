@@ -57,9 +57,7 @@ const DialogSearchAll: React.FC = () => {
 		refetch();
 	}, [paginationModel]);
 
-	const dialogSearchAllSubmit = () => {
-		refetch();
-	};
+	const dialogSearchAllSubmit = () => setPaginationModel(prevState => ({ ...prevState, page: 0 }));
 
 	return (
 		<DialogSearchAllView
