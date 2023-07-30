@@ -1,7 +1,8 @@
 import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
+import { ITableDialogSearchAllView } from "./types";
 
-const TableDialogSearchAllView: React.FC<any> = props => {
+const TableDialogSearchAllView: React.FC<ITableDialogSearchAllView> = props => {
 	const {
 		data,
 		rows,

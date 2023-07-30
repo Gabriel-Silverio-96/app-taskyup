@@ -10,6 +10,7 @@ import { createAction } from "shared/common/store/store.action";
 import { getSubDirectory } from "./utils/getSubDirectory";
 import { generateQueryParams } from "./utils/generateQueryParams";
 import { IPaginationModel } from "shared/common/types/AppTypes";
+import { ITableDialogSearchAll } from "./types";
 
 const getActions: any = (params: any) => {
 	const navigate = useNavigate();
@@ -36,7 +37,7 @@ const getActions: any = (params: any) => {
 	];
 };
 
-const TableDialogSearchAll: React.FC<any> = ({ data, isLoading, paginationModel, setPaginationModel }) => {
+const TableDialogSearchAll: React.FC<ITableDialogSearchAll> = ({ data, isLoading, paginationModel, setPaginationModel }) => {
 	const rows: GridRowsProp = data?.results || [];
 
 	const columns: GridColDef[] = [
