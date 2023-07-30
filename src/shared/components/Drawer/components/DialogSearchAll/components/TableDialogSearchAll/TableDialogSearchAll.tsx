@@ -9,6 +9,7 @@ import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAl
 import { createAction } from "shared/common/store/store.action";
 import { getSubDirectory } from "./utils/getSubDirectory";
 import { generateQueryParams } from "./utils/generateQueryParams";
+import { IPaginationModel } from "shared/common/types/AppTypes";
 
 const getActions: any = (params: any) => {
 	const navigate = useNavigate();
@@ -45,7 +46,7 @@ const TableDialogSearchAll: React.FC<any> = ({ data, isLoading, paginationModel,
 		{ field: "actions", type: "actions", getActions },
 	];
 
-	const hadlePaginationModelChange = (values: any) => setPaginationModel(values);
+	const hadlePaginationModelChange = (props: IPaginationModel) => setPaginationModel(props);
 		
 	return <TableDialogSearchAllView {... { data, rows, columns, isLoading, paginationModel, hadlePaginationModelChange  }} />;
 };
