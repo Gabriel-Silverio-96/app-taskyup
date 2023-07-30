@@ -1,34 +1,45 @@
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
-import DialogSearchAllView from "./DialogSearchAllView";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { createAction } from "shared/common/store/store.action";
+import { useDispatch, useSelector } from "react-redux";
 import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAll/DialogSearchAll.reduce";
 import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types/DialogSearchAll.types";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { createAction } from "shared/common/store/store.action";
+import DialogSearchAllView from "./DialogSearchAllView";
 import schema from "./schema";
-import { useMutation } from "@tanstack/react-query";
 import { fetchGetSearchAllService } from "./service";
 import { IDialogSearchAllForm } from "./types/DialogSearchAll.types";
 
-const DialogSearchAll: React.FC = () => {    
+const DialogSearchAll: React.FC = () => {
 	const dispatch = useDispatch();
-	const dialogSearchAll = useSelector((state: { dialogSearchAll: IDialogSearchAllState }) => state.dialogSearchAll);	
+	const dialogSearchAll = useSelector((state: { dialogSearchAll: IDialogSearchAllState }) =>	state.dialogSearchAll);
 
-	const {	register, handleSubmit, formState: { errors }, reset } = useForm<IDialogSearchAllForm>({ resolver: yupResolver(schema), mode: "all" }); 
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+		getValues,
+	} = useForm<IDialogSearchAllForm>({
+		resolver: yupResolver(schema),
+		mode: "all",
+	});
 
-	const handleClickCloseDialogSearchAll = () => dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
+	const handleClickCloseDialogSearchAll = () =>
+		dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
 
-	const mutationFn = ({ query }: IDialogSearchAllForm) => fetchGetSearchAllService({ query });
-	const { data, mutate: dialogSearchAllSubmit, isLoading, reset: resetMutation } = useMutation(mutationFn);
+	const queryKey = ["get_search_all"];
+	const queryFn = () => fetchGetSearchAllService(getValues());
+	const { data, isLoading, refetch } = useQuery(queryKey, queryFn);
 
 	useEffect(() => {
 		return () => {
 			reset();
-			resetMutation();
 		};
 	}, [dialogSearchAll]);
 
+	const dialogSearchAllSubmit = () => refetch();
 
 	return (
 		<DialogSearchAllView
@@ -40,7 +51,7 @@ const DialogSearchAll: React.FC = () => {
 				dialogSearchAll,
 				handleClickCloseDialogSearchAll,
 				data,
-				isLoading
+				isLoading,
 			}}
 		/>
 	);
