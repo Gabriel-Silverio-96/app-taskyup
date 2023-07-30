@@ -19,7 +19,7 @@ const TableDialogSearchAllView: React.FC<any> = props => {
 				columns={columns}
 				rowCount={data?.countResult}
 				pagination
-				pageSizeOptions={[10]}
+				pageSizeOptions={[10, 25, 50]}
 				paginationMode="server"
 				paginationModel={paginationModel}				
 				onPaginationModelChange={hadlePaginationModelChange}
