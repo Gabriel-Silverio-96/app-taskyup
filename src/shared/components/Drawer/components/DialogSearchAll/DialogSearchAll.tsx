@@ -53,7 +53,8 @@ const DialogSearchAll: React.FC = () => {
 	}, [dialogSearchAll]);
 
 	useEffect(() => {
-		refetch();
+		const { query } = getValues();
+		if(query) refetch();
 	}, [paginationModel]);
 
 	const dialogSearchAllSubmit = () => setPaginationModel(prevState => ({ ...prevState, page: 0 }));
