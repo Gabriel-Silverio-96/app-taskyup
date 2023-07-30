@@ -40,7 +40,7 @@ const DialogSearchAll: React.FC = () => {
 		return fetchGetSearchAllService(payload);
 	};
 
-	const { data, isLoading, refetch, remove } = useQuery(queryKey, queryFn, {
+	const { data, isFetching: isLoading, refetch, remove } = useQuery(queryKey, queryFn, {
 		enabled: false,
 		initialData: INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
 	});
