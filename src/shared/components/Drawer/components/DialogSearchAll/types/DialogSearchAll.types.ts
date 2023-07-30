@@ -29,7 +29,7 @@ export interface IFetchGetSearchAllResponse {
     results: Array<IFetchGetSearchAllResponseResults>;
 }
 
-export interface DialogSearchAllView {
+export interface IDialogSearchAllView {
     register: UseFormRegister<IDialogSearchAllForm>;
     handleSubmit: UseFormHandleSubmit<IDialogSearchAllForm>;
     dialogSearchAllSubmit: () => void;
