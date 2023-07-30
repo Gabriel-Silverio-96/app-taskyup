@@ -3,7 +3,7 @@ import { generateQueryParams } from "../generateQueryParams";
 import { IGenerateQueryParams } from "../types/generateQueryParams.types";
 
 describe("Function generateQueryParams()", () => {
-	it("should return the correct query params for type_board 'texts'", () => {
+	it("Should return the correct query params for type_board 'texts'", () => {
 		const board_id = faker.datatype.uuid();
 		const id = faker.datatype.uuid();
         
@@ -14,7 +14,7 @@ describe("Function generateQueryParams()", () => {
 		expect(result).toEqual(expected);
 	});
 
-	it("should return the correct query params for type_board 'notes'", () => {
+	it("Should return the correct query params for type_board 'notes'", () => {
 		const board_id = faker.datatype.uuid();
 		const id = faker.datatype.uuid();
         
