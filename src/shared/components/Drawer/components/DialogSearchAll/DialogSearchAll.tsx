@@ -11,11 +11,10 @@ import schema from "./schema";
 import { fetchGetSearchAllService } from "./service";
 import { IDialogSearchAllForm } from "./types/DialogSearchAll.types";
 import { IPaginationModel } from "shared/common/types/AppTypes";
+import { INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY, INTIAL_STATE_PAGINATION_MODEL } from "./constants";
 
 const DialogSearchAll: React.FC = () => {
-	const dispatch = useDispatch();
-	const dialogSearchAll = useSelector((state: { dialogSearchAll: IDialogSearchAllState }) =>	state.dialogSearchAll);
-
+	const dispatch = useDispatch();	
 	const {
 		register,
 		handleSubmit,
@@ -27,7 +26,9 @@ const DialogSearchAll: React.FC = () => {
 		mode: "all",
 	});
 
-	const [paginationModel, setPaginationModel] = useState<IPaginationModel>({ pageSize: 10, page: 0 });	  
+	const [paginationModel, setPaginationModel] = useState<IPaginationModel>(INTIAL_STATE_PAGINATION_MODEL);
+
+	const dialogSearchAll = useSelector((state: { dialogSearchAll: IDialogSearchAllState }) => state.dialogSearchAll);
 
 	const handleClickCloseDialogSearchAll = () =>
 		dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
@@ -35,15 +36,20 @@ const DialogSearchAll: React.FC = () => {
 	const queryKey = ["get_search_all"];
 	const queryFn = () => {
 		const { page, pageSize } = paginationModel;
-		const payload = {...getValues(), pageNumber: page, pageSize };
+		const payload = { ...getValues(), pageNumber: page, pageSize };
 
 		return fetchGetSearchAllService(payload);
 	};
-	const { data, isLoading, refetch } = useQuery(queryKey, queryFn);
+
+	const { data, isLoading, refetch, remove } = useQuery(queryKey, queryFn, {
+		enabled: false,
+		initialData: INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
+	});
 
 	useEffect(() => {
 		return () => {
 			reset();
+			remove();
 		};
 	}, [dialogSearchAll]);
 
@@ -51,7 +57,9 @@ const DialogSearchAll: React.FC = () => {
 		refetch();
 	}, [paginationModel]);
 
-	const dialogSearchAllSubmit = () => refetch();
+	const dialogSearchAllSubmit = () => {
+		refetch();
+	};
 
 	return (
 		<DialogSearchAllView
@@ -64,8 +72,8 @@ const DialogSearchAll: React.FC = () => {
 				handleClickCloseDialogSearchAll,
 				data,
 				isLoading,
-				paginationModel, 
-				setPaginationModel
+				paginationModel,
+				setPaginationModel,
 			}}
 		/>
 	);
