@@ -1,6 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
 import { ITableDialogSearchAllView } from "./types";
+import { TableDialogSearchAllContainer } from "./style";
 
 const TableDialogSearchAllView: React.FC<ITableDialogSearchAllView> = props => {
 	const {
@@ -13,7 +14,7 @@ const TableDialogSearchAllView: React.FC<ITableDialogSearchAllView> = props => {
 	} = props;
 
 	return (
-		<div style={{ height: 300, width: "100%" }}>
+		<TableDialogSearchAllContainer>
 			<DataGrid
 				loading={isLoading}
 				rows={rows}
@@ -25,7 +26,7 @@ const TableDialogSearchAllView: React.FC<ITableDialogSearchAllView> = props => {
 				paginationModel={paginationModel}				
 				onPaginationModelChange={hadlePaginationModelChange}
 			/>
-		</div>
+		</TableDialogSearchAllContainer>
 	);
 };
 
