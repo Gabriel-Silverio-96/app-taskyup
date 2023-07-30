@@ -30,8 +30,7 @@ const DialogSearchAll: React.FC = () => {
 
 	const dialogSearchAll = useSelector((state: { dialogSearchAll: IDialogSearchAllState }) => state.dialogSearchAll);
 
-	const handleClickCloseDialogSearchAll = () =>
-		dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
+	const handleClickCloseDialogSearchAll = () => dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
 
 	const queryKey = ["get_search_all"];
 	const queryFn = () => {
