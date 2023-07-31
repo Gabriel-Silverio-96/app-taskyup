@@ -1,3 +1,4 @@
+import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
@@ -5,6 +6,8 @@ import AsideView from "./AsideView";
 import { fetchMenu } from "./service";
 
 const Aside: React.FC = () => {
+	const { palette } = useTheme();
+
 	const [openAside, setOpenAside] = useLocalStorage("@taskyup.aside.open", true);
 	const [openDialog, setOpenDialog] = useState(false);
 
@@ -18,6 +21,7 @@ const Aside: React.FC = () => {
 	return (
 		<AsideView
 			{...{
+				palette,
 				menu,
 				openAside,
 				toogleOpenAside,
