@@ -8,8 +8,8 @@ export const Aside = styled("aside")<IAsideStyle>(
         width: ${open ? theme.spacing(25) : theme.spacing(7)};
         padding: ${theme.spacing(2)};          
         transition: width 0.2s ease-out;
-        border-style: solid;
-        border-width: ${open ? theme.spacing(0, 0.0500, 0, 0) : ""};
+        border-style: ${open ? "solid" : "none"};
+        border-width: ${theme.spacing(0, 0.0500, 0, 0)};
         border-color: ${theme.palette.grey[900]};
 
         .MuiTreeView-root {            
