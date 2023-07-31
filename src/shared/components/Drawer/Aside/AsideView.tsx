@@ -1,16 +1,16 @@
 import { TreeItem, TreeView } from "@mui/lab";
 import { Button, Divider, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronRight, FiPlus } from "react-icons/fi";
+import { FiChevronDown, FiChevronRight } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
-import { MdOutlineMenu, MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { GrHomeRounded } from "react-icons/gr";
+import { MdOutlineMenu, MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import DialogNewBoard from "./DialogNewBoard";
+import LinkTreeItem from "./components/LinkTreeItem/LinkTreeItem";
 import { Aside, AsideHeader, TreeViewContainer, TreeViewContainerItem } from "./style";
 import { IAsideView } from "./types/Aside.component";
-import LinkTreeItem from "./components/LinkTreeItem/LinkTreeItem";
 
 const AsideView: React.FC<IAsideView> = (props) => {
 	const { 
