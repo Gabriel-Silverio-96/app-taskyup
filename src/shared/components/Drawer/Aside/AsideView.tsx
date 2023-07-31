@@ -44,7 +44,7 @@ const AsideView: React.FC<IAsideView> = (props) => {
 				sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
 				onClick={openDialogNewBoard}
 			>
-				{openAside ? "New board" : <FiPlus />}
+				New board
 			</Button>
 
 			<TreeViewContainer open={openAside}>
