@@ -20,8 +20,9 @@ const DialogDeleteAllTexts: React.FC = () => {
 			closeDialogDeleteAllTexts();
 		},
 	};
-
-	const { mutate: fetchDeleteAll, isLoading: isDeleting } = useMutation(() => fetchDeleteAllTextsService(board_id), optionMutation);
+	
+	const mutationFn = () => fetchDeleteAllTextsService(board_id);
+	const { mutate: fetchDeleteAll, isLoading: isDeleting } = useMutation(mutationFn, optionMutation);
 
 	return (
 		<DialogDeleteAllTextView
