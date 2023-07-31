@@ -1,9 +1,9 @@
 import { TreeItem, TreeView } from "@mui/lab";
 import { Button, Divider, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronLeft, FiChevronRight, FiPlus } from "react-icons/fi";
+import { FiChevronDown, FiChevronRight, FiPlus } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
-import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
+import { MdOutlineMenu, MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { GrHomeRounded } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
@@ -14,6 +14,7 @@ import LinkTreeItem from "./components/LinkTreeItem/LinkTreeItem";
 
 const AsideView: React.FC<IAsideView> = (props) => {
 	const { 
+		palette,
 		menu,
 		openAside, 
 		openDialog, 
@@ -34,7 +35,7 @@ const AsideView: React.FC<IAsideView> = (props) => {
 					size="small"
 					onClick={toogleOpenAside}
 				>
-					{openAside ? <FiChevronLeft /> : <FiChevronRight />}
+					<MdOutlineMenu size={25} color={palette.common.white} />
 				</IconButton>
 			</AsideHeader>
 			<Button

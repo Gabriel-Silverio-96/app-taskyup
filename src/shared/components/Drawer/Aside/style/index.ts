@@ -59,10 +59,9 @@ export const AsideHeader = styled("div")<IAsideStyle>(
         .MuiIconButton-root {
             position: absolute;
             transform: scale(0.8);
-            right: ${open ? theme.spacing(1.8) : `-${theme.spacing(2.2)}`};
-            top: ${theme.spacing(2.5)};
-            background-color: ${theme.palette.background.paper};
-
+            right: ${open ? theme.spacing(1.8) : `-${theme.spacing(3.2)}`};
+            top: ${theme.spacing(2.125)};
+            
             :hover {
                 background-color: ${theme.palette.primary.main};
                 svg {
