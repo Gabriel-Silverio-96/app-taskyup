@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useContextText } from "../../Context";
 import useDialogText from "../../hooks/useDialogText";
 import DialogDeleteSingleTextView from "./DialogDeleteSingleTextView";
-import { fetchDeleteSingleText } from "./service";
+import { fetchDeleteOneTextService } from "./service";
 
 const DialogDeleteSingleText: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -19,7 +19,7 @@ const DialogDeleteSingleText: React.FC = () => {
 		}
 	};
 
-	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(() => fetchDeleteSingleText(textID), optionMutation);
+	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(() => fetchDeleteOneTextService(textID), optionMutation);
 
 	return (
 		<DialogDeleteSingleTextView
