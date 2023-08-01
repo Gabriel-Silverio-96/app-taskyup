@@ -1,4 +1,4 @@
-export interface IDialogDeleteSingleTextView {
+export interface IDialogDeleteOneTextView {
     dialogDeleteSingleText: { open: boolean, textID: string };
     closeDialogDeleteSingleText: () => void;
     fetchDelete: () => void;

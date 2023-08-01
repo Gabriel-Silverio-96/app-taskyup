@@ -2,10 +2,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useContextText } from "modules/texts/Text/Context";
 import useDialogText from "modules/texts/Text/hooks/useDialogText";
-import DialogDeleteSingleTextView from "./DialogDeleteSingleTextView";
+import DialogDeleteOneTextView from "./DialogDeleteOneTextView";
 import { fetchDeleteOneTextService } from "./service";
 
-const DialogDeleteSingleText: React.FC = () => {
+const DialogDeleteOneText: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { closeDialogDeleteSingleText } = useDialogText();
 	const { dialogDeleteSingleText } = useContextText();
@@ -23,7 +23,7 @@ const DialogDeleteSingleText: React.FC = () => {
 	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(mutationFn, optionMutation);
 
 	return (
-		<DialogDeleteSingleTextView
+		<DialogDeleteOneTextView
 			{...{
 				dialogDeleteSingleText,
 				closeDialogDeleteSingleText,
@@ -34,4 +34,4 @@ const DialogDeleteSingleText: React.FC = () => {
 	);
 };
 
-export default memo(DialogDeleteSingleText);
+export default memo(DialogDeleteOneText);

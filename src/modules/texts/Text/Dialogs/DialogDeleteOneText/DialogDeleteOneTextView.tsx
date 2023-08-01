@@ -11,9 +11,9 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { IDialogDeleteSingleTextView } from "./types/DialogDeleteSingleText.component";
+import { IDialogDeleteOneTextView } from "./types";
 
-const DialogDeleteSingleTextView: React.FC<IDialogDeleteSingleTextView> = (props) => {
+const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = (props) => {
 	const { 
 		dialogDeleteSingleText, 
 		closeDialogDeleteSingleText, 
@@ -66,4 +66,4 @@ const DialogDeleteSingleTextView: React.FC<IDialogDeleteSingleTextView> = (props
 	);
 };
 
-export default DialogDeleteSingleTextView;
+export default DialogDeleteOneTextView;
