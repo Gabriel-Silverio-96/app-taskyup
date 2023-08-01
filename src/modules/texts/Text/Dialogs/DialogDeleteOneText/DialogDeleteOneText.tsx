@@ -22,13 +22,16 @@ const DialogDeleteOneText: React.FC = () => {
 	const mutationFn = () => fetchDeleteOneTextService(textID);
 	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(mutationFn, optionMutation);
 
+	const onClose = !isDeleting ? closeDialogDeleteSingleText : () => "";
+
 	return (
 		<DialogDeleteOneTextView
 			{...{
 				dialogDeleteSingleText,
 				closeDialogDeleteSingleText,
 				fetchDelete,
-				isDeleting
+				isDeleting,
+				onClose
 			}}
 		/>
 	);

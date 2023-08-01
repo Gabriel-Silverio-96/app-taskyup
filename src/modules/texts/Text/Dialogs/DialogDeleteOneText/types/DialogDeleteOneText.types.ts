@@ -3,4 +3,5 @@ export interface IDialogDeleteOneTextView {
     closeDialogDeleteSingleText: () => void;
     fetchDelete: () => void;
     isDeleting: boolean;
+    onClose: () => void | string;
 }

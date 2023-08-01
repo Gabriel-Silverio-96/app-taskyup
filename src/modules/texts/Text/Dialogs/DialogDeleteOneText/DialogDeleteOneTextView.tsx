@@ -18,11 +18,11 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = (props) => {
 		dialogDeleteSingleText, 
 		closeDialogDeleteSingleText, 
 		fetchDelete, 
-		isDeleting 
+		isDeleting,
+		onClose 
 	} = props;
 
 	const { open } = dialogDeleteSingleText;
-	const onClose = !isDeleting ? closeDialogDeleteSingleText : () => "";
 
 	return (
 		<Dialog fullWidth maxWidth="xs" open={open} onClose={onClose}>
