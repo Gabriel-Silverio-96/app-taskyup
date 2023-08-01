@@ -19,7 +19,8 @@ const DialogDeleteSingleText: React.FC = () => {
 		}
 	};
 
-	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(() => fetchDeleteOneTextService(textID), optionMutation);
+	const mutationFn = () => fetchDeleteOneTextService(textID);
+	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(mutationFn, optionMutation);
 
 	return (
 		<DialogDeleteSingleTextView
