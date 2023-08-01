@@ -2,7 +2,7 @@ import React from "react";
 import CardText from "./CardText";
 import { ContextProviderText } from "./Context";
 import DialogDeleteAllText from "./Dialogs/DialogDeleteAllTexts";
-import DialogDeleteSingleText from "./Dialogs/DialogDeleteSingleText";
+import DialogDeleteOneText from "./Dialogs/DialogDeleteOneText";
 import HeaderText from "./HeaderText";
 import Templates from "./Templates";
 
@@ -12,7 +12,7 @@ const TextView: React.FC = () => {
 			<HeaderText />
 			<Templates />
 			<CardText />
-			<DialogDeleteSingleText />
+			<DialogDeleteOneText />
 			<DialogDeleteAllText />
 		</ContextProviderText>
 	);
