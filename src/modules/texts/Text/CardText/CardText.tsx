@@ -4,7 +4,7 @@ import React, { memo, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useDialogText from "../hooks/useDialogText";
 import fetchPostTextService from "../service";
-import { IFetchCreateText } from "../types";
+import { IFetchPostTextResponse } from "../types";
 import CardTextView from "./CardTextView";
 import { fetchGetAllTextService } from "./service";
 import { mountBodyText } from "./utils/mount-body-text";
@@ -44,7 +44,7 @@ const CardText: React.FC = () => {
 		return data;
 	};
 
-	const onSuccessMutation = async ({ text_id }: IFetchCreateText) => {
+	const onSuccessMutation = async ({ text_id }: IFetchPostTextResponse) => {
 		const redirectTo = createURLQueryParams("/text/edit", {
 			text_id,
 			board_id,

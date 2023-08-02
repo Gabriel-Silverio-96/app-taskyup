@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContextText } from "../Context";
 import fetchPostTextService from "../service";
-import { IFetchCreateText } from "../types";
+import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
 import { Template } from "./types/Template.component";
 import { mountBody } from "./utils/mount-body";
@@ -21,7 +21,7 @@ const Templates: React.FC = () => {
 		return data;
 	};
 
-	const onSuccess = (data: IFetchCreateText) => {
+	const onSuccess = (data: IFetchPostTextResponse) => {
 		const { text_id } = data;
 		queryClient.invalidateQueries(["texts"]);
 
