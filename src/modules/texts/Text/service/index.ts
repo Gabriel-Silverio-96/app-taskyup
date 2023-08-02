@@ -1,10 +1,7 @@
 import api from "shared/services/api";
-import { IFetchCreateText, IFetchTextBody } from "../types";
+import { IFetchCreateText, IFetchPostTextService } from "../types";
 
-const fetchPostTextService = async (
-	board_id: string | undefined,
-	body: IFetchTextBody
-) => {
+const fetchPostTextService: IFetchPostTextService = async (board_id, body) => {
 	const response = await api.post<IFetchCreateText>(
 		`/text/board_id=${board_id}`,
 		body
