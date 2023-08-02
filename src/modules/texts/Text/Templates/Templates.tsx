@@ -2,11 +2,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContextText } from "../Context";
-import fetchCreateText from "../service";
-import { IFetchCreateText } from "../types";
+import { fetchPostTextService } from "../service";
+import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
 import { Template } from "./types/Template.component";
 import { mountBody } from "./utils/mount-body";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const Templates: React.FC = () => {
 	const { board_id } = useParams();
@@ -17,22 +18,32 @@ const Templates: React.FC = () => {
 
 	const mutationFn = async (template: Template) => {
 		const body = await mountBody(template);
-		const { data } = await fetchCreateText(board_id, body);		
+		const { data } = await fetchPostTextService(board_id, body);
 		return data;
 	};
 
-	const onSuccess = (data: IFetchCreateText) => {
+	const onSuccess = (data: IFetchPostTextResponse) => {
 		const { text_id } = data;
 		queryClient.invalidateQueries(["texts"]);
 
-		const redirectTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
+		const redirectTo = createURLQueryParams("/text/edit", {
+			text_id,
+			board_id,
+		});
 		navigate(redirectTo);
 	};
 
 	const optionsMutation = { onSuccess };
-	const { mutate: createTextTemplate, isLoading } = useMutation(mutationFn, optionsMutation);
+	const { mutate: createTextTemplate, isLoading } = useMutation(
+		mutationFn,
+		optionsMutation
+	);
 
-	return <TemplatesView {...{ isOpenTemplates, createTextTemplate, isLoading }} />;
+	return (
+		<TemplatesView
+			{...{ isOpenTemplates, createTextTemplate, isLoading }}
+		/>
+	);
 };
 
 export default memo(Templates);
