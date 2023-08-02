@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useDialogText from "../hooks/useDialogText";
-import fetchPostTextService from "../service";
+import { fetchPostTextService } from "../service";
 import { IFetchPostTextResponse } from "../types";
 import CardTextView from "./CardTextView";
 import { fetchGetAllTextService } from "./service";
