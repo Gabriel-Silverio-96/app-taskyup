@@ -7,6 +7,7 @@ import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
 import { Template } from "./types/Template.component";
 import { mountBody } from "./utils/mount-body";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const Templates: React.FC = () => {
 	const { board_id } = useParams();
@@ -25,7 +26,10 @@ const Templates: React.FC = () => {
 		const { text_id } = data;
 		queryClient.invalidateQueries(["texts"]);
 
-		const redirectTo = `/text/edit?text_id=${text_id}&board_id=${board_id}`;
+		const redirectTo = createURLQueryParams("/text/edit", {
+			text_id,
+			board_id,
+		});
 		navigate(redirectTo);
 	};
 
