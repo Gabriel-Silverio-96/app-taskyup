@@ -1,10 +1,2 @@
-const fetchGetTemplateTextService = async (
-	templateFile: RequestInfo | URL
-): Promise<string> => {
-	const response = await fetch(templateFile);
-	const text = await response.text();
-
-	return text;
-};
-
-export default fetchGetTemplateTextService;
+export * as default from "./Templates.service";
+export * from "./Templates.service";
