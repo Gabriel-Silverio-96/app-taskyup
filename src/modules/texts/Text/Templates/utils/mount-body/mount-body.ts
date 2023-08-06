@@ -1,4 +1,4 @@
-import { fetchGetTemplateTextService } from "../../service";
+import { fetchGetTemplateTextService } from "modules/texts/Text/Templates/service";
 import { Template } from "../../types/Template.component";
 import TableTemplate from "../../model-templates/table.md";
 import TodoTemplate from "../../model-templates/todo.md";
