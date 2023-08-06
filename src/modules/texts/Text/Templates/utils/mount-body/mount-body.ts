@@ -1,5 +1,5 @@
 import { fetchGetTemplateTextService } from "modules/texts/Text/Templates/service";
-import { Template } from "../../types/Template.component";
+import { Template } from "modules/texts/Text/Templates/types/Template.component";
 import { selectTemplate } from "./select-template";
 
 const mountBody = async (template: Template) => {
