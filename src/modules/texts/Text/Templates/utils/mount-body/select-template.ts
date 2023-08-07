@@ -8,22 +8,22 @@ import {
 import { Template } from "modules/texts/Text/Templates/types/Template.component";
 import { ITemplates } from "./types";
 
-const selectTemplate = (template: Template) => {
+const templatesMapping: ITemplates = {
+	table: { title_text: "Table template", markdown: TableTemplate },
+	todo: { title_text: "Todo template", markdown: TodoTemplate },
+	readme: { title_text: "Readme template", markdown: ReadmeTemplate },
+	code: { title_text: "Code template", markdown: CodeTemplate },
+	diagram: { title_text: "Diagram template", markdown: DiagramTemplate },
+};
+
+const selectTemplate = (templateName: Template) => {
 	const defaultTemplate = {
 		title_text: "Table template",
-		text: TableTemplate,
+		markdown: TableTemplate,
 	};
 
-	const templatesMapping: ITemplates = {
-		table: { title_text: "Table template", markdown: TableTemplate },
-		todo: { title_text: "Todo template", markdown: TodoTemplate },
-		readme: { title_text: "Readme template", markdown: ReadmeTemplate },
-		code: { title_text: "Code template", markdown: CodeTemplate },
-		diagram: { title_text: "Diagram template", markdown: DiagramTemplate },
-	};
-
-	const result = templatesMapping[template] || defaultTemplate;
+	const result = templatesMapping[templateName] || defaultTemplate;
 	return result;
 };
 
-export { selectTemplate };
+export { selectTemplate, templatesMapping };
