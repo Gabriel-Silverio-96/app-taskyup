@@ -2,6 +2,9 @@ import { fetchGetTemplateTextService } from "modules/texts/Text/Templates/servic
 import { Template } from "modules/texts/Text/Templates/types/Template.component";
 import { selectTemplate } from "./select-template";
 
+const MOUNT_BODY_ERROR_MESSAGE =
+	"There was a problem and the template was not generated";
+
 const mountBody = async (template: Template) => {
 	const { title_text, markdown } = selectTemplate(template);
 	try {
@@ -12,10 +15,10 @@ const mountBody = async (template: Template) => {
 	} catch (error) {
 		const data = {
 			title_text,
-			text: "There was a problem and the template was not generated",
+			text: MOUNT_BODY_ERROR_MESSAGE,
 		};
 		return data;
 	}
 };
 
-export { selectTemplate, mountBody };
+export { selectTemplate, mountBody, MOUNT_BODY_ERROR_MESSAGE };
