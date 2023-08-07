@@ -12,8 +12,8 @@ describe("Function selectTemplate", () => {
 		"Should return the correct template for the given template name %s",
 		(templateName, { title_text, markdown }) => {
 			const result = selectTemplate(templateName);
-			const expected = { title_text, markdown };
 
+			const expected = { title_text, markdown };
 			expect(result).toEqual(expected);
 		}
 	);
