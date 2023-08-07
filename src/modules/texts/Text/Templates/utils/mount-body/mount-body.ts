@@ -13,10 +13,8 @@ const mountBody = async (template: Template) => {
 
 		return data;
 	} catch (error) {
-		const data = {
-			title_text,
-			text: MOUNT_BODY_ERROR_MESSAGE,
-		};
+		const data = { title_text, text: MOUNT_BODY_ERROR_MESSAGE };
+
 		return data;
 	}
 };
