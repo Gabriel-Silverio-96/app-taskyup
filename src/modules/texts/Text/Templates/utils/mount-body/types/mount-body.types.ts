@@ -3,7 +3,7 @@ interface ITemplate {
 	markdown: RequestInfo | URL;
 }
 
-export interface ITemplates {
+export interface ITemplatesMapping {
 	table: ITemplate;
 	todo: ITemplate;
 	readme: ITemplate;

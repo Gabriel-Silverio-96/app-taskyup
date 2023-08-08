@@ -6,9 +6,9 @@ import {
 	TodoTemplate,
 } from "modules/texts/Text/Templates/model-templates";
 import { Template } from "modules/texts/Text/Templates/types/Template.component";
-import { ITemplates } from "./types";
+import { ITemplatesMapping } from "./types";
 
-const templatesMapping: ITemplates = {
+const templatesMapping: ITemplatesMapping = {
 	table: { title_text: "Table template", markdown: TableTemplate },
 	todo: { title_text: "Todo template", markdown: TodoTemplate },
 	readme: { title_text: "Readme template", markdown: ReadmeTemplate },
