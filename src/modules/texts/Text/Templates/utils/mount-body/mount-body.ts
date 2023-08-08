@@ -5,8 +5,8 @@ import { selectTemplate } from "./select-template";
 const MOUNT_BODY_ERROR_MESSAGE =
 	"There was a problem and the template was not generated";
 
-const mountBody = async (template: Template) => {
-	const { title_text, markdown } = selectTemplate(template);
+const mountBody = async (templateName: Template) => {
+	const { title_text, markdown } = selectTemplate(templateName);
 	try {
 		const text = await fetchGetTemplateTextService(markdown);
 		const data = { title_text, text };
