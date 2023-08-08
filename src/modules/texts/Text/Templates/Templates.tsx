@@ -6,7 +6,7 @@ import { fetchPostTextService } from "../service";
 import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
 import { Template } from "./types/Template.component";
-import { mountBody } from "./utils/mount-body";
+import { mountTemplateBody } from "./utils/mount-template-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const Templates: React.FC = () => {
@@ -16,8 +16,8 @@ const Templates: React.FC = () => {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 
-	const mutationFn = async (template: Template) => {
-		const body = await mountBody(template);
+	const mutationFn = async (templateName: Template) => {
+		const body = await mountTemplateBody(templateName);
 		const { data } = await fetchPostTextService(board_id, body);
 		return data;
 	};
