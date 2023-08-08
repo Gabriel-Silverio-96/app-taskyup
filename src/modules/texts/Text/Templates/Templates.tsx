@@ -6,7 +6,7 @@ import { fetchPostTextService } from "../service";
 import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
 import { Template } from "./types/Template.component";
-import { mountTemplateBody } from "./utils/mount-body";
+import { mountTemplateBody } from "./utils/mount-template-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const Templates: React.FC = () => {
