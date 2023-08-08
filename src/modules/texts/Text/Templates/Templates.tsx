@@ -6,7 +6,7 @@ import { fetchPostTextService } from "../service";
 import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
 import { Template } from "./types/Template.component";
-import { mountBody } from "./utils/mount-body";
+import { mountTemplateBody } from "./utils/mount-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const Templates: React.FC = () => {
@@ -17,7 +17,7 @@ const Templates: React.FC = () => {
 	const navigate = useNavigate();
 
 	const mutationFn = async (templateName: Template) => {
-		const body = await mountBody(templateName);
+		const body = await mountTemplateBody(templateName);
 		const { data } = await fetchPostTextService(board_id, body);
 		return data;
 	};

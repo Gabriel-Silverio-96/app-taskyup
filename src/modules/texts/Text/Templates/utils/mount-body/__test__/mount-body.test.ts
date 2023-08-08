@@ -3,7 +3,7 @@ import { fetchGetTemplateTextService } from "modules/texts/Text/Templates/servic
 import { Template } from "modules/texts/Text/Templates/types/Template.component";
 import {
 	MOUNT_BODY_ERROR_MESSAGE,
-	mountBody,
+	mountTemplateBody,
 	selectTemplate,
 } from "../mount-body";
 
@@ -15,7 +15,7 @@ afterEach(() => {
 	jest.clearAllMocks();
 });
 
-describe("Function mountBody()", () => {
+describe("Function mountTemplateBody()", () => {
 	test("Should return the data object with fetched text when successful", async () => {
 		const template: Template = "table";
 		const { title_text } = selectTemplate(template);
@@ -23,7 +23,7 @@ describe("Function mountBody()", () => {
 		const text = faker.lorem.paragraph(1);
 		(fetchGetTemplateTextService as jest.Mock).mockResolvedValueOnce(text);
 
-		const result = await mountBody(template);
+		const result = await mountTemplateBody(template);
 
 		const expected = { title_text, text };
 		expect(result).toEqual(expected);
@@ -37,7 +37,7 @@ describe("Function mountBody()", () => {
 			new Error("Fetch error")
 		);
 
-		const result = await mountBody(template);
+		const result = await mountTemplateBody(template);
 
 		const expected = { title_text, text: MOUNT_BODY_ERROR_MESSAGE };
 		expect(result).toEqual(expected);
