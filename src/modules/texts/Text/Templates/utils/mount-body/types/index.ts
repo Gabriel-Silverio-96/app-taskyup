@@ -1,12 +1,2 @@
-interface ITemplate {
-    title_text: string;
-    markdown: RequestInfo | URL;
-}
-
-export interface ITemplates {
-    table: ITemplate;
-    todo: ITemplate;
-    readme: ITemplate;
-    code: ITemplate;
-    diagram: ITemplate;
-}
+export * as default from "./mount-body.types";
+export * from "./mount-body.types";
