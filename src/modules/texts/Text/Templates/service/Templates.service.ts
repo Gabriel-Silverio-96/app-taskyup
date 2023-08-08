@@ -1,7 +1,7 @@
 const fetchGetTemplateTextService = async (
-	templateFile: RequestInfo | URL
+	templateFilePath: RequestInfo | URL
 ): Promise<string> => {
-	const response = await fetch(templateFile);
+	const response = await fetch(templateFilePath);
 	const text = await response.text();
 
 	return text;
