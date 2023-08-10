@@ -1,11 +1,13 @@
 import { Typography } from "@mui/material";
 import React from "react";
 import Loading from "shared/components/Loading";
-import IconCode from "./components/IconCode";
-import IconDiagram from "./components/IconDiagram";
-import IconReadme from "./components/IconReadme";
-import IconTable from "./components/IconTable";
-import IconTodo from "./components/IconTodo";
+import {
+	IconCode,
+	IconDiagram,
+	IconReadme,
+	IconTable,
+	IconTodo,
+} from "./components/Icons";
 import { TemplateContainer, TemplateLinearGradient, Templates } from "./style";
 import { ITemplatesView } from "./types/Template.types";
 import CardTemplate from "./components/CardTemplate";
