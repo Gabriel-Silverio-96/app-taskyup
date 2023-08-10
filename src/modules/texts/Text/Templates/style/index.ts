@@ -17,7 +17,6 @@ export const Templates = styled("div")(
         background-color: ${theme.palette.grey[900]};
         margin-bottom: ${theme.spacing(3)};        
         overflow-y: hidden;                       
-
         
         ::-webkit-scrollbar {
             width: 0 !important;
@@ -40,36 +39,12 @@ export const Templates = styled("div")(
     `
 );
 
-export const CardTemplate = styled("div")(
-	() => `
-          cursor: pointer;
-          width: min-content;
-          transition: .3s;           
-    `
-);
-
-export const CardContent = styled("div")(
-	({ theme }) => `
-        width: ${theme.spacing(19)};
-        height: ${theme.spacing(19)};
-        border-radius: ${theme.spacing(1)};
-        background-color: ${theme.palette.grey[800]};        
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: .3s;
-
-        :hover {
-            outline: 1px solid ${theme.palette.primary.main};            
-        }
-    `
-);
-
 export const TemplateLinearGradient = styled("div")(
 	({ theme }) => `                    
         width: ${theme.spacing(15)};
         height: ${theme.spacing(29)};
-        background: linear-gradient(90deg, rgba(255, 0, 0, 0) 0%, ${theme.palette.grey[900]} 100%);
+        background: linear-gradient(90deg, rgba(255, 0, 0, 0) 0%,
+            ${theme.palette.grey[900]} 100%);
         border-radius: ${theme.spacing(1)};
         position: absolute;
         top: ${theme.spacing(1)};
