@@ -5,7 +5,7 @@ import { useContextText } from "../Context";
 import { fetchPostTextService } from "../service";
 import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
-import { Template } from "./types/Template.types";
+import { TypeTemplateName } from "./types/Template.types";
 import { mountTemplateBody } from "./utils/mount-template-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
@@ -16,7 +16,7 @@ const Templates: React.FC = () => {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 
-	const mutationFn = async (templateName: Template) => {
+	const mutationFn = async (templateName: TypeTemplateName) => {
 		const body = await mountTemplateBody(templateName);
 		const { data } = await fetchPostTextService(board_id, body);
 		return data;
