@@ -5,7 +5,7 @@ import { useContextText } from "../Context";
 import { fetchPostTextService } from "../service";
 import { IFetchPostTextResponse } from "../types";
 import TemplatesView from "./TemplatesView";
-import { Template } from "./types/Template.component";
+import { Template } from "./types/Template.types";
 import { mountTemplateBody } from "./utils/mount-template-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 

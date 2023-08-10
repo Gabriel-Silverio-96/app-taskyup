@@ -1,4 +1,4 @@
-import { Template } from "modules/texts/Text/Templates/types/Template.component";
+import { Template } from "modules/texts/Text/Templates/types";
 import { selectTemplate, templatesMapping } from "../select-template";
 
 type TestsCases = Array<

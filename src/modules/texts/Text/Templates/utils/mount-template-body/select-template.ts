@@ -5,7 +5,7 @@ import {
 	TableTemplate,
 	TodoTemplate,
 } from "modules/texts/Text/Templates/model-templates";
-import { Template } from "modules/texts/Text/Templates/types/Template.component";
+import { Template } from "modules/texts/Text/Templates/types";
 import { ITemplatesMapping } from "./types";
 
 const templatesMapping: ITemplatesMapping = {
