@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { fetchGetTemplateTextService } from "modules/texts/Text/Templates/service";
-import { Template } from "modules/texts/Text/Templates/types/Template.component";
+import { TypeTemplateName } from "modules/texts/Text/Templates/types";
 import {
 	MOUNT_BODY_ERROR_MESSAGE,
 	mountTemplateBody,
@@ -17,7 +17,7 @@ afterEach(() => {
 
 describe("Function mountTemplateBody()", () => {
 	test("Should return the data object with fetched text when successful", async () => {
-		const template: Template = "table";
+		const template: TypeTemplateName = "table";
 		const { title_text } = selectTemplate(template);
 
 		const text = faker.lorem.paragraph(1);
@@ -30,7 +30,7 @@ describe("Function mountTemplateBody()", () => {
 	});
 
 	test("Should return the data object with an error message when there's an error", async () => {
-		const template: Template = "table";
+		const template: TypeTemplateName = "table";
 		const { title_text } = selectTemplate(template);
 
 		(fetchGetTemplateTextService as jest.Mock).mockRejectedValueOnce(

@@ -5,7 +5,7 @@ import {
 	TableTemplate,
 	TodoTemplate,
 } from "modules/texts/Text/Templates/model-templates";
-import { Template } from "modules/texts/Text/Templates/types/Template.component";
+import { TypeTemplateName } from "modules/texts/Text/Templates/types";
 import { ITemplatesMapping } from "./types";
 
 const templatesMapping: ITemplatesMapping = {
@@ -16,7 +16,7 @@ const templatesMapping: ITemplatesMapping = {
 	diagram: { title_text: "Diagram template", markdown: DiagramTemplate },
 };
 
-const selectTemplate = (templateName: Template) => {
+const selectTemplate = (templateName: TypeTemplateName) => {
 	const defaultTemplate = {
 		title_text: "Table template",
 		markdown: TableTemplate,

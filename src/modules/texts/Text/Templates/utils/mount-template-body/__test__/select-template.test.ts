@@ -1,8 +1,8 @@
-import { Template } from "modules/texts/Text/Templates/types/Template.component";
+import { TypeTemplateName } from "modules/texts/Text/Templates/types";
 import { selectTemplate, templatesMapping } from "../select-template";
 
 type TestsCases = Array<
-	[Template | any, { title_text: string; markdown: string }]
+	[TypeTemplateName | any, { title_text: string; markdown: string }]
 >;
 
 const TESTS_CASES: TestsCases = Object.entries(templatesMapping);
