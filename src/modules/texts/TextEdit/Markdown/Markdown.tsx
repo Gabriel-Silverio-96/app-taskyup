@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { INITIAL_STATE_DATA } from "./constant";
 import MarkdownView from "./MarkdownView";
 import { fetchPatchTextService, fetchGetOneTextService } from "./service";
-import { IData } from "./types/Markdown.component";
+import { IData } from "./types";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
