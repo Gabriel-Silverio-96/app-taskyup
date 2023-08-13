@@ -1,14 +1,22 @@
-export type TFetchParams = string | null;
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
-export interface IFetchText {
-    title_board: string;
-    title_text: string;
-    text: string;
-    created_at: string;
+export interface IFetchGetOneTextService {
+	(text_id: string | null): Promise<IFetchGetOneTextResponse>;
 }
 
-export interface IFetchEditText {
-    board_id: TFetchParams;
-    text_id: TFetchParams;
-    data: IFetchText;
+export interface IFetchPatchTextPayload {
+	board_id: string | null;
+	text_id: string | null;
+	data: IFetchGetOneTextResponse;
+}
+
+export interface IFetchPatchTextService {
+	(payload: IFetchPatchTextPayload): Promise<IFetchResponseDefault>;
+}
+
+export interface IFetchGetOneTextResponse {
+	title_board: string;
+	title_text: string;
+	text: string;
+	created_at: string;
 }
