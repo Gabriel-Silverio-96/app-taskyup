@@ -15,8 +15,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 	const linkPreviousPage = `/texts/${board_id}`;
 
 	const disableButtonSave = titleText.length < 3;
-	const handleMessageError =
-		titleText.length < 3 && "Minimum of 3 characters";
+	const showMessageError = titleText.length < 3 && "Minimum of 3 characters";
 
 	return (
 		<HeaderTextView
@@ -27,7 +26,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 				onChangeTextTitle,
 				linkPreviousPage,
 				disableButtonSave,
-				handleMessageError,
+				showMessageError,
 			}}
 		/>
 	);

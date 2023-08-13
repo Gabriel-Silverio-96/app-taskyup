@@ -13,7 +13,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 		onChangeTextTitle,
 		linkPreviousPage,
 		disableButtonSave,
-		handleMessageError,
+		showMessageError,
 	} = props;
 
 	return (
@@ -36,7 +36,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 							onChange={onChangeTextTitle}
 						/>
 						<Typography variant="caption">
-							{handleMessageError}
+							{showMessageError}
 						</Typography>
 					</TextTitle>
 				</Breadcrumbs>
