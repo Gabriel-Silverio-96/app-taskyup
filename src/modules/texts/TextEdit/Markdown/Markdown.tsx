@@ -3,7 +3,7 @@ import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { INITIAL_STATE_DATA } from "./constant";
 import MarkdownView from "./MarkdownView";
-import { fetchEditText, fetchText } from "./service";
+import { fetchPatchTextService, fetchGetOneTextService } from "./service";
 import { IData } from "./types/Markdown.component";
 
 const Markdown: React.FC = () => {
@@ -12,18 +12,18 @@ const Markdown: React.FC = () => {
 	const [searchParams] = useSearchParams();
 	const text_id = searchParams.get("text_id");
 	const board_id = searchParams.get("board_id");
-	
+
 	const [data, setData] = useState<IData>(INITIAL_STATE_DATA);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isSaving, setIsSaving] = useState(false);
 
 	useEffect(() => {
 		const getText = async () => {
-			try {				
-				const data = await fetchText(text_id);
+			try {
+				const data = await fetchGetOneTextService(text_id);
 				setData(data);
 			} catch (error) {
-				console.error("TextEdit ", error);				
+				console.error("TextEdit ", error);
 			} finally {
 				setIsLoading(false);
 			}
@@ -31,28 +31,38 @@ const Markdown: React.FC = () => {
 		getText();
 	}, [text_id]);
 
-	const onChangeText = (text: string) => setData(prevState => ({ ...prevState, text }));
-	
+	const onChangeText = (text: string) =>
+		setData(prevState => ({ ...prevState, text }));
+
 	const onChangeTextTitle = (event: ChangeEvent<HTMLInputElement>) => {
-		const { value } = event.target;		
-		setData(prevState => ({ ...prevState, title_text: value }));	
+		const { value } = event.target;
+		setData(prevState => ({ ...prevState, title_text: value }));
 	};
 
 	const saveText = async () => {
 		try {
 			setIsSaving(true);
-			await fetchEditText({ board_id, text_id, data });
+			await fetchPatchTextService({ board_id, text_id, data });
 			queryClient.invalidateQueries(["texts"]);
-
 		} catch (error) {
-			console.error("SaveText ", error);			
+			console.error("SaveText ", error);
 		} finally {
 			setIsSaving(false);
 		}
-		
-	};	
+	};
 
-	return <MarkdownView {...{ data, onChangeText, saveText, onChangeTextTitle, isLoading, isSaving }} />;
+	return (
+		<MarkdownView
+			{...{
+				data,
+				onChangeText,
+				saveText,
+				onChangeTextTitle,
+				isLoading,
+				isSaving,
+			}}
+		/>
+	);
 };
 
 export default memo(Markdown);
