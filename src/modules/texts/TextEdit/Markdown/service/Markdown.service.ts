@@ -1,10 +1,10 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import {
-	IFetchGetOneTextService,
 	IFetchGetOneTextResponse,
+	IFetchGetOneTextService,
 	IFetchPatchTextService,
-} from "./types";
+} from "modules/texts/TextEdit/Markdown/types";
 
 const fetchGetOneTextService: IFetchGetOneTextService = async text_id => {
 	const { data } = await api.get<IFetchGetOneTextResponse>(
