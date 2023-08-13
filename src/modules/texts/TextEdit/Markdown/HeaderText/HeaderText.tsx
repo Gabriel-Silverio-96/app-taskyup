@@ -1,16 +1,21 @@
 import React, { memo } from "react";
 import { useSearchParams } from "react-router-dom";
 import HeaderTextView from "./HeaderTextView";
-import { IHeaderText } from "./types/HeaderText.component";
+import { IHeaderText } from "./types";
 
-const HeaderText: React.FC<IHeaderText> = ({ saveText, titleBoard, titleText, onChangeTextTitle }) => {	
-	const [ searchParams ] = useSearchParams();
+const HeaderText: React.FC<IHeaderText> = ({
+	saveText,
+	titleBoard,
+	titleText,
+	onChangeTextTitle,
+}) => {
+	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 
 	const linkPreviousPage = `/texts/${board_id}`;
 
 	const disableButtonSave = titleText.length < 3;
-	const handleMessageError = titleText.length < 3 && "Minimum of 3 characters";
+	const showMessageError = titleText.length < 3 && "Minimum of 3 characters";
 
 	return (
 		<HeaderTextView
@@ -21,7 +26,7 @@ const HeaderText: React.FC<IHeaderText> = ({ saveText, titleBoard, titleText, on
 				onChangeTextTitle,
 				linkPreviousPage,
 				disableButtonSave,
-				handleMessageError,
+				showMessageError,
 			}}
 		/>
 	);
