@@ -4,7 +4,7 @@ import HeaderTextView from "./HeaderTextView";
 import { IHeaderText } from "./types";
 
 const HeaderText: React.FC<IHeaderText> = ({
-	saveText,
+	handleClickSaveText,
 	titleBoard,
 	titleText,
 	onChangeTextTitle,
@@ -20,7 +20,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 	return (
 		<HeaderTextView
 			{...{
-				saveText,
+				handleClickSaveText,
 				titleBoard,
 				titleText,
 				onChangeTextTitle,

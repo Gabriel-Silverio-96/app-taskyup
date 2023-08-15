@@ -39,13 +39,13 @@ const Markdown: React.FC = () => {
 		setData(prevState => ({ ...prevState, title_text: value }));
 	};
 
-	const saveText = async () => {
+	const handleClickSaveText = async () => {
 		try {
 			setIsSaving(true);
 			await fetchPatchTextService({ board_id, text_id, data });
 			queryClient.invalidateQueries(["texts"]);
 		} catch (error) {
-			console.error("SaveText ", error);
+			console.error("handleClickSaveText ", error);
 		} finally {
 			setIsSaving(false);
 		}
@@ -56,7 +56,7 @@ const Markdown: React.FC = () => {
 			{...{
 				data,
 				onChangeText,
-				saveText,
+				handleClickSaveText,
 				onChangeTextTitle,
 				isLoading,
 				isSaving,

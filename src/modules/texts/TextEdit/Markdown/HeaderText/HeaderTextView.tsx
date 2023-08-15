@@ -7,7 +7,7 @@ import { IHeaderTextView } from "./types";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
-		saveText,
+		handleClickSaveText,
 		titleBoard,
 		titleText,
 		onChangeTextTitle,
@@ -48,7 +48,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 					</Link>
 					<Button
 						variant="contained"
-						onClick={saveText}
+						onClick={handleClickSaveText}
 						disabled={disableButtonSave}>
 						Save
 					</Button>

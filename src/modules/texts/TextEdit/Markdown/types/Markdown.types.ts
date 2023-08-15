@@ -11,7 +11,7 @@ export interface IData {
 export interface IMarkdownView {
 	data: IData;
 	onChangeText: (text: string) => void;
-	saveText: () => void;
+	handleClickSaveText: () => void;
 	onChangeTextTitle: (event: ChangeEvent<HTMLInputElement>) => void;
 	isLoading: boolean;
 	isSaving: boolean;
