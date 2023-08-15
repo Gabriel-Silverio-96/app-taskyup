@@ -2,7 +2,7 @@ import { Editor } from "@bytemd/react";
 import "bytemd/dist/index.css";
 import "highlight.js/styles/default.css";
 import Loading from "shared/components/Loading";
-import { PLUGINS } from "./constant";
+import { BYTEMD_EDITOR_PLUGINS } from "./constant";
 import HeaderText from "./HeaderText";
 import { Markdown } from "./style";
 import { IMarkdownView } from "./types";
@@ -34,7 +34,7 @@ const MarkdownView: React.FC<IMarkdownView> = props => {
 				<Editor
 					value={text}
 					onChange={onChangeText}
-					plugins={PLUGINS}
+					plugins={BYTEMD_EDITOR_PLUGINS}
 				/>
 			</Markdown>
 		</>

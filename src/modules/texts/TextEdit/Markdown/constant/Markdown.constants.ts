@@ -11,4 +11,10 @@ export const INITIAL_STATE_DATA = {
 	created_at: "",
 };
 
-export const PLUGINS = [highlight(), frontmatter(), gfm(), mermaid(), gemoji()];
+export const BYTEMD_EDITOR_PLUGINS = [
+	highlight(),
+	frontmatter(),
+	gfm(),
+	mermaid(),
+	gemoji(),
+];
