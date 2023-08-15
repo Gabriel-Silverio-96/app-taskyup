@@ -18,9 +18,7 @@ const MarkdownView: React.FC<IMarkdownView> = props => {
 	} = props;
 	const { title_board, title_text, text } = data;
 
-	if (isLoading) {
-		return <Loading isLoading backdrop />;
-	}
+	if (isLoading) return <Loading isLoading backdrop />;
 
 	return (
 		<>
