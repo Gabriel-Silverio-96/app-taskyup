@@ -18,7 +18,7 @@ const Markdown: React.FC = () => {
 	const [isSaving, setIsSaving] = useState(false);
 
 	useEffect(() => {
-		const getText = async () => {
+		const getOneText = async () => {
 			try {
 				const data = await fetchGetOneTextService(text_id);
 				setData(data);
@@ -28,7 +28,7 @@ const Markdown: React.FC = () => {
 				setIsLoading(false);
 			}
 		};
-		getText();
+		getOneText();
 	}, [text_id]);
 
 	const onChangeText = (text: string) =>
