@@ -19,5 +19,3 @@ export const BYTEMD_EDITOR_PLUGINS = [
 	mermaid(),
 	gemoji(),
 ];
-
-export const QUERY_KEY_FETCH_GET_ONE_TEXT = "QUERY_KEY_FETCH_GET_ONE_TEXT";

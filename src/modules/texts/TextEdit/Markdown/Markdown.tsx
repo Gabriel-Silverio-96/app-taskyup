@@ -1,13 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import {
-	INITIAL_STATE_DATA_TEXT,
-	QUERY_KEY_FETCH_GET_ONE_TEXT,
-} from "./constant";
 import MarkdownView from "./MarkdownView";
-import { fetchPatchTextService, fetchGetOneTextService } from "./service";
-import { IDataText, IFetchGetOneTextResponse } from "./types";
+import { INITIAL_STATE_DATA_TEXT } from "./constant";
+import { fetchGetOneTextService, fetchPatchTextService } from "./service";
+import { IDataText } from "./types";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -16,24 +13,23 @@ const Markdown: React.FC = () => {
 	const text_id = searchParams.get("text_id");
 	const board_id = searchParams.get("board_id");
 
+	const [isLoading, setIsLoading] = useState(true);
 	const [dataText, setDataText] = useState<IDataText>(
 		INITIAL_STATE_DATA_TEXT
 	);
 
-	const queryFn = () => fetchGetOneTextService(text_id);
-	const onSuccessQuery = (data: IFetchGetOneTextResponse) =>
-		setDataText(data);
-
-	const { isFetching: isLoading, refetch } = useQuery(
-		[QUERY_KEY_FETCH_GET_ONE_TEXT],
-		queryFn,
-		{
-			onSuccess: onSuccessQuery,
-		}
-	);
-
 	useEffect(() => {
-		refetch();
+		const fetchGetOneText = async () => {
+			try {
+				const data = await fetchGetOneTextService(text_id);
+				setDataText(data);
+			} catch (error) {
+				console.error("TextEdit ", error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+		fetchGetOneText();
 	}, [text_id]);
 
 	const onChangeText = (text: string) =>
