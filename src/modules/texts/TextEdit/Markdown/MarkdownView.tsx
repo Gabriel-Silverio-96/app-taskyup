@@ -2,31 +2,29 @@ import { Editor } from "@bytemd/react";
 import "bytemd/dist/index.css";
 import "highlight.js/styles/default.css";
 import Loading from "shared/components/Loading";
-import { PLUGINS } from "./constant";
+import { BYTEMD_EDITOR_PLUGINS } from "./constant";
 import HeaderText from "./HeaderText";
 import { Markdown } from "./style";
 import { IMarkdownView } from "./types";
 
 const MarkdownView: React.FC<IMarkdownView> = props => {
 	const {
-		data,
+		dataText,
 		onChangeText,
-		saveText,
+		handleClickSaveText,
 		onChangeTextTitle,
 		isLoading,
 		isSaving,
 	} = props;
-	const { title_board, title_text, text } = data;
+	const { title_board, title_text, text } = dataText;
 
-	if (isLoading) {
-		return <Loading isLoading backdrop />;
-	}
+	if (isLoading) return <Loading isLoading backdrop />;
 
 	return (
 		<>
 			<Loading isLoading={isSaving} backdrop />
 			<HeaderText
-				{...{ saveText, onChangeTextTitle }}
+				{...{ handleClickSaveText, onChangeTextTitle }}
 				titleBoard={title_board}
 				titleText={title_text}
 			/>
@@ -34,7 +32,7 @@ const MarkdownView: React.FC<IMarkdownView> = props => {
 				<Editor
 					value={text}
 					onChange={onChangeText}
-					plugins={PLUGINS}
+					plugins={BYTEMD_EDITOR_PLUGINS}
 				/>
 			</Markdown>
 		</>

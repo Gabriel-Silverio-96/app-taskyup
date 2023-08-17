@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
-export interface IData {
+export interface IDataText {
 	text: string;
 	title_board: string;
 	title_text: string;
@@ -9,9 +9,9 @@ export interface IData {
 }
 
 export interface IMarkdownView {
-	data: IData;
+	dataText: IDataText;
 	onChangeText: (text: string) => void;
-	saveText: () => void;
+	handleClickSaveText: () => void;
 	onChangeTextTitle: (event: ChangeEvent<HTMLInputElement>) => void;
 	isLoading: boolean;
 	isSaving: boolean;
