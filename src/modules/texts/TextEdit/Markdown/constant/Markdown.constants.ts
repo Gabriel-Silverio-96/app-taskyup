@@ -4,7 +4,7 @@ import gfm from "@bytemd/plugin-gfm";
 import highlight from "@bytemd/plugin-highlight";
 import mermaid from "@bytemd/plugin-mermaid";
 
-export const INITIAL_STATE_DATA = {
+export const INITIAL_STATE_DATA_TEXT = {
 	title_board: "",
 	title_text: "",
 	text: "",

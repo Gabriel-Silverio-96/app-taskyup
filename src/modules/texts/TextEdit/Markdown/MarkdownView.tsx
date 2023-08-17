@@ -9,14 +9,14 @@ import { IMarkdownView } from "./types";
 
 const MarkdownView: React.FC<IMarkdownView> = props => {
 	const {
-		data,
+		dataText,
 		onChangeText,
 		handleClickSaveText,
 		onChangeTextTitle,
 		isLoading,
 		isSaving,
 	} = props;
-	const { title_board, title_text, text } = data;
+	const { title_board, title_text, text } = dataText;
 
 	if (isLoading) return <Loading isLoading backdrop />;
 
