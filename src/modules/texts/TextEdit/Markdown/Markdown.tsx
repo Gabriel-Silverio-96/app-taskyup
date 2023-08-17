@@ -24,7 +24,7 @@ const Markdown: React.FC = () => {
 	const onSuccessQuery = (data: IFetchGetOneTextResponse) =>
 		setDataText(data);
 
-	const { isLoading, refetch } = useQuery(
+	const { isFetching: isLoading, refetch } = useQuery(
 		[QUERY_KEY_FETCH_GET_ONE_TEXT],
 		queryFn,
 		{
