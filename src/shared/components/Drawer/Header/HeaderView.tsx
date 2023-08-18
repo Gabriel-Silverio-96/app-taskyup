@@ -21,7 +21,7 @@ const HeaderView: React.FC<IHeaderView> = (props) => {
 				<IconButton onClick={handleClickOpenDialogSearchAll}>
 					<BiSearch size={18}/>
 				</IconButton>
-				<Dropdown open={isOpen}>
+				<Dropdown open={isOpen} toogleDropdown={toogleDropdown}>
 					<ClickAwayListener onClickAway={toogleDropdownAway}>
 						<IconButton onClick={toogleDropdown}>
 							<FiUser size={18}/>

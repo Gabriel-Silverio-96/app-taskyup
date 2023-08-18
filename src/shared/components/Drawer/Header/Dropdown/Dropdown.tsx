@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import DropdownView from "./DropdownView";
 import { IDropdown } from "./types/Dropdown.component";
 
-const Dropdown: React.FC<IDropdown> = ({ children, open }) => {
+const Dropdown: React.FC<IDropdown> = ({ children, open, toogleDropdown }) => {
 	const navigate = useNavigate();
 	const queryClient = useQueryClient();
 	
 	const logout = () => {
+		toogleDropdown();
 		localStorage.removeItem("@taskyup.token");
 		localStorage.removeItem("@taskyup.user_data");
 
@@ -16,7 +17,7 @@ const Dropdown: React.FC<IDropdown> = ({ children, open }) => {
 		navigate("/auth/signin");
 	};
 
-	return <DropdownView {... { children, open, logout }} />;
+	return <DropdownView {... { children, open, logout, toogleDropdown }} />;
 };
 
 export default memo(Dropdown);
