@@ -26,7 +26,7 @@ const NoteTodoView: any = ({
 							return (
 								<Todo key={todo_id}>
 									<Checkbox
-										defaultChecked={checked}
+										checked={checked}
 										onChange={event =>
 											handleChangeCheckbox(event, todo_id)
 										}
