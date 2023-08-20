@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { ChangeEvent, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { fetchGetListTodoService } from "../../service";
-import { ITodoData } from "../../types";
+import { fetchGetListTodoService } from "modules/notes/NoteEdit/service";
+import { ITodoData } from "modules/notes/NoteEdit/types";
 import NoteTodoView from "./NoteTodoView";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 
