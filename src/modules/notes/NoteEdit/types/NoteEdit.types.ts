@@ -15,7 +15,7 @@ export interface ITodos {
 
 export interface ITodoData {
 	count: number;
-	todos: Array<ITodos>;
+	todos: Array<ITodos> | any[];
 }
 
 export interface INoteEditForm {
@@ -51,4 +51,9 @@ export interface IFetchPutNoteService {
 export interface IFetchGetListTodoService {
 	related_id: string | null;
 	board_id: string | null;
+}
+
+export interface IFetchGetListTodoResponse {
+	count: number;
+	todos: Array<ITodos> | any[];
 }

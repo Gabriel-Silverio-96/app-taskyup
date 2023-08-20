@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import { fetchGetListTodoService } from "modules/notes/NoteEdit/service";
+import { IFetchGetListTodoResponse } from "modules/notes/NoteEdit/types";
 import React, { ChangeEvent, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { fetchGetListTodoService } from "modules/notes/NoteEdit/service";
-import { ITodoData } from "modules/notes/NoteEdit/types";
 import NoteTodoView from "./NoteTodoView";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 
@@ -11,10 +11,13 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 	const board_id = searchParams.get("board_id");
 	const note_id = searchParams.get("note_id");
 
-	const onSuccessQuery = (data: ITodoData) => setTodoData(data);
+	const onSuccessQuery = (data: IFetchGetListTodoResponse) =>
+		setTodoData(data);
+
 	const queryKey = ["get_list_todo"];
 	const queryFn = () =>
 		fetchGetListTodoService({ board_id, related_id: note_id });
+
 	const optionsQuery = { onSuccess: onSuccessQuery };
 
 	const { refetch } = useQuery(queryKey, queryFn, optionsQuery);
@@ -37,7 +40,7 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		const { value } = event.target;
 
 		const edit = todoData.todos.map((todo: any) => {
-			if (todo.todo_id === todo_id) todo.title_todo = value;
+			if (todo.todo_id === todo_id) return { ...todo, title_todo: value };
 			return todo;
 		});
 		console.log(edit);

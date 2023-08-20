@@ -1,5 +1,9 @@
 import api from "shared/services/api";
-import { IFetchGetListTodoService, IFetchPutNoteService } from "../types";
+import {
+	IFetchGetListTodoResponse,
+	IFetchGetListTodoService,
+	IFetchPutNoteService,
+} from "../types";
 
 const fetchGetOneNoteService = async (note_id: string | null) => {
 	const { data } = await api.get(`notes/note_id=${note_id}`);
@@ -17,8 +21,10 @@ const fetchGetListTodoService = async (payload: IFetchGetListTodoService) => {
 	const { related_id, board_id } = payload;
 	const params = { board_id, related_id };
 
-	const { data } = await api.get("/todo/list", { params });
+	const { data } = await api.get<IFetchGetListTodoResponse>("/todo/list", {
+		params,
+	});
 	return data;
 };
 
-export { fetchGetOneNoteService, fetchPutNoteService, fetchGetListTodoService };
+export { fetchGetListTodoService, fetchGetOneNoteService, fetchPutNoteService };
