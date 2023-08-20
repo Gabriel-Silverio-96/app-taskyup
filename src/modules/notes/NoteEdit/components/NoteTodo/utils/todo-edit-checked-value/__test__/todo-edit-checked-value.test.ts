@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { ITodoData } from "modules/notes/NoteEdit/types";
-import { todoEditCheckboxValue } from "../todo-edit-checkbox-value";
+import { todoEditCheckedValue } from "../todo-edit-checked-value";
 
 const todo_id_to_edited = faker.datatype.uuid();
 
@@ -24,9 +24,9 @@ const todoData: ITodoData = {
 	],
 };
 
-describe("Function todoEditCheckboxValue()", () => {
+describe("Function todoEditCheckedValue()", () => {
 	it("Should edit the checked value of a specific 'todo_id'", () => {
-		const result = todoEditCheckboxValue({
+		const result = todoEditCheckedValue({
 			todoData,
 			todo_id: todo_id_to_edited,
 			checked: true,
