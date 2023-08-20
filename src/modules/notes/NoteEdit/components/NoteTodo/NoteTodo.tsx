@@ -28,16 +28,9 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		todo_id: string
 	) => {
 		const { checked } = event.target;
-		const editedCheckbox = todoEditCheckboxValue({
-			todoData,
-			checked,
-			todo_id,
-		});
+		const todos = todoEditCheckboxValue({ todoData, checked, todo_id });
 
-		setTodoData((prevState: any) => ({
-			...prevState,
-			todos: editedCheckbox,
-		}));
+		setTodoData((prevState: any) => ({ ...prevState, todos }));
 	};
 
 	const handleChangeTextField = (event: any, todo_id: string) => {
