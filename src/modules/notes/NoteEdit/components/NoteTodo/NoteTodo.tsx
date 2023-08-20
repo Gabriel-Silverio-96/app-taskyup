@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { fetchGetListTodoService } from "../../service";
 import { ITodoData } from "../../types";
 import NoteTodoView from "./NoteTodoView";
+import { editCheckboxValue } from "./utils/edit-checkbox-value";
 
 const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 	const [searchParams] = useSearchParams();
@@ -22,14 +23,21 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		refetch();
 	}, [note_id, board_id]);
 
-	const handleChangeCheckbox = (event: any, todo_id: string) => {
+	const handleChangeCheckbox = (
+		event: ChangeEvent<HTMLInputElement>,
+		todo_id: string
+	) => {
 		const { checked } = event.target;
-
-		const edit = todoData.todos.map((todo: any) => {
-			if (todo.todo_id === todo_id) todo.checked = checked;
-			return todo;
+		const editedCheckbox = editCheckboxValue({
+			todoData,
+			checked,
+			todo_id,
 		});
-		console.log(edit);
+
+		setTodoData((prevState: any) => ({
+			...prevState,
+			todos: editedCheckbox,
+		}));
 	};
 
 	const handleChangeTextField = (event: any, todo_id: string) => {
@@ -41,6 +49,8 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		});
 		console.log(edit);
 	};
+
+	console.log(...todoData.todos);
 
 	return (
 		<NoteTodoView
