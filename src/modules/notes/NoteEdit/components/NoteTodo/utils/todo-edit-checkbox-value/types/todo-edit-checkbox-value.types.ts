@@ -1,17 +1,17 @@
 import { ITodoData, ITodos } from "modules/notes/NoteEdit/types";
 
-export interface IEditCheckboxValueProp {
+export interface ITodoEditCheckboxValueProp {
 	todoData: ITodoData;
 	todo_id: string | null;
 	checked: boolean | null;
 }
 
-export interface IEditCheckboxValue {
-	(props: IEditCheckboxValueProp): Array<ITodos> | Array<any>;
+export interface ITodoEditCheckboxValue {
+	(props: ITodoEditCheckboxValueProp): Array<ITodos> | Array<any>;
 }
 
 export interface IUpdatedTodosProps
-	extends Omit<IEditCheckboxValueProp, "todoData"> {
+	extends Omit<ITodoEditCheckboxValueProp, "todoData"> {
 	todos: Array<ITodos>;
 }
 

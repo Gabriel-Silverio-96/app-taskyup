@@ -1,5 +1,5 @@
 import { ITodos } from "modules/notes/NoteEdit/types";
-import { IEditCheckboxValue, IUpdatedTodos } from "./types";
+import { ITodoEditCheckboxValue, IUpdatedTodos } from "./types";
 
 const updatedTodos: IUpdatedTodos = ({ todos, todo_id, checked }) =>
 	todos.map((todo: ITodos) => {
@@ -10,7 +10,7 @@ const updatedTodos: IUpdatedTodos = ({ todos, todo_id, checked }) =>
 		return todo;
 	});
 
-const editCheckboxValue: IEditCheckboxValue = ({
+const todoEditCheckboxValue: ITodoEditCheckboxValue = ({
 	todoData,
 	todo_id,
 	checked,
@@ -19,4 +19,4 @@ const editCheckboxValue: IEditCheckboxValue = ({
 	return updatedTodos({ todos, checked, todo_id });
 };
 
-export { editCheckboxValue };
+export { todoEditCheckboxValue };

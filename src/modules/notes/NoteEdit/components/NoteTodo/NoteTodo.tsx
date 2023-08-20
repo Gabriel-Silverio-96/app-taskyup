@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { fetchGetListTodoService } from "../../service";
 import { ITodoData } from "../../types";
 import NoteTodoView from "./NoteTodoView";
-import { editCheckboxValue } from "./utils/edit-checkbox-value";
+import { todoEditCheckboxValue } from "./utils/todo-edit-checkbox-value";
 
 const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 	const [searchParams] = useSearchParams();
@@ -28,7 +28,7 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		todo_id: string
 	) => {
 		const { checked } = event.target;
-		const editedCheckbox = editCheckboxValue({
+		const editedCheckbox = todoEditCheckboxValue({
 			todoData,
 			checked,
 			todo_id,
