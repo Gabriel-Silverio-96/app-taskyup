@@ -25,17 +25,22 @@ const todoData: ITodoData = {
 };
 
 describe("Function todoEditCheckboxValue()", () => {
-	it("Should edit the checkbox value of a specific 'todo_id'", () => {
+	it("Should edit the checked value of a specific 'todo_id'", () => {
 		const result = todoEditCheckboxValue({
 			todoData,
 			todo_id: todo_id_to_edited,
 			checked: true,
 		});
 
-		const { checked } = result.find(
+		const todoEdited = result.find(
 			({ todo_id }) => todo_id === todo_id_to_edited
 		);
 
-		expect(checked).toBeTruthy();
+		const todoNotEdited = result.find(
+			({ todo_id }) => todo_id !== todo_id_to_edited
+		);
+
+		expect(todoEdited.checked).toBeTruthy();
+		expect(todoNotEdited.checked).toBeFalsy();
 	});
 });
