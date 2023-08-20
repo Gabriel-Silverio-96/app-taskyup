@@ -3,7 +3,11 @@ import React from "react";
 import { FiPlus } from "react-icons/fi";
 import { Todo, TodoContainer } from "./style";
 
-const NoteTodoView: any = ({ todos }: any) => {
+const NoteTodoView: any = ({
+	todoData,
+	handleChangeCheckbox,
+	handleChangeTextField,
+}: any) => {
 	return (
 		<div>
 			<Grid container>
@@ -17,14 +21,25 @@ const NoteTodoView: any = ({ todos }: any) => {
 				</Grid>
 
 				<TodoContainer>
-					{todos.todos.map(
+					{todoData.todos.map(
 						({ checked, todo_id, title_todo }: any) => {
 							return (
 								<Todo key={todo_id}>
-									<Checkbox defaultChecked={checked} />
+									<Checkbox
+										defaultChecked={checked}
+										onChange={event =>
+											handleChangeCheckbox(event, todo_id)
+										}
+									/>
 									<TextField
 										size="small"
 										defaultValue={title_todo}
+										onChange={event =>
+											handleChangeTextField(
+												event,
+												todo_id
+											)
+										}
 									/>
 								</Todo>
 							);

@@ -1,26 +1,56 @@
-import React, { useEffect, useState } from "react";
-import NoteTodoView from "./NoteTodoView";
+import { useQuery } from "@tanstack/react-query";
+import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import api from "shared/services/api";
+import { fetchGetListTodoService } from "../../service";
+import { ITodoData } from "../../types";
+import NoteTodoView from "./NoteTodoView";
 
-const NoteTodo: React.FC = () => {
+const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 	const note_id = searchParams.get("note_id");
 
-	const [todos, setTodos] = useState({ todos: [] });
+	const onSuccessQuery = (data: ITodoData) => setTodoData(data);
+	const queryKey = ["get_list_todo"];
+	const queryFn = () =>
+		fetchGetListTodoService({ board_id, related_id: note_id });
+	const optionsQuery = { onSuccess: onSuccessQuery };
+
+	const { refetch } = useQuery(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
-		const getTodos = async () => {
-			const { data } = await api.get("/todo/list", {
-				params: { board_id, related_id: note_id },
-			});
-			setTodos(data);
-		};
-		getTodos();
-	}, []);
+		refetch();
+	}, [note_id, board_id]);
 
-	return <NoteTodoView {...{ todos }} />;
+	const handleChangeCheckbox = (event: any, todo_id: string) => {
+		const { checked } = event.target;
+
+		const edit = todoData.todos.map((todo: any) => {
+			if (todo.todo_id === todo_id) todo.checked = checked;
+			return todo;
+		});
+		console.log(edit);
+	};
+
+	const handleChangeTextField = (event: any, todo_id: string) => {
+		const { value } = event.target;
+
+		const edit = todoData.todos.map((todo: any) => {
+			if (todo.todo_id === todo_id) todo.title_todo = value;
+			return todo;
+		});
+		console.log(edit);
+	};
+
+	return (
+		<NoteTodoView
+			{...{
+				todoData,
+				handleChangeCheckbox,
+				handleChangeTextField,
+			}}
+		/>
+	);
 };
 
 export default NoteTodo;
