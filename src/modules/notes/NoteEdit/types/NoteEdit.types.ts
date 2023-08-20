@@ -10,7 +10,7 @@ export interface ITodos {
 	related_id: string;
 	title_todo: string;
 	checked: boolean;
-	created_at: string;
+	created_at: string | Date;
 }
 
 export interface ITodoData {
