@@ -7,6 +7,8 @@ const NoteTodoView: any = ({
 	todoData,
 	handleChangeCheckbox,
 	handleBlurTextField,
+	handleClickNewTodo,
+	handleKeyDown,
 }: any) => {
 	return (
 		<div>
@@ -17,12 +19,19 @@ const NoteTodoView: any = ({
 					</Typography>
 				</Grid>
 				<Grid item md={6} textAlign="right">
-					<Button startIcon={<FiPlus />}>New task</Button>
+					<Button startIcon={<FiPlus />} onClick={handleClickNewTodo}>
+						New todo
+					</Button>
 				</Grid>
 
 				<TodoContainer>
 					{todoData.todos.map(
-						({ checked, todo_id, title_todo }: any) => {
+						(
+							{ checked, todo_id, title_todo }: any,
+							index: number
+						) => {
+							const isLastTodo =
+								index === todoData.todos.length - 1;
 							return (
 								<Todo key={todo_id}>
 									<Checkbox
@@ -36,6 +45,11 @@ const NoteTodoView: any = ({
 										defaultValue={title_todo}
 										onBlur={event =>
 											handleBlurTextField(event, todo_id)
+										}
+										onKeyDown={
+											isLastTodo
+												? handleKeyDown
+												: undefined
 										}
 									/>
 								</Todo>

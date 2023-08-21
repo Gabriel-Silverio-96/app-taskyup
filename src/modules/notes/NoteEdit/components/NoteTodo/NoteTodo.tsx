@@ -1,9 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchGetListTodoService } from "modules/notes/NoteEdit/service";
 import { IFetchGetListTodoResponse } from "modules/notes/NoteEdit/types";
-import React, { ChangeEvent, FocusEvent, useEffect } from "react";
+import React, {
+	ChangeEvent,
+	FocusEvent,
+	KeyboardEvent,
+	useEffect,
+} from "react";
 import { useSearchParams } from "react-router-dom";
 import NoteTodoView from "./NoteTodoView";
+import { generateNewTodo } from "./utils/generate-new-todo/generate-new-todo";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 import { todoEditTitleValue } from "./utils/todo-edit-title-value";
 
@@ -47,12 +53,30 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		setTodoData((prevState: any) => ({ ...prevState, todos }));
 	};
 
+	const createNewTodo = () => {
+		const newTodo = generateNewTodo();
+
+		setTodoData((prevState: any) => ({
+			...prevState,
+			todos: [...prevState.todos, newTodo],
+		}));
+	};
+
+	const handleClickNewTodo = () => createNewTodo();
+
+	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+		const hasPressEnter = event.key === "Enter";
+		if (hasPressEnter) createNewTodo();
+	};
+
 	return (
 		<NoteTodoView
 			{...{
 				todoData,
 				handleChangeCheckbox,
 				handleBlurTextField,
+				handleClickNewTodo,
+				handleKeyDown,
 			}}
 		/>
 	);
