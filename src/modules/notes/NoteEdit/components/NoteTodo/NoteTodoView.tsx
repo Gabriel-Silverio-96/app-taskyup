@@ -6,7 +6,7 @@ import { Todo, TodoContainer } from "./style";
 const NoteTodoView: any = ({
 	todoData,
 	handleChangeCheckbox,
-	handleChangeTextField,
+	handleBlurTextField,
 }: any) => {
 	return (
 		<div>
@@ -34,11 +34,8 @@ const NoteTodoView: any = ({
 									<TextField
 										size="small"
 										defaultValue={title_todo}
-										onChange={event =>
-											handleChangeTextField(
-												event,
-												todo_id
-											)
+										onBlur={event =>
+											handleBlurTextField(event, todo_id)
 										}
 									/>
 								</Todo>

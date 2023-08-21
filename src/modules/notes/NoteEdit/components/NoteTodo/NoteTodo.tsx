@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchGetListTodoService } from "modules/notes/NoteEdit/service";
 import { IFetchGetListTodoResponse } from "modules/notes/NoteEdit/types";
-import React, { ChangeEvent, useEffect } from "react";
+import React, { ChangeEvent, FocusEvent, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import NoteTodoView from "./NoteTodoView";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
+import { todoEditTitleValue } from "./utils/todo-edit-title-value";
 
 const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 	const [searchParams] = useSearchParams();
@@ -36,24 +37,22 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		setTodoData((prevState: any) => ({ ...prevState, todos }));
 	};
 
-	const handleChangeTextField = (event: any, todo_id: string) => {
+	const handleBlurTextField = (
+		event: FocusEvent<HTMLInputElement>,
+		todo_id: string
+	) => {
 		const { value } = event.target;
 
-		const edit = todoData.todos.map((todo: any) => {
-			if (todo.todo_id === todo_id) return { ...todo, title_todo: value };
-			return todo;
-		});
-		console.log(edit);
+		const todos = todoEditTitleValue({ todoData, todo_id, value });
+		setTodoData((prevState: any) => ({ ...prevState, todos }));
 	};
-
-	console.log(...todoData.todos);
 
 	return (
 		<NoteTodoView
 			{...{
 				todoData,
 				handleChangeCheckbox,
-				handleChangeTextField,
+				handleBlurTextField,
 			}}
 		/>
 	);
