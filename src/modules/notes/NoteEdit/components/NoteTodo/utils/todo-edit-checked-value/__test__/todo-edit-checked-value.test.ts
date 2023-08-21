@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { ITodoData } from "modules/notes/NoteEdit/types";
+import { ITodoData, ITodos } from "modules/notes/NoteEdit/types";
 import { todoEditCheckedValue } from "../todo-edit-checked-value";
 
 const todo_id_to_edited = faker.datatype.uuid();
@@ -32,11 +32,11 @@ describe("Function todoEditCheckedValue()", () => {
 			checked: true,
 		});
 
-		const todoEdited = result.find(
+		const todoEdited: ITodos = result.find(
 			({ todo_id }) => todo_id === todo_id_to_edited
 		);
 
-		const todoNotEdited = result.find(
+		const todoNotEdited: ITodos = result.find(
 			({ todo_id }) => todo_id !== todo_id_to_edited
 		);
 
