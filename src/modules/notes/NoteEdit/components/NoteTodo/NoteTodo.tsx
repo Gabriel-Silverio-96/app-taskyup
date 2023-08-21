@@ -6,6 +6,7 @@ import React, {
 	FocusEvent,
 	KeyboardEvent,
 	useEffect,
+	useState,
 } from "react";
 import { useSearchParams } from "react-router-dom";
 import NoteTodoView from "./NoteTodoView";
@@ -17,6 +18,8 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 	const note_id = searchParams.get("note_id");
+
+	const [isAutoFocus, setIsAutoFocus] = useState(false);
 
 	const onSuccessQuery = (data: IFetchGetListTodoResponse) =>
 		setTodoData(data);
@@ -66,7 +69,10 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		const hasPressEnter = event.key === "Enter";
-		if (hasPressEnter) createNewTodo();
+		if (hasPressEnter) {
+			setIsAutoFocus(true);
+			createNewTodo();
+		}
 	};
 
 	return (
@@ -77,6 +83,7 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 				handleBlurTextField,
 				handleClickNewTodo,
 				handleKeyDown,
+				isAutoFocus,
 			}}
 		/>
 	);

@@ -9,6 +9,7 @@ const NoteTodoView: any = ({
 	handleBlurTextField,
 	handleClickNewTodo,
 	handleKeyDown,
+	isAutoFocus,
 }: any) => {
 	return (
 		<div>
@@ -41,6 +42,7 @@ const NoteTodoView: any = ({
 										}
 									/>
 									<TextField
+										autoFocus={isAutoFocus}
 										size="small"
 										defaultValue={title_todo}
 										onBlur={event =>
