@@ -14,7 +14,11 @@ import { generateNewTodo } from "./utils/generate-new-todo/generate-new-todo";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 import { todoEditTitleValue } from "./utils/todo-edit-title-value";
 
-const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
+const NoteTodo: React.FC<any> = ({
+	todoData,
+	setTodoData,
+	setTodoIdsToDelete,
+}) => {
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 	const note_id = searchParams.get("note_id");
@@ -75,6 +79,21 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 		}
 	};
 
+	const handleClickDeleteTodo = (todo_id: string, related_id: string) => {
+		const removeTodoById = todoData.todos.filter(
+			(todo: any) => todo.todo_id !== todo_id
+		);
+
+		setTodoData((prevState: any) => ({
+			...prevState,
+			todos: removeTodoById,
+		}));
+
+		if (related_id) {
+			setTodoIdsToDelete((prevState: any) => [...prevState, todo_id]);
+		}
+	};
+
 	return (
 		<NoteTodoView
 			{...{
@@ -84,6 +103,7 @@ const NoteTodo: React.FC<any> = ({ todoData, setTodoData }) => {
 				handleClickNewTodo,
 				handleKeyDown,
 				isAutoFocus,
+				handleClickDeleteTodo,
 			}}
 		/>
 	);

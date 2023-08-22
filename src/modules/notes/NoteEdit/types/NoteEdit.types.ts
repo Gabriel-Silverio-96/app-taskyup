@@ -40,6 +40,7 @@ export interface INoteEditView {
 	isSaving: boolean;
 	todoData: ITodoData;
 	setTodoData: Dispatch<SetStateAction<ITodoData | any>>;
+	setTodoIdsToDelete: Dispatch<SetStateAction<Array<string>>>;
 }
 
 export interface IFetchPutNoteService {

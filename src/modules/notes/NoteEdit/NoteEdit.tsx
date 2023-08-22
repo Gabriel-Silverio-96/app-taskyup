@@ -20,6 +20,8 @@ const NoteEdit: React.FC = () => {
 		todos: [],
 	});
 
+	const [todoIdsToDelete, setTodoIdsToDelete] = useState<Array<string>>([]);
+
 	const {
 		register,
 		handleSubmit,
@@ -72,6 +74,7 @@ const NoteEdit: React.FC = () => {
 				isSaving,
 				todoData,
 				setTodoData,
+				setTodoIdsToDelete,
 			}}
 		/>
 	);

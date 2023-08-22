@@ -15,6 +15,7 @@ const NoteEditView: React.FC<INoteEditView> = props => {
 		isSaving,
 		todoData,
 		setTodoData,
+		setTodoIdsToDelete,
 	} = props;
 
 	if (isFetching) return <Loading isLoading backdrop />;
@@ -35,7 +36,13 @@ const NoteEditView: React.FC<INoteEditView> = props => {
 						/>
 					</Grid>
 					<Grid item md={12}>
-						<NoteTodo {...{ todoData, setTodoData }} />
+						<NoteTodo
+							{...{
+								todoData,
+								setTodoData,
+								setTodoIdsToDelete,
+							}}
+						/>
 					</Grid>
 				</Grid>
 			</Grid>

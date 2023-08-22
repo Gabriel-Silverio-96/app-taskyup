@@ -1,6 +1,13 @@
-import { Button, Checkbox, Grid, TextField, Typography } from "@mui/material";
+import {
+	Button,
+	Checkbox,
+	Grid,
+	IconButton,
+	TextField,
+	Typography,
+} from "@mui/material";
 import React from "react";
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiTrash } from "react-icons/fi";
 import { Todo, TodoContainer } from "./style";
 
 const NoteTodoView: any = ({
@@ -10,6 +17,7 @@ const NoteTodoView: any = ({
 	handleClickNewTodo,
 	handleKeyDown,
 	isAutoFocus,
+	handleClickDeleteTodo,
 }: any) => {
 	return (
 		<div>
@@ -28,32 +36,52 @@ const NoteTodoView: any = ({
 				<TodoContainer>
 					{todoData.todos.map(
 						(
-							{ checked, todo_id, title_todo }: any,
+							{ checked, todo_id, title_todo, related_id }: any,
 							index: number
 						) => {
 							const isLastTodo =
 								index === todoData.todos.length - 1;
+
+							const onKeyDown = isLastTodo
+								? handleKeyDown
+								: undefined;
+
 							return (
 								<Todo key={todo_id}>
-									<Checkbox
-										checked={checked}
-										onChange={event =>
-											handleChangeCheckbox(event, todo_id)
-										}
-									/>
-									<TextField
-										autoFocus={isAutoFocus}
-										size="small"
-										defaultValue={title_todo}
-										onBlur={event =>
-											handleBlurTextField(event, todo_id)
-										}
-										onKeyDown={
-											isLastTodo
-												? handleKeyDown
-												: undefined
-										}
-									/>
+									<div>
+										<Checkbox
+											checked={checked}
+											onChange={event =>
+												handleChangeCheckbox(
+													event,
+													todo_id
+												)
+											}
+										/>
+										<TextField
+											autoFocus={isAutoFocus}
+											size="small"
+											defaultValue={title_todo}
+											onBlur={event =>
+												handleBlurTextField(
+													event,
+													todo_id
+												)
+											}
+											onKeyDown={onKeyDown}
+										/>
+									</div>
+									<div>
+										<IconButton
+											onClick={() =>
+												handleClickDeleteTodo(
+													todo_id,
+													related_id
+												)
+											}>
+											<FiTrash size={18} />
+										</IconButton>
+									</div>
 								</Todo>
 							);
 						}
