@@ -58,3 +58,12 @@ export interface IFetchGetListTodoResponse {
 	count: number;
 	todos: Array<ITodos> | any[];
 }
+
+export interface IFetchPostListTodoService {
+	note_id: string | null;
+	board_id: string | null;
+	payload: {
+		todoData: ITodoData;
+		todoIdsToDelete: Array<string>;
+	};
+}

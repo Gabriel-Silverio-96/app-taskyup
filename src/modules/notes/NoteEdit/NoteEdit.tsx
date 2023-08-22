@@ -4,7 +4,11 @@ import { useForm } from "react-hook-form";
 import NoteEditView from "./NoteEditView";
 import schema from "./schema";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchGetOneNoteService, fetchPutNoteService } from "./service";
+import {
+	fetchGetOneNoteService,
+	fetchPostListTodoService,
+	fetchPutNoteService,
+} from "./service";
 import { useSearchParams } from "react-router-dom";
 import { IFetchGetOneNoteResponse, INoteEditForm, ITodoData } from "./types";
 
@@ -52,10 +56,24 @@ const NoteEdit: React.FC = () => {
 		refetch();
 	}, [board_id, note_id]);
 
-	const onSuccessMutation = async () =>
-		await queryClient.invalidateQueries(["notes"]);
-	const mutationFn = (form: INoteEditForm) =>
-		fetchPutNoteService({ payload: form, note_id, board_id });
+	const onSuccessMutation = async () => {
+		await Promise.all([
+			queryClient.invalidateQueries(["notes"]),
+			queryClient.invalidateQueries(["get_list_todo"]),
+		]);
+	};
+
+	const mutationFn = async (form: INoteEditForm) => {
+		return await Promise.all([
+			fetchPutNoteService({ payload: form, note_id, board_id }),
+			fetchPostListTodoService({
+				payload: { todoData, todoIdsToDelete },
+				board_id,
+				note_id,
+			}),
+		]);
+	};
+
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const { mutate: noteEditSubmit, isLoading: isSaving } = useMutation(

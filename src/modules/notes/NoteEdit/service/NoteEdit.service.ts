@@ -2,8 +2,10 @@ import api from "shared/services/api";
 import {
 	IFetchGetListTodoResponse,
 	IFetchGetListTodoService,
+	IFetchPostListTodoService,
 	IFetchPutNoteService,
 } from "../types";
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
 const fetchGetOneNoteService = async (note_id: string | null) => {
 	const { data } = await api.get(`notes/note_id=${note_id}`);
@@ -27,4 +29,27 @@ const fetchGetListTodoService = async (payload: IFetchGetListTodoService) => {
 	return data;
 };
 
-export { fetchGetListTodoService, fetchGetOneNoteService, fetchPutNoteService };
+const fetchPostListTodoService = async (data: IFetchPostListTodoService) => {
+	const {
+		note_id,
+		board_id,
+		payload: { todoData, todoIdsToDelete },
+	} = data;
+
+	const payload = {
+		board_id,
+		related_id: note_id,
+		todo_ids_to_delete: todoIdsToDelete,
+		todos: todoData.todos,
+	};
+
+	const response = await api.post<IFetchResponseDefault>("/todo", payload);
+	return response.data;
+};
+
+export {
+	fetchGetListTodoService,
+	fetchGetOneNoteService,
+	fetchPutNoteService,
+	fetchPostListTodoService,
+};
