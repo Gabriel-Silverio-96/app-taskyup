@@ -13,6 +13,7 @@ import NoteTodoView from "./NoteTodoView";
 import { generateNewTodo } from "./utils/generate-new-todo/generate-new-todo";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 import { todoEditTitleValue } from "./utils/todo-edit-title-value";
+import { todoRemove } from "./utils/todo-remove/todo-remove";
 
 const NoteTodo: React.FC<any> = ({
 	todoData,
@@ -80,14 +81,9 @@ const NoteTodo: React.FC<any> = ({
 	};
 
 	const handleClickDeleteTodo = (todo_id: string, related_id: string) => {
-		const removeTodoById = todoData.todos.filter(
-			(todo: any) => todo.todo_id !== todo_id
-		);
+		const todoRemoved = todoRemove(todoData, todo_id);
 
-		setTodoData((prevState: any) => ({
-			...prevState,
-			todos: removeTodoById,
-		}));
+		setTodoData((prevState: any) => ({ ...prevState, todos: todoRemoved }));
 
 		if (related_id) {
 			setTodoIdsToDelete((prevState: any) => [...prevState, todo_id]);
