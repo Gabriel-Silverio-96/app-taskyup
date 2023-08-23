@@ -2,7 +2,8 @@ import { ITodoData } from "modules/notes/NoteEdit/types";
 import { generateOrderIndex } from "./generate-order-index";
 
 const generateNewTodo = (todoData: ITodoData) => {
-	const order_index = generateOrderIndex(todoData);
+	const { todos } = todoData;
+	const order_index = generateOrderIndex(todos);
 
 	return {
 		todo_id: crypto.randomUUID(),

@@ -7,9 +7,10 @@ import {
 
 export interface ITodos {
 	todo_id: string;
-	related_id: string;
+	related_id?: string;
 	title_todo: string;
 	checked: boolean;
+	order_index: number;
 	created_at: string | Date;
 }
 
