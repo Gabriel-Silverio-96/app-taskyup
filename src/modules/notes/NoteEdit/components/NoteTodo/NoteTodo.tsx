@@ -61,7 +61,7 @@ const NoteTodo: React.FC<any> = ({
 	};
 
 	const createNewTodo = () => {
-		const newTodo = generateNewTodo();
+		const newTodo = generateNewTodo(todoData);
 
 		setTodoData((prevState: any) => ({
 			...prevState,
