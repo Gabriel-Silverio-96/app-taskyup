@@ -14,8 +14,9 @@ import { generateNewTodo } from "./utils/generate-new-todo/generate-new-todo";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 import { todoEditTitleValue } from "./utils/todo-edit-title-value";
 import { todoRemove } from "./utils/todo-remove/todo-remove";
+import { INoteTodo } from "./types/NoteTodo.types";
 
-const NoteTodo: React.FC<any> = ({
+const NoteTodo: React.FC<INoteTodo> = ({
 	todoData,
 	setTodoData,
 	setTodoIdsToDelete,
