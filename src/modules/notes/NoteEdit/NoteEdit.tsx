@@ -57,6 +57,7 @@ const NoteEdit: React.FC = () => {
 	}, [board_id, note_id]);
 
 	const onSuccessMutation = async () => {
+		setTodoIdsToDelete([]);
 		await Promise.all([
 			queryClient.invalidateQueries(["notes"]),
 			queryClient.invalidateQueries(["get_list_todo"]),
