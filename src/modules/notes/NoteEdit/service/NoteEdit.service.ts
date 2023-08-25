@@ -19,14 +19,14 @@ const fetchPutNoteService = async (data: IFetchPutNoteService) => {
 	await api.put("/notes/edit", payload, params);
 };
 
-const fetchGetListTodoService = async (payload: IFetchGetListTodoService) => {
-	const { related_id, board_id } = payload;
+const fetchGetListTodoService = async (data: IFetchGetListTodoService) => {
+	const { related_id, board_id } = data;
 	const params = { board_id, related_id };
 
-	const { data } = await api.get<IFetchGetListTodoResponse>("/todo/list", {
+	const response = await api.get<IFetchGetListTodoResponse>("/todo/list", {
 		params,
 	});
-	return data;
+	return response.data;
 };
 
 const fetchPostListTodoService = async (data: IFetchPostListTodoService) => {
