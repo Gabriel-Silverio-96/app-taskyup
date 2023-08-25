@@ -2,13 +2,13 @@ import { faker } from "@faker-js/faker";
 import { ITodoData, ITodos } from "modules/notes/NoteEdit/types";
 import { todoEditCheckedValue } from "../todo-edit-checked-value";
 
-const todo_id_to_edited = faker.datatype.uuid();
+const TODO_ID_TO_EDIT = faker.datatype.uuid();
 
 const todoData: ITodoData = {
 	count: 2,
 	todos: [
 		{
-			todo_id: todo_id_to_edited,
+			todo_id: TODO_ID_TO_EDIT,
 			related_id: faker.datatype.uuid(),
 			title_todo: faker.lorem.lines(),
 			created_at: faker.datatype.datetime(),
@@ -28,16 +28,16 @@ describe("Function todoEditCheckedValue()", () => {
 	it("Should edit the checked value of a specific 'todo_id'", () => {
 		const result = todoEditCheckedValue({
 			todoData,
-			todo_id: todo_id_to_edited,
+			todo_id: TODO_ID_TO_EDIT,
 			checked: true,
 		});
 
 		const todoEdited: ITodos = result.find(
-			({ todo_id }) => todo_id === todo_id_to_edited
+			({ todo_id }) => todo_id === TODO_ID_TO_EDIT
 		);
 
 		const todoNotEdited: ITodos = result.find(
-			({ todo_id }) => todo_id !== todo_id_to_edited
+			({ todo_id }) => todo_id !== TODO_ID_TO_EDIT
 		);
 
 		expect(todoEdited.checked).toBeTruthy();
