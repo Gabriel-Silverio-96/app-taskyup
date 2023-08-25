@@ -10,7 +10,12 @@ import {
 	fetchPutNoteService,
 } from "./service";
 import { useSearchParams } from "react-router-dom";
-import { IFetchGetOneNoteResponse, INoteEditForm, ITodoData } from "./types";
+import {
+	IFetchGetOneNoteResponse,
+	INoteEditForm,
+	ITodoData,
+	TypeTodoIdsToDelete,
+} from "./types";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -24,7 +29,9 @@ const NoteEdit: React.FC = () => {
 		todos: [],
 	});
 
-	const [todoIdsToDelete, setTodoIdsToDelete] = useState<Array<string>>([]);
+	const [todoIdsToDelete, setTodoIdsToDelete] = useState<TypeTodoIdsToDelete>(
+		[]
+	);
 
 	const {
 		register,

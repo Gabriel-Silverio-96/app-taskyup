@@ -68,3 +68,5 @@ export interface IFetchPostListTodoService {
 		todoIdsToDelete: Array<string>;
 	};
 }
+
+export type TypeTodoIdsToDelete = Array<string | any>;
