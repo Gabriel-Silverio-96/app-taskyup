@@ -1,4 +1,4 @@
-import { ITodoData, ITodos } from "modules/notes/NoteEdit/types";
+import { ITodoData, ITodo } from "modules/notes/NoteEdit/types";
 
 export interface ITodoEditTitleValueProps {
 	todoData: ITodoData;
@@ -7,14 +7,14 @@ export interface ITodoEditTitleValueProps {
 }
 
 export interface ITodoEditTitleValue {
-	(props: ITodoEditTitleValueProps): Array<ITodos> | Array<any>;
+	(props: ITodoEditTitleValueProps): Array<ITodo> | Array<any>;
 }
 
 export interface IEditTitleTodoValueProps
 	extends Omit<ITodoEditTitleValueProps, "todoData"> {
-	todos: Array<ITodos>;
+	todos: Array<ITodo>;
 }
 
 export interface IEditTitleTodoValue {
-	(props: IEditTitleTodoValueProps): Array<ITodos> | Array<any>;
+	(props: IEditTitleTodoValueProps): Array<ITodo> | Array<any>;
 }

@@ -1,6 +1,6 @@
-import { ITodos } from "modules/notes/NoteEdit/types";
+import { ITodo } from "modules/notes/NoteEdit/types";
 
-const generateOrderIndex = (todos: Array<ITodos | any>) => {
+const generateOrderIndex = (todos: Array<ITodo | any>) => {
 	const lastTodo = todos.at(-1);
 	const orderIndex = todos.length ? lastTodo.order_index + 1 : 0;
 

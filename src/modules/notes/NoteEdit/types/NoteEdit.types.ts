@@ -5,7 +5,7 @@ import {
 	UseFormRegister,
 } from "react-hook-form";
 
-export interface ITodos {
+export interface ITodo {
 	todo_id: string;
 	related_id?: string;
 	title_todo: string;
@@ -16,7 +16,7 @@ export interface ITodos {
 
 export interface ITodoData {
 	count: number;
-	todos: Array<ITodos> | any[];
+	todos: Array<ITodo> | any[];
 }
 
 export interface INoteEditForm {
@@ -57,7 +57,7 @@ export interface IFetchGetListTodoService {
 
 export interface IFetchGetListTodoResponse {
 	count: number;
-	todos: Array<ITodos> | any[];
+	todos: Array<ITodo> | any[];
 }
 
 export interface IFetchPostListTodoService {

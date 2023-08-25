@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { ITodoData, ITodos } from "modules/notes/NoteEdit/types";
+import { ITodoData, ITodo } from "modules/notes/NoteEdit/types";
 import { todoEditTitleValue } from "../todo-edit-title-value";
 
 const TODO_ID_TO_EDIT = faker.datatype.uuid();
@@ -34,11 +34,11 @@ describe("Function todoEditTitleValue()", () => {
 			value,
 		});
 
-		const todoEdited: ITodos = result.find(
+		const todoEdited: ITodo = result.find(
 			({ todo_id }) => todo_id === TODO_ID_TO_EDIT
 		);
 
-		const todoNotEdited: ITodos = result.find(
+		const todoNotEdited: ITodo = result.find(
 			({ todo_id }) => todo_id !== TODO_ID_TO_EDIT
 		);
 		expect(todoEdited.title_todo).toBe(value);

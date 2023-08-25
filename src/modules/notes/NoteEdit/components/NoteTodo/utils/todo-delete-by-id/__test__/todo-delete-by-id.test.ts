@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { ITodoData, ITodos } from "modules/notes/NoteEdit/types";
+import { ITodoData, ITodo } from "modules/notes/NoteEdit/types";
 import { todoDeleteById } from "../todo-delete-by-id";
 
 const TODO_ID_TO_DELETE = faker.datatype.uuid();
@@ -28,7 +28,7 @@ describe("Function todoDeleteById()", () => {
 	it("Should delete todo of a specific 'todo_id'", () => {
 		const result = todoDeleteById(todoData, TODO_ID_TO_DELETE);
 
-		const wasFoundTodo: ITodos = result.find(
+		const wasFoundTodo: ITodo = result.find(
 			({ todo_id }) => todo_id === TODO_ID_TO_DELETE
 		);
 

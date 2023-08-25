@@ -1,4 +1,4 @@
-import { ITodoData, ITodos } from "modules/notes/NoteEdit/types";
+import { ITodoData, ITodo } from "modules/notes/NoteEdit/types";
 
 export interface ITodoEditCheckedValueProp {
 	todoData: ITodoData;
@@ -7,14 +7,14 @@ export interface ITodoEditCheckedValueProp {
 }
 
 export interface ITodoEditCheckedValue {
-	(props: ITodoEditCheckedValueProp): Array<ITodos> | Array<any>;
+	(props: ITodoEditCheckedValueProp): Array<ITodo> | Array<any>;
 }
 
 export interface IEditCheckedValueProps
 	extends Omit<ITodoEditCheckedValueProp, "todoData"> {
-	todos: Array<ITodos>;
+	todos: Array<ITodo>;
 }
 
 export interface IEditCheckedValue {
-	(props: IEditCheckedValueProps): Array<ITodos> | Array<any>;
+	(props: IEditCheckedValueProps): Array<ITodo> | Array<any>;
 }

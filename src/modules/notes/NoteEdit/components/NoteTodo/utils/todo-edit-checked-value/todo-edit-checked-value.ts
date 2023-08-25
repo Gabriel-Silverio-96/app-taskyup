@@ -1,8 +1,8 @@
-import { ITodos } from "modules/notes/NoteEdit/types";
+import { ITodo } from "modules/notes/NoteEdit/types";
 import { ITodoEditCheckedValue, IEditCheckedValue } from "./types";
 
 const editCheckedValue: IEditCheckedValue = ({ todos, todo_id, checked }) =>
-	todos.map((todo: ITodos) => {
+	todos.map((todo: ITodo) => {
 		const isSameTodoId = todo.todo_id === todo_id;
 
 		if (isSameTodoId) return { ...todo, checked };

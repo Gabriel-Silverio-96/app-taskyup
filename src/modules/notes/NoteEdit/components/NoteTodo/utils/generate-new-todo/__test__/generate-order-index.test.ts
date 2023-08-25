@@ -1,12 +1,12 @@
 import { faker } from "@faker-js/faker";
-import { ITodos } from "modules/notes/NoteEdit/types";
+import { ITodo } from "modules/notes/NoteEdit/types";
 import { generateOrderIndex } from "../generate-order-index";
 
 describe("Function generateOrderIndex", () => {
 	it("Should generate the correct order_index", () => {
 		const MOCK_UUID = faker.datatype.uuid();
 
-		const todos: Array<ITodos> = [
+		const todos: Array<ITodo> = [
 			{
 				todo_id: MOCK_UUID,
 				title_todo: faker.lorem.lines(),

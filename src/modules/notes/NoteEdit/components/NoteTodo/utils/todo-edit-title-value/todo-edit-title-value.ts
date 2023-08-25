@@ -1,11 +1,11 @@
-import { ITodos } from "modules/notes/NoteEdit/types";
+import { ITodo } from "modules/notes/NoteEdit/types";
 import {
 	IEditTitleTodoValue,
 	ITodoEditTitleValue,
 } from "./types/todo-edit-title-value.types";
 
 const editTitleTodoValue: IEditTitleTodoValue = ({ todos, todo_id, value }) =>
-	todos.map((todo: ITodos) => {
+	todos.map((todo: ITodo) => {
 		const isSameTodoId = todo.todo_id === todo_id;
 
 		if (isSameTodoId) return { ...todo, title_todo: value };
