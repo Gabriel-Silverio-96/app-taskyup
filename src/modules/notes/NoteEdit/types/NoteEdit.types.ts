@@ -35,7 +35,7 @@ export interface IFetchGetOneNoteResponse {
 export interface INoteEditView {
 	register: UseFormRegister<INoteEditForm>;
 	handleSubmit: UseFormHandleSubmit<INoteEditForm>;
-	handleClickNoteEditSubmit: (form: INoteEditForm) => void;
+	handleSubmitNoteEditSubmit: (form: INoteEditForm) => void;
 	errors: FieldErrors<INoteEditForm>;
 	isFetching: boolean;
 	isSaving: boolean;

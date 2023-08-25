@@ -9,7 +9,7 @@ const NoteEditView: React.FC<INoteEditView> = props => {
 	const {
 		register,
 		handleSubmit,
-		handleClickNoteEditSubmit,
+		handleSubmitNoteEditSubmit,
 		errors,
 		isFetching,
 		isSaving,
@@ -29,7 +29,7 @@ const NoteEditView: React.FC<INoteEditView> = props => {
 							{...{
 								register,
 								handleSubmit,
-								handleClickNoteEditSubmit,
+								handleSubmitNoteEditSubmit,
 								errors,
 								isSaving,
 							}}
