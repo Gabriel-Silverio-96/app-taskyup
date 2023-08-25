@@ -3,14 +3,18 @@ import { generateNewTodo } from "../generate-new-todo";
 
 const MOCK_UUID = faker.datatype.uuid();
 
+declare interface Window {
+	crypto: { randomUUID: () => string } | undefined;
+}
+
 beforeEach(() => {
 	const mockFunctionRandomUUID: jest.Mock<string> = jest.fn(() => MOCK_UUID);
-	(window as any).crypto = { randomUUID: mockFunctionRandomUUID };
+	(window as Window).crypto = { randomUUID: mockFunctionRandomUUID };
 });
 
 afterAll(() => {
 	jest.resetModules();
-	(window as any).crypto = undefined;
+	(window as Window).crypto = undefined;
 });
 
 describe("Function generateNewTodo", () => {
@@ -32,7 +36,7 @@ describe("Function generateNewTodo", () => {
 		expect(result).toEqual(expected);
 	});
 
-	it("Should generate a new todo with zero order_index when the todo array is empty", () => {
+	it("Should generate a new todo with zero order_index when todo array is empty", () => {
 		const todoData = {
 			count: 1,
 			todos: [],
