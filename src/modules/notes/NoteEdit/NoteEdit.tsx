@@ -16,6 +16,7 @@ import {
 	ITodoData,
 	TypeTodoIdsToDelete,
 } from "./types";
+import { INITIAL_STATE_TODO_DATA } from "./constants";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -24,10 +25,9 @@ const NoteEdit: React.FC = () => {
 	const note_id = searchParams.get("note_id");
 	const board_id = searchParams.get("board_id");
 
-	const [todoData, setTodoData] = useState<ITodoData>({
-		count: 0,
-		todos: [],
-	});
+	const [todoData, setTodoData] = useState<ITodoData>(
+		INITIAL_STATE_TODO_DATA
+	);
 
 	const [todoIdsToDelete, setTodoIdsToDelete] = useState<TypeTodoIdsToDelete>(
 		[]
@@ -84,17 +84,15 @@ const NoteEdit: React.FC = () => {
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: noteEditSubmit, isLoading: isSaving } = useMutation(
-		mutationFn,
-		optionsMutation
-	);
+	const { mutate: handleClickNoteEditSubmit, isLoading: isSaving } =
+		useMutation(mutationFn, optionsMutation);
 
 	return (
 		<NoteEditView
 			{...{
 				register,
 				handleSubmit,
-				noteEditSubmit,
+				handleClickNoteEditSubmit,
 				errors,
 				isFetching,
 				isSaving,
