@@ -5,20 +5,20 @@ import {
 	ITodoData,
 	TypeTodoIdsToDelete,
 } from "modules/notes/NoteEdit/types";
-import React, {
-	ChangeEvent,
-	FocusEvent,
-	KeyboardEvent,
-	useEffect,
-	useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import NoteTodoView from "./NoteTodoView";
+import {
+	IHandleBlurTextField,
+	IHandleChangeCheckbox,
+	IHandleClickDeleteTodo,
+	IHandleKeyDown,
+	INoteTodo,
+} from "./types";
 import { generateNewTodo } from "./utils/generate-new-todo/generate-new-todo";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 import { todoEditTitleValue } from "./utils/todo-edit-title-value";
 import { todoRemove } from "./utils/todo-remove/todo-remove";
-import { INoteTodo } from "./types/NoteTodo.types";
 
 const NoteTodo: React.FC<INoteTodo> = ({
 	todoData,
@@ -46,20 +46,14 @@ const NoteTodo: React.FC<INoteTodo> = ({
 		refetch();
 	}, [note_id, board_id]);
 
-	const handleChangeCheckbox = (
-		event: ChangeEvent<HTMLInputElement>,
-		todo_id: string
-	) => {
+	const handleChangeCheckbox: IHandleChangeCheckbox = (event, todo_id) => {
 		const { checked } = event.target;
 		const todos = todoEditCheckedValue({ todoData, checked, todo_id });
 
 		setTodoData((prevState: ITodoData) => ({ ...prevState, todos }));
 	};
 
-	const handleBlurTextField = (
-		event: FocusEvent<HTMLInputElement>,
-		todo_id: string
-	) => {
+	const handleBlurTextField: IHandleBlurTextField = (event, todo_id) => {
 		const { value } = event.target;
 
 		const todos = todoEditTitleValue({ todoData, todo_id, value });
@@ -77,7 +71,7 @@ const NoteTodo: React.FC<INoteTodo> = ({
 
 	const handleClickNewTodo = () => createNewTodo();
 
-	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+	const handleKeyDown: IHandleKeyDown = event => {
 		const hasPressEnter = event.key === "Enter";
 		if (hasPressEnter) {
 			setIsAutoFocus(true);
@@ -85,7 +79,10 @@ const NoteTodo: React.FC<INoteTodo> = ({
 		}
 	};
 
-	const handleClickDeleteTodo = (todo_id: string, related_id: string) => {
+	const handleClickDeleteTodo: IHandleClickDeleteTodo = (
+		todo_id,
+		related_id
+	) => {
 		const todoRemoved = todoRemove(todoData, todo_id);
 
 		setTodoData((prevState: ITodoData) => ({

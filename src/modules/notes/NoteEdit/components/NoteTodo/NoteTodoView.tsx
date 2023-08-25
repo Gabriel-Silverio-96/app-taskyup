@@ -6,19 +6,22 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material";
-import React from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { Todo, TodoContainer } from "./style";
+import { NoteTodoView } from "./types";
+import React from "react";
 
-const NoteTodoView: any = ({
-	todoData,
-	handleChangeCheckbox,
-	handleBlurTextField,
-	handleClickNewTodo,
-	handleKeyDown,
-	isAutoFocus,
-	handleClickDeleteTodo,
-}: any) => {
+const NoteTodoView: React.FC<NoteTodoView> = props => {
+	const {
+		todoData,
+		handleChangeCheckbox,
+		handleBlurTextField,
+		handleClickNewTodo,
+		handleKeyDown,
+		isAutoFocus,
+		handleClickDeleteTodo,
+	} = props;
+
 	return (
 		<div>
 			<Grid container>
