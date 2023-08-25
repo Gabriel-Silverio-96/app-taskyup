@@ -29,7 +29,7 @@ export interface IHandleKeyDown {
 }
 
 export interface IHandleClickDeleteTodo {
-	(todo_id: string, related_id: string): void;
+	(todo_id: string, related_id: string | undefined): void;
 }
 
 export interface NoteTodoView

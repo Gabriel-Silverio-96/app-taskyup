@@ -6,10 +6,10 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material";
+import React from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { Todo, TodoContainer } from "./style";
 import { NoteTodoView } from "./types";
-import React from "react";
 
 const NoteTodoView: React.FC<NoteTodoView> = props => {
 	const {
@@ -39,7 +39,7 @@ const NoteTodoView: React.FC<NoteTodoView> = props => {
 				<TodoContainer>
 					{todoData.todos.map(
 						(
-							{ checked, todo_id, title_todo, related_id }: any,
+							{ checked, todo_id, title_todo, related_id },
 							index: number
 						) => {
 							const isLastTodo =
