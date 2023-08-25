@@ -1,6 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchGetListTodoService } from "modules/notes/NoteEdit/service";
-import { IFetchGetListTodoResponse } from "modules/notes/NoteEdit/types";
+import {
+	IFetchGetListTodoResponse,
+	ITodoData,
+	TypeTodoIdsToDelete,
+} from "modules/notes/NoteEdit/types";
 import React, {
 	ChangeEvent,
 	FocusEvent,
@@ -49,7 +53,7 @@ const NoteTodo: React.FC<INoteTodo> = ({
 		const { checked } = event.target;
 		const todos = todoEditCheckedValue({ todoData, checked, todo_id });
 
-		setTodoData((prevState: any) => ({ ...prevState, todos }));
+		setTodoData((prevState: ITodoData) => ({ ...prevState, todos }));
 	};
 
 	const handleBlurTextField = (
@@ -59,13 +63,13 @@ const NoteTodo: React.FC<INoteTodo> = ({
 		const { value } = event.target;
 
 		const todos = todoEditTitleValue({ todoData, todo_id, value });
-		setTodoData((prevState: any) => ({ ...prevState, todos }));
+		setTodoData((prevState: ITodoData) => ({ ...prevState, todos }));
 	};
 
 	const createNewTodo = () => {
 		const newTodo = generateNewTodo(todoData);
 
-		setTodoData((prevState: any) => ({
+		setTodoData((prevState: ITodoData) => ({
 			...prevState,
 			todos: [...prevState.todos, newTodo],
 		}));
@@ -84,10 +88,16 @@ const NoteTodo: React.FC<INoteTodo> = ({
 	const handleClickDeleteTodo = (todo_id: string, related_id: string) => {
 		const todoRemoved = todoRemove(todoData, todo_id);
 
-		setTodoData((prevState: any) => ({ ...prevState, todos: todoRemoved }));
+		setTodoData((prevState: ITodoData) => ({
+			...prevState,
+			todos: todoRemoved,
+		}));
 
 		if (related_id) {
-			setTodoIdsToDelete((prevState: any) => [...prevState, todo_id]);
+			setTodoIdsToDelete((prevState: TypeTodoIdsToDelete) => [
+				...prevState,
+				todo_id,
+			]);
 		}
 	};
 
