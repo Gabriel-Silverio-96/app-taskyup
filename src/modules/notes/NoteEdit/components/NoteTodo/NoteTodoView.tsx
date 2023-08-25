@@ -9,9 +9,9 @@ import {
 import React from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { Todo, TodoContainer } from "./style";
-import { NoteTodoView } from "./types";
+import { INoteTodoView } from "./types";
 
-const NoteTodoView: React.FC<NoteTodoView> = props => {
+const NoteTodoView: React.FC<INoteTodoView> = props => {
 	const {
 		todoData,
 		handleChangeCheckbox,

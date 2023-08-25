@@ -32,7 +32,7 @@ export interface IHandleClickDeleteTodo {
 	(todo_id: string, related_id: string | undefined): void;
 }
 
-export interface NoteTodoView
+export interface INoteTodoView
 	extends Omit<INoteTodo, "setTodoData" | "setTodoIdsToDelete"> {
 	handleChangeCheckbox: IHandleChangeCheckbox;
 	handleBlurTextField: IHandleBlurTextField;
