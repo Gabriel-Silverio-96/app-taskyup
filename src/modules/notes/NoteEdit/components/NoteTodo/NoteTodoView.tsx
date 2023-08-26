@@ -72,6 +72,9 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 												)
 											}
 											onKeyDown={onKeyDown}
+											autoComplete="off"
+											spellCheck="false"
+											fullWidth
 										/>
 									</div>
 									<div>

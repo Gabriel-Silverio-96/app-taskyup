@@ -10,19 +10,21 @@ export const TodoContainer = styled("div")(
 
 export const Todo = styled("div")(
 	() => `
-        width: 100%;        
+    display: grid;
+    grid-template-columns: auto 3rem;
+    
+    > div {   
         display: flex;
-        justify-content: space-between;
-        
-        > div {             
-            .MuiCheckbox-root {
-                padding-left: 0;
-            }
 
+        .MuiCheckbox-root {
+            padding-left: 0;
+        }
             .MuiFormControl-root {
                 > div {
+                  
                     > input {
                         padding-left: 0;
+                        width: 100%;
                     }
     
                     > fieldset {
