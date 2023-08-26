@@ -61,7 +61,7 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 						label="Select color"
 					/>
 				</Grid>
-				<Grid item md={12} xs={12}>
+				<Grid item md={12} xs={12} sx={{ mb: 5 }}>
 					<TextFieldMutiline
 						{...register("observation")}
 						placeholder="Observation"
