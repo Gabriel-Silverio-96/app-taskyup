@@ -1,12 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchGetListTodoService } from "modules/notes/NoteEdit/service";
-import {
-	IFetchGetListTodoResponse,
-	ITodoData,
-	TypeTodoIdsToDelete,
-} from "modules/notes/NoteEdit/types";
-import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { ITodoData, TypeTodoIdsToDelete } from "modules/notes/NoteEdit/types";
+import React, { useState } from "react";
 import NoteTodoView from "./NoteTodoView";
 import {
 	IHandleBlurTextField,
@@ -16,35 +9,16 @@ import {
 	INoteTodo,
 } from "./types";
 import { generateNewTodo } from "./utils/generate-new-todo/generate-new-todo";
+import { todoDeleteById } from "./utils/todo-delete-by-id/todo-delete-by-id";
 import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
 import { todoEditTitleValue } from "./utils/todo-edit-title-value";
-import { todoDeleteById } from "./utils/todo-delete-by-id/todo-delete-by-id";
 
 const NoteTodo: React.FC<INoteTodo> = ({
 	todoData,
 	setTodoData,
 	setTodoIdsToDelete,
 }) => {
-	const [searchParams] = useSearchParams();
-	const board_id = searchParams.get("board_id");
-	const note_id = searchParams.get("note_id");
-
 	const [isAutoFocus, setIsAutoFocus] = useState(false);
-
-	const onSuccessQuery = (data: IFetchGetListTodoResponse) =>
-		setTodoData(data);
-
-	const queryKey = ["get_list_todo"];
-	const queryFn = () =>
-		fetchGetListTodoService({ board_id, related_id: note_id });
-
-	const optionsQuery = { onSuccess: onSuccessQuery };
-
-	const { refetch } = useQuery(queryKey, queryFn, optionsQuery);
-
-	useEffect(() => {
-		refetch();
-	}, [note_id, board_id]);
 
 	const handleChangeCheckbox: IHandleChangeCheckbox = (event, todo_id) => {
 		const { checked } = event.target;

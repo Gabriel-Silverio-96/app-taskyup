@@ -5,12 +5,14 @@ import NoteEditView from "./NoteEditView";
 import schema from "./schema";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
+	fetchGetListTodoService,
 	fetchGetOneNoteService,
 	fetchPostListTodoService,
 	fetchPutNoteService,
 } from "./service";
 import { useSearchParams } from "react-router-dom";
 import {
+	IFetchGetListTodoResponse,
 	IFetchGetOneNoteResponse,
 	INoteEditForm,
 	ITodoData,
@@ -43,21 +45,30 @@ const NoteEdit: React.FC = () => {
 		mode: "all",
 	});
 
-	const onSuccessQuery = (data: IFetchGetOneNoteResponse) => {
-		setValue("color_note", data.color_note);
-		setValue("title_note", data.title_note);
-		setValue("observation", data.observation);
+	const onSuccessQuery = (
+		data: [IFetchGetOneNoteResponse, IFetchGetListTodoResponse]
+	) => {
+		const [note, todo] = data;
+		setValue("color_note", note.color_note);
+		setValue("title_note", note.title_note);
+		setValue("observation", note.observation);
+
+		setTodoData(todo);
 	};
 
 	const queryKey = ["get_one_note"];
-	const queryFn = () => fetchGetOneNoteService(note_id);
+
+	const queryFn = async () => {
+		return await Promise.all([
+			fetchGetOneNoteService(note_id),
+			fetchGetListTodoService({ board_id, related_id: note_id }),
+		]);
+	};
 	const optionsQuery = { onSuccess: onSuccessQuery };
 
-	const { isFetching, refetch } = useQuery<IFetchGetOneNoteResponse>(
-		queryKey,
-		queryFn,
-		optionsQuery
-	);
+	const { isFetching, refetch } = useQuery<
+		[IFetchGetOneNoteResponse, IFetchGetListTodoResponse]
+	>(queryKey, queryFn, optionsQuery);
 
 	useEffect(() => {
 		refetch();
@@ -65,10 +76,7 @@ const NoteEdit: React.FC = () => {
 
 	const onSuccessMutation = async () => {
 		setTodoIdsToDelete([]);
-		return await Promise.all([
-			queryClient.invalidateQueries(["notes"]),
-			queryClient.invalidateQueries(["get_list_todo"]),
-		]);
+		return await queryClient.invalidateQueries(["notes"]);
 	};
 
 	const mutationFn = async (form: INoteEditForm) => {
@@ -83,7 +91,6 @@ const NoteEdit: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
-
 	const { mutate: handleSubmitNoteEditSubmit, isLoading: isSaving } =
 		useMutation(mutationFn, optionsMutation);
 
