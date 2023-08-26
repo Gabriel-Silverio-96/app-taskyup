@@ -25,12 +25,12 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 	return (
 		<div>
 			<Grid container>
-				<Grid item md={6}>
+				<Grid item md={6} sm xs>
 					<Typography variant="h6" fontWeight={800}>
 						Todo
 					</Typography>
 				</Grid>
-				<Grid item md={6} textAlign="right">
+				<Grid item md={6} sm xs textAlign="right">
 					<Button startIcon={<FiPlus />} onClick={handleClickNewTodo}>
 						New todo
 					</Button>
@@ -72,6 +72,9 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 												)
 											}
 											onKeyDown={onKeyDown}
+											autoComplete="off"
+											spellCheck="false"
+											fullWidth
 										/>
 									</div>
 									<div>
