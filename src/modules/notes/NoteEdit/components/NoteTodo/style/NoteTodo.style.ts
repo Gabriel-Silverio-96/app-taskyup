@@ -15,6 +15,10 @@ export const Todo = styled("div")(
         justify-content: space-between;
         
         > div {             
+            .MuiCheckbox-root {
+                padding-left: 0;
+            }
+
             .MuiFormControl-root {
                 > div {
                     > input {
