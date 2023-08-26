@@ -4,7 +4,7 @@ import React from "react";
 import {
 	FormHeaderNoteEdit,
 	FormActionNoteEdit,
-	TextFieldMultiple,
+	TextFieldMutiline,
 } from "./style";
 import ColorPicker from "shared/components/ColorPicker";
 import { Link } from "react-router-dom";
@@ -62,7 +62,7 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 					/>
 				</Grid>
 				<Grid item md={12} xs={12}>
-					<TextFieldMultiple
+					<TextFieldMutiline
 						{...register("observation")}
 						placeholder="Observation"
 						size="small"

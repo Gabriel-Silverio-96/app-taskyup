@@ -1,6 +1,6 @@
 import { TextField as TextFieldMui, styled } from "@mui/material";
 
-export const FormHeaderNoteEdit = styled("div")(    
+export const FormHeaderNoteEdit = styled("div")(
 	({ theme }) => `
         .MuiFormControl-root {
             > div {
@@ -19,7 +19,7 @@ export const FormHeaderNoteEdit = styled("div")(
     `
 );
 
-export const FormActionNoteEdit = styled("div")(    
+export const FormActionNoteEdit = styled("div")(
 	({ theme }) => `
         button:first-of-type {
             color: ${theme.palette.common.white};
@@ -27,7 +27,7 @@ export const FormActionNoteEdit = styled("div")(
     `
 );
 
-export const TextFieldMultiple = styled(TextFieldMui)(    
+export const TextFieldMutiline = styled(TextFieldMui)(
 	() => `        
         > div {
             padding: 0;
