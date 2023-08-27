@@ -13,6 +13,7 @@ export const Todo = styled("div")(
     display: grid;
     grid-template-columns: auto 3rem;
     margin-left: -${theme.spacing(0.5)};
+    align-items: center;
     
     > div:first-child {   
         display: flex;
@@ -36,6 +37,6 @@ export const Todo = styled("div")(
     > div:last-child {  
         text-align: right;
     }
-    
+
     `
 );
