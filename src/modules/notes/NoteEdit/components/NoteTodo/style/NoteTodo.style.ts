@@ -9,16 +9,14 @@ export const TodoContainer = styled("div")(
 );
 
 export const Todo = styled("div")(
-	() => `
+	({ theme }) => `
     display: grid;
     grid-template-columns: auto 3rem;
+    margin-left: -${theme.spacing(0.5)};
     
-    > div {   
+    > div:first-child {   
         display: flex;
 
-        .MuiCheckbox-root {
-            padding-left: 0;
-        }
             .MuiFormControl-root {
                 > div {
                   
@@ -34,5 +32,10 @@ export const Todo = styled("div")(
     
             }
         }
+
+    > div:last-child {  
+        text-align: right;
+    }
+    
     `
 );
