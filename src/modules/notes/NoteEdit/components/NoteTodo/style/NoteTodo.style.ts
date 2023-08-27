@@ -1,11 +1,12 @@
-import { styled } from "@mui/material";
+import { Button as ButtonMui, styled } from "@mui/material";
 import { ITodoStyled } from "./types/NoteTodo.style.types";
 
 export const TodoContainer = styled("div")(
-	() => `
+	({ theme }) => `
         display: flex;
         flex-direction: column;
         width: 100%;
+        margin-top: ${theme.spacing(2)};
     `
 );
 
@@ -38,5 +39,11 @@ export const Todo = styled("div")<ITodoStyled>(
     
             }
         }
+    `
+);
+
+export const ButtonNewTodo = styled(ButtonMui)(
+	({ theme }) => `
+        color:${theme.palette.common.white};
     `
 );

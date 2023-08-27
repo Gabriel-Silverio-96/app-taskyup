@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
-import { Todo, TodoContainer } from "./style";
+import { Todo, TodoContainer, ButtonNewTodo } from "./style";
 import { INoteTodoView } from "./types";
 
 const NoteTodoView: React.FC<INoteTodoView> = props => {
@@ -31,9 +31,11 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 					</Typography>
 				</Grid>
 				<Grid item md={6} sm xs textAlign="right">
-					<Button startIcon={<FiPlus />} onClick={handleClickNewTodo}>
+					<ButtonNewTodo
+						startIcon={<FiPlus />}
+						onClick={handleClickNewTodo}>
 						New todo
-					</Button>
+					</ButtonNewTodo>
 				</Grid>
 
 				<TodoContainer>
