@@ -76,7 +76,10 @@ const NoteEdit: React.FC = () => {
 
 	const onSuccessMutation = async () => {
 		setTodoIdsToDelete([]);
-		return await queryClient.invalidateQueries(["notes"]);
+		return await Promise.all([
+			queryClient.invalidateQueries(["notes"]),
+			queryClient.invalidateQueries(["get_one_note"]),
+		]);
 	};
 
 	const mutationFn = async (form: INoteEditForm) => {
