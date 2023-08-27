@@ -50,7 +50,7 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 								: undefined;
 
 							return (
-								<Todo key={todo_id}>
+								<Todo key={todo_id} checked={checked}>
 									<div>
 										<Checkbox
 											checked={checked}
