@@ -17,10 +17,10 @@ export const Todo = styled("div")<ITodoStyled>(
     align-items: center;
     background-color: ${checked ? theme.palette.grey[900] : "transparent"};
     border-radius: ${theme.spacing(1)};     
-    gap: ${theme.spacing(1)};
+    margin-bottom: ${theme.spacing(1)};
     transition: .5s;
 
-    > div:first-child {   
+    > div:first-of-type {   
         display: flex;
 
             .MuiFormControl-root {
