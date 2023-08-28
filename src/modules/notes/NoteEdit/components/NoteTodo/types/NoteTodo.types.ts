@@ -1,4 +1,8 @@
-import { ITodoData } from "modules/notes/NoteEdit/types";
+import {
+	IFetchGetListTodoResponse,
+	IFetchGetOneNoteResponse,
+	ITodoData,
+} from "modules/notes/NoteEdit/types";
 import {
 	ChangeEvent,
 	Dispatch,
@@ -41,3 +45,8 @@ export interface INoteTodoView
 	isAutoFocus: boolean;
 	handleClickDeleteTodo: IHandleClickDeleteTodo;
 }
+
+export type TuplesNoteAndTodoResponse = [
+	IFetchGetOneNoteResponse,
+	IFetchGetListTodoResponse
+];
