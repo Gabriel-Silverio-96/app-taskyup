@@ -25,18 +25,24 @@ const HeaderNote: React.FC = () => {
 
 	const onSuccess = async (response: IFetchPostCreateNoteResponse) => {
 		const { note_id } = response.results;
-		
-		const redirectTo = createURLQueryParams("/note/edit", { note_id, board_id });
-		navigate(redirectTo);	
 
-		await queryClient.invalidateQueries(["notes"]);	
+		const redirectTo = createURLQueryParams("/note/edit", {
+			note_id,
+			board_id,
+		});
+		navigate(redirectTo);
+
+		await queryClient.invalidateQueries(["notes"]);
 	};
-	
-	const optionsMutation = { onSuccess };
-	const mutationFn = () => fetchPostCreateNoteService({ board_id, payload: FORM_CREATE_NOTE });
-	const { mutate, isLoading } = useMutation(mutationFn, optionsMutation);
 
-	const handleClickCreateNote = () => mutate();	
+	const optionsMutation = { onSuccess };
+	const mutationFn = () =>
+		fetchPostCreateNoteService({ board_id, payload: FORM_CREATE_NOTE });
+
+	const { mutate: handleClickCreateNote, isLoading } = useMutation(
+		mutationFn,
+		optionsMutation
+	);
 
 	return (
 		<HeaderNoteView
@@ -47,7 +53,7 @@ const HeaderNote: React.FC = () => {
 				isMediumScreen,
 				countNotes,
 				handleClickCreateNote,
-				isLoading
+				isLoading,
 			}}
 		/>
 	);
