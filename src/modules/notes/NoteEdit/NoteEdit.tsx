@@ -1,24 +1,19 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSearchParams } from "react-router-dom";
 import NoteEditView from "./NoteEditView";
+import { TuplesNoteAndTodoResponse } from "./components/NoteTodo/types";
+import { INITIAL_STATE_TODO_DATA } from "./constants";
 import schema from "./schema";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
 	fetchGetListTodoService,
 	fetchGetOneNoteService,
 	fetchPostListTodoService,
 	fetchPutNoteService,
 } from "./service";
-import { useSearchParams } from "react-router-dom";
-import {
-	IFetchGetListTodoResponse,
-	IFetchGetOneNoteResponse,
-	INoteEditForm,
-	ITodoData,
-	TypeTodoIdsToDelete,
-} from "./types";
-import { INITIAL_STATE_TODO_DATA } from "./constants";
+import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -45,9 +40,7 @@ const NoteEdit: React.FC = () => {
 		mode: "all",
 	});
 
-	const onSuccessQuery = (
-		data: [IFetchGetOneNoteResponse, IFetchGetListTodoResponse]
-	) => {
+	const onSuccessQuery = (data: TuplesNoteAndTodoResponse) => {
 		const [note, todo] = data;
 		setValue("color_note", note.color_note);
 		setValue("title_note", note.title_note);
@@ -66,9 +59,11 @@ const NoteEdit: React.FC = () => {
 	};
 	const optionsQuery = { onSuccess: onSuccessQuery };
 
-	const { isFetching, refetch } = useQuery<
-		[IFetchGetOneNoteResponse, IFetchGetListTodoResponse]
-	>(queryKey, queryFn, optionsQuery);
+	const { isFetching, refetch } = useQuery<TuplesNoteAndTodoResponse>(
+		queryKey,
+		queryFn,
+		optionsQuery
+	);
 
 	useEffect(() => {
 		refetch();
