@@ -1,6 +1,6 @@
 import { Theme } from "@emotion/react";
 
-export interface IDialogBackgroundStyle {
-    theme?: Theme;
-    backgroundImage: string;
+export interface IDialogBackgroundStyled {
+	theme?: Theme;
+	backgroundImage: string;
 }

@@ -1,7 +1,7 @@
 import { Menu as MenuMui, styled } from "@mui/material";
-import { IDialogBackgroundStyle } from "./types/DialogBackground.style";
+import { IDialogBackgroundStyled } from "./types/DialogBackground.style";
 
-export const DialogBackground = styled("div")<IDialogBackgroundStyle>(
+export const DialogBackground = styled("div")<IDialogBackgroundStyled>(
 	({ theme, backgroundImage }) => `
         width: 100%;
         height: ${theme.spacing(15)};
