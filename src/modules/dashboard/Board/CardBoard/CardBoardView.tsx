@@ -6,6 +6,7 @@ import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 import Loading from "shared/components/Loading";
+import CardBoardAvatar from "./components/CardBoardAvatar/CardBoardAvatar";
 import {
 	CardBoardContainer,
 	CardContent,
@@ -41,7 +42,13 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 
 			{board &&
 				board.map(
-					({ title, type_board, board_id, background_image }) => {
+					({
+						title,
+						type_board,
+						board_id,
+						background_image,
+						members_board,
+					}) => {
 						const boardIcon = selectBoardIcon(
 							type_board,
 							palette.secondary.main
@@ -116,7 +123,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 															color: palette.error
 																.main,
 														}}>
-														<AiOutlineDelete />{" "}
+														<AiOutlineDelete />
 														Delete
 													</MenuItem>
 												</Menu>
@@ -130,6 +137,10 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 													{title}
 												</Typography>
 											</Link>
+
+											<CardBoardAvatar
+												membersBoard={members_board}
+											/>
 										</CardContent>
 									</Card>
 								</CardBoardContainer>

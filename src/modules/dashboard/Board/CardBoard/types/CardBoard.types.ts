@@ -6,6 +6,7 @@ export type TypeBoard = "notes" | "texts" | "kanban";
 
 export interface IMemberBoard {
 	first_name: string;
+	full_name: string;
 }
 
 export interface IFetchGetBoardResponse {
