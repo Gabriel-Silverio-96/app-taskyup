@@ -6,13 +6,11 @@ const CardBoardAvatar: React.FC<ICardBoardAvatar> = ({ membersBoard }) => {
 	return (
 		<AvatarGroup max={4}>
 			{membersBoard.map(({ first_name, full_name }) => {
-				const firstLetterMemberFirstName = first_name?.charAt(0);
+				const firstLetterFirstName = first_name?.charAt(0);
 
 				return (
 					<Tooltip key={first_name} title={full_name} placement="top">
-						<Avatar alt={first_name}>
-							{firstLetterMemberFirstName}
-						</Avatar>
+						<Avatar alt={first_name}>{firstLetterFirstName}</Avatar>
 					</Tooltip>
 				);
 			})}
