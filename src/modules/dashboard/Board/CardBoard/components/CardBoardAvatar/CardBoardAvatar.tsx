@@ -10,7 +10,7 @@ const CardBoardAvatar: React.FC<ICardBoardAvatar> = ({ membersBoard }) => {
 
 				return (
 					<Tooltip key={first_name} title={full_name} placement="top">
-						<Avatar alt={first_name}>{firstLetterFirstName}</Avatar>
+						<Avatar>{firstLetterFirstName}</Avatar>
 					</Tooltip>
 				);
 			})}
