@@ -1,9 +1,11 @@
-import { Button, IconButton, TextField, Typography } from "@mui/material";
+import { Button, IconButton, TextField } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import Loading from "shared/components/Loading";
+import MessageError from "./components/MessageError";
+import MessageNoResultsFound from "./components/MessageNoResultsFound/MessageNoResultsFound";
 import {
 	DialogBackground,
 	Menu,
@@ -11,7 +13,7 @@ import {
 	MenuImagesFooter,
 	MenuSearch,
 } from "./style";
-import { IDialogBackgroundView, TypeImage } from "./types";
+import { IDialogBackgroundView } from "./types";
 
 const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const {
@@ -35,15 +37,6 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const isOpenMenu = Boolean(anchorEl);
 	const disabledButtonDelete = Boolean(dialogBackgroundImage);
 	const disabledButtonSearch = Boolean(!queryImage);
-
-	const messageError = images.error && (
-		<Typography variant="caption">{images.error}</Typography>
-	);
-	const messageNoResultsFound = images.total_results === 0 && (
-		<Typography variant="caption" display="block" textAlign="center">
-			No results found
-		</Typography>
-	);
 
 	return (
 		<DialogBackground backgroundImage={dialogBackgroundImage}>
@@ -72,12 +65,10 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 					</Button>
 				</MenuSearch>
 				<Loading isLoading={isLoadingImages} message="Loading images" />
-
-				{messageError}
-				{messageNoResultsFound}
-
+				<MessageError images={images} />
+				<MessageNoResultsFound images={images} />
 				<MenuImages>
-					{images.photos.map((image: TypeImage) => (
+					{images.photos.map(image => (
 						<figure
 							key={image.id}
 							onClick={() =>
