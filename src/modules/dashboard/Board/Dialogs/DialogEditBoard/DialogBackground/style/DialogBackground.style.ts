@@ -2,7 +2,7 @@ import { Menu as MenuMui, styled } from "@mui/material";
 import { IDialogBackgroundStyled } from "./types";
 
 export const DialogBackground = styled("div")<IDialogBackgroundStyled>(
-	({ theme, backgroundimage }) => `
+	({ theme, backgroundImage }) => `
         width: 100%;
         height: ${theme.spacing(15)};
         background: #00000059;
@@ -13,7 +13,7 @@ export const DialogBackground = styled("div")<IDialogBackgroundStyled>(
         justify-content: end;
         align-items: baseline;
         
-        background-image: linear-gradient(#1a191a82, #1a191a82), url(${backgroundimage});
+        background-image: linear-gradient(#1a191a82, #1a191a82), url(${backgroundImage});
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
