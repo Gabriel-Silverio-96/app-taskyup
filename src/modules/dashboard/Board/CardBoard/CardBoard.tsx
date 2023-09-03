@@ -5,22 +5,27 @@ import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
 import { fetchGetBoardService } from "./service";
+import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
 	const { setBoardID } = useContextBoard();
-	const { openDialogEditBoard, openDialogDeleteSingleBoard } = useDialogBoard();
+	const { openDialogEditBoard, openDialogDeleteSingleBoard } =
+		useDialogBoard();
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
 
-	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
+	const openMenu = (event: React.MouseEvent<HTMLButtonElement>) =>
+		setAnchorEl(event.currentTarget);
 
 	const closeMenu = () => setAnchorEl(null);
 	const handleBoardID = (boardID: string) => setBoardID(boardID);
-	
-	const queryKey = ["board"];
-	const { data: board, isFetching } = useQuery(queryKey, fetchGetBoardService);
+
+	const { data: board, isFetching } = useQuery(
+		[BOARD_QUERY_KEY.FETCH_GET_BOARDS],
+		fetchGetBoardService
+	);
 
 	return (
 		<CardBoardView
@@ -34,7 +39,7 @@ const CardBoard: React.FC = () => {
 				isOpenMenu,
 				handleBoardID,
 				openDialogEditBoard,
-				openDialogDeleteSingleBoard
+				openDialogDeleteSingleBoard,
 			}}
 		/>
 	);

@@ -12,14 +12,21 @@ import schema from "./schema";
 import { fetchPatchBoardService, fetchGetOneBoardService } from "./service";
 import { IDialogEditBoardForm } from "./types";
 import useSnackBar from "shared/common/hook/useSnackBar";
+import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 
-export const MESSAGE_ERROR_UPDATE_BOARD = "There was an error and it was not possible to update the board";
+export const MESSAGE_ERROR_UPDATE_BOARD =
+	"There was an error and it was not possible to update the board";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
 	const { snackBarError } = useSnackBar();
-	const {	boardID, isOpenDialogEditBoard,	dialogBackgroundImage, setDialogBackgroundImage } = useContextBoard();
+	const {
+		boardID,
+		isOpenDialogEditBoard,
+		dialogBackgroundImage,
+		setDialogBackgroundImage,
+	} = useContextBoard();
 
 	const { closeDialogEditBoard } = useDialogBoard();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -29,7 +36,7 @@ const DialogEditBoard = () => {
 		handleSubmit,
 		formState: { errors },
 		setValue,
-		clearErrors
+		clearErrors,
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
 	const onSuccessQuery = (data: IFetchGetSingleBoard) => {
@@ -38,11 +45,19 @@ const DialogEditBoard = () => {
 		setDialogBackgroundImage(data.background_image);
 	};
 
-	const optionsQuery = { onSuccess: onSuccessQuery, retry: false,	enabled: false };
+	const optionsQuery = {
+		onSuccess: onSuccessQuery,
+		retry: false,
+		enabled: false,
+	};
 	const queryKey = ["dialog_edit_board"];
 	const queryFn = () => fetchGetOneBoardService(boardID);
 
-	const { refetch, isFetching: isLoading } = useQuery(queryKey, queryFn, optionsQuery);
+	const { refetch, isFetching: isLoading } = useQuery(
+		queryKey,
+		queryFn,
+		optionsQuery
+	);
 
 	useEffect(() => {
 		if (isOpenDialogEditBoard) refetch();
@@ -57,18 +72,24 @@ const DialogEditBoard = () => {
 		try {
 			closeDialogEditBoard();
 			await Promise.all([
-				queryClient.invalidateQueries(["board"]),				
+				queryClient.invalidateQueries([
+					BOARD_QUERY_KEY.FETCH_GET_BOARDS,
+				]),
 				queryClient.invalidateQueries(["menu"]),
 				queryClient.invalidateQueries(["get_single_board"]),
 				queryClient.invalidateQueries(["texts"]),
 			]);
 		} catch (error) {
 			snackBarError({ message: MESSAGE_ERROR_UPDATE_BOARD });
-		} 
+		}
 	};
 
 	const mutationFn = (form: IDialogEditBoardForm) =>
-		fetchPatchBoardService({ form, background_image: dialogBackgroundImage, boardID });
+		fetchPatchBoardService({
+			form,
+			background_image: dialogBackgroundImage,
+			boardID,
+		});
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
