@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
-import { TypeBoard } from "modules/dashboard/Board/CardBoard/types/CardBoard.types";
+import { TypeBoard } from "modules/dashboard/Board/components/CardBoard/types";
 
 interface IBoardIcon {
 	[key: string]: ReactNode;

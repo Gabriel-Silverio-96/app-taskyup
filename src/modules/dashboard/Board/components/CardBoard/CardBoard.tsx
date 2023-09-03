@@ -1,8 +1,8 @@
 import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo } from "react";
-import { useContextBoard } from "../Context";
-import useDialogBoard from "../shared/hook/useDialogBoard";
+import { useContextBoard } from "modules/dashboard/Board/Context";
+import useDialogBoard from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
 import { fetchGetBoardsService } from "./service";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
