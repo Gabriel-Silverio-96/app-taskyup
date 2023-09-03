@@ -1,0 +1,3 @@
+export const BOARD_QUERY_KEY = {
+	FETCH_GET_BOARDS: "FETCH_GET_BOARDS",
+};
