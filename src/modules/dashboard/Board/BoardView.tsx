@@ -1,7 +1,7 @@
 import React from "react";
 import CardBoard from "./components/CardBoard";
-import DialogDeleteOneBoard from "./Dialogs/DialogDeleteOneBoard";
-import DialogEditBoard from "./Dialogs/DialogEditBoard";
+import DialogEditBoard from "./components/Dialogs/DialogEditBoard/DialogEditBoard";
+import DialogDeleteOneBoard from "./components/Dialogs/DialogDeleteOneBoard/DialogDeleteOneBoard";
 
 const BoardView: React.FC = () => {
 	return (
