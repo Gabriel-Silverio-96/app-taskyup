@@ -39,7 +39,8 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const disabledButtonSearch = Boolean(!queryImage);
 
 	return (
-		<DialogBackground backgroundImage={dialogBackgroundImage}>
+		// Why backgroundimage lower case > Warning: React does not recognize the `backgroundImage` prop on a DOM element.
+		<DialogBackground backgroundimage={dialogBackgroundImage}>
 			<Button
 				variant="contained"
 				size="small"
