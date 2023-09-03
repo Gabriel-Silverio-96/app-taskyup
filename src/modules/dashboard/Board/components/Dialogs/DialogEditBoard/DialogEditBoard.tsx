@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
 import dateFormat from "shared/util/dateFormat";
 import { useContextBoard } from "modules/dashboard/Board/Context";
-import useDialogBoard from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import DialogEditBoardView from "./DialogEditBoardView";
 import schema from "./schema";
 import { fetchPatchBoardService, fetchGetOneBoardService } from "./service";
