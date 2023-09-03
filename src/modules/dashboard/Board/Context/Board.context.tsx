@@ -1,23 +1,26 @@
 import { createContext, useContext, useState } from "react";
-import { IContextBoard, IContextProviderBoard } from "./types/Context.component";
+import { IContextBoard, IContextProviderBoard } from "./types";
 
 export const ContextBoard = createContext<IContextBoard | undefined>(undefined);
 
-export const ContextProviderBoard:React.FC<IContextProviderBoard> = ({ children }) => {
+export const ContextProviderBoard: React.FC<IContextProviderBoard> = ({
+	children,
+}) => {
 	const [boardID, setBoardID] = useState("");
 	const [isOpenDialogEditBoard, setIsOpenDialogEditBoard] = useState(false);
-	const [isOpenDialogDeleteSingleBoard, setIsOpenDialogDeleteSingleBoard] = useState(false);
+	const [isOpenDialogDeleteSingleBoard, setIsOpenDialogDeleteSingleBoard] =
+		useState(false);
 	const [dialogBackgroundImage, setDialogBackgroundImage] = useState("");
-	
+
 	const value = {
 		boardID,
 		setBoardID,
-		isOpenDialogEditBoard, 
+		isOpenDialogEditBoard,
 		setIsOpenDialogEditBoard,
-		isOpenDialogDeleteSingleBoard, 
+		isOpenDialogDeleteSingleBoard,
 		setIsOpenDialogDeleteSingleBoard,
-		dialogBackgroundImage, 
-		setDialogBackgroundImage
+		dialogBackgroundImage,
+		setDialogBackgroundImage,
 	};
 
 	return (
@@ -27,8 +30,10 @@ export const ContextProviderBoard:React.FC<IContextProviderBoard> = ({ children 
 
 export const useContextBoard = () => {
 	const context = useContext(ContextBoard);
-	if(context === undefined) {
-		throw new Error("useContextBoard must be used within a ContextProviderBoard");
+	if (context === undefined) {
+		throw new Error(
+			"useContextBoard must be used within a ContextProviderBoard"
+		);
 	}
 
 	return context;
