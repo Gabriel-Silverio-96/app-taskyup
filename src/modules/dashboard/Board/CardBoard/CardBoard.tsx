@@ -4,7 +4,7 @@ import React, { memo } from "react";
 import { useContextBoard } from "../Context";
 import useDialogBoard from "../shared/hook/useDialogBoard";
 import CardBoardView from "./CardBoardView";
-import { fetchGetBoardService } from "./service";
+import { fetchGetBoardsService } from "./service";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 
 const CardBoard: React.FC = () => {
@@ -24,7 +24,7 @@ const CardBoard: React.FC = () => {
 
 	const { data: board, isFetching } = useQuery(
 		[BOARD_QUERY_KEY.FETCH_GET_BOARDS],
-		fetchGetBoardService
+		fetchGetBoardsService
 	);
 
 	return (

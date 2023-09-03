@@ -9,7 +9,7 @@ export interface IMemberBoard {
 	full_name: string;
 }
 
-export interface IFetchGetBoardResponse {
+export interface IFetchGetBoardsResponse {
 	board_id: string;
 	title: string;
 	type_board: TypeBoard;
@@ -19,7 +19,7 @@ export interface IFetchGetBoardResponse {
 }
 
 export interface ICardBoardView {
-	board: IFetchGetBoardResponse[] | undefined;
+	board: IFetchGetBoardsResponse[] | undefined;
 	isFetching: boolean;
 	palette: Palette;
 	openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
