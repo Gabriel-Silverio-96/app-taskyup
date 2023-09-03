@@ -57,8 +57,9 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 
 						return (
 							<Grid item xl={2} md={3} xs={12} key={board_id}>
+								{/* Why backgroundimage lower case > Warning: React does not recognize the `backgroundImage` prop on a DOM element. */}
 								<CardBoardContainer
-									backgroundImage={background_image}>
+									backgroundimage={background_image}>
 									<Card sx={{ height: 120 }}>
 										<CardContent>
 											<CardHeader>

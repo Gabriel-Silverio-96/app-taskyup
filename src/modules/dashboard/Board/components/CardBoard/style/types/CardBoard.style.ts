@@ -1,3 +1,3 @@
 export interface ICardBoardStyle {
-	backgroundImage: string;
+	backgroundimage: string;
 }
