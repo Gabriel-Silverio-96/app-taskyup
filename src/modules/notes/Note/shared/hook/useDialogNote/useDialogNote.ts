@@ -1,6 +1,6 @@
 import { useContextNote } from "modules/notes/Note/Context";
 import { useCallback } from "react";
-import { IUseDialogNote } from "./types/UseDialogNote";
+import { IUseDialogNote } from "./types";
 
 const useDialogNote = (): IUseDialogNote => {
 	const {
