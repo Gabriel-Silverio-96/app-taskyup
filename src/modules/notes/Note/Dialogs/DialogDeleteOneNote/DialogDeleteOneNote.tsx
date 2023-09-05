@@ -4,6 +4,7 @@ import { useContextNote } from "modules/notes/Note/Context";
 import useDialogNote from "modules/notes/Note/shared/hook/useDialogNote";
 import DialogDeleteOneNoteView from "./DialogDeleteOneNoteView";
 import { fetchDeleteOneNoteService } from "./service";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const DialogDeleteOneNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -11,14 +12,15 @@ const DialogDeleteOneNote: React.FC = () => {
 	const { closeDialogDeleteSingleNote } = useDialogNote();
 
 	const onSuccessMutation = () => {
-		queryClient.invalidateQueries(["notes"]);
+		queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 		closeDialogDeleteSingleNote();
-	}; 
+	};
 
-	const mutationFn = () => fetchDeleteOneNoteService(noteID);	
-	const optionsMutation = { onSuccess: onSuccessMutation};
-	
-	const { mutate: dialogDeleteOneNoteSubmit, isLoading: isDeleting } = useMutation(mutationFn, optionsMutation);
+	const mutationFn = () => fetchDeleteOneNoteService(noteID);
+	const optionsMutation = { onSuccess: onSuccessMutation };
+
+	const { mutate: dialogDeleteOneNoteSubmit, isLoading: isDeleting } =
+		useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogDeleteOneNoteView
@@ -26,7 +28,7 @@ const DialogDeleteOneNote: React.FC = () => {
 				isOpenDialogDeleteSingleNote,
 				closeDialogDeleteSingleNote,
 				dialogDeleteOneNoteSubmit,
-				isDeleting
+				isDeleting,
 			}}
 		/>
 	);

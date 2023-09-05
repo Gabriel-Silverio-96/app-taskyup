@@ -10,6 +10,7 @@ import { fetchPostCreateNoteService } from "./service/HeaderNote.service";
 import { FORM_CREATE_NOTE } from "./constants";
 import { IFetchPostCreateNoteResponse } from "./types";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const HeaderNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -32,7 +33,7 @@ const HeaderNote: React.FC = () => {
 		});
 		navigate(redirectTo);
 
-		await queryClient.invalidateQueries(["notes"]);
+		await queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 	};
 
 	const optionsMutation = { onSuccess };
