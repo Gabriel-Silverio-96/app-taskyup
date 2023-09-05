@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchGetSingleBoard from "shared/common/hook/useFetchGetSingleBoard/useFetchGetSingleBoard";
 import { useContextNote } from "../Context";
-import useDialogNote from "../shared/hook/useDialogNote";
+import { useDialogNote } from "../shared/hook/useDialogNote";
 import HeaderNoteView from "./HeaderNoteView";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchPostCreateNoteService } from "./service/HeaderNote.service";

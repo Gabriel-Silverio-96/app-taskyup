@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useContextNote } from "../Context";
-import useDialogNote from "../shared/hook/useDialogNote";
+import { useDialogNote } from "../shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
 import { fetchGetNotesService } from "./service";
 import { TypeCount } from "./types";
