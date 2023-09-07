@@ -13,18 +13,19 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteOneNoteView } from "./types";
 
-const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = (props) => {
-	const { 
-		isOpenDialogDeleteSingleNote, 
-		closeDialogDeleteSingleNote, 
-		dialogDeleteOneNoteSubmit,
-		isDeleting
-	 } = props;
+const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = props => {
+	const {
+		isOpenDialogDeleteSingleNote,
+		closeDialogDeleteSingleNote,
+		handleClickDeleteOneNote,
+		isDeleting,
+	} = props;
 	return (
-		<Dialog fullWidth maxWidth="xs" 
+		<Dialog
+			fullWidth
+			maxWidth="xs"
 			open={isOpenDialogDeleteSingleNote}
-			onClose={!isDeleting ? closeDialogDeleteSingleNote : () => ""}
-		>
+			onClose={!isDeleting ? closeDialogDeleteSingleNote : () => ""}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -36,26 +37,37 @@ const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = (props) => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton onClick={closeDialogDeleteSingleNote} disabled={isDeleting}>
+						<IconButton
+							onClick={closeDialogDeleteSingleNote}
+							disabled={isDeleting}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<Typography color="GrayText">					
+				<Typography color="GrayText">
 					Do you want to delete this note?
 				</Typography>
 			</DialogContent>
 			<DialogActions>
-				<Grid container	justifyContent="space-between" alignItems="center">
+				<Grid
+					container
+					justifyContent="space-between"
+					alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined" onClick={closeDialogDeleteSingleNote} disabled={isDeleting}>
+						<Button
+							variant="outlined"
+							onClick={closeDialogDeleteSingleNote}
+							disabled={isDeleting}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" onClick={dialogDeleteOneNoteSubmit} loading={isDeleting}>
+						<LoadingButton
+							variant="contained"
+							onClick={handleClickDeleteOneNote}
+							loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>

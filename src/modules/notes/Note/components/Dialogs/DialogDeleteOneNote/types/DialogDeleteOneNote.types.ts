@@ -1,6 +1,6 @@
 export interface IDialogDeleteOneNoteView {
-    isOpenDialogDeleteSingleNote: boolean;
-    closeDialogDeleteSingleNote: () => void;
-    dialogDeleteOneNoteSubmit: () => void;
-    isDeleting: boolean;
+	isOpenDialogDeleteSingleNote: boolean;
+	closeDialogDeleteSingleNote: () => void;
+	handleClickDeleteOneNote: () => void;
+	isDeleting: boolean;
 }
