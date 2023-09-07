@@ -1,7 +1,7 @@
-import CardNote from "./CardNote";
-import DialogDeleteAllNotes from "./Dialogs/DialogDeleteAllNotes";
-import DialogDeleteOneNote from "./Dialogs/DialogDeleteOneNote";
-import HeaderNote from "./HeaderNote";
+import CardNote from "./components/CardNote";
+import DialogDeleteAllNotes from "./components/Dialogs/DialogDeleteAllNotes";
+import DialogDeleteOneNote from "./components/Dialogs/DialogDeleteOneNote";
+import HeaderNote from "./components/HeaderNote";
 
 const NoteView = () => {
 	return (
@@ -10,7 +10,7 @@ const NoteView = () => {
 			<CardNote />
 			<DialogDeleteOneNote />
 			<DialogDeleteAllNotes />
-		</>	
+		</>
 	);
 };
 

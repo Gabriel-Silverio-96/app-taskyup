@@ -14,6 +14,7 @@ import {
 	fetchPutNoteService,
 } from "./service";
 import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -72,7 +73,7 @@ const NoteEdit: React.FC = () => {
 	const onSuccessMutation = async () => {
 		setTodoIdsToDelete([]);
 		return await Promise.all([
-			queryClient.invalidateQueries(["notes"]),
+			queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
 			queryClient.invalidateQueries(["get_one_note"]),
 		]);
 	};

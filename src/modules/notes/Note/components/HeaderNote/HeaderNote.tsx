@@ -2,14 +2,15 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchGetSingleBoard from "shared/common/hook/useFetchGetSingleBoard/useFetchGetSingleBoard";
-import { useContextNote } from "../Context";
-import useDialogNote from "../shared/hook/useDialogNote";
+import { useContextNote } from "modules/notes/Note/Context";
+import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import HeaderNoteView from "./HeaderNoteView";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchPostCreateNoteService } from "./service/HeaderNote.service";
 import { FORM_CREATE_NOTE } from "./constants";
 import { IFetchPostCreateNoteResponse } from "./types";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const HeaderNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -32,7 +33,7 @@ const HeaderNote: React.FC = () => {
 		});
 		navigate(redirectTo);
 
-		await queryClient.invalidateQueries(["notes"]);
+		await queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 	};
 
 	const optionsMutation = { onSuccess };
