@@ -14,14 +14,14 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 	const {
 		register,
 		handleSubmit,
-		handleSubmitNoteEditSubmit,
+		handleSubmitNoteEdit,
 		errors,
 		linkPreviousPage,
 		isSaving,
 	} = props;
 
 	return (
-		<form onSubmit={handleSubmit(handleSubmitNoteEditSubmit)}>
+		<form onSubmit={handleSubmit(handleSubmitNoteEdit)}>
 			<Grid container spacing={4}>
 				<Grid item md={8} xs={8}>
 					<FormHeaderNoteEdit>

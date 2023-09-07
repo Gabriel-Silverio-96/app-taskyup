@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import NoteEditView from "./NoteEditView";
 import { TuplesNoteAndTodoResponse } from "./components/NoteTodo/types";
-import { INITIAL_STATE_TODO_DATA } from "./constants";
+import { INITIAL_STATE_TODO_DATA, NOTE_EDIT_QUERY_KEY } from "./constants";
 import schema from "./schema";
 import {
 	fetchGetListTodoService,
@@ -50,8 +50,6 @@ const NoteEdit: React.FC = () => {
 		setTodoData(todo);
 	};
 
-	const queryKey = ["get_one_note"];
-
 	const queryFn = async () => {
 		return await Promise.all([
 			fetchGetOneNoteService(note_id),
@@ -61,7 +59,7 @@ const NoteEdit: React.FC = () => {
 	const optionsQuery = { onSuccess: onSuccessQuery };
 
 	const { isFetching, refetch } = useQuery<TuplesNoteAndTodoResponse>(
-		queryKey,
+		[NOTE_EDIT_QUERY_KEY.FETCH_GET_ONE_NOTE],
 		queryFn,
 		optionsQuery
 	);
@@ -74,7 +72,9 @@ const NoteEdit: React.FC = () => {
 		setTodoIdsToDelete([]);
 		return await Promise.all([
 			queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
-			queryClient.invalidateQueries(["get_one_note"]),
+			queryClient.invalidateQueries([
+				NOTE_EDIT_QUERY_KEY.FETCH_GET_ONE_NOTE,
+			]),
 		]);
 	};
 
@@ -90,15 +90,17 @@ const NoteEdit: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
-	const { mutate: handleSubmitNoteEditSubmit, isLoading: isSaving } =
-		useMutation(mutationFn, optionsMutation);
+	const { mutate: handleSubmitNoteEdit, isLoading: isSaving } = useMutation(
+		mutationFn,
+		optionsMutation
+	);
 
 	return (
 		<NoteEditView
 			{...{
 				register,
 				handleSubmit,
-				handleSubmitNoteEditSubmit,
+				handleSubmitNoteEdit,
 				errors,
 				isFetching,
 				isSaving,

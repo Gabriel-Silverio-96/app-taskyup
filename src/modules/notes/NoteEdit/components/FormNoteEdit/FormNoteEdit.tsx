@@ -6,7 +6,7 @@ import { IFormNoteEdit } from "./types";
 const FormNoteEdit: React.FC<IFormNoteEdit> = ({
 	register,
 	handleSubmit,
-	handleSubmitNoteEditSubmit,
+	handleSubmitNoteEdit,
 	errors,
 	isSaving,
 }) => {
@@ -20,7 +20,7 @@ const FormNoteEdit: React.FC<IFormNoteEdit> = ({
 			{...{
 				register,
 				handleSubmit,
-				handleSubmitNoteEditSubmit,
+				handleSubmitNoteEdit,
 				errors,
 				linkPreviousPage,
 				isSaving,
