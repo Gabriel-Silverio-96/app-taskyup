@@ -90,15 +90,17 @@ const NoteEdit: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
-	const { mutate: handleSubmitNoteEditSubmit, isLoading: isSaving } =
-		useMutation(mutationFn, optionsMutation);
+	const { mutate: handleSubmitNoteEdit, isLoading: isSaving } = useMutation(
+		mutationFn,
+		optionsMutation
+	);
 
 	return (
 		<NoteEditView
 			{...{
 				register,
 				handleSubmit,
-				handleSubmitNoteEditSubmit,
+				handleSubmitNoteEdit,
 				errors,
 				isFetching,
 				isSaving,
