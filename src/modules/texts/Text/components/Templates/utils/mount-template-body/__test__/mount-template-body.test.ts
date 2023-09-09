@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
-import { fetchGetTemplateTextService } from "modules/texts/Text/Templates/service";
-import { TypeTemplateName } from "modules/texts/Text/Templates/types";
+import { fetchGetTemplateTextService } from "modules/texts/Text/components/Templates/service";
+import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import {
 	MOUNT_BODY_ERROR_MESSAGE,
 	mountTemplateBody,

@@ -2,16 +2,16 @@ import { useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useDialogText from "../hooks/useDialogText";
-import { fetchPostTextService } from "../service";
-import { IFetchPostTextResponse } from "../types";
 import CardTextView from "./CardTextView";
 import { fetchGetAllTextService } from "./service";
 import { mountBodyText } from "./utils/mount-body-text";
-import { useContextText } from "../Context";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { IFetchGetAllTextResponse } from "./types";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import useDialogText from "modules/texts/Text/hooks/useDialogText";
+import { useContextText } from "modules/texts/Text/Context";
+import { fetchPostTextService } from "modules/texts/Text/service";
+import { IFetchPostTextResponse } from "modules/texts/Text/types";
 
 const CardText: React.FC = () => {
 	const { palette } = useTheme();

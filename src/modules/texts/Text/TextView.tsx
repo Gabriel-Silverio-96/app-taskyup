@@ -1,10 +1,10 @@
 import React from "react";
-import CardText from "./CardText";
+import CardText from "./components/CardText";
 import { ContextProviderText } from "./Context";
-import DialogDeleteAllText from "./Dialogs/DialogDeleteAllTexts";
-import DialogDeleteOneText from "./Dialogs/DialogDeleteOneText";
-import HeaderText from "./HeaderText";
-import Templates from "./Templates";
+import DialogDeleteAllText from "./components/Dialogs/DialogDeleteAllTexts";
+import DialogDeleteOneText from "./components/Dialogs/DialogDeleteOneText";
+import HeaderText from "./components/HeaderText";
+import Templates from "./components/Templates";
 
 const TextView: React.FC = () => {
 	return (

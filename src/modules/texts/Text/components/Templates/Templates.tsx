@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useContextText } from "../Context";
-import { fetchPostTextService } from "../service";
-import { IFetchPostTextResponse } from "../types";
+import { useContextText } from "modules/texts/Text/Context";
+import { fetchPostTextService } from "modules/texts/Text/service";
+import { IFetchPostTextResponse } from "modules/texts/Text/types";
 import TemplatesView from "./TemplatesView";
 import { TypeTemplateName } from "./types/Template.types";
 import { mountTemplateBody } from "./utils/mount-template-body";

@@ -4,8 +4,8 @@ import {
 	ReadmeTemplate,
 	TableTemplate,
 	TodoTemplate,
-} from "modules/texts/Text/Templates/model-templates";
-import { TypeTemplateName } from "modules/texts/Text/Templates/types";
+} from "modules/texts/Text/components/Templates/model-templates";
+import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { ITemplatesMapping } from "./types";
 
 const templatesMapping: ITemplatesMapping = {
