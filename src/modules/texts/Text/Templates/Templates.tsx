@@ -35,14 +35,14 @@ const Templates: React.FC = () => {
 	};
 
 	const optionsMutation = { onSuccess };
-	const { mutate: createTextTemplate, isLoading } = useMutation(
+	const { mutate: handleClickCreateTextTemplate, isLoading } = useMutation(
 		mutationFn,
 		optionsMutation
 	);
 
 	return (
 		<TemplatesView
-			{...{ isOpenTemplates, createTextTemplate, isLoading }}
+			{...{ isOpenTemplates, handleClickCreateTextTemplate, isLoading }}
 		/>
 	);
 };

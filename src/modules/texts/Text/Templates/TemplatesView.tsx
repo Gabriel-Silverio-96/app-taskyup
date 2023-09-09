@@ -13,7 +13,7 @@ import { ITemplatesView } from "./types/Template.types";
 import CardTemplate from "./components/CardTemplate";
 
 const TemplatesView: React.FC<ITemplatesView> = props => {
-	const { isOpenTemplates, createTextTemplate, isLoading } = props;
+	const { isOpenTemplates, handleClickCreateTextTemplate, isLoading } = props;
 	return (
 		<TemplateContainer open={isOpenTemplates}>
 			<Loading isLoading={isLoading} backdrop message="Creating text" />
@@ -24,27 +24,27 @@ const TemplatesView: React.FC<ITemplatesView> = props => {
 					<CardTemplate
 						title="Table"
 						icon={<IconTable />}
-						onClick={() => createTextTemplate("table")}
+						onClick={() => handleClickCreateTextTemplate("table")}
 					/>
 					<CardTemplate
 						title="Todo"
 						icon={<IconTodo />}
-						onClick={() => createTextTemplate("todo")}
+						onClick={() => handleClickCreateTextTemplate("todo")}
 					/>
 					<CardTemplate
 						title="Readme"
 						icon={<IconReadme />}
-						onClick={() => createTextTemplate("readme")}
+						onClick={() => handleClickCreateTextTemplate("readme")}
 					/>
 					<CardTemplate
 						title="Code"
 						icon={<IconCode />}
-						onClick={() => createTextTemplate("code")}
+						onClick={() => handleClickCreateTextTemplate("code")}
 					/>
 					<CardTemplate
 						title="Diagram"
 						icon={<IconDiagram />}
-						onClick={() => createTextTemplate("diagram")}
+						onClick={() => handleClickCreateTextTemplate("diagram")}
 					/>
 				</div>
 			</Templates>
