@@ -2,7 +2,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
 import { useContextText } from "modules/texts/Text/Context";
-import useDialogText from "modules/texts/Text/hooks/useDialogText";
+import { useDialogText } from "modules/texts/Text/hooks/useDialogText";
 import HeaderTextView from "./HeaderTextView";
 import useFetchGetSingleBoard from "shared/common/hook/useFetchGetSingleBoard";
 
