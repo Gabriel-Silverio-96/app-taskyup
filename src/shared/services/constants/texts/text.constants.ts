@@ -1,0 +1,3 @@
+export const TEXT_QUERY_KEY = {
+	FETCH_GET_ALL_TEXTS: "FETCH_GET_ALL_TEXTS",
+};
