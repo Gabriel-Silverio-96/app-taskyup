@@ -4,6 +4,7 @@ import { useContextText } from "modules/texts/Text/Context";
 import useDialogText from "modules/texts/Text/hooks/useDialogText";
 import DialogDeleteOneTextView from "./DialogDeleteOneTextView";
 import { fetchDeleteOneTextService } from "./service";
+import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 const DialogDeleteOneText: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -14,13 +15,16 @@ const DialogDeleteOneText: React.FC = () => {
 	const optionMutation = {
 		onError: () => closeDialogDeleteSingleText(),
 		onSuccess: () => {
-			queryClient.invalidateQueries(["texts"]);
+			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
 			closeDialogDeleteSingleText();
-		}
+		},
 	};
 
 	const mutationFn = () => fetchDeleteOneTextService(textID);
-	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(mutationFn, optionMutation);
+	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(
+		mutationFn,
+		optionMutation
+	);
 
 	const onClose = !isDeleting ? closeDialogDeleteSingleText : () => "";
 
@@ -31,7 +35,7 @@ const DialogDeleteOneText: React.FC = () => {
 				closeDialogDeleteSingleText,
 				fetchDelete,
 				isDeleting,
-				onClose
+				onClose,
 			}}
 		/>
 	);

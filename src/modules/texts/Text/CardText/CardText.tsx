@@ -11,6 +11,7 @@ import { mountBodyText } from "./utils/mount-body-text";
 import { useContextText } from "../Context";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { IFetchGetAllTextResponse } from "./types";
+import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 const CardText: React.FC = () => {
 	const { palette } = useTheme();
@@ -20,7 +21,10 @@ const CardText: React.FC = () => {
 	const navigate = useNavigate();
 	const { openDialogDeleteSingleText } = useDialogText();
 
-	const queryKey = ["texts", { variables: board_id }];
+	const queryKey = [
+		TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
+		{ variables: board_id },
+	];
 	const queryFn = () => fetchGetAllTextService(board_id);
 
 	const onSuccessQuery = ({ count }: IFetchGetAllTextResponse) =>
@@ -51,7 +55,9 @@ const CardText: React.FC = () => {
 		});
 		navigate(redirectTo);
 
-		await queryClient.invalidateQueries(["texts"]);
+		await queryClient.invalidateQueries([
+			TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
+		]);
 	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };

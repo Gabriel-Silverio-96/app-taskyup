@@ -5,6 +5,7 @@ import { useContextText } from "modules/texts/Text/Context";
 import useDialogText from "modules/texts/Text/hooks/useDialogText";
 import DialogDeleteAllTextView from "./DialogDeleteAllTextsView";
 import { fetchDeleteAllTextsService } from "./service";
+import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 const DialogDeleteAllTexts: React.FC = () => {
 	const { board_id } = useParams();
@@ -16,13 +17,16 @@ const DialogDeleteAllTexts: React.FC = () => {
 	const optionMutation = {
 		onError: () => closeDialogDeleteAllTexts(),
 		onSuccess: () => {
-			queryClient.invalidateQueries(["texts"]);
+			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
 			closeDialogDeleteAllTexts();
 		},
 	};
-	
+
 	const mutationFn = () => fetchDeleteAllTextsService(board_id);
-	const { mutate: fetchDeleteAll, isLoading: isDeleting } = useMutation(mutationFn, optionMutation);
+	const { mutate: fetchDeleteAll, isLoading: isDeleting } = useMutation(
+		mutationFn,
+		optionMutation
+	);
 
 	return (
 		<DialogDeleteAllTextView
