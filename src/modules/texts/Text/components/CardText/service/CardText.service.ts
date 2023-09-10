@@ -1,9 +1,11 @@
 import api from "shared/services/api";
-import { IFetchGetAllTextResponse } from "../types";
+import { IFetchGetAllTextsResponse } from "../types";
 
-const fetchGetAllTextService = async (board_id: string | undefined) => {
-	const { data } = await api.get<IFetchGetAllTextResponse>(`/text/list/board_id=${board_id}`);
+const fetchGetAllTextsService = async (board_id: string | undefined) => {
+	const { data } = await api.get<IFetchGetAllTextsResponse>(
+		`/text/list/board_id=${board_id}`
+	);
 	return data;
 };
 
-export { fetchGetAllTextService };
+export { fetchGetAllTextsService };

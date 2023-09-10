@@ -3,10 +3,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CardTextView from "./CardTextView";
-import { fetchGetAllTextService } from "./service";
+import { fetchGetAllTextsService } from "./service";
 import { mountBodyText } from "./utils/mount-body-text";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { IFetchGetAllTextResponse } from "./types";
+import { IFetchGetAllTextsResponse } from "./types";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import { useContextText } from "modules/texts/Text/Context";
@@ -25,13 +25,13 @@ const CardText: React.FC = () => {
 		TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
 		{ variables: board_id },
 	];
-	const queryFn = () => fetchGetAllTextService(board_id);
+	const queryFn = () => fetchGetAllTextsService(board_id);
 
-	const onSuccessQuery = ({ count }: IFetchGetAllTextResponse) =>
+	const onSuccessQuery = ({ count }: IFetchGetAllTextsResponse) =>
 		setCountText(count);
 
 	const optiosQuery = { onSuccess: onSuccessQuery };
-	const { data, isFetching } = useQuery<IFetchGetAllTextResponse>(
+	const { data, isFetching } = useQuery<IFetchGetAllTextsResponse>(
 		queryKey,
 		queryFn,
 		optiosQuery
