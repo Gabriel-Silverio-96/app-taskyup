@@ -13,6 +13,7 @@ import { fetchPatchBoardService, fetchGetOneBoardService } from "./service";
 import { IDialogEditBoardForm } from "./types";
 import useSnackBar from "shared/common/hook/useSnackBar";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
+import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 export const MESSAGE_ERROR_UPDATE_BOARD =
 	"There was an error and it was not possible to update the board";
@@ -77,7 +78,9 @@ const DialogEditBoard = () => {
 				]),
 				queryClient.invalidateQueries(["menu"]),
 				queryClient.invalidateQueries(["get_single_board"]),
-				queryClient.invalidateQueries(["texts"]),
+				queryClient.invalidateQueries([
+					TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
+				]),
 			]);
 		} catch (error) {
 			snackBarError({ message: MESSAGE_ERROR_UPDATE_BOARD });
