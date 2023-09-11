@@ -3,14 +3,12 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import api from "shared/services/api";
-import DialogNewBoardView from "./DialogNewBoardView";
-import schema from "./shared/schema";
-import {
-	IDialogNewBoard,
-	IDialogNewBoardForm,
-} from "./types/DialogNewBoard.component";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
+import DialogNewBoardView from "./DialogNewBoardView";
+import { fetchPostCreateBoardService } from "./service";
+import schema from "./shared/schema";
+import { IDialogNewBoard, IFetchPostCreateBoardService } from "./types";
 
 const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	openDialog,
@@ -31,26 +29,22 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 		return () => reset();
 	}, [openDialog]);
 
-	const mutationDialogNewBoard = async (
-		dataNewBoard: IDialogNewBoardForm
-	) => {
-		const { data } = await api.post("board/create", dataNewBoard);
-		closeDialogNewBoard();
-		return data;
-	};
+	const mutationFn = (data: IFetchPostCreateBoardService) =>
+		fetchPostCreateBoardService(data);
 
-	const onSuccess = () =>
+	const onSuccess = () => {
 		Promise.all([
 			queryClient.invalidateQueries([BOARD_QUERY_KEY.FETCH_GET_BOARDS]),
-			queryClient.invalidateQueries(["menu"]),
+			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
 		]);
 
-	const { mutate: fetchDialogNewBoard, isLoading: isSaving } = useMutation(
-		mutationDialogNewBoard,
-		{
+		closeDialogNewBoard();
+	};
+
+	const { mutate: handleSubmitCreateBoard, isLoading: isSaving } =
+		useMutation(mutationFn, {
 			onSuccess,
-		}
-	);
+		});
 
 	return (
 		<DialogNewBoardView
@@ -60,7 +54,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 				openDialog,
 				closeDialogNewBoard,
 				handleSubmit,
-				fetchDialogNewBoard,
+				handleSubmitCreateBoard,
 				errors,
 				isSaving,
 			}}
