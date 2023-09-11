@@ -9,6 +9,6 @@ export interface IHeaderText {
 
 export interface IHeaderTextView extends IHeaderText {
 	linkPreviousPage: string;
-	disableButtonSave: boolean;
-	showMessageError: false | string;
+	isError: boolean;
+	message: string;
 }

@@ -12,8 +12,8 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 		titleText,
 		onChangeTextTitle,
 		linkPreviousPage,
-		disableButtonSave,
-		showMessageError,
+		isError,
+		message,
 	} = props;
 
 	return (
@@ -35,9 +35,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 							value={titleText}
 							onChange={onChangeTextTitle}
 						/>
-						<Typography variant="caption">
-							{showMessageError}
-						</Typography>
+						<Typography variant="caption">{message}</Typography>
 					</TextTitle>
 				</Breadcrumbs>
 			</Grid>
@@ -49,7 +47,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 					<Button
 						variant="contained"
 						onClick={handleClickSaveText}
-						disabled={disableButtonSave}>
+						disabled={isError}>
 						Save
 					</Button>
 				</Nav>
