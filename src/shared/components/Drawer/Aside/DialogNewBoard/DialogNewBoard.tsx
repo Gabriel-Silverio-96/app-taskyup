@@ -3,15 +3,15 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import api from "shared/services/api";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/Aside/constants";
+import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import DialogNewBoardView from "./DialogNewBoardView";
+import { fetchPostCreateBoardService } from "./service";
 import schema from "./shared/schema";
 import {
 	IDialogNewBoard,
-	IDialogNewBoardForm,
+	IFetchPostCreateBoardService,
 } from "./types/DialogNewBoard.component";
-import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/Aside/constants";
 
 const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	openDialog,
@@ -33,11 +33,12 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	}, [openDialog]);
 
 	const mutationDialogNewBoard = async (
-		dataNewBoard: IDialogNewBoardForm
+		data: IFetchPostCreateBoardService
 	) => {
-		const { data } = await api.post("board/create", dataNewBoard);
+		const response = await fetchPostCreateBoardService(data);
 		closeDialogNewBoard();
-		return data;
+
+		return response;
 	};
 
 	const onSuccess = () =>
