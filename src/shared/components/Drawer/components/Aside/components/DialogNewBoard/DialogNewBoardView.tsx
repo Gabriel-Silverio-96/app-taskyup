@@ -13,7 +13,11 @@ import {
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { IDialogNewBoardView } from "./types";
-import { ID_NOTES, ID_TEXTS, ID_KANBAN } from "./constants";
+import {
+	NOTES_BOARD_TYPE_ID,
+	TEXTS_BOARD_TYPE_ID,
+	KANBAN_BOARD_TYPE_ID,
+} from "./constants";
 
 const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 	const {
@@ -91,9 +95,13 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 									"data-testid":
 										"board-type-id-input-inside-select",
 								}}>
-								<MenuItem value={ID_NOTES}>Notes</MenuItem>
-								<MenuItem value={ID_TEXTS}>Texts</MenuItem>
-								<MenuItem value={ID_KANBAN} disabled>
+								<MenuItem value={NOTES_BOARD_TYPE_ID}>
+									Notes
+								</MenuItem>
+								<MenuItem value={TEXTS_BOARD_TYPE_ID}>
+									Texts
+								</MenuItem>
+								<MenuItem value={KANBAN_BOARD_TYPE_ID} disabled>
 									Kanban
 								</MenuItem>
 							</TextField>
