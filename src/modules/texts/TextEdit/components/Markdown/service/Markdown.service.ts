@@ -4,7 +4,7 @@ import {
 	IFetchGetOneTextResponse,
 	IFetchGetOneTextService,
 	IFetchPatchTextService,
-} from "modules/texts/TextEdit/Markdown/types";
+} from "modules/texts/TextEdit/components/Markdown/types";
 
 const fetchGetOneTextService: IFetchGetOneTextService = async text_id => {
 	const { data } = await api.get<IFetchGetOneTextResponse>(
