@@ -8,10 +8,7 @@ import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import DialogNewBoardView from "./DialogNewBoardView";
 import { fetchPostCreateBoardService } from "./service";
 import schema from "./shared/schema";
-import {
-	IDialogNewBoard,
-	IFetchPostCreateBoardService,
-} from "./types/DialogNewBoard.component";
+import { IDialogNewBoard, IFetchPostCreateBoardService } from "./types";
 
 const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	openDialog,

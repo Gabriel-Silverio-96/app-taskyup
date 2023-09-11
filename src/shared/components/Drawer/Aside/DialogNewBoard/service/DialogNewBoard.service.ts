@@ -1,6 +1,6 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchPostCreateBoardService } from "../types/DialogNewBoard.component";
+import { IFetchPostCreateBoardService } from "../types";
 
 const fetchPostCreateBoardService = async (
 	data: IFetchPostCreateBoardService

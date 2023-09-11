@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { IDialogNewBoardView } from "./types/DialogNewBoard.component";
+import { IDialogNewBoardView } from "./types";
 import { ID_NOTES, ID_TEXTS, ID_KANBAN } from "./constants";
 
 const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
