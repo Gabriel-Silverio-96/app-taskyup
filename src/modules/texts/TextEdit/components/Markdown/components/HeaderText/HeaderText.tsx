@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { useSearchParams } from "react-router-dom";
 import HeaderTextView from "./HeaderTextView";
 import { IHeaderText } from "./types";
+import { validateTitleText } from "./utils/validate-title-text";
 
 const HeaderText: React.FC<IHeaderText> = ({
 	handleClickSaveText,
@@ -14,8 +15,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 
 	const linkPreviousPage = `/texts/${board_id}`;
 
-	const disableButtonSave = titleText.length < 3;
-	const showMessageError = titleText.length < 3 && "Minimum of 3 characters";
+	const { isError, message } = validateTitleText(titleText);
 
 	return (
 		<HeaderTextView
@@ -25,8 +25,8 @@ const HeaderText: React.FC<IHeaderText> = ({
 				titleText,
 				onChangeTextTitle,
 				linkPreviousPage,
-				disableButtonSave,
-				showMessageError,
+				isError,
+				message,
 			}}
 		/>
 	);
