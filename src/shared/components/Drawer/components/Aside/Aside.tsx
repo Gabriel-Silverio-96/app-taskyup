@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import AsideView from "./AsideView";
-import { fetchMenu } from "./service";
+import { fetchGetMenuService } from "./service";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 
 const Aside: React.FC = () => {
@@ -22,7 +22,7 @@ const Aside: React.FC = () => {
 
 	const { data: menu } = useQuery(
 		[ASIDE_QUERY_KEY.FETCH_GET_MENU],
-		fetchMenu
+		fetchGetMenuService
 	);
 
 	return (
