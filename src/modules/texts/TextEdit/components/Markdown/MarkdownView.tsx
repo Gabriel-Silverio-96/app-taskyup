@@ -3,7 +3,7 @@ import "bytemd/dist/index.css";
 import "highlight.js/styles/default.css";
 import Loading from "shared/components/Loading";
 import { BYTEMD_EDITOR_PLUGINS } from "./constant";
-import HeaderText from "./HeaderText";
+import HeaderText from "./components/HeaderText";
 import { Markdown } from "./style";
 import { IMarkdownView } from "./types";
 
