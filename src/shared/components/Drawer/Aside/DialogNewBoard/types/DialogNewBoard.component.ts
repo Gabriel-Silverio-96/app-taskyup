@@ -18,7 +18,7 @@ export interface IDialogNewBoardView extends IDialogNewBoard {
 	register: UseFormRegister<any>;
 	fullScreen: boolean;
 	handleSubmit: UseFormHandleSubmit<any>;
-	fetchDialogNewBoard: (data: IFetchPostCreateBoardService) => void;
+	handleSubmitCreateBoard: (data: IFetchPostCreateBoardService) => void;
 	errors: FieldErrors<IFetchPostCreateBoardService>;
 	isSaving: boolean;
 }

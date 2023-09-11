@@ -47,12 +47,10 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
 		]);
 
-	const { mutate: fetchDialogNewBoard, isLoading: isSaving } = useMutation(
-		mutationDialogNewBoard,
-		{
+	const { mutate: handleSubmitCreateBoard, isLoading: isSaving } =
+		useMutation(mutationDialogNewBoard, {
 			onSuccess,
-		}
-	);
+		});
 
 	return (
 		<DialogNewBoardView
@@ -62,7 +60,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 				openDialog,
 				closeDialogNewBoard,
 				handleSubmit,
-				fetchDialogNewBoard,
+				handleSubmitCreateBoard,
 				errors,
 				isSaving,
 			}}
