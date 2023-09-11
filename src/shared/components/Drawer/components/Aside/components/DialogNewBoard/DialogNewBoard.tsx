@@ -29,23 +29,20 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 		return () => reset();
 	}, [openDialog]);
 
-	const mutationDialogNewBoard = async (
-		data: IFetchPostCreateBoardService
-	) => {
-		const response = await fetchPostCreateBoardService(data);
-		closeDialogNewBoard();
+	const mutationFn = (data: IFetchPostCreateBoardService) =>
+		fetchPostCreateBoardService(data);
 
-		return response;
-	};
-
-	const onSuccess = () =>
+	const onSuccess = () => {
 		Promise.all([
 			queryClient.invalidateQueries([BOARD_QUERY_KEY.FETCH_GET_BOARDS]),
 			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
 		]);
 
+		closeDialogNewBoard();
+	};
+
 	const { mutate: handleSubmitCreateBoard, isLoading: isSaving } =
-		useMutation(mutationDialogNewBoard, {
+		useMutation(mutationFn, {
 			onSuccess,
 		});
 
