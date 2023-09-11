@@ -11,6 +11,7 @@ import {
 	IDialogNewBoardForm,
 } from "./types/DialogNewBoard.component";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/Aside/constants";
 
 const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	openDialog,
@@ -42,7 +43,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	const onSuccess = () =>
 		Promise.all([
 			queryClient.invalidateQueries([BOARD_QUERY_KEY.FETCH_GET_BOARDS]),
-			queryClient.invalidateQueries(["menu"]),
+			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
 		]);
 
 	const { mutate: fetchDialogNewBoard, isLoading: isSaving } = useMutation(
