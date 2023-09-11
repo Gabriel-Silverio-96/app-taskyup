@@ -1,6 +1,6 @@
 import React from "react";
-import Aside from "./Aside";
-import Header from "./Header";
+import Aside from "./components/Aside";
+import Header from "./components/Header";
 import { Drawer } from "./style";
 import DialogSearchAll from "./components/DialogSearchAll/DialogSearchAll";
 import { IDrawerView } from "./types";

@@ -5,7 +5,7 @@ import { useContextBoard } from "modules/dashboard/Board/Context";
 import DialogDeleteOneBoardView from "./DialogDeleteOneBoardView";
 import { fetchDeleteOneBoardService } from "./service";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/Aside/constants";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 
 const DialogDeleteOneBoard: React.FC = () => {
 	const queryClient = useQueryClient();

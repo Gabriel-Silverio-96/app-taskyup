@@ -3,7 +3,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/Aside/constants";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import DialogNewBoardView from "./DialogNewBoardView";
 import { fetchPostCreateBoardService } from "./service";

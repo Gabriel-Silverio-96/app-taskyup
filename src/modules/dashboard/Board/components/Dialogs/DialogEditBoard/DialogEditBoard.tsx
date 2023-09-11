@@ -14,7 +14,7 @@ import { IDialogEditBoardForm } from "./types";
 import useSnackBar from "shared/common/hook/useSnackBar";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/Aside/constants";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 
 export const MESSAGE_ERROR_UPDATE_BOARD =
 	"There was an error and it was not possible to update the board";

@@ -4,7 +4,7 @@ import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import AsideView from "./AsideView";
 import { fetchMenu } from "./service";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/Aside/constants";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 
 const Aside: React.FC = () => {
 	const { palette } = useTheme();
