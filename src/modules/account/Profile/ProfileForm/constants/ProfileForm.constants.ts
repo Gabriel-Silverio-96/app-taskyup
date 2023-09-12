@@ -1,0 +1,3 @@
+export const PROFILE_QUERY_KEY = {
+	FETCH_GET_PROFILE: "FETCH_GET_PROFILE",
+};
