@@ -5,9 +5,9 @@ import {
 import api from "shared/services/api";
 import { IFetchPatchBoardService } from "../types";
 
-const fetchGetOneBoardService = async (boardID: string) => {
+const fetchGetOneBoardService = async (board_id: string) => {
 	const { data } = await api.get<IFetchGetOneBoardResponse>(
-		`/board/board_id=${boardID}`
+		`/board/board_id=${board_id}`
 	);
 	return data;
 };
