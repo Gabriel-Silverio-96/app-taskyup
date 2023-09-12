@@ -11,10 +11,14 @@ import schema from "./schema";
 import { fetchGetSearchAllService } from "./service";
 import { IDialogSearchAllForm } from "./types/DialogSearchAll.types";
 import { IPaginationModel } from "shared/common/types/AppTypes";
-import { INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY, INTIAL_STATE_PAGINATION_MODEL } from "./constants";
+import {
+	DIALOG_SEARCH_ALL_QUERY_KEY,
+	INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
+	INTIAL_STATE_PAGINATION_MODEL,
+} from "./constants";
 
 const DialogSearchAll: React.FC = () => {
-	const dispatch = useDispatch();	
+	const dispatch = useDispatch();
 	const {
 		register,
 		handleSubmit,
@@ -26,13 +30,18 @@ const DialogSearchAll: React.FC = () => {
 		mode: "all",
 	});
 
-	const [paginationModel, setPaginationModel] = useState<IPaginationModel>(INTIAL_STATE_PAGINATION_MODEL);
+	const [paginationModel, setPaginationModel] = useState<IPaginationModel>(
+		INTIAL_STATE_PAGINATION_MODEL
+	);
 
-	const dialogSearchAll = useSelector((state: { dialogSearchAll: IDialogSearchAllState }) => state.dialogSearchAll);
+	const dialogSearchAll = useSelector(
+		(state: { dialogSearchAll: IDialogSearchAllState }) =>
+			state.dialogSearchAll
+	);
 
-	const handleClickCloseDialogSearchAll = () => dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
+	const handleClickCloseDialogSearchAll = () =>
+		dispatch(createAction(CLOSE_DIALOG_SEARCH_ALL_TYPE));
 
-	const queryKey = ["get_search_all"];
 	const queryFn = () => {
 		const { page, pageSize } = paginationModel;
 		const payload = { ...getValues(), pageNumber: page, pageSize };
@@ -40,7 +49,12 @@ const DialogSearchAll: React.FC = () => {
 		return fetchGetSearchAllService(payload);
 	};
 
-	const { data, isFetching: isLoading, refetch, remove } = useQuery(queryKey, queryFn, {
+	const {
+		data,
+		isFetching: isLoading,
+		refetch,
+		remove,
+	} = useQuery([DIALOG_SEARCH_ALL_QUERY_KEY.FETCH_GET_SEARCH_ALL], queryFn, {
 		enabled: false,
 		initialData: INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
 	});
@@ -54,10 +68,11 @@ const DialogSearchAll: React.FC = () => {
 
 	useEffect(() => {
 		const { query } = getValues();
-		if(query) refetch();
+		if (query) refetch();
 	}, [paginationModel]);
 
-	const dialogSearchAllSubmit = () => setPaginationModel(prevState => ({ ...prevState, page: 0 }));
+	const dialogSearchAllSubmit = () =>
+		setPaginationModel(prevState => ({ ...prevState, page: 0 }));
 
 	return (
 		<DialogSearchAllView

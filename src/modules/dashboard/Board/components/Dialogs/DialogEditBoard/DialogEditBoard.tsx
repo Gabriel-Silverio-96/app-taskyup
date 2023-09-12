@@ -16,6 +16,7 @@ import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { HOOK_FETCH_BOARD_QUERY_KEY } from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
+import { DIALOG_EDIT_BOARD_QUERY_KEY } from "./constants/DialogEditBoard.constants";
 
 export const MESSAGE_ERROR_UPDATE_BOARD =
 	"There was an error and it was not possible to update the board";
@@ -53,11 +54,11 @@ const DialogEditBoard = () => {
 		retry: false,
 		enabled: false,
 	};
-	const queryKey = ["dialog_edit_board"];
+
 	const queryFn = () => fetchGetOneBoardService(boardID);
 
 	const { refetch, isFetching: isLoading } = useQuery(
-		queryKey,
+		[DIALOG_EDIT_BOARD_QUERY_KEY.FETCH_GET_ONE_BOARD],
 		queryFn,
 		optionsQuery
 	);
