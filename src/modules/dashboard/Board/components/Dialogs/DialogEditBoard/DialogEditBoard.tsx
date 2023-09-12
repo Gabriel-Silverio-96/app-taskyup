@@ -15,6 +15,7 @@ import useSnackBar from "shared/common/hook/useSnackBar";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
+import { HOOK_FETCH_BOARD_QUERY_KEY } from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 
 export const MESSAGE_ERROR_UPDATE_BOARD =
 	"There was an error and it was not possible to update the board";
@@ -78,7 +79,9 @@ const DialogEditBoard = () => {
 					BOARD_QUERY_KEY.FETCH_GET_BOARDS,
 				]),
 				queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
-				queryClient.invalidateQueries(["get_single_board"]),
+				queryClient.invalidateQueries([
+					HOOK_FETCH_BOARD_QUERY_KEY.FETCH_GET_ONE_BOARD,
+				]),
 				queryClient.invalidateQueries([
 					TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
 				]),
