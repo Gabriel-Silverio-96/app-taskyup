@@ -6,6 +6,7 @@ import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
 import { fetchPutProfileService, fetchGetProfileService } from "./service";
 import { IFetchGetProfileResponse, IProfileForm } from "./types";
+import { PROFILE_QUERY_KEY } from "./constants";
 
 const ProfileForm: React.FC = () => {
 	const {
@@ -25,15 +26,22 @@ const ProfileForm: React.FC = () => {
 		setValue("email", data.email);
 	};
 
-	const queryKey = ["profile_form"];
 	const optionsQuery = { onSuccess: osSuccessQuery };
 
-	const { data, isLoading } = useQuery<IFetchGetProfileResponse>(queryKey, fetchGetProfileService, optionsQuery);
+	const { data, isLoading } = useQuery<IFetchGetProfileResponse>(
+		[PROFILE_QUERY_KEY.FETCH_GET_PROFILE],
+		fetchGetProfileService,
+		optionsQuery
+	);
 
-	const onSuccessMutation = () => queryClient.invalidateQueries(["profile_form"]);
+	const onSuccessMutation = () =>
+		queryClient.invalidateQueries([PROFILE_QUERY_KEY.FETCH_GET_PROFILE]);
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate, isLoading: isSaving } = useMutation(fetchPutProfileService, optionsMutation);
+	const { mutate, isLoading: isSaving } = useMutation(
+		fetchPutProfileService,
+		optionsMutation
+	);
 
 	return (
 		<ProfileFormView

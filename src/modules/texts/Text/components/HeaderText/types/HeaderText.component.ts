@@ -1,8 +1,8 @@
 import { Palette } from "@mui/material";
-import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
+import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
 
 export interface IHeaderTextView {
-	data: IFetchGetSingleBoard | undefined;
+	data: IFetchGetOneBoardResponse | undefined;
 	countText: number;
 	palette: Palette;
 	isMediumScreen: boolean;

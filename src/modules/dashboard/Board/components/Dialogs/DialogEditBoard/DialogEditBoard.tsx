@@ -3,7 +3,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
+import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
 import dateFormat from "shared/util/dateFormat";
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
@@ -15,9 +15,11 @@ import useSnackBar from "shared/common/hook/useSnackBar";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
-
-export const MESSAGE_ERROR_UPDATE_BOARD =
-	"There was an error and it was not possible to update the board";
+import { HOOK_FETCH_BOARD_QUERY_KEY } from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
+import {
+	DIALOG_EDIT_BOARD_QUERY_KEY,
+	ERROR_MESSAGE_UPDATE_BOARD,
+} from "./constants/DialogEditBoard.constants";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -41,7 +43,7 @@ const DialogEditBoard = () => {
 		clearErrors,
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
-	const onSuccessQuery = (data: IFetchGetSingleBoard) => {
+	const onSuccessQuery = (data: IFetchGetOneBoardResponse) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
@@ -52,11 +54,11 @@ const DialogEditBoard = () => {
 		retry: false,
 		enabled: false,
 	};
-	const queryKey = ["dialog_edit_board"];
+
 	const queryFn = () => fetchGetOneBoardService(boardID);
 
 	const { refetch, isFetching: isLoading } = useQuery(
-		queryKey,
+		[DIALOG_EDIT_BOARD_QUERY_KEY.FETCH_GET_ONE_BOARD],
 		queryFn,
 		optionsQuery
 	);
@@ -78,13 +80,15 @@ const DialogEditBoard = () => {
 					BOARD_QUERY_KEY.FETCH_GET_BOARDS,
 				]),
 				queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
-				queryClient.invalidateQueries(["get_single_board"]),
+				queryClient.invalidateQueries([
+					HOOK_FETCH_BOARD_QUERY_KEY.FETCH_GET_ONE_BOARD,
+				]),
 				queryClient.invalidateQueries([
 					TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
 				]),
 			]);
 		} catch (error) {
-			snackBarError({ message: MESSAGE_ERROR_UPDATE_BOARD });
+			snackBarError({ message: ERROR_MESSAGE_UPDATE_BOARD });
 		}
 	};
 
