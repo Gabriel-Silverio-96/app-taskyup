@@ -3,7 +3,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchGetSingleBoard } from "shared/common/types/Fetch";
+import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
 import dateFormat from "shared/util/dateFormat";
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
@@ -41,7 +41,7 @@ const DialogEditBoard = () => {
 		clearErrors,
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
-	const onSuccessQuery = (data: IFetchGetSingleBoard) => {
+	const onSuccessQuery = (data: IFetchGetOneBoardResponse) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
