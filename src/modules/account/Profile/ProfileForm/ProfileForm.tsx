@@ -26,16 +26,16 @@ const ProfileForm: React.FC = () => {
 		setValue("email", data.email);
 	};
 
-	const queryKey = [PROFILE_QUERY_KEY.FETCH_GET_PROFILE];
 	const optionsQuery = { onSuccess: osSuccessQuery };
 
 	const { data, isLoading } = useQuery<IFetchGetProfileResponse>(
-		queryKey,
+		[PROFILE_QUERY_KEY.FETCH_GET_PROFILE],
 		fetchGetProfileService,
 		optionsQuery
 	);
 
-	const onSuccessMutation = () => queryClient.invalidateQueries(queryKey);
+	const onSuccessMutation = () =>
+		queryClient.invalidateQueries([PROFILE_QUERY_KEY.FETCH_GET_PROFILE]);
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const { mutate, isLoading: isSaving } = useMutation(
