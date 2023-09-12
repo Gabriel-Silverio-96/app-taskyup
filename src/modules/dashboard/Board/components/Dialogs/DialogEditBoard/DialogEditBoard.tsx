@@ -16,10 +16,10 @@ import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { HOOK_FETCH_BOARD_QUERY_KEY } from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
-import { DIALOG_EDIT_BOARD_QUERY_KEY } from "./constants/DialogEditBoard.constants";
-
-export const MESSAGE_ERROR_UPDATE_BOARD =
-	"There was an error and it was not possible to update the board";
+import {
+	DIALOG_EDIT_BOARD_QUERY_KEY,
+	ERROR_MESSAGE_UPDATE_BOARD,
+} from "./constants/DialogEditBoard.constants";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -88,7 +88,7 @@ const DialogEditBoard = () => {
 				]),
 			]);
 		} catch (error) {
-			snackBarError({ message: MESSAGE_ERROR_UPDATE_BOARD });
+			snackBarError({ message: ERROR_MESSAGE_UPDATE_BOARD });
 		}
 	};
 
