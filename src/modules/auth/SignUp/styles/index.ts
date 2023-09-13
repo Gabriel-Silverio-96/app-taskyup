@@ -1,23 +1,23 @@
 import { styled } from "@mui/material";
-import Background from "assets/img/background/background-signup.jpg";
 
 export const BackgroundSignUp = styled("div")(
 	({ theme }) => `
-        background-image: linear-gradient(90deg, #090909, #0909092b), url(${Background});
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        background: linear-gradient(180deg, rgb(156 16 255 / 47%) -44%, rgba(0,0,0,0) 55%);        
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: ${theme.spacing(5)};
+        padding: ${theme.spacing(5)};        
+
+        > div {
+            margin-left: calc(100vw / 8);
+        }
     `
 );
 
 export const GridForm = styled("div")({
-	width: "min(20rem, 100%)"
+	width: "min(25rem, 100%)",
 });
 
 export const Footer = styled("footer")(
@@ -30,5 +30,5 @@ export const Footer = styled("footer")(
         hr {
             width: 50%
         }
-    `,
+    `
 );
