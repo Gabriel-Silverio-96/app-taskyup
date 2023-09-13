@@ -36,12 +36,12 @@ const SignUpView: React.FC<ISignUpView> = (props) => {
 						<Grid container direction="column" spacing={5}>
 							<Grid item>
 								<TextField
-									label="Full name"
+									label="First name"
 									size="small"
 									fullWidth
-									{...register("full_name")}
-									error={errors.full_name && Boolean(errors.full_name)}
-									helperText={errors.full_name ? errors.full_name?.message : ""}
+									{...register("first_name")}
+									error={errors.first_name && Boolean(errors.first_name)}
+									helperText={errors.first_name ? errors.first_name?.message : ""}
 									autoComplete="off"
 								/>
 							</Grid>
