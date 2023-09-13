@@ -21,7 +21,9 @@ const SignUpView: React.FC<ISignUpView> = props => {
 							Time to create <br />
 							your account
 						</Typography>
-						<p>You are a few steps to improve your organization</p>
+						<Typography variant="body1" marginTop={2}>
+							You are a few steps to improve your organization
+						</Typography>
 					</div>
 				</BackgroundSignUp>
 			</Grid>
