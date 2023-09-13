@@ -17,7 +17,7 @@ const SignUpView: React.FC<ISignUpView> = props => {
 			<Grid item md={6} sm={12}>
 				<BackgroundSignUp>
 					<div>
-						<Typography variant="h3" fontWeight={700}>
+						<Typography variant="h2" fontWeight={700}>
 							Time to create <br />
 							your account
 						</Typography>

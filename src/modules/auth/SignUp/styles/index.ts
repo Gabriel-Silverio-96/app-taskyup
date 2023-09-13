@@ -9,6 +9,10 @@ export const BackgroundSignUp = styled("div")(
         flex-direction: column;
         justify-content: center;
         padding: ${theme.spacing(5)};        
+
+        > div {
+            margin-left: calc(100vw / 8);
+        }
     `
 );
 
