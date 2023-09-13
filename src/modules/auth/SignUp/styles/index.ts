@@ -17,7 +17,7 @@ export const BackgroundSignUp = styled("div")(
 );
 
 export const GridForm = styled("div")({
-	width: "min(20rem, 100%)",
+	width: "min(25rem, 100%)",
 });
 
 export const Footer = styled("footer")(
