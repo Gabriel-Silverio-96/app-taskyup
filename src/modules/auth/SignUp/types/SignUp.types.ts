@@ -2,6 +2,7 @@ import { FieldErrors, UseFormHandleSubmit, UseFormRegister } from "react-hook-fo
 
 export interface ISignUpForm {
     first_name: string;
+    last_name: string;
     email: string;
     password: string;
 }
