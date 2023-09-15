@@ -10,7 +10,7 @@ export interface IFetchGetOneBoardResponse {
 	created_at: string;
 }
 
-export enum EStatusSuccessCode {
+export enum EnumStatusSuccessCode {
 	OK = 200,
 	Created = 201,
 }

@@ -4,7 +4,7 @@ import { Store } from "redux";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { SNACKBAR_OPEN_TYPE } from "shared/common/store/SnackBar/SnackBar.reducer";
 import { createAction } from "shared/common/store/store.action";
-import { IFetchResponseDefault, EStatusSuccessCode, EStatusErrorCode } from "shared/common/types/Fetch";
+import { IFetchResponseDefault, EnumStatusSuccessCode, EStatusErrorCode } from "shared/common/types/Fetch";
 import api from "./api";
 
 const setupInterceptors = (store: Store) => {	
@@ -14,12 +14,12 @@ const setupInterceptors = (store: Store) => {
 	api.interceptors.response.use(response => {
 		const { status, data } = response as AxiosResponse<IFetchResponseDefault>;        
 		if (data.type_message || data.message) {
-			switch (status as EStatusSuccessCode) {
-			case EStatusSuccessCode.OK:
+			switch (status as EnumStatusSuccessCode) {
+			case EnumStatusSuccessCode.OK:
 				snackbarStoreAction(data.message, "success");
 				break;
 
-			case EStatusSuccessCode.Created:
+			case EnumStatusSuccessCode.Created:
 				snackbarStoreAction(data.message, "success");
 				break;
 
