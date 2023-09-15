@@ -7,6 +7,8 @@ import { createAction } from "shared/common/store/store.action";
 import { IFetchResponseDefault, EnumStatusSuccessCode, EnumStatusErrorCode } from "shared/common/types/Fetch";
 import api from "./api";
 
+const UNEXPECTED_ERROR_MESSAGE = "An unexpected error has occurred, please try again later";
+
 const setupInterceptors = (store: Store) => {	
 	const snackbarStoreAction = (message: string, severity: AlertColor) => {
 		store.dispatch(createAction(SNACKBAR_OPEN_TYPE, { open: true, message, severity }));
@@ -28,16 +30,18 @@ const setupInterceptors = (store: Store) => {
 			}
 		}
 		return response;
-	}, error => {
-		const unexpectedErrorMessage = "An unexpected error has occurred, please try again later";
-		if (error.response === undefined) snackbarStoreAction(unexpectedErrorMessage, "error");			
+	}, error => {		
+		if (error.response === undefined) snackbarStoreAction(UNEXPECTED_ERROR_MESSAGE, "error");			
 		
 		const { status, data } = error.response as AxiosResponse<IFetchResponseDefault>;		
 		switch (status as EnumStatusErrorCode) {
 		case EnumStatusErrorCode.Unauthorized:
 			snackbarStoreAction(data.message, "info");			
+
 			store.dispatch(createAction(SIGNIN_TYPE, { isAuthenticated: false, user_data: {} }));
+
 			api.defaults.headers.common["Authorization"] = "";            
+
 			localStorage.removeItem("@taskyup.token");
 			localStorage.removeItem("@taskyup.user_data");			
 			break;
@@ -59,7 +63,7 @@ const setupInterceptors = (store: Store) => {
 			break;
 
 		default:
-			snackbarStoreAction(unexpectedErrorMessage, "error");
+			snackbarStoreAction(UNEXPECTED_ERROR_MESSAGE, "error");
 			break;
 		}
 
