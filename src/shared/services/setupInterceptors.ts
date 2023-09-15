@@ -52,6 +52,9 @@ const setupInterceptors = (store: Store) => {
 
 		case EnumStatusErrorCode.NotFound:
 			snackbarStoreAction(data.message, "error");			
+			
+			window.location.replace("/dashboard");
+			localStorage.removeItem("@taskyup.last_page_accessed");			
 			break;
         
 		case EnumStatusErrorCode.TooManyRequests:
