@@ -6,7 +6,6 @@ import {
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
-import { act } from "react-dom/test-utils";
 import api from "shared/services/api";
 import renderRequiredAuth from "shared/util/test/renderRequiredAuth";
 import Board from "../Board";
@@ -50,7 +49,7 @@ describe("Component <Board />", () => {
 		const buttonNewBoard = screen.getByRole("button", {	name: "New board" });
 		userEvent.click(buttonNewBoard);
 
-		await act(() => {
+		await waitFor(() => {
 			const inputBoardName = screen.getByLabelText(LABEL_BOARD_NAME);
 			userEvent.type(inputBoardName, board_name);
 
@@ -104,7 +103,9 @@ describe("Component <Board />", () => {
 			userEvent.click(buttonSave);
 		});
 
-		const snackbarMessage = await screen.findByText(EDIT_BOARD_SUCCESS_RESPONSE_MOCK.message);
-		expect(snackbarMessage).toBeInTheDocument();
+		await waitFor(async () => {
+			const snackbarMessage = await screen.findByText(EDIT_BOARD_SUCCESS_RESPONSE_MOCK.message);
+			expect(snackbarMessage).toBeInTheDocument();
+		});
 	});
 });
