@@ -37,7 +37,7 @@ describe("Component <Board />", () => {
 		expect(container).toBeEmptyDOMElement();
 	});
 
-	test("Create new board type notes", async () => {
+	test("Create board", async () => {
 		mock.onPost("board/create").reply(
 			201,
 			CREATE_BOARD_SUCCESS_RESPONSE_MOCK
@@ -73,7 +73,7 @@ describe("Component <Board />", () => {
 		});
 	});
 
-	test("Edit board type notes", async () => {
+	test("Edit board", async () => {
 		mock.onGet("board").reply(200, LIST_BOARD_MOCK_SUCCESS_RESPONSE_MOCK);
 		renderRequiredAuth(<Board />);
 		
