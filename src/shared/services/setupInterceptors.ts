@@ -4,8 +4,10 @@ import { Store } from "redux";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { SNACKBAR_OPEN_TYPE } from "shared/common/store/SnackBar/SnackBar.reducer";
 import { createAction } from "shared/common/store/store.action";
-import { IFetchResponseDefault, EStatusSuccessCode, EStatusErrorCode } from "shared/common/types/Fetch";
+import { IFetchResponseDefault, EnumStatusSuccessCode, EnumStatusErrorCode } from "shared/common/types/Fetch";
 import api from "./api";
+
+const UNEXPECTED_ERROR_MESSAGE = "An unexpected error has occurred, please try again later";
 
 const setupInterceptors = (store: Store) => {	
 	const snackbarStoreAction = (message: string, severity: AlertColor) => {
@@ -14,12 +16,12 @@ const setupInterceptors = (store: Store) => {
 	api.interceptors.response.use(response => {
 		const { status, data } = response as AxiosResponse<IFetchResponseDefault>;        
 		if (data.type_message || data.message) {
-			switch (status as EStatusSuccessCode) {
-			case EStatusSuccessCode.OK:
+			switch (status as EnumStatusSuccessCode) {
+			case EnumStatusSuccessCode.OK:
 				snackbarStoreAction(data.message, "success");
 				break;
 
-			case EStatusSuccessCode.Created:
+			case EnumStatusSuccessCode.Created:
 				snackbarStoreAction(data.message, "success");
 				break;
 
@@ -28,38 +30,40 @@ const setupInterceptors = (store: Store) => {
 			}
 		}
 		return response;
-	}, error => {
-		const unexpectedErrorMessage = "An unexpected error has occurred, please try again later";
-		if (error.response === undefined) snackbarStoreAction(unexpectedErrorMessage, "error");			
+	}, error => {		
+		if (error.response === undefined) snackbarStoreAction(UNEXPECTED_ERROR_MESSAGE, "error");			
 		
 		const { status, data } = error.response as AxiosResponse<IFetchResponseDefault>;		
-		switch (status as EStatusErrorCode) {
-		case EStatusErrorCode.Unauthorized:
+		switch (status as EnumStatusErrorCode) {
+		case EnumStatusErrorCode.Unauthorized:
 			snackbarStoreAction(data.message, "info");			
+
 			store.dispatch(createAction(SIGNIN_TYPE, { isAuthenticated: false, user_data: {} }));
+
 			api.defaults.headers.common["Authorization"] = "";            
+
 			localStorage.removeItem("@taskyup.token");
 			localStorage.removeItem("@taskyup.user_data");			
 			break;
 
-		case EStatusErrorCode.Forbidden:
+		case EnumStatusErrorCode.Forbidden:
 			snackbarStoreAction(data.message, "warning");			
 			break;
 
-		case EStatusErrorCode.NotFound:
+		case EnumStatusErrorCode.NotFound:
 			snackbarStoreAction(data.message, "error");			
 			break;
         
-		case EStatusErrorCode.TooManyRequests:
+		case EnumStatusErrorCode.TooManyRequests:
 			snackbarStoreAction(data.message, "info");			
 			break;
 
-		case EStatusErrorCode.InternalServerError:
+		case EnumStatusErrorCode.InternalServerError:
 			snackbarStoreAction(data.message, "error");			
 			break;
 
 		default:
-			snackbarStoreAction(unexpectedErrorMessage, "error");
+			snackbarStoreAction(UNEXPECTED_ERROR_MESSAGE, "error");
 			break;
 		}
 
