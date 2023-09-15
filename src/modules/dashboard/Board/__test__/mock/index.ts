@@ -1,15 +1,15 @@
 import { faker } from "@faker-js/faker";
+import { NOTES_BOARD_TYPE_ID } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/constants";
 
 const board_name = faker.name.firstName();
 const board_name_edited = faker.name.firstName();
 const board_id = faker.datatype.uuid();
-const notes_id = "1f819d7d-11b5-4742-be86-2286ef50b5d5";
 
 const BOARD_MOCK = {
 	board_name,
 	board_name_edited,
 	board_type_id: {
-		notes: notes_id,
+		notes: NOTES_BOARD_TYPE_ID,
 	},
 };
 
