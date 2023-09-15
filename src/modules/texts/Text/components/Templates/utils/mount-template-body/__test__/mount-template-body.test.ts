@@ -7,7 +7,7 @@ import {
 	selectTemplate,
 } from "../mount-template-body";
 
-jest.mock("modules/texts/Text/Templates/service", () => ({
+jest.mock("modules/texts/Text/components/Templates/service", () => ({
 	fetchGetTemplateTextService: jest.fn(),
 }));
 
