@@ -15,7 +15,7 @@ export enum EnumStatusSuccessCode {
 	Created = 201,
 }
 
-export enum EStatusErrorCode {
+export enum EnumStatusErrorCode {
 	Unauthorized = 401,
 	Forbidden = 403,
 	NotFound = 404,

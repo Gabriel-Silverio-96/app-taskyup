@@ -4,7 +4,7 @@ import { Store } from "redux";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { SNACKBAR_OPEN_TYPE } from "shared/common/store/SnackBar/SnackBar.reducer";
 import { createAction } from "shared/common/store/store.action";
-import { IFetchResponseDefault, EnumStatusSuccessCode, EStatusErrorCode } from "shared/common/types/Fetch";
+import { IFetchResponseDefault, EnumStatusSuccessCode, EnumStatusErrorCode } from "shared/common/types/Fetch";
 import api from "./api";
 
 const setupInterceptors = (store: Store) => {	
@@ -33,8 +33,8 @@ const setupInterceptors = (store: Store) => {
 		if (error.response === undefined) snackbarStoreAction(unexpectedErrorMessage, "error");			
 		
 		const { status, data } = error.response as AxiosResponse<IFetchResponseDefault>;		
-		switch (status as EStatusErrorCode) {
-		case EStatusErrorCode.Unauthorized:
+		switch (status as EnumStatusErrorCode) {
+		case EnumStatusErrorCode.Unauthorized:
 			snackbarStoreAction(data.message, "info");			
 			store.dispatch(createAction(SIGNIN_TYPE, { isAuthenticated: false, user_data: {} }));
 			api.defaults.headers.common["Authorization"] = "";            
@@ -42,19 +42,19 @@ const setupInterceptors = (store: Store) => {
 			localStorage.removeItem("@taskyup.user_data");			
 			break;
 
-		case EStatusErrorCode.Forbidden:
+		case EnumStatusErrorCode.Forbidden:
 			snackbarStoreAction(data.message, "warning");			
 			break;
 
-		case EStatusErrorCode.NotFound:
+		case EnumStatusErrorCode.NotFound:
 			snackbarStoreAction(data.message, "error");			
 			break;
         
-		case EStatusErrorCode.TooManyRequests:
+		case EnumStatusErrorCode.TooManyRequests:
 			snackbarStoreAction(data.message, "info");			
 			break;
 
-		case EStatusErrorCode.InternalServerError:
+		case EnumStatusErrorCode.InternalServerError:
 			snackbarStoreAction(data.message, "error");			
 			break;
 
