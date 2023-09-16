@@ -6,7 +6,6 @@ import {
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
-import { act } from "react-dom/test-utils";
 import api from "shared/services/api";
 import renderRequiredAuth from "shared/util/test/renderRequiredAuth";
 import Board from "../Board";
@@ -38,7 +37,7 @@ describe("Component <Board />", () => {
 		expect(container).toBeEmptyDOMElement();
 	});
 
-	test("Create new board type notes", async () => {
+	test("Create board", async () => {
 		mock.onPost("board/create").reply(
 			201,
 			CREATE_BOARD_SUCCESS_RESPONSE_MOCK
@@ -50,7 +49,7 @@ describe("Component <Board />", () => {
 		const buttonNewBoard = screen.getByRole("button", {	name: "New board" });
 		userEvent.click(buttonNewBoard);
 
-		await act(() => {
+		await waitFor(() => {
 			const inputBoardName = screen.getByLabelText(LABEL_BOARD_NAME);
 			userEvent.type(inputBoardName, board_name);
 
@@ -74,16 +73,15 @@ describe("Component <Board />", () => {
 		});
 	});
 
-	test("Edit board type notes", async () => {
+	test("Edit board", async () => {
 		mock.onGet("board").reply(200, LIST_BOARD_MOCK_SUCCESS_RESPONSE_MOCK);
+		renderRequiredAuth(<Board />);
 		
 		const urlGetBoard = `board/board_id=${EDIT_BOARD_DATA_MOCK.board_id}`;
 		mock.onGet(urlGetBoard).reply(200, EDIT_BOARD_DATA_MOCK);
 
 		const urlPatchBoard = `board/edit/board_id=${EDIT_BOARD_DATA_MOCK.board_id}`;		
 		mock.onPatch(urlPatchBoard).reply(201, EDIT_BOARD_SUCCESS_RESPONSE_MOCK);
-
-		renderRequiredAuth(<Board />);
 
 		await waitFor(() => {
 			const buttonCardBoardOption = screen
@@ -95,14 +93,19 @@ describe("Component <Board />", () => {
 			const optionEditBoard = screen.getByText("Edit");
 			userEvent.click(optionEditBoard);
 
+		});
+
+		await waitFor(() => {
 			const inputBoardName = screen.getByTestId<HTMLInputElement>("input-edit");
 			userEvent.type(inputBoardName, board_name_edited);
-
+	
 			const buttonSave = screen.getByRole("button", { name: "Save" });
 			userEvent.click(buttonSave);
 		});
 
-		const snackbarMessage = await screen.findByText(EDIT_BOARD_SUCCESS_RESPONSE_MOCK.message);
-		expect(snackbarMessage).toBeInTheDocument();
+		await waitFor(async () => {
+			const snackbarMessage = await screen.findByText(EDIT_BOARD_SUCCESS_RESPONSE_MOCK.message);
+			expect(snackbarMessage).toBeInTheDocument();
+		});
 	});
 });
