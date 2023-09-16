@@ -40,6 +40,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "yarn test --coverage",
     "test:clear": "npx jest --clearCache",
     "yarn:clear": "yarn cache clean",
     "eject": "react-scripts eject"
