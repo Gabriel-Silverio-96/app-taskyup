@@ -28,18 +28,23 @@ const SignIn: React.FC = () => {
 			setIsLoading(true);
 			const { data } = await fetchPostSignInService(form);
 			const { token, user_data } = data;
-			
+
 			localStorage.setItem("@taskyup.token", token);
-			localStorage.setItem("@taskyup.user_data", JSON.stringify(user_data));
+			localStorage.setItem(
+				"@taskyup.user_data",
+				JSON.stringify(user_data)
+			);
 			api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-			
-			const action = createAction(SIGNIN_TYPE, { isAuthenticated: true, user_data });
+
+			const action = createAction(SIGNIN_TYPE, {
+				isAuthenticated: true,
+				user_data,
+			});
 			dispatch(action);
 
 			return navigate("/dashboard");
-		} catch (error) {			
+		} catch (error) {
 			setIsLoading(false);
-			console.error("SignIn ", error);
 		}
 	}, []);
 
@@ -50,8 +55,8 @@ const SignIn: React.FC = () => {
 				handleSubmit,
 				signInSubmit,
 				isLoading,
-				errors
-			}} 
+				errors,
+			}}
 		/>
 	);
 };
