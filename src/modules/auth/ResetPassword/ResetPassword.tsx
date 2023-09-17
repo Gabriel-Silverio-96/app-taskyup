@@ -8,24 +8,27 @@ import { fetchPostResetPassword } from "./service";
 import { IFormResetPassword } from "./types";
 
 const ResetPassword: React.FC = () => {
-	const { token } = useParams();	
-	const { register, handleSubmit, formState: { errors } } = useForm<IFormResetPassword>({
+	const { token } = useParams();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<IFormResetPassword>({
 		resolver: yupResolver(schema),
 		mode: "all",
 	});
 
 	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
-	const [isSaving, setIsSaving] = useState(false);	
+	const [isSaving, setIsSaving] = useState(false);
 
 	const resetPasswordSubmit = async (form: IFormResetPassword) => {
 		try {
 			setIsSaving(true);
 			await fetchPostResetPassword({ form, token });
-			
+
 			setResetPasswordSuccess(true);
 		} catch (error) {
 			setResetPasswordSuccess(false);
-			console.error("ResetPassword ", error);
 		} finally {
 			setIsSaving(false);
 		}
@@ -39,7 +42,7 @@ const ResetPassword: React.FC = () => {
 				onSubmit,
 				errors,
 				isSaving,
-				resetPasswordSuccess
+				resetPasswordSuccess,
 			}}
 		/>
 	);
