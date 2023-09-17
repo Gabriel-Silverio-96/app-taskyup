@@ -8,10 +8,10 @@ import SignUpView from "./SignUpView";
 import { ISignUpForm } from "./types";
 
 const SignUp: React.FC = () => {
-	const { 
-		register, 
-		handleSubmit, 
-		formState: { errors } 
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
 	} = useForm<ISignUpForm>({ resolver: yupResolver(schema), mode: "all" });
 
 	const navigate = useNavigate();
@@ -21,15 +21,18 @@ const SignUp: React.FC = () => {
 		try {
 			setIsLoading(true);
 			await fetchPostSignUpService(form);
-			
+
 			return navigate("/auth/signin");
 		} catch (error) {
 			setIsLoading(false);
-			console.error("SignUp ", error);
 		}
 	}, []);
 
-	return <SignUpView {...{ register, errors, handleSubmit, signUpSubmit, isLoading }} />;
+	return (
+		<SignUpView
+			{...{ register, errors, handleSubmit, signUpSubmit, isLoading }}
+		/>
+	);
 };
 
 export default SignUp;

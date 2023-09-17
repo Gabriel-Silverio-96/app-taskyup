@@ -4,26 +4,30 @@ import MockAdapter from "axios-mock-adapter";
 import api from "shared/services/api";
 import render from "shared/util/test/render";
 import SignUp from "../SignUp";
-import { CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK, EMAIL_REGISTERED_RESPONSE_MOCK, SIGNUP_MOCK } from "./mock";
+import {
+	CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK,
+	EMAIL_REGISTERED_RESPONSE_MOCK,
+	SIGNUP_MOCK,
+} from "./mock";
 
 const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
 afterEach(cleanup);
 
-const { fullName, email, password  } = SIGNUP_MOCK;
+const { fullName, email, password } = SIGNUP_MOCK;
 
 const LABEL_FULL_NAME = /full name/i;
 const LABEL_EMAIL = /email/i;
 const LABEL_PASSWORD = /password/i;
 
-const EACH_AUTHENTICATION_REQUEST_CASES = [
+const TEST_CASES_AUTHENTICATION_REQUEST = [
 	{
-		status: 403,		
+		status: 403,
 		mockData: EMAIL_REGISTERED_RESPONSE_MOCK,
 		messageTest: EMAIL_REGISTERED_RESPONSE_MOCK.message,
 	},
 	{
-		status: 201,		
+		status: 201,
 		mockData: CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK,
 		messageTest: CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK.message,
 	},
@@ -37,9 +41,9 @@ describe("Component <SignUp />", () => {
 
 	test("Should unmount the component", () => {
 		const { container, unmount } = render(<SignUp />);
-		unmount();		
+		unmount();
 		expect(container).toBeEmptyDOMElement();
-	});    
+	});
 
 	test("Should show required message full name, email and password after submitting empty form", async () => {
 		render(<SignUp />);
@@ -62,32 +66,31 @@ describe("Component <SignUp />", () => {
 		expect(passwordRequiredMessage).toBeInTheDocument();
 	});
 
-	test.each(EACH_AUTHENTICATION_REQUEST_CASES)(
+	test.each(TEST_CASES_AUTHENTICATION_REQUEST)(
 		"Should show message snackbar $messageTest",
 		async ({ status, mockData }) => {
 			mock.onPost("auth/create-account").reply(status, mockData);
-			
+
 			render(<SignUp />);
-			await act(() => {
-				const inputEmail = screen.getByLabelText(LABEL_EMAIL);
-				userEvent.type(inputEmail, email);
+			const inputEmail = screen.getByLabelText(LABEL_EMAIL);
+			userEvent.type(inputEmail, email);
 
-				const inputFullname = screen.getByLabelText(LABEL_FULL_NAME);
-				userEvent.type(inputFullname, fullName);
+			const inputFullname = screen.getByLabelText(LABEL_FULL_NAME);
+			userEvent.type(inputFullname, fullName);
 
-				const inputPassword = screen.getByLabelText(LABEL_PASSWORD) as any;
-				userEvent.type(inputPassword, password);
+			const inputPassword = screen.getByLabelText(LABEL_PASSWORD) as any;
+			userEvent.type(inputPassword, password);
 
-				const buttonSubmit = screen.getByRole("button", {
-					name: "Sign up",
-				});
-				userEvent.click(buttonSubmit);				
+			const buttonSubmit = screen.getByRole("button", {
+				name: "Sign up",
 			});
-			
+
+			await act(() => userEvent.click(buttonSubmit));
+
 			await waitFor(() => {
-			 	const snackbarMessage = screen.getByText(mockData.message);				
+				const snackbarMessage = screen.getByText(mockData.message);
 				expect(snackbarMessage).toBeInTheDocument();
 			});
 		}
-	);	
+	);
 });
