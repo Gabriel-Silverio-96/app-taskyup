@@ -31,13 +31,12 @@ describe("Component <ForgotPassword />", () => {
 		mock.onPost("auth/forgot-password").reply(403, UNREGISTERED_USER_RESPONSE_MOCK);
 
 		render(<ForgotPassword />);
-		await act(() => {
-			const inputEmail = screen.getByLabelText(LABEL_EMAIL);
-			userEvent.type(inputEmail, email);
+		const inputEmail = screen.getByLabelText(LABEL_EMAIL);
+		userEvent.type(inputEmail, email);
 
-			const buttonSubmit = screen.getByRole("button", { name: "Send" });		
-			userEvent.click(buttonSubmit);
-		});
+		const buttonSubmit = screen.getByRole("button", { name: "Send" });		
+
+		await act(() => userEvent.click(buttonSubmit));
 
 		await waitFor(() => {
 			const snackbarMessage = screen.getByText(UNREGISTERED_USER_RESPONSE_MOCK.message);				
@@ -49,14 +48,13 @@ describe("Component <ForgotPassword />", () => {
 		mock.onPost("auth/forgot-password").reply(200, REGISTERED_USER_RESPONSE_MOCK);
 
 		const { container } = render(<ForgotPassword />);
-		await act(() => {
-			const inputEmail = screen.getByLabelText(LABEL_EMAIL);
-			userEvent.type(inputEmail, email);				
-			
-			const buttonSubmit = screen.getByRole("button", { name: "Send" });		
-			userEvent.click(buttonSubmit);
-		});
-
+		
+		const inputEmail = screen.getByLabelText(LABEL_EMAIL);
+		userEvent.type(inputEmail, email);				
+		
+		const buttonSubmit = screen.getByRole("button", { name: "Send" });
+		userEvent.click(buttonSubmit);
+	
 		await waitFor(() => {
 			const snackbarMessage = screen.getByText(REGISTERED_USER_RESPONSE_MOCK.message);				
 			expect(snackbarMessage).toBeInTheDocument();
