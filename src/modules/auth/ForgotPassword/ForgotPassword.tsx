@@ -22,8 +22,7 @@ const ForgotPassword: React.FC = () => {
 			await fetchPostForgotPasswordService(form);
 			
 			setSendEmail({ email: form.email, isSending: true });
-		} catch (error) {
-			console.error("ForgotPassword ", error);			
+		} catch (error) {			
 			setSendEmail(INITAL_STATE_SEND_EMAIL);
 		} finally {
 			setIsLoading(false);

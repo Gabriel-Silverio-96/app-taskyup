@@ -20,11 +20,12 @@ const { email, password, fullName } = SIGNIN_MOCK;
 const LABEL_EMAIL = /email/i;
 const LABEL_PASSWORD = /password/i;
 
-const EACH_EMAIL_VALIDATION_CASES = [
+const TEST_CASES_EMAIL_VALIDATION = [
 	{
 		label: LABEL_EMAIL,
 		value: fullName,
-		messageTest: "Should show validation message when written a value other than email",
+		messageTest:
+			"Should show validation message when written a value other than email",
 	},
 	{
 		label: LABEL_EMAIL,
@@ -33,7 +34,7 @@ const EACH_EMAIL_VALIDATION_CASES = [
 	},
 ];
 
-const EACH_AUTHENTICATION_REQUEST_CASES = [
+const TEST_CASES_AUTHENTICATION_REQUEST = [
 	{
 		status: 403,
 		mockData: USER_NOT_EXIST_RESPONSE_MOCK,
@@ -89,7 +90,7 @@ describe("Component <SignIn />", () => {
 		expect(passwordMessage).toBeInTheDocument();
 	});
 
-	test.each(EACH_EMAIL_VALIDATION_CASES)(
+	test.each(TEST_CASES_EMAIL_VALIDATION)(
 		"$messageTest",
 		async ({ label, value }) => {
 			render(<SignIn />);
@@ -102,23 +103,22 @@ describe("Component <SignIn />", () => {
 		}
 	);
 
-	test.each(EACH_AUTHENTICATION_REQUEST_CASES)(
+	test.each(TEST_CASES_AUTHENTICATION_REQUEST)(
 		"Should show message snackbar $messageTest",
 		async ({ status, mockData }) => {
 			mock.onPost("auth/login").reply(status, mockData);
 
 			render(<SignIn />);
-			await act(() => {
-				const inputEmail = screen.getByLabelText(LABEL_EMAIL);
-				userEvent.type(inputEmail, email);
-				const inputPassword = screen.getByLabelText(LABEL_PASSWORD);
-				userEvent.type(inputPassword, password);
+			const inputEmail = screen.getByLabelText(LABEL_EMAIL);
+			userEvent.type(inputEmail, email);
+			const inputPassword = screen.getByLabelText(LABEL_PASSWORD);
+			userEvent.type(inputPassword, password);
 
-				const buttonSubmit = screen.getByRole("button", {
-					name: "Sign in",
-				});
-				userEvent.click(buttonSubmit);
+			const buttonSubmit = screen.getByRole("button", {
+				name: "Sign in",
 			});
+
+			await act(() => userEvent.click(buttonSubmit));
 
 			await waitFor(() => {
 				const snackbarMessage = screen.getByText(mockData.message);
