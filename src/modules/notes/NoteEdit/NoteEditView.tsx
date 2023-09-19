@@ -35,7 +35,7 @@ const NoteEditView: React.FC<INoteEditView> = props => {
 							}}
 						/>
 					</Grid>
-					<Grid item md={12}>
+					<Grid item md={12} width="100%">
 						<NoteTodo
 							{...{
 								todoData,
