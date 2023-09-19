@@ -68,7 +68,7 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 						size="small"
 						fullWidth
 						multiline
-						rows={10}
+						rows={15}
 						error={
 							errors.observation && Boolean(errors.observation)
 						}
@@ -77,6 +77,7 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 								? errors.observation?.message
 								: ""
 						}
+						spellCheck="false"
 					/>
 				</Grid>
 			</Grid>
