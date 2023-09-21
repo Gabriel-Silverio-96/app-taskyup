@@ -2,16 +2,20 @@ import { Alert, Snackbar } from "@mui/material";
 import React from "react";
 import { ISnackBarView } from "./types/SnackBar.component";
 
-const SnackBarView: React.FC<ISnackBarView> = ({ snackBarProps, snackBarClose }) => {
-	const { autoHideDuration, message, severity } = snackBarProps;
-			
+const SnackBarView: React.FC<ISnackBarView> = ({
+	snackBarProps,
+	snackBarClose,
+	defineAutoHideDuration,
+}) => {
+	const { message, severity } = snackBarProps;
+	
 	return (
-		<Snackbar {...snackBarProps}
+		<Snackbar
+			{...snackBarProps}
 			onClose={snackBarClose}
-			autoHideDuration={!autoHideDuration ? 3000 : autoHideDuration}
+			autoHideDuration={defineAutoHideDuration}
 			anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-			transitionDuration={0}
-		>
+			transitionDuration={0}>
 			<Alert severity={severity}>{message}</Alert>
 		</Snackbar>
 	);
