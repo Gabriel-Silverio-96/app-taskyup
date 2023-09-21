@@ -8,14 +8,14 @@ const SnackBarView: React.FC<ISnackBarView> = ({
 	defineAutoHideDuration,
 }) => {
 	const { message, severity } = snackBarProps;
-	
+
 	return (
 		<Snackbar
-			{...snackBarProps}
 			onClose={snackBarClose}
 			autoHideDuration={defineAutoHideDuration}
 			anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-			transitionDuration={0}>
+			transitionDuration={0}
+			{...snackBarProps}>
 			<Alert severity={severity}>{message}</Alert>
 		</Snackbar>
 	);
