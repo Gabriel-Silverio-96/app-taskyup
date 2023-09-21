@@ -43,7 +43,8 @@
     "test:coverage": "yarn test --coverage",
     "test:clear": "npx jest --clearCache",
     "yarn:clear": "yarn cache clean",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "yarn eslint ."
   },
   "eslintConfig": {
     "extends": [
