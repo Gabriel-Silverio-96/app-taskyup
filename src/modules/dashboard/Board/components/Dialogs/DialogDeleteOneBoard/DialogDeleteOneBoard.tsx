@@ -12,12 +12,12 @@ const DialogDeleteOneBoard: React.FC = () => {
 	const { isOpenDialogDeleteOneBoard, boardID } = useContextBoard();
 	const { closeDialogDeleteOneBoard } = useDialogBoard();
 
-	const onSuccess = () => {
-		Promise.all([
+	const onSuccess = async () => {
+		closeDialogDeleteOneBoard();
+		await Promise.all([
 			queryClient.invalidateQueries([BOARD_QUERY_KEY.FETCH_GET_BOARDS]),
 			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
 		]);
-		closeDialogDeleteOneBoard();
 	};
 
 	const optionsMutation = { onSuccess };
