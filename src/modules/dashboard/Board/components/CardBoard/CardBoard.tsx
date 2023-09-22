@@ -10,8 +10,7 @@ import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoa
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
 	const { setBoardID } = useContextBoard();
-	const { openDialogEditBoard, openDialogDeleteSingleBoard } =
-		useDialogBoard();
+	const { openDialogEditBoard, openDialogDeleteOneBoard } = useDialogBoard();
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const isOpenMenu = Boolean(anchorEl);
@@ -39,7 +38,7 @@ const CardBoard: React.FC = () => {
 				isOpenMenu,
 				handleBoardID,
 				openDialogEditBoard,
-				openDialogDeleteSingleBoard,
+				openDialogDeleteOneBoard,
 			}}
 		/>
 	);

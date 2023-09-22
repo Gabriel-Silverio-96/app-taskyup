@@ -10,14 +10,14 @@ import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/const
 const DialogDeleteOneBoard: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { isOpenDialogDeleteOneBoard, boardID } = useContextBoard();
-	const { closeDialogDeleteSingleBoard } = useDialogBoard();
+	const { closeDialogDeleteOneBoard } = useDialogBoard();
 
 	const onSuccess = () => {
 		Promise.all([
 			queryClient.invalidateQueries([BOARD_QUERY_KEY.FETCH_GET_BOARDS]),
 			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
 		]);
-		closeDialogDeleteSingleBoard();
+		closeDialogDeleteOneBoard();
 	};
 
 	const optionsMutation = { onSuccess };
@@ -32,7 +32,7 @@ const DialogDeleteOneBoard: React.FC = () => {
 		<DialogDeleteOneBoardView
 			{...{
 				isOpenDialogDeleteOneBoard,
-				closeDialogDeleteSingleBoard,
+				closeDialogDeleteOneBoard,
 				dialogDeleteOneBoardSubmit,
 				isLoading,
 			}}

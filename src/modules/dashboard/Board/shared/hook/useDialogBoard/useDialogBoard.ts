@@ -23,7 +23,7 @@ const useDialogBoard = (): IUseDialogBoard => {
 		setBoardID("");
 	}, []);
 
-	const openDialogDeleteSingleBoard = useCallback(
+	const openDialogDeleteOneBoard = useCallback(
 		(closeMenu: FunctionNonValueReturning) => {
 			setIsOpenDialogDeleteOneBoard(true);
 			closeMenu();
@@ -31,7 +31,7 @@ const useDialogBoard = (): IUseDialogBoard => {
 		[]
 	);
 
-	const closeDialogDeleteSingleBoard = useCallback(() => {
+	const closeDialogDeleteOneBoard = useCallback(() => {
 		setIsOpenDialogDeleteOneBoard(false);
 		setBoardID("");
 	}, []);
@@ -39,8 +39,8 @@ const useDialogBoard = (): IUseDialogBoard => {
 	return {
 		openDialogEditBoard,
 		closeDialogEditBoard,
-		openDialogDeleteSingleBoard,
-		closeDialogDeleteSingleBoard,
+		openDialogDeleteOneBoard,
+		closeDialogDeleteOneBoard,
 	};
 };
 

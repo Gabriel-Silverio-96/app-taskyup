@@ -28,7 +28,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 		isOpenMenu,
 		handleBoardID,
 		openDialogEditBoard,
-		openDialogDeleteSingleBoard,
+		openDialogDeleteOneBoard,
 	} = props;
 
 	return (
@@ -116,7 +116,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 													</MenuItem>
 													<MenuItem
 														onClick={() =>
-															openDialogDeleteSingleBoard(
+															openDialogDeleteOneBoard(
 																closeMenu
 															)
 														}

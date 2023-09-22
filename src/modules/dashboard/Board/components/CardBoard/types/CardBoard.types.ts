@@ -28,5 +28,5 @@ export interface ICardBoardView {
 	isOpenMenu: boolean;
 	handleBoardID: (boardID: string) => void;
 	openDialogEditBoard: (closeMenu: FunctionNonValueReturning) => void;
-	openDialogDeleteSingleBoard: (closeMenu: FunctionNonValueReturning) => void;
+	openDialogDeleteOneBoard: (closeMenu: FunctionNonValueReturning) => void;
 }

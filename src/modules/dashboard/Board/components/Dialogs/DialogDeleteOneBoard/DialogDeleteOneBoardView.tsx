@@ -16,12 +16,12 @@ import { IDialogDeleteOneBoardView } from "./types";
 const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 	const {
 		isOpenDialogDeleteOneBoard,
-		closeDialogDeleteSingleBoard,
+		closeDialogDeleteOneBoard,
 		dialogDeleteOneBoardSubmit,
 		isLoading,
 	} = props;
 
-	const onClose = !isLoading ? closeDialogDeleteSingleBoard : () => "";
+	const onClose = !isLoading ? closeDialogDeleteOneBoard : () => "";
 
 	return (
 		<Dialog
@@ -41,7 +41,7 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 					</Grid>
 					<Grid item>
 						<IconButton
-							onClick={closeDialogDeleteSingleBoard}
+							onClick={closeDialogDeleteOneBoard}
 							disabled={isLoading}>
 							<MdOutlineClose />
 						</IconButton>
@@ -62,7 +62,7 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 					<Grid item md="auto">
 						<Button
 							variant="outlined"
-							onClick={closeDialogDeleteSingleBoard}
+							onClick={closeDialogDeleteOneBoard}
 							disabled={isLoading}>
 							No
 						</Button>
