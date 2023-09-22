@@ -9,7 +9,7 @@ import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/const
 
 const DialogDeleteOneBoard: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { isOpenDialogDeleteSingleBoard, boardID } = useContextBoard();
+	const { isOpenDialogDeleteOneBoard, boardID } = useContextBoard();
 	const { closeDialogDeleteSingleBoard } = useDialogBoard();
 
 	const onSuccess = () => {
@@ -31,7 +31,7 @@ const DialogDeleteOneBoard: React.FC = () => {
 	return (
 		<DialogDeleteOneBoardView
 			{...{
-				isOpenDialogDeleteSingleBoard,
+				isOpenDialogDeleteOneBoard,
 				closeDialogDeleteSingleBoard,
 				dialogDeleteOneBoardSubmit,
 				isLoading,

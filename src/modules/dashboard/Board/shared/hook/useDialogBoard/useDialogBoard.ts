@@ -7,7 +7,7 @@ const useDialogBoard = (): IUseDialogBoard => {
 	const {
 		setBoardID,
 		setIsOpenDialogEditBoard,
-		setIsOpenDialogDeleteSingleBoard,
+		setIsOpenDialogDeleteOneBoard,
 	} = useContextBoard();
 
 	const openDialogEditBoard = useCallback(
@@ -25,14 +25,14 @@ const useDialogBoard = (): IUseDialogBoard => {
 
 	const openDialogDeleteSingleBoard = useCallback(
 		(closeMenu: FunctionNonValueReturning) => {
-			setIsOpenDialogDeleteSingleBoard(true);
+			setIsOpenDialogDeleteOneBoard(true);
 			closeMenu();
 		},
 		[]
 	);
 
 	const closeDialogDeleteSingleBoard = useCallback(() => {
-		setIsOpenDialogDeleteSingleBoard(false);
+		setIsOpenDialogDeleteOneBoard(false);
 		setBoardID("");
 	}, []);
 

@@ -4,33 +4,45 @@ import {
 	Dialog,
 	DialogActions,
 	DialogContent,
-	DialogTitle, Grid,
+	DialogTitle,
+	Grid,
 	IconButton,
-	Typography
+	Typography,
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteOneBoardView } from "./types";
 
-const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = (props) => {
-	const { 
-		isOpenDialogDeleteSingleBoard, 
-		closeDialogDeleteSingleBoard, 
-		dialogDeleteOneBoardSubmit, 
-		isLoading 
+const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
+	const {
+		isOpenDialogDeleteOneBoard,
+		closeDialogDeleteSingleBoard,
+		dialogDeleteOneBoardSubmit,
+		isLoading,
 	} = props;
 
 	const onClose = !isLoading ? closeDialogDeleteSingleBoard : () => "";
 
 	return (
-		<Dialog fullWidth maxWidth="xs"	open={isOpenDialogDeleteSingleBoard} onClose={onClose}>
+		<Dialog
+			fullWidth
+			maxWidth="xs"
+			open={isOpenDialogDeleteOneBoard}
+			onClose={onClose}>
 			<DialogTitle sx={{ marginBottom: "1rem" }}>
-				<Grid container alignItems="center" justifyContent="space-between">
+				<Grid
+					container
+					alignItems="center"
+					justifyContent="space-between">
 					<Grid item>
-						<Typography variant="h6" fontWeight={700}>Delete Board</Typography>
+						<Typography variant="h6" fontWeight={700}>
+							Delete Board
+						</Typography>
 					</Grid>
-					<Grid item> 
-						<IconButton onClick={closeDialogDeleteSingleBoard} disabled={isLoading}>
+					<Grid item>
+						<IconButton
+							onClick={closeDialogDeleteSingleBoard}
+							disabled={isLoading}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -38,31 +50,34 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = (props) =>
 			</DialogTitle>
 			<DialogContent>
 				<Typography color="GrayText">
-                    Would you like to delete board? This action deletes all notes from this board
+					Would you like to delete board? This action deletes all
+					notes from this board
 				</Typography>
 			</DialogContent>
 			<DialogActions>
-				<Grid container justifyContent="space-between" alignItems="center">
+				<Grid
+					container
+					justifyContent="space-between"
+					alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined" 
+						<Button
+							variant="outlined"
 							onClick={closeDialogDeleteSingleBoard}
-							disabled={isLoading}
-						>
+							disabled={isLoading}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton 							
+						<LoadingButton
 							variant="contained"
 							type="submit"
 							loading={isLoading}
-							onClick={dialogDeleteOneBoardSubmit}
-						>
-                            Yes
-						</LoadingButton>				
+							onClick={dialogDeleteOneBoardSubmit}>
+							Yes
+						</LoadingButton>
 					</Grid>
 				</Grid>
-			</DialogActions>		
+			</DialogActions>
 		</Dialog>
 	);
 };
