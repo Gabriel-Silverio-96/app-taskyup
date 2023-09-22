@@ -19,5 +19,5 @@ export interface ICardTextView {
 	handleClickCreateText: () => void;
 	isCreatingText: boolean;
 	board_id: string | undefined;
-	openDialogDeleteSingleText: (textID: string) => void;
+	openDialogDeleteOneText: (textID: string) => void;
 }

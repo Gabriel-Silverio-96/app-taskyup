@@ -2,15 +2,14 @@ import { useContextText } from "modules/texts/Text/Context";
 import { IUseDialogText } from "./types";
 
 const useDialogText = (): IUseDialogText => {
-	const { setDialogDeleteSingleText, setDialogDeleteAllText } =
-		useContextText();
+	const { setDialogDeleteOneText, setDialogDeleteAllText } = useContextText();
 
-	const openDialogDeleteSingleText = (textID: string) => {
-		setDialogDeleteSingleText({ open: true, textID: textID });
+	const openDialogDeleteOneText = (textID: string) => {
+		setDialogDeleteOneText({ open: true, textID: textID });
 	};
 
-	const closeDialogDeleteSingleText = () => {
-		setDialogDeleteSingleText({ open: false, textID: "" });
+	const closeDialogDeleteOneText = () => {
+		setDialogDeleteOneText({ open: false, textID: "" });
 	};
 
 	const openDialogDeleteAllTexts = (boardID: string) => {
@@ -22,8 +21,8 @@ const useDialogText = (): IUseDialogText => {
 	};
 
 	return {
-		openDialogDeleteSingleText,
-		closeDialogDeleteSingleText,
+		openDialogDeleteOneText,
+		closeDialogDeleteOneText,
 		openDialogDeleteAllTexts,
 		closeDialogDeleteAllTexts,
 	};

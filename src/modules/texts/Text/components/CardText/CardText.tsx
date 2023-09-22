@@ -19,7 +19,7 @@ const CardText: React.FC = () => {
 	const { board_id } = useParams();
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
-	const { openDialogDeleteSingleText } = useDialogText();
+	const { openDialogDeleteOneText } = useDialogText();
 
 	const queryKey = [
 		TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
@@ -73,7 +73,7 @@ const CardText: React.FC = () => {
 				handleClickCreateText,
 				isCreatingText,
 				board_id,
-				openDialogDeleteSingleText,
+				openDialogDeleteOneText,
 			}}
 		/>
 	);
