@@ -8,7 +8,7 @@ export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 }) => {
 	const [isOpenDialogNewNote, setIsOpenDialogNewNote] = useState(false);
 	const [isOpenDialogEditNote, setIsOpenDialogEditNote] = useState(false);
-	const [isOpenDialogDeleteSingleNote, setIsOpenDialogDeleteSingleNote] =
+	const [isOpenDialogDeleteOneNote, setIsOpenDialogDeleteOneNote] =
 		useState(false);
 	const [isOpenDialogDeleteAllNotes, setIsOpenDialogDeleteAllNotes] =
 		useState(false);
@@ -20,8 +20,8 @@ export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 		setIsOpenDialogNewNote,
 		isOpenDialogEditNote,
 		setIsOpenDialogEditNote,
-		isOpenDialogDeleteSingleNote,
-		setIsOpenDialogDeleteSingleNote,
+		isOpenDialogDeleteOneNote,
+		setIsOpenDialogDeleteOneNote,
 		isOpenDialogDeleteAllNotes,
 		setIsOpenDialogDeleteAllNotes,
 		countNotes,

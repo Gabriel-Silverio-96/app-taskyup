@@ -9,10 +9,8 @@ export interface IContextNote {
 	setIsOpenDialogNewNote: React.Dispatch<React.SetStateAction<boolean>>;
 	isOpenDialogEditNote: boolean;
 	setIsOpenDialogEditNote: React.Dispatch<React.SetStateAction<boolean>>;
-	isOpenDialogDeleteSingleNote: boolean;
-	setIsOpenDialogDeleteSingleNote: React.Dispatch<
-		React.SetStateAction<boolean>
-	>;
+	isOpenDialogDeleteOneNote: boolean;
+	setIsOpenDialogDeleteOneNote: React.Dispatch<React.SetStateAction<boolean>>;
 	isOpenDialogDeleteAllNotes: boolean;
 	setIsOpenDialogDeleteAllNotes: React.Dispatch<
 		React.SetStateAction<boolean>

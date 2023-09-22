@@ -7,7 +7,7 @@ const useDialogNote = (): IUseDialogNote => {
 		setIsOpenDialogNewNote,
 		setIsOpenDialogEditNote,
 		setNoteID,
-		setIsOpenDialogDeleteSingleNote,
+		setIsOpenDialogDeleteOneNote,
 		setIsOpenDialogDeleteAllNotes,
 	} = useContextNote();
 
@@ -30,13 +30,13 @@ const useDialogNote = (): IUseDialogNote => {
 		setNoteID("");
 	}, []);
 
-	const openDialogDeleteSingleNote = useCallback((noteID: string) => {
-		setIsOpenDialogDeleteSingleNote(true);
+	const openDialogDeleteOneNote = useCallback((noteID: string) => {
+		setIsOpenDialogDeleteOneNote(true);
 		setNoteID(noteID);
 	}, []);
 
-	const closeDialogDeleteSingleNote = useCallback(() => {
-		setIsOpenDialogDeleteSingleNote(false);
+	const closeDialogDeleteOneNote = useCallback(() => {
+		setIsOpenDialogDeleteOneNote(false);
 		setNoteID("");
 	}, []);
 
@@ -55,8 +55,8 @@ const useDialogNote = (): IUseDialogNote => {
 		closeDialogNewNote,
 		openDialogEditNote,
 		closeDialogEditNote,
-		openDialogDeleteSingleNote,
-		closeDialogDeleteSingleNote,
+		openDialogDeleteOneNote,
+		closeDialogDeleteOneNote,
 		openDialogDeleteAllNotes,
 		closeDialogDeleteAllNotes,
 	};
