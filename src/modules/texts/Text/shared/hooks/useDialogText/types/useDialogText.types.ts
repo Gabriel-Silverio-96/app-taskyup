@@ -1,6 +1,6 @@
 export interface IUseDialogText {
-	openDialogDeleteSingleText: (textID: string) => void;
-	closeDialogDeleteSingleText: () => void;
+	openDialogDeleteOneText: (textID: string) => void;
+	closeDialogDeleteOneText: () => void;
 	openDialogDeleteAllTexts: (boardID: string) => void;
 	closeDialogDeleteAllTexts: () => void;
 }

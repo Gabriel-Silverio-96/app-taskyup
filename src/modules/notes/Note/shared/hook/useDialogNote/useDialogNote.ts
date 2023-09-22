@@ -4,21 +4,11 @@ import { IUseDialogNote } from "./types";
 
 const useDialogNote = (): IUseDialogNote => {
 	const {
-		setIsOpenDialogNewNote,
 		setIsOpenDialogEditNote,
 		setNoteID,
-		setIsOpenDialogDeleteSingleNote,
+		setIsOpenDialogDeleteOneNote,
 		setIsOpenDialogDeleteAllNotes,
 	} = useContextNote();
-
-	const openDialogNewNote = useCallback(
-		() => setIsOpenDialogNewNote(true),
-		[]
-	);
-	const closeDialogNewNote = useCallback(
-		() => setIsOpenDialogNewNote(false),
-		[]
-	);
 
 	const openDialogEditNote = useCallback((noteID: string) => {
 		setIsOpenDialogEditNote(true);
@@ -30,13 +20,13 @@ const useDialogNote = (): IUseDialogNote => {
 		setNoteID("");
 	}, []);
 
-	const openDialogDeleteSingleNote = useCallback((noteID: string) => {
-		setIsOpenDialogDeleteSingleNote(true);
+	const openDialogDeleteOneNote = useCallback((noteID: string) => {
+		setIsOpenDialogDeleteOneNote(true);
 		setNoteID(noteID);
 	}, []);
 
-	const closeDialogDeleteSingleNote = useCallback(() => {
-		setIsOpenDialogDeleteSingleNote(false);
+	const closeDialogDeleteOneNote = useCallback(() => {
+		setIsOpenDialogDeleteOneNote(false);
 		setNoteID("");
 	}, []);
 
@@ -51,12 +41,10 @@ const useDialogNote = (): IUseDialogNote => {
 	);
 
 	return {
-		openDialogNewNote,
-		closeDialogNewNote,
 		openDialogEditNote,
 		closeDialogEditNote,
-		openDialogDeleteSingleNote,
-		closeDialogDeleteSingleNote,
+		openDialogDeleteOneNote,
+		closeDialogDeleteOneNote,
 		openDialogDeleteAllNotes,
 		closeDialogDeleteAllNotes,
 	};

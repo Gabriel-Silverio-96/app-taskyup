@@ -8,12 +8,12 @@ import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const DialogDeleteOneNote: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { isOpenDialogDeleteSingleNote, noteID } = useContextNote();
-	const { closeDialogDeleteSingleNote } = useDialogNote();
+	const { isOpenDialogDeleteOneNote, noteID } = useContextNote();
+	const { closeDialogDeleteOneNote } = useDialogNote();
 
 	const onSuccessMutation = () => {
 		queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
-		closeDialogDeleteSingleNote();
+		closeDialogDeleteOneNote();
 	};
 
 	const mutationFn = () => fetchDeleteOneNoteService(noteID);
@@ -25,8 +25,8 @@ const DialogDeleteOneNote: React.FC = () => {
 	return (
 		<DialogDeleteOneNoteView
 			{...{
-				isOpenDialogDeleteSingleNote,
-				closeDialogDeleteSingleNote,
+				isOpenDialogDeleteOneNote,
+				closeDialogDeleteOneNote,
 				handleClickDeleteOneNote,
 				isDeleting,
 			}}

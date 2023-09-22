@@ -1,6 +1,6 @@
 export interface IDialogDeleteOneBoardView {
-    isOpenDialogDeleteSingleBoard: boolean;
-    closeDialogDeleteSingleBoard: () => void;
-    dialogDeleteOneBoardSubmit: () => void;
-    isLoading: boolean;
+	isOpenDialogDeleteOneBoard: boolean;
+	closeDialogDeleteOneBoard: () => void;
+	dialogDeleteOneBoardSubmit: () => void;
+	isLoading: boolean;
 }

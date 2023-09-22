@@ -20,7 +20,7 @@ const HeaderNote: React.FC = () => {
 	const { data } = useFetchGetOneBoard(board_id);
 	const { countNotes } = useContextNote();
 
-	const { openDialogNewNote, openDialogDeleteAllNotes } = useDialogNote();
+	const { openDialogDeleteAllNotes } = useDialogNote();
 	const { breakpoints } = useTheme();
 	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
 
@@ -49,7 +49,6 @@ const HeaderNote: React.FC = () => {
 		<HeaderNoteView
 			{...{
 				data,
-				openDialogNewNote,
 				openDialogDeleteAllNotes,
 				isMediumScreen,
 				countNotes,

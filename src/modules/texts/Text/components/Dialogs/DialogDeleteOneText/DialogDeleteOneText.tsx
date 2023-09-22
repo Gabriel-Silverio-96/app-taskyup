@@ -8,15 +8,15 @@ import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 const DialogDeleteOneText: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { closeDialogDeleteSingleText } = useDialogText();
-	const { dialogDeleteSingleText } = useContextText();
-	const { textID } = dialogDeleteSingleText;
+	const { closeDialogDeleteOneText } = useDialogText();
+	const { dialogDeleteOneText } = useContextText();
+	const { textID } = dialogDeleteOneText;
 
 	const optionMutation = {
-		onError: () => closeDialogDeleteSingleText(),
+		onError: () => closeDialogDeleteOneText(),
 		onSuccess: () => {
 			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
-			closeDialogDeleteSingleText();
+			closeDialogDeleteOneText();
 		},
 	};
 
@@ -26,13 +26,13 @@ const DialogDeleteOneText: React.FC = () => {
 		optionMutation
 	);
 
-	const onClose = !isDeleting ? closeDialogDeleteSingleText : () => "";
+	const onClose = !isDeleting ? closeDialogDeleteOneText : () => "";
 
 	return (
 		<DialogDeleteOneTextView
 			{...{
-				dialogDeleteSingleText,
-				closeDialogDeleteSingleText,
+				dialogDeleteOneText,
+				closeDialogDeleteOneText,
 				fetchDelete,
 				isDeleting,
 				onClose,

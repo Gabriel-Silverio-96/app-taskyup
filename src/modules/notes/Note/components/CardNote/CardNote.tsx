@@ -13,7 +13,7 @@ const CardNote: React.FC = () => {
 	const { board_id } = useParams();
 	const { setCountNotes } = useContextNote();
 	const { palette } = useTheme();
-	const { openDialogDeleteSingleNote } = useDialogNote();
+	const { openDialogDeleteOneNote } = useDialogNote();
 
 	const queryKey = [NOTE_QUERY_KEY.FETCH_GET_NOTES, { variable: board_id }];
 	const queryFn = () => fetchGetNotesService(board_id);
@@ -32,7 +32,7 @@ const CardNote: React.FC = () => {
 				palette,
 				data,
 				isFetching,
-				openDialogDeleteSingleNote,
+				openDialogDeleteOneNote,
 			}}
 		/>
 	);

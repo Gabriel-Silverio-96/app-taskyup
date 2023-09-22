@@ -11,10 +11,8 @@ export interface IDialogDeleteAllText {
 }
 
 export interface IContextText {
-	dialogDeleteSingleText: IDialogDeleteSingleText;
-	setDialogDeleteSingleText: Dispatch<
-		SetStateAction<IDialogDeleteSingleText>
-	>;
+	dialogDeleteOneText: IDialogDeleteSingleText;
+	setDialogDeleteOneText: Dispatch<SetStateAction<IDialogDeleteSingleText>>;
 	dialogDeleteAllText: IDialogDeleteAllText;
 	setDialogDeleteAllText: Dispatch<SetStateAction<IDialogDeleteAllText>>;
 	countText: number;

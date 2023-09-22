@@ -13,16 +13,16 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteOneTextView } from "./types";
 
-const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = (props) => {
-	const { 
-		dialogDeleteSingleText, 
-		closeDialogDeleteSingleText, 
-		fetchDelete, 
+const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = props => {
+	const {
+		dialogDeleteOneText,
+		closeDialogDeleteOneText,
+		fetchDelete,
 		isDeleting,
-		onClose 
+		onClose,
 	} = props;
 
-	const { open } = dialogDeleteSingleText;
+	const { open } = dialogDeleteOneText;
 
 	return (
 		<Dialog fullWidth maxWidth="xs" open={open} onClose={onClose}>
@@ -37,26 +37,37 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = (props) => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton onClick={closeDialogDeleteSingleText} disabled={isDeleting}>
+						<IconButton
+							onClick={closeDialogDeleteOneText}
+							disabled={isDeleting}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<Typography color="GrayText">					
+				<Typography color="GrayText">
 					Do you want to delete this text?
 				</Typography>
 			</DialogContent>
 			<DialogActions>
-				<Grid container	justifyContent="space-between" alignItems="center">
+				<Grid
+					container
+					justifyContent="space-between"
+					alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined" onClick={closeDialogDeleteSingleText} disabled={isDeleting}>
+						<Button
+							variant="outlined"
+							onClick={closeDialogDeleteOneText}
+							disabled={isDeleting}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" onClick={fetchDelete} loading={isDeleting}>
+						<LoadingButton
+							variant="contained"
+							onClick={fetchDelete}
+							loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>
