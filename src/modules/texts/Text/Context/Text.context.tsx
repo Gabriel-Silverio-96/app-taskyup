@@ -8,16 +8,14 @@ import {
 
 export const ContextText = createContext<IContextText | undefined>(undefined);
 
-const INITIAL_STATE_DIALOG_DELETE_SINGLE_TEXT = { open: false, textID: "" };
+const INITIAL_STATE_DIALOG_DELETE_ONE_TEXT = { open: false, textID: "" };
 const INITIAL_STATE_DIALOG_DELETE_ALL_TEXT = { open: false, boardID: "" };
 
 export const ContextProviderText: React.FC<IContextProviderText> = ({
 	children,
 }) => {
 	const [dialogDeleteOneText, setDialogDeleteOneText] =
-		useState<IDialogDeleteSingleText>(
-			INITIAL_STATE_DIALOG_DELETE_SINGLE_TEXT
-		);
+		useState<IDialogDeleteSingleText>(INITIAL_STATE_DIALOG_DELETE_ONE_TEXT);
 	const [dialogDeleteAllText, setDialogDeleteAllText] =
 		useState<IDialogDeleteAllText>(INITIAL_STATE_DIALOG_DELETE_ALL_TEXT);
 	const [countText, setCountText] = useState(0);
