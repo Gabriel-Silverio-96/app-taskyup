@@ -4,21 +4,11 @@ import { IUseDialogNote } from "./types";
 
 const useDialogNote = (): IUseDialogNote => {
 	const {
-		setIsOpenDialogNewNote,
 		setIsOpenDialogEditNote,
 		setNoteID,
 		setIsOpenDialogDeleteOneNote,
 		setIsOpenDialogDeleteAllNotes,
 	} = useContextNote();
-
-	const openDialogNewNote = useCallback(
-		() => setIsOpenDialogNewNote(true),
-		[]
-	);
-	const closeDialogNewNote = useCallback(
-		() => setIsOpenDialogNewNote(false),
-		[]
-	);
 
 	const openDialogEditNote = useCallback((noteID: string) => {
 		setIsOpenDialogEditNote(true);
@@ -51,8 +41,6 @@ const useDialogNote = (): IUseDialogNote => {
 	);
 
 	return {
-		openDialogNewNote,
-		closeDialogNewNote,
 		openDialogEditNote,
 		closeDialogEditNote,
 		openDialogDeleteOneNote,
