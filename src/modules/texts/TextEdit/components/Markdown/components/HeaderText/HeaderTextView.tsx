@@ -1,9 +1,10 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { Nav, TextTitle, TextField, Breadcrumbs } from "./style";
 import { IHeaderTextView } from "./types";
+import { MdArrowBack } from "react-icons/md";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
@@ -42,7 +43,9 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 			<Grid item md={3}>
 				<Nav>
 					<Link to={linkPreviousPage}>
-						<Button variant="text">Back</Button>
+						<IconButton>
+							<MdArrowBack />
+						</IconButton>
 					</Link>
 					<Button
 						variant="contained"
