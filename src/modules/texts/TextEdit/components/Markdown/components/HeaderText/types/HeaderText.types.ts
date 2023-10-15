@@ -8,6 +8,7 @@ export interface IHeaderText {
 }
 
 export interface IHeaderTextView extends IHeaderText {
+	handleClickOpenDialogShare: () => void;
 	linkPreviousPage: string;
 	isError: boolean;
 	message: string;

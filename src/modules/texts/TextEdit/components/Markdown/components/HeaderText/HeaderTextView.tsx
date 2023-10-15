@@ -8,6 +8,7 @@ import { MdArrowBack, MdShare } from "react-icons/md";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
+		handleClickOpenDialogShare,
 		handleClickSaveText,
 		titleBoard,
 		titleText,
@@ -47,7 +48,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 							<MdArrowBack size={18} />
 						</IconButton>
 					</Link>
-					<IconButton>
+					<IconButton onClick={handleClickOpenDialogShare}>
 						<MdShare size={18} />
 					</IconButton>
 					<Button
