@@ -14,9 +14,18 @@ import {
 } from "@mui/material";
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import Loading from "shared/components/Loading";
 
 const DialogShareView: React.FC<any> = props => {
-	const { isOpenDialogShare, closeDialogShare } = props;
+	const {
+		data,
+		isFetching,
+		isOpenDialogShare,
+		closeDialogShare,
+		handleChangeSwitch,
+	} = props;
+
+	if (isFetching) return <Loading isLoading backdrop />;
 
 	return (
 		<Dialog fullWidth maxWidth="sm" open={isOpenDialogShare}>
@@ -62,6 +71,8 @@ const DialogShareView: React.FC<any> = props => {
 							control={
 								<Switch
 									inputProps={{ "aria-label": "controlled" }}
+									checked={data.public}
+									onChange={handleChangeSwitch}
 								/>
 							}
 							label="Public"
