@@ -40,11 +40,11 @@ const DialogShare: React.FC = () => {
 	return (
 		<DialogShareView
 			{...{
+				data,
+				isFetching,
 				isOpenDialogShare,
 				closeDialogShare,
-				data,
 				handleChangeSwitch,
-				isFetching,
 			}}
 		/>
 	);
