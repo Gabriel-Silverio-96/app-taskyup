@@ -1,15 +1,17 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useContextTextEdit } from "modules/texts/TextEdit/Context";
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import DialogShareView from "./DialogShareView";
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,
 } from "./service";
-import { DIALOG_SHARE_QUERY_KEY } from "./constants";
+import { DIALOG_SHARE_QUERY_KEY, INITIAL_STATE_DATA } from "./constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import useSnackBar from "shared/common/hook/useSnackBar";
+import { IFetchGetTextPermissionsResponse } from "./service/types/fetchGetTextPermissions.types";
+import { IData } from "./types/DialogShare.types";
 
 const DialogShare: React.FC = () => {
 	const [searchParams] = useSearchParams();
@@ -20,14 +22,15 @@ const DialogShare: React.FC = () => {
 
 	const { isOpenDialogShare, setIsOpenDialogShare } = useContextTextEdit();
 
-	const [data, setData] = useState<any>({ public: false });
+	const [data, setData] = useState<IData>(INITIAL_STATE_DATA);
 
 	const closeDialogShare = () => setIsOpenDialogShare(false);
 
 	const queryFn = () =>
 		fetchGetTextPermissionsService({ params: { text_id, board_id } });
 
-	const onSuccessQuery = (data: any) => setData(data);
+	const onSuccessQuery = (data: IFetchGetTextPermissionsResponse) =>
+		setData(data);
 	const optionsQuery = { onSuccess: onSuccessQuery, enabled: false };
 
 	const { refetch, isFetching } = useQuery(
@@ -45,7 +48,7 @@ const DialogShare: React.FC = () => {
 		{ text_id }
 	);
 
-	const handleChangeSwitch = (event: any) => {
+	const handleChangeSwitch = (event: ChangeEvent<HTMLInputElement>) => {
 		const { checked } = event.target;
 		setData({ public: checked });
 	};

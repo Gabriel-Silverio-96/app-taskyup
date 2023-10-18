@@ -15,8 +15,9 @@ import {
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import Loading from "shared/components/Loading";
+import { IDialogShareView } from "./types/DialogShare.types";
 
-const DialogShareView: React.FC<any> = props => {
+const DialogShareView: React.FC<IDialogShareView> = props => {
 	const {
 		data,
 		isFetching,
