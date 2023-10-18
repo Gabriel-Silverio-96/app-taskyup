@@ -2,15 +2,15 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useContextTextEdit } from "modules/texts/TextEdit/Context";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import useSnackBar from "shared/common/hook/useSnackBar";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import DialogShareView from "./DialogShareView";
+import { DIALOG_SHARE_QUERY_KEY, INITIAL_STATE_DATA } from "./constants";
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,
 } from "./service";
-import { DIALOG_SHARE_QUERY_KEY, INITIAL_STATE_DATA } from "./constants";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import useSnackBar from "shared/common/hook/useSnackBar";
-import { IFetchGetTextPermissionsResponse } from "./service/types/fetchGetTextPermissions.types";
+import { IFetchGetTextPermissionsResponse } from "./service/types";
 import { IData } from "./types/DialogShare.types";
 
 const DialogShare: React.FC = () => {

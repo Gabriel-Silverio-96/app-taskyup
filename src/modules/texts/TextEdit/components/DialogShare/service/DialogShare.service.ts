@@ -1,10 +1,10 @@
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 import {
 	IFetchGetTextPermissionsResponse,
 	IFetchGetTextPermissionsService,
-} from "./types/fetchGetTextPermissions.types";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
-import { IFetchPatchTextPermissionsService } from "./types/fetchPatchTextPermissions.types";
+	IFetchPatchTextPermissionsService,
+} from "./types";
 
 export const fetchGetTextPermissionsService = async ({
 	params,
