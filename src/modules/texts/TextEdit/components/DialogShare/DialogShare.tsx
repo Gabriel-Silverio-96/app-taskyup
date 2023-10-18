@@ -3,7 +3,10 @@ import { useContextTextEdit } from "modules/texts/TextEdit/Context";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import DialogShareView from "./DialogShareView";
-import { fetchGetTextPermissions, fetchPatchTextPermissions } from "./service";
+import {
+	fetchGetTextPermissionsService,
+	fetchPatchTextPermissionsService,
+} from "./service";
 import { DIALOG_SHARE_QUERY_KEY } from "./constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import useSnackBar from "shared/common/hook/useSnackBar";
@@ -22,7 +25,7 @@ const DialogShare: React.FC = () => {
 	const closeDialogShare = () => setIsOpenDialogShare(false);
 
 	const queryFn = () =>
-		fetchGetTextPermissions({ params: { text_id, board_id } });
+		fetchGetTextPermissionsService({ params: { text_id, board_id } });
 
 	const onSuccessQuery = (data: any) => setData(data);
 	const optionsQuery = { onSuccess: onSuccessQuery, enabled: false };
@@ -53,7 +56,7 @@ const DialogShare: React.FC = () => {
 	};
 
 	const mutationFn = () =>
-		fetchPatchTextPermissions({ payload: data, board_id, text_id });
+		fetchPatchTextPermissionsService({ payload: data, board_id, text_id });
 	const { mutate: handleClickSave, isLoading: isSaving } =
 		useMutation(mutationFn);
 

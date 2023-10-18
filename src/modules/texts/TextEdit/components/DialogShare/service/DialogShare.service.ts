@@ -6,7 +6,7 @@ import {
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import { IFetchPatchTextPermissionsService } from "./types/fetchPatchTextPermissions.types";
 
-export const fetchGetTextPermissions = async ({
+export const fetchGetTextPermissionsService = async ({
 	params,
 }: IFetchGetTextPermissionsService) => {
 	const { data } = await api.get<IFetchGetTextPermissionsResponse>(
@@ -16,7 +16,7 @@ export const fetchGetTextPermissions = async ({
 	return data;
 };
 
-export const fetchPatchTextPermissions = async (
+export const fetchPatchTextPermissionsService = async (
 	data: IFetchPatchTextPermissionsService
 ) => {
 	const { payload, board_id, text_id } = data;
