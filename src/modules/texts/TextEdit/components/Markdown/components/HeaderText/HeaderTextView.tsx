@@ -48,7 +48,9 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 							<MdArrowBack size={18} />
 						</IconButton>
 					</Link>
-					<IconButton onClick={handleClickOpenDialogShare}>
+					<IconButton
+						onClick={handleClickOpenDialogShare}
+						style={{ display: "none" }}>
 						<MdShare size={18} />
 					</IconButton>
 					<Button
