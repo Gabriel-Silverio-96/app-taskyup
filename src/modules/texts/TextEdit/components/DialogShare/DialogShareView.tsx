@@ -25,14 +25,18 @@ const DialogShareView: React.FC<any> = props => {
 		handleChangeSwitch,
 		handleClickCopy,
 		handleClickSave,
-		isLoading,
+		isSaving,
 		URLPublicText,
 	} = props;
 
 	if (isFetching) return <Loading isLoading backdrop />;
 
 	return (
-		<Dialog fullWidth maxWidth="sm" open={isOpenDialogShare}>
+		<Dialog
+			fullWidth
+			maxWidth="sm"
+			open={isOpenDialogShare}
+			onClose={!isSaving ? closeDialogShare : () => ""}>
 			<DialogTitle sx={{ marginBottom: "1rem" }}>
 				<Grid
 					container
@@ -44,7 +48,9 @@ const DialogShareView: React.FC<any> = props => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton onClick={closeDialogShare}>
+						<IconButton
+							onClick={closeDialogShare}
+							disabled={isSaving}>
 							<MdOutlineClose />
 						</IconButton>
 					</Grid>
@@ -89,7 +95,7 @@ const DialogShareView: React.FC<any> = props => {
 						<LoadingButton
 							form="form-new-board"
 							variant="contained"
-							loading={isLoading}
+							loading={isSaving}
 							onClick={handleClickSave}>
 							Save
 						</LoadingButton>

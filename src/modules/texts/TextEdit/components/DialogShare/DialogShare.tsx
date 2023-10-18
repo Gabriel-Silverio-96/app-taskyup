@@ -54,7 +54,8 @@ const DialogShare: React.FC = () => {
 
 	const mutationFn = () =>
 		fetchPatchTextPermissions({ payload: data, board_id, text_id });
-	const { mutate: handleClickSave, isLoading } = useMutation(mutationFn);
+	const { mutate: handleClickSave, isLoading: isSaving } =
+		useMutation(mutationFn);
 
 	return (
 		<DialogShareView
@@ -66,7 +67,7 @@ const DialogShare: React.FC = () => {
 				handleChangeSwitch,
 				handleClickCopy,
 				handleClickSave,
-				isLoading,
+				isSaving,
 				URLPublicText,
 			}}
 		/>
