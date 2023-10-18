@@ -6,14 +6,18 @@ import DialogShareView from "./DialogShareView";
 import { fetchGetTextPermissions } from "./service";
 import { DIALOG_SHARE_QUERY_KEY } from "./constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import useSnackBar from "shared/common/hook/useSnackBar";
 
 const DialogShare: React.FC = () => {
 	const [searchParams] = useSearchParams();
 	const text_id = searchParams.get("text_id");
 	const board_id = searchParams.get("board_id");
 
-	const [data, setData] = useState<any>({ public: false });
+	const { snackBarSuccess } = useSnackBar();
+
 	const { isOpenDialogShare, setIsOpenDialogShare } = useContextTextEdit();
+
+	const [data, setData] = useState<any>({ public: false });
 
 	const closeDialogShare = () => setIsOpenDialogShare(false);
 
@@ -33,15 +37,20 @@ const DialogShare: React.FC = () => {
 		isOpenDialogShare && refetch();
 	}, [isOpenDialogShare]);
 
+	const URLPublicText = createURLQueryParams(
+		`${location.origin}/public/text`,
+		{ text_id }
+	);
+
 	const handleChangeSwitch = (event: any) => {
 		const { checked } = event.target;
 		setData({ public: checked });
 	};
 
-	const URLPublicText = createURLQueryParams(
-		`${location.origin}/public/text`,
-		{ text_id }
-	);
+	const handleClickCopy = () => {
+		navigator.clipboard.writeText(URLPublicText);
+		snackBarSuccess({ message: "Copied" });
+	};
 
 	return (
 		<DialogShareView
@@ -51,6 +60,7 @@ const DialogShare: React.FC = () => {
 				isOpenDialogShare,
 				closeDialogShare,
 				handleChangeSwitch,
+				handleClickCopy,
 				URLPublicText,
 			}}
 		/>

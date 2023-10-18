@@ -23,6 +23,7 @@ const DialogShareView: React.FC<any> = props => {
 		isOpenDialogShare,
 		closeDialogShare,
 		handleChangeSwitch,
+		handleClickCopy,
 		URLPublicText,
 	} = props;
 
@@ -59,7 +60,10 @@ const DialogShareView: React.FC<any> = props => {
 					</Grid>
 
 					<Grid item md="auto">
-						<Button variant="text" color="inherit">
+						<Button
+							variant="text"
+							color="inherit"
+							onClick={handleClickCopy}>
 							Copy link
 						</Button>
 					</Grid>
