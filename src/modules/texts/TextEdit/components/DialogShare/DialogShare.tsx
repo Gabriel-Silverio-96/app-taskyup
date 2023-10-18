@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import DialogShareView from "./DialogShareView";
 import { fetchGetTextPermissions } from "./service";
 import { DIALOG_SHARE_QUERY_KEY } from "./constants";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const DialogShare: React.FC = () => {
 	const [searchParams] = useSearchParams();
@@ -37,6 +38,11 @@ const DialogShare: React.FC = () => {
 		setData({ public: checked });
 	};
 
+	const URLPublicText = createURLQueryParams(
+		`${location.origin}/public/text`,
+		{ text_id }
+	);
+
 	return (
 		<DialogShareView
 			{...{
@@ -45,6 +51,7 @@ const DialogShare: React.FC = () => {
 				isOpenDialogShare,
 				closeDialogShare,
 				handleChangeSwitch,
+				URLPublicText,
 			}}
 		/>
 	);

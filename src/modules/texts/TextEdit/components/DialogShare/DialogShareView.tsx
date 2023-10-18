@@ -23,6 +23,7 @@ const DialogShareView: React.FC<any> = props => {
 		isOpenDialogShare,
 		closeDialogShare,
 		handleChangeSwitch,
+		URLPublicText,
 	} = props;
 
 	if (isFetching) return <Loading isLoading backdrop />;
@@ -50,7 +51,7 @@ const DialogShareView: React.FC<any> = props => {
 				<Grid container gap={1}>
 					<Grid item md>
 						<TextField
-							value="https://taskyup.com/text/public?text_id=4c3d9314-b6cf-4"
+							value={URLPublicText}
 							disabled
 							fullWidth
 							variant="standard"
