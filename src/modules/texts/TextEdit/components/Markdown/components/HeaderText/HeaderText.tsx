@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import HeaderTextView from "./HeaderTextView";
 import { IHeaderText } from "./types";
 import { validateTitleText } from "./utils/validate-title-text";
+import { useContextTextEdit } from "modules/texts/TextEdit/Context";
 
 const HeaderText: React.FC<IHeaderText> = ({
 	handleClickSaveText,
@@ -10,6 +11,8 @@ const HeaderText: React.FC<IHeaderText> = ({
 	titleText,
 	onChangeTextTitle,
 }) => {
+	const { setIsOpenDialogShare } = useContextTextEdit();
+
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
 
@@ -17,9 +20,12 @@ const HeaderText: React.FC<IHeaderText> = ({
 
 	const { isError, message } = validateTitleText(titleText);
 
+	const handleClickOpenDialogShare = () => setIsOpenDialogShare(true);
+
 	return (
 		<HeaderTextView
 			{...{
+				handleClickOpenDialogShare,
 				handleClickSaveText,
 				titleBoard,
 				titleText,

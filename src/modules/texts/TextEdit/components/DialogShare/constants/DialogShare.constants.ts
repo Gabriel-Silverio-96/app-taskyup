@@ -1,0 +1,5 @@
+export const INITIAL_STATE_DATA = { public: false };
+
+export const DIALOG_SHARE_QUERY_KEY = {
+	FETCH_GET_TEXT_PERMISSIONS: "FETCH_GET_TEXT_PERMISSIONS",
+};

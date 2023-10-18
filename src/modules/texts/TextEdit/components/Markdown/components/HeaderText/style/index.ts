@@ -1,10 +1,11 @@
 import { styled } from "@mui/material";
 
-export const Nav = styled("nav")(    
+export const Nav = styled("nav")(
 	({ theme }) => `
         display: flex;
-        gap: ${theme.spacing(1)};
+        gap: ${theme.spacing(2)};
         justify-content: flex-end;
+        align-items: center;
 
         button:first-of-type {
             color: ${theme.palette.common.white};
