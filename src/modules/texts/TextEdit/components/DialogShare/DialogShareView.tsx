@@ -24,6 +24,8 @@ const DialogShareView: React.FC<any> = props => {
 		closeDialogShare,
 		handleChangeSwitch,
 		handleClickCopy,
+		handleClickSave,
+		isLoading,
 		URLPublicText,
 	} = props;
 
@@ -87,7 +89,8 @@ const DialogShareView: React.FC<any> = props => {
 						<LoadingButton
 							form="form-new-board"
 							variant="contained"
-							type="submit">
+							loading={isLoading}
+							onClick={handleClickSave}>
 							Save
 						</LoadingButton>
 					</Grid>

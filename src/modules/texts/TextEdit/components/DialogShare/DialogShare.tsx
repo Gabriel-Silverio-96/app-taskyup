@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useContextTextEdit } from "modules/texts/TextEdit/Context";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import DialogShareView from "./DialogShareView";
-import { fetchGetTextPermissions } from "./service";
+import { fetchGetTextPermissions, fetchPatchTextPermissions } from "./service";
 import { DIALOG_SHARE_QUERY_KEY } from "./constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import useSnackBar from "shared/common/hook/useSnackBar";
@@ -52,6 +52,10 @@ const DialogShare: React.FC = () => {
 		snackBarSuccess({ message: "Copied" });
 	};
 
+	const mutationFn = () =>
+		fetchPatchTextPermissions({ payload: data, board_id, text_id });
+	const { mutate: handleClickSave, isLoading } = useMutation(mutationFn);
+
 	return (
 		<DialogShareView
 			{...{
@@ -61,6 +65,8 @@ const DialogShare: React.FC = () => {
 				closeDialogShare,
 				handleChangeSwitch,
 				handleClickCopy,
+				handleClickSave,
+				isLoading,
 				URLPublicText,
 			}}
 		/>
