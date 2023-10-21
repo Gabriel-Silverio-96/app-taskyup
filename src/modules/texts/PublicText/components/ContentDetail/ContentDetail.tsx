@@ -6,7 +6,7 @@ const ContentDetailView: React.FC = () => {
 	const date = dateFormat(new Date().toDateString());
 
 	return (
-		<Grid container flexDirection="column">
+		<Grid container flexDirection="column" sx={{ mb: 5 }}>
 			<Typography variant="h5" fontWeight={700} sx={{ mb: 2 }}>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy
