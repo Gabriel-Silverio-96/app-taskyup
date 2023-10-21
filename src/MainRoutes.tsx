@@ -17,6 +17,7 @@ const NoteEdit = lazy(() => import("modules/notes/NoteEdit"));
 
 const Text = lazy(() => import("modules/texts/Text"));
 const TextEdit = lazy(() => import("modules/texts/TextEdit"));
+const PublicText = lazy(() => import("modules/texts/PublicText"));
 
 const MainRoutes: React.FC = () => {
 	return (
@@ -36,6 +37,7 @@ const MainRoutes: React.FC = () => {
 				
 				<Route path="/texts/:board_id" element={<RequiredAuth><Text /></RequiredAuth>} />				
 				<Route path="/text/edit" element={<RequiredAuth drawer={false}><TextEdit /></RequiredAuth>} />				
+				<Route path="public/text" element={<PublicText />} />				
 
 				<Route path="*" element={<Page404 />} />
 			</Routes>
