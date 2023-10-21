@@ -4,8 +4,9 @@ import Loading from "shared/components/Loading";
 import ContentDetail from "./components/ContentDetail";
 import HeaderPublicText from "./components/HeaderPublicText";
 import MarkdownPreview from "./components/MarkdownPreview";
+import { IPublicTextView } from "./types/PublicText.types";
 
-const PublicTextView: React.FC<any> = props => {
+const PublicTextView: React.FC<IPublicTextView> = props => {
 	const {
 		isFetching,
 		data: { author, title_text, created_at, text },

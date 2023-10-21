@@ -10,4 +10,5 @@ export interface IFetchGetPublicTextResponse {
 	board_id: string;
 	text: string;
 	created_at: string;
+	title_text: string;
 }
