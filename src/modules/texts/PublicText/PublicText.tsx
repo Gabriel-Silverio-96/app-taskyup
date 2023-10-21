@@ -9,9 +9,13 @@ const PublicText: React.FC = () => {
 	const text_id = searchParams.get("text_id");
 
 	const queryFn = () => fetchGetPublicTextService({ params: { text_id } });
-	const { data } = useQuery(["a"], queryFn);
 
-	return <PublicTextView {...{ data }} />;
+	// TODO - query key with text_id
+	const { data, isFetching } = useQuery(["a"], queryFn);
+
+	if (data === undefined) return null;
+
+	return <PublicTextView {...{ data, isFetching }} />;
 };
 
 export default PublicText;
