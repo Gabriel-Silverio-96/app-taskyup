@@ -1,8 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import dateFormat from "shared/util/dateFormat";
+import { IContentDetail } from "./types/ContentDetail.types";
 
-const ContentDetailView: React.FC<any> = props => {
+const ContentDetail: React.FC<IContentDetail> = props => {
 	const { title_text, author, created_at } = props;
 
 	const date = dateFormat(created_at);
@@ -24,4 +25,4 @@ const ContentDetailView: React.FC<any> = props => {
 	);
 };
 
-export default ContentDetailView;
+export default ContentDetail;

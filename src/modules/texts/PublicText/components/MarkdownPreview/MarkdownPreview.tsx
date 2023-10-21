@@ -2,13 +2,14 @@ import { Viewer } from "@bytemd/react";
 import "bytemd/dist/index.css";
 import "highlight.js/styles/default.css";
 import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/constants/text.constants";
-import { MarkdownPreview } from "./style";
+import { MarkdownSectionPreview } from "./style";
+import { IMarkdownPreview } from "./types/MarkdownPreview.types";
 
-const MarkdownPreviewView: React.FC<any> = props => {
+const MarkdownPreview: React.FC<IMarkdownPreview> = props => {
 	const { text } = props;
 
 	return (
-		<MarkdownPreview>
+		<MarkdownSectionPreview>
 			<div className="bytemd">
 				<div className="bytemd-body">
 					<div className="bytemd-preview">
@@ -16,8 +17,8 @@ const MarkdownPreviewView: React.FC<any> = props => {
 					</div>
 				</div>
 			</div>
-		</MarkdownPreview>
+		</MarkdownSectionPreview>
 	);
 };
 
-export default MarkdownPreviewView;
+export default MarkdownPreview;

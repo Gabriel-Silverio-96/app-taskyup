@@ -1,7 +1,7 @@
 import { styled } from "@mui/material";
 import { blue, blueGrey, lime } from "@mui/material/colors";
 
-export const MarkdownPreview = styled("section")(    
+export const MarkdownSectionPreview = styled("section")(    
 	({ theme }) => `
         width: 100%;
         margin-bottom: ${theme.spacing(20)};
