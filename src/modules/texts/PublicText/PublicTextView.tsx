@@ -1,9 +1,9 @@
-import React from "react";
-import HeaderPublicText from "./components/HeaderPublicText";
 import { Grid } from "@mui/material";
-import ContentDetail from "./components/ContentDetail";
-import MarkdownPreview from "./components/MarkdownPreview";
+import React from "react";
 import Loading from "shared/components/Loading";
+import ContentDetail from "./components/ContentDetail";
+import HeaderPublicText from "./components/HeaderPublicText";
+import MarkdownPreview from "./components/MarkdownPreview";
 
 const PublicTextView: React.FC<any> = props => {
 	const {
