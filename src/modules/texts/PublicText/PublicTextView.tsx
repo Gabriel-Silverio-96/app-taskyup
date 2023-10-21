@@ -4,11 +4,13 @@ import { Grid } from "@mui/material";
 import ContentDetail from "./components/ContentDetail";
 import MarkdownPreview from "./components/MarkdownPreview";
 
-const PublicTextView: React.FC<any> = () => {
+const PublicTextView: React.FC<any> = ({ data }) => {
+	const { author, title_text, created_at } = data;
+
 	return (
 		<Grid container maxWidth={800} margin="auto">
 			<HeaderPublicText />
-			<ContentDetail />
+			<ContentDetail {...{ author, title_text, created_at }} />
 			<MarkdownPreview />
 		</Grid>
 	);
