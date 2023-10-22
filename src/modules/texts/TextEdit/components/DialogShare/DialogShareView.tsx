@@ -12,7 +12,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { FiCopy } from "react-icons/fi";
+import { FiCopy, FiLink } from "react-icons/fi";
 import { MdOutlineClose } from "react-icons/md";
 import Loading from "shared/components/Loading";
 import { IDialogShareView } from "./types/DialogShare.types";
@@ -38,7 +38,7 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 			maxWidth="sm"
 			open={isOpenDialogShare}
 			onClose={!isSaving ? closeDialogShare : () => ""}>
-			<DialogTitle sx={{ marginBottom: "1rem" }}>
+			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
 					alignItems="center"
@@ -72,6 +72,14 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 						<IconButton onClick={handleClickCopy}>
 							<FiCopy size={18} />
 						</IconButton>
+						<a
+							href={URLPublicText}
+							target="_blank"
+							rel="noopener noreferrer">
+							<IconButton>
+								<FiLink size={18} />
+							</IconButton>
+						</a>
 					</Grid>
 				</Grid>
 			</DialogContent>
