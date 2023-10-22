@@ -1,6 +1,5 @@
 import { LoadingButton } from "@mui/lab";
 import {
-	Button,
 	Dialog,
 	DialogActions,
 	DialogContent,
@@ -13,6 +12,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
+import { FiCopy } from "react-icons/fi";
 import { MdOutlineClose } from "react-icons/md";
 import Loading from "shared/components/Loading";
 import { IDialogShareView } from "./types/DialogShare.types";
@@ -58,7 +58,7 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<Grid container gap={1}>
+				<Grid container gap={3}>
 					<Grid item md>
 						<TextField
 							value={URLPublicText}
@@ -69,12 +69,9 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 					</Grid>
 
 					<Grid item md="auto">
-						<Button
-							variant="text"
-							color="inherit"
-							onClick={handleClickCopy}>
-							Copy link
-						</Button>
+						<IconButton onClick={handleClickCopy}>
+							<FiCopy size={18} />
+						</IconButton>
 					</Grid>
 				</Grid>
 			</DialogContent>

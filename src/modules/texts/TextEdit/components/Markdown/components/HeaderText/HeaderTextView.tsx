@@ -50,7 +50,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 					</Link>
 					<IconButton
 						onClick={handleClickOpenDialogShare}
-						style={{ display: "none" }}>
+					>
 						<MdShare size={18} />
 					</IconButton>
 					<Button

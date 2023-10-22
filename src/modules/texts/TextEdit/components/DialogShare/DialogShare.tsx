@@ -45,7 +45,7 @@ const DialogShare: React.FC = () => {
 
 	const URLPublicText = createURLQueryParams(
 		`${location.origin}/public/text`,
-		{ text_id }
+		{ text_id, redirect: false }
 	);
 
 	const handleChangeSwitch = (event: ChangeEvent<HTMLInputElement>) => {
