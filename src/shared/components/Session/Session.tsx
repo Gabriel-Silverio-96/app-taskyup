@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { IAuthState } from "shared/common/store/Auth/types/Auth.types";
@@ -10,9 +10,14 @@ import SessionView from "./SessionView";
 import { ISession } from "./types/Session.component";
 
 const Session: React.FC<ISession> = ({ children }) => {
+	const [searchParams] = useSearchParams();
+	const redirect = searchParams.get("redirect");
+
 	const dispatch = useDispatch();
 	const token: string | null = localStorage.getItem("@taskyup.token" || null);
-	const userData: string | null = localStorage.getItem("@taskyup.user_data" || null);	
+	const userData: string | null = localStorage.getItem(
+		"@taskyup.user_data" || null
+	);
 
 	useLayoutEffect(() => {
 		if (token && userData) {
@@ -26,19 +31,28 @@ const Session: React.FC<ISession> = ({ children }) => {
 		}
 	}, []);
 
-	const location = useLocation();	
-	const path = `${location.pathname}${location.search}`;	
-	
-	const [lastPageAccessed, setLastPageAccessed] = useLocalStorage("@taskyup.last_page_accessed", path);
-	const { isAuthenticated } = useSelector((state: { auth: IAuthState }) => state.auth);	
-	const navigate = useNavigate();	
-	
+	const location = useLocation();
+	const path = `${location.pathname}${location.search}`;
+
+	const [lastPageAccessed, setLastPageAccessed] = useLocalStorage(
+		"@taskyup.last_page_accessed",
+		path
+	);
+	const { isAuthenticated } = useSelector(
+		(state: { auth: IAuthState }) => state.auth
+	);
+	const navigate = useNavigate();
+
 	useEffect(() => {
+		if (redirect === "false") return;
+
 		setLastPageAccessed(path);
 	}, [location]);
-	
+
 	useEffect(() => {
-		if(isAuthenticated) {
+		if (redirect === "false") return;
+
+		if (isAuthenticated) {
 			navigate(lastPageAccessed);
 		}
 	}, []);
