@@ -7,7 +7,6 @@ export interface IFetchGetPublicTextService {
 export interface IFetchGetPublicTextResponse {
 	author: string;
 	text_id: string;
-	board_id: string;
 	text: string;
 	created_at: string;
 	title_text: string;
