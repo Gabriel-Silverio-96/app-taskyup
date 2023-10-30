@@ -1,7 +1,7 @@
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import { useCallback } from "react";
 import { IUseDialogBoard } from "./types";
-import { FunctionNonValueReturning } from "shared/types";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 const useDialogBoard = (): IUseDialogBoard => {
 	const {
@@ -11,7 +11,7 @@ const useDialogBoard = (): IUseDialogBoard => {
 	} = useContextBoard();
 
 	const openDialogEditBoard = useCallback(
-		(closeMenu: FunctionNonValueReturning) => {
+		(closeMenu: FunctionReturnsVoid) => {
 			setIsOpenDialogEditBoard(true);
 			closeMenu();
 		},
@@ -24,7 +24,7 @@ const useDialogBoard = (): IUseDialogBoard => {
 	}, []);
 
 	const openDialogDeleteOneBoard = useCallback(
-		(closeMenu: FunctionNonValueReturning) => {
+		(closeMenu: FunctionReturnsVoid) => {
 			setIsOpenDialogDeleteOneBoard(true);
 			closeMenu();
 		},

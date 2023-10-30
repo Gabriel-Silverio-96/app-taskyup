@@ -1,10 +1,12 @@
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+
 export interface IDropdown {
-    children: React.ReactNode;
-    open: boolean;
-    toogleDropdown: () => void;
+	children: React.ReactNode;
+	open: boolean;
+	toogleDropdown: FunctionReturnsVoid;
 }
 
 export interface IDropdownView extends IDropdown {
-    logout: () => void;
-    toogleDropdown: () => void;
+	logout: FunctionReturnsVoid;
+	toogleDropdown: FunctionReturnsVoid;
 }

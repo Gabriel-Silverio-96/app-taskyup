@@ -1,7 +1,9 @@
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+
 export interface IDialogDeleteOneTextView {
 	dialogDeleteOneText: { open: boolean; textID: string };
-	closeDialogDeleteOneText: () => void;
-	fetchDelete: () => void;
+	closeDialogDeleteOneText: FunctionReturnsVoid;
+	fetchDelete: FunctionReturnsVoid;
 	isDeleting: boolean;
-	onClose: () => void | string;
+	onClose: FunctionReturnsVoid | (() => string);
 }

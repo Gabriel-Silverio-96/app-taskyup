@@ -3,10 +3,11 @@ import {
 	UseFormHandleSubmit,
 	UseFormRegister,
 } from "react-hook-form";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IDialogNewBoard {
 	openDialog: boolean;
-	closeDialogNewBoard: () => void;
+	closeDialogNewBoard: FunctionReturnsVoid;
 }
 
 export interface IFetchPostCreateBoardService {

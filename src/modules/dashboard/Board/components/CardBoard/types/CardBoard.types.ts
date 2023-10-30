@@ -1,6 +1,6 @@
 import { Palette } from "@mui/material";
 import React from "react";
-import { FunctionNonValueReturning } from "shared/types";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export type TypeBoard = "notes" | "texts" | "kanban";
 
@@ -23,10 +23,10 @@ export interface ICardBoardView {
 	isFetching: boolean;
 	palette: Palette;
 	openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
-	closeMenu: FunctionNonValueReturning;
+	closeMenu: FunctionReturnsVoid;
 	anchorEl: null | HTMLElement;
 	isOpenMenu: boolean;
 	handleBoardID: (boardID: string) => void;
-	openDialogEditBoard: (closeMenu: FunctionNonValueReturning) => void;
-	openDialogDeleteOneBoard: (closeMenu: FunctionNonValueReturning) => void;
+	openDialogEditBoard: (closeMenu: FunctionReturnsVoid) => void;
+	openDialogDeleteOneBoard: (closeMenu: FunctionReturnsVoid) => void;
 }

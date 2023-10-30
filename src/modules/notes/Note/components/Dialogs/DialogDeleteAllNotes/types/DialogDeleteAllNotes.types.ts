@@ -1,6 +1,8 @@
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+
 export interface IDialogDeleteAllNotesView {
-    isOpenDialogDeleteAllNotes: boolean;
-    closeDialogDeleteAllNotes: () => void;
-    dialogDeleteAllNotesSubmit: () => any;
-    isDeleting: boolean;
+	isOpenDialogDeleteAllNotes: boolean;
+	closeDialogDeleteAllNotes: FunctionReturnsVoid;
+	dialogDeleteAllNotesSubmit: () => any;
+	isDeleting: boolean;
 }

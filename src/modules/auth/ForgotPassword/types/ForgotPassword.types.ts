@@ -1,4 +1,5 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IForgotPasswordForm {
 	email: string;
@@ -16,5 +17,5 @@ export interface IForgotPasswordView {
 	errors: FieldErrors<IForgotPasswordForm>;
 	isLoading: boolean;
 	sendEmail: ISendEmail;
-	onSubmit: () => void;
+	onSubmit: FunctionReturnsVoid;
 }
