@@ -1,8 +1,10 @@
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+
 export interface IUseDialogNote {
 	openDialogEditNote: (noteID: string) => void;
-	closeDialogEditNote: () => void;
+	closeDialogEditNote: FunctionReturnsVoid;
 	openDialogDeleteOneNote: (noteID: string) => void;
-	closeDialogDeleteOneNote: () => void;
-	openDialogDeleteAllNotes: () => void;
-	closeDialogDeleteAllNotes: () => void;
+	closeDialogDeleteOneNote: FunctionReturnsVoid;
+	openDialogDeleteAllNotes: FunctionReturnsVoid;
+	closeDialogDeleteAllNotes: FunctionReturnsVoid;
 }

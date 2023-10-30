@@ -1,8 +1,8 @@
-import { FunctionNonValueReturning } from "shared/types";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IUseDialogBoard {
-	openDialogEditBoard: (closeMenu: FunctionNonValueReturning) => void;
-	closeDialogEditBoard: FunctionNonValueReturning;
-	openDialogDeleteOneBoard: (closeMenu: FunctionNonValueReturning) => void;
-	closeDialogDeleteOneBoard: FunctionNonValueReturning;
+	openDialogEditBoard: (closeMenu: FunctionReturnsVoid) => void;
+	closeDialogEditBoard: FunctionReturnsVoid;
+	openDialogDeleteOneBoard: (closeMenu: FunctionReturnsVoid) => void;
+	closeDialogDeleteOneBoard: FunctionReturnsVoid;
 }

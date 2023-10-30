@@ -1,5 +1,6 @@
 import { Palette } from "@mui/material";
 import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IHeaderTextView {
 	data: IFetchGetOneBoardResponse | undefined;
@@ -8,6 +9,6 @@ export interface IHeaderTextView {
 	isMediumScreen: boolean;
 	openDialogDeleteAllTexts: (boardID: string) => void;
 	board_id: string | undefined;
-	toogleTemplates: () => void;
+	toogleTemplates: FunctionReturnsVoid;
 	isOpenTemplates: boolean;
 }

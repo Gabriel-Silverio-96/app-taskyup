@@ -1,4 +1,5 @@
 import { Palette } from "@mui/material";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IText {
 	text_id: string;
@@ -16,7 +17,7 @@ export interface ICardTextView {
 	palette: Palette;
 	data: IFetchGetAllTextsResponse | undefined;
 	isFetching: boolean;
-	handleClickCreateText: () => void;
+	handleClickCreateText: FunctionReturnsVoid;
 	isCreatingText: boolean;
 	board_id: string | undefined;
 	openDialogDeleteOneText: (textID: string) => void;

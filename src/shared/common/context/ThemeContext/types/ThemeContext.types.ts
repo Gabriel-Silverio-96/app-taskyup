@@ -1,11 +1,12 @@
 export type ThemeName = "dark" | "light";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IThemeContext {
-    themeName: ThemeName;
-    toggleTheme: () => void;
-    theme: any;
+	themeName: ThemeName;
+	toggleTheme: FunctionReturnsVoid;
+	theme: any;
 }
-  
+
 export interface IThemeProvider {
-    children?: React.ReactNode;
+	children?: React.ReactNode;
 }

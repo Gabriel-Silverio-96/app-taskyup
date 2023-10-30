@@ -1,6 +1,8 @@
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+
 export interface IDialogDeleteOneBoardView {
 	isOpenDialogDeleteOneBoard: boolean;
-	closeDialogDeleteOneBoard: () => void;
-	dialogDeleteOneBoardSubmit: () => void;
+	closeDialogDeleteOneBoard: FunctionReturnsVoid;
+	dialogDeleteOneBoardSubmit: FunctionReturnsVoid;
 	isLoading: boolean;
 }

@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IDataText {
 	text: string;
@@ -11,7 +12,7 @@ export interface IDataText {
 export interface IMarkdownView {
 	dataText: IDataText;
 	onChangeText: (text: string) => void;
-	handleClickSaveText: () => void;
+	handleClickSaveText: FunctionReturnsVoid;
 	onChangeTextTitle: (event: ChangeEvent<HTMLInputElement>) => void;
 	isLoading: boolean;
 	isSaving: boolean;

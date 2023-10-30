@@ -1,3 +1,4 @@
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 import {
 	IFetchGetOneBoardResponse,
 	IFetchResponseDefault,
@@ -5,8 +6,8 @@ import {
 
 export interface IHeaderNoteView {
 	data: IFetchGetOneBoardResponse | undefined;
-	handleClickCreateNote: () => void;
-	openDialogDeleteAllNotes: () => void;
+	handleClickCreateNote: FunctionReturnsVoid;
+	openDialogDeleteAllNotes: FunctionReturnsVoid;
 	isMediumScreen: boolean;
 	countNotes: number;
 	isLoading: boolean;

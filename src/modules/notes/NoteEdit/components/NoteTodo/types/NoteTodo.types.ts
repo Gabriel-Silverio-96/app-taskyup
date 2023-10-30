@@ -10,6 +10,7 @@ import {
 	KeyboardEvent,
 	SetStateAction,
 } from "react";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface INoteTodo {
 	todoData: ITodoData;
@@ -40,7 +41,7 @@ export interface INoteTodoView
 	extends Omit<INoteTodo, "setTodoData" | "setTodoIdsToDelete"> {
 	handleChangeCheckbox: IHandleChangeCheckbox;
 	handleBlurTextField: IHandleBlurTextField;
-	handleClickNewTodo: () => void;
+	handleClickNewTodo: FunctionReturnsVoid;
 	handleKeyDown: IHandleKeyDown;
 	isAutoFocus: boolean;
 	handleClickDeleteTodo: IHandleClickDeleteTodo;
