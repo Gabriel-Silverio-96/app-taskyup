@@ -7,10 +7,10 @@ import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import HeaderNoteView from "./HeaderNoteView";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchPostCreateNoteService } from "./service/HeaderNote.service";
-import { FORM_CREATE_NOTE } from "./constants";
 import { IFetchPostCreateNoteResponse } from "./types";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
+import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 
 const HeaderNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -38,7 +38,7 @@ const HeaderNote: React.FC = () => {
 
 	const optionsMutation = { onSuccess };
 	const mutationFn = () =>
-		fetchPostCreateNoteService({ board_id, payload: FORM_CREATE_NOTE });
+		fetchPostCreateNoteService({ board_id, payload: mountBodyNote() });
 
 	const { mutate: handleClickCreateNote, isLoading } = useMutation(
 		mutationFn,
