@@ -1,8 +1,11 @@
-const mountBodyText = () => {
-	const title_text = "Title text";
+import { IBodyText } from "modules/texts/types";
 
-	const body = { title_text, text: "" };
-	return body;
+export const DEFAULT_BODY_TEXT = {
+	title_text: "Title text",
+	text: "",
 };
+
+const mountBodyText = (body?: IBodyText) =>
+	Object.assign(DEFAULT_BODY_TEXT, body);
 
 export { mountBodyText };
