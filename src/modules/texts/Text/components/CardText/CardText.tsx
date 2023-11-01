@@ -4,7 +4,7 @@ import React, { memo, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CardTextView from "./CardTextView";
 import { fetchGetAllTextsService } from "./service";
-import { mountBodyText } from "./utils/mount-body-text";
+import { mountBodyText } from "modules/texts/Text/utils/mount-body-text";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { IFetchGetAllTextsResponse } from "./types";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
