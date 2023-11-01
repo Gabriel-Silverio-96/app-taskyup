@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import {
 	DEFAULT_BODY_TEXT,
 	mountBodyText,
-} from "modules/texts/Text/components/CardText/utils/mount-body-text";
+} from "modules/texts/Text/utils/mount-body-text";
 
 describe("Function mountBodyText()", () => {
 	test("Should return body to create text", () => {
