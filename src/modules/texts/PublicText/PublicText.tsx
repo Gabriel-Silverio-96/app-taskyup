@@ -16,9 +16,12 @@ const PublicText: React.FC = () => {
 		TEXT_QUERY_KEY.FETCH_GET_PUBLIC_TEXT,
 		{ variable: text_id },
 	];
-	const { data, isFetching } = useQuery(queryKey, queryFn);
+	const { data, isFetching, status } = useQuery(queryKey, queryFn, {
+		retry: false,
+	});
 
-	if (data === undefined) return <TextNotPublic />;
+	if (status === "error") return <TextNotPublic />;
+	if (data === undefined) return null;
 
 	return <PublicTextView {...{ data, isFetching }} />;
 };
