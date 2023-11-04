@@ -1,9 +1,4 @@
-import frontmatter from "@bytemd/plugin-frontmatter";
-import gemoji from "@bytemd/plugin-gemoji";
-import gfm from "@bytemd/plugin-gfm";
-import highlight from "@bytemd/plugin-highlight";
-import mermaid from "@bytemd/plugin-mermaid";
-import { IDataText } from "../types";
+import { IDataText } from "modules/texts/TextEdit/components/Markdown/types";
 
 export const INITIAL_STATE_DATA_TEXT: IDataText = {
 	title_board: "",
@@ -11,11 +6,3 @@ export const INITIAL_STATE_DATA_TEXT: IDataText = {
 	text: "",
 	created_at: "",
 };
-
-export const BYTEMD_EDITOR_PLUGINS = [
-	highlight(),
-	frontmatter(),
-	gfm(),
-	mermaid(),
-	gemoji(),
-];
