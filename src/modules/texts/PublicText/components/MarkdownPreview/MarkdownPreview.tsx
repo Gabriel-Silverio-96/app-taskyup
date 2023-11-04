@@ -1,6 +1,4 @@
 import { Viewer } from "@bytemd/react";
-import "bytemd/dist/index.css";
-import "highlight.js/styles/default.css";
 import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/constants/text.constants";
 import { MarkdownSectionPreview } from "./style";
 import { IMarkdownPreview } from "./types/MarkdownPreview.types";
