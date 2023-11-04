@@ -10,7 +10,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { MdOutlineClose } from "react-icons/md";
+import { FiX } from "react-icons/fi";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
 import DialogBackground from "./components/DialogBackground";
@@ -55,7 +55,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 						<IconButton
 							onClick={closeDialogEditBoard}
 							disabled={disabledIconButtonClose}>
-							<MdOutlineClose />
+							<FiX size={18} />
 						</IconButton>
 					</Grid>
 				</Grid>

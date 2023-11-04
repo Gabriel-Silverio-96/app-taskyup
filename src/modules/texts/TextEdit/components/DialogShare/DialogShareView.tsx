@@ -12,8 +12,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { FiCopy, FiLink } from "react-icons/fi";
-import { MdOutlineClose } from "react-icons/md";
+import { FiCopy, FiLink, FiX } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { IDialogShareView } from "./types/DialogShare.types";
 
@@ -52,7 +51,7 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 						<IconButton
 							onClick={closeDialogShare}
 							disabled={isSaving}>
-							<MdOutlineClose />
+							<FiX size={18} />
 						</IconButton>
 					</Grid>
 				</Grid>

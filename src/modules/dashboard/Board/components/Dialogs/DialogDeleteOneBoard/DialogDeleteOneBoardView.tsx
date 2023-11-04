@@ -10,7 +10,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { MdOutlineClose } from "react-icons/md";
+import { FiX } from "react-icons/fi";
 import { IDialogDeleteOneBoardView } from "./types";
 
 const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
@@ -43,7 +43,7 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 						<IconButton
 							onClick={closeDialogDeleteOneBoard}
 							disabled={isLoading}>
-							<MdOutlineClose />
+							<FiX size={18} />
 						</IconButton>
 					</Grid>
 				</Grid>

@@ -7,14 +7,19 @@ import {
 	DialogTitle,
 	Grid,
 	IconButton,
-	Typography
+	Typography,
 } from "@mui/material";
 import React from "react";
-import { MdOutlineClose } from "react-icons/md";
 import { IDialogDeleteAllTextsView } from "./types";
+import { FiX } from "react-icons/fi";
 
-const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = (props) => {
-	const { dialogDeleteAllText, closeDialogDeleteAllTexts, fetchDeleteAll, isDeleting } = props;
+const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = props => {
+	const {
+		dialogDeleteAllText,
+		closeDialogDeleteAllTexts,
+		fetchDeleteAll,
+		isDeleting,
+	} = props;
 
 	const { open } = dialogDeleteAllText;
 	const onClose = !isDeleting ? closeDialogDeleteAllTexts : () => "";
@@ -32,26 +37,37 @@ const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = (props) =>
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton onClick={closeDialogDeleteAllTexts} disabled={isDeleting}>
-							<MdOutlineClose />
+						<IconButton
+							onClick={closeDialogDeleteAllTexts}
+							disabled={isDeleting}>
+							<FiX size={18} />
 						</IconButton>
 					</Grid>
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<Typography color="GrayText">					
+				<Typography color="GrayText">
 					Do you want to delete all texts?
 				</Typography>
 			</DialogContent>
 			<DialogActions>
-				<Grid container	justifyContent="space-between" alignItems="center">
+				<Grid
+					container
+					justifyContent="space-between"
+					alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined" onClick={closeDialogDeleteAllTexts} disabled={isDeleting}>
+						<Button
+							variant="outlined"
+							onClick={closeDialogDeleteAllTexts}
+							disabled={isDeleting}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" onClick={fetchDeleteAll} loading={isDeleting}>
+						<LoadingButton
+							variant="contained"
+							onClick={fetchDeleteAll}
+							loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>

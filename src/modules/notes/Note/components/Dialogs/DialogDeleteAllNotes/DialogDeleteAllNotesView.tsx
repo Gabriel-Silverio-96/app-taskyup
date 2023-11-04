@@ -10,21 +10,22 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { MdOutlineClose } from "react-icons/md";
+import { FiX } from "react-icons/fi";
 import { IDialogDeleteAllNotesView } from "./types";
 
-const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = (props) => {
+const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = props => {
 	const {
-		isOpenDialogDeleteAllNotes, 
-		closeDialogDeleteAllNotes, 
-		dialogDeleteAllNotesSubmit, 
-		isDeleting 
+		isOpenDialogDeleteAllNotes,
+		closeDialogDeleteAllNotes,
+		dialogDeleteAllNotesSubmit,
+		isDeleting,
 	} = props;
 	return (
-		<Dialog fullWidth maxWidth="xs" 
+		<Dialog
+			fullWidth
+			maxWidth="xs"
 			open={isOpenDialogDeleteAllNotes}
-			onClose={!isDeleting ? closeDialogDeleteAllNotes : () => ""}
-		>
+			onClose={!isDeleting ? closeDialogDeleteAllNotes : () => ""}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -36,26 +37,37 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = (props) =>
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton onClick={closeDialogDeleteAllNotes} disabled={isDeleting}>
-							<MdOutlineClose />
+						<IconButton
+							onClick={closeDialogDeleteAllNotes}
+							disabled={isDeleting}>
+							<FiX size={18} />
 						</IconButton>
 					</Grid>
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<Typography color="GrayText">					
+				<Typography color="GrayText">
 					Do you want to delete all notes?
 				</Typography>
 			</DialogContent>
 			<DialogActions>
-				<Grid container	justifyContent="space-between" alignItems="center">
+				<Grid
+					container
+					justifyContent="space-between"
+					alignItems="center">
 					<Grid item md="auto">
-						<Button variant="outlined" onClick={closeDialogDeleteAllNotes} disabled={isDeleting}>
+						<Button
+							variant="outlined"
+							onClick={closeDialogDeleteAllNotes}
+							disabled={isDeleting}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
-						<LoadingButton variant="contained" onClick={dialogDeleteAllNotesSubmit} loading={isDeleting}>
+						<LoadingButton
+							variant="contained"
+							onClick={dialogDeleteAllNotesSubmit}
+							loading={isDeleting}>
 							Yes
 						</LoadingButton>
 					</Grid>
