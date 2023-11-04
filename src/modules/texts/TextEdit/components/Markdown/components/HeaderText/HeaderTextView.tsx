@@ -1,10 +1,10 @@
 import { Button, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
+import { FiArrowLeft, FiShare2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
-import { Nav, TextTitle, TextField, Breadcrumbs } from "./style";
+import { Breadcrumbs, Nav, TextField, TextTitle } from "./style";
 import { IHeaderTextView } from "./types";
-import { MdArrowBack, MdShare } from "react-icons/md";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
@@ -45,13 +45,11 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 				<Nav>
 					<Link to={linkPreviousPage}>
 						<IconButton>
-							<MdArrowBack size={18} />
+							<FiArrowLeft size={18} />
 						</IconButton>
 					</Link>
-					<IconButton
-						onClick={handleClickOpenDialogShare}
-					>
-						<MdShare size={18} />
+					<IconButton onClick={handleClickOpenDialogShare}>
+						<FiShare2 size={18} />
 					</IconButton>
 					<Button
 						variant="contained"

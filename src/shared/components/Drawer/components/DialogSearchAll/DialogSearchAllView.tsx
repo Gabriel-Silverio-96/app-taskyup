@@ -9,10 +9,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-import { MdOutlineClose } from "react-icons/md";
 import TableDialogSearchAll from "./components/TableDialogSearchAll/TableDialogSearchAll";
 import { TextFieldWithIconButton } from "./style";
 import { IDialogSearchAllView } from "./types";
+import { FiX } from "react-icons/fi";
 
 const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 	const {
@@ -24,8 +24,8 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 		handleClickCloseDialogSearchAll,
 		data,
 		isLoading,
-		paginationModel, 
-		setPaginationModel
+		paginationModel,
+		setPaginationModel,
 	} = props;
 
 	return (
@@ -42,7 +42,7 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 					</Grid>
 					<Grid item>
 						<IconButton onClick={handleClickCloseDialogSearchAll}>
-							<MdOutlineClose />
+							<FiX size={18} />
 						</IconButton>
 					</Grid>
 				</Grid>
@@ -57,8 +57,14 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 									variant="standard"
 									fullWidth
 									{...register("query")}
-									error={errors.query && Boolean(errors.query)}
-									helperText={errors.query ? errors.query?.message: ""}
+									error={
+										errors.query && Boolean(errors.query)
+									}
+									helperText={
+										errors.query
+											? errors.query?.message
+											: ""
+									}
 									autoComplete="off"
 								/>
 								<IconButton type="submit">
@@ -68,7 +74,14 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 						</Grid>
 					</Grid>
 				</form>
-				<TableDialogSearchAll {...{ data, isLoading, paginationModel, setPaginationModel }} />
+				<TableDialogSearchAll
+					{...{
+						data,
+						isLoading,
+						paginationModel,
+						setPaginationModel,
+					}}
+				/>
 			</DialogContent>
 		</Dialog>
 	);

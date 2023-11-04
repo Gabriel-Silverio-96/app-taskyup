@@ -60,12 +60,12 @@ const CardTextView: React.FC<ICardTextView> = props => {
 										}>
 										<FiTrash
 											color={palette.error.main}
-											size={20}
+											size={18}
 										/>
 									</IconButton>
 									<Link to={linkTo}>
 										<IconButton>
-											<FiEye size={20} />
+											<FiEye size={18} />
 										</IconButton>
 									</Link>
 								</CardHeader>

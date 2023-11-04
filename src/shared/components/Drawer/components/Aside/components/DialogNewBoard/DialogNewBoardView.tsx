@@ -11,13 +11,13 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { MdOutlineClose } from "react-icons/md";
 import { IDialogNewBoardView } from "./types";
 import {
 	NOTES_BOARD_TYPE_ID,
 	TEXTS_BOARD_TYPE_ID,
 	KANBAN_BOARD_TYPE_ID,
 } from "./constants";
+import { FiX } from "react-icons/fi";
 
 const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 	const {
@@ -51,7 +51,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 						<IconButton
 							onClick={closeDialogNewBoard}
 							disabled={isSaving}>
-							<MdOutlineClose />
+							<FiX size={18} />
 						</IconButton>
 					</Grid>
 				</Grid>
