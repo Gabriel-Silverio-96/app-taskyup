@@ -1,6 +1,8 @@
 import { CssBaseline } from "@mui/material";
 import { QueryClientProvider } from "@tanstack/react-query";
 import GlobalStylesMui from "assets/theme/override/GlobalStyles";
+import "bytemd/dist/index.css";
+import "highlight.js/styles/default.css";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -12,7 +14,9 @@ import setupInterceptors from "shared/services/setupInterceptors";
 import MainRoutes from "./MainRoutes";
 import { ThemeProvider } from "./shared/common/context/ThemeContext";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+const root = ReactDOM.createRoot(
+	document.getElementById("root") as HTMLElement
+);
 setupInterceptors(store);
 
 root.render(
