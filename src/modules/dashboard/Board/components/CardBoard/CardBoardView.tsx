@@ -116,7 +116,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 														}>
 														<FiEdit
 															size={
-																ICON_SIZE.SMALL
+																ICON_SIZE.EXTRA_SMALL
 															}
 														/>
 														Edit
@@ -133,7 +133,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 														}}>
 														<FiTrash
 															size={
-																ICON_SIZE.SMALL
+																ICON_SIZE.EXTRA_SMALL
 															}
 														/>
 														Delete

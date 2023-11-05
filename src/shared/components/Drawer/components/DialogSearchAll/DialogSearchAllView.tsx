@@ -13,6 +13,7 @@ import TableDialogSearchAll from "./components/TableDialogSearchAll/TableDialogS
 import { TextFieldWithIconButton } from "./style";
 import { IDialogSearchAllView } from "./types";
 import { FiX } from "react-icons/fi";
+import { ICON_SIZE } from "shared/constants";
 
 const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 	const {
@@ -42,7 +43,7 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 					</Grid>
 					<Grid item>
 						<IconButton onClick={handleClickCloseDialogSearchAll}>
-							<FiX size={18} />
+							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
 				</Grid>
@@ -68,7 +69,7 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 									autoComplete="off"
 								/>
 								<IconButton type="submit">
-									<BiSearch size={18} />
+									<BiSearch size={ICON_SIZE.MEDIUM} />
 								</IconButton>
 							</TextFieldWithIconButton>
 						</Grid>

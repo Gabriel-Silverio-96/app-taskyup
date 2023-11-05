@@ -15,6 +15,7 @@ import React from "react";
 import { FiCopy, FiLink, FiX } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { IDialogShareView } from "./types/DialogShare.types";
+import { ICON_SIZE } from "shared/constants";
 
 const DialogShareView: React.FC<IDialogShareView> = props => {
 	const {
@@ -51,7 +52,7 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 						<IconButton
 							onClick={closeDialogShare}
 							disabled={isSaving}>
-							<FiX size={18} />
+							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
 				</Grid>
@@ -69,14 +70,14 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 
 					<Grid item md="auto">
 						<IconButton onClick={handleClickCopy}>
-							<FiCopy size={18} />
+							<FiCopy size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 						<a
 							href={URLPublicText}
 							target="_blank"
 							rel="noopener noreferrer">
 							<IconButton>
-								<FiLink size={18} />
+								<FiLink size={ICON_SIZE.MEDIUM} />
 							</IconButton>
 						</a>
 					</Grid>

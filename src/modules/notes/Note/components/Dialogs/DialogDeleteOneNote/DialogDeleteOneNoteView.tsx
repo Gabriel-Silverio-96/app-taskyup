@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { FiX } from "react-icons/fi";
 import { IDialogDeleteOneNoteView } from "./types";
+import { ICON_SIZE } from "shared/constants";
 
 const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = props => {
 	const {
@@ -40,7 +41,7 @@ const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = props => {
 						<IconButton
 							onClick={closeDialogDeleteOneNote}
 							disabled={isDeleting}>
-							<FiX size={18} />
+							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
 				</Grid>

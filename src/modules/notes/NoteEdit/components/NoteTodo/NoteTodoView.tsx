@@ -9,6 +9,7 @@ import React from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { Todo, TodoContainer, ButtonNewTodo } from "./style";
 import { INoteTodoView } from "./types";
+import { ICON_SIZE } from "shared/constants";
 
 const NoteTodoView: React.FC<INoteTodoView> = props => {
 	const {
@@ -31,7 +32,7 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 				</Grid>
 				<Grid item md={6} sm xs textAlign="right">
 					<ButtonNewTodo
-						startIcon={<FiPlus />}
+						startIcon={<FiPlus size={ICON_SIZE.MEDIUM} />}
 						onClick={handleClickNewTodo}>
 						New todo
 					</ButtonNewTodo>
@@ -86,7 +87,7 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 													related_id
 												)
 											}>
-											<FiTrash size={18} />
+											<FiTrash size={ICON_SIZE.MEDIUM} />
 										</IconButton>
 									</div>
 								</Todo>

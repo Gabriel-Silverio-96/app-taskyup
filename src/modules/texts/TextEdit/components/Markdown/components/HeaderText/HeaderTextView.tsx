@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { Breadcrumbs, Nav, TextField, TextTitle } from "./style";
 import { IHeaderTextView } from "./types";
+import { ICON_SIZE } from "shared/constants";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
@@ -45,11 +46,11 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 				<Nav>
 					<Link to={linkPreviousPage}>
 						<IconButton>
-							<FiArrowLeft size={18} />
+							<FiArrowLeft size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Link>
 					<IconButton onClick={handleClickOpenDialogShare}>
-						<FiShare2 size={18} />
+						<FiShare2 size={ICON_SIZE.MEDIUM} />
 					</IconButton>
 					<Button
 						variant="contained"
