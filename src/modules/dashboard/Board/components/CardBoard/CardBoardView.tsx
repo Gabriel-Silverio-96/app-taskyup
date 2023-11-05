@@ -1,7 +1,6 @@
 import { Card, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
-import { BsThreeDots } from "react-icons/bs";
-import { FiEdit, FiTrash } from "react-icons/fi";
+import { FiEdit, FiTrash, FiMoreHorizontal } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 import Loading from "shared/components/Loading";
@@ -86,7 +85,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 														openMenu(event);
 													}}
 													data-testid="button-card-board-options">
-													<BsThreeDots
+													<FiMoreHorizontal
 														size={ICON_SIZE.LARGE}
 													/>
 												</IconButton>
