@@ -13,6 +13,7 @@ import {
 } from "./style";
 import { ICardTextView, IText } from "./types";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { ICON_SIZE } from "shared/constants";
 
 const CardTextView: React.FC<ICardTextView> = props => {
 	const {
@@ -38,7 +39,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 			/>
 			<div>
 				<CardCreateText onClick={handleClickCreateText} role="button">
-					<FiPlus size={40} />
+					<FiPlus size={ICON_SIZE.EXTRA_LARGE} />
 					<Typography variant="caption">Create</Typography>
 				</CardCreateText>
 			</div>
@@ -60,12 +61,12 @@ const CardTextView: React.FC<ICardTextView> = props => {
 										}>
 										<FiTrash
 											color={palette.error.main}
-											size={18}
+											size={ICON_SIZE.MEDIUM}
 										/>
 									</IconButton>
 									<Link to={linkTo}>
 										<IconButton>
-											<FiEye size={18} />
+											<FiEye size={ICON_SIZE.MEDIUM} />
 										</IconButton>
 									</Link>
 								</CardHeader>

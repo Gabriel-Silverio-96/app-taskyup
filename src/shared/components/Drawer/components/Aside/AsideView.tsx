@@ -7,9 +7,8 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronRight } from "react-icons/fi";
+import { FiChevronDown, FiChevronRight, FiHome } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
-import { GrHomeRounded } from "react-icons/gr";
 import {
 	MdOutlineMenu,
 	MdOutlineNotes,
@@ -26,6 +25,7 @@ import {
 	TreeViewContainerItem,
 } from "./style";
 import { IAsideView } from "./types/Aside.component";
+import { ICON_SIZE } from "shared/constants";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
@@ -68,7 +68,7 @@ const AsideView: React.FC<IAsideView> = props => {
 					<ul>
 						<Link to="/dashboard">
 							<li>
-								<GrHomeRounded size={12} />
+								<FiHome size={ICON_SIZE.SMALL} />
 								<Typography variant="body2">Home</Typography>
 							</li>
 						</Link>
@@ -80,13 +80,17 @@ const AsideView: React.FC<IAsideView> = props => {
 				</Typography>
 				<TreeView
 					aria-label="menu-navigator"
-					defaultCollapseIcon={<FiChevronDown />}
-					defaultExpandIcon={<FiChevronRight />}>
+					defaultCollapseIcon={
+						<FiChevronDown size={ICON_SIZE.SMALL} />
+					}
+					defaultExpandIcon={
+						<FiChevronRight size={ICON_SIZE.SMALL} />
+					}>
 					<TreeItem
 						nodeId="1"
 						label={
 							<>
-								<GoNote />
+								<GoNote size={ICON_SIZE.SMALL} />
 								Notes
 							</>
 						}>
@@ -96,7 +100,7 @@ const AsideView: React.FC<IAsideView> = props => {
 						nodeId="2"
 						label={
 							<>
-								<MdOutlineNotes />
+								<MdOutlineNotes size={ICON_SIZE.SMALL} />
 								Texts
 							</>
 						}>
@@ -108,7 +112,9 @@ const AsideView: React.FC<IAsideView> = props => {
 								nodeId="4"
 								label={
 									<>
-										<MdOutlineSpaceDashboard />
+										<MdOutlineSpaceDashboard
+											size={ICON_SIZE.SMALL}
+										/>
 										Kanban
 									</>
 								}

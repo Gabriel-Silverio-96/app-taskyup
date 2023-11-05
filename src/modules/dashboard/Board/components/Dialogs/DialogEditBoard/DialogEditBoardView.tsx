@@ -15,6 +15,7 @@ import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
 import DialogBackground from "./components/DialogBackground";
 import { IDialogEditBoardView } from "./types";
+import { ICON_SIZE } from "shared/constants";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 	const {
@@ -55,7 +56,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 						<IconButton
 							onClick={closeDialogEditBoard}
 							disabled={disabledIconButtonClose}>
-							<FiX size={18} />
+							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
 				</Grid>

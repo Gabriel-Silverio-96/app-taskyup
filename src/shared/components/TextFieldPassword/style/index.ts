@@ -4,15 +4,15 @@ export const TextFieldPassword = styled("div")({
 	position: "relative",
 
 	".MuiFormControl-root .MuiFormHelperText-root": {
-		whiteSpace: "pre-line"
-	}
+		whiteSpace: "pre-line",
+	},
 });
 
 export const IconButton = styled(IconButtonMui)(
 	({ theme }) => `
         position: absolute;
         right: ${theme.spacing(0.77)};
-        top: ${theme.spacing(0.4)};
+        top: ${theme.spacing(0.6)};
         color: ${theme.palette.grey[700]};
     `
 );

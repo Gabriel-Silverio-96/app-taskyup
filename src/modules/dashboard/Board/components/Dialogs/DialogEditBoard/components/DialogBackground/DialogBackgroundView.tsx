@@ -1,9 +1,9 @@
 import { Button, IconButton, TextField } from "@mui/material";
 import React, { MouseEvent } from "react";
-import { AiOutlineDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiEdit, FiTrash } from "react-icons/fi";
 import Loading from "shared/components/Loading";
+import { ICON_SIZE } from "shared/constants";
 import MessageError from "./components/MessageError";
 import MessageNoResultsFound from "./components/MessageNoResultsFound/MessageNoResultsFound";
 import {
@@ -47,7 +47,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 				onClick={(event: MouseEvent<HTMLButtonElement>) =>
 					openMenu(event)
 				}>
-				<FiEdit size={15} />
+				<FiEdit size={ICON_SIZE.SMALL} />
 			</Button>
 			<Menu
 				anchorEl={anchorEl}
@@ -62,7 +62,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 					<Button
 						onClick={() => dialogBackgroundSubmit(true)}
 						disabled={disabledButtonSearch}>
-						<BiSearch size={25} />
+						<BiSearch size={ICON_SIZE.LARGE} />
 					</Button>
 				</MenuSearch>
 				<Loading isLoading={isLoadingImages} message="Loading images" />
@@ -94,12 +94,12 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 							<IconButton
 								disabled={pagination === 1}
 								onClick={prevPage}>
-								<FiChevronLeft size={15} />
+								<FiChevronLeft size={ICON_SIZE.SMALL} />
 							</IconButton>
 							<IconButton
 								disabled={images.photos.length < 9}
 								onClick={nextPage}>
-								<FiChevronRight size={15} />
+								<FiChevronRight size={ICON_SIZE.SMALL} />
 							</IconButton>
 						</div>
 					</MenuImagesFooter>
@@ -111,7 +111,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 				size="small"
 				disabled={!disabledButtonDelete}
 				onClick={handleBackgroundRemoval}>
-				<AiOutlineDelete size={15} />
+				<FiTrash size={ICON_SIZE.SMALL} />
 			</Button>
 		</DialogBackground>
 	);

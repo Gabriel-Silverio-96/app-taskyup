@@ -1,6 +1,6 @@
 import { Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
-import { FiEye, FiTrash2 } from "react-icons/fi";
+import { FiEye, FiTrash } from "react-icons/fi";
 import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 import Loading from "shared/components/Loading";
 import {
@@ -13,6 +13,7 @@ import {
 import { ICardNotesView } from "./types";
 import { Link } from "react-router-dom";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { ICON_SIZE } from "shared/constants";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
 	const { board_id, palette, data, isFetching, openDialogDeleteOneNote } =
@@ -58,16 +59,20 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 															note_id
 														)
 													}>
-													<FiTrash2
+													<FiTrash
 														color={
 															palette.error.main
 														}
-														size={20}
+														size={ICON_SIZE.MEDIUM}
 													/>
 												</IconButton>
 												<Link to={redirectTo}>
 													<IconButton>
-														<FiEye size={20} />
+														<FiEye
+															size={
+																ICON_SIZE.MEDIUM
+															}
+														/>
 													</IconButton>
 												</Link>
 											</CardAction>

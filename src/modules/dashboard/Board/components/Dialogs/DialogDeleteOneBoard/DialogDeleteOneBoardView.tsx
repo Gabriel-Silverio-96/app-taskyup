@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { FiX } from "react-icons/fi";
 import { IDialogDeleteOneBoardView } from "./types";
+import { ICON_SIZE } from "shared/constants";
 
 const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 	const {
@@ -43,7 +44,7 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 						<IconButton
 							onClick={closeDialogDeleteOneBoard}
 							disabled={isLoading}>
-							<FiX size={18} />
+							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
 				</Grid>

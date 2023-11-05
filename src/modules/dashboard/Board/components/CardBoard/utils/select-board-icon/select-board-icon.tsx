@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { TypeBoard } from "modules/dashboard/Board/components/CardBoard/types";
+import { ICON_SIZE } from "shared/constants";
 
 interface IBoardIcon {
 	[key: string]: ReactNode;
@@ -9,9 +10,14 @@ interface IBoardIcon {
 
 const selectBoardIcon = (typeBoard: TypeBoard, iconColor: string) => {
 	const boardIcon: IBoardIcon = {
-		notes: <GoNote size={15} color={iconColor} />,
-		texts: <MdOutlineNotes color={iconColor} />,
-		kanban: <MdOutlineSpaceDashboard color={iconColor} />,
+		notes: <GoNote size={ICON_SIZE.MEDIUM} color={iconColor} />,
+		texts: <MdOutlineNotes size={ICON_SIZE.MEDIUM} color={iconColor} />,
+		kanban: (
+			<MdOutlineSpaceDashboard
+				size={ICON_SIZE.MEDIUM}
+				color={iconColor}
+			/>
+		),
 	};
 
 	return boardIcon[typeBoard];

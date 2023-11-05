@@ -4,13 +4,14 @@ import { FiTrash, FiUsers } from "react-icons/fi";
 import { MdOutlineLightbulb } from "react-icons/md";
 import { Nav } from "./style";
 import { IHeaderTextView } from "./types/HeaderText.component";
+import { ICON_SIZE } from "shared/constants";
 
-const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
-	const { 
+const HeaderTextView: React.FC<IHeaderTextView> = props => {
+	const {
 		data,
-		countText, 
+		countText,
 		palette,
-		isMediumScreen, 
+		isMediumScreen,
 		openDialogDeleteAllTexts,
 		board_id,
 		toogleTemplates,
@@ -18,7 +19,9 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 	} = props;
 
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
-	const lightColorIcon = isOpenTemplates ? palette.secondary.main : palette.common.white;
+	const lightColorIcon = isOpenTemplates
+		? palette.secondary.main
+		: palette.common.white;
 
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
@@ -30,15 +33,20 @@ const HeaderTextView: React.FC<IHeaderTextView> = (props) => {
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
 					<IconButton onClick={toogleTemplates}>
-						<MdOutlineLightbulb color={lightColorIcon} size={18} />
+						<MdOutlineLightbulb
+							color={lightColorIcon}
+							size={ICON_SIZE.MEDIUM}
+						/>
 					</IconButton>
 					<Tooltip arrow title="Members comming soon" placement="top">
 						<IconButton>
-							<FiUsers size={18} />
+							<FiUsers size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Tooltip>
-					<IconButton onClick={() => openDialogDeleteAllTexts(board_id!)} disabled={countText === 0}>
-						<FiTrash size={18} />
+					<IconButton
+						onClick={() => openDialogDeleteAllTexts(board_id!)}
+						disabled={countText === 0}>
+						<FiTrash size={ICON_SIZE.MEDIUM} />
 					</IconButton>
 				</Nav>
 			</Grid>

@@ -1,7 +1,8 @@
 import { TextField } from "@mui/material";
 import React from "react";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { TextFieldPassword, IconButton } from "./style";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { ICON_SIZE } from "shared/constants";
+import { IconButton, TextFieldPassword } from "./style";
 
 const TextFieldPasswordView: React.FC<any> = props => {
 	const { showPassword, handleShowPassword, errors, register, ref } = props;
@@ -17,7 +18,11 @@ const TextFieldPasswordView: React.FC<any> = props => {
 				helperText={errors.password ? errors.password?.message : ""}
 			/>
 			<IconButton onClick={handleShowPassword}>
-				{showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+				{showPassword ? (
+					<FiEye size={ICON_SIZE.MEDIUM} />
+				) : (
+					<FiEyeOff size={ICON_SIZE.MEDIUM} />
+				)}
 			</IconButton>
 		</TextFieldPassword>
 	);

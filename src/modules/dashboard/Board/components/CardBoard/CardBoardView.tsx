@@ -1,8 +1,6 @@
 import { Card, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
-import { AiOutlineDelete } from "react-icons/ai";
-import { BsThreeDots } from "react-icons/bs";
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiTrash, FiMoreHorizontal } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
 import Loading from "shared/components/Loading";
@@ -16,6 +14,7 @@ import {
 } from "./style";
 import { ICardBoardView } from "./types/CardBoard.types";
 import { selectBoardIcon } from "./utils/select-board-icon";
+import { ICON_SIZE } from "shared/constants";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {
 	const {
@@ -86,7 +85,9 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 														openMenu(event);
 													}}
 													data-testid="button-card-board-options">
-													<BsThreeDots />
+													<FiMoreHorizontal
+														size={ICON_SIZE.LARGE}
+													/>
 												</IconButton>
 												<Menu
 													anchorEl={anchorEl}
@@ -112,7 +113,12 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 																closeMenu
 															)
 														}>
-														<FiEdit /> Edit
+														<FiEdit
+															size={
+																ICON_SIZE.EXTRA_SMALL
+															}
+														/>
+														Edit
 													</MenuItem>
 													<MenuItem
 														onClick={() =>
@@ -124,7 +130,11 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 															color: palette.error
 																.main,
 														}}>
-														<AiOutlineDelete />
+														<FiTrash
+															size={
+																ICON_SIZE.EXTRA_SMALL
+															}
+														/>
 														Delete
 													</MenuItem>
 												</Menu>

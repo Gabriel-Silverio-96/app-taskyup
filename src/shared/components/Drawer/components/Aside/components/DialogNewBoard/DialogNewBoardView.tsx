@@ -18,6 +18,7 @@ import {
 	KANBAN_BOARD_TYPE_ID,
 } from "./constants";
 import { FiX } from "react-icons/fi";
+import { ICON_SIZE } from "shared/constants";
 
 const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 	const {
@@ -51,7 +52,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 						<IconButton
 							onClick={closeDialogNewBoard}
 							disabled={isSaving}>
-							<FiX size={18} />
+							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
 				</Grid>
