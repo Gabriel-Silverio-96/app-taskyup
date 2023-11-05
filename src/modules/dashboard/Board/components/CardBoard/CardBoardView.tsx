@@ -15,6 +15,7 @@ import {
 } from "./style";
 import { ICardBoardView } from "./types/CardBoard.types";
 import { selectBoardIcon } from "./utils/select-board-icon";
+import { ICON_SIZE } from "shared/constants";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {
 	const {
@@ -85,7 +86,9 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 														openMenu(event);
 													}}
 													data-testid="button-card-board-options">
-													<BsThreeDots />
+													<BsThreeDots
+														size={ICON_SIZE.LARGE}
+													/>
 												</IconButton>
 												<Menu
 													anchorEl={anchorEl}
@@ -111,7 +114,12 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 																closeMenu
 															)
 														}>
-														<FiEdit /> Edit
+														<FiEdit
+															size={
+																ICON_SIZE.SMALL
+															}
+														/>
+														Edit
 													</MenuItem>
 													<MenuItem
 														onClick={() =>
@@ -123,7 +131,11 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 															color: palette.error
 																.main,
 														}}>
-														<FiTrash />
+														<FiTrash
+															size={
+																ICON_SIZE.SMALL
+															}
+														/>
 														Delete
 													</MenuItem>
 												</Menu>
