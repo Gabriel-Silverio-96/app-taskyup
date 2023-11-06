@@ -4,9 +4,11 @@ import React, { memo } from "react";
 import { useForm } from "react-hook-form";
 import ProfileFormView from "./ProfileFormView";
 import schema from "./schema";
-import { fetchPutProfileService, fetchGetProfileService } from "./service";
-import { IFetchGetProfileResponse, IProfileForm } from "./types";
+import { fetchGetProfileService } from "modules/account/Profile/services";
 import { PROFILE_QUERY_KEY } from "./constants";
+import { IProfileBody } from "./types";
+import { mutationFetchPutProfileService } from "./utils/mutationFetchPutProfileService/mutationFetchPutProfileService";
+import { IFetchGetProfileResponse } from "modules/account/Profile/services/types";
 
 const ProfileForm: React.FC = () => {
 	const {
@@ -14,7 +16,7 @@ const ProfileForm: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 		setValue,
-	} = useForm<IProfileForm>({
+	} = useForm<IProfileBody>({
 		resolver: yupResolver(schema),
 		mode: "all",
 	});
@@ -39,7 +41,7 @@ const ProfileForm: React.FC = () => {
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const { mutate, isLoading: isSaving } = useMutation(
-		fetchPutProfileService,
+		mutationFetchPutProfileService,
 		optionsMutation
 	);
 
