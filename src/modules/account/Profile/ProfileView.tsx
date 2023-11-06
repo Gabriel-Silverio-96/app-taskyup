@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
-import ProfileForm from "./components/ProfileForm";
+import ProfileForm from "modules/account/Profile/components/ProfileForm";
 
 const ProfileView: React.FC = () => {
 	return (
