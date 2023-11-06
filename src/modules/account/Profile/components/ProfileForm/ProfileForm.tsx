@@ -5,8 +5,10 @@ import React, { memo } from "react";
 import { useForm } from "react-hook-form";
 import { PROFILE_QUERY_KEY } from "modules/account/Profile/components/ProfileForm/constants";
 import { IProfileBody } from "modules/account/Profile/components/ProfileForm/types";
-import { mutationFetchPutProfileService } from "modules/account/Profile/components/ProfileForm/utils/mutationFetchPutProfileService";
-import { fetchGetProfileService } from "modules/account/Profile/services";
+import {
+	fetchGetProfileService,
+	fetchPutProfileService,
+} from "modules/account/Profile/services";
 import { IFetchGetProfileResponse } from "modules/account/Profile/services/types";
 import { ProfileFormSchema } from "modules/account/Profile/components/ProfileForm/schema";
 
@@ -39,6 +41,10 @@ const ProfileForm: React.FC = () => {
 	const onSuccessMutation = () =>
 		queryClient.invalidateQueries([PROFILE_QUERY_KEY.FETCH_GET_PROFILE]);
 	const optionsMutation = { onSuccess: onSuccessMutation };
+
+	const mutationFetchPutProfileService = ({ full_name }: IProfileBody) => {
+		return fetchPutProfileService({ body: { full_name } });
+	};
 
 	const { mutate, isLoading: isSaving } = useMutation(
 		mutationFetchPutProfileService,
