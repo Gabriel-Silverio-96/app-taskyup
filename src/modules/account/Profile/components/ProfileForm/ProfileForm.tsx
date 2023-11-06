@@ -1,14 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import ProfileFormView from "modules/account/Profile/components/ProfileForm/ProfileFormView";
 import React, { memo } from "react";
 import { useForm } from "react-hook-form";
-import ProfileFormView from "./ProfileFormView";
-import schema from "./schema";
+import { PROFILE_QUERY_KEY } from "modules/account/Profile/components/ProfileForm/constants";
+import { IProfileBody } from "modules/account/Profile/components/ProfileForm/types";
+import { mutationFetchPutProfileService } from "modules/account/Profile/components/ProfileForm/utils/mutationFetchPutProfileService";
 import { fetchGetProfileService } from "modules/account/Profile/services";
-import { PROFILE_QUERY_KEY } from "./constants";
-import { IProfileBody } from "./types";
-import { mutationFetchPutProfileService } from "./utils/mutationFetchPutProfileService/mutationFetchPutProfileService";
 import { IFetchGetProfileResponse } from "modules/account/Profile/services/types";
+import { ProfileFormSchema } from "modules/account/Profile/components/ProfileForm/schema";
 
 const ProfileForm: React.FC = () => {
 	const {
@@ -17,7 +17,7 @@ const ProfileForm: React.FC = () => {
 		formState: { errors },
 		setValue,
 	} = useForm<IProfileBody>({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(ProfileFormSchema),
 		mode: "all",
 	});
 
