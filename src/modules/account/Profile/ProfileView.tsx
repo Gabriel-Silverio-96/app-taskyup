@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
-import ProfileForm from "./ProfileForm";
+import ProfileForm from "modules/account/Profile/components/ProfileForm";
 
 const ProfileView: React.FC = () => {
 	return (
@@ -11,8 +11,7 @@ const ProfileView: React.FC = () => {
 				direction="column"
 				alignItems="center"
 				justifyContent="center"
-				sx={{ minHeight: "80vh" }}
-			>
+				sx={{ minHeight: "80vh" }}>
 				<Grid item sx={{ minWidth: "20rem" }}>
 					<Grid item>
 						<ProfileForm />
