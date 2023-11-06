@@ -25,9 +25,9 @@ const ProfileForm: React.FC = () => {
 
 	const queryClient = useQueryClient();
 
-	const osSuccessQuery = (data: IFetchGetProfileResponse) => {
-		setValue("full_name", data.full_name);
-		setValue("email", data.email);
+	const osSuccessQuery = ({ email, full_name }: IFetchGetProfileResponse) => {
+		setValue("full_name", full_name);
+		setValue("email", email);
 	};
 
 	const optionsQuery = { onSuccess: osSuccessQuery };
