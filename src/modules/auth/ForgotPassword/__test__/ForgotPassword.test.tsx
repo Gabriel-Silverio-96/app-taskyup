@@ -73,7 +73,7 @@ describe("Component <ForgotPassword />", () => {
 			expect(snackbarMessage).toBeInTheDocument();
 
 			const form = container.querySelector("form");
-			expect(form).not.toBeInTheDocument();
+			expect(form?.hidden).toBe(true);
 		});
 	});
 });

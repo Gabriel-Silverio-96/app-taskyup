@@ -4,17 +4,17 @@ import React from "react";
 import Greeting from "shared/components/Greeting";
 import { Footer, Link } from "modules/auth/ForgotPassword/styles";
 import { IForgotPasswordView } from "modules/auth/ForgotPassword/types";
+import { defineTitleMessage } from "modules/auth/ForgotPassword/utils/define-title-message";
+import { defineSubtitleMessage } from "modules/auth/ForgotPassword/utils/define-subtitle-message";
 
 const ForgotPasswordView: React.FC<IForgotPasswordView> = props => {
-	const { register, errors, onSubmit, isLoading, sendEmail } = props;
-
-	const titleMessage = sendEmail.isSending
-		? "Check your email"
-		: "Forgot password";
-	const subtitleMessage = sendEmail.isSending
-		? `An email is on its way to ${sendEmail.email}
-			with instructions for reset your password.`
-		: "Which email is registered on TaskYup";
+	const {
+		register,
+		errors,
+		onSubmit,
+		isLoading,
+		sendEmail: { email, isSending },
+	} = props;
 
 	return (
 		<Grid
@@ -25,8 +25,11 @@ const ForgotPasswordView: React.FC<IForgotPasswordView> = props => {
 			justifyContent="center"
 			sx={{ minHeight: "100vh" }}>
 			<Grid item sx={{ minWidth: "20rem" }}>
-				<Greeting title={titleMessage} subtitle={subtitleMessage} />
-				<form onSubmit={onSubmit} hidden={sendEmail.isSending}>
+				<Greeting
+					title={defineTitleMessage(isSending)}
+					subtitle={defineSubtitleMessage(isSending, email)}
+				/>
+				<form onSubmit={onSubmit} hidden={isSending}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
 							<TextField
