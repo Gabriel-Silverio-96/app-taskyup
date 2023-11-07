@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import ForgotPasswordView from "modules/auth/ForgotPassword/ForgotPasswordView";
 import { INITAL_STATE_SEND_EMAIL } from "modules/auth/ForgotPassword/constants";
+import { ForgotPasswordSchema } from "modules/auth/ForgotPassword/schema";
 import { fetchPostForgotPasswordService } from "modules/auth/ForgotPassword/services";
 import {
 	IForgotPasswordForm,
@@ -8,7 +9,6 @@ import {
 } from "modules/auth/ForgotPassword/types";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { ForgotPasswordSchema } from "modules/auth/ForgotPassword/schema";
 
 const ForgotPassword: React.FC = () => {
 	const {
