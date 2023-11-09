@@ -5,7 +5,5 @@ import { IFetchResponseDefault } from "shared/common/types/Fetch";
 export const fetchPutProfileService = async ({
 	body,
 }: IFetchPutProfileService) => {
-	return await api.put<IFetchResponseDefault>("auth/account", {
-		...body,
-	});
+	return await api.put<IFetchResponseDefault>("auth/account", body);
 };
