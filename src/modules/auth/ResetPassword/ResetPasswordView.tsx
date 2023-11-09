@@ -1,22 +1,17 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Grid, Typography } from "@mui/material";
+import { Footer } from "modules/auth/ResetPassword/styles";
+import { IResetPasswordView } from "modules/auth/ResetPassword/types";
+import { defineSubtitleMessage } from "modules/auth/ResetPassword/utils/define-subtitle-message";
+import { defineTitleMessage } from "modules/auth/ResetPassword/utils/define-title-message";
 import React from "react";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";
 import TextFieldPassword from "shared/components/TextFieldPassword";
-import { Footer } from "modules/auth/ResetPassword/styles";
-import { IResetPasswordView } from "modules/auth/ResetPassword/types";
 
 const ResetPasswordView: React.FC<IResetPasswordView> = props => {
 	const { register, onSubmit, errors, isSaving, resetPasswordSuccess } =
 		props;
-
-	const titleMessage = resetPasswordSuccess
-		? "Successfully"
-		: "Reset password";
-	const subtitleMessage = resetPasswordSuccess
-		? "Your password has been reset successfully"
-		: "Create new password bellow";
 
 	return (
 		<Grid
@@ -27,7 +22,10 @@ const ResetPasswordView: React.FC<IResetPasswordView> = props => {
 			justifyContent="center"
 			sx={{ minHeight: "100vh" }}>
 			<Grid item sx={{ minWidth: "20rem" }}>
-				<Greeting title={titleMessage} subtitle={subtitleMessage} />
+				<Greeting
+					title={defineTitleMessage(resetPasswordSuccess)}
+					subtitle={defineSubtitleMessage(resetPasswordSuccess)}
+				/>
 				{!resetPasswordSuccess ? (
 					<>
 						<form onSubmit={onSubmit}>
