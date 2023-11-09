@@ -1,5 +1,5 @@
+import { IForgotPasswordForm } from "modules/auth/ForgotPassword/types";
+
 export interface IFetchPostForgotPasswordService {
-	body: {
-		email: string;
-	};
+	body: IForgotPasswordForm;
 }

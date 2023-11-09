@@ -2,10 +2,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import ResetPasswordView from "./ResetPasswordView";
-import schema from "./schema";
-import { fetchPostResetPassword } from "./service";
-import { IFormResetPassword } from "./types";
+import ResetPasswordView from "modules/auth/ResetPassword/ResetPasswordView";
+import { ResetPasswordSchema } from "modules/auth/ResetPassword/schema";
+import { fetchPostResetPasswordService } from "modules/auth/ResetPassword/services";
+import { IResetPasswordForm } from "modules/auth/ResetPassword/types";
 
 const ResetPassword: React.FC = () => {
 	const { token } = useParams();
@@ -13,26 +13,30 @@ const ResetPassword: React.FC = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<IFormResetPassword>({
-		resolver: yupResolver(schema),
+	} = useForm<IResetPasswordForm>({
+		resolver: yupResolver(ResetPasswordSchema),
 		mode: "all",
 	});
 
-	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
+	const [isResetPasswordSuccess, setIsResetPasswordSuccess] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);
 
-	const resetPasswordSubmit = async (form: IFormResetPassword) => {
+	const resetPasswordSubmit = async ({ password }: IResetPasswordForm) => {
 		try {
 			setIsSaving(true);
-			await fetchPostResetPassword({ form, token });
+			await fetchPostResetPasswordService({
+				body: { password },
+				token,
+			});
 
-			setResetPasswordSuccess(true);
+			setIsResetPasswordSuccess(true);
 		} catch (error) {
-			setResetPasswordSuccess(false);
+			setIsResetPasswordSuccess(false);
 		} finally {
 			setIsSaving(false);
 		}
 	};
+
 	const onSubmit = handleSubmit(resetPasswordSubmit);
 
 	return (
@@ -42,7 +46,7 @@ const ResetPassword: React.FC = () => {
 				onSubmit,
 				errors,
 				isSaving,
-				resetPasswordSuccess,
+				isResetPasswordSuccess,
 			}}
 		/>
 	);
