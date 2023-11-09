@@ -2,10 +2,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import ResetPasswordView from "./ResetPasswordView";
-import schema from "./schema";
-import { fetchPostResetPasswordService } from "./services/fetchPostResetPasswordService";
-import { IResetPasswordForm } from "./types";
+import ResetPasswordView from "modules/auth/ResetPassword/ResetPasswordView";
+import { ResetPasswordSchema } from "modules/auth/ResetPassword/schema";
+import { fetchPostResetPasswordService } from "modules/auth/ResetPassword/services";
+import { IResetPasswordForm } from "modules/auth/ResetPassword/types";
 
 const ResetPassword: React.FC = () => {
 	const { token } = useParams();
@@ -14,7 +14,7 @@ const ResetPassword: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<IResetPasswordForm>({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(ResetPasswordSchema),
 		mode: "all",
 	});
 
