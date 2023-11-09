@@ -48,7 +48,7 @@ describe("Component <ResetPassword />", () => {
 		expect(tokenURL).toEqual(token);
 	});
 
-	test("Should show message when token is invalid ", async () => {
+	test("Should show message when token is invalid", async () => {
 		mock.onPost(`auth/reset-password/token=${token}`).reply(
 			500,
 			INVALID_TOKEN_RESPONSE_MOCK

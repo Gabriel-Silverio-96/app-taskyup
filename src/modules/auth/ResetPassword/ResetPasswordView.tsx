@@ -26,47 +26,41 @@ const ResetPasswordView: React.FC<IResetPasswordView> = props => {
 					title={defineTitleMessage(isResetPasswordSuccess)}
 					subtitle={defineSubtitleMessage(isResetPasswordSuccess)}
 				/>
-				{!isResetPasswordSuccess ? (
-					<>
-						<form onSubmit={onSubmit}>
-							<Grid container direction="column" spacing={5}>
-								<Grid item>
-									<TextFieldPassword
-										{...{ register, errors }}
-									/>
-								</Grid>
-								<Grid item>
-									<LoadingButton
-										fullWidth
-										variant="contained"
-										type="submit"
-										loading={isSaving}>
-										Save
-									</LoadingButton>
-								</Grid>
-							</Grid>
-						</form>
-					</>
-				) : (
-					<Footer>
-						<Grid container direction="column">
-							<Grid
-								display="flex"
-								justifyContent="center"
-								alignItems="center"
-								flexDirection="column">
-								<Link to="/auth/signin">
-									<Typography
-										variant="body1"
-										textAlign="center"
-										sx={{ mt: 3, mb: 3 }}>
-										Sign in
-									</Typography>
-								</Link>
-							</Grid>
+
+				<form onSubmit={onSubmit} hidden={isResetPasswordSuccess}>
+					<Grid container direction="column" spacing={5}>
+						<Grid item>
+							<TextFieldPassword {...{ register, errors }} />
 						</Grid>
-					</Footer>
-				)}
+						<Grid item>
+							<LoadingButton
+								fullWidth
+								variant="contained"
+								type="submit"
+								loading={isSaving}>
+								Save
+							</LoadingButton>
+						</Grid>
+					</Grid>
+				</form>
+				<Footer hidden={!isResetPasswordSuccess}>
+					<Grid container direction="column">
+						<Grid
+							display="flex"
+							justifyContent="center"
+							alignItems="center"
+							flexDirection="column">
+							<Link to="/auth/signin">
+								<Typography
+									variant="body1"
+									textAlign="center"
+									sx={{ mt: 3, mb: 3 }}>
+									Sign in
+								</Typography>
+							</Link>
+						</Grid>
+					</Grid>
+				</Footer>
 			</Grid>
 		</Grid>
 	);
