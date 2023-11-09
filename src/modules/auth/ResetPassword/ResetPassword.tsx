@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import ResetPasswordView from "./ResetPasswordView";
 import schema from "./schema";
 import { fetchPostResetPasswordService } from "./services/fetchPostResetPasswordService";
-import { IFormResetPassword } from "./types";
+import { IResetPasswordForm } from "./types";
 
 const ResetPassword: React.FC = () => {
 	const { token } = useParams();
@@ -13,7 +13,7 @@ const ResetPassword: React.FC = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<IFormResetPassword>({
+	} = useForm<IResetPasswordForm>({
 		resolver: yupResolver(schema),
 		mode: "all",
 	});
@@ -21,7 +21,7 @@ const ResetPassword: React.FC = () => {
 	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);
 
-	const resetPasswordSubmit = async ({ password }: IFormResetPassword) => {
+	const resetPasswordSubmit = async ({ password }: IResetPasswordForm) => {
 		try {
 			setIsSaving(true);
 			await fetchPostResetPasswordService({

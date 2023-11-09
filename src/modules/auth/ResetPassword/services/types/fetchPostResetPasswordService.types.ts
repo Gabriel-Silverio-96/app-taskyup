@@ -1,6 +1,6 @@
+import { IResetPasswordForm } from "modules/auth/ResetPassword/types";
+
 export interface IFetchPostResetPasswordService {
-	body: {
-		password: string;
-	};
+	body: IResetPasswordForm;
 	token: string | undefined;
 }
