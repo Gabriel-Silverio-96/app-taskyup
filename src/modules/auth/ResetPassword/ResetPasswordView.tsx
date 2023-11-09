@@ -10,7 +10,7 @@ import Greeting from "shared/components/Greeting";
 import TextFieldPassword from "shared/components/TextFieldPassword";
 
 const ResetPasswordView: React.FC<IResetPasswordView> = props => {
-	const { register, onSubmit, errors, isSaving, resetPasswordSuccess } =
+	const { register, onSubmit, errors, isSaving, isResetPasswordSuccess } =
 		props;
 
 	return (
@@ -23,10 +23,10 @@ const ResetPasswordView: React.FC<IResetPasswordView> = props => {
 			sx={{ minHeight: "100vh" }}>
 			<Grid item sx={{ minWidth: "20rem" }}>
 				<Greeting
-					title={defineTitleMessage(resetPasswordSuccess)}
-					subtitle={defineSubtitleMessage(resetPasswordSuccess)}
+					title={defineTitleMessage(isResetPasswordSuccess)}
+					subtitle={defineSubtitleMessage(isResetPasswordSuccess)}
 				/>
-				{!resetPasswordSuccess ? (
+				{!isResetPasswordSuccess ? (
 					<>
 						<form onSubmit={onSubmit}>
 							<Grid container direction="column" spacing={5}>

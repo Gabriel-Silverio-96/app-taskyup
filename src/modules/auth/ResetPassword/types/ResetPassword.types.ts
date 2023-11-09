@@ -10,5 +10,5 @@ export interface IResetPasswordView {
 	onSubmit: FunctionReturnsVoid;
 	errors: FieldErrors<IResetPasswordForm>;
 	isSaving: boolean;
-	resetPasswordSuccess: boolean;
+	isResetPasswordSuccess: boolean;
 }

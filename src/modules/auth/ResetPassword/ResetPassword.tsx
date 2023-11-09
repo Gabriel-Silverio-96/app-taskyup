@@ -18,7 +18,7 @@ const ResetPassword: React.FC = () => {
 		mode: "all",
 	});
 
-	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
+	const [isResetPasswordSuccess, setIsResetPasswordSuccess] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);
 
 	const resetPasswordSubmit = async ({ password }: IResetPasswordForm) => {
@@ -29,9 +29,9 @@ const ResetPassword: React.FC = () => {
 				token,
 			});
 
-			setResetPasswordSuccess(true);
+			setIsResetPasswordSuccess(true);
 		} catch (error) {
-			setResetPasswordSuccess(false);
+			setIsResetPasswordSuccess(false);
 		} finally {
 			setIsSaving(false);
 		}
@@ -46,7 +46,7 @@ const ResetPassword: React.FC = () => {
 				onSubmit,
 				errors,
 				isSaving,
-				resetPasswordSuccess,
+				isResetPasswordSuccess,
 			}}
 		/>
 	);
