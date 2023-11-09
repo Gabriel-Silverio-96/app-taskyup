@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import ResetPasswordView from "./ResetPasswordView";
 import schema from "./schema";
-import { fetchPostResetPassword } from "./service";
+import { fetchPostResetPasswordService } from "./services/fetchPostResetPasswordService";
 import { IFormResetPassword } from "./types";
 
 const ResetPassword: React.FC = () => {
@@ -21,10 +21,13 @@ const ResetPassword: React.FC = () => {
 	const [resetPasswordSuccess, setResetPasswordSuccess] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);
 
-	const resetPasswordSubmit = async (form: IFormResetPassword) => {
+	const resetPasswordSubmit = async ({ password }: IFormResetPassword) => {
 		try {
 			setIsSaving(true);
-			await fetchPostResetPassword({ form, token });
+			await fetchPostResetPasswordService({
+				body: { password },
+				token,
+			});
 
 			setResetPasswordSuccess(true);
 		} catch (error) {
@@ -33,6 +36,7 @@ const ResetPassword: React.FC = () => {
 			setIsSaving(false);
 		}
 	};
+
 	const onSubmit = handleSubmit(resetPasswordSubmit);
 
 	return (

@@ -12,8 +12,3 @@ export interface IResetPasswordView {
 	isSaving: boolean;
 	resetPasswordSuccess: boolean;
 }
-
-export interface IFetchPostResetPassword {
-	form: IFormResetPassword;
-	token: string | undefined;
-}
