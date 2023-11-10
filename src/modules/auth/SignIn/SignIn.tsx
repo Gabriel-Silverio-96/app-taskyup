@@ -1,32 +1,37 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useCallback, useState } from "react";
+import SignInView from "modules/auth/SignIn/SignInView";
+import { SignInSchema } from "modules/auth/SignIn/schema";
+import { fetchPostSignInService } from "modules/auth/SignIn/service";
+import { ISignInForm } from "modules/auth/SignIn/types";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
-import schema from "./schema";
-import { fetchPostSignInService } from "./service";
-import SignInView from "./SignInView";
-import { ISignInForm } from "./types";
 
 const SignIn: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<ISignInForm>({ resolver: yupResolver(schema), mode: "all" });
+	} = useForm<ISignInForm>({
+		resolver: yupResolver(SignInSchema),
+		mode: "all",
+	});
 
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
 	const [isLoading, setIsLoading] = useState(false);
 
-	const signInSubmit = useCallback(async (form: ISignInForm) => {
+	const signInSubmit = async ({ email, password }: ISignInForm) => {
 		try {
 			setIsLoading(true);
-			const { data } = await fetchPostSignInService(form);
+			const { data } = await fetchPostSignInService({
+				body: { email, password },
+			});
 			const { token, user_data } = data;
 
 			localStorage.setItem("@taskyup.token", token);
@@ -46,7 +51,7 @@ const SignIn: React.FC = () => {
 		} catch (error) {
 			setIsLoading(false);
 		}
-	}, []);
+	};
 
 	return (
 		<SignInView
