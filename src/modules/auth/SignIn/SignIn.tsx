@@ -1,4 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import SignInView from "modules/auth/SignIn/SignInView";
+import { SignInSchema } from "modules/auth/SignIn/schema";
+import { fetchPostSignInService } from "modules/auth/SignIn/service";
+import { ISignInForm } from "modules/auth/SignIn/types";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -6,17 +10,16 @@ import { useNavigate } from "react-router-dom";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
-import SignInView from "./SignInView";
-import schema from "./schema";
-import { fetchPostSignInService } from "./service";
-import { ISignInForm } from "./types";
 
 const SignIn: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<ISignInForm>({ resolver: yupResolver(schema), mode: "all" });
+	} = useForm<ISignInForm>({
+		resolver: yupResolver(SignInSchema),
+		mode: "all",
+	});
 
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
