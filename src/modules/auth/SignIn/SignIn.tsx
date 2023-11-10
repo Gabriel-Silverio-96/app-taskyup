@@ -7,9 +7,9 @@ import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
 import schema from "./schema";
-import { fetchPostSignInService } from "./service";
 import SignInView from "./SignInView";
 import { ISignInForm } from "./types";
+import { fetchPostSignInService } from "./service";
 
 const SignIn: React.FC = () => {
 	const {
@@ -23,30 +23,37 @@ const SignIn: React.FC = () => {
 
 	const [isLoading, setIsLoading] = useState(false);
 
-	const signInSubmit = useCallback(async (form: ISignInForm) => {
-		try {
-			setIsLoading(true);
-			const { data } = await fetchPostSignInService(form);
-			const { token, user_data } = data;
+	const signInSubmit = useCallback(
+		async ({ email, password }: ISignInForm) => {
+			try {
+				setIsLoading(true);
+				const { data } = await fetchPostSignInService({
+					body: { email, password },
+				});
+				const { token, user_data } = data;
 
-			localStorage.setItem("@taskyup.token", token);
-			localStorage.setItem(
-				"@taskyup.user_data",
-				JSON.stringify(user_data)
-			);
-			api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+				localStorage.setItem("@taskyup.token", token);
+				localStorage.setItem(
+					"@taskyup.user_data",
+					JSON.stringify(user_data)
+				);
+				api.defaults.headers.common[
+					"Authorization"
+				] = `Bearer ${token}`;
 
-			const action = createAction(SIGNIN_TYPE, {
-				isAuthenticated: true,
-				user_data,
-			});
-			dispatch(action);
+				const action = createAction(SIGNIN_TYPE, {
+					isAuthenticated: true,
+					user_data,
+				});
+				dispatch(action);
 
-			return navigate("/dashboard");
-		} catch (error) {
-			setIsLoading(false);
-		}
-	}, []);
+				return navigate("/dashboard");
+			} catch (error) {
+				setIsLoading(false);
+			}
+		},
+		[]
+	);
 
 	return (
 		<SignInView
