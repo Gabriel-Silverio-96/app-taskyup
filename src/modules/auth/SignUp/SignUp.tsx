@@ -1,10 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useCallback, useState } from "react";
+import { fetchPostSignUpService } from "modules/auth/SignUp/service";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import schema from "./schema";
-import { fetchPostSignUpService } from "./service";
 import SignUpView from "./SignUpView";
+import schema from "./schema";
 import { ISignUpForm } from "./types";
 
 const SignUp: React.FC = () => {
@@ -17,16 +17,16 @@ const SignUp: React.FC = () => {
 	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(false);
 
-	const signUpSubmit = useCallback(async (form: ISignUpForm) => {
+	const signUpSubmit = async (form: ISignUpForm) => {
 		try {
 			setIsLoading(true);
-			await fetchPostSignUpService(form);
+			await fetchPostSignUpService({ body: { ...form } });
 
 			return navigate("/auth/signin");
 		} catch (error) {
 			setIsLoading(false);
 		}
-	}, []);
+	};
 
 	return (
 		<SignUpView
