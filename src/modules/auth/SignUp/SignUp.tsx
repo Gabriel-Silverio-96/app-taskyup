@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { fetchPostSignUpService } from "modules/auth/SignUp/service";
+import { fetchPostSignUpService } from "modules/auth/SignUp/services";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";

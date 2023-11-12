@@ -1,6 +1,6 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchPostSignUpService } from "modules/auth/SignUp/service/types";
+import { IFetchPostSignUpService } from "modules/auth/SignUp/services/types";
 
 export const fetchPostSignUpService = async ({
 	body,
