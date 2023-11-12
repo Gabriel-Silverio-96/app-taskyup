@@ -1,0 +1,17 @@
+export const DEFAULT_ERROR_MESSAGE_EMAIL =
+	"Email must be a valid email. Example: email@email.io";
+
+const isValidEmailDomain = (value: string | undefined) => {
+	if (value) return /\./.test(value) && /@/.test(value);
+};
+
+export const validateEmailDomainLength = (value: string | undefined) => {
+	if (isValidEmailDomain(value)) {
+		const emailDomain = value?.split("@")[1];
+		const domain = emailDomain?.split(".")[1];
+
+		return domain ? domain.length > 1 : false;
+	}
+
+	return true;
+};
