@@ -21,7 +21,7 @@ const CardBoard: React.FC = () => {
 	const closeMenu = () => setAnchorEl(null);
 	const handleBoardID = (boardID: string) => setBoardID(boardID);
 
-	const { data: board, isFetching } = useQuery(
+	const { data, isFetching } = useQuery(
 		[BOARD_QUERY_KEY.FETCH_GET_BOARDS],
 		fetchGetBoardsService
 	);
@@ -29,7 +29,7 @@ const CardBoard: React.FC = () => {
 	return (
 		<CardBoardView
 			{...{
-				board,
+				data,
 				isFetching,
 				palette,
 				openMenu,

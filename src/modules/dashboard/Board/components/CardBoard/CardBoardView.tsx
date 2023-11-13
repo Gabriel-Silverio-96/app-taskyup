@@ -18,7 +18,7 @@ import { ICON_SIZE } from "shared/constants";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {
 	const {
-		board,
+		data,
 		isFetching,
 		palette,
 		openMenu,
@@ -34,13 +34,13 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 		<Grid container spacing={2}>
 			<Loading isLoading={isFetching} backdrop />
 			<EmptyBoard
-				show={board?.length === 0}
+				show={data?.length === 0}
 				title="You have not created any board"
 				message="Create a board 😊"
 			/>
 
-			{board &&
-				board.map(
+			{data &&
+				data.map(
 					({
 						title,
 						type_board,
@@ -53,6 +53,13 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 							palette.secondary.main
 						);
 						const linkBoard = `/${type_board}/${board_id}`;
+
+						const handleClickCardOptions = (
+							event: MouseEvent<HTMLButtonElement>
+						) => {
+							handleBoardID(board_id);
+							openMenu(event);
+						};
 
 						return (
 							<Grid item xl={2} md={3} xs={12} key={board_id}>
@@ -78,12 +85,9 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 												<IconButton
 													sx={{ p: 0 }}
 													disabled={isFetching}
-													onClick={(
-														event: MouseEvent<HTMLButtonElement>
-													) => {
-														handleBoardID(board_id);
-														openMenu(event);
-													}}
+													onClick={
+														handleClickCardOptions
+													}
 													data-testid="button-card-board-options">
 													<FiMoreHorizontal
 														size={ICON_SIZE.LARGE}

@@ -6,7 +6,7 @@ import { IFetchGetBoardsResponse } from "modules/dashboard/Board/components/Card
 export type TypeBoard = "notes" | "texts" | "kanban";
 
 export interface ICardBoardView {
-	board: IFetchGetBoardsResponse[] | undefined;
+	data: IFetchGetBoardsResponse[] | undefined;
 	isFetching: boolean;
 	palette: Palette;
 	openMenu: (event: React.MouseEvent<HTMLButtonElement>) => void;
