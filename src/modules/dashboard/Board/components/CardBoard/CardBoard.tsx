@@ -3,9 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import CardBoardView from "./CardBoardView";
-import { fetchGetBoardsService } from "./service";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { fetchGetBoardsService } from "modules/dashboard/Board/components/CardBoard/service";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
