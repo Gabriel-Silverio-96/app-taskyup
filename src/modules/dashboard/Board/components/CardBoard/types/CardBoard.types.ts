@@ -1,22 +1,9 @@
 import { Palette } from "@mui/material";
 import React from "react";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { IFetchGetBoardsResponse } from "modules/dashboard/Board/components/CardBoard/services/types";
 
 export type TypeBoard = "notes" | "texts" | "kanban";
-
-export interface IMemberBoard {
-	first_name: string;
-	full_name: string;
-}
-
-export interface IFetchGetBoardsResponse {
-	board_id: string;
-	title: string;
-	type_board: TypeBoard;
-	created_at: string;
-	background_image: string;
-	members_board: Array<IMemberBoard>;
-}
 
 export interface ICardBoardView {
 	board: IFetchGetBoardsResponse[] | undefined;

@@ -5,7 +5,7 @@ import { useContextBoard } from "modules/dashboard/Board/Context";
 import CardBoardView from "./CardBoardView";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
-import { fetchGetBoardsService } from "modules/dashboard/Board/components/CardBoard/service";
+import { fetchGetBoardsService } from "modules/dashboard/Board/components/CardBoard/services";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();

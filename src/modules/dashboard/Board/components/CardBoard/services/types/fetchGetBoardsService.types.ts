@@ -1,4 +1,4 @@
-export type TypeBoard = "notes" | "texts" | "kanban";
+import { TypeBoard } from "modules/dashboard/Board/components/CardBoard/types";
 
 export interface IMemberBoard {
 	first_name: string;
