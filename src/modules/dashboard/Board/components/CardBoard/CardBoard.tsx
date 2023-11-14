@@ -2,10 +2,10 @@ import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useContextBoard } from "modules/dashboard/Board/Context";
-import CardBoardView from "./CardBoardView";
-import { fetchGetBoardsService } from "./service";
+import CardBoardView from "modules/dashboard/Board/components/CardBoard/CardBoardView";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { fetchGetBoardsService } from "modules/dashboard/Board/components/CardBoard/services";
 
 const CardBoard: React.FC = () => {
 	const { palette } = useTheme();
@@ -21,7 +21,7 @@ const CardBoard: React.FC = () => {
 	const closeMenu = () => setAnchorEl(null);
 	const handleBoardID = (boardID: string) => setBoardID(boardID);
 
-	const { data: board, isFetching } = useQuery(
+	const { data, isFetching } = useQuery(
 		[BOARD_QUERY_KEY.FETCH_GET_BOARDS],
 		fetchGetBoardsService
 	);
@@ -29,7 +29,7 @@ const CardBoard: React.FC = () => {
 	return (
 		<CardBoardView
 			{...{
-				board,
+				data,
 				isFetching,
 				palette,
 				openMenu,
