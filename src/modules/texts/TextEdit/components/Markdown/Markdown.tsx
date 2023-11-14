@@ -6,6 +6,7 @@ import { INITIAL_STATE_DATA_TEXT } from "./constant";
 import { fetchGetOneTextService, fetchPatchTextService } from "./service";
 import { IDataText } from "./types";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -41,8 +42,13 @@ const Markdown: React.FC = () => {
 		setDataText(prevState => ({ ...prevState, title_text: value }));
 	};
 
-	const onSuccessMutation = () =>
-		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
+	const onSuccessMutation = async () => {
+		return await Promise.all([
+			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]),
+			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
+		]);
+	};
+
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const mutationFn = () =>
