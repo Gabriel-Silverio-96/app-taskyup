@@ -11,18 +11,17 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FiX } from "react-icons/fi";
-import { IDialogDeleteOneBoardView } from "./types";
+import { IDialogDeleteOneBoardView } from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/types";
 import { ICON_SIZE } from "shared/constants";
 
 const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 	const {
 		isOpenDialogDeleteOneBoard,
 		closeDialogDeleteOneBoard,
-		dialogDeleteOneBoardSubmit,
+		mutate,
 		isLoading,
+		onClose,
 	} = props;
-
-	const onClose = !isLoading ? closeDialogDeleteOneBoard : () => "";
 
 	return (
 		<Dialog
@@ -73,7 +72,7 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 							variant="contained"
 							type="submit"
 							loading={isLoading}
-							onClick={dialogDeleteOneBoardSubmit}>
+							onClick={mutate}>
 							Yes
 						</LoadingButton>
 					</Grid>
