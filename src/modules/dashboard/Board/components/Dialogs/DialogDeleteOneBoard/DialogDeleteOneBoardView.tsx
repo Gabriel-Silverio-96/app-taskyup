@@ -18,11 +18,10 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 	const {
 		isOpenDialogDeleteOneBoard,
 		closeDialogDeleteOneBoard,
-		dialogDeleteOneBoardSubmit,
+		mutate,
 		isLoading,
+		onClose,
 	} = props;
-
-	const onClose = !isLoading ? closeDialogDeleteOneBoard : () => "";
 
 	return (
 		<Dialog
@@ -73,7 +72,7 @@ const DialogDeleteOneBoardView: React.FC<IDialogDeleteOneBoardView> = props => {
 							variant="contained"
 							type="submit"
 							loading={isLoading}
-							onClick={dialogDeleteOneBoardSubmit}>
+							onClick={mutate}>
 							Yes
 						</LoadingButton>
 					</Grid>

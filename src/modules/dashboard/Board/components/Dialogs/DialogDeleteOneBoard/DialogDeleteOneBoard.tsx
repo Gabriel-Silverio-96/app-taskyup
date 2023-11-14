@@ -12,7 +12,7 @@ const DialogDeleteOneBoard: React.FC = () => {
 	const { isOpenDialogDeleteOneBoard, boardID } = useContextBoard();
 	const { closeDialogDeleteOneBoard } = useDialogBoard();
 
-	const onSuccessMutation = async () => {
+	const onSuccess = async () => {
 		closeDialogDeleteOneBoard();
 		await Promise.all([
 			queryClient.invalidateQueries([BOARD_QUERY_KEY.FETCH_GET_BOARDS]),
@@ -22,18 +22,18 @@ const DialogDeleteOneBoard: React.FC = () => {
 
 	const mutationFn = () => fetchDeleteOneBoardService(boardID);
 
-	const { mutate: dialogDeleteOneBoardSubmit, isLoading } = useMutation(
-		mutationFn,
-		{ onSuccess: onSuccessMutation }
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
+
+	const onClose = !isLoading ? closeDialogDeleteOneBoard : () => "";
 
 	return (
 		<DialogDeleteOneBoardView
 			{...{
 				isOpenDialogDeleteOneBoard,
 				closeDialogDeleteOneBoard,
-				dialogDeleteOneBoardSubmit,
+				mutate,
 				isLoading,
+				onClose,
 			}}
 		/>
 	);
