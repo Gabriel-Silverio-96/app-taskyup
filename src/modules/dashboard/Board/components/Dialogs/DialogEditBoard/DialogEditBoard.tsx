@@ -1,25 +1,24 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { memo, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
-import dateFormat from "shared/util/dateFormat";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
-import DialogEditBoardView from "./DialogEditBoardView";
-import schema from "./schema";
-import { fetchPatchBoardService, fetchGetOneBoardService } from "./service";
-import { IDialogEditBoardForm } from "./types";
+import { memo, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import useFetchGetOneBoard, {
+	HOOK_FETCH_BOARD_QUERY_KEY,
+} from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 import useSnackBar from "shared/common/hook/useSnackBar";
+import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
-import { HOOK_FETCH_BOARD_QUERY_KEY } from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
-import {
-	DIALOG_EDIT_BOARD_QUERY_KEY,
-	ERROR_MESSAGE_UPDATE_BOARD,
-} from "./constants/DialogEditBoard.constants";
+import dateFormat from "shared/util/dateFormat";
+import DialogEditBoardView from "./DialogEditBoardView";
+import { ERROR_MESSAGE_UPDATE_BOARD } from "./constants/DialogEditBoard.constants";
+import schema from "./schema";
+import { fetchPatchBoardService } from "./service";
+import { IDialogEditBoardForm } from "./types";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -43,7 +42,7 @@ const DialogEditBoard = () => {
 		clearErrors,
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
-	const onSuccessQuery = (data: IFetchGetOneBoardResponse) => {
+	const onSuccessQuery = (data: IFetchGetOneBoardResponse | any) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
@@ -55,11 +54,8 @@ const DialogEditBoard = () => {
 		enabled: false,
 	};
 
-	const queryFn = () => fetchGetOneBoardService(boardID);
-
-	const { refetch, isFetching: isLoading } = useQuery(
-		[DIALOG_EDIT_BOARD_QUERY_KEY.FETCH_GET_ONE_BOARD],
-		queryFn,
+	const { refetch, isFetching: isLoading } = useFetchGetOneBoard(
+		boardID,
 		optionsQuery
 	);
 
