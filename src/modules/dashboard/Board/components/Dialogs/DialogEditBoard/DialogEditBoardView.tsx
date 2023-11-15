@@ -13,8 +13,8 @@ import React from "react";
 import { FiX } from "react-icons/fi";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
-import DialogBackground from "./components/DialogBackground";
-import { IDialogEditBoardView } from "./types";
+import DialogBackground from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground";
+import { IDialogEditBoardView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { ICON_SIZE } from "shared/constants";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
@@ -28,12 +28,11 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		isSaving,
 		isOpenDialogEditBoard,
 		closeDialogEditBoard,
+		onClose,
+		disabledIconButtonClose,
 	} = props;
 
 	const loadingGrid = { display: isLoading ? "flex" : "none", mb: 5 };
-
-	const onClose = !isSaving && !isLoading ? closeDialogEditBoard : () => "";
-	const disabledIconButtonClose = isLoading || isSaving;
 
 	return (
 		<Dialog
@@ -64,66 +63,64 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 			<Grid container justifyContent="center" sx={loadingGrid}>
 				<Loading isLoading={isLoading} message="Loading" />
 			</Grid>
-			{!isLoading && (
-				<>
-					<DialogContent sx={{ pt: 0 }}>
-						<DialogBackground />
-						<form
-							id="form-new-board"
-							onSubmit={handleSubmit(dialogEditBoardSubmit)}>
-							<Grid container direction="column" spacing={5}>
-								<Grid item>
-									<TextField
-										label="Board name"
-										size="small"
-										fullWidth
-										{...register("title")}
-										error={
-											errors.title &&
-											Boolean(errors.title)
-										}
-										helperText={
-											errors.title
-												? errors.title?.message
-												: ""
-										}
-										inputProps={{
-											"data-testid": "input-edit",
-										}}
-									/>
-								</Grid>
-							</Grid>
-						</form>
-					</DialogContent>
-					<DialogActions>
-						<Grid
-							container
-							justifyContent="space-between"
-							alignItems="center">
-							<Grid item md="auto">
-								<Typography
-									variant="caption"
-									color="GrayText"
-									display="flex"
-									alignItems="center"
-									sx={{ gap: 0.5 }}>
-									Created at
-									<Date {...register("created_at")} />
-								</Typography>
-							</Grid>
-							<Grid item md="auto">
-								<LoadingButton
-									form="form-new-board"
-									variant="contained"
-									type="submit"
-									loading={isSaving}>
-									Save
-								</LoadingButton>
+
+			<div hidden={isLoading}>
+				<DialogContent sx={{ pt: 0 }}>
+					<DialogBackground />
+					<form
+						id="form-new-board"
+						onSubmit={handleSubmit(dialogEditBoardSubmit)}>
+						<Grid container direction="column" spacing={5}>
+							<Grid item>
+								<TextField
+									label="Board name"
+									size="small"
+									fullWidth
+									{...register("title")}
+									error={
+										errors.title && Boolean(errors.title)
+									}
+									helperText={
+										errors.title
+											? errors.title?.message
+											: ""
+									}
+									inputProps={{
+										"data-testid": "input-edit",
+									}}
+								/>
 							</Grid>
 						</Grid>
-					</DialogActions>
-				</>
-			)}
+					</form>
+				</DialogContent>
+				<DialogActions>
+					<Grid
+						container
+						justifyContent="space-between"
+						alignItems="center">
+						<Grid item md="auto">
+							<Typography
+								variant="caption"
+								color="GrayText"
+								display="flex"
+								alignItems="center"
+								sx={{ gap: 0.5 }}>
+								Created at
+								<Date {...register("created_at")} />
+							</Typography>
+						</Grid>
+						<Grid item md="auto">
+							<LoadingButton
+								form="form-new-board"
+								variant="contained"
+								type="submit"
+								loading={isSaving}>
+								Save
+							</LoadingButton>
+						</Grid>
+					</Grid>
+				</DialogActions>
+			</div>
 		</Dialog>
 	);
 };
