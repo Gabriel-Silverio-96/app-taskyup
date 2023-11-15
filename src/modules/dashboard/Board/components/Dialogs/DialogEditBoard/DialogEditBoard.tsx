@@ -14,11 +14,11 @@ import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/const
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import dateFormat from "shared/util/dateFormat";
-import DialogEditBoardView from "./DialogEditBoardView";
-import { ERROR_MESSAGE_UPDATE_BOARD } from "./constants/DialogEditBoard.constants";
-import { DialogEditBoardSchema } from "./schema";
-import { fetchPatchBoardService } from "./services/fetchPatchBoardService";
-import { IDialogEditBoardForm } from "./types";
+import DialogEditBoardView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/DialogEditBoardView";
+import { ERROR_MESSAGE_UPDATE_BOARD } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/constants";
+import { DialogEditBoardSchema } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/schema";
+import { fetchPatchBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services";
+import { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -105,6 +105,9 @@ const DialogEditBoard = () => {
 		optionsMutation
 	);
 
+	const onClose = !isSaving && !isLoading ? closeDialogEditBoard : () => "";
+	const disabledIconButtonClose = isLoading || isSaving;
+
 	return (
 		<DialogEditBoardView
 			{...{
@@ -117,6 +120,8 @@ const DialogEditBoard = () => {
 				isSaving,
 				isOpenDialogEditBoard,
 				closeDialogEditBoard,
+				onClose,
+				disabledIconButtonClose,
 			}}
 		/>
 	);

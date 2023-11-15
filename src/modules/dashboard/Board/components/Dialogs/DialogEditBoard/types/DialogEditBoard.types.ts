@@ -20,4 +20,6 @@ export interface IDialogEditBoardView {
 	isSaving: boolean;
 	isOpenDialogEditBoard: boolean;
 	closeDialogEditBoard: FunctionReturnsVoid;
+	onClose: FunctionReturnsVoid | (() => "");
+	disabledIconButtonClose: boolean;
 }

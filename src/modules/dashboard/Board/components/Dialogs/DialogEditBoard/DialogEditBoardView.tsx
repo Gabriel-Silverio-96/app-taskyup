@@ -13,8 +13,8 @@ import React from "react";
 import { FiX } from "react-icons/fi";
 import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
-import DialogBackground from "./components/DialogBackground";
-import { IDialogEditBoardView } from "./types";
+import DialogBackground from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground";
+import { IDialogEditBoardView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { ICON_SIZE } from "shared/constants";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
@@ -28,12 +28,11 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		isSaving,
 		isOpenDialogEditBoard,
 		closeDialogEditBoard,
+		onClose,
+		disabledIconButtonClose,
 	} = props;
 
 	const loadingGrid = { display: isLoading ? "flex" : "none", mb: 5 };
-
-	const onClose = !isSaving && !isLoading ? closeDialogEditBoard : () => "";
-	const disabledIconButtonClose = isLoading || isSaving;
 
 	return (
 		<Dialog
