@@ -17,8 +17,8 @@ import dateFormat from "shared/util/dateFormat";
 import DialogEditBoardView from "./DialogEditBoardView";
 import { ERROR_MESSAGE_UPDATE_BOARD } from "./constants/DialogEditBoard.constants";
 import schema from "./schema";
-import { fetchPatchBoardService } from "./service";
 import { IDialogEditBoardForm } from "./types";
+import { fetchPatchBoardService } from "./services/fetchPatchBoardService";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -40,7 +40,10 @@ const DialogEditBoard = () => {
 		formState: { errors },
 		setValue,
 		clearErrors,
-	} = useForm({ resolver: yupResolver(schema), mode: "all" });
+	} = useForm<IDialogEditBoardForm>({
+		resolver: yupResolver(schema),
+		mode: "all",
+	});
 
 	const onSuccessQuery = (data: IFetchGetOneBoardResponse) => {
 		setValue("title", data.title);
@@ -88,12 +91,12 @@ const DialogEditBoard = () => {
 		}
 	};
 
-	const mutationFn = (form: IDialogEditBoardForm) =>
-		fetchPatchBoardService({
-			form,
+	const mutationFn = ({ title }: IDialogEditBoardForm) => {
+		return fetchPatchBoardService(boardID, {
+			title,
 			background_image: dialogBackgroundImage,
-			boardID,
 		});
+	};
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
 

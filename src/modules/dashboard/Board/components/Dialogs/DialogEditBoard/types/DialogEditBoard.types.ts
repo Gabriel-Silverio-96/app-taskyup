@@ -6,8 +6,8 @@ import {
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IDialogEditBoardForm {
-	title?: string;
-	created_at?: string;
+	title: string;
+	created_at: string;
 }
 
 export interface IDialogEditBoardView {
@@ -20,10 +20,4 @@ export interface IDialogEditBoardView {
 	isSaving: boolean;
 	isOpenDialogEditBoard: boolean;
 	closeDialogEditBoard: FunctionReturnsVoid;
-}
-
-export interface IFetchPatchBoardService {
-	form: IDialogEditBoardForm;
-	boardID: string;
-	background_image: string;
 }
