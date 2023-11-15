@@ -9,6 +9,7 @@ export interface IHeaderNoteView {
 	isMediumScreen: boolean;
 	countNotes: number;
 	isLoading: boolean;
+	isFetching: boolean;
 }
 
 export interface IFetchPostCreateNoteResponse extends IFetchResponseDefault {
