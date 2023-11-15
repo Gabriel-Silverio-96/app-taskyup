@@ -17,7 +17,7 @@ const HeaderNote: React.FC = () => {
 	const navigate = useNavigate();
 	const { board_id } = useParams();
 
-	const { data } = useFetchGetOneBoard(board_id);
+	const { data, isFetching } = useFetchGetOneBoard(board_id);
 	const { countNotes } = useContextNote();
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
@@ -54,6 +54,7 @@ const HeaderNote: React.FC = () => {
 				countNotes,
 				handleClickCreateNote,
 				isLoading,
+				isFetching,
 			}}
 		/>
 	);
