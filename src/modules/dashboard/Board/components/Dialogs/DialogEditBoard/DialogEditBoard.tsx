@@ -42,7 +42,7 @@ const DialogEditBoard = () => {
 		clearErrors,
 	} = useForm({ resolver: yupResolver(schema), mode: "all" });
 
-	const onSuccessQuery = (data: IFetchGetOneBoardResponse | any) => {
+	const onSuccessQuery = (data: IFetchGetOneBoardResponse) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
