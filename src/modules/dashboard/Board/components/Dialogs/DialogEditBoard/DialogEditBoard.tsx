@@ -9,7 +9,7 @@ import useFetchGetOneBoard, {
 	HOOK_FETCH_BOARD_QUERY_KEY,
 } from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 import useSnackBar from "shared/common/hook/useSnackBar";
-import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
+import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";

@@ -1,8 +1,6 @@
+import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-import {
-	IFetchGetOneBoardResponse,
-	IFetchResponseDefault,
-} from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
 export interface IHeaderNoteView {
 	data: IFetchGetOneBoardResponse | undefined;

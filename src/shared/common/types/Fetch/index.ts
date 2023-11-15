@@ -3,13 +3,6 @@ export interface IFetchResponseDefault {
 	message: string;
 }
 
-export interface IFetchGetOneBoardResponse {
-	title: string;
-	board_type_id: string;
-	background_image: string;
-	created_at: string;
-}
-
 export enum EnumStatusSuccessCode {
 	OK = 200,
 	Created = 201,

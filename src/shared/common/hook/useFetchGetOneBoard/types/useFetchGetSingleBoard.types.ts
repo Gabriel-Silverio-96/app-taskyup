@@ -1,15 +1,15 @@
 import { UseQueryOptions, UseQueryResult } from "@tanstack/react-query";
-import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
+
+export interface IFetchGetOneBoardResponse {
+	title: string;
+	board_type_id: string;
+	background_image: string;
+	created_at: string;
+}
 
 export interface IUseFetchGetOneBoard {
-	<T = IFetchGetOneBoardResponse | undefined>(
+	<T = IFetchGetOneBoardResponse>(
 		boardID: string | undefined,
 		options?: Omit<UseQueryOptions<any, any>, "queryKey" | "queryFn">
 	): UseQueryResult<T, any>;
-}
-
-export interface IUseFetchGetSingleBoard {
-	data: IFetchGetOneBoardResponse;
-	isError: boolean;
-	isFetching: boolean;
 }

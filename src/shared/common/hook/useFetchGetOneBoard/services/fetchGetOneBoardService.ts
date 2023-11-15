@@ -1,5 +1,5 @@
-import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
 import api from "shared/services/api";
+import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 
 export const fetchGetOneBoardService = async (boardID: string | undefined) => {
 	const { data } = await api.get<IFetchGetOneBoardResponse>(

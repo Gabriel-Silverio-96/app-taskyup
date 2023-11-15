@@ -1,5 +1,5 @@
 import { Palette } from "@mui/material";
-import { IFetchGetOneBoardResponse } from "shared/common/types/Fetch";
+import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IHeaderTextView {
