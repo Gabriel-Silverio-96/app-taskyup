@@ -16,9 +16,9 @@ import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import dateFormat from "shared/util/dateFormat";
 import DialogEditBoardView from "./DialogEditBoardView";
 import { ERROR_MESSAGE_UPDATE_BOARD } from "./constants/DialogEditBoard.constants";
-import schema from "./schema";
-import { IDialogEditBoardForm } from "./types";
+import { DialogEditBoardSchema } from "./schema";
 import { fetchPatchBoardService } from "./services/fetchPatchBoardService";
+import { IDialogEditBoardForm } from "./types";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -41,7 +41,7 @@ const DialogEditBoard = () => {
 		setValue,
 		clearErrors,
 	} = useForm<IDialogEditBoardForm>({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(DialogEditBoardSchema),
 		mode: "all",
 	});
 
