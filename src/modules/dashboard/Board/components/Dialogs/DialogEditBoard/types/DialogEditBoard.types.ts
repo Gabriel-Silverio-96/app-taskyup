@@ -16,7 +16,7 @@ export interface IDialogEditBoardView {
 	handleSubmit: UseFormHandleSubmit<IDialogEditBoardForm>;
 	dialogEditBoardSubmit: (form: IDialogEditBoardForm) => void;
 	errors: FieldErrors<IDialogEditBoardForm>;
-	isLoading: boolean;
+	isFetching: boolean;
 	isSaving: boolean;
 	isOpenDialogEditBoard: boolean;
 	closeDialogEditBoard: FunctionReturnsVoid;

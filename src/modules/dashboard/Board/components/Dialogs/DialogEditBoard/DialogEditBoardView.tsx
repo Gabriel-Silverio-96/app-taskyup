@@ -24,7 +24,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		handleSubmit,
 		dialogEditBoardSubmit,
 		errors,
-		isLoading,
+		isFetching,
 		isSaving,
 		isOpenDialogEditBoard,
 		closeDialogEditBoard,
@@ -32,7 +32,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		disabledIconButtonClose,
 	} = props;
 
-	const loadingGrid = { display: isLoading ? "flex" : "none", mb: 5 };
+	const loadingGrid = { display: isFetching ? "flex" : "none", mb: 5 };
 
 	return (
 		<Dialog
@@ -61,10 +61,10 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 				</Grid>
 			</DialogTitle>
 			<Grid container justifyContent="center" sx={loadingGrid}>
-				<Loading isLoading={isLoading} message="Loading" />
+				<Loading isLoading={isFetching} message="Loading" />
 			</Grid>
 
-			<div hidden={isLoading}>
+			<div hidden={isFetching}>
 				<DialogContent sx={{ pt: 0 }}>
 					<DialogBackground />
 					<form

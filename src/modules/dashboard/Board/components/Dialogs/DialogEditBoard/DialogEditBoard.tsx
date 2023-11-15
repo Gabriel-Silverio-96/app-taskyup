@@ -57,10 +57,7 @@ const DialogEditBoard = () => {
 		enabled: false,
 	};
 
-	const { refetch, isFetching: isLoading } = useFetchGetOneBoard(
-		boardID,
-		optionsQuery
-	);
+	const { refetch, isFetching } = useFetchGetOneBoard(boardID, optionsQuery);
 
 	useEffect(() => {
 		if (isOpenDialogEditBoard) refetch();
@@ -105,8 +102,8 @@ const DialogEditBoard = () => {
 		optionsMutation
 	);
 
-	const onClose = !isSaving && !isLoading ? closeDialogEditBoard : () => "";
-	const disabledIconButtonClose = isLoading || isSaving;
+	const onClose = !isSaving && !isFetching ? closeDialogEditBoard : () => "";
+	const disabledIconButtonClose = isFetching || isSaving;
 
 	return (
 		<DialogEditBoardView
@@ -116,7 +113,7 @@ const DialogEditBoard = () => {
 				handleSubmit,
 				dialogEditBoardSubmit,
 				errors,
-				isLoading,
+				isFetching,
 				isSaving,
 				isOpenDialogEditBoard,
 				closeDialogEditBoard,
