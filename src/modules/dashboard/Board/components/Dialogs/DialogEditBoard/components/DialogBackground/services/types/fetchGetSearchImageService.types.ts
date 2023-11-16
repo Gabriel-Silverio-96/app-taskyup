@@ -1,5 +1,4 @@
 import { AxiosPromise } from "axios";
-import { IFetchSearchImages } from "shared/common/types/Fetch";
 
 export interface IPhotos {
 	id: number;
@@ -41,5 +40,7 @@ export interface IFetchGetSearchImagePros {
 }
 
 export interface IFetchGetSearchImageService {
-	({ params }: IFetchGetSearchImagePros): AxiosPromise<IFetchSearchImages>;
+	({
+		params,
+	}: IFetchGetSearchImagePros): AxiosPromise<IFetchSearchImagesResponse>;
 }
