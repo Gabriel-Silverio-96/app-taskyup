@@ -7,9 +7,12 @@ import React, {
 	useRef,
 	useState,
 } from "react";
-import DialogBackgroundView from "./DialogBackgroundView";
-import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
-import { TypeImages } from "./types";
+import DialogBackgroundView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/DialogBackgroundView";
+import {
+	ERROR_STATE_IMAGES,
+	INITIAL_STATE_IMAGES,
+} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/constants";
+import { TypeImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 import { fetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
 
 const DialogBackground: React.FC = () => {

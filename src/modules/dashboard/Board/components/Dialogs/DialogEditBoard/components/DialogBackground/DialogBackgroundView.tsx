@@ -4,8 +4,8 @@ import { BiSearch } from "react-icons/bi";
 import { FiChevronLeft, FiChevronRight, FiEdit, FiTrash } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
-import MessageError from "./components/MessageError";
-import MessageNoResultsFound from "./components/MessageNoResultsFound/MessageNoResultsFound";
+import MessageError from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/components/MessageError";
+import MessageNoResultsFound from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/components/MessageNoResultsFound";
 import {
 	DialogBackground,
 	Menu,
@@ -13,7 +13,7 @@ import {
 	MenuImagesFooter,
 	MenuSearch,
 } from "./style";
-import { IDialogBackgroundView } from "./types";
+import { IDialogBackgroundView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 
 const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const {
