@@ -22,7 +22,7 @@ export interface IImages {
 export type TypeImages = IImages | IFetchSearchImages;
 
 export interface IDialogBackgroundView {
-	queryImage: string;
+	query: string;
 	openMenu: (event: MouseEvent<HTMLButtonElement>) => void;
 	closeMenu: FunctionReturnsVoid;
 	anchorEl: HTMLElement | null;

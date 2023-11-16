@@ -17,7 +17,7 @@ import { IDialogBackgroundView } from "./types";
 
 const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const {
-		queryImage,
+		query,
 		openMenu,
 		closeMenu,
 		anchorEl,
@@ -36,7 +36,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 
 	const isOpenMenu = Boolean(anchorEl);
 	const disabledButtonDelete = Boolean(dialogBackgroundImage);
-	const disabledButtonSearch = Boolean(!queryImage);
+	const disabledButtonSearch = Boolean(!query);
 
 	return (
 		// Why backgroundimage lower case > Warning: React does not recognize the `backgroundImage` prop on a DOM element.
