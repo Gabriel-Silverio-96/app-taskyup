@@ -82,10 +82,13 @@ const DialogBackground: React.FC = () => {
 		setDialogBackgroundImage(background_image);
 	const handleBackgroundRemoval = () => setDialogBackgroundImage("");
 
+	const isOpenMenu = Boolean(anchorEl);
+	const disabledButtonDelete = Boolean(dialogBackgroundImage);
+	const disabledButtonSearch = Boolean(!query);
+
 	return (
 		<DialogBackgroundView
 			{...{
-				query,
 				openMenu,
 				closeMenu,
 				anchorEl,
@@ -100,6 +103,9 @@ const DialogBackground: React.FC = () => {
 				prevPage,
 				menuRef,
 				isLoadingImages,
+				isOpenMenu,
+				disabledButtonDelete,
+				disabledButtonSearch,
 			}}
 		/>
 	);

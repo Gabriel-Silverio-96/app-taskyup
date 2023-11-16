@@ -20,7 +20,6 @@ export interface IImages {
 }
 
 export interface IDialogBackgroundView {
-	query: string;
 	openMenu: (event: MouseEvent<HTMLButtonElement>) => void;
 	closeMenu: FunctionReturnsVoid;
 	anchorEl: HTMLElement | null;
@@ -35,4 +34,7 @@ export interface IDialogBackgroundView {
 	prevPage: FunctionReturnsVoid;
 	menuRef: Ref<HTMLDivElement> | null;
 	isLoadingImages: boolean;
+	isOpenMenu: boolean;
+	disabledButtonDelete: boolean;
+	disabledButtonSearch: boolean;
 }
