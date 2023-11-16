@@ -4,8 +4,8 @@ import { BiSearch } from "react-icons/bi";
 import { FiChevronLeft, FiChevronRight, FiEdit, FiTrash } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
-import MessageError from "./components/MessageError";
-import MessageNoResultsFound from "./components/MessageNoResultsFound/MessageNoResultsFound";
+import MessageError from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/components/MessageError";
+import MessageNoResultsFound from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/components/MessageNoResultsFound";
 import {
 	DialogBackground,
 	Menu,
@@ -13,11 +13,10 @@ import {
 	MenuImagesFooter,
 	MenuSearch,
 } from "./style";
-import { IDialogBackgroundView } from "./types";
+import { IDialogBackgroundView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 
 const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const {
-		queryImage,
 		openMenu,
 		closeMenu,
 		anchorEl,
@@ -32,11 +31,10 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 		prevPage,
 		menuRef,
 		isLoadingImages,
+		isOpenMenu,
+		disabledButtonDelete,
+		disabledButtonSearch,
 	} = props;
-
-	const isOpenMenu = Boolean(anchorEl);
-	const disabledButtonDelete = Boolean(dialogBackgroundImage);
-	const disabledButtonSearch = Boolean(!queryImage);
 
 	return (
 		// Why backgroundimage lower case > Warning: React does not recognize the `backgroundImage` prop on a DOM element.

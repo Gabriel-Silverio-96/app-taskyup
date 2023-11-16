@@ -1,8 +1,8 @@
 import { ChangeEvent, MouseEvent, Ref } from "react";
-import { IFetchSearchImages } from "shared/common/types/Fetch";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { IFetchSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 
-interface IPhotos {
+interface IPhotosInitialState {
 	id: number;
 	photographer: string;
 	photographer_url: string;
@@ -14,19 +14,16 @@ interface IPhotos {
 }
 
 export interface IImages {
-	photos: IPhotos[];
+	photos: IPhotosInitialState[];
 	error?: string;
 	total_results?: number;
 }
 
-export type TypeImages = IImages | IFetchSearchImages;
-
 export interface IDialogBackgroundView {
-	queryImage: string;
 	openMenu: (event: MouseEvent<HTMLButtonElement>) => void;
 	closeMenu: FunctionReturnsVoid;
 	anchorEl: HTMLElement | null;
-	images: TypeImages;
+	images: IImages | IFetchSearchImagesResponse;
 	dialogBackgroundImage: string;
 	handleBackgroundImageSelection: (background_image: string) => void;
 	handleBackgroundRemoval: FunctionReturnsVoid;
@@ -37,4 +34,7 @@ export interface IDialogBackgroundView {
 	prevPage: FunctionReturnsVoid;
 	menuRef: Ref<HTMLDivElement> | null;
 	isLoadingImages: boolean;
+	isOpenMenu: boolean;
+	disabledButtonDelete: boolean;
+	disabledButtonSearch: boolean;
 }
