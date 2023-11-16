@@ -1,6 +1,6 @@
 import { ChangeEvent, MouseEvent, Ref } from "react";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-import { IFetchSearchImagesResponse } from "../services/types";
+import { IFetchSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 
 interface IPhotosInitialState {
 	id: number;

@@ -1,5 +1,5 @@
 import { Menu as MenuMui, styled } from "@mui/material";
-import { IDialogBackgroundStyled } from "./types";
+import { IDialogBackgroundStyled } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/style/types";
 
 export const DialogBackground = styled("div")<IDialogBackgroundStyled>(
 	({ theme, backgroundimage }) => `
