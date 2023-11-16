@@ -32,7 +32,7 @@ export interface IFetchSearchImagesResponse {
 	error?: string;
 }
 
-export interface IFetchGetSearchImagePros {
+export interface IFetchGetSearchImageProps {
 	params: {
 		query: string;
 		page: number;
@@ -42,5 +42,5 @@ export interface IFetchGetSearchImagePros {
 export interface IFetchGetSearchImageService {
 	({
 		params,
-	}: IFetchGetSearchImagePros): AxiosPromise<IFetchSearchImagesResponse>;
+	}: IFetchGetSearchImageProps): AxiosPromise<IFetchSearchImagesResponse>;
 }
