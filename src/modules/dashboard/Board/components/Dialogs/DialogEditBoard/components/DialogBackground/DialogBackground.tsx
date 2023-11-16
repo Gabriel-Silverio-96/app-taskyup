@@ -53,7 +53,6 @@ const DialogBackground: React.FC = () => {
 			resetPagination && setPagination(1);
 		} catch (error) {
 			setImages(ERROR_STATE_IMAGES);
-			console.error("DialogBackground", error);
 		} finally {
 			setIsLoadingImages(false);
 		}
