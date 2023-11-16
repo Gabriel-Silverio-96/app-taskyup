@@ -10,7 +10,7 @@ import React, {
 import DialogBackgroundView from "./DialogBackgroundView";
 import { ERROR_STATE_IMAGES, INITIAL_STATE_IMAGES } from "./constants";
 import { TypeImages } from "./types";
-import { fetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/service";
+import { fetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } =

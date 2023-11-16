@@ -1,4 +1,4 @@
-import { IFetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/service/types";
+import { IFetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 import { IFetchSearchImages } from "shared/common/types/Fetch";
 import api from "shared/services/api";
 
