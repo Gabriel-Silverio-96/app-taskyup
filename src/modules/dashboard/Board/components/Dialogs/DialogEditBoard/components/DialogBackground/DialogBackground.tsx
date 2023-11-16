@@ -1,4 +1,11 @@
 import { useContextBoard } from "modules/dashboard/Board/Context";
+import DialogBackgroundView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/DialogBackgroundView";
+import {
+	ERROR_STATE_IMAGES,
+	INITIAL_STATE_IMAGES,
+} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/constants";
+import { fetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
+import { IImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 import React, {
 	ChangeEvent,
 	MouseEvent,
@@ -7,19 +14,15 @@ import React, {
 	useRef,
 	useState,
 } from "react";
-import DialogBackgroundView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/DialogBackgroundView";
-import {
-	ERROR_STATE_IMAGES,
-	INITIAL_STATE_IMAGES,
-} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/constants";
-import { TypeImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
-import { fetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
+import { IFetchSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } =
 		useContextBoard();
 
-	const [images, setImages] = useState<TypeImages>(INITIAL_STATE_IMAGES);
+	const [images, setImages] = useState<IImages | IFetchSearchImagesResponse>(
+		INITIAL_STATE_IMAGES
+	);
 	const [pagination, setPagination] = useState(1);
 	const [query, setQuery] = useState("");
 	const [isLoadingImages, setIsLoadingImages] = useState(false);
