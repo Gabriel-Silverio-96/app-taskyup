@@ -9,9 +9,9 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
+import { IDialogDeleteOneNoteView } from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/types";
 import React from "react";
 import { FiX } from "react-icons/fi";
-import { IDialogDeleteOneNoteView } from "./types";
 import { ICON_SIZE } from "shared/constants";
 
 const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = props => {
