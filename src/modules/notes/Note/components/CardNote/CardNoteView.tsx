@@ -31,10 +31,13 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 			{data &&
 				data.list_notes?.map(
 					({ note_id, title_note, observation, color_note }) => {
-						const redirectTo = createURLQueryParams("/note/edit", {
-							note_id,
-							board_id,
-						});
+						const linkToNoteEdit = createURLQueryParams(
+							"/note/edit",
+							{
+								note_id,
+								board_id,
+							}
+						);
 						return (
 							<Grid item xl={2} md={3} xs={12} key={note_id}>
 								<CardNoteContainer>
@@ -66,7 +69,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 														size={ICON_SIZE.MEDIUM}
 													/>
 												</IconButton>
-												<Link to={redirectTo}>
+												<Link to={linkToNoteEdit}>
 													<IconButton>
 														<FiEye
 															size={
