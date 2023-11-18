@@ -1,16 +1,16 @@
 import { useMediaQuery, useTheme } from "@mui/material";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useContextNote } from "modules/notes/Note/Context";
+import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
+import { fetchPostCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
+import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
+import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
+import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard";
-import { useContextNote } from "modules/notes/Note/Context";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
-import HeaderNoteView from "./HeaderNoteView";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { fetchPostCreateNoteService } from "./services/fetchPostCreateNoteService";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
-import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
-import { IFetchPostCreateNoteResponse } from "./services/types";
 
 const HeaderNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -36,14 +36,12 @@ const HeaderNote: React.FC = () => {
 		await queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 	};
 
-	const optionsMutation = { onSuccess };
-	const mutationFn = () => {
-		return fetchPostCreateNoteService({ board_id, body: mountBodyNote() });
-	};
+	const mutationFn = () =>
+		fetchPostCreateNoteService({ board_id, body: mountBodyNote() });
 
 	const { mutate: handleClickCreateNote, isLoading } = useMutation(
 		mutationFn,
-		optionsMutation
+		{ onSuccess }
 	);
 
 	return (
