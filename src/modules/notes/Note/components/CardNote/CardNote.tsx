@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useContextNote } from "modules/notes/Note/Context";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import CardNoteView from "./CardNoteView";
-import { fetchGetNotesService } from "./service";
+import { fetchGetNotesService } from "./services/fetchGetNotesService";
 import { TypeCount } from "./types";
 import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
