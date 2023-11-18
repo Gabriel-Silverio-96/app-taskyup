@@ -1,13 +1,13 @@
 import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
+import { useContextNote } from "modules/notes/Note/Context";
+import CardNoteView from "modules/notes/Note/components/CardNote/CardNoteView";
+import { fetchGetNotesService } from "modules/notes/Note/components/CardNote/services";
+import { TypeCount } from "modules/notes/Note/components/CardNote/types";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
+import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import React, { memo, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useContextNote } from "modules/notes/Note/Context";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
-import CardNoteView from "./CardNoteView";
-import { fetchGetNotesService } from "./services/fetchGetNotesService";
-import { TypeCount } from "./types";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const CardNote: React.FC = () => {
 	const { board_id } = useParams();

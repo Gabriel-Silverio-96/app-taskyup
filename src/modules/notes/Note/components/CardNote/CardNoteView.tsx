@@ -1,19 +1,19 @@
 import { Grid, IconButton, Typography } from "@mui/material";
-import React from "react";
-import { FiEye, FiTrash } from "react-icons/fi";
-import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
-import Loading from "shared/components/Loading";
 import {
 	Card,
 	CardAction,
 	CardBar,
 	CardContent,
 	CardNoteContainer,
-} from "./style";
-import { ICardNotesView } from "./types";
+} from "modules/notes/Note/components/CardNote/style";
+import { ICardNotesView } from "modules/notes/Note/components/CardNote/types";
+import React from "react";
+import { FiEye, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
+import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
 	const { board_id, palette, data, isFetching, openDialogDeleteOneNote } =
