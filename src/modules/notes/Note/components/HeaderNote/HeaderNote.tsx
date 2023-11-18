@@ -6,11 +6,11 @@ import { useContextNote } from "modules/notes/Note/Context";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import HeaderNoteView from "./HeaderNoteView";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { fetchPostCreateNoteService } from "./service/HeaderNote.service";
-import { IFetchPostCreateNoteResponse } from "./types";
+import { fetchPostCreateNoteService } from "./services/fetchPostCreateNoteService";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
+import { IFetchPostCreateNoteResponse } from "./services/types";
 
 const HeaderNote: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -27,18 +27,19 @@ const HeaderNote: React.FC = () => {
 	const onSuccess = async (response: IFetchPostCreateNoteResponse) => {
 		const { note_id } = response.results;
 
-		const redirectTo = createURLQueryParams("/note/edit", {
+		const linkToNoteEdit = createURLQueryParams("/note/edit", {
 			note_id,
 			board_id,
 		});
-		navigate(redirectTo);
+		navigate(linkToNoteEdit);
 
 		await queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 	};
 
 	const optionsMutation = { onSuccess };
-	const mutationFn = () =>
-		fetchPostCreateNoteService({ board_id, payload: mountBodyNote() });
+	const mutationFn = () => {
+		return fetchPostCreateNoteService({ board_id, body: mountBodyNote() });
+	};
 
 	const { mutate: handleClickCreateNote, isLoading } = useMutation(
 		mutationFn,
