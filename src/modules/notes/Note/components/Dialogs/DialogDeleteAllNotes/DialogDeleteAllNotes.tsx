@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useContextNote } from "modules/notes/Note/Context";
+import DialogDeleteAllNotesView from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/DialogDeleteAllNotesView";
+import { fetchDeleteAllNotesService } from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/services";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
+import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
-import { useContextNote } from "modules/notes/Note/Context";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
-import DialogDeleteAllNotesView from "./DialogDeleteAllNotesView";
-import { fetchDeleteAllNotesService } from "./services";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const DialogDeleteAllNotes: React.FC = () => {
 	const queryClient = useQueryClient();
