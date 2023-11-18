@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useContextNote } from "modules/notes/Note/Context";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import DialogDeleteOneNoteView from "./DialogDeleteOneNoteView";
-import { fetchDeleteOneNoteService } from "./service";
+import { fetchDeleteOneNoteService } from "./services";
 import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 
 const DialogDeleteOneNote: React.FC = () => {
