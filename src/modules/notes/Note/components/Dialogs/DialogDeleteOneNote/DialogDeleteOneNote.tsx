@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import React, { memo } from "react";
 import { useContextNote } from "modules/notes/Note/Context";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
-import DialogDeleteOneNoteView from "./DialogDeleteOneNoteView";
-import { fetchDeleteOneNoteService } from "./services";
+import DialogDeleteOneNoteView from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/DialogDeleteOneNoteView";
+import { fetchDeleteOneNoteService } from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/services";
 import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
+import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
+import React, { memo } from "react";
 
 const DialogDeleteOneNote: React.FC = () => {
 	const queryClient = useQueryClient();
