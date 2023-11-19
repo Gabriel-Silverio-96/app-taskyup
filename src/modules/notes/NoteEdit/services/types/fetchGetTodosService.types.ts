@@ -1,11 +1,4 @@
-export interface ITodo {
-	todo_id: string;
-	related_id?: string;
-	title_todo: string;
-	checked: boolean;
-	order_index: number;
-	created_at: string | Date;
-}
+import { ITodo } from "modules/notes/NoteEdit/types";
 
 export interface IFetchGetTodosResponse {
 	count: number;

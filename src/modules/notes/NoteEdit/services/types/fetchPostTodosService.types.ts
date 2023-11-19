@@ -1,4 +1,4 @@
-import { ITodo } from "modules/notes/NoteEdit/services/types/fetchGetTodosService.types";
+import { ITodo } from "modules/notes/NoteEdit/types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
 export interface IFetchPostTodosProps {
