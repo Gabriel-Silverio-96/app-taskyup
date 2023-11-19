@@ -8,7 +8,7 @@ import {
 } from "./style";
 import ColorPicker from "shared/components/ColorPicker";
 import { Link } from "react-router-dom";
-import { IFormNoteEditView } from "./types";
+import { IFormNoteEditView } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 	const {

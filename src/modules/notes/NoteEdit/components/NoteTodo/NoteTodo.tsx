@@ -1,17 +1,19 @@
 import { ITodoData, TypeTodoIdsToDelete } from "modules/notes/NoteEdit/types";
 import React, { useState } from "react";
-import NoteTodoView from "./NoteTodoView";
+import NoteTodoView from "modules/notes/NoteEdit/components/NoteTodo/NoteTodoView";
 import {
 	IHandleBlurTextField,
 	IHandleChangeCheckbox,
 	IHandleClickDeleteTodo,
 	IHandleKeyDown,
 	INoteTodo,
-} from "./types";
-import { generateNewTodo } from "./utils/generate-new-todo/generate-new-todo";
-import { todoDeleteById } from "./utils/todo-delete-by-id/todo-delete-by-id";
-import { todoEditCheckedValue } from "./utils/todo-edit-checked-value";
-import { todoEditTitleValue } from "./utils/todo-edit-title-value";
+} from "modules/notes/NoteEdit/components/NoteTodo/types";
+import {
+	generateNewTodo,
+	todoDeleteById,
+	todoEditCheckedValue,
+	todoEditTitleValue,
+} from "modules/notes/NoteEdit/components/NoteTodo/utils";
 
 const NoteTodo: React.FC<INoteTodo> = ({
 	todoData,

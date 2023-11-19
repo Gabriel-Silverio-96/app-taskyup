@@ -1,20 +1,27 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
-import NoteEditView from "./NoteEditView";
-import { TuplesNoteAndTodoResponse } from "./components/NoteTodo/types";
-import { INITIAL_STATE_TODO_DATA, NOTE_EDIT_QUERY_KEY } from "./constants";
-import schema from "./schema";
+import NoteEditView from "modules/notes/NoteEdit/NoteEditView";
+import { TuplesNoteAndTodoResponse } from "modules/notes/NoteEdit/components/NoteTodo/types";
 import {
-	fetchGetListTodoService,
+	INITIAL_STATE_TODO_DATA,
+	NOTE_EDIT_QUERY_KEY,
+} from "modules/notes/NoteEdit/constants";
+import { NoteEditSchema } from "modules/notes/NoteEdit/schema";
+import {
 	fetchGetOneNoteService,
-	fetchPostListTodoService,
+	fetchGetTodosService,
+	fetchPostTodosService,
 	fetchPutNoteService,
-} from "./service";
-import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
+} from "modules/notes/NoteEdit/services";
+import {
+	INoteEditForm,
+	ITodoData,
+	TypeTodoIdsToDelete,
+} from "modules/notes/NoteEdit/types";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -37,7 +44,7 @@ const NoteEdit: React.FC = () => {
 		formState: { errors },
 		setValue,
 	} = useForm<INoteEditForm>({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(NoteEditSchema),
 		mode: "all",
 	});
 
@@ -53,15 +60,14 @@ const NoteEdit: React.FC = () => {
 	const queryFn = async () => {
 		return await Promise.all([
 			fetchGetOneNoteService(note_id),
-			fetchGetListTodoService({ board_id, related_id: note_id }),
+			fetchGetTodosService({ params: { board_id, related_id: note_id } }),
 		]);
 	};
-	const optionsQuery = { onSuccess: onSuccessQuery };
 
 	const { isFetching, refetch } = useQuery<TuplesNoteAndTodoResponse>(
 		[NOTE_EDIT_QUERY_KEY.FETCH_GET_ONE_NOTE],
 		queryFn,
-		optionsQuery
+		{ onSuccess: onSuccessQuery }
 	);
 
 	useEffect(() => {
@@ -80,19 +86,21 @@ const NoteEdit: React.FC = () => {
 
 	const mutationFn = async (form: INoteEditForm) => {
 		return await Promise.all([
-			fetchPutNoteService({ payload: form, note_id, board_id }),
-			fetchPostListTodoService({
-				payload: { todoData, todoIdsToDelete },
-				board_id,
-				note_id,
+			fetchPutNoteService({ params: { note_id, board_id }, body: form }),
+			fetchPostTodosService({
+				body: {
+					todos: todoData.todos,
+					todo_ids_to_delete: todoIdsToDelete,
+					board_id,
+					related_id: note_id,
+				},
 			}),
 		]);
 	};
 
-	const optionsMutation = { onSuccess: onSuccessMutation };
 	const { mutate: handleSubmitNoteEdit, isLoading: isSaving } = useMutation(
 		mutationFn,
-		optionsMutation
+		{ onSuccess: onSuccessMutation }
 	);
 
 	return (

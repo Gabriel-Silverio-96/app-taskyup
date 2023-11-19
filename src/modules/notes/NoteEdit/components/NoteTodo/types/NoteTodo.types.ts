@@ -1,8 +1,8 @@
 import {
-	IFetchGetListTodoResponse,
 	IFetchGetOneNoteResponse,
-	ITodoData,
-} from "modules/notes/NoteEdit/types";
+	IFetchGetTodosResponse,
+} from "modules/notes/NoteEdit/services/types";
+import { ITodoData } from "modules/notes/NoteEdit/types";
 import {
 	ChangeEvent,
 	Dispatch,
@@ -49,5 +49,5 @@ export interface INoteTodoView
 
 export type TuplesNoteAndTodoResponse = [
 	IFetchGetOneNoteResponse,
-	IFetchGetListTodoResponse
+	IFetchGetTodosResponse
 ];

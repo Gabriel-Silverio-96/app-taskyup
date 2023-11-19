@@ -1,9 +1,9 @@
 import React from "react";
-import FormNoteEdit from "./components/FormNoteEdit";
+import FormNoteEdit from "modules/notes/NoteEdit/components/FormNoteEdit";
 import { Grid } from "@mui/material";
 import Loading from "shared/components/Loading/Loading";
-import { INoteEditView } from "./types";
-import NoteTodo from "./components/NoteTodo/NoteTodo";
+import { INoteEditView } from "modules/notes/NoteEdit/types";
+import NoteTodo from "modules/notes/NoteEdit/components/NoteTodo";
 
 const NoteEditView: React.FC<INoteEditView> = props => {
 	const {

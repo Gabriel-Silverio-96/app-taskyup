@@ -25,13 +25,6 @@ export interface INoteEditForm {
 	observation: string;
 }
 
-export interface IFetchGetOneNoteResponse {
-	color_note: string;
-	title_note: string;
-	observation: string;
-	created_at: string;
-}
-
 export interface INoteEditView {
 	register: UseFormRegister<INoteEditForm>;
 	handleSubmit: UseFormHandleSubmit<INoteEditForm>;
@@ -42,31 +35,6 @@ export interface INoteEditView {
 	todoData: ITodoData;
 	setTodoData: Dispatch<SetStateAction<ITodoData | any>>;
 	setTodoIdsToDelete: Dispatch<SetStateAction<Array<string>>>;
-}
-
-export interface IFetchPutNoteService {
-	payload: INoteEditForm;
-	note_id: string | null;
-	board_id: string | null;
-}
-
-export interface IFetchGetListTodoService {
-	related_id: string | null;
-	board_id: string | null;
-}
-
-export interface IFetchGetListTodoResponse {
-	count: number;
-	todos: Array<ITodo> | any[];
-}
-
-export interface IFetchPostListTodoService {
-	note_id: string | null;
-	board_id: string | null;
-	payload: {
-		todoData: ITodoData;
-		todoIdsToDelete: Array<string>;
-	};
 }
 
 export type TypeTodoIdsToDelete = Array<string | any>;
