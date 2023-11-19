@@ -1,5 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
@@ -7,12 +8,11 @@ import NoteEditView from "./NoteEditView";
 import { TuplesNoteAndTodoResponse } from "./components/NoteTodo/types";
 import { INITIAL_STATE_TODO_DATA, NOTE_EDIT_QUERY_KEY } from "./constants";
 import schema from "./schema";
-import { fetchPostListTodoService } from "./service";
-import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import { fetchGetOneNoteService } from "./service/fetchGetOneNoteService";
 import { fetchGetTodosService } from "./service/fetchGetTodosService";
+import { fetchPostTodosService } from "./service/fetchPostTodosService";
 import { fetchPutNoteService } from "./service/fetchPutNoteService";
+import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -79,10 +79,13 @@ const NoteEdit: React.FC = () => {
 	const mutationFn = async (form: INoteEditForm) => {
 		return await Promise.all([
 			fetchPutNoteService({ params: { note_id, board_id }, body: form }),
-			fetchPostListTodoService({
-				payload: { todoData, todoIdsToDelete },
-				board_id,
-				note_id,
+			fetchPostTodosService({
+				body: {
+					todos: todoData.todos,
+					todo_ids_to_delete: todoIdsToDelete,
+					board_id,
+					related_id: note_id,
+				},
 			}),
 		]);
 	};
