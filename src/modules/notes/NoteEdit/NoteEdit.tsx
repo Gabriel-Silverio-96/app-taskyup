@@ -10,7 +10,7 @@ import {
 	INITIAL_STATE_TODO_DATA,
 	NOTE_EDIT_QUERY_KEY,
 } from "modules/notes/NoteEdit/constants";
-import schema from "modules/notes/NoteEdit/schema";
+import { NoteEditSchema } from "modules/notes/NoteEdit/schema";
 import {
 	fetchGetOneNoteService,
 	fetchGetTodosService,
@@ -44,7 +44,7 @@ const NoteEdit: React.FC = () => {
 		formState: { errors },
 		setValue,
 	} = useForm<INoteEditForm>({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(NoteEditSchema),
 		mode: "all",
 	});
 
