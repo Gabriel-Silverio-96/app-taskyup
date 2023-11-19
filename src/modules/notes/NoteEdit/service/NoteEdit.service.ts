@@ -1,13 +1,6 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchPostListTodoService, IFetchPutNoteService } from "../types";
-
-const fetchPutNoteService = async (data: IFetchPutNoteService) => {
-	const { payload, note_id, board_id } = data;
-	const params = { params: { note_id, board_id } };
-
-	await api.put("/notes/edit", payload, params);
-};
+import { IFetchPostListTodoService } from "../types";
 
 const fetchPostListTodoService = async (data: IFetchPostListTodoService) => {
 	const {
@@ -27,4 +20,4 @@ const fetchPostListTodoService = async (data: IFetchPostListTodoService) => {
 	return response.data;
 };
 
-export { fetchPostListTodoService, fetchPutNoteService };
+export { fetchPostListTodoService };
