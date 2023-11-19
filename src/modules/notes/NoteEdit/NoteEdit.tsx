@@ -8,10 +8,12 @@ import NoteEditView from "./NoteEditView";
 import { TuplesNoteAndTodoResponse } from "./components/NoteTodo/types";
 import { INITIAL_STATE_TODO_DATA, NOTE_EDIT_QUERY_KEY } from "./constants";
 import schema from "./schema";
-import { fetchGetOneNoteService } from "./service/fetchGetOneNoteService";
-import { fetchGetTodosService } from "./service/fetchGetTodosService";
-import { fetchPostTodosService } from "./service/fetchPostTodosService";
-import { fetchPutNoteService } from "./service/fetchPutNoteService";
+import {
+	fetchGetOneNoteService,
+	fetchGetTodosService,
+	fetchPostTodosService,
+	fetchPutNoteService,
+} from "modules/notes/NoteEdit/services";
 import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
 
 const NoteEdit: React.FC = () => {

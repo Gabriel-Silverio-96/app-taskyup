@@ -1,6 +1,6 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchPutNoteService } from "modules/notes/NoteEdit/service/types/fetchPutNoteService.types";
+import { IFetchPutNoteService } from "modules/notes/NoteEdit/services/types";
 
 export const fetchPutNoteService: IFetchPutNoteService = async ({
 	params,

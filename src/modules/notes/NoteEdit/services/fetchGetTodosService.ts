@@ -2,7 +2,7 @@ import api from "shared/services/api";
 import {
 	IFetchGetTodosResponse,
 	IFetchGetTodosService,
-} from "modules/notes/NoteEdit/service/types";
+} from "modules/notes/NoteEdit/services/types";
 
 export const fetchGetTodosService: IFetchGetTodosService = async ({
 	params,
