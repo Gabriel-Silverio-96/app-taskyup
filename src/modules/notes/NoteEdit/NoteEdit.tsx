@@ -9,12 +9,12 @@ import { INITIAL_STATE_TODO_DATA, NOTE_EDIT_QUERY_KEY } from "./constants";
 import schema from "./schema";
 import {
 	fetchGetListTodoService,
-	fetchGetOneNoteService,
 	fetchPostListTodoService,
 	fetchPutNoteService,
 } from "./service";
 import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
 import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
+import { fetchGetOneNoteService } from "./service/fetchGetOneNoteService";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();

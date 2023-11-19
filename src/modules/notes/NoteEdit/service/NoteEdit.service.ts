@@ -7,11 +7,6 @@ import {
 } from "../types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
-const fetchGetOneNoteService = async (note_id: string | null) => {
-	const { data } = await api.get(`notes/note_id=${note_id}`);
-	return data;
-};
-
 const fetchPutNoteService = async (data: IFetchPutNoteService) => {
 	const { payload, note_id, board_id } = data;
 	const params = { params: { note_id, board_id } };
@@ -49,7 +44,6 @@ const fetchPostListTodoService = async (data: IFetchPostListTodoService) => {
 
 export {
 	fetchGetListTodoService,
-	fetchGetOneNoteService,
 	fetchPutNoteService,
 	fetchPostListTodoService,
 };
