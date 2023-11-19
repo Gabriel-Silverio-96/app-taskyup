@@ -1,27 +1,12 @@
-import api from "shared/services/api";
-import {
-	IFetchGetListTodoResponse,
-	IFetchGetListTodoService,
-	IFetchPostListTodoService,
-	IFetchPutNoteService,
-} from "../types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import api from "shared/services/api";
+import { IFetchPostListTodoService, IFetchPutNoteService } from "../types";
 
 const fetchPutNoteService = async (data: IFetchPutNoteService) => {
 	const { payload, note_id, board_id } = data;
 	const params = { params: { note_id, board_id } };
 
 	await api.put("/notes/edit", payload, params);
-};
-
-const fetchGetListTodoService = async (data: IFetchGetListTodoService) => {
-	const { related_id, board_id } = data;
-	const params = { board_id, related_id };
-
-	const response = await api.get<IFetchGetListTodoResponse>("/todo/list", {
-		params,
-	});
-	return response.data;
 };
 
 const fetchPostListTodoService = async (data: IFetchPostListTodoService) => {
@@ -42,8 +27,4 @@ const fetchPostListTodoService = async (data: IFetchPostListTodoService) => {
 	return response.data;
 };
 
-export {
-	fetchGetListTodoService,
-	fetchPutNoteService,
-	fetchPostListTodoService,
-};
+export { fetchPostListTodoService, fetchPutNoteService };

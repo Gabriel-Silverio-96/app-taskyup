@@ -7,14 +7,11 @@ import NoteEditView from "./NoteEditView";
 import { TuplesNoteAndTodoResponse } from "./components/NoteTodo/types";
 import { INITIAL_STATE_TODO_DATA, NOTE_EDIT_QUERY_KEY } from "./constants";
 import schema from "./schema";
-import {
-	fetchGetListTodoService,
-	fetchPostListTodoService,
-	fetchPutNoteService,
-} from "./service";
+import { fetchPostListTodoService, fetchPutNoteService } from "./service";
 import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
 import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import { fetchGetOneNoteService } from "./service/fetchGetOneNoteService";
+import { fetchGetTodosService } from "./service/fetchGetTodosService";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -53,7 +50,7 @@ const NoteEdit: React.FC = () => {
 	const queryFn = async () => {
 		return await Promise.all([
 			fetchGetOneNoteService(note_id),
-			fetchGetListTodoService({ board_id, related_id: note_id }),
+			fetchGetTodosService({ params: { board_id, related_id: note_id } }),
 		]);
 	};
 	const optionsQuery = { onSuccess: onSuccessQuery };
