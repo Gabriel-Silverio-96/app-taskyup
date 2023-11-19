@@ -4,17 +4,24 @@ import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
-import NoteEditView from "./NoteEditView";
-import { TuplesNoteAndTodoResponse } from "./components/NoteTodo/types";
-import { INITIAL_STATE_TODO_DATA, NOTE_EDIT_QUERY_KEY } from "./constants";
-import schema from "./schema";
+import NoteEditView from "modules/notes/NoteEdit/NoteEditView";
+import { TuplesNoteAndTodoResponse } from "modules/notes/NoteEdit/components/NoteTodo/types";
+import {
+	INITIAL_STATE_TODO_DATA,
+	NOTE_EDIT_QUERY_KEY,
+} from "modules/notes/NoteEdit/constants";
+import schema from "modules/notes/NoteEdit/schema";
 import {
 	fetchGetOneNoteService,
 	fetchGetTodosService,
 	fetchPostTodosService,
 	fetchPutNoteService,
 } from "modules/notes/NoteEdit/services";
-import { INoteEditForm, ITodoData, TypeTodoIdsToDelete } from "./types";
+import {
+	INoteEditForm,
+	ITodoData,
+	TypeTodoIdsToDelete,
+} from "modules/notes/NoteEdit/types";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
