@@ -1,6 +1,6 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchPostTodosService } from "./types/fetchPostTodosService.types";
+import { IFetchPostTodosService } from "modules/notes/NoteEdit/service/types/fetchPostTodosService.types";
 
 export const fetchPostTodosService: IFetchPostTodosService = async ({
 	body,

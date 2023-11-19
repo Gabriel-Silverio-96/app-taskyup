@@ -1,2 +1,4 @@
-export * as default from "./NoteEdit.service";
-export * from "./NoteEdit.service";
+export * from "./fetchGetOneNoteService";
+export * from "./fetchGetTodosService";
+export * from "./fetchPostTodosService";
+export * from "./fetchPutNoteService";
