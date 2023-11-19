@@ -63,12 +63,11 @@ const NoteEdit: React.FC = () => {
 			fetchGetTodosService({ params: { board_id, related_id: note_id } }),
 		]);
 	};
-	const optionsQuery = { onSuccess: onSuccessQuery };
 
 	const { isFetching, refetch } = useQuery<TuplesNoteAndTodoResponse>(
 		[NOTE_EDIT_QUERY_KEY.FETCH_GET_ONE_NOTE],
 		queryFn,
-		optionsQuery
+		{ onSuccess: onSuccessQuery }
 	);
 
 	useEffect(() => {
@@ -99,10 +98,9 @@ const NoteEdit: React.FC = () => {
 		]);
 	};
 
-	const optionsMutation = { onSuccess: onSuccessMutation };
 	const { mutate: handleSubmitNoteEdit, isLoading: isSaving } = useMutation(
 		mutationFn,
-		optionsMutation
+		{ onSuccess: onSuccessMutation }
 	);
 
 	return (
