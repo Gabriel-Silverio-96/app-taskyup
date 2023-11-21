@@ -2,5 +2,5 @@ import { IFetchGetPublicTextResponse } from "modules/texts/PublicText/services/t
 
 export interface IPublicTextView {
 	isFetching: boolean;
-	data: IFetchGetPublicTextResponse;
+	data: IFetchGetPublicTextResponse | any;
 }
