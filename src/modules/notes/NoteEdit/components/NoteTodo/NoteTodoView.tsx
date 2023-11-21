@@ -4,12 +4,15 @@ import {
 	IconButton,
 	TextField,
 	Typography,
+	useTheme,
 } from "@mui/material";
 import React from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { Todo, TodoContainer, ButtonNewTodo } from "./style";
 import { INoteTodoView } from "./types";
 import { ICON_SIZE } from "shared/constants";
+import EmptyBoard from "shared/components/EmptyBoard";
+import { LuListTodo } from "react-icons/lu";
 
 const NoteTodoView: React.FC<INoteTodoView> = props => {
 	const {
@@ -21,6 +24,8 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 		isAutoFocus,
 		handleClickDeleteTodo,
 	} = props;
+
+	const { palette } = useTheme();
 
 	return (
 		<div>
@@ -96,6 +101,19 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 					)}
 				</TodoContainer>
 			</Grid>
+
+			<EmptyBoard
+				image={
+					<LuListTodo
+						size={ICON_SIZE.DOUBLE_EXTRA_LARGE}
+						color={palette.primary.main}
+					/>
+				}
+				title="No todo created"
+				message="Click button + to create todo"
+				show={todoData.todos.length === 0}
+				textAlign="center"
+			/>
 		</div>
 	);
 };
