@@ -1,7 +1,12 @@
-export interface IFetchGetPublicTextService {
+export interface IFetchGetPublicTextProps {
 	params: {
 		text_id: string | null;
 	};
+}
+export interface IFetchGetPublicTextService {
+	({
+		params,
+	}: IFetchGetPublicTextProps): Promise<IFetchGetPublicTextResponse>;
 }
 
 export interface IFetchGetPublicTextResponse {

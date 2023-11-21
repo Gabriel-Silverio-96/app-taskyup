@@ -4,9 +4,9 @@ import {
 	IFetchGetPublicTextService,
 } from "./types/fetchGetPublicTextService.types";
 
-export const fetchGetPublicTextService = async ({
+export const fetchGetPublicTextService: IFetchGetPublicTextService = async ({
 	params,
-}: IFetchGetPublicTextService) => {
+}) => {
 	const { data } = await api.get<IFetchGetPublicTextResponse>("public/text", {
 		params,
 	});
