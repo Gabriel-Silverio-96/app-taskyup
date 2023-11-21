@@ -1,9 +1,10 @@
+import { faker } from "@faker-js/faker";
 import { render, screen } from "@testing-library/react";
 import EmptyBoard from "../EmptyBoard";
-import { faker } from "@faker-js/faker";
 
 const title = faker.random.word();
 const message = faker.lorem.sentence(5);
+const imageURL = faker.image.imageUrl();
 
 describe("Component <EmptyBoard />", () => {
 	test("Should mount the component", () => {
@@ -21,6 +22,15 @@ describe("Component <EmptyBoard />", () => {
 		);
 		unmount();
 		expect(container).toBeEmptyDOMElement();
+	});
+
+	test("Should show prop image in the document", () => {
+		const show = true;
+		const image = <img src={imageURL} />;
+		render(<EmptyBoard {...{ title, message, show, image }} />);
+
+		const imgElement = screen.getByRole("img");
+		expect(imgElement).toBeInTheDocument();
 	});
 
 	test(`Should show '${title}' and '${message}' when show equals true`, () => {
