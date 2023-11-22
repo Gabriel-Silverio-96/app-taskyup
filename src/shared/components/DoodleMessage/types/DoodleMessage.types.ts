@@ -1,4 +1,4 @@
-export interface IEmptyBoard {
+export interface IDoodleMessage {
 	title: string;
 	message: string;
 	show: boolean;

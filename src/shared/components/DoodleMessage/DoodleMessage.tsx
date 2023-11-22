@@ -1,8 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import React, { memo } from "react";
-import { IEmptyBoard } from "./types/EmptyBoard.component";
+import { IDoodleMessage } from "shared/components/DoodleMessage/types";
 
-const EmptyBoard: React.FC<IEmptyBoard> = ({
+const DoodleMessage: React.FC<IDoodleMessage> = ({
 	show,
 	title,
 	message,
@@ -26,4 +26,4 @@ const EmptyBoard: React.FC<IEmptyBoard> = ({
 	);
 };
 
-export default memo(EmptyBoard);
+export default memo(DoodleMessage);

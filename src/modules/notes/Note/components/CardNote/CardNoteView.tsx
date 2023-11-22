@@ -10,7 +10,7 @@ import { ICardNotesView } from "modules/notes/Note/components/CardNote/types";
 import React from "react";
 import { FiEye, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
+import DoodleMessage from "shared/components/DoodleMessage";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
@@ -22,7 +22,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isFetching} backdrop />
-			<EmptyBoard
+			<DoodleMessage
 				title="You have not created any notes"
 				message="Create a note 😊"
 				show={data?.count === 0}

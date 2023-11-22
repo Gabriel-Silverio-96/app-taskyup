@@ -2,7 +2,7 @@ import { Card, Grid, IconButton, MenuItem, Typography } from "@mui/material";
 import React, { MouseEvent } from "react";
 import { FiEdit, FiTrash, FiMoreHorizontal } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import EmptyBoard from "shared/components/EmptyBoard/EmptyBoard";
+import DoodleMessage from "shared/components/DoodleMessage";
 import Loading from "shared/components/Loading";
 import CardBoardAvatar from "modules/dashboard/Board/components/CardBoard/components/CardBoardAvatar";
 import {
@@ -33,7 +33,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 	return (
 		<Grid container spacing={2}>
 			<Loading isLoading={isFetching} backdrop />
-			<EmptyBoard
+			<DoodleMessage
 				show={data?.length === 0}
 				title="You have not created any board"
 				message="Create a board 😊"
