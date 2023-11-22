@@ -22,7 +22,7 @@ export const FormHeaderNoteEdit = styled("div")(
 export const FormActionNoteEdit = styled("div")(
 	({ theme }) => `
         a {
-            margin-right: ${theme.spacing(1)};
+            margin-right: ${theme.spacing(2)};
         }
         
         button:first-of-type {
