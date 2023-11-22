@@ -1,14 +1,16 @@
-import { TextField, Button, Grid } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
+import { Grid, IconButton, TextField } from "@mui/material";
+import { IFormNoteEditView } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
 import React from "react";
+import { FiArrowLeft } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import ColorPicker from "shared/components/ColorPicker";
+import { ICON_SIZE } from "shared/constants";
 import {
-	FormHeaderNoteEdit,
 	FormActionNoteEdit,
+	FormHeaderNoteEdit,
 	TextFieldMutiline,
 } from "./style";
-import ColorPicker from "shared/components/ColorPicker";
-import { Link } from "react-router-dom";
-import { IFormNoteEditView } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 	const {
@@ -43,9 +45,9 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 				<Grid item md={4} xs={4} textAlign="right">
 					<FormActionNoteEdit>
 						<Link to={linkPreviousPage}>
-							<Button variant="text" type="button">
-								Back
-							</Button>
+							<IconButton type="button">
+								<FiArrowLeft size={ICON_SIZE.MEDIUM} />
+							</IconButton>
 						</Link>
 						<LoadingButton
 							variant="contained"

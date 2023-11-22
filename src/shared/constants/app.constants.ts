@@ -4,4 +4,5 @@ export const ICON_SIZE = {
 	MEDIUM: 18,
 	LARGE: 25,
 	EXTRA_LARGE: 40,
+	DOUBLE_EXTRA_LARGE: 60,
 };
