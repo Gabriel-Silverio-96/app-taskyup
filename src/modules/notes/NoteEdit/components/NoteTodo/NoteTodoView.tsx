@@ -109,7 +109,7 @@ const NoteTodoView: React.FC<INoteTodoView> = props => {
 						color={palette.primary.main}
 					/>
 				}
-				title="No todo created"
+				title="No todo created yet"
 				message="Click button + to create todo"
 				show={todoData.todos.length === 0}
 				textAlign="center"
