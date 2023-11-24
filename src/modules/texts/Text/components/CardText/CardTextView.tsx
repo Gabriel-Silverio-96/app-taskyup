@@ -11,7 +11,7 @@ import {
 	CardHeader,
 	CardText,
 } from "./style";
-import { ICardTextView } from "./types";
+import { ICardTextView } from "modules/texts/Text/components/CardText/types";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { ICON_SIZE } from "shared/constants";
 

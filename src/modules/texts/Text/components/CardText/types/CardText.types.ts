@@ -1,6 +1,6 @@
 import { Palette } from "@mui/material";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-import { IFetchGetAllTextsResponse } from "modules/texts/Text/components/CardText/service/types";
+import { IFetchGetAllTextsResponse } from "modules/texts/Text/components/CardText/services/types";
 
 export interface ICardTextView {
 	palette: Palette;
