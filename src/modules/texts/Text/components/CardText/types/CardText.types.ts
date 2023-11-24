@@ -1,17 +1,6 @@
 import { Palette } from "@mui/material";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-
-export interface IText {
-	text_id: string;
-	title_text: string;
-	created_at: string;
-}
-
-export interface IFetchGetAllTextsResponse {
-	count: number;
-	title: string;
-	texts: IText[];
-}
+import { IFetchGetAllTextsResponse } from "modules/texts/Text/components/CardText/services/types";
 
 export interface ICardTextView {
 	palette: Palette;
