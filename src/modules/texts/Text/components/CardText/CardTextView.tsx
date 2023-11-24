@@ -11,7 +11,7 @@ import {
 	CardHeader,
 	CardText,
 } from "./style";
-import { ICardTextView, IText } from "./types";
+import { ICardTextView } from "./types";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { ICON_SIZE } from "shared/constants";
 
@@ -44,7 +44,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 				</CardCreateText>
 			</div>
 			{data &&
-				data.texts.map(({ title_text, text_id, created_at }: IText) => {
+				data.texts.map(({ title_text, text_id, created_at }) => {
 					const createdAt = dateFormat(created_at);
 					const linkTo = createURLQueryParams("/text/edit", {
 						text_id,

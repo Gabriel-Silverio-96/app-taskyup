@@ -5,13 +5,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import CardTextView from "./CardTextView";
 import { mountBodyText } from "modules/texts/Text/utils/mount-body-text";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { IFetchGetAllTextsResponse } from "./types";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import { useContextText } from "modules/texts/Text/Context";
 import { fetchPostTextService } from "modules/texts/Text/service";
 import { IFetchPostTextResponse } from "modules/texts/Text/types";
 import { fetchGetAllTextsService } from "modules/texts/Text/components/CardText/service";
+import { IFetchGetAllTextsResponse } from "modules/texts/Text/components/CardText/service/types";
 
 const CardText: React.FC = () => {
 	const { palette } = useTheme();
