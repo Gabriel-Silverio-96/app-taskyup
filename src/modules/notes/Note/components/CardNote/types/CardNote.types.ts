@@ -6,6 +6,10 @@ export interface INote {
 	title_note: string;
 	observation: string;
 	created_at: string;
+	todos: {
+		total: number;
+		total_checked: number;
+	};
 }
 
 export type TypeCount = { count: number } | any;

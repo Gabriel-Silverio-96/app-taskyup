@@ -13,6 +13,7 @@ import { FiEye, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import DoodleMessage from "shared/components/DoodleMessage";
 import Loading from "shared/components/Loading";
+import TodoCount from "shared/components/TodoCount";
 import { ICON_SIZE } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import dateFormat from "shared/util/dateFormat";
@@ -32,7 +33,14 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 
 			{data &&
 				data.list_notes?.map(
-					({ note_id, title_note, observation, color_note, created_at }) => {
+					({
+						note_id,
+						title_note,
+						observation,
+						color_note,
+						created_at,
+						todos,
+					}) => {
 						const createdAt = dateFormat(created_at);
 						const linkToNoteEdit = createURLQueryParams(
 							"/note/edit",
@@ -54,7 +62,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 													{title_note}
 												</Typography>
 											</CardHeader>
-											
+
 											<Typography
 												variant="body2"
 												fontSize={13}
@@ -63,13 +71,23 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 												{observation}
 											</Typography>
 
-											<div>
+											<Grid
+												container
+												justifyContent="space-between"
+												sx={{ mt: 0.5 }}>
+												<TodoCount
+													total={todos.total}
+													totalChecked={
+														todos.total_checked
+													}
+												/>
+
 												<Typography
 													variant="caption"
 													color="GrayText">
 													{createdAt}
 												</Typography>
-											</div>
+											</Grid>
 
 											<CardAction id="card-action">
 												<IconButton
