@@ -3,6 +3,8 @@ import { TextField as TextFieldMui, styled } from "@mui/material";
 export const FormHeaderNoteEdit = styled("div")(
 	({ theme }) => `
         .MuiFormControl-root {
+            width: auto;
+
             > div {
                 > input {
                     font-weight: 600;

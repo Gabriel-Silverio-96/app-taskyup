@@ -2,8 +2,9 @@ import { Grid, IconButton, Typography } from "@mui/material";
 import {
 	Card,
 	CardAction,
-	CardBar,
 	CardContent,
+	CardDot,
+	CardHeader,
 	CardNoteContainer,
 } from "modules/notes/Note/components/CardNote/style";
 import { ICardNotesView } from "modules/notes/Note/components/CardNote/types";
@@ -12,8 +13,10 @@ import { FiEye, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import DoodleMessage from "shared/components/DoodleMessage";
 import Loading from "shared/components/Loading";
+import TodoCount from "shared/components/TodoCount";
 import { ICON_SIZE } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import dateFormat from "shared/util/dateFormat";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
 	const { board_id, palette, data, isFetching, openDialogDeleteOneNote } =
@@ -30,7 +33,15 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 
 			{data &&
 				data.list_notes?.map(
-					({ note_id, title_note, observation, color_note }) => {
+					({
+						note_id,
+						title_note,
+						observation,
+						color_note,
+						created_at,
+						todos,
+					}) => {
+						const createdAt = dateFormat(created_at);
 						const linkToNoteEdit = createURLQueryParams(
 							"/note/edit",
 							{
@@ -43,11 +54,15 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 								<CardNoteContainer>
 									<Card sx={{ height: 130 }}>
 										<CardContent>
-											<Typography
-												variant="body1"
-												fontWeight={800}>
-												{title_note}
-											</Typography>
+											<CardHeader>
+												<CardDot color={color_note} />
+												<Typography
+													variant="body1"
+													fontWeight={800}>
+													{title_note}
+												</Typography>
+											</CardHeader>
+
 											<Typography
 												variant="body2"
 												fontSize={13}
@@ -55,6 +70,25 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 												sx={{ mt: 1 }}>
 												{observation}
 											</Typography>
+
+											<Grid
+												container
+												justifyContent="space-between"
+												sx={{ mt: 0.5 }}>
+												<TodoCount
+													total={todos.total}
+													totalChecked={
+														todos.total_checked
+													}
+												/>
+
+												<Typography
+													variant="caption"
+													color="GrayText">
+													{createdAt}
+												</Typography>
+											</Grid>
+
 											<CardAction id="card-action">
 												<IconButton
 													onClick={() =>
@@ -80,7 +114,6 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 												</Link>
 											</CardAction>
 										</CardContent>
-										<CardBar color={color_note} />
 									</Card>
 								</CardNoteContainer>
 							</Grid>

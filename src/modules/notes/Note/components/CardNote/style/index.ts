@@ -1,5 +1,5 @@
 import { Card as CardMui, CardContent as CardContentMui, styled } from "@mui/material";
-import { ICardBarStyle } from "./types/CardNote.style";
+import { ICardDotStyle } from "./types/CardNote.style";
 
 export const CardNoteContainer = styled("div")(`
     .MuiPaper-root {
@@ -14,11 +14,22 @@ export const CardNoteContainer = styled("div")(`
 export const Card = styled(CardMui)(
 	({ theme }) =>`
     position: relative;
-    border-radius: ${theme.spacing(1)} ${theme.spacing(1)} 0 0;
+    border-radius: ${theme.spacing(1)} ${theme.spacing(1)};
+`);
+
+export const CardHeader = styled("div")(
+	({ theme }) =>`
+        display: grid;
+        grid-template-columns: ${theme.spacing(2)} 1fr;
+        align-items: center;
+        gap: ${theme.spacing(1)};
 `);
 
 export const CardContent = styled(CardContentMui)(
 	({ theme }) => `
+        display: grid;
+        grid-template-rows: ${theme.spacing(3.75)} ${theme.spacing(6)};
+
         p {
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -27,19 +38,21 @@ export const CardContent = styled(CardContentMui)(
             -webkit-line-clamp: 2;
         }
 
+        .MuiTypography-body1 {
+            -webkit-line-clamp: 1;
+        }
+
         p:nth-of-type(2) {
             width: ${theme.spacing(26)};
         }
 `);
 
-export const CardBar = styled("div")<ICardBarStyle>(
+export const CardDot = styled("div")<ICardDotStyle>(
 	({ theme, color }) => `
-        width: 100%;
-        height: ${theme.spacing(0.6)};
+        width: ${theme.spacing(2)};
+        height: ${theme.spacing(2)};
         background-color: ${color};     
-        position: absolute;
-        bottom: 0;
-        right: 0;  
+        border-radius: 100%;
 `);
 
 export const CardAction = styled("div")(

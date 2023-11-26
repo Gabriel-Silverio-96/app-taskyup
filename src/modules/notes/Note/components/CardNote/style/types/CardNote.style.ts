@@ -1,6 +1,6 @@
 import { Theme } from "@emotion/react";
 
-export interface ICardBarStyle {
+export interface ICardDotStyle {
     theme?: Theme, 
     color: string;
 }
