@@ -1,5 +1,5 @@
 import { Card as CardMui, CardContent as CardContentMui, styled } from "@mui/material";
-import { ICardBarStyle, ICardDotStyle } from "./types/CardNote.style";
+import { ICardDotStyle } from "./types/CardNote.style";
 
 export const CardNoteContainer = styled("div")(`
     .MuiPaper-root {
@@ -42,16 +42,6 @@ export const CardContent = styled(CardContentMui)(
         p:nth-of-type(2) {
             width: ${theme.spacing(26)};
         }
-`);
-
-export const CardBar = styled("div")<ICardBarStyle>(
-	({ theme, color }) => `
-        width: 100%;
-        height: ${theme.spacing(0.6)};
-        background-color: ${color};     
-        position: absolute;
-        bottom: 0;
-        right: 0;  
 `);
 
 export const CardDot = styled("div")<ICardDotStyle>(

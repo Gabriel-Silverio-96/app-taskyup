@@ -85,7 +85,6 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 												</Link>
 											</CardAction>
 										</CardContent>
-										{/* <CardBar color={color_note} /> */}
 									</Card>
 								</CardNoteContainer>
 							</Grid>
