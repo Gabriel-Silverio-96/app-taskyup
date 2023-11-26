@@ -1,10 +1,10 @@
-import {  Grid, IconButton, Typography } from "@mui/material";
+import { Grid, IconButton, Typography } from "@mui/material";
 import {
 	Card,
-	CardHeader,
 	CardAction,
 	CardContent,
 	CardDot,
+	CardHeader,
 	CardNoteContainer,
 } from "modules/notes/Note/components/CardNote/style";
 import { ICardNotesView } from "modules/notes/Note/components/CardNote/types";
@@ -15,6 +15,7 @@ import DoodleMessage from "shared/components/DoodleMessage";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import dateFormat from "shared/util/dateFormat";
 
 const CardNoteView: React.FC<ICardNotesView> = props => {
 	const { board_id, palette, data, isFetching, openDialogDeleteOneNote } =
@@ -31,7 +32,8 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 
 			{data &&
 				data.list_notes?.map(
-					({ note_id, title_note, observation, color_note }) => {
+					({ note_id, title_note, observation, color_note, created_at }) => {
+						const createdAt = dateFormat(created_at);
 						const linkToNoteEdit = createURLQueryParams(
 							"/note/edit",
 							{
@@ -60,6 +62,15 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 												sx={{ mt: 1 }}>
 												{observation}
 											</Typography>
+
+											<div>
+												<Typography
+													variant="caption"
+													color="GrayText">
+													{createdAt}
+												</Typography>
+											</div>
+
 											<CardAction id="card-action">
 												<IconButton
 													onClick={() =>

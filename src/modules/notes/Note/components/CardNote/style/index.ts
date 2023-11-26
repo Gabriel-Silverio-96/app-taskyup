@@ -27,6 +27,9 @@ export const CardHeader = styled("div")(
 
 export const CardContent = styled(CardContentMui)(
 	({ theme }) => `
+        display: grid;
+        grid-template-rows: ${theme.spacing(3.75)} ${theme.spacing(6)};
+
         p {
             display: -webkit-box;
             -webkit-box-orient: vertical;
