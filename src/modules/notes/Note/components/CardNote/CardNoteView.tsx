@@ -74,7 +74,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 											<Grid
 												container
 												justifyContent="space-between"
-												sx={{ mt: 0.5 }}>
+												sx={{ mt: 2 }}>
 												<TodoCount
 													total={todos.total}
 													totalChecked={

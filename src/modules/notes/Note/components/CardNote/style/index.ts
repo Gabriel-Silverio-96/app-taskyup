@@ -1,20 +1,22 @@
 import { Card as CardMui, CardContent as CardContentMui, styled } from "@mui/material";
 import { ICardDotStyle } from "./types/CardNote.style";
 
-export const CardNoteContainer = styled("div")(`
-    .MuiPaper-root {
-        :hover {
-            #card-action {
-                opacity: 1;
+export const CardNoteContainer = styled("div")(
+	({ theme }) => `
+        .MuiPaper-root {
+            height: ${theme.spacing(17.5)};
+            :hover {
+                #card-action {
+                    opacity: 1;
+                }
             }
-        }
-    }    
+        }    
 `);
 
 export const Card = styled(CardMui)(
 	({ theme }) =>`
-    position: relative;
-    border-radius: ${theme.spacing(1)} ${theme.spacing(1)};
+        position: relative;
+        border-radius: ${theme.spacing(1)} ${theme.spacing(1)};
 `);
 
 export const CardHeader = styled("div")(
@@ -28,7 +30,7 @@ export const CardHeader = styled("div")(
 export const CardContent = styled(CardContentMui)(
 	({ theme }) => `
         display: grid;
-        grid-template-rows: ${theme.spacing(3.75)} ${theme.spacing(6)};
+        grid-template-rows: ${theme.spacing(3.75)} ${theme.spacing(5.9)};
 
         p {
             display: -webkit-box;
