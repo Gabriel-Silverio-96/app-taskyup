@@ -12,7 +12,7 @@ const TodoCount: React.FC<ITodoCount> = ({ total, totalChecked }) => {
 			<LuListTodo size={ICON_SIZE.MEDIUM} color={palette.primary.main} />
 
 			<Typography variant="caption" color="GrayText">
-				{total}/{totalChecked}
+				{totalChecked}/{total}
 			</Typography>
 		</TodoCountContainer>
 	);
