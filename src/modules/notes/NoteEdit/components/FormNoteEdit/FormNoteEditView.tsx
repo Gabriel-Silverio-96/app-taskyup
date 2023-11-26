@@ -24,8 +24,8 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 
 	return (
 		<form onSubmit={handleSubmit(handleSubmitNoteEdit)}>
-			<Grid container spacing={4}>
-				<Grid item md={8} xs={8}>
+			<Grid container spacing={4} justifyContent="space-between">
+				<Grid item md="auto" xs={9}>
 					<FormHeaderNoteEdit>
 						<TextField
 							{...register("title_note")}
@@ -42,7 +42,7 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 						/>
 					</FormHeaderNoteEdit>
 				</Grid>
-				<Grid item md={4} xs={4} textAlign="right">
+				<Grid item md="auto" xs={3} textAlign="right">
 					<FormActionNoteEdit>
 						<Link to={linkPreviousPage}>
 							<IconButton type="button">
