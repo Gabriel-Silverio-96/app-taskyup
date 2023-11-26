@@ -1,9 +1,10 @@
-import { Grid, IconButton, Typography } from "@mui/material";
+import {  Grid, IconButton, Typography } from "@mui/material";
 import {
 	Card,
+	CardHeader,
 	CardAction,
-	CardBar,
 	CardContent,
+	CardDot,
 	CardNoteContainer,
 } from "modules/notes/Note/components/CardNote/style";
 import { ICardNotesView } from "modules/notes/Note/components/CardNote/types";
@@ -43,11 +44,15 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 								<CardNoteContainer>
 									<Card sx={{ height: 130 }}>
 										<CardContent>
-											<Typography
-												variant="body1"
-												fontWeight={800}>
-												{title_note}
-											</Typography>
+											<CardHeader>
+												<CardDot color={color_note} />
+												<Typography
+													variant="body1"
+													fontWeight={800}>
+													{title_note}
+												</Typography>
+											</CardHeader>
+											
 											<Typography
 												variant="body2"
 												fontSize={13}
@@ -80,7 +85,7 @@ const CardNoteView: React.FC<ICardNotesView> = props => {
 												</Link>
 											</CardAction>
 										</CardContent>
-										<CardBar color={color_note} />
+										{/* <CardBar color={color_note} /> */}
 									</Card>
 								</CardNoteContainer>
 							</Grid>
