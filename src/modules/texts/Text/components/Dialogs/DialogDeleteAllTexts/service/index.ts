@@ -1,2 +1,2 @@
-export * as default from "./DialogDeleteAllTexts.service";
-export * from "./DialogDeleteAllTexts.service";
+export * as default from "./fetchDeleteAllTextsService";
+export * from "./fetchDeleteAllTextsService";
