@@ -3,8 +3,8 @@ import React, { memo } from "react";
 import { useParams } from "react-router-dom";
 import { useContextText } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
-import DialogDeleteAllTextView from "./DialogDeleteAllTextsView";
-import { fetchDeleteAllTextsService } from "./service";
+import DialogDeleteAllTextView from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/DialogDeleteAllTextsView";
+import { fetchDeleteAllTextsService } from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/services";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 const DialogDeleteAllTexts: React.FC = () => {
@@ -14,19 +14,21 @@ const DialogDeleteAllTexts: React.FC = () => {
 	const { closeDialogDeleteAllTexts } = useDialogText();
 	const { dialogDeleteAllText } = useContextText();
 
-	const optionMutation = {
-		onError: () => closeDialogDeleteAllTexts(),
-		onSuccess: () => {
-			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
-			closeDialogDeleteAllTexts();
-		},
+	const onError = () => closeDialogDeleteAllTexts();
+	const onSuccess = () => {
+		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
+		closeDialogDeleteAllTexts();
 	};
 
+	const optionsMutation = { onError, onSuccess };
+
 	const mutationFn = () => fetchDeleteAllTextsService(board_id);
-	const { mutate: fetchDeleteAll, isLoading: isDeleting } = useMutation(
+	const { mutate: fetchDeleteAll, isLoading } = useMutation(
 		mutationFn,
-		optionMutation
+		optionsMutation
 	);
+
+	const onClose = !isLoading ? closeDialogDeleteAllTexts : () => "";
 
 	return (
 		<DialogDeleteAllTextView
@@ -34,7 +36,8 @@ const DialogDeleteAllTexts: React.FC = () => {
 				dialogDeleteAllText,
 				closeDialogDeleteAllTexts,
 				fetchDeleteAll,
-				isDeleting,
+				isLoading,
+				onClose,
 			}}
 		/>
 	);
