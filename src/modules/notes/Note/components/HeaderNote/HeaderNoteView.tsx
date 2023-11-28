@@ -11,7 +11,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 		data,
 		openDialogDeleteAllNotes,
 		isMediumScreen,
-		countNotes,
+		isDisabledDeleteAllNotes,
 		handleClickCreateNote,
 		isLoading,
 		isFetching,
@@ -47,7 +47,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 						</Tooltip>
 						<IconButton
 							onClick={openDialogDeleteAllNotes}
-							disabled={countNotes === 0}>
+							disabled={isDisabledDeleteAllNotes}>
 							<FiTrash size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Nav>
