@@ -14,19 +14,21 @@ const DialogDeleteAllTexts: React.FC = () => {
 	const { closeDialogDeleteAllTexts } = useDialogText();
 	const { dialogDeleteAllText } = useContextText();
 
-	const optionMutation = {
-		onError: () => closeDialogDeleteAllTexts(),
-		onSuccess: () => {
-			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
-			closeDialogDeleteAllTexts();
-		},
+	const onError = () => closeDialogDeleteAllTexts();
+	const onSuccess = () => {
+		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
+		closeDialogDeleteAllTexts();
 	};
 
+	const optionsMutation = { onError, onSuccess };
+
 	const mutationFn = () => fetchDeleteAllTextsService(board_id);
-	const { mutate: fetchDeleteAll, isLoading: isDeleting } = useMutation(
+	const { mutate: fetchDeleteAll, isLoading } = useMutation(
 		mutationFn,
-		optionMutation
+		optionsMutation
 	);
+
+	const onClose = !isLoading ? closeDialogDeleteAllTexts : () => "";
 
 	return (
 		<DialogDeleteAllTextView
@@ -34,7 +36,8 @@ const DialogDeleteAllTexts: React.FC = () => {
 				dialogDeleteAllText,
 				closeDialogDeleteAllTexts,
 				fetchDeleteAll,
-				isDeleting,
+				isLoading,
+				onClose,
 			}}
 		/>
 	);

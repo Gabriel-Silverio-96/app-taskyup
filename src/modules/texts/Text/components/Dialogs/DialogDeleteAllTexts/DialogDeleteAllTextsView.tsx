@@ -19,11 +19,11 @@ const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = props => {
 		dialogDeleteAllText,
 		closeDialogDeleteAllTexts,
 		fetchDeleteAll,
-		isDeleting,
+		isLoading,
+		onClose,
 	} = props;
 
 	const { open } = dialogDeleteAllText;
-	const onClose = !isDeleting ? closeDialogDeleteAllTexts : () => "";
 
 	return (
 		<Dialog fullWidth maxWidth="xs" open={open} onClose={onClose}>
@@ -40,7 +40,7 @@ const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogDeleteAllTexts}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
@@ -60,7 +60,7 @@ const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = props => {
 						<Button
 							variant="outlined"
 							onClick={closeDialogDeleteAllTexts}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							No
 						</Button>
 					</Grid>
@@ -68,7 +68,7 @@ const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = props => {
 						<LoadingButton
 							variant="contained"
 							onClick={fetchDeleteAll}
-							loading={isDeleting}>
+							loading={isLoading}>
 							Yes
 						</LoadingButton>
 					</Grid>
