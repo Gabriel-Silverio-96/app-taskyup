@@ -1,4 +1,4 @@
-import { IFetchGetNotesResponse } from "../services/types";
+import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
 
 export interface INoteView {
 	data: IFetchGetNotesResponse | undefined;
