@@ -12,7 +12,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 		openDialogDeleteAllNotes,
 		isMediumScreen,
 		isDisabledDeleteAllNotes,
-		handleClickCreateNote,
+		mutate,
 		isLoading,
 		isFetching,
 	} = props;
@@ -34,7 +34,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 				</Grid>
 				<Grid item xl={6} md={6} sm={4} xs={4}>
 					<Nav>
-						<IconButton onClick={handleClickCreateNote}>
+						<IconButton onClick={() => mutate()}>
 							<FiPlus size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 						<Tooltip

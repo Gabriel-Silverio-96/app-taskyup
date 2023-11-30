@@ -38,10 +38,7 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count }) => {
 	const mutationFn = () =>
 		fetchPostCreateNoteService({ board_id, body: mountBodyNote() });
 
-	const { mutate: handleClickCreateNote, isLoading } = useMutation(
-		mutationFn,
-		{ onSuccess }
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
 	const isDisabledDeleteAllNotes = count === 0;
 
@@ -52,7 +49,7 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count }) => {
 				openDialogDeleteAllNotes,
 				isMediumScreen,
 				isDisabledDeleteAllNotes,
-				handleClickCreateNote,
+				mutate,
 				isLoading,
 				isFetching,
 			}}
