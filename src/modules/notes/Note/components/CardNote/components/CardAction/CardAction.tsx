@@ -2,7 +2,7 @@ import { IconButton, useTheme } from "@mui/material";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { ICON_SIZE } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { CardActionContainer } from "./style/CardNoteAction.style";
+import { CardActionContainer } from "modules/notes/Note/components/CardNote/components/CardAction/style";
 import { FiEye, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
