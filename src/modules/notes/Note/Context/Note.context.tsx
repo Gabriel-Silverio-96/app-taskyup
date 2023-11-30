@@ -1,31 +1,25 @@
 import { createContext, useContext, useState } from "react";
-import { IContextNote, IContextProviderNote } from "./types";
+import {
+	IContextNote,
+	IContextProviderNote,
+} from "modules/notes/Note/Context/types";
 
 export const ContextNote = createContext<IContextNote | undefined>(undefined);
 
 export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 	children,
 }) => {
-	const [isOpenDialogNewNote, setIsOpenDialogNewNote] = useState(false);
-	const [isOpenDialogEditNote, setIsOpenDialogEditNote] = useState(false);
 	const [isOpenDialogDeleteOneNote, setIsOpenDialogDeleteOneNote] =
 		useState(false);
 	const [isOpenDialogDeleteAllNotes, setIsOpenDialogDeleteAllNotes] =
 		useState(false);
 	const [noteID, setNoteID] = useState("");
-	const [countNotes, setCountNotes] = useState(0);
 
 	const value = {
-		isOpenDialogNewNote,
-		setIsOpenDialogNewNote,
-		isOpenDialogEditNote,
-		setIsOpenDialogEditNote,
 		isOpenDialogDeleteOneNote,
 		setIsOpenDialogDeleteOneNote,
 		isOpenDialogDeleteAllNotes,
 		setIsOpenDialogDeleteAllNotes,
-		countNotes,
-		setCountNotes,
 		noteID,
 		setNoteID,
 	};

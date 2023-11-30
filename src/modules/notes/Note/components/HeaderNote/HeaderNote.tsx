@@ -1,6 +1,5 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useContextNote } from "modules/notes/Note/Context";
 import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
 import { fetchPostCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
 import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
@@ -11,14 +10,14 @@ import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { IHeaderNote } from "./types";
 
-const HeaderNote: React.FC = () => {
+const HeaderNote: React.FC<IHeaderNote> = ({ count }) => {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 	const { board_id } = useParams();
 
 	const { data, isFetching } = useFetchGetOneBoard(board_id);
-	const { countNotes } = useContextNote();
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
 	const { breakpoints } = useTheme();
@@ -39,10 +38,9 @@ const HeaderNote: React.FC = () => {
 	const mutationFn = () =>
 		fetchPostCreateNoteService({ board_id, body: mountBodyNote() });
 
-	const { mutate: handleClickCreateNote, isLoading } = useMutation(
-		mutationFn,
-		{ onSuccess }
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
+
+	const isDisabledDeleteAllNotes = count === 0;
 
 	return (
 		<HeaderNoteView
@@ -50,8 +48,8 @@ const HeaderNote: React.FC = () => {
 				data,
 				openDialogDeleteAllNotes,
 				isMediumScreen,
-				countNotes,
-				handleClickCreateNote,
+				isDisabledDeleteAllNotes,
+				mutate,
 				isLoading,
 				isFetching,
 			}}
