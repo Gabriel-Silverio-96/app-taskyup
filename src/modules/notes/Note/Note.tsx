@@ -13,7 +13,9 @@ const Note: React.FC = () => {
 
 	const { data, isFetching } = useQuery(queryKey, queryFn);
 
-	return <NoteView {...{ data, isFetching }} />;
+	const isShowDoodleMessage = data?.count === 0;
+
+	return <NoteView {...{ data, isFetching, isShowDoodleMessage }} />;
 };
 
 export default Note;

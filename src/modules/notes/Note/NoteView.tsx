@@ -7,7 +7,9 @@ import HeaderNote from "modules/notes/Note/components/HeaderNote";
 import DoodleMessage from "shared/components/DoodleMessage";
 import { INoteView } from "modules/notes/Note/types";
 
-const NoteView: React.FC<INoteView> = ({ data, isFetching }) => {
+const NoteView: React.FC<INoteView> = props => {
+	const { data, isFetching, isShowDoodleMessage } = props;
+
 	return (
 		<ContextProviderNote>
 			<Loading isLoading={isFetching} backdrop />
@@ -15,7 +17,7 @@ const NoteView: React.FC<INoteView> = ({ data, isFetching }) => {
 			<DoodleMessage
 				title="You have not created any notes"
 				message="Create a note 😊"
-				show={data?.count === 0}
+				show={isShowDoodleMessage}
 			/>
 			<CardNote {...{ data, isFetching }} />
 			<DialogDeleteOneNote />
