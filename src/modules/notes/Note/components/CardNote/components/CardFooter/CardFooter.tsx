@@ -8,13 +8,13 @@ const CardFooter: React.FC<ICardFooter> = ({
 	total_checked,
 	created_at,
 }) => {
-	const createdAtFormated = dateFormat(created_at);
+	const createdAtFormatted = dateFormat(created_at);
 
 	return (
 		<Grid container justifyContent="space-between" sx={{ mt: 2 }}>
 			<TodoCount total={total} totalChecked={total_checked} />
 			<Typography variant="caption" color="GrayText">
-				{createdAtFormated}
+				{createdAtFormatted}
 			</Typography>
 		</Grid>
 	);
