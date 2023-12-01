@@ -14,7 +14,7 @@ const TextView: React.FC<ITextView> = props => {
 	return (
 		<ContextProviderText>
 			<Loading isLoading={isFetching} backdrop />
-			<HeaderText />
+			<HeaderText count={data?.count} />
 			<Templates />
 			<CardText {...{ data }} />
 			<DialogDeleteOneText />
