@@ -11,7 +11,7 @@ const HeaderText: React.FC<IHeaderText> = ({ count }) => {
 	const { board_id } = useParams();
 	const { data } = useFetchGetOneBoard(board_id);
 
-	const { isOpenTemplates, setIsOpenTemplates, countText } = useContextText();
+	const { isOpenTemplates, setIsOpenTemplates } = useContextText();
 	const { openDialogDeleteAllTexts } = useDialogText();
 
 	const { palette, breakpoints } = useTheme();
@@ -25,7 +25,6 @@ const HeaderText: React.FC<IHeaderText> = ({ count }) => {
 		<HeaderTextView
 			{...{
 				data,
-				countText,
 				palette,
 				isMediumScreen,
 				openDialogDeleteAllTexts,

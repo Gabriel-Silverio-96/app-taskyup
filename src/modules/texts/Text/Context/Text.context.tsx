@@ -18,7 +18,6 @@ export const ContextProviderText: React.FC<IContextProviderText> = ({
 		useState<IDialogDeleteSingleText>(INITIAL_STATE_DIALOG_DELETE_ONE_TEXT);
 	const [dialogDeleteAllText, setDialogDeleteAllText] =
 		useState<IDialogDeleteAllText>(INITIAL_STATE_DIALOG_DELETE_ALL_TEXT);
-	const [countText, setCountText] = useState(0);
 	const [isOpenTemplates, setIsOpenTemplates] = useState(false);
 
 	const value = {
@@ -26,8 +25,6 @@ export const ContextProviderText: React.FC<IContextProviderText> = ({
 		setDialogDeleteOneText,
 		dialogDeleteAllText,
 		setDialogDeleteAllText,
-		countText,
-		setCountText,
 		isOpenTemplates,
 		setIsOpenTemplates,
 	};
