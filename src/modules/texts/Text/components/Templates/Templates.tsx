@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContextText } from "modules/texts/Text/Context";
-import { fetchPostTextService } from "modules/texts/Text/service";
+import { fetchPostTextService } from "modules/texts/Text/services";
 import { IFetchPostTextResponse } from "modules/texts/Text/types";
 import TemplatesView from "./TemplatesView";
 import { TypeTemplateName } from "./types/Template.types";
@@ -19,7 +19,7 @@ const Templates: React.FC = () => {
 
 	const mutationFn = async (templateName: TypeTemplateName) => {
 		const body = await mountTemplateBody(templateName);
-		const { data } = await fetchPostTextService(board_id, body);
+		const { data } = await fetchPostTextService({ board_id, body });
 		return data;
 	};
 

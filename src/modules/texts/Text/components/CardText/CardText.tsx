@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CardHeader from "modules/texts/Text/components/CardText/components/CardHeader";
-import { fetchPostTextService } from "modules/texts/Text/service";
 import { IFetchPostTextResponse } from "modules/texts/Text/types";
 import { mountBodyText } from "modules/texts/Text/utils/mount-body-text";
 import React, { memo } from "react";
@@ -18,6 +17,7 @@ import {
 	CardTextContainer,
 } from "modules/texts/Text/components/CardText/style";
 import { ICardText } from "modules/texts/Text/components/CardText/types";
+import { fetchPostTextService } from "modules/texts/Text/services";
 
 const CardText: React.FC<ICardText> = ({ data }) => {
 	const { board_id } = useParams();
@@ -26,7 +26,7 @@ const CardText: React.FC<ICardText> = ({ data }) => {
 
 	const mutationFn = async () => {
 		const body = mountBodyText();
-		const { data } = await fetchPostTextService(board_id, body);
+		const { data } = await fetchPostTextService({ board_id, body });
 
 		return data;
 	};
