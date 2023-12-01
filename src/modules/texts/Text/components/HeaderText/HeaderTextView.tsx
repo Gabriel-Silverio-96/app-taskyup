@@ -2,20 +2,20 @@ import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { FiTrash, FiUsers } from "react-icons/fi";
 import { MdOutlineLightbulb } from "react-icons/md";
-import { Nav } from "./style";
-import { IHeaderTextView } from "./types/HeaderText.component";
+import { Nav } from "modules/texts/Text/components/HeaderText/style";
+import { IHeaderTextView } from "modules/texts/Text/components/HeaderText/types";
 import { ICON_SIZE } from "shared/constants";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
 		data,
-		countText,
 		palette,
 		isMediumScreen,
 		openDialogDeleteAllTexts,
 		board_id,
 		toogleTemplates,
 		isOpenTemplates,
+		isDisabledDeleteAllTexts,
 	} = props;
 
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
@@ -45,7 +45,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 					</Tooltip>
 					<IconButton
 						onClick={() => openDialogDeleteAllTexts(board_id!)}
-						disabled={countText === 0}>
+						disabled={isDisabledDeleteAllTexts}>
 						<FiTrash size={ICON_SIZE.MEDIUM} />
 					</IconButton>
 				</Nav>
