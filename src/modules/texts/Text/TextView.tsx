@@ -11,10 +11,9 @@ import { ITextView } from "modules/texts/Text/types";
 const TextView: React.FC<ITextView> = props => {
 	const { data, isFetching } = props;
 
-	if (isFetching) return <Loading isLoading backdrop />;
-
 	return (
 		<ContextProviderText>
+			<Loading isLoading={isFetching} backdrop />
 			<HeaderText count={data?.count} />
 			<Templates />
 			<CardText {...{ data }} />
