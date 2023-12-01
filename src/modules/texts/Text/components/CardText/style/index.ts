@@ -52,7 +52,7 @@ export const CardCreateText = styled(CardPatternText)(
     `
 );
 
-export const CardText = styled(CardPatternText)(
+export const CardTextContainer = styled(CardPatternText)(
 	({ theme }) => `
         display: flex;
         flex-direction: column;

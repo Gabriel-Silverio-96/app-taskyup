@@ -1,41 +1,28 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useContextText } from "modules/texts/Text/Context";
-import CardTextView from "modules/texts/Text/components/CardText/CardTextView";
-import { fetchGetAllTextsService } from "modules/texts/Text/components/CardText/services";
-import { IFetchGetAllTextsResponse } from "modules/texts/Text/components/CardText/services/types";
+import { Typography } from "@mui/material";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import CardHeader from "modules/texts/Text/components/CardText/components/CardHeader";
 import { fetchPostTextService } from "modules/texts/Text/service";
 import { IFetchPostTextResponse } from "modules/texts/Text/types";
 import { mountBodyText } from "modules/texts/Text/utils/mount-body-text";
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
+import { FiPlus } from "react-icons/fi";
 import { useNavigate, useParams } from "react-router-dom";
+import Loading from "shared/components/Loading";
+import { ICON_SIZE } from "shared/constants";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import CardContent from "modules/texts/Text/components/CardText/components/CardContent";
+import {
+	CardContainer,
+	CardCreateText,
+	CardTextContainer,
+} from "modules/texts/Text/components/CardText/style";
+import { ICardText } from "modules/texts/Text/components/CardText/types";
 
-const CardText: React.FC = () => {
-	const { setCountText } = useContextText();
+const CardText: React.FC<ICardText> = ({ data }) => {
 	const { board_id } = useParams();
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
-
-	const queryKey = [
-		TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
-		{ variables: board_id },
-	];
-	const queryFn = () => fetchGetAllTextsService(board_id);
-
-	const onSuccessQuery = ({ count }: IFetchGetAllTextsResponse) =>
-		setCountText(count);
-
-	const optiosQuery = { onSuccess: onSuccessQuery };
-	const { data, isFetching } = useQuery<IFetchGetAllTextsResponse>(
-		queryKey,
-		queryFn,
-		optiosQuery
-	);
-
-	useEffect(() => {
-		data && setCountText(data.count);
-	}, [board_id]);
 
 	const mutationFn = async () => {
 		const body = mountBodyText();
@@ -44,7 +31,7 @@ const CardText: React.FC = () => {
 		return data;
 	};
 
-	const onSuccessMutation = async ({ text_id }: IFetchPostTextResponse) => {
+	const onSuccess = async ({ text_id }: IFetchPostTextResponse) => {
 		const redirectTo = createURLQueryParams("/text/edit", {
 			text_id,
 			board_id,
@@ -56,20 +43,29 @@ const CardText: React.FC = () => {
 		]);
 	};
 
-	const optionsMutation = { onSuccess: onSuccessMutation };
-	const { mutate: handleClickCreateText, isLoading: isCreatingText } =
-		useMutation(mutationFn, optionsMutation);
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
 	return (
-		<CardTextView
-			{...{
-				data,
-				isFetching,
-				handleClickCreateText,
-				isCreatingText,
-				board_id,
-			}}
-		/>
+		<CardContainer>
+			<Loading isLoading={isLoading} backdrop message="Creating text" />
+			<div>
+				<CardCreateText onClick={() => mutate()} role="button">
+					<FiPlus size={ICON_SIZE.EXTRA_LARGE} />
+					<Typography variant="caption">Create</Typography>
+				</CardCreateText>
+			</div>
+			{data &&
+				data.texts.map(({ title_text, text_id, created_at }) => {
+					return (
+						<div key={text_id}>
+							<CardTextContainer>
+								<CardHeader {...{ text_id, board_id }} />
+								<CardContent {...{ title_text, created_at }} />
+							</CardTextContainer>
+						</div>
+					);
+				})}
+		</CardContainer>
 	);
 };
 
