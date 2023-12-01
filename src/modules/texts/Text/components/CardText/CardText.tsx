@@ -1,25 +1,21 @@
-import { useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import React, { memo, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import CardTextView from "modules/texts/Text/components/CardText/CardTextView";
-import { mountBodyText } from "modules/texts/Text/utils/mount-body-text";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
-import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import { useContextText } from "modules/texts/Text/Context";
-import { fetchPostTextService } from "modules/texts/Text/service";
-import { IFetchPostTextResponse } from "modules/texts/Text/types";
+import CardTextView from "modules/texts/Text/components/CardText/CardTextView";
 import { fetchGetAllTextsService } from "modules/texts/Text/components/CardText/services";
 import { IFetchGetAllTextsResponse } from "modules/texts/Text/components/CardText/services/types";
+import { fetchPostTextService } from "modules/texts/Text/service";
+import { IFetchPostTextResponse } from "modules/texts/Text/types";
+import { mountBodyText } from "modules/texts/Text/utils/mount-body-text";
+import React, { memo, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
 
 const CardText: React.FC = () => {
-	const { palette } = useTheme();
 	const { setCountText } = useContextText();
 	const { board_id } = useParams();
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
-	const { openDialogDeleteOneText } = useDialogText();
 
 	const queryKey = [
 		TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
@@ -67,13 +63,11 @@ const CardText: React.FC = () => {
 	return (
 		<CardTextView
 			{...{
-				palette,
 				data,
 				isFetching,
 				handleClickCreateText,
 				isCreatingText,
 				board_id,
-				openDialogDeleteOneText,
 			}}
 		/>
 	);

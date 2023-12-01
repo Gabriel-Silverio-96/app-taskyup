@@ -1,29 +1,20 @@
-import { IconButton, Typography } from "@mui/material";
-import React from "react";
-import { FiEye, FiPlus, FiTrash } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import Loading from "shared/components/Loading";
-import dateFormat from "shared/util/dateFormat";
-import {
-	CardContainer,
-	CardContent,
-	CardCreateText,
-	CardHeader,
-	CardText,
-} from "./style";
+import { Typography } from "@mui/material";
+import CardHeader from "modules/texts/Text/components/CardText/components/CardHeader";
 import { ICardTextView } from "modules/texts/Text/components/CardText/types";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import React from "react";
+import { FiPlus } from "react-icons/fi";
+import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
+import dateFormat from "shared/util/dateFormat";
+import { CardContainer, CardContent, CardCreateText, CardText } from "./style";
 
 const CardTextView: React.FC<ICardTextView> = props => {
 	const {
-		palette,
 		data,
 		isFetching,
 		handleClickCreateText,
 		isCreatingText,
 		board_id,
-		openDialogDeleteOneText,
 	} = props;
 
 	if (isFetching) {
@@ -46,30 +37,10 @@ const CardTextView: React.FC<ICardTextView> = props => {
 			{data &&
 				data.texts.map(({ title_text, text_id, created_at }) => {
 					const createdAt = dateFormat(created_at);
-					const linkTo = createURLQueryParams("/text/edit", {
-						text_id,
-						board_id,
-					});
-
 					return (
 						<div key={text_id}>
 							<CardText>
-								<CardHeader>
-									<IconButton
-										onClick={() =>
-											openDialogDeleteOneText(text_id)
-										}>
-										<FiTrash
-											color={palette.error.main}
-											size={ICON_SIZE.MEDIUM}
-										/>
-									</IconButton>
-									<Link to={linkTo}>
-										<IconButton>
-											<FiEye size={ICON_SIZE.MEDIUM} />
-										</IconButton>
-									</Link>
-								</CardHeader>
+								<CardHeader {...{ text_id, board_id }} />
 								<CardContent>
 									<Typography
 										variant="body1"

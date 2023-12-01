@@ -35,7 +35,7 @@ export const CardPatternText = styled(CardMui)(
     `
 );
 
-export const CardCreateText = styled(CardPatternText)(    
+export const CardCreateText = styled(CardPatternText)(
 	({ theme }) => `
         background-color: ${theme.palette.primary.main};
         display: flex;
@@ -52,7 +52,7 @@ export const CardCreateText = styled(CardPatternText)(
     `
 );
 
-export const CardText = styled(CardPatternText)(    
+export const CardText = styled(CardPatternText)(
 	({ theme }) => `
         display: flex;
         flex-direction: column;
@@ -68,16 +68,7 @@ export const CardText = styled(CardPatternText)(
     `
 );
 
-export const CardHeader = styled("div")(    
-	() => `
-        text-align: right;          
-        opacity: 0;
-        transition: .3s;
-        cursor: pointer;
-    `
-);
-
-export const CardContent = styled("div")(    
+export const CardContent = styled("div")(
 	({ theme }) => `
         min-height: ${theme.spacing(14)};
         display: flex;
