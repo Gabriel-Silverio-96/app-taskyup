@@ -32,11 +32,11 @@ const CardText: React.FC<ICardText> = ({ data }) => {
 	};
 
 	const onSuccess = async ({ text_id }: IFetchPostTextResponse) => {
-		const redirectTo = createURLQueryParams("/text/edit", {
+		const redirectToTextEdit = createURLQueryParams("/text/edit", {
 			text_id,
 			board_id,
 		});
-		navigate(redirectTo);
+		navigate(redirectToTextEdit);
 
 		await queryClient.invalidateQueries([
 			TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
