@@ -5,8 +5,8 @@ import React from "react";
 import { FiPlus } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
-import dateFormat from "shared/util/dateFormat";
-import { CardContainer, CardContent, CardCreateText, CardText } from "./style";
+import CardContent from "./components/CardContent";
+import { CardContainer, CardCreateText, CardText } from "./style";
 
 const CardTextView: React.FC<ICardTextView> = props => {
 	const {
@@ -17,9 +17,7 @@ const CardTextView: React.FC<ICardTextView> = props => {
 		board_id,
 	} = props;
 
-	if (isFetching) {
-		return <Loading isLoading backdrop />;
-	}
+	if (isFetching) return <Loading isLoading backdrop />;
 
 	return (
 		<CardContainer>
@@ -36,23 +34,11 @@ const CardTextView: React.FC<ICardTextView> = props => {
 			</div>
 			{data &&
 				data.texts.map(({ title_text, text_id, created_at }) => {
-					const createdAt = dateFormat(created_at);
 					return (
 						<div key={text_id}>
 							<CardText>
 								<CardHeader {...{ text_id, board_id }} />
-								<CardContent>
-									<Typography
-										variant="body1"
-										fontWeight={800}>
-										{title_text}
-									</Typography>
-									<Typography
-										variant="caption"
-										color="GrayText">
-										Created at {createdAt}
-									</Typography>
-								</CardContent>
+								<CardContent {...{ title_text, created_at }} />
 							</CardText>
 						</div>
 					);
