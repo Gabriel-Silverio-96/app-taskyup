@@ -1,23 +1,21 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import MarkdownView from "./MarkdownView";
-import { INITIAL_STATE_DATA_TEXT } from "./constant";
-import { fetchGetOneTextService, fetchPatchTextService } from "./service";
-import { IDataText } from "./types";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { useContextTextEdit } from "modules/texts/TextEdit/Context";
+import MarkdownView from "./MarkdownView";
+import { fetchGetOneTextService, fetchPatchTextService } from "./service";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
+
+	const { dataText, setDataText } = useContextTextEdit();
 
 	const [searchParams] = useSearchParams();
 	const text_id = searchParams.get("text_id");
 	const board_id = searchParams.get("board_id");
 
 	const [isLoading, setIsLoading] = useState(true);
-	const [dataText, setDataText] = useState<IDataText>(
-		INITIAL_STATE_DATA_TEXT
-	);
 
 	useEffect(() => {
 		const fetchGetOneText = async () => {

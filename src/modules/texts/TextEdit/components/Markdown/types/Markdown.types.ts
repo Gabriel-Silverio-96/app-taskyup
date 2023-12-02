@@ -7,6 +7,7 @@ export interface IDataText {
 	title_board: string;
 	title_text: string;
 	created_at: string;
+	public: boolean;
 }
 
 export interface IMarkdownView {
@@ -37,4 +38,5 @@ export interface IFetchGetOneTextResponse {
 	title_text: string;
 	text: string;
 	created_at: string;
+	public: boolean;
 }

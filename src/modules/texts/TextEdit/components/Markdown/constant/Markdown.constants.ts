@@ -5,4 +5,5 @@ export const INITIAL_STATE_DATA_TEXT: IDataText = {
 	title_text: "",
 	text: "",
 	created_at: "",
+	public: false,
 };
