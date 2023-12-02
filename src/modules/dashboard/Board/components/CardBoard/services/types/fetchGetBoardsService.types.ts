@@ -1,4 +1,4 @@
-import { TypeBoard } from "modules/dashboard/Board/components/CardBoard/types";
+import { TypeBoard } from "shared/common/types/AppTypes";
 
 export interface IMemberBoard {
 	first_name: string;

@@ -1,34 +1,18 @@
-import { Card, Grid, IconButton, MenuItem, Typography } from "@mui/material";
-import React, { MouseEvent } from "react";
-import { FiEdit, FiTrash, FiMoreHorizontal } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import DoodleMessage from "shared/components/DoodleMessage";
-import Loading from "shared/components/Loading";
+import { Card, Grid, Typography } from "@mui/material";
 import CardBoardAvatar from "modules/dashboard/Board/components/CardBoard/components/CardBoardAvatar";
 import {
 	CardBoardContainer,
 	CardContent,
-	CardHeader,
-	CardIcon,
-	Menu,
 } from "modules/dashboard/Board/components/CardBoard/style";
 import { ICardBoardView } from "modules/dashboard/Board/components/CardBoard/types";
-import { selectBoardIcon } from "modules/dashboard/Board/components/CardBoard/utils/select-board-icon";
-import { ICON_SIZE } from "shared/constants";
+import React from "react";
+import { Link } from "react-router-dom";
+import DoodleMessage from "shared/components/DoodleMessage";
+import Loading from "shared/components/Loading";
+import CardHeader from "modules/dashboard/Board/components/CardBoard/components/CardHeader";
 
 const CardBoardView: React.FC<ICardBoardView> = props => {
-	const {
-		data,
-		isFetching,
-		palette,
-		openMenu,
-		closeMenu,
-		anchorEl,
-		isOpenMenu,
-		handleBoardID,
-		openDialogEditBoard,
-		openDialogDeleteOneBoard,
-	} = props;
+	const { data, isFetching } = props;
 
 	return (
 		<Grid container spacing={2}>
@@ -48,18 +32,7 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 						background_image,
 						members_board,
 					}) => {
-						const boardIcon = selectBoardIcon(
-							type_board,
-							palette.secondary.main
-						);
 						const linkBoard = `/${type_board}/${board_id}`;
-
-						const handleClickCardOptions = (
-							event: MouseEvent<HTMLButtonElement>
-						) => {
-							handleBoardID(board_id);
-							openMenu(event);
-						};
 
 						return (
 							<Grid item xl={2} md={3} xs={12} key={board_id}>
@@ -68,81 +41,13 @@ const CardBoardView: React.FC<ICardBoardView> = props => {
 									backgroundimage={background_image}>
 									<Card sx={{ height: 120 }}>
 										<CardContent>
-											<CardHeader>
-												<Link to={linkBoard}>
-													<CardIcon>
-														{boardIcon}
-														<Typography
-															color="text.secondary"
-															gutterBottom
-															sx={{
-																fontSize: 12,
-															}}>
-															{type_board}
-														</Typography>
-													</CardIcon>
-												</Link>
-												<IconButton
-													sx={{ p: 0 }}
-													disabled={isFetching}
-													onClick={
-														handleClickCardOptions
-													}
-													data-testid="button-card-board-options">
-													<FiMoreHorizontal
-														size={ICON_SIZE.LARGE}
-													/>
-												</IconButton>
-												<Menu
-													anchorEl={anchorEl}
-													open={isOpenMenu}
-													onClose={closeMenu}
-													autoFocus={false}
-													transitionDuration={{
-														appear: 0,
-														enter: 0,
-														exit: 0,
-													}}
-													anchorOrigin={{
-														vertical: "bottom",
-														horizontal: "right",
-													}}
-													transformOrigin={{
-														vertical: "top",
-														horizontal: "right",
-													}}>
-													<MenuItem
-														onClick={() =>
-															openDialogEditBoard(
-																closeMenu
-															)
-														}>
-														<FiEdit
-															size={
-																ICON_SIZE.EXTRA_SMALL
-															}
-														/>
-														Edit
-													</MenuItem>
-													<MenuItem
-														onClick={() =>
-															openDialogDeleteOneBoard(
-																closeMenu
-															)
-														}
-														sx={{
-															color: palette.error
-																.main,
-														}}>
-														<FiTrash
-															size={
-																ICON_SIZE.EXTRA_SMALL
-															}
-														/>
-														Delete
-													</MenuItem>
-												</Menu>
-											</CardHeader>
+											<CardHeader
+												{...{
+													type_board,
+													board_id,
+													isFetching,
+												}}
+											/>
 											<Link to={linkBoard}>
 												<Typography
 													variant="h6"
