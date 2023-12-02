@@ -5,8 +5,9 @@ import DialogDeleteOneBoard from "modules/dashboard/Board/components/Dialogs/Dia
 import { ContextProviderBoard } from "modules/dashboard/Board/Context";
 import Loading from "shared/components/Loading";
 import DoodleMessage from "shared/components/DoodleMessage";
+import { IBoardView } from "modules/dashboard/Board/types";
 
-const BoardView: React.FC<any> = props => {
+const BoardView: React.FC<IBoardView> = props => {
 	const { data, isFetching, isShowDoodleMessage } = props;
 
 	return (
