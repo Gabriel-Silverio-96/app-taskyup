@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
-import { TypeBoard } from "modules/dashboard/Board/components/CardBoard/types";
+import { TypeBoard } from "shared/common/types/AppTypes";
 import { ICON_SIZE } from "shared/constants";
 
 interface IBoardIcon {

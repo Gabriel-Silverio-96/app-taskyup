@@ -12,7 +12,10 @@ const BOARD_TYPE_IDS = [
 ];
 
 const schema = Yup.object({
-	title: Yup.string().required().min(3, "Should be 3 chars minimum"),
+	title: Yup.string()
+		.required()
+		.min(3, "Should be 3 chars minimum")
+		.max(255, "Max of 255 characters"),
 	board_type_id: Yup.string()
 		.required("Required field")
 		.oneOf(BOARD_TYPE_IDS),
