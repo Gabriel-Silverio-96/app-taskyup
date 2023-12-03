@@ -1,7 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
 import { IContextProviderTextEdit, IContextTextEdit } from "./types";
-import { INITIAL_STATE_DATA_TEXT } from "../components/Markdown/constant";
 import { IDataText } from "modules/texts/TextEdit/types";
+
+export const INITIAL_STATE_DATA_TEXT: IDataText = {
+	title_board: "",
+	title_text: "",
+	text: "",
+	created_at: "",
+	public: false,
+};
 
 export const ContextTextEdit = createContext<IContextTextEdit | undefined>(
 	undefined
