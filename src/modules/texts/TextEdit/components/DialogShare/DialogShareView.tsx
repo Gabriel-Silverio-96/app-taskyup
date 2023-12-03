@@ -25,8 +25,8 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 		closeDialogShare,
 		handleChangeSwitch,
 		handleClickCopy,
-		handleClickSave,
-		isSaving,
+		mutate,
+		isLoading,
 		URLPublicText,
 	} = props;
 
@@ -37,7 +37,7 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 			fullWidth
 			maxWidth="sm"
 			open={isOpenDialogShare}
-			onClose={!isSaving ? closeDialogShare : () => ""}>
+			onClose={!isLoading ? closeDialogShare : () => ""}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -51,7 +51,7 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogShare}
-							disabled={isSaving}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
@@ -101,8 +101,8 @@ const DialogShareView: React.FC<IDialogShareView> = props => {
 						<LoadingButton
 							form="form-new-board"
 							variant="contained"
-							loading={isSaving}
-							onClick={handleClickSave}>
+							loading={isLoading}
+							onClick={() => mutate()}>
 							Save
 						</LoadingButton>
 					</Grid>

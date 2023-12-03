@@ -68,10 +68,7 @@ const DialogShare: React.FC = () => {
 	};
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: handleClickSave, isLoading: isSaving } = useMutation(
-		mutationFn,
-		optionsMutation
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogShareView
@@ -82,8 +79,8 @@ const DialogShare: React.FC = () => {
 				closeDialogShare,
 				handleChangeSwitch,
 				handleClickCopy,
-				handleClickSave,
-				isSaving,
+				mutate,
+				isLoading,
 				URLPublicText,
 			}}
 		/>
