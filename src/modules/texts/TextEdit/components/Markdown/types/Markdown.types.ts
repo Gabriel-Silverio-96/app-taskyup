@@ -1,14 +1,7 @@
 import { ChangeEvent } from "react";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-
-export interface IDataText {
-	text: string;
-	title_board: string;
-	title_text: string;
-	created_at: string;
-	public: boolean;
-}
+import { IDataText } from "modules/texts/TextEdit/types";
 
 export interface IMarkdownView {
 	dataText: IDataText;

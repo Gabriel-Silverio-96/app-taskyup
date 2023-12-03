@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-import { IDataText } from "modules/texts/TextEdit/components/Markdown/types";
+import { IDataText } from "modules/texts/TextEdit/types";
 
 export interface IHeaderText {
 	handleClickSaveText: FunctionReturnsVoid;

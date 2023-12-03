@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { IDataText } from "modules/texts/TextEdit/components/Markdown/types";
+import { IDataText } from "modules/texts/TextEdit/types";
 
 export interface IContextTextEdit {
 	isOpenDialogShare: boolean;

@@ -1,4 +1,4 @@
-import { IDataText } from "modules/texts/TextEdit/components/Markdown/types";
+import { IDataText } from "modules/texts/TextEdit/types";
 
 export const INITIAL_STATE_DATA_TEXT: IDataText = {
 	title_board: "",
