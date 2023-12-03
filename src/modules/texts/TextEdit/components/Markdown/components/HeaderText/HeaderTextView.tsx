@@ -3,12 +3,19 @@ import React from "react";
 import { FiArrowLeft, FiShare2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
-import { Breadcrumbs, Nav, TextField, TextTitle } from "./style";
-import { IHeaderTextView } from "./types";
 import { ICON_SIZE } from "shared/constants";
+import IconPublic from "shared/components/components/IconPublic";
+import {
+	Breadcrumbs,
+	Nav,
+	TextField,
+	TextTitle,
+} from "modules/texts/TextEdit/components/Markdown/components/HeaderText/style";
+import { IHeaderTextView } from "./types";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
+		dataText,
 		handleClickOpenDialogShare,
 		handleClickSaveText,
 		titleBoard,
@@ -32,6 +39,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 			</Grid>
 			<Grid item md={3}>
 				<Breadcrumbs>
+					<IconPublic isPublic={dataText.public} />
 					<Typography variant="caption">{titleBoard} /</Typography>
 					<TextTitle>
 						<TextField

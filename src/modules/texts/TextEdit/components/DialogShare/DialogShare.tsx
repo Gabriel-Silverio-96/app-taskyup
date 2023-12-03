@@ -4,8 +4,11 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useSnackBar from "shared/common/hook/useSnackBar";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import DialogShareView from "./DialogShareView";
-import { DIALOG_SHARE_QUERY_KEY, INITIAL_STATE_DATA } from "./constants";
+import DialogShareView from "modules/texts/TextEdit/components/DialogShare/DialogShareView";
+import {
+	DIALOG_SHARE_QUERY_KEY,
+	INITIAL_STATE_DATA,
+} from "modules/texts/TextEdit/components/DialogShare/constants";
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,
@@ -20,7 +23,8 @@ const DialogShare: React.FC = () => {
 
 	const { snackBarSuccess } = useSnackBar();
 
-	const { isOpenDialogShare, setIsOpenDialogShare } = useContextTextEdit();
+	const { isOpenDialogShare, setIsOpenDialogShare, setDataText } =
+		useContextTextEdit();
 
 	const [data, setData] = useState<IData>(INITIAL_STATE_DATA);
 
@@ -60,8 +64,14 @@ const DialogShare: React.FC = () => {
 
 	const mutationFn = () =>
 		fetchPatchTextPermissionsService({ payload: data, board_id, text_id });
-	const { mutate: handleClickSave, isLoading: isSaving } =
-		useMutation(mutationFn);
+
+	const onSuccessMutation = ({ config }: any) => {
+		const data = JSON.parse(config.data);
+		setDataText(prevState => ({ ...prevState, ...data }));
+	};
+	const optionsMutation = { onSuccess: onSuccessMutation };
+
+	const { mutate, isLoading } = useMutation(mutationFn, optionsMutation);
 
 	return (
 		<DialogShareView
@@ -72,8 +82,8 @@ const DialogShare: React.FC = () => {
 				closeDialogShare,
 				handleChangeSwitch,
 				handleClickCopy,
-				handleClickSave,
-				isSaving,
+				mutate,
+				isLoading,
 				URLPublicText,
 			}}
 		/>

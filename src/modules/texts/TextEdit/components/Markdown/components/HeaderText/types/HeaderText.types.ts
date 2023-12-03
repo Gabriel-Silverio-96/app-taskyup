@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { IDataText } from "modules/texts/TextEdit/types";
 
 export interface IHeaderText {
 	handleClickSaveText: FunctionReturnsVoid;
@@ -9,6 +10,7 @@ export interface IHeaderText {
 }
 
 export interface IHeaderTextView extends IHeaderText {
+	dataText: IDataText;
 	handleClickOpenDialogShare: FunctionReturnsVoid;
 	linkPreviousPage: string;
 	isError: boolean;
