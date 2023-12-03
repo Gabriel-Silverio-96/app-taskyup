@@ -11,7 +11,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 	titleText,
 	onChangeTextTitle,
 }) => {
-	const { setIsOpenDialogShare } = useContextTextEdit();
+	const { setIsOpenDialogShare, dataText } = useContextTextEdit();
 
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
@@ -33,6 +33,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 				linkPreviousPage,
 				isError,
 				message,
+				dataText,
 			}}
 		/>
 	);
