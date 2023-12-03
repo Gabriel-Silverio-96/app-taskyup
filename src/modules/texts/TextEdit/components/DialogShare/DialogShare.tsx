@@ -4,8 +4,11 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useSnackBar from "shared/common/hook/useSnackBar";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import DialogShareView from "./DialogShareView";
-import { DIALOG_SHARE_QUERY_KEY, INITIAL_STATE_DATA } from "./constants";
+import DialogShareView from "modules/texts/TextEdit/components/DialogShare/DialogShareView";
+import {
+	DIALOG_SHARE_QUERY_KEY,
+	INITIAL_STATE_DATA,
+} from "modules/texts/TextEdit/components/DialogShare/constants";
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,

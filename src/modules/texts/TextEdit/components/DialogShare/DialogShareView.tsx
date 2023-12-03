@@ -14,7 +14,7 @@ import {
 import React from "react";
 import { FiCopy, FiLink, FiX } from "react-icons/fi";
 import Loading from "shared/components/Loading";
-import { IDialogShareView } from "./types/DialogShare.types";
+import { IDialogShareView } from "modules/texts/TextEdit/components/DialogShare/types";
 import { ICON_SIZE } from "shared/constants";
 
 const DialogShareView: React.FC<IDialogShareView> = props => {
