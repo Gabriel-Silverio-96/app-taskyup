@@ -10,7 +10,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { IDialogDeleteOneTextView } from "./types";
+import { IDialogDeleteOneTextView } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/types";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
 
@@ -18,8 +18,8 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = props => {
 	const {
 		dialogDeleteOneText,
 		closeDialogDeleteOneText,
-		fetchDelete,
-		isDeleting,
+		mutate,
+		isLoading,
 		onClose,
 	} = props;
 
@@ -40,7 +40,7 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogDeleteOneText}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
@@ -60,15 +60,15 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = props => {
 						<Button
 							variant="outlined"
 							onClick={closeDialogDeleteOneText}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
 						<LoadingButton
 							variant="contained"
-							onClick={fetchDelete}
-							loading={isDeleting}>
+							onClick={() => mutate()}
+							loading={isLoading}>
 							Yes
 						</LoadingButton>
 					</Grid>

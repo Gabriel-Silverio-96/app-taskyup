@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useContextText } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
-import DialogDeleteOneTextView from "./DialogDeleteOneTextView";
-import { fetchDeleteOneTextService } from "./service";
+import DialogDeleteOneTextView from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/DialogDeleteOneTextView";
+import { fetchDeleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/services";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 const DialogDeleteOneText: React.FC = () => {
@@ -12,29 +12,25 @@ const DialogDeleteOneText: React.FC = () => {
 	const { dialogDeleteOneText } = useContextText();
 	const { textID } = dialogDeleteOneText;
 
-	const optionMutation = {
-		onError: () => closeDialogDeleteOneText(),
-		onSuccess: () => {
-			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
-			closeDialogDeleteOneText();
-		},
+	const onSuccess = () => {
+		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
+		closeDialogDeleteOneText();
 	};
+	const onError = () => closeDialogDeleteOneText();
 
+	const optionMutation = { onError, onSuccess };
 	const mutationFn = () => fetchDeleteOneTextService(textID);
-	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(
-		mutationFn,
-		optionMutation
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, optionMutation);
 
-	const onClose = !isDeleting ? closeDialogDeleteOneText : () => "";
+	const onClose = !isLoading ? closeDialogDeleteOneText : () => "";
 
 	return (
 		<DialogDeleteOneTextView
 			{...{
 				dialogDeleteOneText,
 				closeDialogDeleteOneText,
-				fetchDelete,
-				isDeleting,
+				mutate,
+				isLoading,
 				onClose,
 			}}
 		/>
