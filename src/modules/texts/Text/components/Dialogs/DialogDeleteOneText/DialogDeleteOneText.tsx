@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useContextText } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
-import DialogDeleteOneTextView from "./DialogDeleteOneTextView";
+import DialogDeleteOneTextView from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/DialogDeleteOneTextView";
 import { fetchDeleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/service";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
