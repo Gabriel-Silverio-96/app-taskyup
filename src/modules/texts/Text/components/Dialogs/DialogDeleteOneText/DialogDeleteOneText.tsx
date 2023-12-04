@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useContextText } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import DialogDeleteOneTextView from "./DialogDeleteOneTextView";
-import { fetchDeleteOneTextService } from "./service";
+import { fetchDeleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/service";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 
 const DialogDeleteOneText: React.FC = () => {
