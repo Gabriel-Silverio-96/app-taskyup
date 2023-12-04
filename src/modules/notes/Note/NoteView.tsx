@@ -10,9 +10,10 @@ import { INoteView } from "modules/notes/Note/types";
 const NoteView: React.FC<INoteView> = props => {
 	const { data, isFetching, isShowDoodleMessage } = props;
 
+	if (isFetching) return <Loading isLoading backdrop />;
+
 	return (
 		<ContextProviderNote>
-			<Loading isLoading={isFetching} backdrop />
 			<HeaderNote count={data?.count} />
 			<DoodleMessage
 				title="You have not created any notes"
