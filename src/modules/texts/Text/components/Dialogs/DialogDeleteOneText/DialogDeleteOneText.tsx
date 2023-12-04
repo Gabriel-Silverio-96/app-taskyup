@@ -12,29 +12,25 @@ const DialogDeleteOneText: React.FC = () => {
 	const { dialogDeleteOneText } = useContextText();
 	const { textID } = dialogDeleteOneText;
 
-	const optionMutation = {
-		onError: () => closeDialogDeleteOneText(),
-		onSuccess: () => {
-			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
-			closeDialogDeleteOneText();
-		},
+	const onSuccess = () => {
+		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
+		closeDialogDeleteOneText();
 	};
+	const onError = () => closeDialogDeleteOneText();
 
+	const optionMutation = { onError, onSuccess };
 	const mutationFn = () => fetchDeleteOneTextService(textID);
-	const { mutate: fetchDelete, isLoading: isDeleting } = useMutation(
-		mutationFn,
-		optionMutation
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, optionMutation);
 
-	const onClose = !isDeleting ? closeDialogDeleteOneText : () => "";
+	const onClose = !isLoading ? closeDialogDeleteOneText : () => "";
 
 	return (
 		<DialogDeleteOneTextView
 			{...{
 				dialogDeleteOneText,
 				closeDialogDeleteOneText,
-				fetchDelete,
-				isDeleting,
+				mutate,
+				isLoading,
 				onClose,
 			}}
 		/>

@@ -18,8 +18,8 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = props => {
 	const {
 		dialogDeleteOneText,
 		closeDialogDeleteOneText,
-		fetchDelete,
-		isDeleting,
+		mutate,
+		isLoading,
 		onClose,
 	} = props;
 
@@ -40,7 +40,7 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogDeleteOneText}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
@@ -60,15 +60,15 @@ const DialogDeleteOneTextView: React.FC<IDialogDeleteOneTextView> = props => {
 						<Button
 							variant="outlined"
 							onClick={closeDialogDeleteOneText}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
 						<LoadingButton
 							variant="contained"
-							onClick={fetchDelete}
-							loading={isDeleting}>
+							onClick={() => mutate()}
+							loading={isLoading}>
 							Yes
 						</LoadingButton>
 					</Grid>
