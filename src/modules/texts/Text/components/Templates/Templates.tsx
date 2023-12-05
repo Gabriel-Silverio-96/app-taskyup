@@ -3,12 +3,12 @@ import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContextText } from "modules/texts/Text/Context";
 import { fetchPostTextService } from "modules/texts/Text/services";
-import { IFetchPostTextResponse } from "modules/texts/Text/types";
 import TemplatesView from "modules/texts/Text/components/Templates/TemplatesView";
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { mountTemplateBody } from "modules/texts/Text/components/Templates/utils/mount-template-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
 
 const Templates: React.FC = () => {
 	const { board_id } = useParams();
