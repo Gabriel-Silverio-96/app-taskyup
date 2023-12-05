@@ -6,9 +6,9 @@ import {
 	TodoTemplate,
 } from "modules/texts/Text/components/Templates/model-templates";
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
-import { ITemplatesMapping } from "./types";
+import { ITemplatesMapping } from "modules/texts/Text/components/Templates/utils/mount-template-body/types";
 
-const templatesMapping: ITemplatesMapping = {
+export const templatesMapping: ITemplatesMapping = {
 	table: { title_text: "Table template", markdown: TableTemplate },
 	todo: { title_text: "Todo template", markdown: TodoTemplate },
 	readme: { title_text: "Readme template", markdown: ReadmeTemplate },
@@ -16,7 +16,7 @@ const templatesMapping: ITemplatesMapping = {
 	diagram: { title_text: "Diagram template", markdown: DiagramTemplate },
 };
 
-const selectTemplate = (templateName: TypeTemplateName) => {
+export const selectTemplate = (templateName: TypeTemplateName) => {
 	const defaultTemplate = {
 		title_text: "Table template",
 		markdown: TableTemplate,
@@ -25,5 +25,3 @@ const selectTemplate = (templateName: TypeTemplateName) => {
 	const result = templatesMapping[templateName] || defaultTemplate;
 	return result;
 };
-
-export { selectTemplate, templatesMapping };

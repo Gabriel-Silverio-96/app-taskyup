@@ -1,11 +1,11 @@
-import { fetchGetTemplateTextService } from "modules/texts/Text/components/Templates/service";
+import { fetchGetTemplateTextService } from "modules/texts/Text/components/Templates/services";
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
-import { selectTemplate } from "./select-template";
+import { selectTemplate } from "modules/texts/Text/components/Templates/utils/mount-template-body";
 
-const MOUNT_BODY_ERROR_MESSAGE =
+export const MOUNT_BODY_ERROR_MESSAGE =
 	"There was a problem and the template was not generated";
 
-const mountTemplateBody = async (templateName: TypeTemplateName) => {
+export const mountTemplateBody = async (templateName: TypeTemplateName) => {
 	const { title_text, markdown } = selectTemplate(templateName);
 	try {
 		const text = await fetchGetTemplateTextService(markdown);
@@ -18,5 +18,3 @@ const mountTemplateBody = async (templateName: TypeTemplateName) => {
 		return data;
 	}
 };
-
-export { selectTemplate, mountTemplateBody, MOUNT_BODY_ERROR_MESSAGE };

@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CardHeader from "modules/texts/Text/components/CardText/components/CardHeader";
-import { IFetchPostTextResponse } from "modules/texts/Text/types";
 import { mountBodyText } from "modules/texts/Text/utils/mount-body-text";
 import React, { memo } from "react";
 import { FiPlus } from "react-icons/fi";
@@ -18,6 +17,7 @@ import {
 } from "modules/texts/Text/components/CardText/style";
 import { ICardText } from "modules/texts/Text/components/CardText/types";
 import { fetchPostTextService } from "modules/texts/Text/services";
+import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
 
 const CardText: React.FC<ICardText> = ({ data }) => {
 	const { board_id } = useParams();
