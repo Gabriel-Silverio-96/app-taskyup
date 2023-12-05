@@ -2,6 +2,6 @@ export type TypeTemplateName = "table" | "todo" | "readme" | "code" | "diagram";
 
 export interface ITemplatesView {
 	isOpenTemplates: boolean;
-	handleClickCreateTextTemplate: (template: TypeTemplateName) => void;
+	mutate: (template: TypeTemplateName) => void;
 	isLoading: boolean;
 }

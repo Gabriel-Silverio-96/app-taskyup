@@ -34,17 +34,9 @@ const Templates: React.FC = () => {
 		navigate(redirectTo);
 	};
 
-	const optionsMutation = { onSuccess };
-	const { mutate: handleClickCreateTextTemplate, isLoading } = useMutation(
-		mutationFn,
-		optionsMutation
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
-	return (
-		<TemplatesView
-			{...{ isOpenTemplates, handleClickCreateTextTemplate, isLoading }}
-		/>
-	);
+	return <TemplatesView {...{ isOpenTemplates, mutate, isLoading }} />;
 };
 
 export default memo(Templates);
