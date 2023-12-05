@@ -14,6 +14,7 @@ import CardTemplate from "./components/CardTemplate";
 
 const TemplatesView: React.FC<ITemplatesView> = props => {
 	const { isOpenTemplates, mutate, isLoading } = props;
+
 	return (
 		<TemplateContainer open={isOpenTemplates}>
 			<Loading isLoading={isLoading} backdrop message="Creating text" />
