@@ -2,7 +2,7 @@ import { TypeTemplateName } from "modules/texts/Text/components/Templates/types"
 import {
 	selectTemplate,
 	templatesMapping,
-} from "modules/texts/Text/components/Templates/utils/mount-template-body/select-template";
+} from "modules/texts/Text/components/Templates/utils/mount-template-body";
 
 type TestsCases = Array<
 	[TypeTemplateName | any, { title_text: string; markdown: string }]

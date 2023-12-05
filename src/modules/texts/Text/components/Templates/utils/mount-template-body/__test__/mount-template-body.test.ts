@@ -5,7 +5,7 @@ import {
 	MOUNT_BODY_ERROR_MESSAGE,
 	mountTemplateBody,
 	selectTemplate,
-} from "../mount-template-body";
+} from "modules/texts/Text/components/Templates/utils/mount-template-body";
 
 jest.mock("modules/texts/Text/components/Templates/services", () => ({
 	fetchGetTemplateTextService: jest.fn(),
