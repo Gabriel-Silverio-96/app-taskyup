@@ -27,11 +27,11 @@ const Templates: React.FC = () => {
 		const { text_id } = data;
 		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
 
-		const redirectTo = createURLQueryParams("/text/edit", {
+		const redirectToTextEdit = createURLQueryParams("/text/edit", {
 			text_id,
 			board_id,
 		});
-		navigate(redirectTo);
+		navigate(redirectToTextEdit);
 	};
 
 	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
