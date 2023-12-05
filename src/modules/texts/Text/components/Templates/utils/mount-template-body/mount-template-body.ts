@@ -1,4 +1,4 @@
-import { fetchGetTemplateTextService } from "modules/texts/Text/components/Templates/service";
+import { fetchGetTemplateTextService } from "modules/texts/Text/components/Templates/services";
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { selectTemplate } from "./select-template";
 

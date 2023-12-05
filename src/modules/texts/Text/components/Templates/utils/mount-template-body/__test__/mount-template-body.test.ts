@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { fetchGetTemplateTextService } from "modules/texts/Text/components/Templates/service";
+import { fetchGetTemplateTextService } from "modules/texts/Text/components/Templates/services";
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import {
 	MOUNT_BODY_ERROR_MESSAGE,
@@ -7,7 +7,7 @@ import {
 	selectTemplate,
 } from "../mount-template-body";
 
-jest.mock("modules/texts/Text/components/Templates/service", () => ({
+jest.mock("modules/texts/Text/components/Templates/services", () => ({
 	fetchGetTemplateTextService: jest.fn(),
 }));
 
