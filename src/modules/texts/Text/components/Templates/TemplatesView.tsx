@@ -7,10 +7,14 @@ import {
 	IconReadme,
 	IconTable,
 	IconTodo,
-} from "./components/Icons";
-import { TemplateContainer, TemplateLinearGradient, Templates } from "./style";
-import { ITemplatesView } from "./types/Template.types";
-import CardTemplate from "./components/CardTemplate";
+} from "modules/texts/Text/components/Templates/components/Icons";
+import {
+	TemplateContainer,
+	TemplateLinearGradient,
+	Templates,
+} from "modules/texts/Text/components/Templates/style";
+import { ITemplatesView } from "modules/texts/Text/components/Templates/types";
+import CardTemplate from "modules/texts/Text/components/Templates/components/CardTemplate";
 
 const TemplatesView: React.FC<ITemplatesView> = props => {
 	const { isOpenTemplates, mutate, isLoading } = props;
