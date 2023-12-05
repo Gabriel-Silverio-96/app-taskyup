@@ -23,14 +23,16 @@ const Templates: React.FC = () => {
 		return data;
 	};
 
-	const onSuccess = ({ text_id }: IFetchPostTextResponse) => {
-		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
-
+	const onSuccess = async ({ text_id }: IFetchPostTextResponse) => {
 		const redirectToTextEdit = createURLQueryParams("/text/edit", {
 			text_id,
 			board_id,
 		});
 		navigate(redirectToTextEdit);
+
+		await queryClient.invalidateQueries([
+			TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
+		]);
 	};
 
 	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
