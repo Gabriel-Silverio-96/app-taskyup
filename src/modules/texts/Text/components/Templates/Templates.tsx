@@ -23,8 +23,7 @@ const Templates: React.FC = () => {
 		return data;
 	};
 
-	const onSuccess = (data: IFetchPostTextResponse) => {
-		const { text_id } = data;
+	const onSuccess = ({ text_id }: IFetchPostTextResponse) => {
 		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
 
 		const redirectToTextEdit = createURLQueryParams("/text/edit", {
