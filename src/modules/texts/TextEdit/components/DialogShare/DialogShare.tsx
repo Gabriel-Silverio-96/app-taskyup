@@ -12,9 +12,11 @@ import {
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,
-} from "./service";
-import { IFetchGetTextPermissionsResponse } from "./service/types";
-import { IData } from "./types/DialogShare.types";
+} from "modules/texts/TextEdit/components/DialogShare/services";
+import { IFetchGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
+import { IData } from "modules/texts/TextEdit/components/DialogShare/types";
+import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { AxiosResponse } from "axios";
 
 const DialogShare: React.FC = () => {
 	const [searchParams] = useSearchParams();
@@ -63,9 +65,14 @@ const DialogShare: React.FC = () => {
 	};
 
 	const mutationFn = () =>
-		fetchPatchTextPermissionsService({ payload: data, board_id, text_id });
+		fetchPatchTextPermissionsService({
+			body: data,
+			params: { board_id, text_id },
+		});
 
-	const onSuccessMutation = ({ config }: any) => {
+	const onSuccessMutation = ({
+		config,
+	}: AxiosResponse<IFetchResponseDefault>) => {
 		const data = JSON.parse(config.data);
 		setDataText(prevState => ({ ...prevState, ...data }));
 	};
