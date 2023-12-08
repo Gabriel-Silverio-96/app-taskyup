@@ -63,7 +63,10 @@ const DialogShare: React.FC = () => {
 	};
 
 	const mutationFn = () =>
-		fetchPatchTextPermissionsService({ payload: data, board_id, text_id });
+		fetchPatchTextPermissionsService({
+			body: data,
+			params: { board_id, text_id },
+		});
 
 	const onSuccessMutation = ({ config }: any) => {
 		const data = JSON.parse(config.data);
