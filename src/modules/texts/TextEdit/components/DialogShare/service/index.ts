@@ -1,2 +1,2 @@
-export * as default from "./DialogShare.service";
+export * from "./fetchGetTextPermissionsService";
 export * from "./DialogShare.service";
