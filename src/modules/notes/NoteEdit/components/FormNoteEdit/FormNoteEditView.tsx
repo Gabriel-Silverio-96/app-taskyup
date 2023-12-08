@@ -1,5 +1,4 @@
-import { LoadingButton } from "@mui/lab";
-import { Grid, IconButton, TextField } from "@mui/material";
+import { Button, Grid, IconButton, TextField } from "@mui/material";
 import { IFormNoteEditView } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
 import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
@@ -19,7 +18,6 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 		handleSubmitNoteEdit,
 		errors,
 		linkPreviousPage,
-		isSaving,
 	} = props;
 
 	return (
@@ -49,12 +47,9 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 								<FiArrowLeft size={ICON_SIZE.MEDIUM} />
 							</IconButton>
 						</Link>
-						<LoadingButton
-							variant="contained"
-							type="submit"
-							loading={isSaving}>
+						<Button variant="contained" type="submit">
 							Save
-						</LoadingButton>
+						</Button>
 					</FormActionNoteEdit>
 				</Grid>
 				<Grid item md={12} xs={12}>

@@ -8,7 +8,6 @@ const FormNoteEdit: React.FC<IFormNoteEdit> = ({
 	handleSubmit,
 	handleSubmitNoteEdit,
 	errors,
-	isSaving,
 }) => {
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
@@ -23,7 +22,6 @@ const FormNoteEdit: React.FC<IFormNoteEdit> = ({
 				handleSubmitNoteEdit,
 				errors,
 				linkPreviousPage,
-				isSaving,
 			}}
 		/>
 	);

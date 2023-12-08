@@ -22,6 +22,7 @@ const NoteEditView: React.FC<INoteEditView> = props => {
 
 	return (
 		<Grid container maxWidth={800} margin="auto">
+			<Loading isLoading={isSaving} backdrop />
 			<Grid item xs={12}>
 				<Grid container justifyContent="center">
 					<Grid item md={12}>
