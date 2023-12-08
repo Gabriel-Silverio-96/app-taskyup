@@ -12,9 +12,9 @@ import {
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,
-} from "./services";
-import { IFetchGetTextPermissionsResponse } from "./services/types";
-import { IData } from "./types/DialogShare.types";
+} from "modules/texts/TextEdit/components/DialogShare/services";
+import { IFetchGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
+import { IData } from "modules/texts/TextEdit/components/DialogShare/types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import { AxiosResponse } from "axios";
 
