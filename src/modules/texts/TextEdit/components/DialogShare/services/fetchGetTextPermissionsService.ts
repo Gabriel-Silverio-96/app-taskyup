@@ -2,7 +2,7 @@ import api from "shared/services/api";
 import {
 	IFetchGetTextPermissionsResponse,
 	IFetchGetTextPermissionsService,
-} from "modules/texts/TextEdit/components/DialogShare/service/types";
+} from "modules/texts/TextEdit/components/DialogShare/services/types";
 
 export const fetchGetTextPermissionsService: IFetchGetTextPermissionsService =
 	async ({ params }) => {

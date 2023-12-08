@@ -1,6 +1,6 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import { IFetchPatchTextPermissionsService } from "modules/texts/TextEdit/components/DialogShare/service/types";
+import { IFetchPatchTextPermissionsService } from "modules/texts/TextEdit/components/DialogShare/services/types";
 
 export const fetchPatchTextPermissionsService: IFetchPatchTextPermissionsService =
 	async ({ body, params }) => {

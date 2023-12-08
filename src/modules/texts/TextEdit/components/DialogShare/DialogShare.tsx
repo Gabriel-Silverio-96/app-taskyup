@@ -12,8 +12,8 @@ import {
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,
-} from "./service";
-import { IFetchGetTextPermissionsResponse } from "./service/types";
+} from "./services";
+import { IFetchGetTextPermissionsResponse } from "./services/types";
 import { IData } from "./types/DialogShare.types";
 
 const DialogShare: React.FC = () => {
