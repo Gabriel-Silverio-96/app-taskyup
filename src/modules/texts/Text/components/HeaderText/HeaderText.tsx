@@ -19,14 +19,16 @@ const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 
 	const isDisabledDeleteAllTexts = count === 0;
 
+	const handleOpenDialogDeleteAllTexts = () =>
+		openDialogDeleteAllTexts(board_id!);
+
 	return (
 		<HeaderTextView
 			{...{
 				title,
 				palette,
 				isMediumScreen,
-				openDialogDeleteAllTexts,
-				board_id,
+				handleOpenDialogDeleteAllTexts,
 				toogleTemplates,
 				isOpenTemplates,
 				isDisabledDeleteAllTexts,

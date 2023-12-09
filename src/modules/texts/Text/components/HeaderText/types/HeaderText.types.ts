@@ -10,8 +10,7 @@ export interface IHeaderTextView {
 	title: string | undefined;
 	palette: Palette;
 	isMediumScreen: boolean;
-	openDialogDeleteAllTexts: (boardID: string) => void;
-	board_id: string | undefined;
+	handleOpenDialogDeleteAllTexts: FunctionReturnsVoid;
 	toogleTemplates: FunctionReturnsVoid;
 	isOpenTemplates: boolean;
 	isDisabledDeleteAllTexts: boolean;

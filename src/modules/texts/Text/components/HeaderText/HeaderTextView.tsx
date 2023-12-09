@@ -11,8 +11,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 		title,
 		palette,
 		isMediumScreen,
-		openDialogDeleteAllTexts,
-		board_id,
+		handleOpenDialogDeleteAllTexts,
 		toogleTemplates,
 		isOpenTemplates,
 		isDisabledDeleteAllTexts,
@@ -44,7 +43,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 						</IconButton>
 					</Tooltip>
 					<IconButton
-						onClick={() => openDialogDeleteAllTexts(board_id!)}
+						onClick={handleOpenDialogDeleteAllTexts}
 						disabled={isDisabledDeleteAllTexts}>
 						<FiTrash size={ICON_SIZE.MEDIUM} />
 					</IconButton>
