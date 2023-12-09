@@ -17,8 +17,8 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
 
-	const onSuccess = async (response: IFetchPostCreateNoteResponse) => {
-		const { note_id } = response.results;
+	const onSuccess = async ({ results }: IFetchPostCreateNoteResponse) => {
+		const { note_id } = results;
 
 		const linkToNoteEdit = createURLQueryParams("/note/edit", {
 			note_id,
