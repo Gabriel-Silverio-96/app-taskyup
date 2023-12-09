@@ -12,5 +12,6 @@ export interface INote {
 
 export interface IFetchGetNotesResponse<T = undefined> {
 	count: number;
+	title: string;
 	list_notes: INote[] | T;
 }

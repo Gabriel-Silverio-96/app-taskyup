@@ -14,7 +14,7 @@ const NoteView: React.FC<INoteView> = props => {
 
 	return (
 		<ContextProviderNote>
-			<HeaderNote count={data?.count} />
+			<HeaderNote count={data?.count} title={data?.title} />
 			<DoodleMessage
 				title="You have not created any notes"
 				message="Create a note 😊"

@@ -1,14 +1,14 @@
 import { UseMutateFunction } from "@tanstack/react-query";
-import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
+import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IHeaderNote {
 	count: number | undefined;
+	title: string | undefined;
 }
 
 export interface IHeaderNoteView {
-	data: IFetchGetOneBoardResponse | undefined;
+	title: string | undefined;
 	mutate: UseMutateFunction<
 		IFetchPostCreateNoteResponse,
 		unknown,
@@ -19,5 +19,4 @@ export interface IHeaderNoteView {
 	isMediumScreen: boolean;
 	isDisabledDeleteAllNotes: boolean;
 	isLoading: boolean;
-	isFetching: boolean;
 }

@@ -8,13 +8,12 @@ import { ICON_SIZE } from "shared/constants";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 	const {
-		data,
+		title,
 		openDialogDeleteAllNotes,
 		isMediumScreen,
 		isDisabledDeleteAllNotes,
 		mutate,
 		isLoading,
-		isFetching,
 	} = props;
 
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
@@ -22,14 +21,14 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 	return (
 		<>
 			<Loading
-				isLoading={isLoading || isFetching}
+				isLoading={isLoading}
 				backdrop
 				message={isLoading ? "Creating note" : ""}
 			/>
 			<Grid container alignItems="center" sx={{ mb: 3 }}>
 				<Grid item xl={6} md={6} sm={8} xs={8}>
 					<Typography variant={variantMediumScreen} fontWeight={800}>
-						{data?.title}
+						{title}
 					</Typography>
 				</Grid>
 				<Grid item xl={6} md={6} sm={4} xs={4}>
