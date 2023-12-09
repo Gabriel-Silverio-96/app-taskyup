@@ -9,16 +9,11 @@ import { ICON_SIZE } from "shared/constants";
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
 		title,
-		palette,
 		handleOpenDialogDeleteAllTexts,
 		toggleTemplatesVisibility,
-		isOpenTemplates,
+		defineColorIcon,
 		isDisabledDeleteAllTexts,
 	} = props;
-
-	const defineColorIcon = isOpenTemplates
-		? palette.secondary.main
-		: palette.common.white;
 
 	return (
 		<Grid container alignItems="center" sx={{ mb: 3 }}>

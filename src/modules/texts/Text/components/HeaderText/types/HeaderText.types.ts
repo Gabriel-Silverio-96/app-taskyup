@@ -1,4 +1,3 @@
-import { Palette } from "@mui/material";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IHeaderText {
@@ -8,9 +7,8 @@ export interface IHeaderText {
 
 export interface IHeaderTextView {
 	title: string | undefined;
-	palette: Palette;
 	handleOpenDialogDeleteAllTexts: FunctionReturnsVoid;
 	toggleTemplatesVisibility: FunctionReturnsVoid;
-	isOpenTemplates: boolean;
+	defineColorIcon: string;
 	isDisabledDeleteAllTexts: boolean;
 }

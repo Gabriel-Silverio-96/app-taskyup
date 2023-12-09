@@ -22,14 +22,17 @@ const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 	const handleOpenDialogDeleteAllTexts = () =>
 		openDialogDeleteAllTexts(board_id!);
 
+	const defineColorIcon = isOpenTemplates
+		? palette.secondary.main
+		: palette.common.white;
+
 	return (
 		<HeaderTextView
 			{...{
 				title,
-				palette,
 				handleOpenDialogDeleteAllTexts,
 				toggleTemplatesVisibility,
-				isOpenTemplates,
+				defineColorIcon,
 				isDisabledDeleteAllTexts,
 			}}
 		/>
