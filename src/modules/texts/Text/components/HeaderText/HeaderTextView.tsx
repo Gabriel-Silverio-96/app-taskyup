@@ -18,7 +18,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	} = props;
 
 	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
-	const lightColorIcon = isOpenTemplates
+	const defineColorIcon = isOpenTemplates
 		? palette.secondary.main
 		: palette.common.white;
 
@@ -33,7 +33,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 				<Nav>
 					<IconButton onClick={toggleTemplatesVisibility}>
 						<MdOutlineLightbulb
-							color={lightColorIcon}
+							color={defineColorIcon}
 							size={ICON_SIZE.MEDIUM}
 						/>
 					</IconButton>
