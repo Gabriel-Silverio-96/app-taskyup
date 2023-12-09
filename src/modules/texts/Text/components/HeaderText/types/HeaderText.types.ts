@@ -11,7 +11,7 @@ export interface IHeaderTextView {
 	palette: Palette;
 	isMediumScreen: boolean;
 	handleOpenDialogDeleteAllTexts: FunctionReturnsVoid;
-	toogleTemplates: FunctionReturnsVoid;
+	toggleTemplatesVisibility: FunctionReturnsVoid;
 	isOpenTemplates: boolean;
 	isDisabledDeleteAllTexts: boolean;
 }

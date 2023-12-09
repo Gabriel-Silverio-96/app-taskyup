@@ -12,7 +12,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 		palette,
 		isMediumScreen,
 		handleOpenDialogDeleteAllTexts,
-		toogleTemplates,
+		toggleTemplatesVisibility,
 		isOpenTemplates,
 		isDisabledDeleteAllTexts,
 	} = props;
@@ -31,7 +31,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
-					<IconButton onClick={toogleTemplates}>
+					<IconButton onClick={toggleTemplatesVisibility}>
 						<MdOutlineLightbulb
 							color={lightColorIcon}
 							size={ICON_SIZE.MEDIUM}

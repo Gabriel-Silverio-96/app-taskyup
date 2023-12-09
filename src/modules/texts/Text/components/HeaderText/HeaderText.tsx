@@ -15,7 +15,8 @@ const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 	const { palette, breakpoints } = useTheme();
 	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
 
-	const toogleTemplates = () => setIsOpenTemplates(prevState => !prevState);
+	const toggleTemplatesVisibility = () =>
+		setIsOpenTemplates(prevState => !prevState);
 
 	const isDisabledDeleteAllTexts = count === 0;
 
@@ -29,7 +30,7 @@ const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 				palette,
 				isMediumScreen,
 				handleOpenDialogDeleteAllTexts,
-				toogleTemplates,
+				toggleTemplatesVisibility,
 				isOpenTemplates,
 				isDisabledDeleteAllTexts,
 			}}
