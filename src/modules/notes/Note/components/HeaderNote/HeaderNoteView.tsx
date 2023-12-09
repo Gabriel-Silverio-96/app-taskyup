@@ -10,13 +10,10 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 	const {
 		title,
 		openDialogDeleteAllNotes,
-		isMediumScreen,
 		isDisabledDeleteAllNotes,
 		mutate,
 		isLoading,
 	} = props;
-
-	const variantMediumScreen = isMediumScreen ? "body1" : "h6";
 
 	return (
 		<>
@@ -27,7 +24,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 			/>
 			<Grid container alignItems="center" sx={{ mb: 3 }}>
 				<Grid item xl={6} md={6} sm={8} xs={8}>
-					<Typography variant={variantMediumScreen} fontWeight={800}>
+					<Typography variant="h6" fontWeight={800}>
 						{title}
 					</Typography>
 				</Grid>

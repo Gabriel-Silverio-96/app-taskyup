@@ -16,7 +16,6 @@ export interface IHeaderNoteView {
 		unknown
 	>;
 	openDialogDeleteAllNotes: FunctionReturnsVoid;
-	isMediumScreen: boolean;
 	isDisabledDeleteAllNotes: boolean;
 	isLoading: boolean;
 }

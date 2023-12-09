@@ -1,4 +1,3 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
 import { fetchPostCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
@@ -7,9 +6,9 @@ import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { IHeaderNote } from "./types";
 import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
+import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
 
 const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const queryClient = useQueryClient();
@@ -17,8 +16,6 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const { board_id } = useParams();
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
-	const { breakpoints } = useTheme();
-	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
 
 	const onSuccess = async (response: IFetchPostCreateNoteResponse) => {
 		const { note_id } = response.results;
@@ -44,7 +41,6 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 			{...{
 				title,
 				openDialogDeleteAllNotes,
-				isMediumScreen,
 				isDisabledDeleteAllNotes,
 				mutate,
 				isLoading,
