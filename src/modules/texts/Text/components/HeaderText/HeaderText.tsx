@@ -1,15 +1,13 @@
 import { useMediaQuery, useTheme } from "@mui/material";
+import { useContextText } from "modules/texts/Text/Context";
+import HeaderTextView from "modules/texts/Text/components/HeaderText/HeaderTextView";
+import { IHeaderText } from "modules/texts/Text/components/HeaderText/types";
+import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
-import { useContextText } from "modules/texts/Text/Context";
-import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
-import HeaderTextView from "modules/texts/Text/components/HeaderText/HeaderTextView";
-import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard";
-import { IHeaderText } from "modules/texts/Text/components/HeaderText/types";
 
-const HeaderText: React.FC<IHeaderText> = ({ count }) => {
+const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 	const { board_id } = useParams();
-	const { data } = useFetchGetOneBoard(board_id);
 
 	const { isOpenTemplates, setIsOpenTemplates } = useContextText();
 	const { openDialogDeleteAllTexts } = useDialogText();
@@ -24,7 +22,7 @@ const HeaderText: React.FC<IHeaderText> = ({ count }) => {
 	return (
 		<HeaderTextView
 			{...{
-				data,
+				title,
 				palette,
 				isMediumScreen,
 				openDialogDeleteAllTexts,

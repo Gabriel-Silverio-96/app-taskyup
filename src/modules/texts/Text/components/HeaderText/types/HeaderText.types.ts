@@ -1,13 +1,13 @@
 import { Palette } from "@mui/material";
-import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface IHeaderText {
 	count: number | undefined;
+	title: string | undefined;
 }
 
 export interface IHeaderTextView {
-	data: IFetchGetOneBoardResponse | undefined;
+	title: string | undefined;
 	palette: Palette;
 	isMediumScreen: boolean;
 	openDialogDeleteAllTexts: (boardID: string) => void;

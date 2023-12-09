@@ -8,7 +8,7 @@ import { ICON_SIZE } from "shared/constants";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
 	const {
-		data,
+		title,
 		palette,
 		isMediumScreen,
 		openDialogDeleteAllTexts,
@@ -27,7 +27,7 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 		<Grid container alignItems="center" sx={{ mb: 3 }}>
 			<Grid item xl={6} md={6} sm={8} xs={8}>
 				<Typography variant={variantMediumScreen} fontWeight={800}>
-					{data?.title}
+					{title}
 				</Typography>
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
