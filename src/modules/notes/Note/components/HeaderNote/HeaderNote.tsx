@@ -1,30 +1,24 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
 import { fetchPostCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
 import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard";
+import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { IHeaderNote } from "./types";
+import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
 
-const HeaderNote: React.FC<IHeaderNote> = ({ count }) => {
+const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 	const { board_id } = useParams();
 
-	const { data, isFetching } = useFetchGetOneBoard(board_id);
-
 	const { openDialogDeleteAllNotes } = useDialogNote();
-	const { breakpoints } = useTheme();
-	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
 
-	const onSuccess = async (response: IFetchPostCreateNoteResponse) => {
-		const { note_id } = response.results;
+	const onSuccess = async ({ results }: IFetchPostCreateNoteResponse) => {
+		const { note_id } = results;
 
 		const linkToNoteEdit = createURLQueryParams("/note/edit", {
 			note_id,
@@ -45,13 +39,11 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count }) => {
 	return (
 		<HeaderNoteView
 			{...{
-				data,
+				title,
 				openDialogDeleteAllNotes,
-				isMediumScreen,
 				isDisabledDeleteAllNotes,
 				mutate,
 				isLoading,
-				isFetching,
 			}}
 		/>
 	);

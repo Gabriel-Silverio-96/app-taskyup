@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
@@ -22,6 +21,7 @@ import {
 	ITodoData,
 	TypeTodoIdsToDelete,
 } from "modules/notes/NoteEdit/types";
+import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();

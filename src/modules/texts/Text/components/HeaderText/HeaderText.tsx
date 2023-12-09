@@ -1,36 +1,38 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
+import { useContextText } from "modules/texts/Text/Context";
+import HeaderTextView from "modules/texts/Text/components/HeaderText/HeaderTextView";
+import { IHeaderText } from "modules/texts/Text/components/HeaderText/types";
+import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
-import { useContextText } from "modules/texts/Text/Context";
-import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
-import HeaderTextView from "modules/texts/Text/components/HeaderText/HeaderTextView";
-import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard";
-import { IHeaderText } from "modules/texts/Text/components/HeaderText/types";
 
-const HeaderText: React.FC<IHeaderText> = ({ count }) => {
+const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 	const { board_id } = useParams();
-	const { data } = useFetchGetOneBoard(board_id);
 
 	const { isOpenTemplates, setIsOpenTemplates } = useContextText();
 	const { openDialogDeleteAllTexts } = useDialogText();
 
-	const { palette, breakpoints } = useTheme();
-	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
+	const { palette } = useTheme();
 
-	const toogleTemplates = () => setIsOpenTemplates(prevState => !prevState);
+	const toggleTemplatesVisibility = () =>
+		setIsOpenTemplates(prevState => !prevState);
 
 	const isDisabledDeleteAllTexts = count === 0;
+
+	const handleOpenDialogDeleteAllTexts = () =>
+		openDialogDeleteAllTexts(board_id!);
+
+	const defineColorIcon = isOpenTemplates
+		? palette.secondary.main
+		: palette.common.white;
 
 	return (
 		<HeaderTextView
 			{...{
-				data,
-				palette,
-				isMediumScreen,
-				openDialogDeleteAllTexts,
-				board_id,
-				toogleTemplates,
-				isOpenTemplates,
+				title,
+				handleOpenDialogDeleteAllTexts,
+				toggleTemplatesVisibility,
+				defineColorIcon,
 				isDisabledDeleteAllTexts,
 			}}
 		/>
