@@ -1,0 +1,3 @@
+export const NOTE_QUERY_KEY = {
+	FETCH_GET_NOTES: "FETCH_GET_NOTES",
+};
