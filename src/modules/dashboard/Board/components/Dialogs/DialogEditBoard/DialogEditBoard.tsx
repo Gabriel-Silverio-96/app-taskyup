@@ -2,23 +2,22 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContextBoard } from "modules/dashboard/Board/Context";
-import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
-import { memo, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import useFetchGetOneBoard, {
-	HOOK_FETCH_BOARD_QUERY_KEY,
-} from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
-import useSnackBar from "shared/common/hook/useSnackBar";
-import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
-import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
-import dateFormat from "shared/util/dateFormat";
 import DialogEditBoardView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/DialogEditBoardView";
 import { ERROR_MESSAGE_UPDATE_BOARD } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/constants";
 import { DialogEditBoardSchema } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/schema";
 import { fetchPatchBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services";
 import { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
+import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { memo, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
+import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
+import useSnackBar from "shared/common/hook/useSnackBar";
+import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
+import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
+import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
+import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import dateFormat from "shared/util/dateFormat";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -76,9 +75,7 @@ const DialogEditBoard = () => {
 					BOARD_QUERY_KEY.FETCH_GET_BOARDS,
 				]),
 				queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
-				queryClient.invalidateQueries([
-					HOOK_FETCH_BOARD_QUERY_KEY.FETCH_GET_ONE_BOARD,
-				]),
+				queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
 				queryClient.invalidateQueries([
 					TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
 				]),

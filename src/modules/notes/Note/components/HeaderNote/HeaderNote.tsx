@@ -3,21 +3,18 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
 import { fetchPostCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
 import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { IHeaderNote } from "./types";
+import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
 
-const HeaderNote: React.FC<IHeaderNote> = ({ count }) => {
+const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 	const { board_id } = useParams();
-
-	const { data, isFetching } = useFetchGetOneBoard(board_id);
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
 	const { breakpoints } = useTheme();
@@ -45,13 +42,12 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count }) => {
 	return (
 		<HeaderNoteView
 			{...{
-				data,
+				title,
 				openDialogDeleteAllNotes,
 				isMediumScreen,
 				isDisabledDeleteAllNotes,
 				mutate,
 				isLoading,
-				isFetching,
 			}}
 		/>
 	);

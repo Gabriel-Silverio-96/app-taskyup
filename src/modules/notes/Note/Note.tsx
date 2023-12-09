@@ -1,9 +1,9 @@
 import React from "react";
 import NoteView from "./NoteView";
-import { NOTE_QUERY_KEY } from "modules/notes/Note/constants";
 import { fetchGetNotesService } from "modules/notes/Note/services";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
+import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
 
 const Note: React.FC = () => {
 	const { board_id } = useParams();
