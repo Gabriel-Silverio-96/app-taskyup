@@ -1,4 +1,4 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useContextText } from "modules/texts/Text/Context";
 import HeaderTextView from "modules/texts/Text/components/HeaderText/HeaderTextView";
 import { IHeaderText } from "modules/texts/Text/components/HeaderText/types";
@@ -12,8 +12,7 @@ const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 	const { isOpenTemplates, setIsOpenTemplates } = useContextText();
 	const { openDialogDeleteAllTexts } = useDialogText();
 
-	const { palette, breakpoints } = useTheme();
-	const isMediumScreen = useMediaQuery(breakpoints.down("md"));
+	const { palette } = useTheme();
 
 	const toggleTemplatesVisibility = () =>
 		setIsOpenTemplates(prevState => !prevState);
@@ -28,7 +27,6 @@ const HeaderText: React.FC<IHeaderText> = ({ count, title }) => {
 			{...{
 				title,
 				palette,
-				isMediumScreen,
 				handleOpenDialogDeleteAllTexts,
 				toggleTemplatesVisibility,
 				isOpenTemplates,

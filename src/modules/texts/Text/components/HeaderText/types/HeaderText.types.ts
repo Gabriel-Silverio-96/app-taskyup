@@ -9,7 +9,6 @@ export interface IHeaderText {
 export interface IHeaderTextView {
 	title: string | undefined;
 	palette: Palette;
-	isMediumScreen: boolean;
 	handleOpenDialogDeleteAllTexts: FunctionReturnsVoid;
 	toggleTemplatesVisibility: FunctionReturnsVoid;
 	isOpenTemplates: boolean;
