@@ -44,7 +44,10 @@ const Markdown: React.FC = () => {
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const mutationFn = () =>
-		fetchPatchTextService({ board_id, text_id, data: dataText });
+		fetchPatchTextService({
+			params: { board_id, text_id },
+			data: dataText,
+		});
 	const { mutate: handleClickSaveText, isLoading: isSaving } = useMutation(
 		mutationFn,
 		optionsMutation

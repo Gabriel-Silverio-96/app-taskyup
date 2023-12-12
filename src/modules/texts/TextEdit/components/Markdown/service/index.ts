@@ -1,2 +1,2 @@
-export * from "./Markdown.service";
 export * from "./fetchGetOneTextService";
+export * from "./fetchPatchTextService";
