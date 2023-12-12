@@ -2,9 +2,15 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
-import { useContextTextEdit } from "modules/texts/TextEdit/Context";
+import {
+	INITIAL_STATE_DATA_TEXT,
+	useContextTextEdit,
+} from "modules/texts/TextEdit/Context";
 import MarkdownView from "./MarkdownView";
-import { fetchGetOneTextService, fetchPatchTextService } from "./service";
+import {
+	fetchGetOneTextService,
+	fetchPatchTextService,
+} from "modules/texts/TextEdit/components/Markdown/services";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -23,7 +29,7 @@ const Markdown: React.FC = () => {
 				const data = await fetchGetOneTextService(text_id);
 				setDataText(data);
 			} catch (error) {
-				console.error("TextEdit ", error);
+				setDataText(INITIAL_STATE_DATA_TEXT);
 			} finally {
 				setIsLoading(false);
 			}
@@ -44,8 +50,11 @@ const Markdown: React.FC = () => {
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const mutationFn = () =>
-		fetchPatchTextService({ board_id, text_id, data: dataText });
-	const { mutate: handleClickSaveText, isLoading: isSaving } = useMutation(
+		fetchPatchTextService({
+			params: { board_id, text_id },
+			data: dataText,
+		});
+	const { mutate, isLoading: isSaving } = useMutation(
 		mutationFn,
 		optionsMutation
 	);
@@ -55,7 +64,7 @@ const Markdown: React.FC = () => {
 			{...{
 				dataText,
 				onChangeText,
-				handleClickSaveText,
+				mutate,
 				onChangeTextTitle,
 				isLoading,
 				isSaving,

@@ -1,35 +1,13 @@
+import { UseMutateFunction } from "@tanstack/react-query";
+import { IDataText } from "modules/texts/TextEdit/types";
 import { ChangeEvent } from "react";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-import { IDataText } from "modules/texts/TextEdit/types";
 
 export interface IMarkdownView {
 	dataText: IDataText;
 	onChangeText: (text: string) => void;
-	handleClickSaveText: FunctionReturnsVoid;
+	mutate: UseMutateFunction<IFetchResponseDefault>;
 	onChangeTextTitle: (event: ChangeEvent<HTMLInputElement>) => void;
 	isLoading: boolean;
 	isSaving: boolean;
-}
-
-export interface IFetchGetOneTextService {
-	(text_id: string | null): Promise<IFetchGetOneTextResponse>;
-}
-
-export interface IFetchPatchTextPayload {
-	board_id: string | null;
-	text_id: string | null;
-	data: IFetchGetOneTextResponse;
-}
-
-export interface IFetchPatchTextService {
-	(payload: IFetchPatchTextPayload): Promise<IFetchResponseDefault>;
-}
-
-export interface IFetchGetOneTextResponse {
-	title_board: string;
-	title_text: string;
-	text: string;
-	created_at: string;
-	public: boolean;
 }

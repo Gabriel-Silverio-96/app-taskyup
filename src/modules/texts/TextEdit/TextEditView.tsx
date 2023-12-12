@@ -1,7 +1,7 @@
 import React from "react";
-import Markdown from "./components/Markdown";
-import { ContextProviderTextEdit } from "./Context";
-import DialogShare from "./components/DialogShare";
+import Markdown from "modules/texts/TextEdit/components/Markdown";
+import { ContextProviderTextEdit } from "modules/texts/TextEdit/Context";
+import DialogShare from "modules/texts/TextEdit/components/DialogShare";
 
 const TextEditView: React.FC = () => {
 	return (

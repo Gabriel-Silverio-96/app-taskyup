@@ -9,7 +9,7 @@ const MarkdownView: React.FC<IMarkdownView> = props => {
 	const {
 		dataText,
 		onChangeText,
-		handleClickSaveText,
+		mutate,
 		onChangeTextTitle,
 		isLoading,
 		isSaving,
@@ -22,7 +22,8 @@ const MarkdownView: React.FC<IMarkdownView> = props => {
 		<>
 			<Loading isLoading={isSaving} backdrop />
 			<HeaderText
-				{...{ handleClickSaveText, onChangeTextTitle }}
+				handleClickSaveText={mutate}
+				onChangeTextTitle={onChangeTextTitle}
 				titleBoard={title_board}
 				titleText={title_text}
 			/>
