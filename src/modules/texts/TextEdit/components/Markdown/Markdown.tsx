@@ -51,7 +51,7 @@ const Markdown: React.FC = () => {
 			params: { board_id, text_id },
 			data: dataText,
 		});
-	const { mutate: handleClickSaveText, isLoading: isSaving } = useMutation(
+	const { mutate, isLoading: isSaving } = useMutation(
 		mutationFn,
 		optionsMutation
 	);
@@ -61,7 +61,7 @@ const Markdown: React.FC = () => {
 			{...{
 				dataText,
 				onChangeText,
-				handleClickSaveText,
+				mutate,
 				onChangeTextTitle,
 				isLoading,
 				isSaving,
