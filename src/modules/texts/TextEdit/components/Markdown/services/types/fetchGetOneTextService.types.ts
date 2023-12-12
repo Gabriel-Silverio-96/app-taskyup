@@ -7,5 +7,5 @@ export interface IFetchGetOneTextResponse {
 }
 
 export interface IFetchGetOneTextService {
-	(text_id: string | null): Promise<IFetchGetOneTextResponse>;
+	(textID: string | null): Promise<IFetchGetOneTextResponse>;
 }
