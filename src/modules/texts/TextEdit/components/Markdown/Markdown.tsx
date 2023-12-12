@@ -4,7 +4,10 @@ import { useSearchParams } from "react-router-dom";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
 import { useContextTextEdit } from "modules/texts/TextEdit/Context";
 import MarkdownView from "./MarkdownView";
-import { fetchGetOneTextService, fetchPatchTextService } from "./service";
+import {
+	fetchGetOneTextService,
+	fetchPatchTextService,
+} from "modules/texts/TextEdit/components/Markdown/services";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();

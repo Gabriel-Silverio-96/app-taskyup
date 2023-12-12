@@ -1,4 +1,4 @@
-import { IFetchGetOneTextResponse } from "modules/texts/TextEdit/components/Markdown/service/types";
+import { IFetchGetOneTextResponse } from "modules/texts/TextEdit/components/Markdown/services/types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
 export interface IFetchPatchTextProps {

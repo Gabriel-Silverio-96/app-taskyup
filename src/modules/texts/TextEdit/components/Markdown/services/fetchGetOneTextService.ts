@@ -2,7 +2,7 @@ import api from "shared/services/api";
 import {
 	IFetchGetOneTextService,
 	IFetchGetOneTextResponse,
-} from "modules/texts/TextEdit/components/Markdown/service/types";
+} from "modules/texts/TextEdit/components/Markdown/services/types";
 
 export const fetchGetOneTextService: IFetchGetOneTextService =
 	async text_id => {
