@@ -1,17 +1,6 @@
+import { IFetchPatchTextService } from "modules/texts/TextEdit/components/Markdown/types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 import api from "shared/services/api";
-import {
-	IFetchGetOneTextResponse,
-	IFetchGetOneTextService,
-	IFetchPatchTextService,
-} from "modules/texts/TextEdit/components/Markdown/types";
-
-const fetchGetOneTextService: IFetchGetOneTextService = async text_id => {
-	const { data } = await api.get<IFetchGetOneTextResponse>(
-		`/text/text_id=${text_id}`
-	);
-	return data;
-};
 
 const fetchPatchTextService: IFetchPatchTextService = async ({
 	board_id,
@@ -27,4 +16,4 @@ const fetchPatchTextService: IFetchPatchTextService = async ({
 	return response;
 };
 
-export { fetchGetOneTextService, fetchPatchTextService };
+export { fetchPatchTextService };
