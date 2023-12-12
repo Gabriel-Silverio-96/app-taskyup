@@ -10,7 +10,7 @@ import React, { memo } from "react";
 import { FiArrowLeft, FiShare2 } from "react-icons/fi";
 import { Link, useSearchParams } from "react-router-dom";
 import Logo from "shared/components/Logo";
-import IconPublic from "shared/components/components/IconPublic";
+import IconPublic from "shared/components/IconPublic";
 import { ICON_SIZE } from "shared/constants";
 import { IHeaderText } from "./types";
 import { validateTitleText } from "./utils/validate-title-text";
