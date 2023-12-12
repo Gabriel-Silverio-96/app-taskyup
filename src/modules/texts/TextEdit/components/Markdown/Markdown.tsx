@@ -2,7 +2,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
-import { useContextTextEdit } from "modules/texts/TextEdit/Context";
+import {
+	INITIAL_STATE_DATA_TEXT,
+	useContextTextEdit,
+} from "modules/texts/TextEdit/Context";
 import MarkdownView from "./MarkdownView";
 import {
 	fetchGetOneTextService,
@@ -26,7 +29,7 @@ const Markdown: React.FC = () => {
 				const data = await fetchGetOneTextService(text_id);
 				setDataText(data);
 			} catch (error) {
-				console.error("TextEdit ", error);
+				setDataText(INITIAL_STATE_DATA_TEXT);
 			} finally {
 				setIsLoading(false);
 			}
