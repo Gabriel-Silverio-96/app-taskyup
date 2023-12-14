@@ -3,6 +3,6 @@ import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside
 type TypeSlug = "notes" | "texts";
 
 export interface ILinkTreeItem {
-	menu: IFetchGetMenuResponse | undefined;
+	data: IFetchGetMenuResponse | undefined;
 	slug: TypeSlug;
 }

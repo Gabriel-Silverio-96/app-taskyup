@@ -20,7 +20,7 @@ const Aside: React.FC = () => {
 	const openDialogNewBoard = () => setOpenDialog(prevState => !prevState);
 	const closeDialogNewBoard = () => setOpenDialog(false);
 
-	const { data: menu } = useQuery(
+	const { data } = useQuery(
 		[ASIDE_QUERY_KEY.FETCH_GET_MENU],
 		fetchGetMenuService
 	);
@@ -29,7 +29,7 @@ const Aside: React.FC = () => {
 		<AsideView
 			{...{
 				palette,
-				menu,
+				data,
 				openAside,
 				toogleOpenAside,
 				openDialog,
