@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import AsideView from "./AsideView";
-import { fetchGetMenuService } from "./service";
+import { fetchGetMenuService } from "shared/components/Drawer/components/Aside/services";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 
 const Aside: React.FC = () => {
@@ -20,7 +20,7 @@ const Aside: React.FC = () => {
 	const openDialogNewBoard = () => setOpenDialog(prevState => !prevState);
 	const closeDialogNewBoard = () => setOpenDialog(false);
 
-	const { data: menu } = useQuery(
+	const { data } = useQuery(
 		[ASIDE_QUERY_KEY.FETCH_GET_MENU],
 		fetchGetMenuService
 	);
@@ -29,7 +29,7 @@ const Aside: React.FC = () => {
 		<AsideView
 			{...{
 				palette,
-				menu,
+				data,
 				openAside,
 				toogleOpenAside,
 				openDialog,

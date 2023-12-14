@@ -30,7 +30,7 @@ import { ICON_SIZE } from "shared/constants";
 const AsideView: React.FC<IAsideView> = props => {
 	const {
 		palette,
-		menu,
+		data,
 		openAside,
 		openDialog,
 		toogleOpenAside,
@@ -94,7 +94,7 @@ const AsideView: React.FC<IAsideView> = props => {
 								Notes
 							</>
 						}>
-						<LinkTreeItem menu={menu} slug="notes" />
+						<LinkTreeItem data={data} slug="notes" />
 					</TreeItem>
 					<TreeItem
 						nodeId="2"
@@ -104,7 +104,7 @@ const AsideView: React.FC<IAsideView> = props => {
 								Texts
 							</>
 						}>
-						<LinkTreeItem menu={menu} slug="texts" />
+						<LinkTreeItem data={data} slug="texts" />
 					</TreeItem>
 					<Tooltip title="Comming soon" placement="right">
 						<span>
