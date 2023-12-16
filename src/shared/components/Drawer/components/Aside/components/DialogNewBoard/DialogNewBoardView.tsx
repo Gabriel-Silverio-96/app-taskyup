@@ -27,7 +27,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 		openDialog,
 		closeDialogNewBoard,
 		handleSubmit,
-		handleSubmitCreateBoard,
+		mutate,
 		errors,
 		isLoading,
 	} = props;
@@ -58,9 +58,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<form
-					id="form-new-board"
-					onSubmit={handleSubmit(handleSubmitCreateBoard)}>
+				<form id="form-new-board" onSubmit={handleSubmit(mutate)}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
 							<TextField

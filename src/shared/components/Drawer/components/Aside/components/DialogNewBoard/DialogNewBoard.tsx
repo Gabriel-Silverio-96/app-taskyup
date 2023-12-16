@@ -43,12 +43,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 		]);
 	};
 
-	const { mutate: handleSubmitCreateBoard, isLoading } = useMutation(
-		mutationFn,
-		{
-			onSuccess,
-		}
-	);
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
 	return (
 		<DialogNewBoardView
@@ -58,7 +53,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 				openDialog,
 				closeDialogNewBoard,
 				handleSubmit,
-				handleSubmitCreateBoard,
+				mutate,
 				errors,
 				isLoading,
 			}}

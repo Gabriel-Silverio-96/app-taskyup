@@ -19,7 +19,7 @@ export interface IDialogNewBoardView extends IDialogNewBoard {
 	register: UseFormRegister<IDialogNewBoardForm>;
 	fullScreen: boolean;
 	handleSubmit: UseFormHandleSubmit<IDialogNewBoardForm>;
-	handleSubmitCreateBoard: (form: IDialogNewBoardForm) => void;
+	mutate: (form: IDialogNewBoardForm) => void;
 	errors: FieldErrors<IDialogNewBoardForm>;
 	isLoading: boolean;
 }
