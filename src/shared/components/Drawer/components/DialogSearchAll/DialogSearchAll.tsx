@@ -8,7 +8,7 @@ import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types
 import { createAction } from "shared/common/store/store.action";
 import DialogSearchAllView from "./DialogSearchAllView";
 import schema from "./schema";
-import { fetchGetSearchAllService } from "./service";
+import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/service";
 import { IDialogSearchAllForm } from "./types/DialogSearchAll.types";
 import { IPaginationModel } from "shared/common/types/AppTypes";
 import {
@@ -44,9 +44,9 @@ const DialogSearchAll: React.FC = () => {
 
 	const queryFn = () => {
 		const { page, pageSize } = paginationModel;
-		const payload = { ...getValues(), pageNumber: page, pageSize };
+		const params = { ...getValues(), pageNumber: page, pageSize };
 
-		return fetchGetSearchAllService(payload);
+		return fetchGetSearchAllService({ params });
 	};
 
 	const {
