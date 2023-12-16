@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import DialogNewBoardView from "./DialogNewBoardView";
-import { fetchPostBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/service";
+import { fetchPostBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/services";
 import schema from "./shared/schema";
 import { IDialogNewBoard, IFetchPostBoardService } from "./types";
 
