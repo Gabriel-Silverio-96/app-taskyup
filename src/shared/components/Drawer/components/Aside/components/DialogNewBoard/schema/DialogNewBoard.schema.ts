@@ -11,7 +11,7 @@ const BOARD_TYPE_IDS = [
 	KANBAN_BOARD_TYPE_ID,
 ];
 
-const schema = Yup.object({
+export const DialogNewBoardSchema = Yup.object({
 	title: Yup.string()
 		.required()
 		.min(3, "Should be 3 chars minimum")
@@ -20,5 +20,3 @@ const schema = Yup.object({
 		.required("Required field")
 		.oneOf(BOARD_TYPE_IDS),
 });
-
-export default schema;
