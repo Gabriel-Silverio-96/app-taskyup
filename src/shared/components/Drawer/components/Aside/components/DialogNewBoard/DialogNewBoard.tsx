@@ -5,10 +5,13 @@ import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
-import DialogNewBoardView from "./DialogNewBoardView";
-import { fetchPostCreateBoardService } from "./service";
-import schema from "./shared/schema";
-import { IDialogNewBoard, IFetchPostCreateBoardService } from "./types";
+import DialogNewBoardView from "shared/components/Drawer/components/Aside/components/DialogNewBoard/DialogNewBoardView";
+import { fetchPostBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/services";
+import { DialogNewBoardSchema } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/schema";
+import {
+	IDialogNewBoard,
+	IDialogNewBoardForm,
+} from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 
 const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	openDialog,
@@ -23,14 +26,17 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm({ resolver: yupResolver(schema), mode: "all" });
+	} = useForm<IDialogNewBoardForm>({
+		resolver: yupResolver(DialogNewBoardSchema),
+		mode: "all",
+	});
 
 	useEffect(() => {
 		return () => reset();
 	}, [openDialog]);
 
-	const mutationFn = (data: IFetchPostCreateBoardService) =>
-		fetchPostCreateBoardService(data);
+	const mutationFn = (form: IDialogNewBoardForm) =>
+		fetchPostBoardService({ body: form });
 
 	const onSuccess = async () => {
 		closeDialogNewBoard();
@@ -40,10 +46,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 		]);
 	};
 
-	const { mutate: handleSubmitCreateBoard, isLoading: isSaving } =
-		useMutation(mutationFn, {
-			onSuccess,
-		});
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
 	return (
 		<DialogNewBoardView
@@ -53,9 +56,9 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 				openDialog,
 				closeDialogNewBoard,
 				handleSubmit,
-				handleSubmitCreateBoard,
+				mutate,
 				errors,
-				isSaving,
+				isLoading,
 			}}
 		/>
 	);

@@ -11,12 +11,12 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { IDialogNewBoardView } from "./types";
+import { IDialogNewBoardView } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 import {
 	NOTES_BOARD_TYPE_ID,
 	TEXTS_BOARD_TYPE_ID,
 	KANBAN_BOARD_TYPE_ID,
-} from "./constants";
+} from "shared/components/Drawer/components/Aside/components/DialogNewBoard/constants";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
 
@@ -27,9 +27,9 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 		openDialog,
 		closeDialogNewBoard,
 		handleSubmit,
-		handleSubmitCreateBoard,
+		mutate,
 		errors,
-		isSaving,
+		isLoading,
 	} = props;
 	return (
 		<Dialog
@@ -37,7 +37,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 			maxWidth="xs"
 			open={openDialog}
 			fullScreen={fullScreen}
-			onClose={!isSaving ? closeDialogNewBoard : () => ""}>
+			onClose={!isLoading ? closeDialogNewBoard : () => ""}>
 			<DialogTitle sx={{ marginBottom: "1rem" }}>
 				<Grid
 					container
@@ -51,16 +51,14 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogNewBoard}
-							disabled={isSaving}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
 				</Grid>
 			</DialogTitle>
 			<DialogContent>
-				<form
-					id="form-new-board"
-					onSubmit={handleSubmit(handleSubmitCreateBoard)}>
+				<form id="form-new-board" onSubmit={handleSubmit(mutate)}>
 					<Grid container direction="column" spacing={5}>
 						<Grid item>
 							<TextField
@@ -115,7 +113,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 					form="form-new-board"
 					variant="contained"
 					type="submit"
-					loading={isSaving}>
+					loading={isLoading}>
 					Save
 				</LoadingButton>
 			</DialogActions>
