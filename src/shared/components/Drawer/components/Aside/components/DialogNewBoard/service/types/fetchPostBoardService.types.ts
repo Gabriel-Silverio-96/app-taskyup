@@ -7,6 +7,6 @@ export interface IFetchPostCreateBoardProps {
 	};
 }
 
-export interface IFetchPostCreateBoardService {
+export interface IFetchPostBoardService {
 	({ body }: IFetchPostCreateBoardProps): Promise<IFetchResponseDefault>;
 }

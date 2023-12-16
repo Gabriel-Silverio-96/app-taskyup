@@ -1,1 +1,1 @@
-export * from "./fetchPostCreateBoardService";
+export * from "./fetchPostBoardService";
