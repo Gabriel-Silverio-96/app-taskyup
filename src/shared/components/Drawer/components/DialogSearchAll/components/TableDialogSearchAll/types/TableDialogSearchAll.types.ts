@@ -1,7 +1,7 @@
 import { IPaginationModel } from "shared/common/types/AppTypes";
 import { Dispatch, SetStateAction } from "react";
 import { GridColDef, GridRowsProp } from "@mui/x-data-grid";
-import { IFetchGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/service/types";
+import { IFetchGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/services/types";
 
 export interface ITableDialogSearchAll {
 	data: IFetchGetSearchAllResponse | undefined;

@@ -8,7 +8,7 @@ import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types
 import { createAction } from "shared/common/store/store.action";
 import DialogSearchAllView from "./DialogSearchAllView";
 import schema from "./schema";
-import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/service";
+import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
 import { IDialogSearchAllForm } from "./types/DialogSearchAll.types";
 import { IPaginationModel } from "shared/common/types/AppTypes";
 import {

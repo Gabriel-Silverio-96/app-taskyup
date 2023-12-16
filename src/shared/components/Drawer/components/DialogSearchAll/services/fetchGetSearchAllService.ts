@@ -2,7 +2,7 @@ import api from "shared/services/api";
 import {
 	IFetchGetSearchAllService,
 	IFetchGetSearchAllResponse,
-} from "shared/components/Drawer/components/DialogSearchAll/service/types";
+} from "shared/components/Drawer/components/DialogSearchAll/services/types";
 
 export const fetchGetSearchAllService: IFetchGetSearchAllService = async ({
 	params,
