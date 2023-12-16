@@ -2,12 +2,12 @@ import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
 import { ITableDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/types";
 import { TableDialogSearchAllContainer } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/style";
+import { columns } from "./constants";
 
 const TableDialogSearchAllView: React.FC<ITableDialogSearchAllView> = props => {
 	const {
 		data,
 		rows,
-		columns,
 		isLoading,
 		paginationModel,
 		hadlePaginationModelChange,
