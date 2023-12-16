@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAll/DialogSearchAll.reduce";
 import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types/DialogSearchAll.types";
 import { createAction } from "shared/common/store/store.action";
-import DialogSearchAllView from "./DialogSearchAllView";
-import schema from "./schema";
-import { fetchGetSearchAllService } from "./service";
-import { IDialogSearchAllForm } from "./types/DialogSearchAll.types";
+import DialogSearchAllView from "shared/components/Drawer/components/DialogSearchAll/DialogSearchAllView";
+import { DialogSearchAllSchema } from "shared/components/Drawer/components/DialogSearchAll/schema";
+import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
+import { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
 import { IPaginationModel } from "shared/common/types/AppTypes";
 import {
 	DIALOG_SEARCH_ALL_QUERY_KEY,
@@ -26,7 +26,7 @@ const DialogSearchAll: React.FC = () => {
 		reset,
 		getValues,
 	} = useForm<IDialogSearchAllForm>({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(DialogSearchAllSchema),
 		mode: "all",
 	});
 
@@ -44,9 +44,9 @@ const DialogSearchAll: React.FC = () => {
 
 	const queryFn = () => {
 		const { page, pageSize } = paginationModel;
-		const payload = { ...getValues(), pageNumber: page, pageSize };
+		const params = { ...getValues(), pageNumber: page, pageSize };
 
-		return fetchGetSearchAllService(payload);
+		return fetchGetSearchAllService({ params });
 	};
 
 	const {
