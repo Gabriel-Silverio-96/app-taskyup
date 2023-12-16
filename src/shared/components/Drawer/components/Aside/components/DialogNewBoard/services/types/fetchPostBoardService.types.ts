@@ -1,12 +1,10 @@
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IDialogNewBoardForm } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 
-export interface IFetchPostCreateBoardProps {
-	body: {
-		title: string;
-		board_type_id: string;
-	};
+export interface IFetchPostBoardProps {
+	body: IDialogNewBoardForm;
 }
 
 export interface IFetchPostBoardService {
-	({ body }: IFetchPostCreateBoardProps): Promise<IFetchResponseDefault>;
+	({ body }: IFetchPostBoardProps): Promise<IFetchResponseDefault>;
 }

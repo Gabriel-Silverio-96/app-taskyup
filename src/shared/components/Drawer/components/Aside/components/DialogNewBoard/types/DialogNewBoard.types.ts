@@ -10,16 +10,16 @@ export interface IDialogNewBoard {
 	closeDialogNewBoard: FunctionReturnsVoid;
 }
 
-export interface IFetchPostBoardService {
+export interface IDialogNewBoardForm {
 	title: string;
 	board_type_id: string;
 }
 
 export interface IDialogNewBoardView extends IDialogNewBoard {
-	register: UseFormRegister<any>;
+	register: UseFormRegister<IDialogNewBoardForm>;
 	fullScreen: boolean;
-	handleSubmit: UseFormHandleSubmit<any>;
-	handleSubmitCreateBoard: (data: IFetchPostBoardService) => void;
-	errors: FieldErrors<IFetchPostBoardService>;
+	handleSubmit: UseFormHandleSubmit<IDialogNewBoardForm>;
+	handleSubmitCreateBoard: (form: IDialogNewBoardForm) => void;
+	errors: FieldErrors<IDialogNewBoardForm>;
 	isSaving: boolean;
 }
