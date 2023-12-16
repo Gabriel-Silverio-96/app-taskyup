@@ -21,5 +21,5 @@ export interface IDialogNewBoardView extends IDialogNewBoard {
 	handleSubmit: UseFormHandleSubmit<IDialogNewBoardForm>;
 	handleSubmitCreateBoard: (form: IDialogNewBoardForm) => void;
 	errors: FieldErrors<IDialogNewBoardForm>;
-	isSaving: boolean;
+	isLoading: boolean;
 }

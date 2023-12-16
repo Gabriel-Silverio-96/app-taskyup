@@ -29,7 +29,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 		handleSubmit,
 		handleSubmitCreateBoard,
 		errors,
-		isSaving,
+		isLoading,
 	} = props;
 	return (
 		<Dialog
@@ -37,7 +37,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 			maxWidth="xs"
 			open={openDialog}
 			fullScreen={fullScreen}
-			onClose={!isSaving ? closeDialogNewBoard : () => ""}>
+			onClose={!isLoading ? closeDialogNewBoard : () => ""}>
 			<DialogTitle sx={{ marginBottom: "1rem" }}>
 				<Grid
 					container
@@ -51,7 +51,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogNewBoard}
-							disabled={isSaving}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
@@ -115,7 +115,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 					form="form-new-board"
 					variant="contained"
 					type="submit"
-					loading={isSaving}>
+					loading={isLoading}>
 					Save
 				</LoadingButton>
 			</DialogActions>
