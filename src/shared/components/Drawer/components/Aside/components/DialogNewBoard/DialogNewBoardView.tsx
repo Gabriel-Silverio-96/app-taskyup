@@ -11,12 +11,12 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { IDialogNewBoardView } from "./types";
+import { IDialogNewBoardView } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 import {
 	NOTES_BOARD_TYPE_ID,
 	TEXTS_BOARD_TYPE_ID,
 	KANBAN_BOARD_TYPE_ID,
-} from "./constants";
+} from "shared/components/Drawer/components/Aside/components/DialogNewBoard/constants";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
 
