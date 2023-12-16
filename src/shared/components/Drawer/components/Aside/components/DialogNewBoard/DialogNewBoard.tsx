@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
 import DialogNewBoardView from "./DialogNewBoardView";
-import { fetchPostCreateBoardService } from "./service";
+import { fetchPostCreateBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/service";
 import schema from "./shared/schema";
 import { IDialogNewBoard, IFetchPostCreateBoardService } from "./types";
 
@@ -30,7 +30,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	}, [openDialog]);
 
 	const mutationFn = (data: IFetchPostCreateBoardService) =>
-		fetchPostCreateBoardService(data);
+		fetchPostCreateBoardService({ body: data });
 
 	const onSuccess = async () => {
 		closeDialogNewBoard();
