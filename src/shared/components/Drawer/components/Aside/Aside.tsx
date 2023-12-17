@@ -4,7 +4,7 @@ import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import AsideView from "./AsideView";
 import { fetchGetMenuService } from "shared/components/Drawer/components/Aside/services";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
+import { MENU_QUERY_KEY } from "shared/constants";
 
 const Aside: React.FC = () => {
 	const { palette } = useTheme();
@@ -21,7 +21,7 @@ const Aside: React.FC = () => {
 	const closeDialogNewBoard = () => setOpenDialog(false);
 
 	const { data } = useQuery(
-		[ASIDE_QUERY_KEY.FETCH_GET_MENU],
+		[MENU_QUERY_KEY.FETCH_GET_MENU],
 		fetchGetMenuService
 	);
 
