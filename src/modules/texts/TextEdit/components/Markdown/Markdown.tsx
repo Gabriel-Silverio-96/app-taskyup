@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { TEXT_QUERY_KEY } from "shared/constants";
 import {
 	INITIAL_STATE_DATA_TEXT,
 	useContextTextEdit,

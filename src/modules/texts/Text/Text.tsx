@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { TEXT_QUERY_KEY } from "shared/constants";
 import TextView from "modules/texts/Text/TextView";
 import { fetchGetAllTextsService } from "modules/texts/Text/services";
 

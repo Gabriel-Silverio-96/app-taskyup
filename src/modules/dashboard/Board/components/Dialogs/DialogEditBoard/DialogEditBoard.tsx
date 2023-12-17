@@ -14,9 +14,11 @@ import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoar
 import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 import useSnackBar from "shared/common/hook/useSnackBar";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
-import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
-import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import {
+	BOARD_QUERY_KEY,
+	NOTE_QUERY_KEY,
+	TEXT_QUERY_KEY,
+} from "shared/constants";
 import dateFormat from "shared/util/dateFormat";
 
 const DialogEditBoard = () => {

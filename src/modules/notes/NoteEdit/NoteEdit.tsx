@@ -21,7 +21,7 @@ import {
 	ITodoData,
 	TypeTodoIdsToDelete,
 } from "modules/notes/NoteEdit/types";
-import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
+import { NOTE_QUERY_KEY } from "shared/constants";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();

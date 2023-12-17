@@ -7,7 +7,7 @@ import TemplatesView from "modules/texts/Text/components/Templates/TemplatesView
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { mountTemplateBody } from "modules/texts/Text/components/Templates/utils/mount-template-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { TEXT_QUERY_KEY } from "shared/constants";
 import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
 
 const Templates: React.FC = () => {

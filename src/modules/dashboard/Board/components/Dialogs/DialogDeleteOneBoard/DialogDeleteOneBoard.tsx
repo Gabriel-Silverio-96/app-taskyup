@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import DialogDeleteOneBoardView from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/DialogDeleteOneBoardView";
-import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
+import { BOARD_QUERY_KEY } from "shared/constants";
 import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
 import { fetchDeleteOneBoardService } from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/services";
 

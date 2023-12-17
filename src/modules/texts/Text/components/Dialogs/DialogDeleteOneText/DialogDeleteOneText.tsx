@@ -4,7 +4,7 @@ import { useContextText } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import DialogDeleteOneTextView from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/DialogDeleteOneTextView";
 import { fetchDeleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/services";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { TEXT_QUERY_KEY } from "shared/constants";
 
 const DialogDeleteOneText: React.FC = () => {
 	const queryClient = useQueryClient();

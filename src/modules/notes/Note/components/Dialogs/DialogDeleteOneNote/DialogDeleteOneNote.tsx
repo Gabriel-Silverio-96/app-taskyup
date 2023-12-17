@@ -4,7 +4,7 @@ import DialogDeleteOneNoteView from "modules/notes/Note/components/Dialogs/Dialo
 import { fetchDeleteOneNoteService } from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/services";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import React, { memo } from "react";
-import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
+import { NOTE_QUERY_KEY } from "shared/constants";
 
 const DialogDeleteOneNote: React.FC = () => {
 	const queryClient = useQueryClient();

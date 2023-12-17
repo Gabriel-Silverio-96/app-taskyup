@@ -6,7 +6,7 @@ import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
+import { NOTE_QUERY_KEY } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
 

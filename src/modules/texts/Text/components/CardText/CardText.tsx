@@ -7,7 +7,7 @@ import { FiPlus } from "react-icons/fi";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { TEXT_QUERY_KEY } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import CardContent from "modules/texts/Text/components/CardText/components/CardContent";
 import {
