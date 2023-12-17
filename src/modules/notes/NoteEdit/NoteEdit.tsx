@@ -21,7 +21,7 @@ import {
 	ITodoData,
 	TypeTodoIdsToDelete,
 } from "modules/notes/NoteEdit/types";
-import { NOTE_QUERY_KEY } from "shared/constants";
+import { MENU_QUERY_KEY, NOTE_QUERY_KEY } from "shared/constants";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -77,6 +77,7 @@ const NoteEdit: React.FC = () => {
 	const onSuccessMutation = async () => {
 		setTodoIdsToDelete([]);
 		return await Promise.all([
+			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
 			queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
 			queryClient.invalidateQueries([
 				NOTE_EDIT_QUERY_KEY.FETCH_GET_ONE_NOTE,

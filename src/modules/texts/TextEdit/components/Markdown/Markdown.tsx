@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { ChangeEvent, memo, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { TEXT_QUERY_KEY } from "shared/constants";
+import { MENU_QUERY_KEY, TEXT_QUERY_KEY } from "shared/constants";
 import {
 	INITIAL_STATE_DATA_TEXT,
 	useContextTextEdit,
@@ -45,8 +45,13 @@ const Markdown: React.FC = () => {
 		setDataText(prevState => ({ ...prevState, title_text: value }));
 	};
 
-	const onSuccessMutation = () =>
-		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
+	const onSuccessMutation = async () => {
+		return await Promise.all([
+			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]),
+			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
+		]);
+	};
+
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const mutationFn = () =>
