@@ -16,6 +16,7 @@ import {
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
+import { ICON_SIZE } from "shared/constants";
 import DialogNewBoard from "./components/DialogNewBoard";
 import LinkTreeItem from "./components/LinkTreeItem/LinkTreeItem";
 import {
@@ -25,7 +26,6 @@ import {
 	TreeViewContainerItem,
 } from "./style";
 import { IAsideView } from "./types/Aside.component";
-import { ICON_SIZE } from "shared/constants";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
@@ -36,6 +36,8 @@ const AsideView: React.FC<IAsideView> = props => {
 		toogleOpenAside,
 		openDialogNewBoard,
 		closeDialogNewBoard,
+		treeViewExpanded,
+		onNodeToggle,
 	} = props;
 
 	return (
@@ -79,7 +81,9 @@ const AsideView: React.FC<IAsideView> = props => {
 					MY BOARDS
 				</Typography>
 				<TreeView
-					aria-label="menu-navigator"
+					aria-label="controlled"
+					expanded={treeViewExpanded}
+					onNodeToggle={onNodeToggle}
 					defaultCollapseIcon={
 						<FiChevronDown size={ICON_SIZE.SMALL} />
 					}
