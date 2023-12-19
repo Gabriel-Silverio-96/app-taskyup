@@ -86,7 +86,6 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         }
 
         .MuiCollapse-root {
-            margin-left: 0;
 
             .MuiCollapse-wrapper {
                 .MuiCollapse-wrapperInner {
