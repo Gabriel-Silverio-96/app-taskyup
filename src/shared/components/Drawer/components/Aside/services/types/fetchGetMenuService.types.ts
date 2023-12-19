@@ -8,7 +8,7 @@ export interface IMenu {
 	board_id: string;
 	board_type_id: string;
 	title: string;
-	items: IMenuItems;
+	items: IMenuItems[];
 }
 
 export interface IFetchGetMenuResponse {
