@@ -5,7 +5,7 @@ import { useContextText } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import DialogDeleteAllTextView from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/DialogDeleteAllTextsView";
 import { fetchDeleteAllTextsService } from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/services";
-import { TEXT_QUERY_KEY } from "shared/constants";
+import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 
 const DialogDeleteAllTexts: React.FC = () => {
 	const { board_id } = useParams();
@@ -17,6 +17,7 @@ const DialogDeleteAllTexts: React.FC = () => {
 	const onError = () => closeDialogDeleteAllTexts();
 	const onSuccess = () => {
 		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
+		queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]);
 		closeDialogDeleteAllTexts();
 	};
 

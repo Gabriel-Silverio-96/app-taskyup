@@ -7,7 +7,7 @@ import { FiPlus } from "react-icons/fi";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
-import { TEXT_QUERY_KEY } from "shared/constants";
+import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import CardContent from "modules/texts/Text/components/CardText/components/CardContent";
 import {
@@ -38,8 +38,9 @@ const CardText: React.FC<ICardText> = ({ data }) => {
 		});
 		navigate(redirectToTextEdit);
 
-		await queryClient.invalidateQueries([
-			TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
+		await Promise.all([
+			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]),
+			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
 		]);
 	};
 

@@ -7,7 +7,7 @@ import TemplatesView from "modules/texts/Text/components/Templates/TemplatesView
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { mountTemplateBody } from "modules/texts/Text/components/Templates/utils/mount-template-body";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
-import { TEXT_QUERY_KEY } from "shared/constants";
+import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
 
 const Templates: React.FC = () => {
@@ -28,10 +28,12 @@ const Templates: React.FC = () => {
 			text_id,
 			board_id,
 		});
+
 		navigate(redirectToTextEdit);
 
-		await queryClient.invalidateQueries([
-			TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
+		await Promise.all([
+			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]),
+			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
 		]);
 	};
 
