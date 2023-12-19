@@ -13,7 +13,15 @@ export const Aside = styled("aside")<IAsideStyle>(
         border-color: ${theme.palette.grey[900]};
 
         .MuiTreeView-root {            
+            margin-left: ${theme.spacing(-1)};
+
             .MuiTreeItem-root {
+                width: 100%;
+                
+                div:empty {
+                    display: none
+                }
+                
                 .Mui-selected {
                     background-color: transparent;
                 }
@@ -21,8 +29,11 @@ export const Aside = styled("aside")<IAsideStyle>(
                 .MuiTreeItem-content {         
                     margin-top: ${theme.spacing(0.5)};                              
                     padding: ${theme.spacing(0.8)} ${theme.spacing(0.8)} ${theme.spacing(0.8)} 0;
+                    border-radius: ${theme.spacing(0.625)};
+                    padding-left: ${theme.spacing(0.875)};
+
                     :hover {
-                        background-color: transparent;
+                        background-color: ${theme.palette.background.paper};
                     }
                 }
 
