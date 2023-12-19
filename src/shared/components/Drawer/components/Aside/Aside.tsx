@@ -5,7 +5,7 @@ import useLocalStorage from "shared/common/hook/useLocalStorage";
 import AsideView from "./AsideView";
 import { fetchGetMenuService } from "shared/components/Drawer/components/Aside/services";
 import { MENU_QUERY_KEY } from "shared/constants";
-import { IOnNodeToggle } from "./types/Aside.component";
+import { IOnNodeToggle } from "shared/components/Drawer/components/Aside/types";
 
 const Aside: React.FC = () => {
 	const { palette } = useTheme();

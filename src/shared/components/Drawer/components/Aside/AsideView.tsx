@@ -25,7 +25,7 @@ import {
 	TreeViewContainer,
 	TreeViewContainerItem,
 } from "./style";
-import { IAsideView } from "./types/Aside.component";
+import { IAsideView } from "./types/Aside.types";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
