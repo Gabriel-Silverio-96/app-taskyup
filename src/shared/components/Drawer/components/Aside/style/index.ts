@@ -89,9 +89,6 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
             margin-left: 0;
 
             .MuiCollapse-wrapper {
-                max-height: ${theme.spacing(25)} !important;
-                overflow: hidden auto;   
-                
                 .MuiCollapse-wrapperInner {
                     a > li > div .MuiTreeItem-label {
                         display: -webkit-box;
