@@ -110,20 +110,6 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
                     width: ${theme.spacing(0.7)};    
                     height: ${theme.spacing(0.7)};
                 }
-                
-                :before {
-                    content: "";
-                    position: absolute;
-                    z-index: 1;
-                    left: 0;
-                    pointer-events: none;
-                    background-image: 
-                        linear-gradient(0deg, rgb(0 0 0 / 0%) 20%, 
-                        ${theme.palette.mode === "dark" ? theme.palette.common.black : theme.palette.common.white} 100%
-                    );
-                    height: ${theme.spacing(4)};
-                    width: 100%;
-                }
             }
         }        
     `
