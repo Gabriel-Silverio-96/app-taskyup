@@ -1,8 +1,8 @@
 import { TreeItem } from "@mui/lab";
 import { Link } from "react-router-dom";
-import { ILinkTreeItem } from "./types";
+import { ILinkTreeItem } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/types";
 import { Fragment } from "react";
-import { defineURLPath } from "./utils/define-url-path";
+import { defineURLPath } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/utils/define-url-path";
 
 const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, slug }) => {
 	if (!data) return null;

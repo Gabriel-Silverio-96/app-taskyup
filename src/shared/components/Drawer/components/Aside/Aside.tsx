@@ -2,7 +2,7 @@ import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
-import AsideView from "./AsideView";
+import AsideView from "shared/components/Drawer/components/Aside/AsideView";
 import { fetchGetMenuService } from "shared/components/Drawer/components/Aside/services";
 import { MENU_QUERY_KEY } from "shared/constants";
 import { IOnNodeToggle } from "shared/components/Drawer/components/Aside/types";

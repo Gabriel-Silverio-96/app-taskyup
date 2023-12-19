@@ -17,15 +17,15 @@ import {
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { ICON_SIZE } from "shared/constants";
-import DialogNewBoard from "./components/DialogNewBoard";
-import LinkTreeItem from "./components/LinkTreeItem/LinkTreeItem";
+import DialogNewBoard from "shared/components/Drawer/components/Aside/components/DialogNewBoard";
+import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem";
 import {
 	Aside,
 	AsideHeader,
 	TreeViewContainer,
 	TreeViewContainerItem,
 } from "./style";
-import { IAsideView } from "./types/Aside.types";
+import { IAsideView } from "shared/components/Drawer/components/Aside/types";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
