@@ -13,10 +13,12 @@ import { useForm } from "react-hook-form";
 import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 import useSnackBar from "shared/common/hook/useSnackBar";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
-import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
-import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import {
+	BOARD_QUERY_KEY,
+	NOTE_QUERY_KEY,
+	TEXT_QUERY_KEY,
+	MENU_QUERY_KEY,
+} from "shared/constants";
 import dateFormat from "shared/util/dateFormat";
 
 const DialogEditBoard = () => {
@@ -74,7 +76,7 @@ const DialogEditBoard = () => {
 				queryClient.invalidateQueries([
 					BOARD_QUERY_KEY.FETCH_GET_BOARDS,
 				]),
-				queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
+				queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
 				queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
 				queryClient.invalidateQueries([
 					TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,

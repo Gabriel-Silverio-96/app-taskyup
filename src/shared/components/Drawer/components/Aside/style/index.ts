@@ -13,7 +13,15 @@ export const Aside = styled("aside")<IAsideStyle>(
         border-color: ${theme.palette.grey[900]};
 
         .MuiTreeView-root {            
+            margin-left: ${theme.spacing(-1)};
+
             .MuiTreeItem-root {
+                width: 100%;
+                
+                div:empty {
+                    display: none
+                }
+                
                 .Mui-selected {
                     background-color: transparent;
                 }
@@ -21,8 +29,11 @@ export const Aside = styled("aside")<IAsideStyle>(
                 .MuiTreeItem-content {         
                     margin-top: ${theme.spacing(0.5)};                              
                     padding: ${theme.spacing(0.8)} ${theme.spacing(0.8)} ${theme.spacing(0.8)} 0;
+                    border-radius: ${theme.spacing(0.625)};
+                    padding-left: ${theme.spacing(0.875)};
+
                     :hover {
-                        background-color: transparent;
+                        background-color: ${theme.palette.background.paper};
                     }
                 }
 
@@ -86,16 +97,12 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         }
 
         .MuiCollapse-root {
-            margin-left: 0;
 
             .MuiCollapse-wrapper {
-                max-height: ${theme.spacing(25)} !important;
-                overflow: hidden auto;   
-                
                 .MuiCollapse-wrapperInner {
                     a > li > div .MuiTreeItem-label {
                         display: -webkit-box;
-                        -webkit-line-clamp: 1;
+                        -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -109,20 +116,6 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
                 ::-webkit-scrollbar {    
                     width: ${theme.spacing(0.7)};    
                     height: ${theme.spacing(0.7)};
-                }
-                
-                :before {
-                    content: "";
-                    position: absolute;
-                    z-index: 1;
-                    left: 0;
-                    pointer-events: none;
-                    background-image: 
-                        linear-gradient(0deg, rgb(0 0 0 / 0%) 20%, 
-                        ${theme.palette.mode === "dark" ? theme.palette.common.black : theme.palette.common.white} 100%
-                    );
-                    height: ${theme.spacing(4)};
-                    width: 100%;
                 }
             }
         }        

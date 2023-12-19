@@ -5,7 +5,7 @@ import { fetchGetPublicTextService } from "modules/texts/PublicText/services";
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import Loading from "shared/components/Loading";
-import { TEXT_QUERY_KEY } from "shared/services/constants/texts";
+import { TEXT_QUERY_KEY } from "shared/constants";
 
 const PublicText: React.FC = () => {
 	const [searchParams] = useSearchParams();

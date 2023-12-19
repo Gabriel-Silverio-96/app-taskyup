@@ -3,8 +3,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { ASIDE_QUERY_KEY } from "shared/components/Drawer/components/Aside/constants";
-import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
+import { BOARD_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import DialogNewBoardView from "shared/components/Drawer/components/Aside/components/DialogNewBoard/DialogNewBoardView";
 import { fetchPostBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/services";
 import { DialogNewBoardSchema } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/schema";
@@ -42,7 +41,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 		closeDialogNewBoard();
 		await Promise.all([
 			queryClient.invalidateQueries([BOARD_QUERY_KEY.FETCH_GET_BOARDS]),
-			queryClient.invalidateQueries([ASIDE_QUERY_KEY.FETCH_GET_MENU]),
+			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
 		]);
 	};
 

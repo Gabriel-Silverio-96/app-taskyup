@@ -5,7 +5,7 @@ import { fetchDeleteAllNotesService } from "modules/notes/Note/components/Dialog
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
-import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
+import { NOTE_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 
 const DialogDeleteAllNotes: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -16,6 +16,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 
 	const onSuccessMutation = () => {
 		queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
+		queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]);
 		closeDialogDeleteAllNotes();
 	};
 

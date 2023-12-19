@@ -6,7 +6,7 @@ import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { NOTE_QUERY_KEY } from "shared/services/constants/notes";
+import { NOTE_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
 
@@ -26,7 +26,10 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 		});
 		navigate(linkToNoteEdit);
 
-		await queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
+		await Promise.all([
+			queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
+			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
+		]);
 	};
 
 	const mutationFn = () =>

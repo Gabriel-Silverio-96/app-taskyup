@@ -6,3 +6,7 @@ export const ICON_SIZE = {
 	EXTRA_LARGE: 40,
 	DOUBLE_EXTRA_LARGE: 60,
 };
+
+export const MENU_QUERY_KEY = {
+	FETCH_GET_MENU: "FETCH_GET_MENU",
+};

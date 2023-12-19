@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { BOARD_QUERY_KEY } from "shared/services/constants/dashboard";
+import { BOARD_QUERY_KEY } from "shared/constants";
 import BoardView from "modules/dashboard/Board/BoardView";
 import { fetchGetBoardsService } from "modules/dashboard/Board/services";
 
