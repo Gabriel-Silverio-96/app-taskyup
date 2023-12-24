@@ -96,7 +96,7 @@ const DialogEditBoard = () => {
 
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: dialogEditBoardSubmit, isLoading: isSaving } = useMutation(
+	const { mutate, isLoading: isSaving } = useMutation(
 		mutationFn,
 		optionsMutation
 	);
@@ -110,7 +110,7 @@ const DialogEditBoard = () => {
 				register,
 				fullScreen,
 				handleSubmit,
-				dialogEditBoardSubmit,
+				mutate,
 				errors,
 				isFetching,
 				isSaving,

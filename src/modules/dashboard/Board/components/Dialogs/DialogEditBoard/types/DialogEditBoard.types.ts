@@ -14,7 +14,7 @@ export interface IDialogEditBoardView {
 	register: UseFormRegister<IDialogEditBoardForm>;
 	fullScreen: boolean;
 	handleSubmit: UseFormHandleSubmit<IDialogEditBoardForm>;
-	dialogEditBoardSubmit: (form: IDialogEditBoardForm) => void;
+	mutate: (form: IDialogEditBoardForm) => void;
 	errors: FieldErrors<IDialogEditBoardForm>;
 	isFetching: boolean;
 	isSaving: boolean;
