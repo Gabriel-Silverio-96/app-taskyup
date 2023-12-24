@@ -22,7 +22,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		register,
 		fullScreen,
 		handleSubmit,
-		dialogEditBoardSubmit,
+		mutate,
 		errors,
 		isFetching,
 		isSaving,
@@ -67,9 +67,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 			<div hidden={isFetching}>
 				<DialogContent sx={{ pt: 0 }}>
 					<DialogBackground />
-					<form
-						id="form-new-board"
-						onSubmit={handleSubmit(dialogEditBoardSubmit)}>
+					<form id="form-edit-board" onSubmit={handleSubmit(mutate)}>
 						<Grid container direction="column" spacing={5}>
 							<Grid item>
 								<TextField
@@ -111,7 +109,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 						</Grid>
 						<Grid item md="auto">
 							<LoadingButton
-								form="form-new-board"
+								form="form-edit-board"
 								variant="contained"
 								type="submit"
 								loading={isSaving}>
