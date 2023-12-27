@@ -7,5 +7,5 @@ export interface IDialogDeleteAllNotesView {
 	isOpenDialogDeleteAllNotes: boolean;
 	closeDialogDeleteAllNotes: FunctionReturnsVoid;
 	mutate: UseMutateFunction<AxiosResponse<IFetchResponseDefault>>;
-	isDeleting: boolean;
+	isLoading: boolean;
 }
