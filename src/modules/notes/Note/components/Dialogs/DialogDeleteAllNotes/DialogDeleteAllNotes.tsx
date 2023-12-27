@@ -23,15 +23,17 @@ const DialogDeleteAllNotes: React.FC = () => {
 	const mutationFn = () => fetchDeleteAllNotesService(board_id);
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
-	const { mutate: dialogDeleteAllNotesSubmit, isLoading: isDeleting } =
-		useMutation(mutationFn, optionsMutation);
+	const { mutate, isLoading: isDeleting } = useMutation(
+		mutationFn,
+		optionsMutation
+	);
 
 	return (
 		<DialogDeleteAllNotesView
 			{...{
 				isOpenDialogDeleteAllNotes,
 				closeDialogDeleteAllNotes,
-				dialogDeleteAllNotesSubmit,
+				mutate,
 				isDeleting,
 			}}
 		/>

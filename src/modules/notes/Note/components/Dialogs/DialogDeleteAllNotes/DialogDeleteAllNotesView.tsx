@@ -18,7 +18,7 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = props => {
 	const {
 		isOpenDialogDeleteAllNotes,
 		closeDialogDeleteAllNotes,
-		dialogDeleteAllNotesSubmit,
+		mutate,
 		isDeleting,
 	} = props;
 	return (
@@ -67,7 +67,7 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = props => {
 					<Grid item md="auto">
 						<LoadingButton
 							variant="contained"
-							onClick={dialogDeleteAllNotesSubmit}
+							onClick={() => mutate()}
 							loading={isDeleting}>
 							Yes
 						</LoadingButton>
