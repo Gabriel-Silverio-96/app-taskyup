@@ -25,6 +25,8 @@ const DialogDeleteAllNotes: React.FC = () => {
 
 	const { mutate, isLoading } = useMutation(mutationFn, optionsMutation);
 
+	const onClose = !isLoading ? closeDialogDeleteAllNotes : () => "";
+
 	return (
 		<DialogDeleteAllNotesView
 			{...{
@@ -32,6 +34,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 				closeDialogDeleteAllNotes,
 				mutate,
 				isLoading,
+				onClose,
 			}}
 		/>
 	);

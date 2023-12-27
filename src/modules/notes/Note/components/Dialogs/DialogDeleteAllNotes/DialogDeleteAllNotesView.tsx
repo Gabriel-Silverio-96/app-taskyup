@@ -20,13 +20,14 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = props => {
 		closeDialogDeleteAllNotes,
 		mutate,
 		isLoading,
+		onClose,
 	} = props;
 	return (
 		<Dialog
 			fullWidth
 			maxWidth="xs"
 			open={isOpenDialogDeleteAllNotes}
-			onClose={!isLoading ? closeDialogDeleteAllNotes : () => ""}>
+			onClose={onClose}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
