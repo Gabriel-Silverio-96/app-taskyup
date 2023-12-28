@@ -18,7 +18,7 @@ const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = props => {
 	const {
 		dialogDeleteAllText,
 		closeDialogDeleteAllTexts,
-		fetchDeleteAll,
+		mutate,
 		isLoading,
 		onClose,
 	} = props;
@@ -67,7 +67,7 @@ const DialogDeleteAllTextsView: React.FC<IDialogDeleteAllTextsView> = props => {
 					<Grid item md="auto">
 						<LoadingButton
 							variant="contained"
-							onClick={fetchDeleteAll}
+							onClick={() => mutate()}
 							loading={isLoading}>
 							Yes
 						</LoadingButton>
