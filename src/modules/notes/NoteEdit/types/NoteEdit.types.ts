@@ -28,7 +28,7 @@ export interface INoteEditForm {
 export interface INoteEditView {
 	register: UseFormRegister<INoteEditForm>;
 	handleSubmit: UseFormHandleSubmit<INoteEditForm>;
-	handleSubmitNoteEdit: (form: INoteEditForm) => void;
+	mutate: (form: INoteEditForm) => void;
 	errors: FieldErrors<INoteEditForm>;
 	isFetching: boolean;
 	isSaving: boolean;

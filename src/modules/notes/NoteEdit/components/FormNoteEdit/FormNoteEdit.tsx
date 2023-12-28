@@ -6,7 +6,7 @@ import { IFormNoteEdit } from "modules/notes/NoteEdit/components/FormNoteEdit/ty
 const FormNoteEdit: React.FC<IFormNoteEdit> = ({
 	register,
 	handleSubmit,
-	handleSubmitNoteEdit,
+	mutate,
 	errors,
 }) => {
 	const [searchParams] = useSearchParams();
@@ -19,7 +19,7 @@ const FormNoteEdit: React.FC<IFormNoteEdit> = ({
 			{...{
 				register,
 				handleSubmit,
-				handleSubmitNoteEdit,
+				mutate,
 				errors,
 				linkPreviousPage,
 			}}

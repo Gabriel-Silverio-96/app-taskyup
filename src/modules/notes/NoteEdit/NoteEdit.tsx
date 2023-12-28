@@ -99,17 +99,16 @@ const NoteEdit: React.FC = () => {
 		]);
 	};
 
-	const { mutate: handleSubmitNoteEdit, isLoading: isSaving } = useMutation(
-		mutationFn,
-		{ onSuccess: onSuccessMutation }
-	);
+	const { mutate, isLoading: isSaving } = useMutation(mutationFn, {
+		onSuccess: onSuccessMutation,
+	});
 
 	return (
 		<NoteEditView
 			{...{
 				register,
 				handleSubmit,
-				handleSubmitNoteEdit,
+				mutate,
 				errors,
 				isFetching,
 				isSaving,
