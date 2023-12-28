@@ -11,25 +11,25 @@ const DialogDeleteOneNote: React.FC = () => {
 	const { isOpenDialogDeleteOneNote, noteID } = useContextNote();
 	const { closeDialogDeleteOneNote } = useDialogNote();
 
-	const onSuccessMutation = () => {
+	const onSuccess = () => {
 		queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 		queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]);
 		closeDialogDeleteOneNote();
 	};
 
 	const mutationFn = () => fetchDeleteOneNoteService(noteID);
-	const optionsMutation = { onSuccess: onSuccessMutation };
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
-	const { mutate: handleClickDeleteOneNote, isLoading: isDeleting } =
-		useMutation(mutationFn, optionsMutation);
+	const onClose = !isLoading ? closeDialogDeleteOneNote : () => "";
 
 	return (
 		<DialogDeleteOneNoteView
 			{...{
 				isOpenDialogDeleteOneNote,
 				closeDialogDeleteOneNote,
-				handleClickDeleteOneNote,
-				isDeleting,
+				mutate,
+				isLoading,
+				onClose,
 			}}
 		/>
 	);

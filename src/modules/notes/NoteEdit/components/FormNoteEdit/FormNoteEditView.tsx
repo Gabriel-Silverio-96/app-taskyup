@@ -12,16 +12,10 @@ import {
 } from "./style";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
-	const {
-		register,
-		handleSubmit,
-		handleSubmitNoteEdit,
-		errors,
-		linkPreviousPage,
-	} = props;
+	const { register, handleSubmit, mutate, errors, linkPreviousPage } = props;
 
 	return (
-		<form onSubmit={handleSubmit(handleSubmitNoteEdit)}>
+		<form onSubmit={handleSubmit(mutate)}>
 			<Grid container spacing={4} justifyContent="space-between">
 				<Grid item md="auto" xs={9}>
 					<FormHeaderNoteEdit>

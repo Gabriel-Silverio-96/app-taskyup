@@ -8,7 +8,7 @@ import {
 export interface IFormNoteEdit {
 	register: UseFormRegister<INoteEditForm>;
 	handleSubmit: UseFormHandleSubmit<INoteEditForm>;
-	handleSubmitNoteEdit: (form: INoteEditForm) => void;
+	mutate: (form: INoteEditForm) => void;
 	errors: FieldErrors<INoteEditForm>;
 }
 

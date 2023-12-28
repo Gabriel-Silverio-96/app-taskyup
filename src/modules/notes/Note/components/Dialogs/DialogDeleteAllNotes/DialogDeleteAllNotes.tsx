@@ -14,25 +14,25 @@ const DialogDeleteAllNotes: React.FC = () => {
 	const { isOpenDialogDeleteAllNotes } = useContextNote();
 	const { closeDialogDeleteAllNotes } = useDialogNote();
 
-	const onSuccessMutation = () => {
+	const onSuccess = () => {
 		queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 		queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]);
 		closeDialogDeleteAllNotes();
 	};
 
 	const mutationFn = () => fetchDeleteAllNotesService(board_id);
-	const optionsMutation = { onSuccess: onSuccessMutation };
+	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
-	const { mutate: dialogDeleteAllNotesSubmit, isLoading: isDeleting } =
-		useMutation(mutationFn, optionsMutation);
+	const onClose = !isLoading ? closeDialogDeleteAllNotes : () => "";
 
 	return (
 		<DialogDeleteAllNotesView
 			{...{
 				isOpenDialogDeleteAllNotes,
 				closeDialogDeleteAllNotes,
-				dialogDeleteAllNotesSubmit,
-				isDeleting,
+				mutate,
+				isLoading,
+				onClose,
 			}}
 		/>
 	);

@@ -18,15 +18,16 @@ const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = props => {
 	const {
 		isOpenDialogDeleteOneNote,
 		closeDialogDeleteOneNote,
-		handleClickDeleteOneNote,
-		isDeleting,
+		mutate,
+		isLoading,
+		onClose,
 	} = props;
 	return (
 		<Dialog
 			fullWidth
 			maxWidth="xs"
 			open={isOpenDialogDeleteOneNote}
-			onClose={!isDeleting ? closeDialogDeleteOneNote : () => ""}>
+			onClose={onClose}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -40,7 +41,7 @@ const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogDeleteOneNote}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
@@ -60,15 +61,15 @@ const DialogDeleteOneNoteView: React.FC<IDialogDeleteOneNoteView> = props => {
 						<Button
 							variant="outlined"
 							onClick={closeDialogDeleteOneNote}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
 						<LoadingButton
 							variant="contained"
-							onClick={handleClickDeleteOneNote}
-							loading={isDeleting}>
+							onClick={() => mutate()}
+							loading={isLoading}>
 							Yes
 						</LoadingButton>
 					</Grid>

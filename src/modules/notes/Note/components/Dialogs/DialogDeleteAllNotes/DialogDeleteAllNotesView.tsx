@@ -18,15 +18,16 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = props => {
 	const {
 		isOpenDialogDeleteAllNotes,
 		closeDialogDeleteAllNotes,
-		dialogDeleteAllNotesSubmit,
-		isDeleting,
+		mutate,
+		isLoading,
+		onClose,
 	} = props;
 	return (
 		<Dialog
 			fullWidth
 			maxWidth="xs"
 			open={isOpenDialogDeleteAllNotes}
-			onClose={!isDeleting ? closeDialogDeleteAllNotes : () => ""}>
+			onClose={onClose}>
 			<DialogTitle sx={{ mb: 2 }}>
 				<Grid
 					container
@@ -40,7 +41,7 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = props => {
 					<Grid item>
 						<IconButton
 							onClick={closeDialogDeleteAllNotes}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							<FiX size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Grid>
@@ -60,15 +61,15 @@ const DialogDeleteAllNotesView: React.FC<IDialogDeleteAllNotesView> = props => {
 						<Button
 							variant="outlined"
 							onClick={closeDialogDeleteAllNotes}
-							disabled={isDeleting}>
+							disabled={isLoading}>
 							No
 						</Button>
 					</Grid>
 					<Grid item md="auto">
 						<LoadingButton
 							variant="contained"
-							onClick={dialogDeleteAllNotesSubmit}
-							loading={isDeleting}>
+							onClick={() => mutate()}
+							loading={isLoading}>
 							Yes
 						</LoadingButton>
 					</Grid>
