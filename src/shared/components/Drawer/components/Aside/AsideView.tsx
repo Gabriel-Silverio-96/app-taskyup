@@ -7,10 +7,9 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronRight, FiHome } from "react-icons/fi";
+import { FiChevronDown, FiChevronLeft, FiChevronRight, FiHome } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
 import {
-	MdOutlineMenu,
 	MdOutlineNotes,
 	MdOutlineSpaceDashboard,
 } from "react-icons/md";
@@ -42,21 +41,22 @@ const AsideView: React.FC<IAsideView> = props => {
 	return (
 		<Aside open={openAside}>
 			<AsideHeader open={openAside}>
+				<Button
+					variant="contained"
+					fullWidth
+					sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
+					onClick={openDialogNewBoard}>
+					New board
+				</Button>
+
 				<IconButton
 					color="primary"
 					aria-label={openAside ? "close-aside" : "open-aside"}
 					size="small"
 					onClick={toogleOpenAside}>
-					<MdOutlineMenu size={25} color={palette.common.white} />
+					<FiChevronLeft size={ICON_SIZE.SMALL} color={palette.common.white} />
 				</IconButton>
 			</AsideHeader>
-			<Button
-				variant="contained"
-				fullWidth
-				sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
-				onClick={openDialogNewBoard}>
-				New board
-			</Button>
 
 			<TreeViewContainer open={openAside}>
 				<TreeViewContainerItem>
