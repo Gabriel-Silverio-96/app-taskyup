@@ -7,23 +7,21 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronLeft, FiChevronRight, FiHome } from "react-icons/fi";
+import { FiChevronDown, FiChevronRight, FiHome } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
-import {
-	MdOutlineNotes,
-	MdOutlineSpaceDashboard,
-} from "react-icons/md";
+import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { ICON_SIZE } from "shared/constants";
 import DialogNewBoard from "shared/components/Drawer/components/Aside/components/DialogNewBoard";
 import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem";
+import { IAsideView } from "shared/components/Drawer/components/Aside/types";
+import { ICON_SIZE } from "shared/constants";
+import IconMenu from "./components/IconMenu";
 import {
 	Aside,
 	AsideHeader,
 	TreeViewContainer,
 	TreeViewContainerItem,
 } from "./style";
-import { IAsideView } from "shared/components/Drawer/components/Aside/types";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
@@ -54,7 +52,7 @@ const AsideView: React.FC<IAsideView> = props => {
 					aria-label={openAside ? "close-aside" : "open-aside"}
 					size="small"
 					onClick={toogleOpenAside}>
-					<FiChevronLeft size={ICON_SIZE.SMALL} color={palette.common.white} />
+					<IconMenu openAside={openAside} />
 				</IconButton>
 			</AsideHeader>
 
