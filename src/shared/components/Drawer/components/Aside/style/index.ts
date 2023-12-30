@@ -78,6 +78,7 @@ export const AsideHeader = styled("div")<IAsideStyle>(
 
         .MuiIconButton-root {
             left: ${open ? 0 : theme.spacing(-1.125) };
+            top: ${open ? 0 : theme.spacing(0.625) };
         }
     `
 );
@@ -87,6 +88,8 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
 	({ open, theme }) => `        
         margin-top: ${theme.spacing(5)};   
         display: ${open ? "block" : "none"}; 
+        overflow-y: auto;
+        height: calc(100vh - ${theme.spacing(25)});
 
         a {
             color: ${theme.palette.text.primary}
