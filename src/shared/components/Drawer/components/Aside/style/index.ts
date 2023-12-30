@@ -66,10 +66,18 @@ export const AsideHeader = styled("div")<IAsideStyle>(
         margin-top: ${theme.spacing(0.8)};
         margin-bottom: ${theme.spacing(6)};
         display: flex;
-        gap: ${theme.spacing(0.625)};
+        gap: ${theme.spacing(1)};
 
         .MuiButton-root {
             visibility: ${open ? "visible" : "hidden"};
+        }
+
+        .MuiButton-root {
+            visibility: ${open ? "visible" : "hidden"};
+        }
+
+        .MuiIconButton-root {
+            left: ${open ? 0 : theme.spacing(-1.125) };
         }
     `
 );
