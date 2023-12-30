@@ -78,7 +78,7 @@ export const AsideHeader = styled("div")<IAsideStyle>(
         }
 
         .MuiIconButton-root {
-            left: ${open ? 0 : theme.spacing(-1.125) };
+            left: ${open ? 0 : theme.spacing(-1.5) };
             top: ${open ? 0 : theme.spacing(0.625) };
         }
     `
