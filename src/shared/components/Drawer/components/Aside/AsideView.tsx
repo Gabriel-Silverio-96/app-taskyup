@@ -25,7 +25,6 @@ import {
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
-		palette,
 		data,
 		openAside,
 		openDialog,
