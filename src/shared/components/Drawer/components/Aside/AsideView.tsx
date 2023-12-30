@@ -15,7 +15,6 @@ import {
 	MdOutlineSpaceDashboard,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
-import Logo from "shared/components/Logo";
 import { ICON_SIZE } from "shared/constants";
 import DialogNewBoard from "shared/components/Drawer/components/Aside/components/DialogNewBoard";
 import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem";
@@ -43,9 +42,6 @@ const AsideView: React.FC<IAsideView> = props => {
 	return (
 		<Aside open={openAside}>
 			<AsideHeader open={openAside}>
-				<Link to="/dashboard">
-					<Logo size={100} isoType={!openAside} />
-				</Link>
 				<IconButton
 					color="primary"
 					aria-label={openAside ? "close-aside" : "open-aside"}

@@ -1,11 +1,13 @@
-import { ClickAwayListener, IconButton, Typography } from "@mui/material";
+import { ClickAwayListener, IconButton } from "@mui/material";
 import React from "react";
+import { BiSearch } from "react-icons/bi";
 import { FiUser } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import Logo from "shared/components/Logo";
+import { ICON_SIZE } from "shared/constants";
 import Dropdown from "./Dropdown";
 import { Header, Nav } from "./style";
 import { IHeaderView } from "./types/Header.component";
-import { BiSearch } from "react-icons/bi";
-import { ICON_SIZE } from "shared/constants";
 
 const HeaderView: React.FC<IHeaderView> = props => {
 	const {
@@ -18,12 +20,9 @@ const HeaderView: React.FC<IHeaderView> = props => {
 
 	return (
 		<Header>
-			<Typography
-				variant="h5"
-				fontWeight={700}
-				textTransform="capitalize">
-				{currentPageTitle ? currentPageTitle : "TaskYup"}
-			</Typography>
+			<Link to="/dashboard">
+				<Logo size={100} />
+			</Link>
 			<Nav>
 				<IconButton onClick={handleClickOpenDialogSearchAll}>
 					<BiSearch size={ICON_SIZE.MEDIUM} />
