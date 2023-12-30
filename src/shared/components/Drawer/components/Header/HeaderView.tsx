@@ -12,7 +12,6 @@ import { IHeaderView } from "./types/Header.component";
 const HeaderView: React.FC<IHeaderView> = props => {
 	const {
 		isOpen,
-		currentPageTitle,
 		toogleDropdown,
 		toogleDropdownAway,
 		handleClickOpenDialogSearchAll,
