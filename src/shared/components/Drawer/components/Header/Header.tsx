@@ -9,15 +9,20 @@ const Header: React.FC = () => {
 
 	const [isOpen, setOpen] = useState(false);
 
-
 	const toogleDropdown = () => setOpen(prevState => !prevState);
 	const toogleDropdownAway = () => setOpen(false);
 
-	const handleClickOpenDialogSearchAll = () => dispatch(createAction(OPEN_DIALOG_SEARCH_ALL_TYPE, { open: true }));
+	const handleClickOpenDialogSearchAll = () =>
+		dispatch(createAction(OPEN_DIALOG_SEARCH_ALL_TYPE, { open: true }));
 
 	return (
 		<HeaderView
-			{...{ isOpen, toogleDropdown, toogleDropdownAway, handleClickOpenDialogSearchAll }}
+			{...{
+				isOpen,
+				toogleDropdown,
+				toogleDropdownAway,
+				handleClickOpenDialogSearchAll,
+			}}
 		/>
 	);
 };
