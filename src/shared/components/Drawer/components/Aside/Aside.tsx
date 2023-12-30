@@ -1,15 +1,12 @@
-import { useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import AsideView from "shared/components/Drawer/components/Aside/AsideView";
 import { fetchGetMenuService } from "shared/components/Drawer/components/Aside/services";
-import { MENU_QUERY_KEY } from "shared/constants";
 import { IOnNodeToggle } from "shared/components/Drawer/components/Aside/types";
+import { MENU_QUERY_KEY } from "shared/constants";
 
 const Aside: React.FC = () => {
-	const { palette } = useTheme();
-
 	const [openAside, setOpenAside] = useLocalStorage(
 		"@taskyup.aside.open",
 		true
@@ -38,7 +35,6 @@ const Aside: React.FC = () => {
 	return (
 		<AsideView
 			{...{
-				palette,
 				data,
 				openAside,
 				toogleOpenAside,

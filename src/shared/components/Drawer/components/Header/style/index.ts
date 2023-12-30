@@ -5,7 +5,10 @@ export const Header = styled("header")(
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: ${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(2)} ${theme.spacing(3)};
+        padding: ${theme.spacing(2)};
+        border-style: solid;
+        border-width: ${theme.spacing(0, 0, 0.05, 0)};
+        border-color: ${theme.palette.grey[900]};
     `
 );
 

@@ -65,32 +65,32 @@ export const AsideHeader = styled("div")<IAsideStyle>(
 	({ open, theme }) => `        
         margin-top: ${theme.spacing(0.8)};
         margin-bottom: ${theme.spacing(6)};
+        display: flex;
+        align-items: center;
+        gap: ${theme.spacing(1)};
 
-        a {
-            width: fit-content;
+        .MuiButton-root {
+            visibility: ${open ? "visible" : "hidden"};
+        }
+
+        .MuiButton-root {
+            visibility: ${open ? "visible" : "hidden"};
         }
 
         .MuiIconButton-root {
-            position: absolute;
-            transform: scale(0.8);
-            right: ${open ? theme.spacing(1.8) : `-${theme.spacing(3.2)}`};
-            top: ${theme.spacing(2.125)};
-            
-            :hover {
-                background-color: ${theme.palette.primary.main};
-                svg {
-                    stroke: ${theme.palette.common.white};
-                }
-            }
+            left: ${open ? 0 : theme.spacing(-1.5) };
+            top: ${open ? 0 : theme.spacing(0.625) };
         }
-
     `
 );
+
 
 export const TreeViewContainer = styled("div")<IAsideStyle>(
 	({ open, theme }) => `        
         margin-top: ${theme.spacing(5)};   
         display: ${open ? "block" : "none"}; 
+        overflow-y: auto;
+        height: calc(100vh - ${theme.spacing(25)});
 
         a {
             color: ${theme.palette.text.primary}

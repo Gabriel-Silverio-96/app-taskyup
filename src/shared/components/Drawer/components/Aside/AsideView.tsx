@@ -9,27 +9,22 @@ import {
 import React from "react";
 import { FiChevronDown, FiChevronRight, FiHome } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
-import {
-	MdOutlineMenu,
-	MdOutlineNotes,
-	MdOutlineSpaceDashboard,
-} from "react-icons/md";
+import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
-import Logo from "shared/components/Logo";
-import { ICON_SIZE } from "shared/constants";
 import DialogNewBoard from "shared/components/Drawer/components/Aside/components/DialogNewBoard";
 import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem";
+import { IAsideView } from "shared/components/Drawer/components/Aside/types";
+import { ICON_SIZE } from "shared/constants";
+import IconMenu from "./components/IconMenu";
 import {
 	Aside,
 	AsideHeader,
 	TreeViewContainer,
 	TreeViewContainerItem,
 } from "./style";
-import { IAsideView } from "shared/components/Drawer/components/Aside/types";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
-		palette,
 		data,
 		openAside,
 		openDialog,
@@ -43,24 +38,21 @@ const AsideView: React.FC<IAsideView> = props => {
 	return (
 		<Aside open={openAside}>
 			<AsideHeader open={openAside}>
-				<Link to="/dashboard">
-					<Logo size={100} isoType={!openAside} />
-				</Link>
+				<Button
+					variant="contained"
+					fullWidth
+					sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
+					onClick={openDialogNewBoard}>
+					New board
+				</Button>
+
 				<IconButton
-					color="primary"
 					aria-label={openAside ? "close-aside" : "open-aside"}
 					size="small"
 					onClick={toogleOpenAside}>
-					<MdOutlineMenu size={25} color={palette.common.white} />
+					<IconMenu openAside={openAside} />
 				</IconButton>
 			</AsideHeader>
-			<Button
-				variant="contained"
-				fullWidth
-				sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
-				onClick={openDialogNewBoard}>
-				New board
-			</Button>
 
 			<TreeViewContainer open={openAside}>
 				<TreeViewContainerItem>

@@ -11,7 +11,7 @@ const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, slug }) => {
 
 	return (
 		<>
-			{data[slug].map(({ board_id, title, items }: any) => (
+			{data[slug].map(({ board_id, title, items }) => (
 				<Fragment key={board_id}>
 					<TreeItem
 						nodeId={board_id}
@@ -19,7 +19,7 @@ const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, slug }) => {
 							<Link to={`/${slug}/${board_id}`}>{title}</Link>
 						}>
 						{items &&
-							items.map(({ item_id, title }: any) => (
+							items.map(({ item_id, title }) => (
 								<Link
 									to={`${definedURLPath}${item_id}&board_id=${board_id}`}
 									key={item_id}>
