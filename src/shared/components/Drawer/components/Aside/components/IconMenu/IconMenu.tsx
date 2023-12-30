@@ -9,12 +9,12 @@ const IconMenu: React.FC<{ openAside: boolean }> = ({ openAside }) => {
 		<>
 			{openAside ? (
 				<FiChevronLeft
-					size={ICON_SIZE.SMALL}
+					size={ICON_SIZE.MEDIUM}
 					color={palette.common.white}
 				/>
 			) : (
 				<FiChevronRight
-					size={ICON_SIZE.SMALL}
+					size={ICON_SIZE.MEDIUM}
 					color={palette.common.white}
 				/>
 			)}
