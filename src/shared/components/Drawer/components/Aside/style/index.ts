@@ -66,6 +66,7 @@ export const AsideHeader = styled("div")<IAsideStyle>(
         margin-top: ${theme.spacing(0.8)};
         margin-bottom: ${theme.spacing(6)};
         display: flex;
+        align-items: center;
         gap: ${theme.spacing(1)};
 
         .MuiButton-root {
