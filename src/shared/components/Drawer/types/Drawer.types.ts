@@ -1,3 +1,3 @@
-export interface IDrawerView {
-    children: React.ReactNode;
+export interface IDrawer {
+	children: React.ReactNode;
 }

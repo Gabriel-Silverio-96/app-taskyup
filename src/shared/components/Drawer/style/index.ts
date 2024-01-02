@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-export const Drawer = styled("div")(
+export const DrawerContainer = styled("div")(
 	() => `
         display: grid;
         grid-template-columns: repeat(3, 0fr);
