@@ -1,15 +1,37 @@
+import { TextField } from "@mui/material";
 import React, { forwardRef, useState } from "react";
-import TextFieldPasswordView from "./TextFieldPasswordView";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { ICON_SIZE } from "shared/constants";
+import { IconButton, TextFieldPasswordContainer } from "./style";
+import { ITextFieldPassword } from "./types";
 
-const TextFieldPassword: React.FC<any> = forwardRef(({ register, errors }, ref) => {
-	const [showPassword, setShowPassword] = useState(false);
-	const handleShowPassword = () => setShowPassword(prevState => !prevState);
+const TextFieldPassword: React.FC<ITextFieldPassword> = forwardRef(
+	({ register, errors }, ref) => {
+		const [showPassword, setShowPassword] = useState(false);
+		const handleShowPassword = () =>
+			setShowPassword(prevState => !prevState);
 
-	return (
-		<TextFieldPasswordView
-			{...{ handleShowPassword, showPassword, register, errors, ref }}
-		/>
-	);
-});
+		return (
+			<TextFieldPasswordContainer ref={ref}>
+				<TextField
+					label="Password"
+					size="small"
+					type={showPassword ? "text" : "password"}
+					fullWidth
+					{...register("password")}
+					error={errors.password && Boolean(errors.password)}
+					helperText={errors.password ? errors.password?.message : ""}
+				/>
+				<IconButton onClick={handleShowPassword}>
+					{showPassword ? (
+						<FiEye size={ICON_SIZE.MEDIUM} />
+					) : (
+						<FiEyeOff size={ICON_SIZE.MEDIUM} />
+					)}
+				</IconButton>
+			</TextFieldPasswordContainer>
+		);
+	}
+);
 
 export default TextFieldPassword;

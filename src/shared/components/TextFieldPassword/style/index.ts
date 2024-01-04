@@ -1,6 +1,6 @@
 import { styled, IconButton as IconButtonMui } from "@mui/material";
 
-export const TextFieldPassword = styled("div")({
+export const TextFieldPasswordContainer = styled("div")({
 	position: "relative",
 
 	".MuiFormControl-root .MuiFormHelperText-root": {
