@@ -10,3 +10,11 @@ export const ICON_SIZE = {
 export const MENU_QUERY_KEY = {
 	FETCH_GET_MENU: "FETCH_GET_MENU",
 };
+
+export const THEME_NAME: {
+	LIGHT: "light";
+	DARK: "dark";
+} = {
+	LIGHT: "light",
+	DARK: "dark",
+};

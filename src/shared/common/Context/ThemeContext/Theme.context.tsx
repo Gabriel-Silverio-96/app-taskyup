@@ -13,6 +13,7 @@ import {
 	IThemeContext,
 	ThemeName,
 } from "./types/ThemeContext.types";
+import { THEME_NAME } from "shared/constants";
 
 export const THEME_KEY_LOCAL_STORAGE = "@taskyup.theme";
 
@@ -27,21 +28,22 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
 
 		if (themeStorage) return themeStorage;
 
-		return "dark";
+		return THEME_NAME.DARK;
 	});
 
 	const toggleTheme = useCallback(() => {
 		setThemeName((prevState: ThemeName) =>
-			prevState === "light" ? "dark" : "light"
+			prevState === THEME_NAME.LIGHT ? THEME_NAME.DARK : THEME_NAME.LIGHT
 		);
 	}, []);
 
 	const theme = useMemo(() => {
-		if (themeName === "light") {
-			localStorage.setItem(THEME_KEY_LOCAL_STORAGE, "light");
+		if (themeName === THEME_NAME.LIGHT) {
+			localStorage.setItem(THEME_KEY_LOCAL_STORAGE, THEME_NAME.LIGHT);
 			return light;
 		}
-		localStorage.setItem(THEME_KEY_LOCAL_STORAGE, "dark");
+
+		localStorage.setItem(THEME_KEY_LOCAL_STORAGE, THEME_NAME.DARK);
 
 		return dark;
 	}, [themeName]);
