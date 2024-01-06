@@ -1,5 +1,6 @@
-export type ThemeName = "dark" | "light";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+
+export type ThemeName = "dark" | "light";
 
 export interface IThemeContext {
 	themeName: ThemeName;
