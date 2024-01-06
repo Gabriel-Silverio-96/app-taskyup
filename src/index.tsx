@@ -12,7 +12,7 @@ import Session from "shared/components/Session";
 import queryClient from "shared/services/queryClient";
 import setupInterceptors from "shared/services/setupInterceptors";
 import MainRoutes from "./MainRoutes";
-import { ThemeProvider } from "./shared/common/context/ThemeContext";
+import { ThemeProvider } from "./shared/common/Context/ThemeContext";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
