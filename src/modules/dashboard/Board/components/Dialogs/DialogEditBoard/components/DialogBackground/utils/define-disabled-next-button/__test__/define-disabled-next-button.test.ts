@@ -40,6 +40,7 @@ describe("Funtion defineDisabledNextButton()", () => {
 
 	it("Should return false when pagination is less or equal than total_pages / per_page", () => {
 		const photos = Array.from({ length: 10 }, () => PHOTHOS_MOCK); // Mock 10 photos
+
 		const images = {
 			total_results: 30,
 			per_page: 10,
