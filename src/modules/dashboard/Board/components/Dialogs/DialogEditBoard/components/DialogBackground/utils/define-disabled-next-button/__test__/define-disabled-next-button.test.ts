@@ -12,7 +12,7 @@ const PHOTHOS_MOCK = {
 };
 
 describe("Funtion defineDisabledNextButton()", () => {
-	it("Should return true when pagination is equal to or greater than total pages", () => {
+	it("Should return true when pagination is equal to or greater than total_pages", () => {
 		const images = {
 			total_results: 30,
 			per_page: 10,
@@ -38,7 +38,21 @@ describe("Funtion defineDisabledNextButton()", () => {
 		expect(result).toBe(true);
 	});
 
-	it("Should return false when pagination is less than total pages and the number of photos is 9 or more", () => {
+	it("Should return false when pagination is less or equal than total_pages / per_page", () => {
+		const photos = Array.from({ length: 10 }, () => PHOTHOS_MOCK); // Mock 10 photos
+		const images = {
+			total_results: 30,
+			per_page: 10,
+			photos,
+		};
+		const pagination = 1;
+
+		const result = defineDisabledNextButton({ images, pagination });
+
+		expect(result).toBe(false);
+	});
+
+	it("Should return false when pagination is less than total_pages and the number of photos is 9 or more", () => {
 		const photos = Array.from({ length: 9 }, () => PHOTHOS_MOCK); // Mock 9 photos
 
 		const images = {
