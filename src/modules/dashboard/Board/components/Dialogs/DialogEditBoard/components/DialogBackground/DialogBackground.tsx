@@ -5,6 +5,7 @@ import {
 	INITIAL_STATE_IMAGES,
 } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/constants";
 import { fetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
+import { IFetchSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 import { IImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 import React, {
 	ChangeEvent,
@@ -14,7 +15,7 @@ import React, {
 	useRef,
 	useState,
 } from "react";
-import { IFetchSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
+import { defineDisabledNextButton } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/utils/define-disabled-next-button/define-disabled-next-button";
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } =
@@ -84,6 +85,7 @@ const DialogBackground: React.FC = () => {
 	const isOpenMenu = Boolean(anchorEl);
 	const disabledButtonDelete = Boolean(dialogBackgroundImage);
 	const disabledButtonSearch = Boolean(!query);
+	const disabledNextButton = defineDisabledNextButton({ images, pagination });
 
 	return (
 		<DialogBackgroundView
@@ -105,6 +107,7 @@ const DialogBackground: React.FC = () => {
 				isOpenMenu,
 				disabledButtonDelete,
 				disabledButtonSearch,
+				disabledNextButton,
 			}}
 		/>
 	);
