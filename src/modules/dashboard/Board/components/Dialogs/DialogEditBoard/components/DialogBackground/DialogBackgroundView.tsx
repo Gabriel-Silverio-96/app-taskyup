@@ -34,6 +34,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 		isOpenMenu,
 		disabledButtonDelete,
 		disabledButtonSearch,
+		disabledNextButton,
 	} = props;
 
 	return (
@@ -95,7 +96,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 								<FiChevronLeft size={ICON_SIZE.SMALL} />
 							</IconButton>
 							<IconButton
-								disabled={images.photos.length < 9}
+								disabled={disabledNextButton}
 								onClick={nextPage}>
 								<FiChevronRight size={ICON_SIZE.SMALL} />
 							</IconButton>

@@ -1,6 +1,9 @@
 import { ChangeEvent, MouseEvent, Ref } from "react";
 import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
-import { IFetchSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
+import {
+	IFetchSearchImagesResponse,
+	IPhotos,
+} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 
 interface IPhotosInitialState {
 	id: number;
@@ -14,9 +17,10 @@ interface IPhotosInitialState {
 }
 
 export interface IImages {
-	photos: IPhotosInitialState[];
+	photos: IPhotosInitialState[] | IPhotos[];
 	error?: string;
-	total_results?: number;
+	total_results: number;
+	per_page: number;
 }
 
 export interface IDialogBackgroundView {
@@ -37,4 +41,5 @@ export interface IDialogBackgroundView {
 	isOpenMenu: boolean;
 	disabledButtonDelete: boolean;
 	disabledButtonSearch: boolean;
+	disabledNextButton: boolean;
 }
