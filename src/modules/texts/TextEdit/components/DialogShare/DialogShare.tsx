@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useContextTextEdit } from "modules/texts/TextEdit/Context";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import useSnackBar from "shared/common/hook/useSnackBar";
+import useSnackbar from "shared/common/hook/useSnackbar";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import DialogShareView from "modules/texts/TextEdit/components/DialogShare/DialogShareView";
 import {
@@ -23,7 +23,7 @@ const DialogShare: React.FC = () => {
 	const text_id = searchParams.get("text_id");
 	const board_id = searchParams.get("board_id");
 
-	const { snackBarSuccess } = useSnackBar();
+	const { snackbarSuccess } = useSnackbar();
 
 	const { isOpenDialogShare, setIsOpenDialogShare, setDataText } =
 		useContextTextEdit();
@@ -61,7 +61,7 @@ const DialogShare: React.FC = () => {
 
 	const handleClickCopy = () => {
 		navigator.clipboard.writeText(URLPublicText);
-		snackBarSuccess({ message: "Copied" });
+		snackbarSuccess({ message: "Copied" });
 	};
 
 	const mutationFn = () =>

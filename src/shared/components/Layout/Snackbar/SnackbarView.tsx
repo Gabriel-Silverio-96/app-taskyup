@@ -1,24 +1,24 @@
 import { Alert, Snackbar } from "@mui/material";
 import React from "react";
-import { ISnackBarView } from "./types/SnackBar.component";
+import { ISnackbarView } from "shared/components/Layout/Snackbar/types";
 
-const SnackBarView: React.FC<ISnackBarView> = ({
-	snackBarProps,
-	snackBarClose,
+const SnackbarView: React.FC<ISnackbarView> = ({
+	snackbarProps,
+	snackbarClose,
 	defineAutoHideDuration,
 }) => {
-	const { message, severity } = snackBarProps;
+	const { message, severity } = snackbarProps;
 
 	return (
 		<Snackbar
-			onClose={snackBarClose}
+			onClose={snackbarClose}
 			autoHideDuration={defineAutoHideDuration}
 			anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
 			transitionDuration={0}
-			{...snackBarProps}>
+			{...snackbarProps}>
 			<Alert severity={severity}>{message}</Alert>
 		</Snackbar>
 	);
 };
 
-export default SnackBarView;
+export default SnackbarView;

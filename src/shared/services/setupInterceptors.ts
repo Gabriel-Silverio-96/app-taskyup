@@ -2,7 +2,7 @@ import { AlertColor } from "@mui/material";
 import { AxiosResponse } from "axios";
 import { Store } from "redux";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
-import { SNACKBAR_OPEN_TYPE } from "shared/common/store/SnackBar/SnackBar.reducer";
+import { SNACKBAR_OPEN_TYPE } from "shared/common/store/Snackbar/Snackbar.reducer";
 import { createAction } from "shared/common/store/store.action";
 import { IFetchResponseDefault, EnumStatusSuccessCode, EnumStatusErrorCode } from "shared/common/types/Fetch";
 import api from "./api";

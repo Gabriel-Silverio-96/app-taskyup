@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from "redux";
-import snackBar from "./SnackBar/SnackBar.reducer";
+import snackbar from "./Snackbar/Snackbar.reducer";
 import auth from "./Auth/Auth.reducer";
 import dialogSearchAll from "./DialogSearchAll/DialogSearchAll.reduce";
 
 const rootReducer = combineReducers({
-	snackBar,
+	snackbar,
 	auth,
-	dialogSearchAll
+	dialogSearchAll,
 });
 
 export const store = createStore(rootReducer);

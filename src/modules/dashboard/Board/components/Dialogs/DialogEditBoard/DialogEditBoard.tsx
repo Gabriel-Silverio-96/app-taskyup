@@ -12,19 +12,19 @@ import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
-import useSnackBar from "shared/common/hook/useSnackBar";
+import useSnackbar from "shared/common/hook/useSnackbar";
 import {
 	BOARD_QUERY_KEY,
+	MENU_QUERY_KEY,
 	NOTE_QUERY_KEY,
 	TEXT_QUERY_KEY,
-	MENU_QUERY_KEY,
 } from "shared/constants";
 import dateFormat from "shared/util/dateFormat";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
-	const { snackBarError } = useSnackBar();
+	const { snackbarError } = useSnackbar();
 	const {
 		boardID,
 		isOpenDialogEditBoard,
@@ -83,7 +83,7 @@ const DialogEditBoard = () => {
 				]),
 			]);
 		} catch (error) {
-			snackBarError({ message: ERROR_MESSAGE_UPDATE_BOARD });
+			snackbarError({ message: ERROR_MESSAGE_UPDATE_BOARD });
 		}
 	};
 
