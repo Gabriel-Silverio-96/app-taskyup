@@ -4,7 +4,7 @@ import useSnackbar from "shared/common/hook/useSnackbar";
 import {
 	SNACKBAR_CLOSE_TYPE,
 	SNACKBAR_OPEN_TYPE,
-} from "shared/common/store/SnackBar/SnackBar.reducer";
+} from "shared/common/store/Snackbar/Snackbar.reducer";
 
 jest.mock("react-redux", () => ({
 	...jest.requireActual("react-redux"),

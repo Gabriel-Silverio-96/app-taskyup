@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import {
 	SNACKBAR_CLOSE_TYPE,
 	SNACKBAR_OPEN_TYPE,
-} from "shared/common/store/SnackBar/SnackBar.reducer";
-import { ISnackBarState } from "shared/common/store/SnackBar/types/Snackbar.types";
+} from "shared/common/store/Snackbar/Snackbar.reducer";
+import { ISnackbarState } from "shared/common/store/Snackbar/types/Snackbar.types";
 import { createAction } from "shared/common/store/store.action";
 import { ISnackbarProps } from "shared/common/hook/useSnackbar/types";
 
@@ -65,7 +65,7 @@ export default function useSnackbar() {
 	);
 
 	const snackbarClose = useCallback(() => {
-		dispatch(createAction<ISnackBarState>(SNACKBAR_CLOSE_TYPE));
+		dispatch(createAction<ISnackbarState>(SNACKBAR_CLOSE_TYPE));
 	}, [dispatch]);
 
 	return {
