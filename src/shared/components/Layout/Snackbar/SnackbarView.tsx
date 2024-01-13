@@ -3,11 +3,11 @@ import React from "react";
 import { ISnackBarView } from "./types/SnackBar.component";
 
 const SnackbarView: React.FC<ISnackBarView> = ({
-	snackBarProps,
+	snackbarProps,
 	snackbarClose,
 	defineAutoHideDuration,
 }) => {
-	const { message, severity } = snackBarProps;
+	const { message, severity } = snackbarProps;
 
 	return (
 		<Snackbar
@@ -15,7 +15,7 @@ const SnackbarView: React.FC<ISnackBarView> = ({
 			autoHideDuration={defineAutoHideDuration}
 			anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
 			transitionDuration={0}
-			{...snackBarProps}>
+			{...snackbarProps}>
 			<Alert severity={severity}>{message}</Alert>
 		</Snackbar>
 	);

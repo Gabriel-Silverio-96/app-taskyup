@@ -8,16 +8,16 @@ const THREE_SECONDS_AUTO_HIDE_DURATION = 3000;
 
 const Snackbar: React.FC = () => {
 	const { snackbarClose } = useSnackbar();
-	const snackBarProps = useSelector(
+	const snackbarProps = useSelector(
 		(state: { snackBar: ISnackBarState }) => state.snackBar
 	);
 
 	const defineAutoHideDuration =
-		snackBarProps.autoHideDuration ?? THREE_SECONDS_AUTO_HIDE_DURATION;
+		snackbarProps.autoHideDuration ?? THREE_SECONDS_AUTO_HIDE_DURATION;
 
 	return (
 		<SnackbarView
-			{...{ snackBarProps, snackbarClose, defineAutoHideDuration }}
+			{...{ snackbarProps, snackbarClose, defineAutoHideDuration }}
 		/>
 	);
 };
