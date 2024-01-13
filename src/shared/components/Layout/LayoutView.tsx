@@ -1,10 +1,10 @@
-import SnackBar from "./SnackBar";
+import Snackbar from "./Snackbar";
 import { TLayoutView } from "./types/Layout.component";
 
 const LayoutView: React.FC<TLayoutView> = ({ children }) => {
 	return (
 		<main>
-			<SnackBar />
+			<Snackbar />
 			{children}
 		</main>
 	);
