@@ -12,7 +12,7 @@ import { ISnackbarProps } from "shared/common/hook/useSnackbar/types";
 export default function useSnackbar() {
 	const dispatch = useDispatch();
 
-	const snackBarSuccess = useCallback(
+	const snackbarSuccess = useCallback(
 		(props: ISnackbarProps) => {
 			dispatch(
 				createAction<SnackbarProps>(SNACKBAR_OPEN_TYPE, {
@@ -25,7 +25,7 @@ export default function useSnackbar() {
 		[dispatch]
 	);
 
-	const snackBarError = useCallback(
+	const snackbarError = useCallback(
 		(props: ISnackbarProps) => {
 			dispatch(
 				createAction<SnackbarProps>(SNACKBAR_OPEN_TYPE, {
@@ -38,7 +38,7 @@ export default function useSnackbar() {
 		[dispatch]
 	);
 
-	const snackBarInfo = useCallback(
+	const snackbarInfo = useCallback(
 		(props: ISnackbarProps) => {
 			dispatch(
 				createAction<SnackbarProps>(SNACKBAR_OPEN_TYPE, {
@@ -51,7 +51,7 @@ export default function useSnackbar() {
 		[dispatch]
 	);
 
-	const snackBarWarning = useCallback(
+	const snackbarWarning = useCallback(
 		(props: ISnackbarProps) => {
 			dispatch(
 				createAction<SnackbarProps>(SNACKBAR_OPEN_TYPE, {
@@ -64,15 +64,15 @@ export default function useSnackbar() {
 		[dispatch]
 	);
 
-	const snackBarClose = useCallback(() => {
+	const snackbarClose = useCallback(() => {
 		dispatch(createAction<ISnackBarState>(SNACKBAR_CLOSE_TYPE));
 	}, [dispatch]);
 
 	return {
-		snackBarSuccess,
-		snackBarError,
-		snackBarInfo,
-		snackBarWarning,
-		snackBarClose,
+		snackbarSuccess,
+		snackbarError,
+		snackbarInfo,
+		snackbarWarning,
+		snackbarClose,
 	};
 }

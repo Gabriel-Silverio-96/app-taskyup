@@ -16,10 +16,10 @@ afterAll(() => {
 });
 
 const TESTS_CASES = [
-	["snackBarSuccess", "success", "Success!"],
-	["snackBarError", "error", "Error!"],
-	["snackBarInfo", "info", "Info!"],
-	["snackBarWarning", "warning", "Warning!"],
+	["snackbarSuccess", "success", "Success!"],
+	["snackbarError", "error", "Error!"],
+	["snackbarInfo", "info", "Info!"],
+	["snackbarWarning", "warning", "Warning!"],
 ];
 
 describe("Hook useSnackbar()", () => {
@@ -46,14 +46,14 @@ describe("Hook useSnackbar()", () => {
 		}
 	);
 
-	it("Should dispatch snackBarClose action", () => {
+	it("Should dispatch snackbarClose action", () => {
 		const dispatchMock = jest.fn();
 		(useDispatch as jest.Mock).mockReturnValue(dispatchMock);
 
 		const { result } = renderHook(() => useSnackbar());
 
 		act(() => {
-			result.current.snackBarClose();
+			result.current.snackbarClose();
 		});
 
 		expect(dispatchMock).toHaveBeenCalledWith({

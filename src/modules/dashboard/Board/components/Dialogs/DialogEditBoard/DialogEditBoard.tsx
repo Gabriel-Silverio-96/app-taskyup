@@ -24,7 +24,7 @@ import dateFormat from "shared/util/dateFormat";
 const DialogEditBoard = () => {
 	const theme = useTheme();
 	const queryClient = useQueryClient();
-	const { snackBarError } = useSnackbar();
+	const { snackbarError } = useSnackbar();
 	const {
 		boardID,
 		isOpenDialogEditBoard,
@@ -83,7 +83,7 @@ const DialogEditBoard = () => {
 				]),
 			]);
 		} catch (error) {
-			snackBarError({ message: ERROR_MESSAGE_UPDATE_BOARD });
+			snackbarError({ message: ERROR_MESSAGE_UPDATE_BOARD });
 		}
 	};
 

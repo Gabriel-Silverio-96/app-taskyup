@@ -23,7 +23,7 @@ const DialogShare: React.FC = () => {
 	const text_id = searchParams.get("text_id");
 	const board_id = searchParams.get("board_id");
 
-	const { snackBarSuccess } = useSnackbar();
+	const { snackbarSuccess } = useSnackbar();
 
 	const { isOpenDialogShare, setIsOpenDialogShare, setDataText } =
 		useContextTextEdit();
@@ -61,7 +61,7 @@ const DialogShare: React.FC = () => {
 
 	const handleClickCopy = () => {
 		navigator.clipboard.writeText(URLPublicText);
-		snackBarSuccess({ message: "Copied" });
+		snackbarSuccess({ message: "Copied" });
 	};
 
 	const mutationFn = () =>

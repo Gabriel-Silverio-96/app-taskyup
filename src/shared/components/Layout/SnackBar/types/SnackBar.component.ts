@@ -3,6 +3,6 @@ import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
 
 export interface ISnackBarView {
 	snackBarProps: ISnackbarProps;
-	snackBarClose: FunctionReturnsVoid;
+	snackbarClose: FunctionReturnsVoid;
 	defineAutoHideDuration: number;
 }

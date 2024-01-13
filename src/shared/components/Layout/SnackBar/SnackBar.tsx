@@ -7,7 +7,7 @@ import SnackBarView from "./SnackBarView";
 const THREE_SECONDS_AUTO_HIDE_DURATION = 3000;
 
 const SnackBar: React.FC = () => {
-	const { snackBarClose } = useSnackbar();
+	const { snackbarClose } = useSnackbar();
 	const snackBarProps = useSelector(
 		(state: { snackBar: ISnackBarState }) => state.snackBar
 	);
@@ -17,7 +17,7 @@ const SnackBar: React.FC = () => {
 
 	return (
 		<SnackBarView
-			{...{ snackBarProps, snackBarClose, defineAutoHideDuration }}
+			{...{ snackBarProps, snackbarClose, defineAutoHideDuration }}
 		/>
 	);
 };
