@@ -1,8 +1,8 @@
 import { Alert, Snackbar } from "@mui/material";
 import React from "react";
-import { ISnackBarView } from "./types/SnackBar.component";
+import { ISnackbarView } from "shared/components/Layout/Snackbar/types";
 
-const SnackbarView: React.FC<ISnackBarView> = ({
+const SnackbarView: React.FC<ISnackbarView> = ({
 	snackbarProps,
 	snackbarClose,
 	defineAutoHideDuration,
