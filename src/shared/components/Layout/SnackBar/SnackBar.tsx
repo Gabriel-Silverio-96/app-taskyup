@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import useSnackBar from "shared/common/hook/useSnackBar";
+import useSnackbar from "shared/common/hook/useSnackbar";
 import { ISnackBarState } from "shared/common/store/SnackBar/types/Snackbar.types";
 import SnackBarView from "./SnackBarView";
 
 const THREE_SECONDS_AUTO_HIDE_DURATION = 3000;
 
 const SnackBar: React.FC = () => {
-	const { snackBarClose } = useSnackBar();
+	const { snackBarClose } = useSnackbar();
 	const snackBarProps = useSelector(
 		(state: { snackBar: ISnackBarState }) => state.snackBar
 	);
