@@ -22,6 +22,10 @@ const TESTS_CASES = [
 	["snackbarWarning", "warning", "Warning!"],
 ];
 
+interface CurrentRenderHook {
+	[key: string]: (props: { message: string }) => void;
+}
+
 describe("Hook useSnackbar()", () => {
 	it.each(TESTS_CASES)(
 		"Should dispatch %s action",
@@ -32,11 +36,7 @@ describe("Hook useSnackbar()", () => {
 			const { result } = renderHook(() => useSnackbar());
 
 			act(() => {
-				(
-					result.current as {
-						[key: string]: (props: { message: string }) => void;
-					}
-				)[actionName]({ message });
+				(result.current as CurrentRenderHook)[actionName]({ message });
 			});
 
 			expect(dispatchMock).toHaveBeenCalledWith({
