@@ -6,9 +6,10 @@ import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { NOTE_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
+import { NOTE_QUERY_KEY, MENU_QUERY_KEY, VIEW_MODE } from "shared/constants";
 import { createURLQueryParams } from "shared/util/createURLQueryParams";
 import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
+import { useContextNote } from "modules/notes/Note/Context";
 
 const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const queryClient = useQueryClient();
@@ -16,6 +17,16 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const { board_id } = useParams();
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
+	const { viewMode, setViewMode } = useContextNote();
+
+	const handleClickViewMode = () => {
+		if (viewMode === VIEW_MODE.GRID) {
+			setViewMode(VIEW_MODE.LIST);
+			return;
+		}
+
+		setViewMode(VIEW_MODE.GRID);
+	};
 
 	const onSuccess = async ({ results }: IFetchPostCreateNoteResponse) => {
 		const { note_id } = results;
@@ -43,6 +54,7 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 		<HeaderNoteView
 			{...{
 				title,
+				handleClickViewMode,
 				openDialogDeleteAllNotes,
 				isDisabledDeleteAllNotes,
 				mutate,

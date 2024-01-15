@@ -9,6 +9,7 @@ import { ICON_SIZE } from "shared/constants";
 const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 	const {
 		title,
+		handleClickViewMode,
 		openDialogDeleteAllNotes,
 		isDisabledDeleteAllNotes,
 		mutate,
@@ -33,7 +34,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 						<IconButton onClick={() => mutate()}>
 							<FiPlus size={ICON_SIZE.MEDIUM} />
 						</IconButton>
-						<IconButton>
+						<IconButton onClick={handleClickViewMode}>
 							<FiColumns size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 						<Tooltip
