@@ -2,7 +2,7 @@ import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { Nav } from "modules/notes/Note/components/HeaderNote/style";
 import { IHeaderNoteView } from "modules/notes/Note/components/HeaderNote/types";
 import React from "react";
-import { FiPlus, FiTrash, FiUsers } from "react-icons/fi";
+import { FiColumns, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
 import Loading from "shared/components/Loading/Loading";
 import { ICON_SIZE } from "shared/constants";
 
@@ -32,6 +32,9 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 					<Nav>
 						<IconButton onClick={() => mutate()}>
 							<FiPlus size={ICON_SIZE.MEDIUM} />
+						</IconButton>
+						<IconButton>
+							<FiColumns size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 						<Tooltip
 							arrow
