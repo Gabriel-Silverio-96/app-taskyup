@@ -11,9 +11,12 @@ import { useParams } from "react-router-dom";
 import { ICardNotes } from "modules/notes/Note/components/CardNote/types";
 import CardFooter from "modules/notes/Note/components/CardNote/components/CardFooter";
 import CardAction from "modules/notes/Note/components/CardNote/components/CardAction";
+import { useContextNote } from "modules/notes/Note/Context";
+import { defineGridSize } from "modules/notes/Note/components/CardNote/utils";
 
 const CardNote: React.FC<ICardNotes> = ({ data }) => {
 	const { board_id } = useParams();
+	const { viewMode } = useContextNote();
 
 	return (
 		<Grid container spacing={2}>
@@ -28,7 +31,10 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 						todos,
 					}) => {
 						return (
-							<Grid item xl={2} md={3} xs={12} key={note_id}>
+							<Grid
+								item
+								key={note_id}
+								{...defineGridSize(viewMode)}>
 								<CardNoteContainer>
 									<Card sx={{ height: 130 }}>
 										<CardContent>
