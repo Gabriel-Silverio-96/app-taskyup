@@ -1,4 +1,5 @@
 import React from "react";
+import { ViewMode } from "shared/common/types/AppTypes";
 
 export interface IContextProviderNote {
 	children: React.ReactNode;
@@ -13,6 +14,6 @@ export interface IContextNote {
 	>;
 	noteID: string;
 	setNoteID: React.Dispatch<React.SetStateAction<string>>;
-	viewMode: string;
-	setViewMode: React.Dispatch<React.SetStateAction<string>>;
+	viewMode: ViewMode;
+	setViewMode: React.Dispatch<React.SetStateAction<ViewMode>>;
 }

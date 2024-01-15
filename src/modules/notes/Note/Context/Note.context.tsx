@@ -5,6 +5,7 @@ import {
 } from "modules/notes/Note/Context/types";
 import { VIEW_MODE } from "shared/constants";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
+import { ViewMode } from "shared/common/types/AppTypes";
 
 export const ContextNote = createContext<IContextNote | undefined>(undefined);
 
@@ -18,7 +19,7 @@ export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 	const [noteID, setNoteID] = useState("");
 
 	// TODO - refactor magic string
-	const [viewMode, setViewMode] = useLocalStorage(
+	const [viewMode, setViewMode] = useLocalStorage<ViewMode>(
 		"@taskyup.note_view_mode",
 		VIEW_MODE.GRID
 	);

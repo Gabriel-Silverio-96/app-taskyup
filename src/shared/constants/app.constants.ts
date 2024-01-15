@@ -19,7 +19,10 @@ export const THEME_NAME: {
 	DARK: "dark",
 };
 
-export const VIEW_MODE = {
+export const VIEW_MODE: {
+	LIST: "LIST";
+	GRID: "GRID";
+} = {
 	LIST: "LIST",
 	GRID: "GRID",
 };
