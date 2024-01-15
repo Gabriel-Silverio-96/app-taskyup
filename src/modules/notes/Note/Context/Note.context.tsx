@@ -3,6 +3,8 @@ import {
 	IContextNote,
 	IContextProviderNote,
 } from "modules/notes/Note/Context/types";
+import { VIEW_MODE } from "shared/constants";
+import useLocalStorage from "shared/common/hook/useLocalStorage";
 
 export const ContextNote = createContext<IContextNote | undefined>(undefined);
 
@@ -15,6 +17,12 @@ export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 		useState(false);
 	const [noteID, setNoteID] = useState("");
 
+	// TODO - refactor magic string
+	const [viewMode, setViewMode] = useLocalStorage(
+		"@taskyup.note_view_mode",
+		VIEW_MODE.GRID
+	);
+
 	const value = {
 		isOpenDialogDeleteOneNote,
 		setIsOpenDialogDeleteOneNote,
@@ -22,6 +30,8 @@ export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 		setIsOpenDialogDeleteAllNotes,
 		noteID,
 		setNoteID,
+		viewMode,
+		setViewMode,
 	};
 
 	return (

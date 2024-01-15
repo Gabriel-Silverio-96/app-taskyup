@@ -13,4 +13,6 @@ export interface IContextNote {
 	>;
 	noteID: string;
 	setNoteID: React.Dispatch<React.SetStateAction<string>>;
+	viewMode: string;
+	setViewMode: React.Dispatch<React.SetStateAction<string>>;
 }
