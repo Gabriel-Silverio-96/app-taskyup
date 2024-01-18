@@ -9,6 +9,7 @@ export interface IHeaderNote {
 
 export interface IHeaderNoteView {
 	title: string | undefined;
+	handleClickViewMode: FunctionReturnsVoid;
 	mutate: UseMutateFunction<
 		IFetchPostCreateNoteResponse,
 		unknown,

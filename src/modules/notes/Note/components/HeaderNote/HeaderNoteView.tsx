@@ -2,13 +2,14 @@ import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { Nav } from "modules/notes/Note/components/HeaderNote/style";
 import { IHeaderNoteView } from "modules/notes/Note/components/HeaderNote/types";
 import React from "react";
-import { FiPlus, FiTrash, FiUsers } from "react-icons/fi";
+import { FiColumns, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
 import Loading from "shared/components/Loading/Loading";
 import { ICON_SIZE } from "shared/constants";
 
 const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 	const {
 		title,
+		handleClickViewMode,
 		openDialogDeleteAllNotes,
 		isDisabledDeleteAllNotes,
 		mutate,
@@ -30,9 +31,18 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 				</Grid>
 				<Grid item xl={6} md={6} sm={4} xs={4}>
 					<Nav>
-						<IconButton onClick={() => mutate()}>
-							<FiPlus size={ICON_SIZE.MEDIUM} />
-						</IconButton>
+						<Tooltip arrow title="Create note" placement="top">
+							<IconButton onClick={() => mutate()}>
+								<FiPlus size={ICON_SIZE.MEDIUM} />
+							</IconButton>
+						</Tooltip>
+
+						<Tooltip arrow title="View mode" placement="top">
+							<IconButton onClick={handleClickViewMode}>
+								<FiColumns size={ICON_SIZE.MEDIUM} />
+							</IconButton>
+						</Tooltip>
+
 						<Tooltip
 							arrow
 							title="Members comming soon"
@@ -41,11 +51,14 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 								<FiUsers size={ICON_SIZE.MEDIUM} />
 							</IconButton>
 						</Tooltip>
-						<IconButton
-							onClick={openDialogDeleteAllNotes}
-							disabled={isDisabledDeleteAllNotes}>
-							<FiTrash size={ICON_SIZE.MEDIUM} />
-						</IconButton>
+
+						<Tooltip arrow title="Delete note" placement="top">
+							<IconButton
+								onClick={openDialogDeleteAllNotes}
+								disabled={isDisabledDeleteAllNotes}>
+								<FiTrash size={ICON_SIZE.MEDIUM} />
+							</IconButton>
+						</Tooltip>
 					</Nav>
 				</Grid>
 			</Grid>

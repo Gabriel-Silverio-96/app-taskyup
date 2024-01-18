@@ -18,3 +18,11 @@ export const THEME_NAME: {
 	LIGHT: "light",
 	DARK: "dark",
 };
+
+export const VIEW_MODE: {
+	LIST: "LIST";
+	GRID: "GRID";
+} = {
+	LIST: "LIST",
+	GRID: "GRID",
+};
