@@ -18,7 +18,6 @@ export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 		useState(false);
 	const [noteID, setNoteID] = useState("");
 
-	// TODO - refactor magic string
 	const [viewMode, setViewMode] = useLocalStorage<ViewMode>(
 		"@taskyup.note_view_mode",
 		VIEW_MODE.GRID
