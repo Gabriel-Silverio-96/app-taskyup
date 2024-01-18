@@ -13,10 +13,14 @@ import CardFooter from "modules/notes/Note/components/CardNote/components/CardFo
 import CardAction from "modules/notes/Note/components/CardNote/components/CardAction";
 import { useContextNote } from "modules/notes/Note/Context";
 import { defineGridSize } from "modules/notes/Note/components/CardNote/utils";
+import { VIEW_MODE } from "shared/constants";
 
 const CardNote: React.FC<ICardNotes> = ({ data }) => {
 	const { board_id } = useParams();
 	const { viewMode } = useContextNote();
+
+	const defineViewModeClassName =
+		viewMode === VIEW_MODE.LIST ? "view-mode-list" : "";
 
 	return (
 		<Grid container spacing={2}>
@@ -35,8 +39,8 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 								item
 								key={note_id}
 								{...defineGridSize(viewMode)}>
-								<CardNoteContainer>
-									<Card sx={{ height: 130 }}>
+								<CardNoteContainer viewmode={viewMode}>
+									<Card className={defineViewModeClassName}>
 										<CardContent>
 											<CardHeader>
 												<CardDot color={color_note} />

@@ -1,16 +1,35 @@
 import { Card as CardMui, CardContent as CardContentMui, styled } from "@mui/material";
-import { ICardDotStyle } from "./types/CardNote.style";
+import { ICardDotStyle, ICardNoteContainerStyle } from "./types/CardNote.style";
+import { VIEW_MODE } from "shared/constants";
 
-export const CardNoteContainer = styled("div")(
-	({ theme }) => `
+export const CardNoteContainer = styled("div")<ICardNoteContainerStyle>(
+	({ theme, viewmode }) => `
         .MuiPaper-root {
-            height: ${theme.spacing(17.5)};
+            height: ${viewmode === VIEW_MODE.GRID ? theme.spacing(17.5) : theme.spacing(6)};
+
             :hover {
                 #card-action {
                     opacity: 1;
                 }
             }
         }    
+
+        .view-mode-list {
+            > div {
+                padding: ${theme.spacing(1.3)};
+                grid-template-columns: ${theme.spacing(60, 60, "1fr")} ;
+                align-items: center;
+            }
+            
+            .card-footer {
+                margin-top: ${theme.spacing(0.05)};
+            }
+
+            p {
+                margin-top: 0;
+                -webkit-line-clamp: 1;
+            }
+        }
 `);
 
 export const Card = styled(CardMui)(
