@@ -26,16 +26,16 @@ const setupInterceptors = (store: Store) => {
 				response as AxiosResponse<IFetchDefaultResponse>;
 			if (data.type_message || data.message) {
 				switch (status as EnumStatusSuccessCode) {
-					case EnumStatusSuccessCode.OK:
-						snackbarStoreAction(data.message, "success");
-						break;
+				case EnumStatusSuccessCode.OK:
+					snackbarStoreAction(data.message, "success");
+					break;
 
-					case EnumStatusSuccessCode.Created:
-						snackbarStoreAction(data.message, "success");
-						break;
+				case EnumStatusSuccessCode.Created:
+					snackbarStoreAction(data.message, "success");
+					break;
 
-					default:
-						break;
+				default:
+					break;
 				}
 			}
 			return response;
@@ -47,44 +47,44 @@ const setupInterceptors = (store: Store) => {
 			const { status, data } =
 				error.response as AxiosResponse<IFetchDefaultResponse>;
 			switch (status as EnumStatusErrorCode) {
-				case EnumStatusErrorCode.Unauthorized:
-					snackbarStoreAction(data.message, "info");
+			case EnumStatusErrorCode.Unauthorized:
+				snackbarStoreAction(data.message, "info");
 
-					store.dispatch(
-						createAction(SIGNIN_TYPE, {
-							isAuthenticated: false,
-							user_data: {},
-						})
-					);
+				store.dispatch(
+					createAction(SIGNIN_TYPE, {
+						isAuthenticated: false,
+						user_data: {},
+					})
+				);
 
-					api.defaults.headers.common["Authorization"] = "";
+				api.defaults.headers.common["Authorization"] = "";
 
-					localStorage.removeItem("@taskyup.token");
-					localStorage.removeItem("@taskyup.user_data");
-					break;
+				localStorage.removeItem("@taskyup.token");
+				localStorage.removeItem("@taskyup.user_data");
+				break;
 
-				case EnumStatusErrorCode.Forbidden:
-					snackbarStoreAction(data.message, "warning");
-					break;
+			case EnumStatusErrorCode.Forbidden:
+				snackbarStoreAction(data.message, "warning");
+				break;
 
-				case EnumStatusErrorCode.NotFound:
-					snackbarStoreAction(data.message, "error");
+			case EnumStatusErrorCode.NotFound:
+				snackbarStoreAction(data.message, "error");
 
-					window.location.replace("/dashboard");
-					localStorage.removeItem("@taskyup.last_page_accessed");
-					break;
+				window.location.replace("/dashboard");
+				localStorage.removeItem("@taskyup.last_page_accessed");
+				break;
 
-				case EnumStatusErrorCode.TooManyRequests:
-					snackbarStoreAction(data.message, "info");
-					break;
+			case EnumStatusErrorCode.TooManyRequests:
+				snackbarStoreAction(data.message, "info");
+				break;
 
-				case EnumStatusErrorCode.InternalServerError:
-					snackbarStoreAction(data.message, "error");
-					break;
+			case EnumStatusErrorCode.InternalServerError:
+				snackbarStoreAction(data.message, "error");
+				break;
 
-				default:
-					snackbarStoreAction(UNEXPECTED_ERROR_MESSAGE, "error");
-					break;
+			default:
+				snackbarStoreAction(UNEXPECTED_ERROR_MESSAGE, "error");
+				break;
 			}
 
 			return Promise.reject(error);
