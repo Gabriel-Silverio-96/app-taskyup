@@ -1,4 +1,4 @@
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { FunctionReturnsVoid } from "shared/common/types";
 
 export interface IDropdown {
 	children: React.ReactNode;

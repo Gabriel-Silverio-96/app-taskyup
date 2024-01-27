@@ -10,7 +10,7 @@ import {
 	KeyboardEvent,
 	SetStateAction,
 } from "react";
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { FunctionReturnsVoid } from "shared/common/types";
 
 export interface INoteTodo {
 	todoData: ITodoData;

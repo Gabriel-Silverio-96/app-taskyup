@@ -10,7 +10,7 @@ import DialogSearchAllView from "shared/components/Drawer/components/DialogSearc
 import { DialogSearchAllSchema } from "shared/components/Drawer/components/DialogSearchAll/schema";
 import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
 import { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
-import { IPaginationModel } from "shared/common/types/AppTypes";
+import { IPaginationModel } from "shared/common/types";
 import {
 	DIALOG_SEARCH_ALL_QUERY_KEY,
 	INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,

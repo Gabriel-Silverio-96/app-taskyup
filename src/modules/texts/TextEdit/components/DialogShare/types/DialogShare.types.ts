@@ -1,7 +1,7 @@
 import { UseMutateFunction } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import { ChangeEvent } from "react";
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { FunctionReturnsVoid } from "shared/common/types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
 export interface IData {

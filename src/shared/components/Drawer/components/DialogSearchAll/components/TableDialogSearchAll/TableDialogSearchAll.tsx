@@ -1,6 +1,6 @@
 import { GridRowsProp } from "@mui/x-data-grid";
 import React from "react";
-import { IPaginationModel } from "shared/common/types/AppTypes";
+import { IPaginationModel } from "shared/common/types";
 import TableDialogSearchAllView from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/TableDialogSearchAllView";
 import { ITableDialogSearchAll } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/types";
 

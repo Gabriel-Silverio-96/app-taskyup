@@ -1,6 +1,6 @@
 import { GridRowsProp } from "@mui/x-data-grid";
 import { Dispatch, SetStateAction } from "react";
-import { IPaginationModel } from "shared/common/types/AppTypes";
+import { IPaginationModel } from "shared/common/types";
 import { IFetchGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/services/types";
 
 export interface ITableDialogSearchAll {

@@ -1,4 +1,4 @@
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { FunctionReturnsVoid } from "shared/common/types";
 import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
 
 export interface IOnNodeToggle {

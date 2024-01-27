@@ -1,5 +1,5 @@
 import { UseMutateFunction } from "@tanstack/react-query";
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { FunctionReturnsVoid } from "shared/common/types";
 import { IFetchResponseDefault } from "shared/common/types/Fetch";
 
 export interface IDialogDeleteAllTextsView {

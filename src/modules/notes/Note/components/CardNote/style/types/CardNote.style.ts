@@ -1,5 +1,5 @@
 import { Theme } from "@emotion/react";
-import { ViewMode } from "shared/common/types/AppTypes";
+import { ViewMode } from "shared/common/types";
 
 export interface ICardNoteContainerStyle {
 	viewmode: ViewMode;

@@ -1,4 +1,4 @@
-import { TypeBoard } from "shared/common/types/AppTypes";
+import { TypeBoard } from "shared/common/types";
 
 export interface IGenerateQueryParams {
 	id: string;

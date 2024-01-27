@@ -1,5 +1,5 @@
 import { ChangeEvent, MouseEvent, Ref } from "react";
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { FunctionReturnsVoid } from "shared/common/types";
 import {
 	IFetchSearchImagesResponse,
 	IPhotos,

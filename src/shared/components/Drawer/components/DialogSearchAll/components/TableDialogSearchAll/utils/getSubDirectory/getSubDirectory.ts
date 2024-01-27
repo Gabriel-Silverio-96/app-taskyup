@@ -1,4 +1,4 @@
-import { TypeBoard } from "shared/common/types/AppTypes";
+import { TypeBoard } from "shared/common/types";
 import { ITypeBoardMappings } from "./types";
 
 export const DEFAULT_SUBDIRECTORY = "/note/edit";
