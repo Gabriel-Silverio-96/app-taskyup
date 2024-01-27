@@ -1,4 +1,4 @@
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types";
 import { IDialogNewBoardForm } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 
 export interface IFetchPostBoardProps {

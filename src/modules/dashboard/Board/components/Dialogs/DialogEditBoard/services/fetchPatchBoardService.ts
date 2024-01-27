@@ -1,4 +1,4 @@
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types";
 import api from "shared/services/api";
 import { IFetchPatchBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services/types";
 

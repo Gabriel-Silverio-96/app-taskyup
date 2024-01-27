@@ -4,7 +4,7 @@ import { Store } from "redux";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { SNACKBAR_OPEN_TYPE } from "shared/common/store/Snackbar/Snackbar.reducer";
 import { createAction } from "shared/common/store/store.action";
-import { IFetchResponseDefault, EnumStatusSuccessCode, EnumStatusErrorCode } from "shared/common/types/Fetch";
+import { IFetchResponseDefault, EnumStatusSuccessCode, EnumStatusErrorCode } from "shared/common/types";
 import api from "./api";
 
 const UNEXPECTED_ERROR_MESSAGE = "An unexpected error has occurred, please try again later";

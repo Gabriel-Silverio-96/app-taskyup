@@ -15,7 +15,7 @@ import {
 } from "modules/texts/TextEdit/components/DialogShare/services";
 import { IFetchGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
 import { IData } from "modules/texts/TextEdit/components/DialogShare/types";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types";
 import { AxiosResponse } from "axios";
 
 const DialogShare: React.FC = () => {

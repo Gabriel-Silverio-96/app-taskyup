@@ -1,4 +1,4 @@
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types";
 import { ISignInForm } from "modules/auth/SignIn/types";
 
 export interface IFetchPostSignInService {

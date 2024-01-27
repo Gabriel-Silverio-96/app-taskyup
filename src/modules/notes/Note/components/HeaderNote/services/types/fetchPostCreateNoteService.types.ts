@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types";
 
 export interface IFetchPostCreateNoteProps {
 	board_id: string | undefined;

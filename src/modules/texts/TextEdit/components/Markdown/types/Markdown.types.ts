@@ -1,7 +1,7 @@
 import { UseMutateFunction } from "@tanstack/react-query";
 import { IDataText } from "modules/texts/TextEdit/types";
 import { ChangeEvent } from "react";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types";
 
 export interface IMarkdownView {
 	dataText: IDataText;

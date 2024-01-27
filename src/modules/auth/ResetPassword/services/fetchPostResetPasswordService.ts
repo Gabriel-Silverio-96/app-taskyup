@@ -1,5 +1,5 @@
 import { IFetchPostResetPasswordService } from "modules/auth/ResetPassword/services/types";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchResponseDefault } from "shared/common/types";
 import api from "shared/services/api";
 
 export const fetchPostResetPasswordService = async ({
