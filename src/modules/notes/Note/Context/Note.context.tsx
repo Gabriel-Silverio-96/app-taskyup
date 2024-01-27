@@ -5,7 +5,7 @@ import {
 } from "modules/notes/Note/Context/types";
 import { VIEW_MODE } from "shared/constants";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
-import { ViewMode } from "shared/common/types/AppTypes";
+import { ViewMode } from "shared/common/types";
 
 export const ContextNote = createContext<IContextNote | undefined>(undefined);
 

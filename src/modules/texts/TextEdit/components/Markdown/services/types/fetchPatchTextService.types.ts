@@ -1,5 +1,5 @@
 import { IFetchGetOneTextResponse } from "modules/texts/TextEdit/components/Markdown/services/types";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchDefaultResponse } from "shared/common/types";
 
 export interface IFetchPatchTextProps {
 	params: {
@@ -10,5 +10,5 @@ export interface IFetchPatchTextProps {
 }
 
 export interface IFetchPatchTextService {
-	({ params, data }: IFetchPatchTextProps): Promise<IFetchResponseDefault>;
+	({ params, data }: IFetchPatchTextProps): Promise<IFetchDefaultResponse>;
 }

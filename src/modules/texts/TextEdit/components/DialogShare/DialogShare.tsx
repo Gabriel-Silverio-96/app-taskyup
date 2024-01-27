@@ -15,7 +15,7 @@ import {
 } from "modules/texts/TextEdit/components/DialogShare/services";
 import { IFetchGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
 import { IData } from "modules/texts/TextEdit/components/DialogShare/types";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchDefaultResponse } from "shared/common/types";
 import { AxiosResponse } from "axios";
 
 const DialogShare: React.FC = () => {
@@ -72,7 +72,7 @@ const DialogShare: React.FC = () => {
 
 	const onSuccessMutation = ({
 		config,
-	}: AxiosResponse<IFetchResponseDefault>) => {
+	}: AxiosResponse<IFetchDefaultResponse>) => {
 		const data = JSON.parse(config.data);
 		setDataText(prevState => ({ ...prevState, ...data }));
 	};

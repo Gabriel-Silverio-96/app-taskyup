@@ -1,4 +1,4 @@
-import { TypeBoard } from "shared/common/types/AppTypes";
+import { TypeBoard } from "shared/common/types";
 import { IPathMapping } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/utils/define-url-path/types";
 
 export const pathMapping: IPathMapping = {

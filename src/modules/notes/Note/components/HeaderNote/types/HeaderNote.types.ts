@@ -1,6 +1,6 @@
 import { UseMutateFunction } from "@tanstack/react-query";
 import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
-import { FunctionReturnsVoid } from "shared/common/types/AppTypes";
+import { FunctionReturnsVoid } from "shared/common/types";
 
 export interface IHeaderNote {
 	count: number | undefined;

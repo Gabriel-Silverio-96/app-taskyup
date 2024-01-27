@@ -1,9 +1,9 @@
 import api from "shared/services/api";
 import { IFetchPutProfileService } from "modules/account/Profile/services/types/fetchPutProfileService.types";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchDefaultResponse } from "shared/common/types";
 
 export const fetchPutProfileService = async ({
 	body,
 }: IFetchPutProfileService) => {
-	return await api.put<IFetchResponseDefault>("auth/account", body);
+	return await api.put<IFetchDefaultResponse>("auth/account", body);
 };

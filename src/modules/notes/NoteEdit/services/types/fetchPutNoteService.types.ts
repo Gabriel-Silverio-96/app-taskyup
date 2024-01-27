@@ -1,6 +1,6 @@
 import { AxiosPromise } from "axios";
 import { INoteEditForm } from "modules/notes/NoteEdit/types";
-import { IFetchResponseDefault } from "shared/common/types/Fetch";
+import { IFetchDefaultResponse } from "shared/common/types";
 
 export interface IFetchPutNoteProps {
 	params: {
@@ -11,5 +11,5 @@ export interface IFetchPutNoteProps {
 }
 
 export interface IFetchPutNoteService {
-	({ params, body }: IFetchPutNoteProps): AxiosPromise<IFetchResponseDefault>;
+	({ params, body }: IFetchPutNoteProps): AxiosPromise<IFetchDefaultResponse>;
 }
