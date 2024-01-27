@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
-import { IFetchResponseDefault } from "shared/common/types";
+import { IFetchDefaultResponse } from "shared/common/types";
 
-export interface IFetchPostTextResponse extends IFetchResponseDefault {
+export interface IFetchPostTextResponse extends IFetchDefaultResponse {
 	text_id: string;
 }
 

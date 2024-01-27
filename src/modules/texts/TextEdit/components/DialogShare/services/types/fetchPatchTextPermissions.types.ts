@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { IFetchResponseDefault } from "shared/common/types";
+import { IFetchDefaultResponse } from "shared/common/types";
 
 export interface IFetchPatchTextPermissionsProps {
 	body: {
@@ -15,5 +15,5 @@ export interface IFetchPatchTextPermissionsService {
 	({
 		body,
 		params,
-	}: IFetchPatchTextPermissionsProps): AxiosPromise<IFetchResponseDefault>;
+	}: IFetchPatchTextPermissionsProps): AxiosPromise<IFetchDefaultResponse>;
 }

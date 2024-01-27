@@ -2,7 +2,7 @@ import { UseMutateFunction } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import { ChangeEvent } from "react";
 import { FunctionReturnsVoid } from "shared/common/types";
-import { IFetchResponseDefault } from "shared/common/types";
+import { IFetchDefaultResponse } from "shared/common/types";
 
 export interface IData {
 	public: boolean;
@@ -16,7 +16,7 @@ export interface IDialogShareView {
 	handleChangeSwitch: (event: ChangeEvent<HTMLInputElement>) => void;
 	handleClickCopy: FunctionReturnsVoid;
 	mutate: UseMutateFunction<
-		AxiosResponse<IFetchResponseDefault, any>,
+		AxiosResponse<IFetchDefaultResponse, any>,
 		unknown,
 		void,
 		unknown

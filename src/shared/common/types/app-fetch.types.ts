@@ -1,4 +1,4 @@
-export interface IFetchResponseDefault {
+export interface IFetchDefaultResponse {
 	type_message: string;
 	message: string;
 }

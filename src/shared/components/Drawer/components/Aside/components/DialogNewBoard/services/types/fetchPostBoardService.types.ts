@@ -1,4 +1,4 @@
-import { IFetchResponseDefault } from "shared/common/types";
+import { IFetchDefaultResponse } from "shared/common/types";
 import { IDialogNewBoardForm } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 
 export interface IFetchPostBoardProps {
@@ -6,5 +6,5 @@ export interface IFetchPostBoardProps {
 }
 
 export interface IFetchPostBoardService {
-	({ body }: IFetchPostBoardProps): Promise<IFetchResponseDefault>;
+	({ body }: IFetchPostBoardProps): Promise<IFetchDefaultResponse>;
 }

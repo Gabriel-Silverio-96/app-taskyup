@@ -1,5 +1,5 @@
 import { ITodo } from "modules/notes/NoteEdit/types";
-import { IFetchResponseDefault } from "shared/common/types";
+import { IFetchDefaultResponse } from "shared/common/types";
 
 export interface IFetchPostTodosProps {
 	body: {
@@ -11,5 +11,5 @@ export interface IFetchPostTodosProps {
 }
 
 export interface IFetchPostTodosService {
-	({ body }: IFetchPostTodosProps): Promise<IFetchResponseDefault>;
+	({ body }: IFetchPostTodosProps): Promise<IFetchDefaultResponse>;
 }

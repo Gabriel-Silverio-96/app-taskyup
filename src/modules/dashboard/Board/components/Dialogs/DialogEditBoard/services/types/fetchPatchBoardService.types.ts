@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { IFetchResponseDefault } from "shared/common/types";
+import { IFetchDefaultResponse } from "shared/common/types";
 
 export interface IFetchPatchBoardService {
 	(
@@ -8,5 +8,5 @@ export interface IFetchPatchBoardService {
 			title: string;
 			background_image: string;
 		}
-	): AxiosPromise<IFetchResponseDefault>;
+	): AxiosPromise<IFetchDefaultResponse>;
 }
