@@ -97,7 +97,6 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         }
 
         .MuiCollapse-root {
-
             .MuiCollapse-wrapper {
                 .MuiCollapse-wrapperInner {
                     a > li > div .MuiTreeItem-label {
@@ -119,6 +118,16 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
                 }
             }
         }        
+
+        ::-webkit-scrollbar, ::-webkit-scrollbar-thumb {
+            visibility: hidden;
+		}
+
+        :hover {
+            ::-webkit-scrollbar, ::-webkit-scrollbar-thumb {
+                visibility: visible;
+            }
+        }
     `
 );
 
