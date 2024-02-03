@@ -2,6 +2,9 @@
   "name": "app-taskyup",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@bytemd/plugin-frontmatter": "^1.20.2",
     "@bytemd/plugin-gemoji": "^1.20.2",
