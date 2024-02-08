@@ -24,22 +24,26 @@ const HeaderTextView: React.FC<IHeaderTextView> = props => {
 			</Grid>
 			<Grid item xl={6} md={6} sm={4} xs={4}>
 				<Nav>
-					<IconButton onClick={toggleTemplatesVisibility}>
-						<MdOutlineLightbulb
-							color={defineColorIcon}
-							size={ICON_SIZE.MEDIUM}
-						/>
-					</IconButton>
+					<Tooltip arrow title="Templates" placement="top">
+						<IconButton onClick={toggleTemplatesVisibility}>
+							<MdOutlineLightbulb
+								color={defineColorIcon}
+								size={ICON_SIZE.MEDIUM}
+							/>
+						</IconButton>
+					</Tooltip>
 					<Tooltip arrow title="Members comming soon" placement="top">
 						<IconButton>
 							<FiUsers size={ICON_SIZE.MEDIUM} />
 						</IconButton>
 					</Tooltip>
-					<IconButton
-						onClick={handleOpenDialogDeleteAllTexts}
-						disabled={isDisabledDeleteAllTexts}>
-						<FiTrash size={ICON_SIZE.MEDIUM} />
-					</IconButton>
+					<Tooltip arrow title="Delete texts" placement="top">
+						<IconButton
+							onClick={handleOpenDialogDeleteAllTexts}
+							disabled={isDisabledDeleteAllTexts}>
+							<FiTrash size={ICON_SIZE.MEDIUM} />
+						</IconButton>
+					</Tooltip>
 				</Nav>
 			</Grid>
 		</Grid>
