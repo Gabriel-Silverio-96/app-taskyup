@@ -52,7 +52,7 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 							</IconButton>
 						</Tooltip>
 
-						<Tooltip arrow title="Delete note" placement="top">
+						<Tooltip arrow title="Delete notes" placement="top">
 							<IconButton
 								onClick={openDialogDeleteAllNotes}
 								disabled={isDisabledDeleteAllNotes}>
