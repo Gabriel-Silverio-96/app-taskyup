@@ -7,25 +7,33 @@ import { defineURLPath } from "shared/components/Drawer/components/Aside/compone
 const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, slug }) => {
 	if (!data) return null;
 
-	const definedURLPath = defineURLPath(slug);
-
 	return (
 		<>
-			{data[slug].map(({ board_id, title, items }) => (
+			{data[slug].map(({ board_id, title, board_type_title, items }) => (
 				<Fragment key={board_id}>
 					<TreeItem
 						nodeId={board_id}
 						label={
-							<Link to={`/${slug}/${board_id}`}>{title}</Link>
+							<Link to={`/${board_type_title}/${board_id}`}>
+								{title}
+							</Link>
 						}>
 						{items &&
-							items.map(({ item_id, title }) => (
-								<Link
-									to={`${definedURLPath}${item_id}&board_id=${board_id}`}
-									key={item_id}>
-									<TreeItem nodeId={item_id} label={title} />
-								</Link>
-							))}
+							items.map(({ item_id, title }) => {
+								const definedURLPath =
+									defineURLPath(board_type_title);
+
+								return (
+									<Link
+										to={`${definedURLPath}${item_id}&board_id=${board_id}`}
+										key={item_id}>
+										<TreeItem
+											nodeId={item_id}
+											label={title}
+										/>
+									</Link>
+								);
+							})}
 					</TreeItem>
 				</Fragment>
 			))}
