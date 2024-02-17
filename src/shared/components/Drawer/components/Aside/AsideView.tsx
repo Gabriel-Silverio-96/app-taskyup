@@ -90,7 +90,7 @@ const AsideView: React.FC<IAsideView> = props => {
 								Notes
 							</>
 						}>
-						<LinkTreeItem data={data} slug="notes" />
+						<LinkTreeItem data={data} propertyName="notes" />
 					</TreeItem>
 					<TreeItem
 						nodeId="2"
@@ -100,7 +100,7 @@ const AsideView: React.FC<IAsideView> = props => {
 								Texts
 							</>
 						}>
-						<LinkTreeItem data={data} slug="texts" />
+						<LinkTreeItem data={data} propertyName="texts" />
 					</TreeItem>
 					<Tooltip title="Comming soon" placement="right">
 						<span>
