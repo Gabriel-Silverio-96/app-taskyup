@@ -1,8 +1,17 @@
 import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
 
-type TypeSlug = "notes" | "texts";
+type PropertyName = "notes" | "texts";
 
+/**
+ * Represents component LinkTreeItem
+ */
 export interface ILinkTreeItem {
+	/**
+	 * The data associated with the menu response
+	 */
 	data: IFetchGetMenuResponse | undefined;
-	slug: TypeSlug;
+	/**
+	 * The name of the property associated with the menu response
+	 */
+	propertyName: PropertyName;
 }

@@ -11,7 +11,7 @@ describe("Component <LinkTreeItem />", () => {
 
 		render(
 			<Router>
-				<LinkTreeItem data={MENU_MOCK} slug={SLUG} />
+				<LinkTreeItem data={MENU_MOCK} propertyName={SLUG} />
 			</Router>
 		);
 
@@ -28,7 +28,7 @@ describe("Component <LinkTreeItem />", () => {
 	test("Render nothing when data is 'falsy'", () => {
 		render(
 			<Router>
-				<LinkTreeItem data={undefined} slug="texts" />
+				<LinkTreeItem data={undefined} propertyName="texts" />
 			</Router>
 		);
 

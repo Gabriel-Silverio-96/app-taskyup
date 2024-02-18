@@ -1,11 +1,13 @@
 import { faker } from "@faker-js/faker";
+import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
 
-export const MENU_MOCK = {
+export const MENU_MOCK: IFetchGetMenuResponse = {
 	notes: [
 		{
 			board_id: faker.datatype.uuid(),
 			title: faker.lorem.word(5),
-			board_type_id: "notes",
+			board_type_id: faker.datatype.uuid(),
+			board_type_title: "notes",
 			items: [
 				{
 					board_id: faker.datatype.uuid(),
@@ -17,7 +19,8 @@ export const MENU_MOCK = {
 		{
 			board_id: faker.datatype.uuid(),
 			title: faker.lorem.word(5),
-			board_type_id: "notes",
+			board_type_id: faker.datatype.uuid(),
+			board_type_title: "notes",
 			items: [
 				{
 					board_id: faker.datatype.uuid(),
@@ -31,7 +34,8 @@ export const MENU_MOCK = {
 		{
 			board_id: faker.datatype.uuid(),
 			title: faker.lorem.word(5),
-			board_type_id: "texts",
+			board_type_id: faker.datatype.uuid(),
+			board_type_title: "texts",
 			items: [
 				{
 					board_id: faker.datatype.uuid(),
@@ -43,7 +47,8 @@ export const MENU_MOCK = {
 		{
 			board_id: faker.datatype.uuid(),
 			title: faker.lorem.word(5),
-			board_type_id: "texts",
+			board_type_id: faker.datatype.uuid(),
+			board_type_title: "texts",
 			items: [
 				{
 					board_id: faker.datatype.uuid(),
