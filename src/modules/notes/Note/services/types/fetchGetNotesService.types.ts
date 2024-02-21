@@ -4,6 +4,8 @@ export interface INote {
 	title_note: string;
 	observation: string;
 	created_at: string;
+	favorite: boolean;
+	favorite_id: string;
 	todos: {
 		total: number;
 		total_checked: number;

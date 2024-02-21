@@ -33,6 +33,8 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 						color_note,
 						created_at,
 						todos,
+						favorite,
+						favorite_id,
 					}) => {
 						return (
 							<Grid
@@ -68,7 +70,12 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 											/>
 
 											<CardAction
-												{...{ note_id, board_id }}
+												{...{
+													note_id,
+													board_id,
+													favorite,
+													favorite_id,
+												}}
 											/>
 										</CardContent>
 									</Card>

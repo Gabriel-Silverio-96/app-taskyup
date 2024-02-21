@@ -1,4 +1,6 @@
 export interface ICardAction {
 	note_id: string;
 	board_id: string | undefined;
+	favorite: boolean;
+	favorite_id: string;
 }

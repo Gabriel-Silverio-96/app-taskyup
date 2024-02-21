@@ -7,7 +7,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronRight, FiHome } from "react-icons/fi";
+import { FiChevronDown, FiChevronRight, FiHome, FiStar } from "react-icons/fi";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -22,6 +22,7 @@ import {
 	TreeViewContainer,
 	TreeViewContainerItem,
 } from "./style";
+import LinkFavoritesTreeItem from "./components/LinkFavoritesTreeItem";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
@@ -67,11 +68,8 @@ const AsideView: React.FC<IAsideView> = props => {
 							</li>
 						</Link>
 					</ul>
-					<Divider sx={{ my: 3 }} />
 				</TreeViewContainerItem>
-				<Typography variant="button" fontWeight={700}>
-					MY BOARDS
-				</Typography>
+
 				<TreeView
 					aria-label="controlled"
 					expanded={treeViewExpanded}
@@ -86,6 +84,33 @@ const AsideView: React.FC<IAsideView> = props => {
 						nodeId="1"
 						label={
 							<>
+								<FiStar size={ICON_SIZE.SMALL} />
+								Favorites
+							</>
+						}>
+						<LinkFavoritesTreeItem data={data} />
+					</TreeItem>
+				</TreeView>
+
+				<Divider sx={{ my: 3 }} />
+
+				<Typography variant="button" fontWeight={700}>
+					MY BOARDS
+				</Typography>
+				<TreeView
+					aria-label="controlled"
+					expanded={treeViewExpanded}
+					onNodeToggle={onNodeToggle}
+					defaultCollapseIcon={
+						<FiChevronDown size={ICON_SIZE.SMALL} />
+					}
+					defaultExpandIcon={
+						<FiChevronRight size={ICON_SIZE.SMALL} />
+					}>
+					<TreeItem
+						nodeId="2"
+						label={
+							<>
 								<GoNote size={ICON_SIZE.SMALL} />
 								Notes
 							</>
@@ -93,7 +118,7 @@ const AsideView: React.FC<IAsideView> = props => {
 						<LinkTreeItem data={data} propertyName="notes" />
 					</TreeItem>
 					<TreeItem
-						nodeId="2"
+						nodeId="3"
 						label={
 							<>
 								<MdOutlineNotes size={ICON_SIZE.SMALL} />
