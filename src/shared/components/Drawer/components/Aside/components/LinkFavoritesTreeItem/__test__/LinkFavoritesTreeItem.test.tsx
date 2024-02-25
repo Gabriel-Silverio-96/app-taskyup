@@ -41,10 +41,10 @@ describe("Component <LinkTreeItem />", () => {
 		expect(container.firstChild).toBeNull();
 	});
 
-	test("Render nothing when data is 'falsy'", () => {
+	test("Not rendering the list when the data is 'falsy'", () => {
 		renderComponent(undefined);
 
-		const links = screen.queryAllByRole("link");
-		expect(links.length).toBe(0);
+		const links = screen.queryAllByRole("list");
+		expect(links).toHaveLength(0);
 	});
 });
