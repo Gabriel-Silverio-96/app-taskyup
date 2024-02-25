@@ -58,4 +58,14 @@ export const MENU_MOCK: IFetchGetMenuResponse = {
 			],
 		},
 	],
+	favorites: [
+		{
+			favorite_id: faker.datatype.uuid(),
+			related_id: faker.datatype.uuid(),
+			board_id: faker.datatype.uuid(),
+			board_type_id: faker.datatype.uuid(),
+			board_type_title: "notes",
+			title: faker.lorem.word(5),
+		},
+	],
 };
