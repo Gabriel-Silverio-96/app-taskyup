@@ -2,6 +2,14 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem/LinkTreeItem";
 import { MENU_MOCK } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/__test__/mock";
+import { ILinkTreeItem } from "../types";
+
+const renderComponent = ({ data, propertyName }: ILinkTreeItem) =>
+	render(
+		<Router>
+			<LinkTreeItem {...{ data, propertyName }} />
+		</Router>
+	);
 
 describe("Component <LinkTreeItem />", () => {
 	test("Renders the link tree items correctly", () => {
@@ -9,11 +17,7 @@ describe("Component <LinkTreeItem />", () => {
 		const [firstNote, secondNote] = notes;
 		const SLUG = "notes";
 
-		render(
-			<Router>
-				<LinkTreeItem data={MENU_MOCK} propertyName={SLUG} />
-			</Router>
-		);
+		renderComponent({ data: MENU_MOCK, propertyName: "notes" });
 
 		const firstLink = screen.getByRole("link", { name: firstNote.title });
 		const secondLink = screen.getByRole("link", { name: secondNote.title });
@@ -26,11 +30,7 @@ describe("Component <LinkTreeItem />", () => {
 	});
 
 	test("Not rendering the list when the data is 'falsy'", () => {
-		render(
-			<Router>
-				<LinkTreeItem data={undefined} propertyName="texts" />
-			</Router>
-		);
+		renderComponent({ data: undefined, propertyName: "texts" });
 
 		const links = screen.queryAllByRole("link");
 		expect(links).toHaveLength(0);
