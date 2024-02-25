@@ -25,7 +25,7 @@ describe("Component <LinkTreeItem />", () => {
 		expect(secondLink).toHaveAttribute("href", secondLinkExpected);
 	});
 
-	test("Render nothing when data is 'falsy'", () => {
+	test("Not rendering the list when the data is 'falsy'", () => {
 		render(
 			<Router>
 				<LinkTreeItem data={undefined} propertyName="texts" />
@@ -33,6 +33,6 @@ describe("Component <LinkTreeItem />", () => {
 		);
 
 		const links = screen.queryAllByRole("link");
-		expect(links.length).toBe(0);
+		expect(links).toHaveLength(0);
 	});
 });
