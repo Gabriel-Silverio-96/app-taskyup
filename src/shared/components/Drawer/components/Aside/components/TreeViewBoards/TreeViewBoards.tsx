@@ -19,7 +19,7 @@ const TreeViewBoards: React.FC<ITreeViewBoards> = ({
 		defaultCollapseIcon={<FiChevronDown size={ICON_SIZE.SMALL} />}
 		defaultExpandIcon={<FiChevronRight size={ICON_SIZE.SMALL} />}>
 		<TreeItem
-			nodeId="2"
+			nodeId="1"
 			label={
 				<>
 					<GoNote size={ICON_SIZE.SMALL} />
@@ -29,7 +29,7 @@ const TreeViewBoards: React.FC<ITreeViewBoards> = ({
 			<LinkTreeItem data={data} propertyName="notes" />
 		</TreeItem>
 		<TreeItem
-			nodeId="3"
+			nodeId="2"
 			label={
 				<>
 					<MdOutlineNotes size={ICON_SIZE.SMALL} />
@@ -41,7 +41,7 @@ const TreeViewBoards: React.FC<ITreeViewBoards> = ({
 		<Tooltip title="Comming soon" placement="right">
 			<span>
 				<TreeItem
-					nodeId="4"
+					nodeId="3"
 					label={
 						<>
 							<MdOutlineSpaceDashboard size={ICON_SIZE.SMALL} />
