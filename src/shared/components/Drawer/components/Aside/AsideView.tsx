@@ -1,21 +1,12 @@
-import { TreeItem, TreeView } from "@mui/lab";
-import {
-	Button,
-	Divider,
-	IconButton,
-	Tooltip,
-	Typography,
-} from "@mui/material";
+import { Button, Divider, IconButton, Typography } from "@mui/material";
 import React from "react";
-import { FiChevronDown, FiChevronRight, FiHome } from "react-icons/fi";
-import { GoNote } from "react-icons/go";
-import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
+import { FiHome } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import DialogNewBoard from "shared/components/Drawer/components/Aside/components/DialogNewBoard";
-import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem";
 import { IAsideView } from "shared/components/Drawer/components/Aside/types";
 import { ICON_SIZE } from "shared/constants";
 import IconMenu from "./components/IconMenu";
+import TreeViewBoards from "./components/TreeViewBoards";
 import {
 	Aside,
 	AsideHeader,
@@ -67,58 +58,18 @@ const AsideView: React.FC<IAsideView> = props => {
 							</li>
 						</Link>
 					</ul>
-					<Divider sx={{ my: 3 }} />
 				</TreeViewContainerItem>
+
+				<Divider sx={{ my: 3 }} />
+
 				<Typography variant="button" fontWeight={700}>
 					MY BOARDS
 				</Typography>
-				<TreeView
-					aria-label="controlled"
+				<TreeViewBoards
 					expanded={treeViewExpanded}
 					onNodeToggle={onNodeToggle}
-					defaultCollapseIcon={
-						<FiChevronDown size={ICON_SIZE.SMALL} />
-					}
-					defaultExpandIcon={
-						<FiChevronRight size={ICON_SIZE.SMALL} />
-					}>
-					<TreeItem
-						nodeId="1"
-						label={
-							<>
-								<GoNote size={ICON_SIZE.SMALL} />
-								Notes
-							</>
-						}>
-						<LinkTreeItem data={data} propertyName="notes" />
-					</TreeItem>
-					<TreeItem
-						nodeId="2"
-						label={
-							<>
-								<MdOutlineNotes size={ICON_SIZE.SMALL} />
-								Texts
-							</>
-						}>
-						<LinkTreeItem data={data} propertyName="texts" />
-					</TreeItem>
-					<Tooltip title="Comming soon" placement="right">
-						<span>
-							<TreeItem
-								nodeId="4"
-								label={
-									<>
-										<MdOutlineSpaceDashboard
-											size={ICON_SIZE.SMALL}
-										/>
-										Kanban
-									</>
-								}
-								disabled
-							/>
-						</span>
-					</Tooltip>
-				</TreeView>
+					data={data}
+				/>
 			</TreeViewContainer>
 			<DialogNewBoard
 				{...{ openDialog, openDialogNewBoard, closeDialogNewBoard }}
