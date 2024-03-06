@@ -7,7 +7,6 @@ import { IAsideView } from "shared/components/Drawer/components/Aside/types";
 import { ICON_SIZE } from "shared/constants";
 import IconMenu from "./components/IconMenu";
 import TreeViewBoards from "./components/TreeViewBoards";
-import TreeViewDashboard from "./components/TreeViewDashboard";
 import {
 	Aside,
 	AsideHeader,
@@ -60,11 +59,7 @@ const AsideView: React.FC<IAsideView> = props => {
 						</Link>
 					</ul>
 				</TreeViewContainerItem>
-				<TreeViewDashboard
-					expanded={treeViewExpanded}
-					onNodeToggle={onNodeToggle}
-					data={data}
-				/>
+
 				<Divider sx={{ my: 3 }} />
 
 				<Typography variant="button" fontWeight={700}>
