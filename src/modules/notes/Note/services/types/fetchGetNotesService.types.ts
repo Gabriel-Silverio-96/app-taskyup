@@ -1,5 +1,7 @@
 export interface INote {
 	note_id: string;
+	favorite_id: string;
+	favorite: boolean;
 	color_note: string;
 	title_note: string;
 	observation: string;
