@@ -6,9 +6,12 @@ import { CardActionContainer } from "modules/notes/Note/components/CardNote/comp
 import { FiEye, FiStar, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
-import api from "shared/services/api";
 import { useQueryClient } from "@tanstack/react-query";
 import { NOTES_BOARD_TYPE_ID } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/constants";
+import {
+	fetchDeleteFavoriteService,
+	fetchPostFavoriteService,
+} from "shared/services";
 
 const CardAction: React.FC<ICardAction> = ({
 	note_id,
@@ -28,20 +31,19 @@ const CardAction: React.FC<ICardAction> = ({
 
 	const handleClickFavorite = async () => {
 		try {
-			const data = {
+			if (favorite) {
+				const params = { favorite_id, board_id, related_id: note_id };
+				await fetchDeleteFavoriteService({ params });
+				return;
+			}
+
+			const body = {
 				related_id: note_id,
 				board_id,
 				board_type_id: NOTES_BOARD_TYPE_ID,
 			};
 
-			if (favorite) {
-				await api.delete(
-					`favorite?favorite_id=${favorite_id}&board_id=${board_id}&related_id=${note_id}`
-				);
-				return;
-			}
-
-			await api.post("favorite", data);
+			await fetchPostFavoriteService({ body });
 		} catch (error) {
 		} finally {
 			await Promise.all([
