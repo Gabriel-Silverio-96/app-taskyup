@@ -16,7 +16,7 @@ const TreeViewDashboard: React.FC<ITreeViewDashboard> = ({
 		defaultCollapseIcon={<FiChevronDown size={ICON_SIZE.SMALL} />}
 		defaultExpandIcon={<FiChevronRight size={ICON_SIZE.SMALL} />}>
 		<TreeItem
-			nodeId="1"
+			nodeId="favorites"
 			label={
 				<>
 					<FiStar size={ICON_SIZE.SMALL} />

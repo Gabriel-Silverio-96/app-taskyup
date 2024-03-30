@@ -13,6 +13,7 @@ import {
 	TreeViewContainer,
 	TreeViewContainerItem,
 } from "./style";
+import TreeViewDashboard from "./components/TreeViewDashboard";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {
@@ -59,6 +60,12 @@ const AsideView: React.FC<IAsideView> = props => {
 						</Link>
 					</ul>
 				</TreeViewContainerItem>
+
+				<TreeViewDashboard
+					data={data}
+					expanded={treeViewExpanded}
+					onNodeToggle={onNodeToggle}
+				/>
 
 				<Divider sx={{ my: 3 }} />
 
