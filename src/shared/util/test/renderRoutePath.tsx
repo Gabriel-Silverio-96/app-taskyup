@@ -12,8 +12,8 @@ import { ThemeProvider } from "shared/common/Context/ThemeContext";
 import { store } from "shared/common/store";
 import Layout from "shared/components/Layout";
 import Session from "shared/components/Session";
-import queryClient from "shared/services/queryClient";
-import setupInterceptors from "shared/services/setupInterceptors";
+import queryClient from "infra/queryClient";
+import setupInterceptors from "infra/setupInterceptors";
 
 interface IRenderRoutePathOption {
 	path: string;
