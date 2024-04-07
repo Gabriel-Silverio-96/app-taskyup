@@ -9,7 +9,7 @@ import {
 	EnumStatusSuccessCode,
 	EnumStatusErrorCode,
 } from "shared/common/types";
-import api from "./api";
+import api from "shared/services/api";
 
 const UNEXPECTED_ERROR_MESSAGE =
 	"An unexpected error has occurred, please try again later";
