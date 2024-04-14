@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { NOTES_BOARD_TYPE_ID } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/constants";
+import { BOARD_TYPE_ID } from "shared/constants";
 
 const board_name = faker.name.firstName();
 const board_name_edited = faker.name.firstName();
@@ -9,7 +9,7 @@ const BOARD_MOCK = {
 	board_name,
 	board_name_edited,
 	board_type_id: {
-		notes: NOTES_BOARD_TYPE_ID,
+		notes: BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID,
 	},
 };
 
