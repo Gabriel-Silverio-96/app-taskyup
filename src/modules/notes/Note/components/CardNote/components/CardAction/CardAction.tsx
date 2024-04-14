@@ -7,7 +7,7 @@ import { FiEye, FiStar, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
 import { useQueryClient } from "@tanstack/react-query";
-import { NOTES_BOARD_TYPE_ID } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/constants";
+import { BOARD_TYPE_ID } from "shared/constants";
 import {
 	fetchDeleteFavoriteService,
 	fetchPostFavoriteService,
@@ -40,7 +40,7 @@ const CardAction: React.FC<ICardAction> = ({
 			const body = {
 				related_id: note_id,
 				board_id,
-				board_type_id: NOTES_BOARD_TYPE_ID,
+				board_type_id: BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID,
 			};
 
 			await fetchPostFavoriteService({ body });

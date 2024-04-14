@@ -13,10 +13,8 @@ import {
 import React from "react";
 import { IDialogNewBoardView } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 import {
-	NOTES_BOARD_TYPE_ID,
-	TEXTS_BOARD_TYPE_ID,
-	KANBAN_BOARD_TYPE_ID,
-} from "shared/components/Drawer/components/Aside/components/DialogNewBoard/constants";
+	BOARD_TYPE_ID
+} from "shared/constants";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
 
@@ -94,13 +92,13 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 									"data-testid":
 										"board-type-id-input-inside-select",
 								}}>
-								<MenuItem value={NOTES_BOARD_TYPE_ID}>
+								<MenuItem value={BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID}>
 									Notes
 								</MenuItem>
-								<MenuItem value={TEXTS_BOARD_TYPE_ID}>
+								<MenuItem value={BOARD_TYPE_ID.TEXTS_BOARD_TYPE_ID}>
 									Texts
 								</MenuItem>
-								<MenuItem value={KANBAN_BOARD_TYPE_ID} disabled>
+								<MenuItem value={BOARD_TYPE_ID.KANBAN_BOARD_TYPE_ID} disabled>
 									Kanban
 								</MenuItem>
 							</TextField>
