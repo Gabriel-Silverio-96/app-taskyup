@@ -10,6 +10,7 @@ import {
 	FormHeaderNoteEdit,
 	TextFieldMutiline,
 } from "./style";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 	const { register, handleSubmit, mutate, errors, linkPreviousPage } = props;
@@ -22,15 +23,8 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 						<TextField
 							{...register("title_note")}
 							placeholder="Title note"
-							error={
-								errors.title_note && Boolean(errors.title_note)
-							}
-							helperText={
-								errors.title_note
-									? errors.title_note?.message
-									: ""
-							}
-							autoComplete="off"
+							autoComplete="o{ff"
+							{...fieldErrors({ errors, field: "title_note" })}
 						/>
 					</FormHeaderNoteEdit>
 				</Grid>
@@ -60,15 +54,8 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 						fullWidth
 						multiline
 						rows={15}
-						error={
-							errors.observation && Boolean(errors.observation)
-						}
-						helperText={
-							errors.observation
-								? errors.observation?.message
-								: ""
-						}
 						spellCheck="false"
+						{...fieldErrors({ errors, field: "observation" })}
 					/>
 				</Grid>
 			</Grid>
