@@ -6,6 +6,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";
 import TextFieldPassword from "shared/components/TextFieldPassword";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const SignUpView: React.FC<ISignUpView> = props => {
 	const { register, errors, handleSubmit, signUpSubmit, isLoading } = props;
@@ -47,15 +48,10 @@ const SignUpView: React.FC<ISignUpView> = props => {
 									size="small"
 									fullWidth
 									{...register("full_name")}
-									error={
-										errors.full_name &&
-										Boolean(errors.full_name)
-									}
-									helperText={
-										errors.full_name
-											? errors.full_name?.message
-											: ""
-									}
+									{...fieldErrors({
+										errors,
+										field: "full_name",
+									})}
 									autoComplete="off"
 								/>
 							</Grid>
@@ -65,14 +61,7 @@ const SignUpView: React.FC<ISignUpView> = props => {
 									size="small"
 									fullWidth
 									{...register("email")}
-									error={
-										errors.email && Boolean(errors.email)
-									}
-									helperText={
-										errors.email
-											? errors.email?.message
-											: ""
-									}
+									{...fieldErrors({ errors, field: "email" })}
 									autoComplete="off"
 								/>
 							</Grid>

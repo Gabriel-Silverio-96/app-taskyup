@@ -3,6 +3,7 @@ import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import Loading from "shared/components/Loading";
 import { IProfileFormView } from "modules/account/Profile/components/ProfileForm/types";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const ProfileFormView: React.FC<IProfileFormView> = props => {
 	const {
@@ -33,15 +34,8 @@ const ProfileFormView: React.FC<IProfileFormView> = props => {
 							defaultValue={data?.full_name}
 							InputLabelProps={{ shrink: true }}
 							autoComplete="off"
-							error={
-								errors.full_name && Boolean(errors.full_name)
-							}
-							helperText={
-								errors.full_name
-									? errors.full_name?.message
-									: ""
-							}
 							{...register("full_name")}
+							{...fieldErrors({ errors, field: "full_name" })}
 						/>
 					</Grid>
 					<Grid item>

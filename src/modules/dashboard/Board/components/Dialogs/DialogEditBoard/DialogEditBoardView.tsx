@@ -16,6 +16,7 @@ import Loading from "shared/components/Loading";
 import DialogBackground from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground";
 import { IDialogEditBoardView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { ICON_SIZE } from "shared/constants";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 	const {
@@ -75,14 +76,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 									size="small"
 									fullWidth
 									{...register("title")}
-									error={
-										errors.title && Boolean(errors.title)
-									}
-									helperText={
-										errors.title
-											? errors.title?.message
-											: ""
-									}
+									{...fieldErrors({ errors, field: "title" })}
 									inputProps={{
 										"data-testid": "input-edit",
 									}}

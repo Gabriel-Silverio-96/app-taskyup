@@ -14,6 +14,7 @@ import { TextFieldWithIconButton } from "shared/components/Drawer/components/Dia
 import { IDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/types";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 	const {
@@ -58,14 +59,10 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 									variant="standard"
 									fullWidth
 									{...register("query")}
-									error={
-										errors.query && Boolean(errors.query)
-									}
-									helperText={
-										errors.query
-											? errors.query?.message
-											: ""
-									}
+									{...fieldErrors({
+										errors,
+										field: "query",
+									})}
 									autoComplete="off"
 								/>
 								<IconButton type="submit">

@@ -12,11 +12,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import { IDialogNewBoardView } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
-import {
-	BOARD_TYPE_ID
-} from "shared/constants";
+import { BOARD_TYPE_ID } from "shared/constants";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 	const {
@@ -64,10 +63,7 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 								size="small"
 								fullWidth
 								{...register("title")}
-								error={errors.title && Boolean(errors.title)}
-								helperText={
-									errors.title ? errors.title?.message : ""
-								}
+								{...fieldErrors({ errors, field: "title" })}
 							/>
 						</Grid>
 						<Grid item>
@@ -79,26 +75,25 @@ const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 								select
 								fullWidth
 								{...register("board_type_id")}
-								error={
-									errors.board_type_id &&
-									Boolean(errors.board_type_id)
-								}
-								helperText={
-									errors.board_type_id
-										? errors.board_type_id?.message
-										: ""
-								}
+								{...fieldErrors({
+									errors,
+									field: "board_type_id",
+								})}
 								inputProps={{
 									"data-testid":
 										"board-type-id-input-inside-select",
 								}}>
-								<MenuItem value={BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID}>
+								<MenuItem
+									value={BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID}>
 									Notes
 								</MenuItem>
-								<MenuItem value={BOARD_TYPE_ID.TEXTS_BOARD_TYPE_ID}>
+								<MenuItem
+									value={BOARD_TYPE_ID.TEXTS_BOARD_TYPE_ID}>
 									Texts
 								</MenuItem>
-								<MenuItem value={BOARD_TYPE_ID.KANBAN_BOARD_TYPE_ID} disabled>
+								<MenuItem
+									value={BOARD_TYPE_ID.KANBAN_BOARD_TYPE_ID}
+									disabled>
 									Kanban
 								</MenuItem>
 							</TextField>
