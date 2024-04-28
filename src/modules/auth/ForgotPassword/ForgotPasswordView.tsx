@@ -6,6 +6,7 @@ import { Footer, Link } from "modules/auth/ForgotPassword/styles";
 import { IForgotPasswordView } from "modules/auth/ForgotPassword/types";
 import { defineTitleMessage } from "modules/auth/ForgotPassword/utils/define-title-message";
 import { defineSubtitleMessage } from "modules/auth/ForgotPassword/utils/define-subtitle-message";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const ForgotPasswordView: React.FC<IForgotPasswordView> = props => {
 	const {
@@ -36,11 +37,8 @@ const ForgotPasswordView: React.FC<IForgotPasswordView> = props => {
 								label="Email"
 								size="small"
 								fullWidth
-								error={errors.email && Boolean(errors.email)}
-								helperText={
-									errors.email ? errors.email?.message : ""
-								}
 								{...register("email")}
+								{...fieldErrors({ errors, field: "email" })}
 							/>
 						</Grid>
 						<Grid item>

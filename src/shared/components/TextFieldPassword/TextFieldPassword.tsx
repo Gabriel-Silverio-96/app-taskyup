@@ -4,6 +4,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
 import { IconButton, TextFieldPasswordContainer } from "./style";
 import { ITextFieldPassword } from "./types";
+import { fieldErrors } from "shared/util/fieldErrors";
 
 const TextFieldPassword: React.FC<ITextFieldPassword> = forwardRef(
 	({ register, errors }, ref) => {
@@ -19,8 +20,7 @@ const TextFieldPassword: React.FC<ITextFieldPassword> = forwardRef(
 					type={showPassword ? "text" : "password"}
 					fullWidth
 					{...register("password")}
-					error={errors.password && Boolean(errors.password)}
-					helperText={errors.password ? errors.password?.message : ""}
+					{...fieldErrors({ errors, field: "password" })}
 				/>
 				<IconButton onClick={handleShowPassword}>
 					{showPassword ? (
