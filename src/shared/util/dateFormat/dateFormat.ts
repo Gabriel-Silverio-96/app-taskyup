@@ -1,3 +1,5 @@
+export const errorMessage = "Date string cannot be empty";
+
 /**
  * Formats the given date string into a localized date string.
  *
@@ -6,6 +8,10 @@
  * @returns {string} The formatted date string.
  */
 export const dateFormat = (date: string, locale = "en-US"): string => {
+	if (!date) {
+		throw new Error(errorMessage);
+	}
+
 	const format = new Date(date).toLocaleDateString(locale);
 	return format;
 };
