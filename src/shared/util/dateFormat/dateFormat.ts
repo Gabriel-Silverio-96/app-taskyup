@@ -1,4 +1,4 @@
-export const errorMessage = "Date string cannot be empty";
+export const errorMessage = "Date string must be a valid value";
 
 /**
  * Formats the given date string into a localized date string.
