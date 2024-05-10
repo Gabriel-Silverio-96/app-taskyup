@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-import dateFormat from "shared/util/dateFormat";
+import { dateFormat } from "shared/util/dateFormat";
 import { IContentDetail } from "./types/ContentDetail.types";
 
 const ContentDetail: React.FC<IContentDetail> = props => {
