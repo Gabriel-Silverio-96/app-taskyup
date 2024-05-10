@@ -1,0 +1,11 @@
+/**
+ * Formats the given date string into a localized date string.
+ *
+ * @param {string} date - The date string to format.
+ * @param {string} [locale="en-US"] - The locale to use for formatting. Defaults to "en-US".
+ * @returns {string} The formatted date string.
+ */
+export const dateFormat = (date: string, locale = "en-US"): string => {
+	const format = new Date(date).toLocaleDateString(locale);
+	return format;
+};
