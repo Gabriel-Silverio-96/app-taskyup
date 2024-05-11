@@ -15,7 +15,7 @@ import { IDialogNewBoardView } from "shared/components/Drawer/components/Aside/c
 import { BOARD_TYPE_ID } from "shared/constants";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
-import { fieldErrors } from "shared/util/fieldErrors";
+import { fieldErrors } from "shared/utils/fieldErrors";
 
 const DialogNewBoardView: React.FC<IDialogNewBoardView> = props => {
 	const {

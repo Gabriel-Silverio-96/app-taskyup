@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { fireEvent, screen } from "@testing-library/react";
 import ColorPicker from "shared/components/ColorPicker/ColorPicker";
-import render from "shared/util/test/render";
+import render from "shared/utils/test/render";
 
 const label = "Color";
 const id = faker.datatype.uuid();

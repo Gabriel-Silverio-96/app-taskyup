@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { validateEmailDomainLength } from "shared/util/validateEmailDomainLength";
+import { validateEmailDomainLength } from "shared/utils/validateEmailDomainLength";
 
 describe("Function validateEmailDomainLength()", () => {
 	test("Should return 'true' when the domain length is greater than one", () => {

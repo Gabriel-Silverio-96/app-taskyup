@@ -14,7 +14,7 @@ import { TextFieldWithIconButton } from "shared/components/Drawer/components/Dia
 import { IDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/types";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
-import { fieldErrors } from "shared/util/fieldErrors";
+import { fieldErrors } from "shared/utils/fieldErrors";
 
 const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 	const {

@@ -2,7 +2,7 @@ import { act, cleanup, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import api from "shared/services/api";
-import render from "shared/util/test/render";
+import render from "shared/utils/test/render";
 import SignUp from "../SignUp";
 import {
 	CREATE_ACCOUNT_SUCCESS_RESPONSE_MOCK,

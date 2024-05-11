@@ -5,7 +5,7 @@ import {
 import {
 	DEFAULT_ERROR_MESSAGE_EMAIL,
 	validateEmailDomainLength,
-} from "shared/util/validateEmailDomainLength";
+} from "shared/utils/validateEmailDomainLength";
 import * as Yup from "yup";
 
 const { regexFullName, messageFullName } = FULL_NAME_DEFAULT_VALIDATION;

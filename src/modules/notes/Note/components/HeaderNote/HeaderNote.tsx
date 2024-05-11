@@ -7,7 +7,7 @@ import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { NOTE_QUERY_KEY, MENU_QUERY_KEY, VIEW_MODE } from "shared/constants";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { createURLQueryParams } from "shared/utils/createURLQueryParams";
 import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
 import { useContextNote } from "modules/notes/Note/Context";
 

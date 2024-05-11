@@ -6,7 +6,7 @@ import { fetchPostTextService } from "modules/texts/Text/services";
 import TemplatesView from "modules/texts/Text/components/Templates/TemplatesView";
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { mountTemplateBody } from "modules/texts/Text/components/Templates/utils/mount-template-body";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { createURLQueryParams } from "shared/utils/createURLQueryParams";
 import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
 

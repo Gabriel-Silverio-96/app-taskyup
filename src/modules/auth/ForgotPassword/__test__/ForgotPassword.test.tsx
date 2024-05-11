@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import { act } from "react-dom/test-utils";
 import api from "shared/services/api";
-import render from "shared/util/test/render";
+import render from "shared/utils/test/render";
 import ForgotPassword from "../ForgotPassword";
 import {
 	FORGOT_PASSWORD_MOCK,
