@@ -2,11 +2,11 @@ import { act, cleanup, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import api from "shared/services/api";
-import render from "shared/util/test/render";
+import render from "shared/utils/test/render";
 import {
 	renderRoutePath,
 	routePathTest,
-} from "shared/util/test/renderRoutePath";
+} from "shared/utils/test/renderRoutePath";
 import ResetPassword from "../ResetPassword";
 import {
 	RESET_PASSWORD_MOCK,

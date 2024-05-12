@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { fieldErrors } from "shared/util/fieldErrors/fieldErrors";
+import { fieldErrors } from "shared/utils/fieldErrors/fieldErrors";
 
 describe("Function fieldErrors()", () => {
 	it("Should return error false and helperText empty string when error is falsy", () => {

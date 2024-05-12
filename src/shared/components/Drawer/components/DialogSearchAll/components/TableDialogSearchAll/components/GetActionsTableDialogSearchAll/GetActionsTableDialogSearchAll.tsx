@@ -12,7 +12,7 @@ import { createAction } from "shared/common/store/store.action";
 import { generateQueryParams } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/generateQueryParams";
 import { getSubDirectory } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/getSubDirectory";
 import { ICON_SIZE } from "shared/constants";
-import { createURLQueryParams } from "shared/util/createURLQueryParams";
+import { createURLQueryParams } from "shared/utils/createURLQueryParams";
 
 const GetActionsTableDialogSearchAll = (
 	params: GridRowParams

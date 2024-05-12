@@ -19,7 +19,7 @@ import {
 	NOTE_QUERY_KEY,
 	TEXT_QUERY_KEY,
 } from "shared/constants";
-import { dateFormat } from "shared/util/dateFormat";
+import { dateFormat } from "shared/utils/dateFormat";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();

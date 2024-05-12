@@ -1,13 +1,8 @@
-import {
-	cleanup,
-	fireEvent,
-	screen,
-	waitFor,
-} from "@testing-library/react";
+import { cleanup, fireEvent, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import api from "shared/services/api";
-import renderRequiredAuth from "shared/util/test/renderRequiredAuth";
+import renderRequiredAuth from "shared/utils/test/renderRequiredAuth";
 import Board from "../Board";
 import {
 	BOARD_MOCK,
@@ -46,15 +41,21 @@ describe("Component <Board />", () => {
 
 		renderRequiredAuth(<Board />);
 
-		const buttonNewBoard = screen.getByRole("button", {	name: "New board" });
+		const buttonNewBoard = screen.getByRole("button", {
+			name: "New board",
+		});
 		userEvent.click(buttonNewBoard);
 
 		await waitFor(() => {
 			const inputBoardName = screen.getByLabelText(LABEL_BOARD_NAME);
 			userEvent.type(inputBoardName, board_name);
 
-			const selectBoardType = screen.getByTestId("board-type-id-input-inside-select");
-			fireEvent.change(selectBoardType, {	target: { value: board_type_id.notes } });
+			const selectBoardType = screen.getByTestId(
+				"board-type-id-input-inside-select"
+			);
+			fireEvent.change(selectBoardType, {
+				target: { value: board_type_id.notes },
+			});
 
 			const buttonSubmit = screen.getByRole("button", { name: "Save" });
 			userEvent.click(buttonSubmit);
@@ -76,35 +77,40 @@ describe("Component <Board />", () => {
 	test("Edit board", async () => {
 		mock.onGet("board").reply(200, LIST_BOARD_MOCK_SUCCESS_RESPONSE_MOCK);
 		renderRequiredAuth(<Board />);
-		
+
 		const urlGetBoard = `board/board_id=${EDIT_BOARD_DATA_MOCK.board_id}`;
 		mock.onGet(urlGetBoard).reply(200, EDIT_BOARD_DATA_MOCK);
 
-		const urlPatchBoard = `board/edit/board_id=${EDIT_BOARD_DATA_MOCK.board_id}`;		
-		mock.onPatch(urlPatchBoard).reply(201, EDIT_BOARD_SUCCESS_RESPONSE_MOCK);
+		const urlPatchBoard = `board/edit/board_id=${EDIT_BOARD_DATA_MOCK.board_id}`;
+		mock.onPatch(urlPatchBoard).reply(
+			201,
+			EDIT_BOARD_SUCCESS_RESPONSE_MOCK
+		);
 
 		await waitFor(() => {
 			const buttonCardBoardOption = screen
 				.getAllByTestId("button-card-board-options")
 				.at(0) as HTMLButtonElement;
-				
+
 			userEvent.click(buttonCardBoardOption);
 
 			const optionEditBoard = screen.getByText("Edit");
 			userEvent.click(optionEditBoard);
-
 		});
 
 		await waitFor(() => {
-			const inputBoardName = screen.getByTestId<HTMLInputElement>("input-edit");
+			const inputBoardName =
+				screen.getByTestId<HTMLInputElement>("input-edit");
 			userEvent.type(inputBoardName, board_name_edited);
-	
+
 			const buttonSave = screen.getByRole("button", { name: "Save" });
 			userEvent.click(buttonSave);
 		});
 
 		await waitFor(async () => {
-			const snackbarMessage = await screen.findByText(EDIT_BOARD_SUCCESS_RESPONSE_MOCK.message);
+			const snackbarMessage = await screen.findByText(
+				EDIT_BOARD_SUCCESS_RESPONSE_MOCK.message
+			);
 			expect(snackbarMessage).toBeInTheDocument();
 		});
 	});

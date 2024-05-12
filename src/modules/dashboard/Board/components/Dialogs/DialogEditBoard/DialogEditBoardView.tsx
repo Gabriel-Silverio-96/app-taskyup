@@ -16,7 +16,7 @@ import Loading from "shared/components/Loading";
 import DialogBackground from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground";
 import { IDialogEditBoardView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { ICON_SIZE } from "shared/constants";
-import { fieldErrors } from "shared/util/fieldErrors";
+import { fieldErrors } from "shared/utils/fieldErrors";
 
 const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 	const {
