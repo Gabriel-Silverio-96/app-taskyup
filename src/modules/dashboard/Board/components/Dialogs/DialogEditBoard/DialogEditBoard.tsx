@@ -41,6 +41,7 @@ const DialogEditBoard = () => {
 		formState: { errors },
 		setValue,
 		clearErrors,
+		getValues,
 	} = useForm<IDialogEditBoardForm>({
 		resolver: yupResolver(DialogEditBoardSchema),
 		mode: "all",
@@ -104,6 +105,10 @@ const DialogEditBoard = () => {
 	const onClose = !isSaving && !isFetching ? closeDialogEditBoard : () => "";
 	const disabledIconButtonClose = isFetching || isSaving;
 
+	const defineValueCreatedAt = getValues("created_at")
+		? dateFormat(getValues("created_at"))
+		: "";
+
 	return (
 		<DialogEditBoardView
 			{...{
@@ -118,6 +123,7 @@ const DialogEditBoard = () => {
 				closeDialogEditBoard,
 				onClose,
 				disabledIconButtonClose,
+				defineValueCreatedAt,
 			}}
 		/>
 	);
