@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FiX } from "react-icons/fi";
-import Date from "shared/components/Date";
 import Loading from "shared/components/Loading";
 import DialogBackground from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground";
 import { IDialogEditBoardView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
@@ -31,6 +30,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		closeDialogEditBoard,
 		onClose,
 		disabledIconButtonClose,
+		valueCreatedAt,
 	} = props;
 
 	const loadingGrid = { display: isFetching ? "flex" : "none", mb: 5 };
@@ -91,14 +91,8 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 						justifyContent="space-between"
 						alignItems="center">
 						<Grid item md="auto">
-							<Typography
-								variant="caption"
-								color="GrayText"
-								display="flex"
-								alignItems="center"
-								sx={{ gap: 0.5 }}>
-								Created at
-								<Date {...register("created_at")} />
+							<Typography variant="caption" color="GrayText">
+								Created at {valueCreatedAt}
 							</Typography>
 						</Grid>
 						<Grid item md="auto">

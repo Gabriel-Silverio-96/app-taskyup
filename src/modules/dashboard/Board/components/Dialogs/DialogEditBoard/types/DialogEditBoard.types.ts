@@ -22,4 +22,5 @@ export interface IDialogEditBoardView {
 	closeDialogEditBoard: FunctionReturnsVoid;
 	onClose: FunctionReturnsVoid | (() => "");
 	disabledIconButtonClose: boolean;
+	valueCreatedAt: string;
 }
