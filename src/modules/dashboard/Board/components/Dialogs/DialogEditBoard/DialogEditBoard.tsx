@@ -20,7 +20,7 @@ import {
 	TEXT_QUERY_KEY,
 } from "shared/constants";
 import { dateFormat } from "shared/utils/dateFormat";
-import { defineValueCreatedAt } from "./utils/define-value-created-at";
+import { defineValueCreatedAt } from "shared/utils/define-value-created-at";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
