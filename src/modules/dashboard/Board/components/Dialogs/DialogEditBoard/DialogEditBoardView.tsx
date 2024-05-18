@@ -30,7 +30,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		closeDialogEditBoard,
 		onClose,
 		disabledIconButtonClose,
-		defineValueCreatedAt,
+		valueCreatedAt,
 	} = props;
 
 	const loadingGrid = { display: isFetching ? "flex" : "none", mb: 5 };
@@ -92,7 +92,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 						alignItems="center">
 						<Grid item md="auto">
 							<Typography variant="caption" color="GrayText">
-								Created at {defineValueCreatedAt}
+								Created at {valueCreatedAt}
 							</Typography>
 						</Grid>
 						<Grid item md="auto">

@@ -20,6 +20,7 @@ import {
 	TEXT_QUERY_KEY,
 } from "shared/constants";
 import { dateFormat } from "shared/utils/dateFormat";
+import { defineValueCreatedAt } from "./utils/define-value-created-at";
 
 const DialogEditBoard = () => {
 	const theme = useTheme();
@@ -105,9 +106,7 @@ const DialogEditBoard = () => {
 	const onClose = !isSaving && !isFetching ? closeDialogEditBoard : () => "";
 	const disabledIconButtonClose = isFetching || isSaving;
 
-	const defineValueCreatedAt = getValues("created_at")
-		? dateFormat(getValues("created_at"))
-		: "";
+	const valueCreatedAt = defineValueCreatedAt(getValues("created_at"));
 
 	return (
 		<DialogEditBoardView
@@ -123,7 +122,7 @@ const DialogEditBoard = () => {
 				closeDialogEditBoard,
 				onClose,
 				disabledIconButtonClose,
-				defineValueCreatedAt,
+				valueCreatedAt,
 			}}
 		/>
 	);
