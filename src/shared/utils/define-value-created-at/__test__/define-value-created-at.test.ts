@@ -1,4 +1,4 @@
-import { defineValueCreatedAt } from "shared/utils/define-value-created-at/define-value-created-at";
+import { defineValueCreatedAt } from "shared/utils/define-value-created-at";
 
 describe("Function defineValueCreatedAt()", () => {
 	test("Should return an empty string when the value is falsy", () => {
