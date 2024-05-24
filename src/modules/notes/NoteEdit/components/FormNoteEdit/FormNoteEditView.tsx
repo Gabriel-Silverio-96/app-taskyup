@@ -10,7 +10,7 @@ import {
 	FormHeaderNoteEdit,
 	TextFieldMutiline,
 } from "./style";
-import { fieldErrors } from "shared/utils/fieldErrors";
+import { fieldErrors } from "shared/utils/field-errors";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 	const { register, handleSubmit, mutate, errors, linkPreviousPage } = props;
