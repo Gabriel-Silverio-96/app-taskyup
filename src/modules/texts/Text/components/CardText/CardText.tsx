@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loading from "shared/components/Loading";
 import { ICON_SIZE } from "shared/constants";
 import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
-import { createURLQueryParams } from "shared/utils/createURLQueryParams";
+import { createURLQueryParams } from "shared/utils/create-url-query-params";
 import CardContent from "modules/texts/Text/components/CardText/components/CardContent";
 import {
 	CardContainer,
