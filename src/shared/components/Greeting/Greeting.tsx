@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import React, { memo } from "react";
-import Logo from "../Logo";
-import { GreetingMessage } from "./styles";
-import { IGreeting } from "./types/Greeting.component";
+import Logo from "shared/components/Logo";
+import { GreetingMessage } from "shared/components/Greeting/styles";
+import { IGreeting } from "shared/components/Greeting/types";
 
 const Greeting: React.FC<IGreeting> = ({ title, subtitle }) => {
 	return (
