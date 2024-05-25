@@ -1,4 +1,4 @@
-import { dateFormat, errorMessage } from "shared/utils/dateFormat";
+import { dateFormat, errorMessage } from "shared/utils/date-format";
 
 describe("Function dateFormat()", () => {
 	test("should format the date string into a localized date string", () => {

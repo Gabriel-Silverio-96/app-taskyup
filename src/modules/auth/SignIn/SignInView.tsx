@@ -6,7 +6,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";
 import TextFieldPassword from "shared/components/TextFieldPassword";
-import { fieldErrors } from "shared/utils/fieldErrors";
+import { fieldErrors } from "shared/utils/field-errors";
 
 const SignInView: React.FC<ISignInView> = props => {
 	const { register, handleSubmit, signInSubmit, isLoading, errors } = props;

@@ -3,7 +3,7 @@ import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import Loading from "shared/components/Loading";
 import { IProfileFormView } from "modules/account/Profile/components/ProfileForm/types";
-import { fieldErrors } from "shared/utils/fieldErrors";
+import { fieldErrors } from "shared/utils/field-errors";
 
 const ProfileFormView: React.FC<IProfileFormView> = props => {
 	const {

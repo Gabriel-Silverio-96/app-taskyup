@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { dateFormat } from "shared/utils/dateFormat";
+import { dateFormat } from "shared/utils/date-format";
 import { CardContentContainer } from "modules/texts/Text/components/CardText/components/CardContent/style";
 import { ICardContent } from "modules/texts/Text/components/CardText/components/CardContent/types";
 

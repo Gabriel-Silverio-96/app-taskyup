@@ -3,7 +3,7 @@ import { useContextTextEdit } from "modules/texts/TextEdit/Context";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useSnackbar from "shared/common/hook/useSnackbar";
-import { createURLQueryParams } from "shared/utils/createURLQueryParams";
+import { createURLQueryParams } from "shared/utils/create-url-query-params";
 import DialogShareView from "modules/texts/TextEdit/components/DialogShare/DialogShareView";
 import {
 	DIALOG_SHARE_QUERY_KEY,

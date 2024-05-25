@@ -19,7 +19,7 @@ import {
 	NOTE_QUERY_KEY,
 	TEXT_QUERY_KEY,
 } from "shared/constants";
-import { dateFormat } from "shared/utils/dateFormat";
+import { dateFormat } from "shared/utils/date-format";
 import { defineValueCreatedAt } from "shared/utils/define-value-created-at";
 
 const DialogEditBoard = () => {
