@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import { useContextBoard } from "modules/dashboard/Board/Context";
-import { act } from "react-dom/test-utils";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard/useDialogBoard";
+import { act } from "react-dom/test-utils";
 
 jest.mock("modules/dashboard/Board/Context", () => ({
 	useContextBoard: jest.fn(),
