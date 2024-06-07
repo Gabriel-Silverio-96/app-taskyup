@@ -36,4 +36,5 @@ const useDialogNote = (): IUseDialogNote => {
 		closeDialogDeleteAllNotes,
 	};
 };
+
 export { useDialogNote };

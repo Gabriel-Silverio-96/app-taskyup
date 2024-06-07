@@ -1,6 +1,6 @@
 import { useContextBoard } from "modules/dashboard/Board/Context";
+import { IUseDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard/types";
 import { useCallback } from "react";
-import { IUseDialogBoard } from "./types";
 import { FunctionReturnsVoid } from "shared/common/types";
 
 const useDialogBoard = (): IUseDialogBoard => {
