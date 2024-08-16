@@ -41,7 +41,8 @@ const AsideView: React.FC<IAsideView> = props => {
 				<IconButton
 					aria-label={openAside ? "close-aside" : "open-aside"}
 					size="small"
-					onClick={toogleOpenAside}>
+					onClick={toogleOpenAside}
+					data-testid="button-toogle-menu">
 					<IconMenu openAside={openAside} />
 				</IconButton>
 			</AsideHeader>
