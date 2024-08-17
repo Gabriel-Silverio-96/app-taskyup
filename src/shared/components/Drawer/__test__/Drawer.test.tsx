@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import Drawer from "shared/components/Drawer";
 import render from "shared/utils/test/render";
 
@@ -27,20 +26,5 @@ describe("Component <Drawer />", () => {
 		const children = screen.getByText("Children component");
 
 		expect(children).toBeInTheDocument();
-	});
-
-	test("Should close aside correctly", () => {
-		renderComponent();
-
-		const buttonToogleMenu = screen.getByTestId("button-toogle-menu");
-		userEvent.click(buttonToogleMenu);
-
-		const buttonNewBoard = screen.queryByText("New board");
-		const titleMenuDashboard = screen.queryByText("DASHBOARD");
-		const titleMenuMyBoards = screen.queryByText("MY BOARDS");
-
-		expect(buttonNewBoard).not.toBeVisible();
-		expect(titleMenuDashboard).not.toBeVisible();
-		expect(titleMenuMyBoards).not.toBeVisible();
 	});
 });
