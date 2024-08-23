@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem/LinkTreeItem";
 import { MENU_MOCK } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/__test__/mock";
-import { ILinkTreeItem } from "../types";
+import { ILinkTreeItem } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/types";
 
 const renderComponent = ({ data, propertyName }: ILinkTreeItem) =>
 	render(
