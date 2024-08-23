@@ -19,8 +19,7 @@ describe("Component <LinkTreeItem />", () => {
 
 		renderComponent({ data: MENU_MOCK, propertyName: "notes" });
 
-		const firstLink = screen.getByRole("link", { name: firstNote.title });
-		const secondLink = screen.getByRole("link", { name: secondNote.title });
+		const [firstLink, secondLink] = screen.getAllByTestId("link-icon");
 
 		const firstLinkExpected = `/${SLUG}/${firstNote.board_id}`;
 		expect(firstLink).toHaveAttribute("href", firstLinkExpected);
