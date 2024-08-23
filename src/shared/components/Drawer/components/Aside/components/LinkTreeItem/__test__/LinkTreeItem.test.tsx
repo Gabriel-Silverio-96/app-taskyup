@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import LinkTreeItem from "shared/components/Drawer/components/Aside/components/LinkTreeItem/LinkTreeItem";
 import { MENU_MOCK } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/__test__/mock";
-import { ILinkTreeItem } from "../types";
+import { ILinkTreeItem } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/types";
 
 const renderComponent = ({ data, propertyName }: ILinkTreeItem) =>
 	render(
@@ -19,8 +19,7 @@ describe("Component <LinkTreeItem />", () => {
 
 		renderComponent({ data: MENU_MOCK, propertyName: "notes" });
 
-		const firstLink = screen.getByRole("link", { name: firstNote.title });
-		const secondLink = screen.getByRole("link", { name: secondNote.title });
+		const [firstLink, secondLink] = screen.getAllByTestId("link-icon");
 
 		const firstLinkExpected = `/${SLUG}/${firstNote.board_id}`;
 		expect(firstLink).toHaveAttribute("href", firstLinkExpected);
