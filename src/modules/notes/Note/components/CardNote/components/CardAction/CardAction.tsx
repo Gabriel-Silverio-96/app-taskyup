@@ -51,10 +51,6 @@ const CardAction: React.FC<ICardAction> = ({
 			favoriteId = data.results.favorite_id;
 		} catch (error) {
 		} finally {
-			await queryClient.invalidateQueries([
-				MENU_QUERY_KEY.FETCH_GET_MENU,
-			]);
-
 			queryClient.setQueryData<IFetchGetNotesResponse>(
 				[NOTE_QUERY_KEY.FETCH_GET_NOTES, { variable: board_id }],
 				data =>
@@ -64,6 +60,10 @@ const CardAction: React.FC<ICardAction> = ({
 						favorite_id: favoriteId,
 					})
 			);
+
+			await queryClient.invalidateQueries([
+				MENU_QUERY_KEY.FETCH_GET_MENU,
+			]);
 		}
 	};
 
