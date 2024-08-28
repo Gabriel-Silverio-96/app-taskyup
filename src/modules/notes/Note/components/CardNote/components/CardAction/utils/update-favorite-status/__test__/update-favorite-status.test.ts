@@ -14,7 +14,7 @@ describe("Function updateFavoriteStatus()", () => {
 			favorite_id,
 		});
 
-		expect(updatedFavoriteStatus).toEqual(EXPECTED_UPDATED_DATA);
+		expect(updatedFavoriteStatus).toStrictEqual(EXPECTED_UPDATED_DATA);
 	});
 
 	test("Should return the same data when note_id is not equal", () => {
