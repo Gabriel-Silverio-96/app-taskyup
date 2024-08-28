@@ -12,6 +12,8 @@ import {
 	fetchDeleteFavoriteService,
 	fetchPostFavoriteService,
 } from "shared/services";
+import { updateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status";
+import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
 
 const CardAction: React.FC<ICardAction> = ({
 	note_id,
@@ -30,6 +32,7 @@ const CardAction: React.FC<ICardAction> = ({
 	});
 
 	const handleClickFavorite = async () => {
+		let favoriteId: string;
 		try {
 			if (favorite) {
 				const params = { favorite_id, board_id, related_id: note_id };
@@ -43,12 +46,23 @@ const CardAction: React.FC<ICardAction> = ({
 				board_type_id: BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID,
 			};
 
-			await fetchPostFavoriteService({ body });
+			const { data } = await fetchPostFavoriteService({ body });
+
+			favoriteId = data.results.favorite_id;
 		} catch (error) {
 		} finally {
-			await Promise.all([
-				queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
-				queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
+			queryClient.setQueryData<IFetchGetNotesResponse>(
+				[NOTE_QUERY_KEY.FETCH_GET_NOTES, { variable: board_id }],
+				data =>
+					updateFavoriteStatus({
+						data,
+						note_id,
+						favorite_id: favoriteId,
+					})
+			);
+
+			await queryClient.invalidateQueries([
+				MENU_QUERY_KEY.FETCH_GET_MENU,
 			]);
 		}
 	};

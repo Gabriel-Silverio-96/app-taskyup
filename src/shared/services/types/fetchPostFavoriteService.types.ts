@@ -9,8 +9,14 @@ export interface IFetchPostFavoriteProps {
 	};
 }
 
+export interface IFetchPostFavoriteResponse extends IFetchDefaultResponse {
+	results: {
+		favorite_id: string;
+	};
+}
+
 export interface IFetchPostFavoriteService {
-	({ body }: IFetchPostFavoriteProps):
-		| AxiosPromise<IFetchDefaultResponse>
-		| any;
+	({
+		body,
+	}: IFetchPostFavoriteProps): AxiosPromise<IFetchPostFavoriteResponse>;
 }
