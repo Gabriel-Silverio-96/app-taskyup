@@ -12,7 +12,7 @@ import {
 	fetchDeleteFavoriteService,
 	fetchPostFavoriteService,
 } from "shared/services";
-import { updateFavoriteStatus } from "./utils/update-favorite-status/update-favorite-status";
+import { updateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status";
 import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
 
 const CardAction: React.FC<ICardAction> = ({
@@ -47,7 +47,8 @@ const CardAction: React.FC<ICardAction> = ({
 			};
 
 			const { data } = await fetchPostFavoriteService({ body });
-			favoriteId = data.result.favorite_id;
+
+			favoriteId = data.results.favorite_id;
 		} catch (error) {
 		} finally {
 			await queryClient.invalidateQueries([
