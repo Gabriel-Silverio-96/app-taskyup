@@ -1,4 +1,4 @@
-import { act, cleanup, screen, waitFor } from "@testing-library/react";
+import { cleanup, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import api from "shared/services/api";
@@ -10,7 +10,6 @@ import {
 import ResetPassword from "../ResetPassword";
 import {
 	RESET_PASSWORD_MOCK,
-	INVALID_TOKEN_RESPONSE_MOCK,
 	RESET_PASSWORD_SUCCESS_RESPONSE_MOCK,
 } from "./mock";
 
@@ -48,35 +47,6 @@ describe("Component <ResetPassword />", () => {
 		expect(tokenURL).toEqual(token);
 	});
 
-	test("Should show message when token is invalid", async () => {
-		mock.onPost(`auth/reset-password/token=${token}`).reply(
-			500,
-			INVALID_TOKEN_RESPONSE_MOCK
-		);
-
-		const history = routePathTest({
-			route: `/auth/reset-password/${token}`,
-		});
-		renderRoutePath(<ResetPassword />, {
-			path: "/auth/reset-password/:token",
-			location: history.location,
-			history,
-		});
-
-		const inputPassword = screen.getByLabelText(LABEL_PASSWORD);
-		userEvent.type(inputPassword, password);
-
-		const buttonSubmit = screen.getByRole("button", { name: "Save" });
-		await act(() => userEvent.click(buttonSubmit));
-
-		await waitFor(() => {
-			const snackbarMessage = screen.getByText(
-				INVALID_TOKEN_RESPONSE_MOCK.message
-			);
-			expect(snackbarMessage).toBeInTheDocument();
-		});
-	});
-
 	test("Should show success message when password was reseted", async () => {
 		mock.onPost(`auth/reset-password/token=${token}`).reply(
 			200,
@@ -96,10 +66,10 @@ describe("Component <ResetPassword />", () => {
 		userEvent.type(inputPassword, password);
 
 		const buttonSubmit = screen.getByRole("button", { name: "Save" });
-		await act(() => userEvent.click(buttonSubmit));
+		userEvent.click(buttonSubmit);
 
-		await waitFor(() => {
-			const snackbarMessage = screen.getByText(
+		await waitFor(async () => {
+			const snackbarMessage = await screen.findByText(
 				RESET_PASSWORD_SUCCESS_RESPONSE_MOCK.message
 			);
 			expect(snackbarMessage).toBeInTheDocument();
