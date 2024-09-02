@@ -1,7 +1,6 @@
 import { cleanup, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
-import { act } from "react-dom/test-utils";
 import api from "shared/services/api";
 import render from "shared/utils/test/render";
 import ForgotPassword from "../ForgotPassword";
@@ -42,10 +41,10 @@ describe("Component <ForgotPassword />", () => {
 		userEvent.type(inputEmail, email);
 
 		const buttonSubmit = screen.getByRole("button", { name: "Send" });
-		await act(() => userEvent.click(buttonSubmit));
+		userEvent.click(buttonSubmit);
 
-		await waitFor(() => {
-			const snackbarMessage = screen.getByText(
+		await waitFor(async () => {
+			const snackbarMessage = await screen.findByText(
 				UNREGISTERED_USER_RESPONSE_MOCK.message
 			);
 			expect(snackbarMessage).toBeInTheDocument();

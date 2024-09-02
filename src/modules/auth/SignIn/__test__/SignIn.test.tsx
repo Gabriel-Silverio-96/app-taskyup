@@ -1,4 +1,4 @@
-import { act, cleanup, screen, waitFor } from "@testing-library/react";
+import { cleanup, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import api from "shared/services/api";
@@ -118,10 +118,12 @@ describe("Component <SignIn />", () => {
 				name: "Sign in",
 			});
 
-			await act(() => userEvent.click(buttonSubmit));
+			userEvent.click(buttonSubmit);
 
-			await waitFor(() => {
-				const snackbarMessage = screen.getByText(mockData.message);
+			await waitFor(async () => {
+				const snackbarMessage = await screen.findByText(
+					mockData.message
+				);
 				expect(snackbarMessage).toBeInTheDocument();
 			});
 		}
