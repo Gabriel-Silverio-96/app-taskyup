@@ -9,7 +9,6 @@ import {
 	EMAIL_REGISTERED_RESPONSE_MOCK,
 	SIGNUP_MOCK,
 } from "./mock";
-import { act } from "react-dom/test-utils";
 
 const mock = new MockAdapter(api);
 beforeAll(() => mock.reset());
