@@ -58,6 +58,7 @@ const DialogSearchAllView: React.FC<IDialogSearchAllView> = props => {
 									label="What are you looking for?"
 									variant="standard"
 									fullWidth
+									autoFocus
 									{...register("query")}
 									{...fieldErrors({
 										errors,
