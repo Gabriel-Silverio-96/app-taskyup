@@ -1,1 +1,0 @@
-export const INITAL_STATE_SEND_EMAIL = { email: "", isSending: false };
