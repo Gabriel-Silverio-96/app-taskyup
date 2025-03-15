@@ -1,9 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import ForgotPasswordView from "modules/auth/ForgotPassword/ForgotPasswordView";
-import { INITAL_STATE_SEND_EMAIL } from "modules/auth/ForgotPassword/constants";
-import { ForgotPasswordSchema } from "modules/auth/ForgotPassword/schema";
-import { fetchPostForgotPasswordService } from "modules/auth/ForgotPassword/services";
 import {
+	FORGOT_PASSWORD_SCHEMA,
+	INITAL_STATE_SEND_EMAIL,
+} from "modules/auth/ForgotPassword/forgot-password.constants";
+import { postForgotPasswordService } from "modules/auth/ForgotPassword/services";
+import type {
 	IForgotPasswordForm,
 	ISendEmail,
 } from "modules/auth/ForgotPassword/types";
@@ -16,7 +18,7 @@ const ForgotPassword: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<IForgotPasswordForm>({
-		resolver: yupResolver(ForgotPasswordSchema),
+		resolver: yupResolver(FORGOT_PASSWORD_SCHEMA),
 		mode: "all",
 	});
 
@@ -28,7 +30,7 @@ const ForgotPassword: React.FC = () => {
 	const fetchForgotSubmit = async ({ email }: IForgotPasswordForm) => {
 		try {
 			setIsLoading(true);
-			await fetchPostForgotPasswordService({ body: { email } });
+			await postForgotPasswordService({ body: { email } });
 
 			setSendEmail({ email: email, isSending: true });
 		} catch (error) {

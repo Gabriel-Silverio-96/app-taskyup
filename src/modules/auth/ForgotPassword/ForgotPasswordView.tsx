@@ -2,10 +2,15 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import { Grid, TextField, Typography } from "@mui/material";
 import React from "react";
 import Greeting from "shared/components/Greeting";
-import { Footer, Link } from "modules/auth/ForgotPassword/styles";
-import { IForgotPasswordView } from "modules/auth/ForgotPassword/types";
-import { defineTitleMessage } from "modules/auth/ForgotPassword/utils/define-title-message";
-import { defineSubtitleMessage } from "modules/auth/ForgotPassword/utils/define-subtitle-message";
+import {
+	Footer,
+	Link,
+} from "modules/auth/ForgotPassword/forgot-password.style";
+import type { IForgotPasswordView } from "modules/auth/ForgotPassword/types";
+import {
+	defineTitleMessage,
+	defineSubtitleMessage,
+} from "modules/auth/ForgotPassword/utils";
 import { fieldErrors } from "shared/utils/field-errors";
 
 const ForgotPasswordView: React.FC<IForgotPasswordView> = props => {
