@@ -1,1 +1,1 @@
-export * from "./ProfileForm.types";
+export * from "./profile-form.types";

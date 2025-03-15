@@ -1,8 +1,8 @@
 import { LoadingButton } from "@mui/lab";
 import { Grid, TextField, Typography } from "@mui/material";
+import type { IProfileFormView } from "modules/account/Profile/components/ProfileForm/types";
 import React from "react";
 import Loading from "shared/components/Loading";
-import { IProfileFormView } from "modules/account/Profile/components/ProfileForm/types";
 import { fieldErrors } from "shared/utils/field-errors";
 
 const ProfileFormView: React.FC<IProfileFormView> = props => {
