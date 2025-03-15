@@ -1,1 +1,1 @@
-export * from "./fetchPostForgotPasswordService";
+export * from "./post-forgot-password.service";
