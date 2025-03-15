@@ -1,2 +1,2 @@
-export * from "./fetchGetProfileService";
-export * from "./fetchPutProfileService";
+export * from "./get-profile.service";
+export * from "./put-profile.service";
