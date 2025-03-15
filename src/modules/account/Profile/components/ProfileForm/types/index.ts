@@ -1,1 +1,2 @@
-export * from "./ProfileForm.types";
+export * as default from "./profile-form.types";
+export * from "./profile-form.types";
