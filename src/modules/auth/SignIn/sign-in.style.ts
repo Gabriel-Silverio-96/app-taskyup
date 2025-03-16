@@ -9,6 +9,6 @@ export const Footer = styled("footer")(
 
         hr {
             width: 50%
-        }s
+        }
     `
 );
