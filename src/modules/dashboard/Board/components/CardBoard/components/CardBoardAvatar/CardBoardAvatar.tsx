@@ -1,6 +1,6 @@
 import { Avatar, Tooltip } from "@mui/material";
 import { AvatarGroup } from "modules/dashboard/Board/components/CardBoard/components/CardBoardAvatar/card-board-avatar.style";
-import { ICardBoardAvatar } from "modules/dashboard/Board/components/CardBoard/components/CardBoardAvatar/types";
+import type { ICardBoardAvatar } from "modules/dashboard/Board/components/CardBoard/components/CardBoardAvatar/types";
 
 const CardBoardAvatar: React.FC<ICardBoardAvatar> = ({ membersBoard }) => {
 	return (

@@ -7,7 +7,7 @@ import {
 } from "modules/dashboard/Board/components/CardBoard/card-board.style";
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
-import { ICardBoard } from "modules/dashboard/Board/components/CardBoard/types";
+import type { ICardBoard } from "modules/dashboard/Board/components/CardBoard/types";
 
 const CardBoard: React.FC<ICardBoard> = ({ data, isFetching }) => {
 	return (
