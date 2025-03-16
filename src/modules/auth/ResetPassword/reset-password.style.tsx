@@ -1,7 +1,10 @@
 import { styled } from "@mui/material";
 import { Link as LinkRouterDom } from "react-router-dom";
-import { ILinkStyle } from "./types";
-    
+
+export interface ILinkStyle {
+	disabled: boolean;
+}
+
 export const Footer = styled("footer")(
 	({ theme }) => `
         a {
@@ -12,7 +15,7 @@ export const Footer = styled("footer")(
         hr {
             width: 50%
         }
-    `,
+    `
 );
 
 export const Link = styled(LinkRouterDom)<ILinkStyle>(

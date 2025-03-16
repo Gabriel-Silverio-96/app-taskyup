@@ -1,9 +1,11 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Grid, Typography } from "@mui/material";
-import { Footer } from "modules/auth/ResetPassword/styles";
-import { IResetPasswordView } from "modules/auth/ResetPassword/types";
-import { defineSubtitleMessage } from "modules/auth/ResetPassword/utils/define-subtitle-message";
-import { defineTitleMessage } from "modules/auth/ResetPassword/utils/define-title-message";
+import { Footer } from "modules/auth/ResetPassword/reset-password.style";
+import type { IResetPasswordView } from "modules/auth/ResetPassword/types";
+import {
+	defineSubtitleMessage,
+	defineTitleMessage,
+} from "modules/auth/ResetPassword/utils";
 import React from "react";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";

@@ -3,7 +3,7 @@ import * as Yup from "yup";
 
 const { regexPassword, messagePassword } = PASSWORD_DEFAULT_VALIDATION;
 
-export const ResetPasswordSchema = Yup.object({
+export const RESET_PASSWORD_SCHEMA = Yup.object({
 	password: Yup.string()
 		.required()
 		.matches(regexPassword, messagePassword)
