@@ -1,8 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import SignInView from "modules/auth/SignIn/SignInView";
-import { SignInSchema } from "modules/auth/SignIn/schema";
-import { fetchPostSignInService } from "modules/auth/SignIn/service";
-import { ISignInForm } from "modules/auth/SignIn/types";
+import { SIGN_IN_SCHEMA } from "modules/auth/SignIn/sign-in.constants";
+import { postSignInService } from "modules/auth/SignIn/service";
+import type { ISignInForm } from "modules/auth/SignIn/types";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -17,7 +17,7 @@ const SignIn: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<ISignInForm>({
-		resolver: yupResolver(SignInSchema),
+		resolver: yupResolver(SIGN_IN_SCHEMA),
 		mode: "all",
 	});
 
@@ -29,7 +29,7 @@ const SignIn: React.FC = () => {
 	const signInSubmit = async ({ email, password }: ISignInForm) => {
 		try {
 			setIsLoading(true);
-			const { data } = await fetchPostSignInService({
+			const { data } = await postSignInService({
 				body: { email, password },
 			});
 			const { token, user_data } = data;

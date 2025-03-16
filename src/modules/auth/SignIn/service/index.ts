@@ -1,1 +1,1 @@
-export * from "./fetchPostSignInService";
+export * from "./post-sign-in.service";
