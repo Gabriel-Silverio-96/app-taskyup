@@ -1,5 +1,4 @@
 import { styled } from "@mui/material";
-import { Link as LinkRouterDom } from "react-router-dom";
 
 export interface ILinkStyle {
 	disabled: boolean;
@@ -15,11 +14,5 @@ export const Footer = styled("footer")(
         hr {
             width: 50%
         }
-    `
-);
-
-export const Link = styled(LinkRouterDom)<ILinkStyle>(
-	({ disabled }) => `
-        pointer-events: ${disabled ? "none" : "auto"} 
     `
 );
