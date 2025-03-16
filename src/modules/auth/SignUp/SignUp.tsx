@@ -1,11 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { fetchPostSignUpService } from "modules/auth/SignUp/services";
+import { postSignUpService } from "modules/auth/SignUp/services";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import SignUpView from "modules/auth/SignUp/SignUpView";
-import { SignUpSchema } from "modules/auth/SignUp/schema";
-import { ISignUpForm } from "modules/auth/SignUp/types";
+import { SIGN_UP_SCHEMA } from "modules/auth/SignUp/sign-up.constants";
+import type { ISignUpForm } from "modules/auth/SignUp/types";
 
 const SignUp: React.FC = () => {
 	const {
@@ -13,7 +13,7 @@ const SignUp: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<ISignUpForm>({
-		resolver: yupResolver(SignUpSchema),
+		resolver: yupResolver(SIGN_UP_SCHEMA),
 		mode: "all",
 	});
 
@@ -23,7 +23,7 @@ const SignUp: React.FC = () => {
 	const signUpSubmit = async (form: ISignUpForm) => {
 		try {
 			setIsLoading(true);
-			await fetchPostSignUpService({ body: { ...form } });
+			await postSignUpService({ body: { ...form } });
 
 			return navigate("/auth/signin");
 		} catch (error) {

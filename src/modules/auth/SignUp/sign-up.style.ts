@@ -24,7 +24,7 @@ export const Footer = styled("footer")(
 	({ theme }) => `
         a {
             text-decoration: none;
-            color: ${theme.palette.grey[700]};                   
+            color: ${theme.palette.grey[700]};
         }
 
         hr {

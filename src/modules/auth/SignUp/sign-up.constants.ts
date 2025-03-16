@@ -8,7 +8,7 @@ import {
 } from "shared/utils/validate-email-domain-length";
 import * as Yup from "yup";
 
-export const SignUpSchema = Yup.object({
+export const SIGN_UP_SCHEMA = Yup.object({
 	full_name: Yup.string()
 		.matches(
 			FULL_NAME_DEFAULT_VALIDATION.REGEX_FULLNAME,
