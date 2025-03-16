@@ -5,7 +5,7 @@ import {
 	Footer,
 	GridForm,
 } from "modules/auth/SignUp/sign-up.style";
-import { ISignUpView } from "modules/auth/SignUp/types";
+import type { ISignUpView } from "modules/auth/SignUp/types";
 import React from "react";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";

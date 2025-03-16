@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import SignUpView from "modules/auth/SignUp/SignUpView";
 import { SIGN_UP_SCHEMA } from "modules/auth/SignUp/sign-up.constants";
-import { ISignUpForm } from "modules/auth/SignUp/types";
+import type { ISignUpForm } from "modules/auth/SignUp/types";
 
 const SignUp: React.FC = () => {
 	const {
