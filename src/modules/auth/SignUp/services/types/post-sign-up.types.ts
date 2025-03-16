@@ -1,4 +1,4 @@
-import type { ISignUpForm } from "modules/auth/SignUp/types";
+import { ISignUpForm } from "modules/auth/SignUp/types";
 
 export interface IFetchPostSignUpService {
 	body: ISignUpForm;

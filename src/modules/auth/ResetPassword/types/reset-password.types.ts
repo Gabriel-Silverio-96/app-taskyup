@@ -1,5 +1,5 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import type { FunctionReturnsVoid } from "shared/common/types";
+import { FunctionReturnsVoid } from "shared/common/types";
 
 export interface IResetPasswordForm {
 	password: string;

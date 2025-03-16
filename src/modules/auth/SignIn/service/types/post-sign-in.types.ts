@@ -1,5 +1,5 @@
-import type { IFetchDefaultResponse } from "shared/common/types";
-import type { ISignInForm } from "modules/auth/SignIn/types";
+import { IFetchDefaultResponse } from "shared/common/types";
+import { ISignInForm } from "modules/auth/SignIn/types";
 
 export interface IPostSignInService {
 	body: ISignInForm;
