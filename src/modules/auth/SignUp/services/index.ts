@@ -1,1 +1,1 @@
-export * from "./fetchPostSignUpService";
+export * from "./post-sign-up.service";

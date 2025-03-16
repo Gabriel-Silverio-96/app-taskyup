@@ -1,6 +1,10 @@
 import { LoadingButton } from "@mui/lab";
 import { Grid, TextField, Typography } from "@mui/material";
-import { BackgroundSignUp, Footer, GridForm } from "modules/auth/SignUp/styles";
+import {
+	BackgroundSignUp,
+	Footer,
+	GridForm,
+} from "modules/auth/SignUp/sign-up.style";
 import { ISignUpView } from "modules/auth/SignUp/types";
 import React from "react";
 import { Link } from "react-router-dom";

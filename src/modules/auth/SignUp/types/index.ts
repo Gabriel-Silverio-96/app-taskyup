@@ -1,2 +1,1 @@
-export * as default from "./SignUp.types";
-export * from "./SignUp.types";
+export * from "./sign-up.types";
