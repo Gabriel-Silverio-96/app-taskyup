@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import SignInView from "modules/auth/SignIn/SignInView";
 import { SIGN_IN_SCHEMA } from "modules/auth/SignIn/sign-in.constants";
-import { fetchPostSignInService } from "modules/auth/SignIn/service";
+import { postSignInService } from "modules/auth/SignIn/service";
 import type { ISignInForm } from "modules/auth/SignIn/types";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -29,7 +29,7 @@ const SignIn: React.FC = () => {
 	const signInSubmit = async ({ email, password }: ISignInForm) => {
 		try {
 			setIsLoading(true);
-			const { data } = await fetchPostSignInService({
+			const { data } = await postSignInService({
 				body: { email, password },
 			});
 			const { token, user_data } = data;

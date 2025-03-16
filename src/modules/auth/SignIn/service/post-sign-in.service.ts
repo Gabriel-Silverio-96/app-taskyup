@@ -4,6 +4,6 @@ import type {
 } from "modules/auth/SignIn/service/types";
 import api from "shared/services/api";
 
-export const fetchPostSignInService = async ({ body }: IPostSignInService) => {
+export const postSignInService = async ({ body }: IPostSignInService) => {
 	return await api.post<IPostSignInResponse>("auth/login", body);
 };
