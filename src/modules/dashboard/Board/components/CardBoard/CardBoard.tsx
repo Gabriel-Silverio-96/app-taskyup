@@ -4,7 +4,7 @@ import CardHeader from "modules/dashboard/Board/components/CardBoard/components/
 import {
 	CardBoardContainer,
 	CardContent,
-} from "modules/dashboard/Board/components/CardBoard/style";
+} from "modules/dashboard/Board/components/CardBoard/card-board.style";
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { ICardBoard } from "modules/dashboard/Board/components/CardBoard/types";
