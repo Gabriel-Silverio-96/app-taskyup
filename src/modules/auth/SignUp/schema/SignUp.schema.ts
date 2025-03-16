@@ -8,11 +8,13 @@ import {
 } from "shared/utils/validate-email-domain-length";
 import * as Yup from "yup";
 
-const { regexFullName, messageFullName } = FULL_NAME_DEFAULT_VALIDATION;
-const { regexPassword, messagePassword } = PASSWORD_DEFAULT_VALIDATION;
-
 export const SignUpSchema = Yup.object({
-	full_name: Yup.string().matches(regexFullName, messageFullName).required(),
+	full_name: Yup.string()
+		.matches(
+			FULL_NAME_DEFAULT_VALIDATION.REGEX_FULLNAME,
+			FULL_NAME_DEFAULT_VALIDATION.ERROR_MESSAGE
+		)
+		.required(),
 	email: Yup.string()
 		.email(DEFAULT_ERROR_MESSAGE_EMAIL)
 		.required()
@@ -23,6 +25,9 @@ export const SignUpSchema = Yup.object({
 		),
 	password: Yup.string()
 		.required()
-		.matches(regexPassword, messagePassword)
+		.matches(
+			PASSWORD_DEFAULT_VALIDATION.REGEX_PASSWORD,
+			PASSWORD_DEFAULT_VALIDATION.ERROR_MESSAGE
+		)
 		.min(8, "Password is too short. Should be 8 chars minimum"),
 });
