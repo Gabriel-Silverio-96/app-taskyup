@@ -1,7 +1,7 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Divider, Grid, TextField, Typography } from "@mui/material";
-import { Footer } from "modules/auth/SignIn/styles";
-import { ISignInView } from "modules/auth/SignIn/types";
+import { Footer } from "modules/auth/SignIn/sign-in.style";
+import type { ISignInView } from "modules/auth/SignIn/types";
 import React from "react";
 import { Link } from "react-router-dom";
 import Greeting from "shared/components/Greeting";

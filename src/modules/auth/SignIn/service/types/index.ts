@@ -1,1 +1,1 @@
-export * from "./fetchPostSignInService.types";
+export * from "./post-sign-in.types";
