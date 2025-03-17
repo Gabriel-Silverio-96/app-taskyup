@@ -1,7 +1,7 @@
 import { AxiosPromise } from "axios";
 import { IFetchDefaultResponse } from "shared/common/types";
 
-export interface IFetchPatchBoardService {
+export interface IPatchBoardService {
 	(
 		boardID: string | undefined,
 		body: {

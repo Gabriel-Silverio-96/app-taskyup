@@ -1,1 +1,1 @@
-export * from "./fetchGetSearchImageService.types";
+export * from "./get-search-image.types";

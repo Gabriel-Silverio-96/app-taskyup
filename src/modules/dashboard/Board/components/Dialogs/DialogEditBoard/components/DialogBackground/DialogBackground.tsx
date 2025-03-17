@@ -3,9 +3,9 @@ import DialogBackgroundView from "modules/dashboard/Board/components/Dialogs/Dia
 import {
 	ERROR_STATE_IMAGES,
 	INITIAL_STATE_IMAGES,
-} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/constants";
-import { fetchGetSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
-import { IFetchSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
+} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/dialog-background.constants";
+import { getSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
+import { IGetSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 import { IImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 import React, {
 	ChangeEvent,
@@ -21,7 +21,7 @@ const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } =
 		useContextBoard();
 
-	const [images, setImages] = useState<IImages | IFetchSearchImagesResponse>(
+	const [images, setImages] = useState<IImages | IGetSearchImagesResponse>(
 		INITIAL_STATE_IMAGES
 	);
 	const [pagination, setPagination] = useState(1);
@@ -46,7 +46,7 @@ const DialogBackground: React.FC = () => {
 		try {
 			setIsLoadingImages(true);
 			const page = resetPagination ? 1 : pagination;
-			const { data } = await fetchGetSearchImageService({
+			const { data } = await getSearchImageService({
 				params: { query, page },
 			});
 
