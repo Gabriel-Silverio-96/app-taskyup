@@ -1,4 +1,4 @@
-import type { IResetPasswordForm } from "modules/auth/ResetPassword/types";
+import { IResetPasswordForm } from "modules/auth/ResetPassword/types";
 
 export interface IPostResetPasswordService {
 	body: IResetPasswordForm;

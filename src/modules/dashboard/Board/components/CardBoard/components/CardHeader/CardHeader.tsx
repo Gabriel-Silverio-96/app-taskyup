@@ -10,8 +10,8 @@ import {
 	CardHeaderContainer,
 	CardIcon,
 	Menu,
-} from "modules/dashboard/Board/components/CardBoard/components/CardHeader/style";
-import { ICardHeader } from "modules/dashboard/Board/components/CardBoard/components/CardHeader/types";
+} from "modules/dashboard/Board/components/CardBoard/components/CardHeader/card-header.style";
+import type { ICardHeader } from "modules/dashboard/Board/components/CardBoard/components/CardHeader/types";
 
 const CardHeader: React.FC<ICardHeader> = ({
 	type_board,

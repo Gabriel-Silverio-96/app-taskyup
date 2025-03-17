@@ -13,7 +13,7 @@ import React from "react";
 import { FiX } from "react-icons/fi";
 import Loading from "shared/components/Loading";
 import DialogBackground from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground";
-import { IDialogEditBoardView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
+import type { IDialogEditBoardView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { ICON_SIZE } from "shared/constants";
 import { fieldErrors } from "shared/utils/field-errors";
 

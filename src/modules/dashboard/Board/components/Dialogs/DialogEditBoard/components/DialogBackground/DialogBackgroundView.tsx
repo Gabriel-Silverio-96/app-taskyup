@@ -12,8 +12,8 @@ import {
 	MenuImages,
 	MenuImagesFooter,
 	MenuSearch,
-} from "./style";
-import { IDialogBackgroundView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
+} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/dialog-background.style";
+import type { IDialogBackgroundView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 
 const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const {

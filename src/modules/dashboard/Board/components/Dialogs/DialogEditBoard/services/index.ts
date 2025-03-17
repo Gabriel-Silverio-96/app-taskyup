@@ -1,1 +1,1 @@
-export * from "./fetchPatchBoardService";
+export * from "./patch-board.service";

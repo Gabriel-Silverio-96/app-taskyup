@@ -1,11 +1,16 @@
 import { Menu as MenuMui, styled } from "@mui/material";
-import { IDialogBackgroundStyled } from "./types";
+import { Theme } from "@emotion/react";
+
+export interface IDialogBackgroundStyled {
+	theme?: Theme;
+	backgroundimage: string;
+}
 
 export const DialogBackground = styled("div")<IDialogBackgroundStyled>(
 	({ theme, backgroundimage }) => `
         width: 100%;
         height: ${theme.spacing(15)};
-        background: ${theme.palette.grey[900]};
+        background: #00000059;
         margin-bottom: ${theme.spacing(3)};     
         padding: ${theme.spacing(2)};
         border-radius: ${theme.spacing(1)};     
@@ -55,11 +60,15 @@ export const MenuImages = styled("div")(
         gap: 1rem;
         flex-wrap: wrap;
         justify-content: space-around;
-        margin-top: ${theme.spacing(3)};
+        margin-top: ${theme.spacing(1)};
         position: relative;
 
         figure {
             margin: 0;
+
+            a {
+                color: ${theme.palette.common.white};
+            }
 
             img {
                 object-fit: cover;
@@ -75,26 +84,20 @@ export const MenuImages = styled("div")(
             }
 
             figcaption {
-                font-size: ${theme.typography.caption.fontSize};
+                font-size: 0.6rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: ${theme.spacing(9.625)};
             }
         }
     `
 );
 
-export const MenuImagesFooter = styled("div")(
-	({ theme }) => `
-        display: flex;
-        justify-content: space-between;
-        position: sticky;
-        bottom: 0rem;
-        width: 100%;
-        background-color: ${theme.palette.background.paper};
-        padding: ${theme.spacing(1, 0)};
-    `
-);
-
 export const MenuSearch = styled("div")(
 	({ theme }) => `
+        margin: ${theme.spacing(2, 0, 1)};
+        
         .MuiFormControl-root  {
             width: 100%;
         }
@@ -105,7 +108,20 @@ export const MenuSearch = styled("div")(
         
         > button {
             position: absolute;
-            right: ${theme.spacing(2.25)};;
+            right: ${theme.spacing(2.25)};
         }
+    `
+);
+
+export const MenuImagesFooter = styled("div")(
+	({ theme }) => `
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        bottom: 0rem;
+        width: 100%;
+        background-color: ${theme.palette.background.paper};
+        padding: ${theme.spacing(1, 0)};
     `
 );

@@ -23,7 +23,7 @@ export interface IPhotos {
 	alt: string;
 }
 
-export interface IFetchSearchImagesResponse {
+export interface IGetSearchImagesResponse {
 	page: number;
 	per_page: number;
 	photos: IPhotos[];
@@ -39,8 +39,8 @@ export interface IFetchGetSearchImageProps {
 	};
 }
 
-export interface IFetchGetSearchImageService {
+export interface IGetSearchImageService {
 	({
 		params,
-	}: IFetchGetSearchImageProps): AxiosPromise<IFetchSearchImagesResponse>;
+	}: IFetchGetSearchImageProps): AxiosPromise<IGetSearchImagesResponse>;
 }

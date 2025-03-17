@@ -1,7 +1,7 @@
+import { faker } from "@faker-js/faker";
+import { selectBoardIcon } from "modules/dashboard/Board/components/CardBoard/utils/select-board-icon";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
-import { selectBoardIcon } from "./select-board-icon";
-import { faker } from "@faker-js/faker";
 import { ICON_SIZE } from "shared/constants";
 
 describe("Function selectBoardIcon()", () => {

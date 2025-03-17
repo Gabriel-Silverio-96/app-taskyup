@@ -1,7 +1,7 @@
 import { ChangeEvent, MouseEvent, Ref } from "react";
 import { FunctionReturnsVoid } from "shared/common/types";
 import {
-	IFetchSearchImagesResponse,
+	IGetSearchImagesResponse,
 	IPhotos,
 } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
 
@@ -27,7 +27,7 @@ export interface IDialogBackgroundView {
 	openMenu: (event: MouseEvent<HTMLButtonElement>) => void;
 	closeMenu: FunctionReturnsVoid;
 	anchorEl: HTMLElement | null;
-	images: IImages | IFetchSearchImagesResponse;
+	images: IImages | IGetSearchImagesResponse;
 	dialogBackgroundImage: string;
 	handleBackgroundImageSelection: (background_image: string) => void;
 	handleBackgroundRemoval: FunctionReturnsVoid;

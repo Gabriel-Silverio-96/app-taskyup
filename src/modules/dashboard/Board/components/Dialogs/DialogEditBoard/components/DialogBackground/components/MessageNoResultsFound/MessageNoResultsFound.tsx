@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { IMessageNoResultsFound } from "./types";
+import type { IMessageNoResultsFound } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/components/MessageNoResultsFound/types";
 import React from "react";
 
 const MessageNoResultsFound: React.FC<IMessageNoResultsFound> = ({

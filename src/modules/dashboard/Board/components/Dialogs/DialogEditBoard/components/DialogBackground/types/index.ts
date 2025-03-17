@@ -1,2 +1,1 @@
-export * as default from "./DialogBackground.types";
-export * from "./DialogBackground.types";
+export * from "./dialog-background.types";

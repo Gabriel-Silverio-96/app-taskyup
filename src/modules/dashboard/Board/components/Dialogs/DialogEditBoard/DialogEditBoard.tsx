@@ -3,14 +3,16 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import DialogEditBoardView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/DialogEditBoardView";
-import { ERROR_MESSAGE_UPDATE_BOARD } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/constants";
-import { DialogEditBoardSchema } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/schema";
-import { fetchPatchBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services";
-import { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
+import {
+	ERROR_MESSAGE_UPDATE_BOARD,
+	DIALOG_EDIT_BOARD_SCHEMA,
+} from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/dialog-edit-board.constants";
+import { patchBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services";
+import type { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
+import type { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 import useSnackbar from "shared/common/hook/useSnackbar";
 import {
@@ -44,7 +46,7 @@ const DialogEditBoard = () => {
 		clearErrors,
 		getValues,
 	} = useForm<IDialogEditBoardForm>({
-		resolver: yupResolver(DialogEditBoardSchema),
+		resolver: yupResolver(DIALOG_EDIT_BOARD_SCHEMA),
 		mode: "all",
 	});
 
@@ -90,7 +92,7 @@ const DialogEditBoard = () => {
 	};
 
 	const mutationFn = ({ title }: IDialogEditBoardForm) => {
-		return fetchPatchBoardService(boardID, {
+		return patchBoardService(boardID, {
 			title,
 			background_image: dialogBackgroundImage,
 		});

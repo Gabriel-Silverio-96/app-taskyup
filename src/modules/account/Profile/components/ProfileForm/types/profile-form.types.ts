@@ -3,7 +3,7 @@ import {
 	UseFormHandleSubmit,
 	UseFormRegister,
 } from "react-hook-form";
-import type { IGetProfileResponse } from "modules/account/Profile/services/types";
+import { IGetProfileResponse } from "modules/account/Profile/services/types";
 
 export interface IProfileBody {
 	full_name: string;

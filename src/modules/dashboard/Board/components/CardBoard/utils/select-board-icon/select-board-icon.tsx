@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
 import { GoNote } from "react-icons/go";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
-import { TypeBoard } from "shared/common/types";
+import type { TypeBoard } from "shared/common/types";
 import { ICON_SIZE } from "shared/constants";
 
-interface IBoardIcon {
+interface IIconMapping {
 	[key: string]: ReactNode;
 }
 
 const selectBoardIcon = (typeBoard: TypeBoard, iconColor: string) => {
-	const boardIcon: IBoardIcon = {
+	const iconMapping: IIconMapping = {
 		notes: <GoNote size={ICON_SIZE.MEDIUM} color={iconColor} />,
 		texts: <MdOutlineNotes size={ICON_SIZE.MEDIUM} color={iconColor} />,
 		kanban: (
@@ -20,7 +20,7 @@ const selectBoardIcon = (typeBoard: TypeBoard, iconColor: string) => {
 		),
 	};
 
-	return boardIcon[typeBoard];
+	return iconMapping[typeBoard];
 };
 
 export { selectBoardIcon };

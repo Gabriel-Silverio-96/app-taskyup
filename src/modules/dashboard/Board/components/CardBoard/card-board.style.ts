@@ -1,16 +1,19 @@
-import {
-	
-	CardContent as CardContentMui,
-	styled,
-} from "@mui/material/";
-import { ICardBoardStyle } from "./types/CardBoard.style";
+import { CardContent as CardContentMui, styled } from "@mui/material/";
+
+export interface ICardBoardStyle {
+	backgroundimage: string;
+}
+
+const defineBackgroundImage = (backgroundimage: string) =>
+	backgroundimage &&
+	`linear-gradient(#000000bf, #000000bf), url(${backgroundimage})`;
 
 export const CardBoardContainer = styled("div")<ICardBoardStyle>(
 	({ theme, backgroundimage }) => `
     
     .MuiPaper-root {
         border-radius: ${theme.spacing(1)};        
-        background-image: ${backgroundimage && `linear-gradient(#000000bf, #000000bf), url(${backgroundimage})`};
+        background-image: ${defineBackgroundImage(backgroundimage)};
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -40,5 +43,3 @@ export const CardContent = styled(CardContentMui)(
         }
     `
 );
-
-

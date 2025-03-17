@@ -1,2 +1,1 @@
-export * as default from "./MessageNoResultsFound.types";
-export * from "./MessageNoResultsFound.types";
+export * from "./message-no-results-found.types";
