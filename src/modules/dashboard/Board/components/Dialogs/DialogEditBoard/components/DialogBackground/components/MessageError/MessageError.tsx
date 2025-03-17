@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { IMessageError } from "./types";
+import { IMessageError } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/components/MessageError/types";
 
 const MessageError: React.FC<IMessageError> = ({ images }) => {
 	const isHidden = Boolean(images.error);
