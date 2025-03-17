@@ -1,2 +1,1 @@
-export * as default from "./DialogDeleteOneBoard.types";
-export * from "./DialogDeleteOneBoard.types";
+export * from "./dialog-delete-one-board.types";

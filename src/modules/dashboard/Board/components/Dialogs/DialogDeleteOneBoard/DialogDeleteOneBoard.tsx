@@ -4,7 +4,7 @@ import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoa
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import DialogDeleteOneBoardView from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/DialogDeleteOneBoardView";
 import { BOARD_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
-import { fetchDeleteOneBoardService } from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/services";
+import { deleteOneBoardService } from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/services";
 
 const DialogDeleteOneBoard: React.FC = () => {
 	const queryClient = useQueryClient();
@@ -19,7 +19,7 @@ const DialogDeleteOneBoard: React.FC = () => {
 		]);
 	};
 
-	const mutationFn = () => fetchDeleteOneBoardService(boardID);
+	const mutationFn = () => deleteOneBoardService(boardID);
 
 	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 

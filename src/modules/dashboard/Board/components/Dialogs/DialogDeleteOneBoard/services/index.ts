@@ -1,1 +1,1 @@
-export * from "./fetchDeleteOneBoardService";
+export * from "./delete-one-board.service";
