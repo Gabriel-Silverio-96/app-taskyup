@@ -1,4 +1,4 @@
-import {
+import type {
 	IGetSearchImageService,
 	IGetSearchImagesResponse,
 } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";

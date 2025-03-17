@@ -5,8 +5,8 @@ import {
 	INITIAL_STATE_IMAGES,
 } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/dialog-background.constants";
 import { getSearchImageService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services";
-import { IGetSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
-import { IImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
+import type { IGetSearchImagesResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/services/types";
+import type { IImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 import React, {
 	ChangeEvent,
 	MouseEvent,

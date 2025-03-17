@@ -8,11 +8,11 @@ import {
 	DIALOG_EDIT_BOARD_SCHEMA,
 } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/dialog-edit-board.constants";
 import { patchBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services";
-import { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
+import type { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
+import type { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
 import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 import useSnackbar from "shared/common/hook/useSnackbar";
 import {

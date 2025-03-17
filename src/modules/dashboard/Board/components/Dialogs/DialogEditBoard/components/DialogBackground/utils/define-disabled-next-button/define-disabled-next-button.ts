@@ -1,4 +1,4 @@
-import { IImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
+import type { IImages } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 
 /**
  * Determines whether the "Next" button should be disabled based on the current pagination state.

@@ -13,7 +13,7 @@ import {
 	MenuImagesFooter,
 	MenuSearch,
 } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/dialog-background.style";
-import { IDialogBackgroundView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
+import type { IDialogBackgroundView } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/types";
 
 const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	const {
