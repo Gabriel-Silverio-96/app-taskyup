@@ -33,7 +33,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 		valueCreatedAt,
 	} = props;
 
-	const loadingGrid = { display: isFetching ? "flex" : "none", mb: 5 };
+	const gridLoadingStyles = { display: isFetching ? "flex" : "none", mb: 5 };
 
 	return (
 		<Dialog
@@ -61,7 +61,7 @@ const DialogEditBoardView: React.FC<IDialogEditBoardView> = props => {
 					</Grid>
 				</Grid>
 			</DialogTitle>
-			<Grid container justifyContent="center" sx={loadingGrid}>
+			<Grid container justifyContent="center" sx={gridLoadingStyles}>
 				<Loading isLoading={isFetching} message="Loading" />
 			</Grid>
 
