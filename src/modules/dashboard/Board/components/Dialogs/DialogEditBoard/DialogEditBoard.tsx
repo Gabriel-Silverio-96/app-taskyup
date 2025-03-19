@@ -12,16 +12,11 @@ import { patchBoardService } from "modules/dashboard/Board/components/Dialogs/Di
 import { getOneBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services/get-one-board.service";
 import type { IGetOneBoardResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services/types";
 import type { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
+import { invalidateBoardRelatedQueries } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/utils";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useSnackbar from "shared/common/hook/useSnackbar";
-import {
-	BOARD_QUERY_KEY,
-	MENU_QUERY_KEY,
-	NOTE_QUERY_KEY,
-	TEXT_QUERY_KEY,
-} from "shared/constants";
 import { dateFormat } from "shared/utils/date-format";
 import { defineValueCreatedAt } from "shared/utils/define-value-created-at";
 
@@ -83,16 +78,7 @@ const DialogEditBoard = () => {
 	const onSuccessMutation = async () => {
 		try {
 			closeDialogEditBoard();
-			await Promise.all([
-				queryClient.invalidateQueries([
-					BOARD_QUERY_KEY.FETCH_GET_BOARDS,
-				]),
-				queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
-				queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
-				queryClient.invalidateQueries([
-					TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS,
-				]),
-			]);
+			await invalidateBoardRelatedQueries(queryClient);
 		} catch (error) {
 			snackbarError({ message: ERROR_MESSAGE_UPDATE_BOARD });
 		}
