@@ -1,19 +1,20 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useContextBoard } from "modules/dashboard/Board/Context";
 import DialogEditBoardView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/DialogEditBoardView";
 import {
-	ERROR_MESSAGE_UPDATE_BOARD,
+	DIALOG_EDIT_BOARD_QUERY_KEY,
 	DIALOG_EDIT_BOARD_SCHEMA,
+	ERROR_MESSAGE_UPDATE_BOARD,
 } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/dialog-edit-board.constants";
 import { patchBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services";
+import { getOneBoardService } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services/get-one-board.service";
+import type { IGetOneBoardResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services/types";
 import type { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import type { IFetchGetOneBoardResponse } from "shared/common/hook/useFetchGetOneBoard/types";
-import useFetchGetOneBoard from "shared/common/hook/useFetchGetOneBoard/useFetchGetOneBoard";
 import useSnackbar from "shared/common/hook/useSnackbar";
 import {
 	BOARD_QUERY_KEY,
@@ -50,7 +51,7 @@ const DialogEditBoard = () => {
 		mode: "all",
 	});
 
-	const onSuccessQuery = (data: IFetchGetOneBoardResponse) => {
+	const onSuccessQuery = (data: IGetOneBoardResponse) => {
 		setValue("title", data.title);
 		setValue("created_at", dateFormat(data.created_at));
 		setDialogBackgroundImage(data.background_image);
@@ -62,7 +63,13 @@ const DialogEditBoard = () => {
 		enabled: false,
 	};
 
-	const { refetch, isFetching } = useFetchGetOneBoard(boardID, optionsQuery);
+	const queryFn = () => getOneBoardService(boardID);
+
+	const { isFetching, refetch } = useQuery(
+		[DIALOG_EDIT_BOARD_QUERY_KEY.FETCH_GET_ONE_BOARD],
+		queryFn,
+		optionsQuery
+	);
 
 	useEffect(() => {
 		if (isOpenDialogEditBoard) refetch();
