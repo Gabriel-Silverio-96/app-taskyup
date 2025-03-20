@@ -1,7 +1,7 @@
-import { IFetchGetBoardsResponse } from "modules/dashboard/Board/services/types";
+import { IGetBoardsResponse } from "modules/dashboard/Board/services/types";
 
 export interface IBoardView {
-	data: IFetchGetBoardsResponse[] | undefined;
+	data: IGetBoardsResponse[] | undefined;
 	isFetching: boolean;
 	isShowDoodleMessage: boolean;
 }
