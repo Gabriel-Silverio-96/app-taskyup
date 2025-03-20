@@ -1,4 +1,4 @@
-import { useContextBoard } from "modules/dashboard/Board/Context";
+import { useBoardContext } from "modules/dashboard/Board/Context";
 import DialogBackgroundView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/components/DialogBackground/DialogBackgroundView";
 import {
 	ERROR_STATE_IMAGES,
@@ -19,7 +19,7 @@ import { defineDisabledNextButton } from "modules/dashboard/Board/components/Dia
 
 const DialogBackground: React.FC = () => {
 	const { dialogBackgroundImage, setDialogBackgroundImage } =
-		useContextBoard();
+		useBoardContext();
 
 	const [images, setImages] = useState<IImages | IGetSearchImagesResponse>(
 		INITIAL_STATE_IMAGES

@@ -1,10 +1,10 @@
 import React from "react";
 
-export interface IContextProviderBoard {
+export interface IBoardContextProvider {
 	children: React.ReactNode;
 }
 
-export interface IContextBoard {
+export interface IBoardContext {
 	boardID: string;
 	setBoardID: React.Dispatch<React.SetStateAction<string>>;
 	isOpenDialogEditBoard: boolean;

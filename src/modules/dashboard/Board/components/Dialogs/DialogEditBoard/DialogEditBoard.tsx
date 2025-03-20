@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useContextBoard } from "modules/dashboard/Board/Context";
+import { useBoardContext } from "modules/dashboard/Board/Context";
 import DialogEditBoardView from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/DialogEditBoardView";
 import {
 	DIALOG_EDIT_BOARD_QUERY_KEY,
@@ -29,7 +29,7 @@ const DialogEditBoard = () => {
 		isOpenDialogEditBoard,
 		dialogBackgroundImage,
 		setDialogBackgroundImage,
-	} = useContextBoard();
+	} = useBoardContext();
 
 	const { closeDialogEditBoard } = useDialogBoard();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));

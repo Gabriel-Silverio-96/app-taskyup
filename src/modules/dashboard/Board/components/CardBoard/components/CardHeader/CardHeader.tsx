@@ -1,5 +1,5 @@
 import { IconButton, MenuItem, Typography, useTheme } from "@mui/material";
-import { useContextBoard } from "modules/dashboard/Board/Context";
+import { useBoardContext } from "modules/dashboard/Board/Context";
 import { selectBoardIcon } from "modules/dashboard/Board/components/CardBoard/utils/select-board-icon";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
 import { useState } from "react";
@@ -19,7 +19,7 @@ const CardHeader: React.FC<ICardHeader> = ({
 	isFetching,
 }) => {
 	const { palette } = useTheme();
-	const { setBoardID } = useContextBoard();
+	const { setBoardID } = useBoardContext();
 	const { openDialogEditBoard, openDialogDeleteOneBoard } = useDialogBoard();
 
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
