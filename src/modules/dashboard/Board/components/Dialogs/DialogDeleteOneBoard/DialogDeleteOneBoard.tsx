@@ -1,14 +1,14 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
-import { useContextBoard } from "modules/dashboard/Board/Context";
+import { useBoardContext } from "modules/dashboard/Board/Context";
 import DialogDeleteOneBoardView from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/DialogDeleteOneBoardView";
 import { BOARD_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import { deleteOneBoardService } from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/services";
 
 const DialogDeleteOneBoard: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { isOpenDialogDeleteOneBoard, boardID } = useContextBoard();
+	const { isOpenDialogDeleteOneBoard, boardID } = useBoardContext();
 	const { closeDialogDeleteOneBoard } = useDialogBoard();
 
 	const onSuccess = async () => {

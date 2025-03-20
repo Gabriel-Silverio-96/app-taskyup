@@ -1,10 +1,10 @@
 import { renderHook } from "@testing-library/react";
-import { useContextBoard } from "modules/dashboard/Board/Context";
+import { useBoardContext } from "modules/dashboard/Board/Context";
 import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard/useDialogBoard";
 import { act } from "react-dom/test-utils";
 
 jest.mock("modules/dashboard/Board/Context", () => ({
-	useContextBoard: jest.fn(),
+	useBoardContext: jest.fn(),
 }));
 
 let setBoardIDMock: jest.Mock<any, any>;
@@ -16,7 +16,7 @@ beforeEach(() => {
 	setIsOpenDialogEditBoardMock = jest.fn();
 	setIsOpenDialogDeleteOneBoardMock = jest.fn();
 
-	(useContextBoard as jest.Mock).mockReturnValue({
+	(useBoardContext as jest.Mock).mockReturnValue({
 		setBoardID: setBoardIDMock,
 		setIsOpenDialogEditBoard: setIsOpenDialogEditBoardMock,
 		setIsOpenDialogDeleteOneBoard: setIsOpenDialogDeleteOneBoardMock,

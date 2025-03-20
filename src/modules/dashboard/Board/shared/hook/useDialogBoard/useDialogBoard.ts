@@ -1,4 +1,4 @@
-import { useContextBoard } from "modules/dashboard/Board/Context";
+import { useBoardContext } from "modules/dashboard/Board/Context";
 import { IUseDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard/types";
 import { useCallback } from "react";
 import { FunctionReturnsVoid } from "shared/common/types";
@@ -8,7 +8,7 @@ const useDialogBoard = (): IUseDialogBoard => {
 		setBoardID,
 		setIsOpenDialogEditBoard,
 		setIsOpenDialogDeleteOneBoard,
-	} = useContextBoard();
+	} = useBoardContext();
 
 	const openDialogEditBoard = useCallback(
 		(closeMenu: FunctionReturnsVoid) => {
