@@ -1,7 +1,7 @@
 import { IconButton, MenuItem, Typography, useTheme } from "@mui/material";
 import { useBoardContext } from "modules/dashboard/Board/Context";
 import { selectBoardIcon } from "modules/dashboard/Board/components/CardBoard/utils/select-board-icon";
-import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { useDialogBoard } from "modules/dashboard/Board/shared/hooks/useDialogBoard";
 import { useState } from "react";
 import { FiEdit, FiMoreHorizontal, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";

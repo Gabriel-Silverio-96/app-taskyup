@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
-import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { useDialogBoard } from "modules/dashboard/Board/shared/hooks/useDialogBoard";
 import { useBoardContext } from "modules/dashboard/Board/Context";
 import DialogDeleteOneBoardView from "modules/dashboard/Board/components/Dialogs/DialogDeleteOneBoard/DialogDeleteOneBoardView";
 import { BOARD_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";

@@ -1,5 +1,8 @@
 import { createContext, useContext, useState } from "react";
-import { IBoardContext, IBoardContextProvider } from "./types";
+import type {
+	IBoardContext,
+	IBoardContextProvider,
+} from "modules/dashboard/Board/Context/types";
 
 export const BoardContext = createContext<IBoardContext | undefined>(undefined);
 
