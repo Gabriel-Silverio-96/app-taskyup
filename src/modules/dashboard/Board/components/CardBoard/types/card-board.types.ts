@@ -1,6 +1,6 @@
-import { IFetchGetBoardsResponse } from "modules/dashboard/Board/services/types";
+import { IGetBoardsResponse } from "modules/dashboard/Board/services/types";
 
 export interface ICardBoard {
-	data: IFetchGetBoardsResponse[] | undefined;
+	data: IGetBoardsResponse[] | undefined;
 	isFetching: boolean;
 }

@@ -1,1 +1,1 @@
-export * from "./fetchGetBoardsService.types";
+export * from "./get-boards.types";

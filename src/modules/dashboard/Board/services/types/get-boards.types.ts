@@ -5,7 +5,7 @@ export interface IMemberBoard {
 	full_name: string;
 }
 
-export interface IFetchGetBoardsResponse {
+export interface IGetBoardsResponse {
 	board_id: string;
 	title: string;
 	type_board: TypeBoard;
