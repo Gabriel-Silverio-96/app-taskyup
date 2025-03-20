@@ -13,7 +13,7 @@ import { getOneBoardService } from "modules/dashboard/Board/components/Dialogs/D
 import type { IGetOneBoardResponse } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/services/types";
 import type { IDialogEditBoardForm } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/types";
 import { invalidateBoardRelatedQueries } from "modules/dashboard/Board/components/Dialogs/DialogEditBoard/utils";
-import { useDialogBoard } from "modules/dashboard/Board/shared/hook/useDialogBoard";
+import { useDialogBoard } from "modules/dashboard/Board/shared/hooks/useDialogBoard";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useSnackbar from "shared/common/hook/useSnackbar";
