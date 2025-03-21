@@ -1,4 +1,4 @@
-import { ViewMode } from "shared/common/types";
+import type { ViewMode } from "shared/common/types";
 import { VIEW_MODE } from "shared/constants";
 
 export const LIST_GRID_SIZE = { xl: 12, md: 12, xs: 12 };

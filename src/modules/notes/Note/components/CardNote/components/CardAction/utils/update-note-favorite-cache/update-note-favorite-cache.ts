@@ -1,7 +1,7 @@
-import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
+import type { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
 import { NOTE_QUERY_KEY } from "shared/constants";
-import { updateFavoriteStatus } from "../update-favorite-status";
-import { IUpdateNoteFavoriteCache } from "./types/update-note-favorite-cache.types";
+import { updateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils";
+import type { IUpdateNoteFavoriteCache } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-note-favorite-cache/types";
 
 const updateNoteFavoriteCache: IUpdateNoteFavoriteCache = ({
 	queryClient,

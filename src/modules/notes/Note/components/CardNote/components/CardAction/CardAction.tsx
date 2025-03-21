@@ -1,7 +1,7 @@
 import { IconButton, useTheme } from "@mui/material";
 import { useQueryClient } from "@tanstack/react-query";
 import { CardActionContainer } from "modules/notes/Note/components/CardNote/components/CardAction/card-note-action.style";
-import { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
+import type { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
 import { updateNoteFavoriteCache } from "modules/notes/Note/components/CardNote/components/CardAction/utils";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { FiEye, FiStar, FiTrash } from "react-icons/fi";
