@@ -5,7 +5,7 @@ import {
 	CardDot,
 	CardHeader,
 	CardNoteContainer,
-} from "modules/notes/Note/components/CardNote/style";
+} from "modules/notes/Note/components/CardNote/card-note.style";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
 import { ICardNotes } from "modules/notes/Note/components/CardNote/types";
