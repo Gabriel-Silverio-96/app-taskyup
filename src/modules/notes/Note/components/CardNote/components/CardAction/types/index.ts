@@ -1,2 +1,1 @@
-export * as default from "./CardAction.types";
-export * from "./CardAction.types";
+export * from "./card-action.types";

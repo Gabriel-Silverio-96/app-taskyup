@@ -1,11 +1,28 @@
-import { Card as CardMui, CardContent as CardContentMui, styled } from "@mui/material";
-import { ICardDotStyle, ICardNoteContainerStyle } from "./types/CardNote.style";
+import {
+	Card as CardMui,
+	CardContent as CardContentMui,
+	styled,
+	Theme,
+} from "@mui/material";
 import { VIEW_MODE } from "shared/constants";
+import { ViewMode } from "shared/common/types";
+
+export interface ICardNoteContainerStyle {
+	viewmode: ViewMode;
+}
+
+export interface ICardDotStyle {
+	theme?: Theme;
+	color: string;
+}
+
+const defineHeightCard = (viewmode: string, theme: Theme) =>
+	viewmode === VIEW_MODE.GRID ? theme.spacing(17.5) : theme.spacing(6);
 
 export const CardNoteContainer = styled("div")<ICardNoteContainerStyle>(
 	({ theme, viewmode }) => `
         .MuiPaper-root {
-            height: ${viewmode === VIEW_MODE.GRID ? theme.spacing(17.5) : theme.spacing(6)};
+            height: ${defineHeightCard(viewmode, theme)};
 
             :hover {
                 #card-action {
@@ -30,21 +47,24 @@ export const CardNoteContainer = styled("div")<ICardNoteContainerStyle>(
                 -webkit-line-clamp: 1;
             }
         }
-`);
+`
+);
 
 export const Card = styled(CardMui)(
-	({ theme }) =>`
+	({ theme }) => `
         position: relative;
         border-radius: ${theme.spacing(1)} ${theme.spacing(1)};
-`);
+`
+);
 
 export const CardHeader = styled("div")(
-	({ theme }) =>`
+	({ theme }) => `
         display: grid;
         grid-template-columns: ${theme.spacing(2)} 1fr;
         align-items: center;
         gap: ${theme.spacing(1)};
-`);
+`
+);
 
 export const CardContent = styled(CardContentMui)(
 	({ theme }) => `
@@ -66,7 +86,8 @@ export const CardContent = styled(CardContentMui)(
         p:nth-of-type(2) {
             width: ${theme.spacing(26)};
         }
-`);
+`
+);
 
 export const CardDot = styled("div")<ICardDotStyle>(
 	({ theme, color }) => `
@@ -74,7 +95,13 @@ export const CardDot = styled("div")<ICardDotStyle>(
         height: ${theme.spacing(2)};
         background-color: ${color};     
         border-radius: 100%;
-`);
+`
+);
+
+const defineBackgroundColor = (theme: Theme) =>
+	theme.palette.mode === "dark"
+		? theme.palette.grey[900]
+		: theme.palette.grey[50];
 
 export const CardAction = styled("div")(
 	({ theme }) => `
@@ -85,7 +112,7 @@ export const CardAction = styled("div")(
         width: 100%;
         height: 100%;
         background: linear-gradient(90deg, rgba(255, 0, 0, 0) 0%, 
-            ${theme.palette.mode === "dark" ? theme.palette.grey[900] : theme.palette.grey[50]} 100%);
+            ${defineBackgroundColor(theme)} 100%);
         opacity: 0;
         transition: .3s;
         cursor: pointer;
@@ -93,4 +120,5 @@ export const CardAction = styled("div")(
         align-items: flex-start;
         justify-content: end;
         padding: ${theme.spacing(1)} ${theme.spacing(0.5)};
-`);
+`
+);

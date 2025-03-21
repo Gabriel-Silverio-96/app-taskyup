@@ -1,2 +1,1 @@
-export * as default from "./CardFooter.types";
-export * from "./CardFooter.types";
+export * from "./card-footer.types";

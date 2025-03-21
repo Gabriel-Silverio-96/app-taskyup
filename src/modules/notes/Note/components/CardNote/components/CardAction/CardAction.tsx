@@ -1,19 +1,17 @@
 import { IconButton, useTheme } from "@mui/material";
+import { useQueryClient } from "@tanstack/react-query";
+import { CardActionContainer } from "modules/notes/Note/components/CardNote/components/CardAction/card-note-action.style";
+import type { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
+import { updateNoteFavoriteCache } from "modules/notes/Note/components/CardNote/components/CardAction/utils";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
-import { ICON_SIZE, MENU_QUERY_KEY, NOTE_QUERY_KEY } from "shared/constants";
-import { createURLQueryParams } from "shared/utils/create-url-query-params";
-import { CardActionContainer } from "modules/notes/Note/components/CardNote/components/CardAction/style";
 import { FiEye, FiStar, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
-import { useQueryClient } from "@tanstack/react-query";
-import { BOARD_TYPE_ID } from "shared/constants";
+import { BOARD_TYPE_ID, ICON_SIZE, MENU_QUERY_KEY } from "shared/constants";
 import {
 	fetchDeleteFavoriteService,
 	fetchPostFavoriteService,
 } from "shared/services";
-import { updateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status";
-import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
+import { createURLQueryParams } from "shared/utils/create-url-query-params";
 
 const CardAction: React.FC<ICardAction> = ({
 	note_id,
@@ -32,7 +30,7 @@ const CardAction: React.FC<ICardAction> = ({
 	});
 
 	const handleClickFavorite = async () => {
-		let favoriteId: string;
+		let favoriteId: string | undefined;
 		try {
 			if (favorite) {
 				const params = { favorite_id, board_id, related_id: note_id };
@@ -51,15 +49,12 @@ const CardAction: React.FC<ICardAction> = ({
 			favoriteId = data.results.favorite_id;
 		} catch (error) {
 		} finally {
-			queryClient.setQueryData<IFetchGetNotesResponse>(
-				[NOTE_QUERY_KEY.FETCH_GET_NOTES, { variable: board_id }],
-				data =>
-					updateFavoriteStatus({
-						data,
-						note_id,
-						favorite_id: favoriteId,
-					})
-			);
+			updateNoteFavoriteCache({
+				board_id,
+				favorite_id: favoriteId,
+				note_id,
+				queryClient,
+			});
 
 			await queryClient.invalidateQueries([
 				MENU_QUERY_KEY.FETCH_GET_MENU,

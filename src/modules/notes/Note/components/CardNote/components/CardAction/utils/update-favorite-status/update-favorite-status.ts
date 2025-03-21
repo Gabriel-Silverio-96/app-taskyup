@@ -1,4 +1,4 @@
-import { IUpdateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status/types";
+import type { IUpdateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status/types";
 import { updateNoteFavoriteStatusByNoteId } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status/update-note-favorite-status-by-note-id";
 
 const updateFavoriteStatus: IUpdateFavoriteStatus = ({

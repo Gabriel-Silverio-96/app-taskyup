@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import TodoCount from "shared/components/TodoCount";
 import { dateFormat } from "shared/utils/date-format";
-import { ICardFooter } from "modules/notes/Note/components/CardNote/components/CardFooter/types";
+import type { ICardFooter } from "modules/notes/Note/components/CardNote/components/CardFooter/types";
 
 const CardFooter: React.FC<ICardFooter> = ({
 	total,

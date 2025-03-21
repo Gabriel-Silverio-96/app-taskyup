@@ -1,5 +1,5 @@
-import { INote } from "modules/notes/Note/services/types";
-import { IUpdateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status/types";
+import type { INote } from "modules/notes/Note/services/types";
+import type { IUpdateFavoriteStatus } from "modules/notes/Note/components/CardNote/components/CardAction/utils/update-favorite-status/types";
 
 const updateNoteFavoriteStatusByNoteId: IUpdateFavoriteStatus = ({
 	data,
