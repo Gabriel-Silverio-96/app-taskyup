@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContextNote } from "modules/notes/Note/Context";
 import DialogDeleteAllNotesView from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/DialogDeleteAllNotesView";
-import { fetchDeleteAllNotesService } from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/services";
+import { deleteAllNotesService } from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/services";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
@@ -20,7 +20,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 		closeDialogDeleteAllNotes();
 	};
 
-	const mutationFn = () => fetchDeleteAllNotesService(board_id);
+	const mutationFn = () => deleteAllNotesService(board_id);
 	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
 	const onClose = !isLoading ? closeDialogDeleteAllNotes : () => "";
