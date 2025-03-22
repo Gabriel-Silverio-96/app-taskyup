@@ -1,5 +1,5 @@
 import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
-import { Nav } from "modules/notes/Note/components/HeaderNote/style";
+import { Nav } from "modules/notes/Note/components/HeaderNote/header-note.style";
 import { IHeaderNoteView } from "modules/notes/Note/components/HeaderNote/types";
 import React from "react";
 import { FiColumns, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
