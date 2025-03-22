@@ -1,4 +1,4 @@
-import { IFetchDefaultResponse } from "shared/common/types";
+import type { IFetchDefaultResponse } from "shared/common/types";
 import api from "shared/services/api";
 
 export const deleteOneNoteService = async (noteID: string) => {
