@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
-import { fetchPostCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
-import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
+import { postCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
+import { IPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
@@ -28,7 +28,7 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 		setViewMode(VIEW_MODE.GRID);
 	};
 
-	const onSuccess = async ({ results }: IFetchPostCreateNoteResponse) => {
+	const onSuccess = async ({ results }: IPostCreateNoteResponse) => {
 		const { note_id } = results;
 
 		const linkToNoteEdit = createURLQueryParams("/note/edit", {
@@ -44,7 +44,7 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	};
 
 	const mutationFn = () =>
-		fetchPostCreateNoteService({ board_id, body: mountBodyNote() });
+		postCreateNoteService({ board_id, body: mountBodyNote() });
 
 	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
