@@ -9,7 +9,7 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
-import { IDialogDeleteAllNotesView } from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/types";
+import type { IDialogDeleteAllNotesView } from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/types";
 import React from "react";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";

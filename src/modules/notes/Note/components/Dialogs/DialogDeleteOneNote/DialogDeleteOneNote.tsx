@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContextNote } from "modules/notes/Note/Context";
 import DialogDeleteOneNoteView from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/DialogDeleteOneNoteView";
-import { fetchDeleteOneNoteService } from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/services";
+import { deleteOneNoteService } from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/services";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
 import React, { memo } from "react";
 import { NOTE_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
@@ -17,7 +17,7 @@ const DialogDeleteOneNote: React.FC = () => {
 		closeDialogDeleteOneNote();
 	};
 
-	const mutationFn = () => fetchDeleteOneNoteService(noteID);
+	const mutationFn = () => deleteOneNoteService(noteID);
 	const { mutate, isLoading } = useMutation(mutationFn, { onSuccess });
 
 	const onClose = !isLoading ? closeDialogDeleteOneNote : () => "";

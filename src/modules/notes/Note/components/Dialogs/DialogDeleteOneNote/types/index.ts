@@ -1,2 +1,1 @@
-export * as default from "./DialogDeleteOneNote.types";
-export * from "./DialogDeleteOneNote.types";
+export * from "./dialog-delete-one-note.types";
