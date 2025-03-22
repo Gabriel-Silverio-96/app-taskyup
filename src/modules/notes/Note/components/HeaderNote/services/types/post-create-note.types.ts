@@ -10,13 +10,11 @@ export interface Params {
 	};
 }
 
-export interface IFetchPostCreateNoteService {
-	({ board_id, body }: Params):
-		| AxiosPromise<IFetchPostCreateNoteResponse>
-		| any;
+export interface IPostCreateNoteService {
+	({ board_id, body }: Params): AxiosPromise<IPostCreateNoteResponse> | any;
 }
 
-export interface IFetchPostCreateNoteResponse extends IFetchDefaultResponse {
+export interface IPostCreateNoteResponse extends IFetchDefaultResponse {
 	results: {
 		note_id: string;
 	};

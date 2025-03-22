@@ -1,5 +1,5 @@
 import { UseMutateFunction } from "@tanstack/react-query";
-import { IFetchPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
+import { IPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
 import { FunctionReturnsVoid } from "shared/common/types";
 
 export interface IHeaderNote {
@@ -10,12 +10,7 @@ export interface IHeaderNote {
 export interface IHeaderNoteView {
 	title: string | undefined;
 	handleClickViewMode: FunctionReturnsVoid;
-	mutate: UseMutateFunction<
-		IFetchPostCreateNoteResponse,
-		unknown,
-		void,
-		unknown
-	>;
+	mutate: UseMutateFunction<IPostCreateNoteResponse, unknown, void, unknown>;
 	openDialogDeleteAllNotes: FunctionReturnsVoid;
 	isDisabledDeleteAllNotes: boolean;
 	isLoading: boolean;

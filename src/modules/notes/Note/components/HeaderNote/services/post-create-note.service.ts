@@ -1,14 +1,14 @@
 import api from "shared/services/api";
 import {
-	IFetchPostCreateNoteResponse,
-	IFetchPostCreateNoteService,
+	IPostCreateNoteResponse,
+	IPostCreateNoteService,
 } from "modules/notes/Note/components/HeaderNote/services/types";
 
-export const fetchPostCreateNoteService: IFetchPostCreateNoteService = async ({
+export const postCreateNoteService: IPostCreateNoteService = async ({
 	board_id,
 	body,
 }) => {
-	const { data } = await api.post<IFetchPostCreateNoteResponse>(
+	const { data } = await api.post<IPostCreateNoteResponse>(
 		`notes/create/board_id=${board_id}`,
 		body
 	);
