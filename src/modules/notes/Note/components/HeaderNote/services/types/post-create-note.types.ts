@@ -1,7 +1,7 @@
 import { AxiosPromise } from "axios";
 import { IFetchDefaultResponse } from "shared/common/types";
 
-export interface IFetchPostCreateNoteProps {
+export interface Params {
 	board_id: string | undefined;
 	body: {
 		color_note: string;
@@ -11,7 +11,7 @@ export interface IFetchPostCreateNoteProps {
 }
 
 export interface IFetchPostCreateNoteService {
-	({ board_id, body }: IFetchPostCreateNoteProps):
+	({ board_id, body }: Params):
 		| AxiosPromise<IFetchPostCreateNoteResponse>
 		| any;
 }

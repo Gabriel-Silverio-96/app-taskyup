@@ -1,1 +1,1 @@
-export * from "./fetchPostCreateNoteService";
+export * from "./post-create-note.service";
