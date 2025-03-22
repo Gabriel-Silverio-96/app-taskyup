@@ -1,6 +1,6 @@
 import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { Nav } from "modules/notes/Note/components/HeaderNote/header-note.style";
-import { IHeaderNoteView } from "modules/notes/Note/components/HeaderNote/types";
+import type { IHeaderNoteView } from "modules/notes/Note/components/HeaderNote/types";
 import React from "react";
 import { FiColumns, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
 import Loading from "shared/components/Loading/Loading";

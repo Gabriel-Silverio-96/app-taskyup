@@ -1,5 +1,5 @@
 import api from "shared/services/api";
-import {
+import type {
 	IPostCreateNoteResponse,
 	IPostCreateNoteService,
 } from "modules/notes/Note/components/HeaderNote/services/types";
