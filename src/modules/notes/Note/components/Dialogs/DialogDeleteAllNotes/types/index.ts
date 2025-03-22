@@ -1,2 +1,1 @@
-export * as default from "./DialogDeleteAllNotes.types";
-export * from "./DialogDeleteAllNotes.types"; 
+export * from "./dialog-delete-all-notes.types";
