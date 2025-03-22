@@ -1,1 +1,1 @@
-export * from "./fetchDeleteOneNoteService";
+export * from "./delete-one-note.service";
