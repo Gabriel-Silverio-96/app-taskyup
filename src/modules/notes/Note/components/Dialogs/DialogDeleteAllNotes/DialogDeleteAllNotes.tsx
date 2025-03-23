@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useContextNote } from "modules/notes/Note/Context";
+import { useNoteContext } from "modules/notes/Note/Context";
 import DialogDeleteAllNotesView from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/DialogDeleteAllNotesView";
 import { deleteAllNotesService } from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/services";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
@@ -11,7 +11,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { board_id } = useParams();
 
-	const { isOpenDialogDeleteAllNotes } = useContextNote();
+	const { isOpenDialogDeleteAllNotes } = useNoteContext();
 	const { closeDialogDeleteAllNotes } = useDialogNote();
 
 	const onSuccess = () => {

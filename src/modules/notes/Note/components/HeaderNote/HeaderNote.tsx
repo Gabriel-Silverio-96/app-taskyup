@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { NOTE_QUERY_KEY, MENU_QUERY_KEY, VIEW_MODE } from "shared/constants";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
 import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
-import { useContextNote } from "modules/notes/Note/Context";
+import { useNoteContext } from "modules/notes/Note/Context";
 
 const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const queryClient = useQueryClient();
@@ -17,7 +17,7 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const { board_id } = useParams();
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
-	const { viewMode, setViewMode } = useContextNote();
+	const { viewMode, setViewMode } = useNoteContext();
 
 	const handleClickViewMode = () => {
 		if (viewMode === VIEW_MODE.GRID) {

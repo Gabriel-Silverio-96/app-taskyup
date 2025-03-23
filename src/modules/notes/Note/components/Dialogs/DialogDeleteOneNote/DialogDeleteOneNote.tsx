@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useContextNote } from "modules/notes/Note/Context";
+import { useNoteContext } from "modules/notes/Note/Context";
 import DialogDeleteOneNoteView from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/DialogDeleteOneNoteView";
 import { deleteOneNoteService } from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote/services";
 import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
@@ -8,7 +8,7 @@ import { NOTE_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 
 const DialogDeleteOneNote: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { isOpenDialogDeleteOneNote, noteID } = useContextNote();
+	const { isOpenDialogDeleteOneNote, noteID } = useNoteContext();
 	const { closeDialogDeleteOneNote } = useDialogNote();
 
 	const onSuccess = () => {

@@ -1,11 +1,11 @@
 import React from "react";
 import { ViewMode } from "shared/common/types";
 
-export interface IContextProviderNote {
+export interface INoteContextProvider {
 	children: React.ReactNode;
 }
 
-export interface IContextNote {
+export interface INoteContext {
 	isOpenDialogDeleteOneNote: boolean;
 	setIsOpenDialogDeleteOneNote: React.Dispatch<React.SetStateAction<boolean>>;
 	isOpenDialogDeleteAllNotes: boolean;

@@ -1,10 +1,10 @@
 import { renderHook } from "@testing-library/react";
-import { useContextNote } from "modules/notes/Note/Context";
+import { useNoteContext } from "modules/notes/Note/Context";
 import { act } from "react-dom/test-utils";
 import { useDialogNote } from "../useDialogNote";
 
 jest.mock("modules/notes/Note/Context", () => ({
-	useContextNote: jest.fn(),
+	useNoteContext: jest.fn(),
 }));
 
 let setNoteID: jest.Mock;
@@ -16,7 +16,7 @@ beforeEach(() => {
 	setIsOpenDialogDeleteOneNote = jest.fn();
 	setIsOpenDialogDeleteAllNotes = jest.fn();
 
-	(useContextNote as jest.Mock).mockReturnValue({
+	(useNoteContext as jest.Mock).mockReturnValue({
 		setNoteID,
 		setIsOpenDialogDeleteOneNote,
 		setIsOpenDialogDeleteAllNotes,
