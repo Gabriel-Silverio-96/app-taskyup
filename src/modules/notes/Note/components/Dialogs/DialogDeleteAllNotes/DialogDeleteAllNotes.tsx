@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNoteContext } from "modules/notes/Note/Context";
 import DialogDeleteAllNotesView from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/DialogDeleteAllNotesView";
 import { deleteAllNotesService } from "modules/notes/Note/components/Dialogs/DialogDeleteAllNotes/services";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
+import { useDialogNote } from "modules/notes/Note/shared/hooks/useDialogNote";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
 import { NOTE_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";

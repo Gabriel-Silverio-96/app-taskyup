@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
 import { postCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
 import { IPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
+import { useDialogNote } from "modules/notes/Note/shared/hooks/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
