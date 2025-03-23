@@ -1,1 +1,1 @@
-export * from "./Note.types";
+export * from "./note.types";
