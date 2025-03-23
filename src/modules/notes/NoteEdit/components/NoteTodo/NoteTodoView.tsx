@@ -8,8 +8,12 @@ import {
 } from "@mui/material";
 import React from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
-import { Todo, TodoContainer, ButtonNewTodo } from "./style";
-import { INoteTodoView } from "./types";
+import {
+	Todo,
+	TodoContainer,
+	ButtonNewTodo,
+} from "modules/notes/NoteEdit/components/NoteTodo/note-todo.style";
+import type { INoteTodoView } from "modules/notes/NoteEdit/components/NoteTodo/types";
 import { ICON_SIZE } from "shared/constants";
 import DoodleMessage from "shared/components/DoodleMessage";
 import { LuListTodo } from "react-icons/lu";

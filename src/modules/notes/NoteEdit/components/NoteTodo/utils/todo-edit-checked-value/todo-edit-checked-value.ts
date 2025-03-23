@@ -1,5 +1,8 @@
-import { ITodo } from "modules/notes/NoteEdit/types";
-import { ITodoEditCheckedValue, IEditCheckedValue } from "./types";
+import type { ITodo } from "modules/notes/NoteEdit/types";
+import type {
+	ITodoEditCheckedValue,
+	IEditCheckedValue,
+} from "modules/notes/NoteEdit/components/NoteTodo/utils/todo-edit-checked-value/types";
 
 const editCheckedValue: IEditCheckedValue = ({ todos, todo_id, checked }) =>
 	todos.map((todo: ITodo) => {

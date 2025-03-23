@@ -1,7 +1,7 @@
 import { ITodoData, TypeTodoIdsToDelete } from "modules/notes/NoteEdit/types";
 import React, { useState } from "react";
 import NoteTodoView from "modules/notes/NoteEdit/components/NoteTodo/NoteTodoView";
-import {
+import type {
 	IHandleBlurTextField,
 	IHandleChangeCheckbox,
 	IHandleClickDeleteTodo,
