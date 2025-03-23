@@ -1,8 +1,8 @@
-import { ITodo } from "modules/notes/NoteEdit/types";
-import {
+import type { ITodo } from "modules/notes/NoteEdit/types";
+import type {
 	IEditTitleTodoValue,
 	ITodoEditTitleValue,
-} from "./types/todo-edit-title-value.types";
+} from "modules/notes/NoteEdit/components/NoteTodo/utils/todo-edit-title-value/types";
 
 const editTitleTodoValue: IEditTitleTodoValue = ({ todos, todo_id, value }) =>
 	todos.map((todo: ITodo) => {

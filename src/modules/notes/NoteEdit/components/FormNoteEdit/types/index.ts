@@ -1,2 +1,1 @@
-export * as default from "./FormNoteEdit.types";
-export * from "./FormNoteEdit.types";
+export * from "./form-note-edit.types";

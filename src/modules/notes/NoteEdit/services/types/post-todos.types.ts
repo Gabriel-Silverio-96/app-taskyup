@@ -10,6 +10,6 @@ export interface IFetchPostTodosProps {
 	};
 }
 
-export interface IFetchPostTodosService {
+export interface IPostTodosService {
 	({ body }: IFetchPostTodosProps): Promise<IFetchDefaultResponse>;
 }

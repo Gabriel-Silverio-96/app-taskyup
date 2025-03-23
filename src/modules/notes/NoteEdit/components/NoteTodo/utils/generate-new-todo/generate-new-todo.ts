@@ -1,4 +1,4 @@
-import { ITodoData } from "modules/notes/NoteEdit/types";
+import type { ITodoData } from "modules/notes/NoteEdit/types";
 import { generateOrderIndex } from "./generate-order-index";
 
 const generateNewTodo = (todoData: ITodoData) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import FormNoteEditView from "modules/notes/NoteEdit/components/FormNoteEdit/FormNoteEditView";
 import { useSearchParams } from "react-router-dom";
-import { IFormNoteEdit } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
+import type { IFormNoteEdit } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
 
 const FormNoteEdit: React.FC<IFormNoteEdit> = ({
 	register,

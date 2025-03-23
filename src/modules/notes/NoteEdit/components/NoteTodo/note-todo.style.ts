@@ -1,5 +1,10 @@
 import { Button as ButtonMui, styled } from "@mui/material";
-import { ITodoStyled } from "./types/NoteTodo.style.types";
+import { Theme } from "@emotion/react";
+
+export interface ITodo {
+	theme?: Theme;
+	checked: boolean;
+}
 
 export const TodoContainer = styled("div")(
 	({ theme }) => `
@@ -10,7 +15,7 @@ export const TodoContainer = styled("div")(
     `
 );
 
-export const Todo = styled("div")<ITodoStyled>(
+export const Todo = styled("div")<ITodo>(
 	({ theme, checked }) => `
     display: grid;
     grid-template-columns: auto 3rem;

@@ -1,4 +1,4 @@
-export interface IFetchGetOneNoteResponse {
+export interface IGetOneNoteResponse {
 	color_note: string;
 	created_at: string;
 	observation: string;

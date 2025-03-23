@@ -10,6 +10,6 @@ export interface IFetchPutNoteProps {
 	body: INoteEditForm;
 }
 
-export interface IFetchPutNoteService {
+export interface IPutNoteService {
 	({ params, body }: IFetchPutNoteProps): AxiosPromise<IFetchDefaultResponse>;
 }

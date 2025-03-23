@@ -4,19 +4,19 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import NoteEditView from "modules/notes/NoteEdit/NoteEditView";
-import { TuplesNoteAndTodoResponse } from "modules/notes/NoteEdit/components/NoteTodo/types";
+import type { TuplesNoteAndTodoResponse } from "modules/notes/NoteEdit/components/NoteTodo/types";
 import {
 	INITIAL_STATE_TODO_DATA,
 	NOTE_EDIT_QUERY_KEY,
-} from "modules/notes/NoteEdit/constants";
-import { NoteEditSchema } from "modules/notes/NoteEdit/schema";
+	NOTE_EDIT_SCHEMA,
+} from "modules/notes/NoteEdit/note-edit.constants";
 import {
-	fetchGetOneNoteService,
-	fetchGetTodosService,
-	fetchPostTodosService,
-	fetchPutNoteService,
+	getOneNoteService,
+	getTodosService,
+	postTodosService,
+	putNoteService,
 } from "modules/notes/NoteEdit/services";
-import {
+import type {
 	INoteEditForm,
 	ITodoData,
 	TypeTodoIdsToDelete,
@@ -44,7 +44,7 @@ const NoteEdit: React.FC = () => {
 		formState: { errors },
 		setValue,
 	} = useForm<INoteEditForm>({
-		resolver: yupResolver(NoteEditSchema),
+		resolver: yupResolver(NOTE_EDIT_SCHEMA),
 		mode: "all",
 	});
 
@@ -59,8 +59,8 @@ const NoteEdit: React.FC = () => {
 
 	const queryFn = async () => {
 		return await Promise.all([
-			fetchGetOneNoteService(note_id),
-			fetchGetTodosService({ params: { board_id, related_id: note_id } }),
+			getOneNoteService(note_id),
+			getTodosService({ params: { board_id, related_id: note_id } }),
 		]);
 	};
 
@@ -87,8 +87,8 @@ const NoteEdit: React.FC = () => {
 
 	const mutationFn = async (form: INoteEditForm) => {
 		return await Promise.all([
-			fetchPutNoteService({ params: { note_id, board_id }, body: form }),
-			fetchPostTodosService({
+			putNoteService({ params: { note_id, board_id }, body: form }),
+			postTodosService({
 				body: {
 					todos: todoData.todos,
 					todo_ids_to_delete: todoIdsToDelete,

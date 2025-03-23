@@ -1,4 +1,4 @@
-import { ITodo } from "modules/notes/NoteEdit/types";
+import type { ITodo } from "modules/notes/NoteEdit/types";
 
 const generateOrderIndex = (todos: Array<ITodo | any>) => {
 	const lastTodo = todos.at(-1);

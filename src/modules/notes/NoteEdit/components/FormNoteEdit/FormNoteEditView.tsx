@@ -1,5 +1,5 @@
 import { Button, Grid, IconButton, TextField } from "@mui/material";
-import { IFormNoteEditView } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
+import type { IFormNoteEditView } from "modules/notes/NoteEdit/components/FormNoteEdit/types";
 import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import {
 	FormActionNoteEdit,
 	FormHeaderNoteEdit,
 	TextFieldMutiline,
-} from "./style";
+} from "modules/notes/NoteEdit/components/FormNoteEdit/form-note-edit.style";
 import { fieldErrors } from "shared/utils/field-errors";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
