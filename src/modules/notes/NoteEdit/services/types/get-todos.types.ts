@@ -1,6 +1,6 @@
 import { ITodo } from "modules/notes/NoteEdit/types";
 
-export interface IFetchGetTodosResponse {
+export interface IGetTodosResponse {
 	count: number;
 	todos: Array<ITodo> | any[];
 }
@@ -11,6 +11,6 @@ export interface IFetchGetTodosProps {
 	};
 }
 
-export interface IFetchGetTodosService {
-	({ params }: IFetchGetTodosProps): Promise<IFetchGetTodosResponse>;
+export interface IGetTodosService {
+	({ params }: IFetchGetTodosProps): Promise<IGetTodosResponse>;
 }

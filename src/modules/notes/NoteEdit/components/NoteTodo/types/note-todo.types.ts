@@ -1,6 +1,6 @@
 import {
-	IFetchGetOneNoteResponse,
-	IFetchGetTodosResponse,
+	IGetOneNoteResponse,
+	IGetTodosResponse,
 } from "modules/notes/NoteEdit/services/types";
 import { ITodoData } from "modules/notes/NoteEdit/types";
 import {
@@ -48,6 +48,6 @@ export interface INoteTodoView
 }
 
 export type TuplesNoteAndTodoResponse = [
-	IFetchGetOneNoteResponse,
-	IFetchGetTodosResponse
+	IGetOneNoteResponse,
+	IGetTodosResponse
 ];
