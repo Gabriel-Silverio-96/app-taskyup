@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
+import { IGetNotesResponse } from "modules/notes/Note/services/types";
 
 const note_id = faker.datatype.uuid();
 const favorite_id = faker.datatype.uuid();
@@ -8,7 +8,7 @@ const title_note = faker.lorem.lines(1);
 const title = faker.lorem.lines(1);
 const color_note = faker.internet.color();
 
-const MOCK_DATA: IFetchGetNotesResponse = {
+const MOCK_DATA: IGetNotesResponse = {
 	title,
 	count: 1,
 	list_notes: [

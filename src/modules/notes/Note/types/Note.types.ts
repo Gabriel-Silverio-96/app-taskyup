@@ -1,7 +1,7 @@
-import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
+import { IGetNotesResponse } from "modules/notes/Note/services/types";
 
 export interface INoteView {
-	data: IFetchGetNotesResponse | undefined;
+	data: IGetNotesResponse | undefined;
 	isFetching: boolean;
 	isShowDoodleMessage: boolean;
 }

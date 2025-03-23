@@ -1,6 +1,6 @@
-import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
+import { IGetNotesResponse } from "modules/notes/Note/services/types";
 
 export interface ICardNotes {
-	data: IFetchGetNotesResponse | undefined;
+	data: IGetNotesResponse | undefined;
 	isFetching?: boolean;
 }
