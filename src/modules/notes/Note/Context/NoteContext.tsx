@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import {
+import type {
 	INoteContext,
 	INoteContextProvider,
 } from "modules/notes/Note/Context/types";

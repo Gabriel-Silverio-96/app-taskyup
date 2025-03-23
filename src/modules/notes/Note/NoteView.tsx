@@ -5,7 +5,7 @@ import DialogDeleteAllNotes from "modules/notes/Note/components/Dialogs/DialogDe
 import DialogDeleteOneNote from "modules/notes/Note/components/Dialogs/DialogDeleteOneNote";
 import HeaderNote from "modules/notes/Note/components/HeaderNote";
 import DoodleMessage from "shared/components/DoodleMessage";
-import { INoteView } from "modules/notes/Note/types";
+import type { INoteView } from "modules/notes/Note/types";
 
 const NoteView: React.FC<INoteView> = props => {
 	const { data, isFetching, isShowDoodleMessage } = props;
