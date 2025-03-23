@@ -3,7 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { CardActionContainer } from "modules/notes/Note/components/CardNote/components/CardAction/card-note-action.style";
 import type { ICardAction } from "modules/notes/Note/components/CardNote/components/CardAction/types";
 import { updateNoteFavoriteCache } from "modules/notes/Note/components/CardNote/components/CardAction/utils";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
+import { useDialogNote } from "modules/notes/Note/shared/hooks/useDialogNote";
 import { FiEye, FiStar, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { BOARD_TYPE_ID, ICON_SIZE, MENU_QUERY_KEY } from "shared/constants";

@@ -1,1 +1,1 @@
-export * from "./fetchGetNotesService.types";
+export * from "./get-notes.types";

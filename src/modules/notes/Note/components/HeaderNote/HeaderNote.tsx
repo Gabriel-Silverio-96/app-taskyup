@@ -1,15 +1,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import HeaderNoteView from "modules/notes/Note/components/HeaderNote/HeaderNoteView";
 import { postCreateNoteService } from "modules/notes/Note/components/HeaderNote/services";
-import { IPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
-import { useDialogNote } from "modules/notes/Note/shared/hook/useDialogNote";
+import type { IPostCreateNoteResponse } from "modules/notes/Note/components/HeaderNote/services/types";
+import { useDialogNote } from "modules/notes/Note/shared/hooks/useDialogNote";
 import { mountBodyNote } from "modules/notes/Note/utils/mount-body-note";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { NOTE_QUERY_KEY, MENU_QUERY_KEY, VIEW_MODE } from "shared/constants";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
-import { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
-import { useContextNote } from "modules/notes/Note/Context";
+import type { IHeaderNote } from "modules/notes/Note/components/HeaderNote/types";
+import { useNoteContext } from "modules/notes/Note/Context";
 
 const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const queryClient = useQueryClient();
@@ -17,7 +17,7 @@ const HeaderNote: React.FC<IHeaderNote> = ({ count, title }) => {
 	const { board_id } = useParams();
 
 	const { openDialogDeleteAllNotes } = useDialogNote();
-	const { viewMode, setViewMode } = useContextNote();
+	const { viewMode, setViewMode } = useNoteContext();
 
 	const handleClickViewMode = () => {
 		if (viewMode === VIEW_MODE.GRID) {

@@ -11,13 +11,13 @@ import { useParams } from "react-router-dom";
 import type { ICardNotes } from "modules/notes/Note/components/CardNote/types";
 import CardFooter from "modules/notes/Note/components/CardNote/components/CardFooter";
 import CardAction from "modules/notes/Note/components/CardNote/components/CardAction";
-import { useContextNote } from "modules/notes/Note/Context";
+import { useNoteContext } from "modules/notes/Note/Context";
 import { defineGridSize } from "modules/notes/Note/components/CardNote/utils";
 import { VIEW_MODE } from "shared/constants";
 
 const CardNote: React.FC<ICardNotes> = ({ data }) => {
 	const { board_id } = useParams();
-	const { viewMode } = useContextNote();
+	const { viewMode } = useNoteContext();
 
 	const defineViewModeClassName =
 		viewMode === VIEW_MODE.LIST ? "view-mode-list" : "";

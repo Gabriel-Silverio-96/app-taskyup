@@ -1,15 +1,15 @@
 import { createContext, useContext, useState } from "react";
-import {
-	IContextNote,
-	IContextProviderNote,
+import type {
+	INoteContext,
+	INoteContextProvider,
 } from "modules/notes/Note/Context/types";
 import { VIEW_MODE } from "shared/constants";
 import useLocalStorage from "shared/common/hook/useLocalStorage";
 import { ViewMode } from "shared/common/types";
 
-export const ContextNote = createContext<IContextNote | undefined>(undefined);
+export const NoteContext = createContext<INoteContext | undefined>(undefined);
 
-export const ContextProviderNote: React.FC<IContextProviderNote> = ({
+export const NoteContextProvider: React.FC<INoteContextProvider> = ({
 	children,
 }) => {
 	const [isOpenDialogDeleteOneNote, setIsOpenDialogDeleteOneNote] =
@@ -35,15 +35,15 @@ export const ContextProviderNote: React.FC<IContextProviderNote> = ({
 	};
 
 	return (
-		<ContextNote.Provider value={value}>{children}</ContextNote.Provider>
+		<NoteContext.Provider value={value}>{children}</NoteContext.Provider>
 	);
 };
 
-export const useContextNote = () => {
-	const context = useContext(ContextNote);
+export const useNoteContext = () => {
+	const context = useContext(NoteContext);
 	if (context === undefined) {
 		throw new Error(
-			"useContextNote must be used within a ContextProviderNote"
+			"useNoteContext must be used within a NoteContextProvider"
 		);
 	}
 

@@ -12,7 +12,7 @@ export interface INote {
 	};
 }
 
-export interface IFetchGetNotesResponse<T = undefined> {
+export interface IGetNotesResponse<T = undefined> {
 	count: number;
 	title: string;
 	list_notes: INote[] | T;

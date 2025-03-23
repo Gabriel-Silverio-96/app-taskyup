@@ -1,7 +1,7 @@
-import { IFetchGetNotesResponse } from "modules/notes/Note/services/types";
+import { IGetNotesResponse } from "modules/notes/Note/services/types";
 
 interface Params {
-	data: IFetchGetNotesResponse | undefined;
+	data: IGetNotesResponse | undefined;
 	note_id: string;
 	favorite_id: string | undefined;
 }

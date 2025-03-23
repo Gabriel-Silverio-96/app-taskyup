@@ -1,6 +1,7 @@
 import { IGetNotesResponse } from "modules/notes/Note/services/types";
 
-export interface ICardNotes {
+export interface INoteView {
 	data: IGetNotesResponse | undefined;
-	isFetching?: boolean;
+	isFetching: boolean;
+	isShowDoodleMessage: boolean;
 }

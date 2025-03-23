@@ -1,4 +1,4 @@
-import { IBodyNote } from "modules/notes/types";
+import type { IBodyNote } from "modules/notes/types";
 
 export const DEFAULT_BODY_NOTE = {
 	color_note: "#9C10FF",

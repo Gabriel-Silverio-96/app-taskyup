@@ -1,13 +1,13 @@
-import { useContextNote } from "modules/notes/Note/Context";
+import { useNoteContext } from "modules/notes/Note/Context";
 import { useCallback } from "react";
-import { IUseDialogNote } from "./types";
+import type { IUseDialogNote } from "modules/notes/Note/shared/hooks/useDialogNote/types";
 
 const useDialogNote = (): IUseDialogNote => {
 	const {
 		setNoteID,
 		setIsOpenDialogDeleteOneNote,
 		setIsOpenDialogDeleteAllNotes,
-	} = useContextNote();
+	} = useNoteContext();
 
 	const openDialogDeleteOneNote = useCallback((noteID: string) => {
 		setIsOpenDialogDeleteOneNote(true);
