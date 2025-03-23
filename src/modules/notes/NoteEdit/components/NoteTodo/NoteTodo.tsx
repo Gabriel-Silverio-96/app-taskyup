@@ -1,4 +1,7 @@
-import { ITodoData, TypeTodoIdsToDelete } from "modules/notes/NoteEdit/types";
+import type {
+	ITodoData,
+	TypeTodoIdsToDelete,
+} from "modules/notes/NoteEdit/types";
 import React, { useState } from "react";
 import NoteTodoView from "modules/notes/NoteEdit/components/NoteTodo/NoteTodoView";
 import type {

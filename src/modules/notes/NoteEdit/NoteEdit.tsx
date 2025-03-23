@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import NoteEditView from "modules/notes/NoteEdit/NoteEditView";
-import { TuplesNoteAndTodoResponse } from "modules/notes/NoteEdit/components/NoteTodo/types";
+import type { TuplesNoteAndTodoResponse } from "modules/notes/NoteEdit/components/NoteTodo/types";
 import {
 	INITIAL_STATE_TODO_DATA,
 	NOTE_EDIT_QUERY_KEY,
@@ -16,7 +16,7 @@ import {
 	postTodosService,
 	putNoteService,
 } from "modules/notes/NoteEdit/services";
-import {
+import type {
 	INoteEditForm,
 	ITodoData,
 	TypeTodoIdsToDelete,

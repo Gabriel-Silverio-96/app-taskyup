@@ -1,5 +1,5 @@
 import api from "shared/services/api";
-import {
+import type {
 	IGetTodosResponse,
 	IGetTodosService,
 } from "modules/notes/NoteEdit/services/types";
