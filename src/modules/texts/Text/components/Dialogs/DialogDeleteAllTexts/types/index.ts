@@ -1,2 +1,1 @@
-export * as default from "./DialogDeleteAllTexts.types";
-export * from "./DialogDeleteAllTexts.types";
+export * from "./dialog-delete-all-texts.types";

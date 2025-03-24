@@ -10,7 +10,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { IDialogDeleteAllTextsView } from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/types";
+import type { IDialogDeleteAllTextsView } from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/types";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
 
