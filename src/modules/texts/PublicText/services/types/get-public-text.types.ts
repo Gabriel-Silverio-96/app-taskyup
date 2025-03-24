@@ -3,13 +3,11 @@ export interface IFetchGetPublicTextProps {
 		text_id: string | null;
 	};
 }
-export interface IFetchGetPublicTextService {
-	({
-		params,
-	}: IFetchGetPublicTextProps): Promise<IFetchGetPublicTextResponse>;
+export interface IGetPublicTextService {
+	({ params }: IFetchGetPublicTextProps): Promise<IGetPublicTextResponse>;
 }
 
-export interface IFetchGetPublicTextResponse {
+export interface IGetPublicTextResponse {
 	author: string;
 	text_id: string;
 	text: string;

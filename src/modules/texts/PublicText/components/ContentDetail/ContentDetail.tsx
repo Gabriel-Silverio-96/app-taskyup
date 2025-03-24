@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { dateFormat } from "shared/utils/date-format";
-import { IContentDetail } from "./types/ContentDetail.types";
+import type { IContentDetail } from "modules/texts/PublicText/components/ContentDetail/types";
 
 const ContentDetail: React.FC<IContentDetail> = props => {
 	const { title_text, author, created_at } = props;

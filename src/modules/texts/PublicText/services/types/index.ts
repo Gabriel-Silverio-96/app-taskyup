@@ -1,1 +1,1 @@
-export * from "./fetchGetPublicTextService.types";
+export * from "./get-public-text.types";
