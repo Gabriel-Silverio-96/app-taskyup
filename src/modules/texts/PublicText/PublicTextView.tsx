@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import ContentDetail from "modules/texts/PublicText/components/ContentDetail";
 import HeaderPublicText from "modules/texts/PublicText/components/HeaderPublicText";
 import MarkdownPreview from "modules/texts/PublicText/components/MarkdownPreview";
-import { IPublicTextView } from "modules/texts/PublicText/types";
+import type { IPublicTextView } from "modules/texts/PublicText/types";
 import React from "react";
 
 const PublicTextView: React.FC<IPublicTextView> = props => {
