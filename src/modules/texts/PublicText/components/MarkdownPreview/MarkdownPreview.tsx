@@ -1,7 +1,7 @@
 import { Viewer } from "@bytemd/react";
 import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/constants/text.constants";
-import { MarkdownSectionPreview } from "./style";
-import { IMarkdownPreview } from "./types/MarkdownPreview.types";
+import { MarkdownSectionPreview } from "modules/texts/PublicText/components/MarkdownPreview/markdown-preview.style";
+import type { IMarkdownPreview } from "modules/texts/PublicText/components/MarkdownPreview/types/markdown-preview.types";
 
 const MarkdownPreview: React.FC<IMarkdownPreview> = props => {
 	const { text } = props;
