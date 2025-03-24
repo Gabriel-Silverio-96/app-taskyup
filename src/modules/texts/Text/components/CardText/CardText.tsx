@@ -14,10 +14,10 @@ import {
 	CardContainer,
 	CardCreateText,
 	CardTextContainer,
-} from "modules/texts/Text/components/CardText/style";
-import { ICardText } from "modules/texts/Text/components/CardText/types";
+} from "modules/texts/Text/components/CardText/card-text.style";
+import type { ICardText } from "modules/texts/Text/components/CardText/types";
 import { fetchPostTextService } from "modules/texts/Text/services";
-import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
+import type { IFetchPostTextResponse } from "modules/texts/Text/services/types";
 
 const CardText: React.FC<ICardText> = ({ data }) => {
 	const { board_id } = useParams();
