@@ -1,6 +1,6 @@
-import { IFetchGetPublicTextResponse } from "modules/texts/PublicText/services/types";
+import { IGetPublicTextResponse } from "modules/texts/PublicText/services/types";
 
 export interface IPublicTextView {
 	isFetching: boolean;
-	data: IFetchGetPublicTextResponse | any;
+	data: IGetPublicTextResponse | any;
 }
