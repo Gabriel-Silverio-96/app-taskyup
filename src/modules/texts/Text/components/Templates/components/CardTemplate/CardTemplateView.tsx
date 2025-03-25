@@ -1,6 +1,9 @@
 import React from "react";
-import { ICardTemplate } from "./types";
-import { CardTemplate, CardContent } from "./style";
+import type { ICardTemplate } from "modules/texts/Text/components/Templates/components/CardTemplate/types";
+import {
+	CardTemplate,
+	CardContent,
+} from "modules/texts/Text/components/Templates/components/CardTemplate/card-template.style";
 import { Typography } from "@mui/material";
 
 const CardTemplateView: React.FC<ICardTemplate> = ({

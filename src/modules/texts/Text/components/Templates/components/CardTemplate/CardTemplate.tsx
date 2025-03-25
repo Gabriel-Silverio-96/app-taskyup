@@ -1,6 +1,6 @@
+import CardTemplateView from "modules/texts/Text/components/Templates/components/CardTemplate/CardTemplateView";
+import { ICardTemplate } from "modules/texts/Text/components/Templates/components/CardTemplate/types";
 import React from "react";
-import CardTemplateView from "./CardTemplateView";
-import { ICardTemplate } from "./types";
 
 const CardTemplate: React.FC<ICardTemplate> = ({ onClick, icon, title }) => (
 	<CardTemplateView {...{ onClick, icon, title }} />
