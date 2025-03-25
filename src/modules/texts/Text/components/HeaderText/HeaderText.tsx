@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import { useContextText } from "modules/texts/Text/Context";
 import HeaderTextView from "modules/texts/Text/components/HeaderText/HeaderTextView";
-import { IHeaderText } from "modules/texts/Text/components/HeaderText/types";
+import type { IHeaderText } from "modules/texts/Text/components/HeaderText/types";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";

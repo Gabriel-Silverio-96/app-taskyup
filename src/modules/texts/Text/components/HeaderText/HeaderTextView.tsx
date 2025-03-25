@@ -2,8 +2,8 @@ import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import { FiTrash, FiUsers } from "react-icons/fi";
 import { MdOutlineLightbulb } from "react-icons/md";
-import { Nav } from "modules/texts/Text/components/HeaderText/style";
-import { IHeaderTextView } from "modules/texts/Text/components/HeaderText/types";
+import { Nav } from "modules/texts/Text/components/HeaderText/header-text.style";
+import type { IHeaderTextView } from "modules/texts/Text/components/HeaderText/types";
 import { ICON_SIZE } from "shared/constants";
 
 const HeaderTextView: React.FC<IHeaderTextView> = props => {
