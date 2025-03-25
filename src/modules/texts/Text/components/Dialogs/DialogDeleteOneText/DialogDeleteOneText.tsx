@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { useContextText } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import DialogDeleteOneTextView from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/DialogDeleteOneTextView";
-import { fetchDeleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/services";
+import { deleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/services";
 import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 
 const DialogDeleteOneText: React.FC = () => {
@@ -20,7 +20,7 @@ const DialogDeleteOneText: React.FC = () => {
 	const onError = () => closeDialogDeleteOneText();
 
 	const optionMutation = { onError, onSuccess };
-	const mutationFn = () => fetchDeleteOneTextService(textID);
+	const mutationFn = () => deleteOneTextService(textID);
 	const { mutate, isLoading } = useMutation(mutationFn, optionMutation);
 
 	const onClose = !isLoading ? closeDialogDeleteOneText : () => "";
