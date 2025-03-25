@@ -1,1 +1,1 @@
-export * from "./fetchGetTemplateTextService";
+export * from "./get-template-text.service";

@@ -12,8 +12,8 @@ import {
 	TemplateContainer,
 	TemplateLinearGradient,
 	Templates,
-} from "modules/texts/Text/components/Templates/style";
-import { ITemplatesView } from "modules/texts/Text/components/Templates/types";
+} from "modules/texts/Text/components/Templates/templates.style";
+import type { ITemplatesView } from "modules/texts/Text/components/Templates/types";
 import CardTemplate from "modules/texts/Text/components/Templates/components/CardTemplate";
 
 const TemplatesView: React.FC<ITemplatesView> = props => {

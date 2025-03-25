@@ -5,8 +5,8 @@ import {
 	TableTemplate,
 	TodoTemplate,
 } from "modules/texts/Text/components/Templates/model-templates";
-import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
-import { ITemplatesMapping } from "modules/texts/Text/components/Templates/utils/mount-template-body/types";
+import type { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
+import type { ITemplatesMapping } from "modules/texts/Text/components/Templates/utils/mount-template-body/types";
 
 export const templatesMapping: ITemplatesMapping = {
 	table: { title_text: "Table template", markdown: TableTemplate },
