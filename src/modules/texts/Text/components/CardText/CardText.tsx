@@ -14,10 +14,10 @@ import {
 	CardContainer,
 	CardCreateText,
 	CardTextContainer,
-} from "modules/texts/Text/components/CardText/style";
-import { ICardText } from "modules/texts/Text/components/CardText/types";
-import { fetchPostTextService } from "modules/texts/Text/services";
-import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
+} from "modules/texts/Text/components/CardText/card-text.style";
+import type { ICardText } from "modules/texts/Text/components/CardText/types";
+import { postTextService } from "modules/texts/Text/services";
+import type { IPostTextResponse } from "modules/texts/Text/services/types";
 
 const CardText: React.FC<ICardText> = ({ data }) => {
 	const { board_id } = useParams();
@@ -26,12 +26,12 @@ const CardText: React.FC<ICardText> = ({ data }) => {
 
 	const mutationFn = async () => {
 		const body = mountBodyText();
-		const { data } = await fetchPostTextService({ board_id, body });
+		const { data } = await postTextService({ board_id, body });
 
 		return data;
 	};
 
-	const onSuccess = async ({ text_id }: IFetchPostTextResponse) => {
+	const onSuccess = async ({ text_id }: IPostTextResponse) => {
 		const redirectToTextEdit = createURLQueryParams("/text/edit", {
 			text_id,
 			board_id,

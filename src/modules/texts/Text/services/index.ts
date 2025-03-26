@@ -1,2 +1,2 @@
-export * from "./fetchGetAllTextsService";
-export * from "./fetchPostTextService";
+export * from "./get-all-texts.service";
+export * from "./post-text.service";

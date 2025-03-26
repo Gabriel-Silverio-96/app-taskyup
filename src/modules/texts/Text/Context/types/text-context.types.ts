@@ -10,7 +10,7 @@ export interface IDialogDeleteAllText {
 	boardID: string;
 }
 
-export interface IContextText {
+export interface ITextContext {
 	dialogDeleteOneText: IDialogDeleteSingleText;
 	setDialogDeleteOneText: Dispatch<SetStateAction<IDialogDeleteSingleText>>;
 	dialogDeleteAllText: IDialogDeleteAllText;
@@ -19,6 +19,6 @@ export interface IContextText {
 	setIsOpenTemplates: Dispatch<SetStateAction<boolean>>;
 }
 
-export interface IContextProviderText {
+export interface ITextContextProvider {
 	children: React.ReactNode;
 }

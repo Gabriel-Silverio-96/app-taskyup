@@ -1,2 +1,2 @@
-export * from "./fetchGetAllTextsService.types";
-export * from "./fetchPostTextService.types";
+export * from "./get-all-texts.types";
+export * from "./post-text.types";

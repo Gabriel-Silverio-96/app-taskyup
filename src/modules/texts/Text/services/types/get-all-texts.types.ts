@@ -4,7 +4,7 @@ export interface IText {
 	created_at: string;
 }
 
-export interface IFetchGetAllTextsResponse {
+export interface IGetAllTextsResponse {
 	count: number;
 	title: string;
 	texts: IText[];

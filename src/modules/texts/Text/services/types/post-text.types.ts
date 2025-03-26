@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { IFetchDefaultResponse } from "shared/common/types";
 
-export interface IFetchPostTextResponse extends IFetchDefaultResponse {
+export interface IPostTextResponse extends IFetchDefaultResponse {
 	text_id: string;
 }
 
@@ -13,8 +13,8 @@ export interface IFetchPostTextProps {
 	};
 }
 
-export interface IFetchPostTextService {
+export interface IPostTextService {
 	({ board_id, body }: IFetchPostTextProps): Promise<
-		AxiosResponse<IFetchPostTextResponse>
+		AxiosResponse<IPostTextResponse>
 	>;
 }

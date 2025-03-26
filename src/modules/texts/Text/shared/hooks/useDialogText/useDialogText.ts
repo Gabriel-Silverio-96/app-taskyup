@@ -1,24 +1,25 @@
-import { useContextText } from "modules/texts/Text/Context";
-import { IUseDialogText } from "./types";
+import { useTextContext } from "modules/texts/Text/Context";
+import type { IUseDialogText } from "modules/texts/Text/shared/hooks/useDialogText/types";
+import { useCallback } from "react";
 
 const useDialogText = (): IUseDialogText => {
-	const { setDialogDeleteOneText, setDialogDeleteAllText } = useContextText();
+	const { setDialogDeleteOneText, setDialogDeleteAllText } = useTextContext();
 
-	const openDialogDeleteOneText = (textID: string) => {
+	const openDialogDeleteOneText = useCallback((textID: string) => {
 		setDialogDeleteOneText({ open: true, textID: textID });
-	};
+	}, []);
 
-	const closeDialogDeleteOneText = () => {
+	const closeDialogDeleteOneText = useCallback(() => {
 		setDialogDeleteOneText({ open: false, textID: "" });
-	};
+	}, []);
 
-	const openDialogDeleteAllTexts = (boardID: string) => {
+	const openDialogDeleteAllTexts = useCallback((boardID: string) => {
 		setDialogDeleteAllText({ open: true, boardID: boardID });
-	};
+	}, []);
 
-	const closeDialogDeleteAllTexts = () => {
+	const closeDialogDeleteAllTexts = useCallback(() => {
 		setDialogDeleteAllText({ open: false, boardID: "" });
-	};
+	}, []);
 
 	return {
 		openDialogDeleteOneText,

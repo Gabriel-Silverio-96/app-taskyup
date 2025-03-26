@@ -1,4 +1,4 @@
-export const fetchGetTemplateTextService = async (
+export const getTemplateTextService = async (
 	templateFilePath: RequestInfo | URL
 ): Promise<string> => {
 	const response = await fetch(templateFilePath);

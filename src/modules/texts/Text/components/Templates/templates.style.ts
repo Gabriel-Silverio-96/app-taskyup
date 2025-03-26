@@ -1,7 +1,10 @@
 import { styled } from "@mui/material";
-import { ITemplatesStyled } from "./types";
 
-export const TemplateContainer = styled("section")<ITemplatesStyled>(
+export interface ITemplateContainerStyled {
+	open: boolean;
+}
+
+export const TemplateContainer = styled("section")<ITemplateContainerStyled>(
 	({ open }) => `
         display: ${open ? "block" : "none"};       
         position: relative;

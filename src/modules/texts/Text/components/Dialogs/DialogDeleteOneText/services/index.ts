@@ -1,1 +1,1 @@
-export * from "./fetchDeleteOneTextService";
+export * from "./delete-one-text.service";
