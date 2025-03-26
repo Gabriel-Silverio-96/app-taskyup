@@ -1,5 +1,5 @@
 import { Viewer } from "@bytemd/react";
-import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/constants/text.constants";
+import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/text.constants";
 import { MarkdownSectionPreview } from "modules/texts/PublicText/components/MarkdownPreview/markdown-preview.style";
 import type { IMarkdownPreview } from "modules/texts/PublicText/components/MarkdownPreview/types/markdown-preview.types";
 

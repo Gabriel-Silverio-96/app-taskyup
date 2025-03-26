@@ -3,7 +3,7 @@ import Loading from "shared/components/Loading";
 import HeaderText from "./components/HeaderText";
 import { Markdown } from "./style";
 import { IMarkdownView } from "./types";
-import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/constants";
+import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/text.constants";
 
 const MarkdownView: React.FC<IMarkdownView> = props => {
 	const {
