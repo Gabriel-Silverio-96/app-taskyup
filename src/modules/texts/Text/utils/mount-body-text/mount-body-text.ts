@@ -1,4 +1,4 @@
-import { IBodyText } from "modules/texts/types";
+import type { IBodyText } from "modules/texts/types";
 
 export const DEFAULT_BODY_TEXT = {
 	title_text: "Title text",
