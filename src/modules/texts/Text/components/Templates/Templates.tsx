@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useContextText } from "modules/texts/Text/Context";
+import { useTextContext } from "modules/texts/Text/Context";
 import { fetchPostTextService } from "modules/texts/Text/services";
 import TemplatesView from "modules/texts/Text/components/Templates/TemplatesView";
 import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
@@ -13,7 +13,7 @@ import { IFetchPostTextResponse } from "modules/texts/Text/services/types";
 const Templates: React.FC = () => {
 	const { board_id } = useParams();
 
-	const { isOpenTemplates } = useContextText();
+	const { isOpenTemplates } = useTextContext();
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 

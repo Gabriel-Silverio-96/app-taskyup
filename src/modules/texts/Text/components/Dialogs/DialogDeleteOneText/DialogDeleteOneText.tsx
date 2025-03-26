@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
-import { useContextText } from "modules/texts/Text/Context";
+import { useTextContext } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import DialogDeleteOneTextView from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/DialogDeleteOneTextView";
 import { deleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/services";
@@ -9,7 +9,7 @@ import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 const DialogDeleteOneText: React.FC = () => {
 	const queryClient = useQueryClient();
 	const { closeDialogDeleteOneText } = useDialogText();
-	const { dialogDeleteOneText } = useContextText();
+	const { dialogDeleteOneText } = useTextContext();
 	const { textID } = dialogDeleteOneText;
 
 	const onSuccess = () => {

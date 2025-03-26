@@ -1,17 +1,17 @@
 import React, { createContext, useContext, useState } from "react";
-import {
-	IContextText,
-	IContextProviderText,
+import type {
+	ITextContext,
+	ITextContextProvider,
 	IDialogDeleteSingleText,
 	IDialogDeleteAllText,
-} from "./types";
+} from "modules/texts/Text/Context/types";
 
-export const ContextText = createContext<IContextText | undefined>(undefined);
+export const TextContext = createContext<ITextContext | undefined>(undefined);
 
 const INITIAL_STATE_DIALOG_DELETE_ONE_TEXT = { open: false, textID: "" };
 const INITIAL_STATE_DIALOG_DELETE_ALL_TEXT = { open: false, boardID: "" };
 
-export const ContextProviderText: React.FC<IContextProviderText> = ({
+export const TextContextProvider: React.FC<ITextContextProvider> = ({
 	children,
 }) => {
 	const [dialogDeleteOneText, setDialogDeleteOneText] =
@@ -30,15 +30,15 @@ export const ContextProviderText: React.FC<IContextProviderText> = ({
 	};
 
 	return (
-		<ContextText.Provider value={value}>{children}</ContextText.Provider>
+		<TextContext.Provider value={value}>{children}</TextContext.Provider>
 	);
 };
 
-export const useContextText = () => {
-	const context = useContext(ContextText);
+export const useTextContext = () => {
+	const context = useContext(TextContext);
 	if (context === undefined) {
 		throw new Error(
-			"useContextText must be used within a ContextProviderText"
+			"useTextContext must be used within a TextContextProvider"
 		);
 	}
 

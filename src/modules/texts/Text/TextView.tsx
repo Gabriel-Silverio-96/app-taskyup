@@ -1,6 +1,6 @@
 import React from "react";
 import CardText from "modules/texts/Text/components/CardText";
-import { ContextProviderText } from "modules/texts/Text/Context";
+import { TextContextProvider } from "modules/texts/Text/Context";
 import DialogDeleteAllText from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts";
 import DialogDeleteOneText from "modules/texts/Text/components/Dialogs/DialogDeleteOneText";
 import HeaderText from "modules/texts/Text/components/HeaderText";
@@ -14,13 +14,13 @@ const TextView: React.FC<ITextView> = props => {
 	if (isFetching) return <Loading isLoading backdrop />;
 
 	return (
-		<ContextProviderText>
+		<TextContextProvider>
 			<HeaderText count={data?.count} title={data?.title} />
 			<Templates />
 			<CardText {...{ data }} />
 			<DialogDeleteOneText />
 			<DialogDeleteAllText />
-		</ContextProviderText>
+		</TextContextProvider>
 	);
 };
 

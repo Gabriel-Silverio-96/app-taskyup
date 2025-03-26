@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
-import { useContextText } from "modules/texts/Text/Context";
+import { useTextContext } from "modules/texts/Text/Context";
 import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import DialogDeleteAllTextView from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/DialogDeleteAllTextsView";
 import { deleteAllTextsService } from "modules/texts/Text/components/Dialogs/DialogDeleteAllTexts/services";
@@ -12,7 +12,7 @@ const DialogDeleteAllTexts: React.FC = () => {
 	const queryClient = useQueryClient();
 
 	const { closeDialogDeleteAllTexts } = useDialogText();
-	const { dialogDeleteAllText } = useContextText();
+	const { dialogDeleteAllText } = useTextContext();
 
 	const onError = () => closeDialogDeleteAllTexts();
 	const onSuccess = () => {
