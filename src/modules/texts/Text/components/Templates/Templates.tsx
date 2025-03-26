@@ -4,11 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useTextContext } from "modules/texts/Text/Context";
 import { postTextService } from "modules/texts/Text/services";
 import TemplatesView from "modules/texts/Text/components/Templates/TemplatesView";
-import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
+import type { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { mountTemplateBody } from "modules/texts/Text/components/Templates/utils/mount-template-body";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
 import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
-import { IPostTextResponse } from "modules/texts/Text/services/types";
+import type { IPostTextResponse } from "modules/texts/Text/services/types";
 
 const Templates: React.FC = () => {
 	const { board_id } = useParams();

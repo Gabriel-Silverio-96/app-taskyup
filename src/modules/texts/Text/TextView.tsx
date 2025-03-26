@@ -6,7 +6,7 @@ import DialogDeleteOneText from "modules/texts/Text/components/Dialogs/DialogDel
 import HeaderText from "modules/texts/Text/components/HeaderText";
 import Templates from "modules/texts/Text/components/Templates";
 import Loading from "shared/components/Loading";
-import { ITextView } from "modules/texts/Text/types";
+import type { ITextView } from "modules/texts/Text/types";
 
 const TextView: React.FC<ITextView> = props => {
 	const { data, isFetching } = props;

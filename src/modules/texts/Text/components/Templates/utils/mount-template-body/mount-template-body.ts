@@ -1,5 +1,5 @@
 import { getTemplateTextService } from "modules/texts/Text/components/Templates/services";
-import { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
+import type { TypeTemplateName } from "modules/texts/Text/components/Templates/types";
 import { selectTemplate } from "modules/texts/Text/components/Templates/utils/mount-template-body";
 
 export const MOUNT_BODY_ERROR_MESSAGE =

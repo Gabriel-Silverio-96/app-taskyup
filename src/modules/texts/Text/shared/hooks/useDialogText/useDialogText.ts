@@ -1,5 +1,5 @@
 import { useTextContext } from "modules/texts/Text/Context";
-import { IUseDialogText } from "./types";
+import type { IUseDialogText } from "modules/texts/Text/shared/hooks/useDialogText/types";
 import { useCallback } from "react";
 
 const useDialogText = (): IUseDialogText => {
