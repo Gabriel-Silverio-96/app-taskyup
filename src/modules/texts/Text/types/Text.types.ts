@@ -1,6 +1,6 @@
-import { IFetchGetAllTextsResponse } from "modules/texts/Text/services/types";
+import { IGetAllTextsResponse } from "modules/texts/Text/services/types";
 
 export interface ITextView {
-	data: IFetchGetAllTextsResponse | undefined;
+	data: IGetAllTextsResponse | undefined;
 	isFetching: boolean;
 }

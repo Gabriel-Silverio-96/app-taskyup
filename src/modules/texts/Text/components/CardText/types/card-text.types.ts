@@ -1,5 +1,5 @@
-import { IFetchGetAllTextsResponse } from "modules/texts/Text/services/types";
+import { IGetAllTextsResponse } from "modules/texts/Text/services/types";
 
 export interface ICardText {
-	data: IFetchGetAllTextsResponse | undefined;
+	data: IGetAllTextsResponse | undefined;
 }
