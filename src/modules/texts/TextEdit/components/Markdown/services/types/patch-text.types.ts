@@ -1,4 +1,4 @@
-import { IFetchGetOneTextResponse } from "modules/texts/TextEdit/components/Markdown/services/types";
+import { IGetOneTextResponse } from "modules/texts/TextEdit/components/Markdown/services/types";
 import { IFetchDefaultResponse } from "shared/common/types";
 
 export interface IFetchPatchTextProps {
@@ -6,9 +6,9 @@ export interface IFetchPatchTextProps {
 		board_id: string | null;
 		text_id: string | null;
 	};
-	data: IFetchGetOneTextResponse;
+	data: IGetOneTextResponse;
 }
 
-export interface IFetchPatchTextService {
+export interface IPatchTextService {
 	({ params, data }: IFetchPatchTextProps): Promise<IFetchDefaultResponse>;
 }

@@ -1,7 +1,7 @@
 import { styled } from "@mui/material";
 import { blue, blueGrey, lime } from "@mui/material/colors";
 
-export const Markdown = styled("section")(    
+export const Markdown = styled("section")(
 	({ theme }) => `
         .bytemd {
             font-family: 'Inter', sans-serif;
@@ -39,8 +39,7 @@ export const Markdown = styled("section")(
 
                                 .legend {
                                     rect {
-                                        stroke: ${theme.palette.common.black} !important;
-                                    }
+                                        stroke: ${theme.palette.common.black} !important;                                    }
                                 }
                             }
                         }
@@ -113,7 +112,7 @@ export const Markdown = styled("section")(
 
                             tr {
                                 :nth-of-type(even){
-                                    background-color: ${theme.palette.grey[800]};;
+                                    background-color: ${theme.palette.grey[800]};
                                 }
 
                                 :hover {

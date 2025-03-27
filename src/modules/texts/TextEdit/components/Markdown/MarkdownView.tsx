@@ -1,8 +1,8 @@
 import { Editor } from "@bytemd/react";
 import Loading from "shared/components/Loading";
-import HeaderText from "./components/HeaderText";
-import { Markdown } from "./style";
-import { IMarkdownView } from "./types";
+import HeaderText from "modules/texts/TextEdit/components/Markdown/components/HeaderText";
+import { Markdown } from "modules/texts/TextEdit/components/Markdown/markdown.style";
+import type { IMarkdownView } from "modules/texts/TextEdit/components/Markdown/types";
 import { BYTEMD_EDITOR_PLUGINS } from "modules/texts/text.constants";
 
 const MarkdownView: React.FC<IMarkdownView> = props => {

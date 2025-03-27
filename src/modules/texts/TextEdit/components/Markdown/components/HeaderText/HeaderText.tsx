@@ -1,19 +1,19 @@
 import { Button, Grid, IconButton, Typography } from "@mui/material";
-import { useContextTextEdit } from "modules/texts/TextEdit/Context";
+import { useTextEditContext } from "modules/texts/TextEdit/Context";
 import {
 	Breadcrumbs,
 	Nav,
 	TextField,
 	TextTitle,
-} from "modules/texts/TextEdit/components/Markdown/components/HeaderText/style";
+} from "modules/texts/TextEdit/components/Markdown/components/HeaderText/header-text.style";
 import React, { memo } from "react";
 import { FiArrowLeft, FiShare2 } from "react-icons/fi";
 import { Link, useSearchParams } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import IconPublic from "shared/components/IconPublic";
 import { ICON_SIZE } from "shared/constants";
-import { IHeaderText } from "./types";
-import { validateTitleText } from "./utils/validate-title-text";
+import type { IHeaderText } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/types";
+import { validateTitleText } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/utils/validate-title-text";
 
 const HeaderText: React.FC<IHeaderText> = ({
 	handleClickSaveText,
@@ -21,7 +21,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 	titleText,
 	onChangeTextTitle,
 }) => {
-	const { setIsOpenDialogShare, dataText } = useContextTextEdit();
+	const { setIsOpenDialogShare, dataText } = useTextEditContext();
 
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");

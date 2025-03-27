@@ -1,7 +1,7 @@
 import { AxiosPromise } from "axios";
 import { IFetchDefaultResponse } from "shared/common/types";
 
-export interface IFetchPatchTextPermissionsProps {
+export interface IPatchTextPermissionsParams {
 	body: {
 		public: boolean;
 	};
@@ -11,9 +11,9 @@ export interface IFetchPatchTextPermissionsProps {
 	};
 }
 
-export interface IFetchPatchTextPermissionsService {
+export interface IPatchTextPermissionsService {
 	({
 		body,
 		params,
-	}: IFetchPatchTextPermissionsProps): AxiosPromise<IFetchDefaultResponse>;
+	}: IPatchTextPermissionsParams): AxiosPromise<IFetchDefaultResponse>;
 }

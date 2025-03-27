@@ -1,2 +1,2 @@
-export * from "./fetchGetOneTextService";
-export * from "./fetchPatchTextService";
+export * from "./get-one-text.service";
+export * from "./patch-text.service";

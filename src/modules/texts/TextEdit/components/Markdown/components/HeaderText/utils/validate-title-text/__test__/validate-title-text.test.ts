@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import {
 	ERROR_MESSAGE_TITLE_TEXT,
 	validateTitleText,
-} from "../validate-title-text";
+} from "modules/texts/TextEdit/components/Markdown/components/HeaderText/utils/validate-title-text/validate-title-text";
 
 describe("Function validateTitleText()", () => {
 	test(`Should return isError 'true' and message ${ERROR_MESSAGE_TITLE_TEXT}, when 'titleText' length is less than 3`, () => {

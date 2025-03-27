@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 import { IDataText } from "modules/texts/TextEdit/types";
 
-export interface IContextTextEdit {
+export interface ITextEditContext {
 	isOpenDialogShare: boolean;
 	setIsOpenDialogShare: Dispatch<SetStateAction<boolean>>;
 	dataText: IDataText;
 	setDataText: Dispatch<SetStateAction<IDataText>>;
 }
 
-export interface IContextProviderTextEdit {
+export interface ITextEditContextProvider {
 	children: React.ReactNode;
 }

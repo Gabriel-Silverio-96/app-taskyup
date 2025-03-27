@@ -1,2 +1,2 @@
-export * as default from "./DialogShare.types";
-export * from "./DialogShare.types";
+export * as default from "./dialog-share.types";
+export * from "./dialog-share.types";

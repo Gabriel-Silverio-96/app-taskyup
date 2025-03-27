@@ -4,18 +4,18 @@ import { useSearchParams } from "react-router-dom";
 import { MENU_QUERY_KEY, TEXT_QUERY_KEY } from "shared/constants";
 import {
 	INITIAL_STATE_DATA_TEXT,
-	useContextTextEdit,
+	useTextEditContext,
 } from "modules/texts/TextEdit/Context";
-import MarkdownView from "./MarkdownView";
+import MarkdownView from "modules/texts/TextEdit/components/Markdown/MarkdownView";
 import {
-	fetchGetOneTextService,
-	fetchPatchTextService,
+	getOneTextService,
+	patchTextService,
 } from "modules/texts/TextEdit/components/Markdown/services";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
 
-	const { dataText, setDataText } = useContextTextEdit();
+	const { dataText, setDataText } = useTextEditContext();
 
 	const [searchParams] = useSearchParams();
 	const text_id = searchParams.get("text_id");
@@ -26,7 +26,7 @@ const Markdown: React.FC = () => {
 	useEffect(() => {
 		const fetchGetOneText = async () => {
 			try {
-				const data = await fetchGetOneTextService(text_id);
+				const data = await getOneTextService(text_id);
 				setDataText(data);
 			} catch (error) {
 				setDataText(INITIAL_STATE_DATA_TEXT);
@@ -55,7 +55,7 @@ const Markdown: React.FC = () => {
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const mutationFn = () =>
-		fetchPatchTextService({
+		patchTextService({
 			params: { board_id, text_id },
 			data: dataText,
 		});
