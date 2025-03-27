@@ -12,7 +12,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import IconPublic from "shared/components/IconPublic";
 import { ICON_SIZE } from "shared/constants";
-import { IHeaderText } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/types";
+import type { IHeaderText } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/types";
 import { validateTitleText } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/utils/validate-title-text";
 
 const HeaderText: React.FC<IHeaderText> = ({
