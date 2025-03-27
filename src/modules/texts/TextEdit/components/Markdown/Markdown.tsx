@@ -6,7 +6,7 @@ import {
 	INITIAL_STATE_DATA_TEXT,
 	useContextTextEdit,
 } from "modules/texts/TextEdit/Context";
-import MarkdownView from "./MarkdownView";
+import MarkdownView from "modules/texts/TextEdit/components/Markdown/MarkdownView";
 import {
 	fetchGetOneTextService,
 	fetchPatchTextService,

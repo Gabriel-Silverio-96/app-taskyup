@@ -1,6 +1,6 @@
-import { IFetchDefaultResponse } from "shared/common/types";
+import type { IFetchDefaultResponse } from "shared/common/types";
 import api from "shared/services/api";
-import { IPatchTextPermissionsService } from "modules/texts/TextEdit/components/DialogShare/services/types";
+import type { IPatchTextPermissionsService } from "modules/texts/TextEdit/components/DialogShare/services/types";
 
 export const patchTextPermissionsService: IPatchTextPermissionsService =
 	async ({ body, params }) => {

@@ -1,5 +1,5 @@
 import api from "shared/services/api";
-import {
+import type {
 	IGetTextPermissionsResponse,
 	IGetTextPermissionsService,
 } from "modules/texts/TextEdit/components/DialogShare/services/types";

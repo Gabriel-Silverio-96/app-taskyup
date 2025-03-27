@@ -13,9 +13,9 @@ import {
 	getTextPermissionsService,
 	patchTextPermissionsService,
 } from "modules/texts/TextEdit/components/DialogShare/services";
-import { IGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
-import { IData } from "modules/texts/TextEdit/components/DialogShare/types";
-import { IFetchDefaultResponse } from "shared/common/types";
+import type { IGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
+import type { IData } from "modules/texts/TextEdit/components/DialogShare/types";
+import type { IFetchDefaultResponse } from "shared/common/types";
 import { AxiosResponse } from "axios";
 
 const DialogShare: React.FC = () => {
