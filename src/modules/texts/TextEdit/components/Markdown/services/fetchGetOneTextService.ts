@@ -1,5 +1,5 @@
 import api from "shared/services/api";
-import {
+import type {
 	IFetchGetOneTextService,
 	IFetchGetOneTextResponse,
 } from "modules/texts/TextEdit/components/Markdown/services/types";

@@ -1,6 +1,6 @@
-import { IFetchDefaultResponse } from "shared/common/types";
+import type { IFetchDefaultResponse } from "shared/common/types";
 import api from "shared/services/api";
-import { IFetchPatchTextService } from "modules/texts/TextEdit/components/Markdown/services/types";
+import type { IFetchPatchTextService } from "modules/texts/TextEdit/components/Markdown/services/types";
 
 export const fetchPatchTextService: IFetchPatchTextService = async ({
 	params,
