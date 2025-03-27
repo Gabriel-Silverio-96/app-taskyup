@@ -8,7 +8,7 @@ import DialogShareView from "modules/texts/TextEdit/components/DialogShare/Dialo
 import {
 	DIALOG_SHARE_QUERY_KEY,
 	INITIAL_STATE_DATA,
-} from "modules/texts/TextEdit/components/DialogShare/constants";
+} from "modules/texts/TextEdit/components/DialogShare/dialog-share.constants";
 import {
 	fetchGetTextPermissionsService,
 	fetchPatchTextPermissionsService,
