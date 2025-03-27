@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { MENU_QUERY_KEY, TEXT_QUERY_KEY } from "shared/constants";
 import {
 	INITIAL_STATE_DATA_TEXT,
-	useContextTextEdit,
+	useTextEditContext,
 } from "modules/texts/TextEdit/Context";
 import MarkdownView from "modules/texts/TextEdit/components/Markdown/MarkdownView";
 import {
@@ -15,7 +15,7 @@ import {
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
 
-	const { dataText, setDataText } = useContextTextEdit();
+	const { dataText, setDataText } = useTextEditContext();
 
 	const [searchParams] = useSearchParams();
 	const text_id = searchParams.get("text_id");

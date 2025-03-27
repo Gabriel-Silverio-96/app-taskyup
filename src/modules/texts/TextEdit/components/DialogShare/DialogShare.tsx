@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useContextTextEdit } from "modules/texts/TextEdit/Context";
+import { useTextEditContext } from "modules/texts/TextEdit/Context";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useSnackbar from "shared/common/hook/useSnackbar";
@@ -26,7 +26,7 @@ const DialogShare: React.FC = () => {
 	const { snackbarSuccess } = useSnackbar();
 
 	const { isOpenDialogShare, setIsOpenDialogShare, setDataText } =
-		useContextTextEdit();
+		useTextEditContext();
 
 	const [data, setData] = useState<IData>(INITIAL_STATE_DATA);
 

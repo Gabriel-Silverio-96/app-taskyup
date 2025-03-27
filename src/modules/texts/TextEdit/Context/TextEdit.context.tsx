@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
-import { IContextProviderTextEdit, IContextTextEdit } from "./types";
-import { IDataText } from "modules/texts/TextEdit/types";
+import type {
+	ITextEditContextProvider,
+	ITextEditContext,
+} from "modules/texts/TextEdit/Context/types";
+import type { IDataText } from "modules/texts/TextEdit/types";
 
 export const INITIAL_STATE_DATA_TEXT: IDataText = {
 	title_board: "",
@@ -10,11 +13,11 @@ export const INITIAL_STATE_DATA_TEXT: IDataText = {
 	public: false,
 };
 
-export const ContextTextEdit = createContext<IContextTextEdit | undefined>(
+export const TextEditContext = createContext<ITextEditContext | undefined>(
 	undefined
 );
 
-export const ContextProviderTextEdit: React.FC<IContextProviderTextEdit> = ({
+export const TextEditContextProvider: React.FC<ITextEditContextProvider> = ({
 	children,
 }) => {
 	const [isOpenDialogShare, setIsOpenDialogShare] = useState(false);
@@ -30,17 +33,17 @@ export const ContextProviderTextEdit: React.FC<IContextProviderTextEdit> = ({
 	};
 
 	return (
-		<ContextTextEdit.Provider value={value}>
+		<TextEditContext.Provider value={value}>
 			{children}
-		</ContextTextEdit.Provider>
+		</TextEditContext.Provider>
 	);
 };
 
-export const useContextTextEdit = () => {
-	const context = useContext(ContextTextEdit);
+export const useTextEditContext = () => {
+	const context = useContext(TextEditContext);
 	if (context === undefined) {
 		throw new Error(
-			"useContextTextEdit must be used within a ContextProviderTextEdit"
+			"useTextEditContext must be used within a TextEditContextProvider"
 		);
 	}
 

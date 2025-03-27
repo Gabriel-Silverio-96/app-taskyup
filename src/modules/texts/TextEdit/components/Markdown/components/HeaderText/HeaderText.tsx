@@ -1,5 +1,5 @@
 import { Button, Grid, IconButton, Typography } from "@mui/material";
-import { useContextTextEdit } from "modules/texts/TextEdit/Context";
+import { useTextEditContext } from "modules/texts/TextEdit/Context";
 import {
 	Breadcrumbs,
 	Nav,
@@ -21,7 +21,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 	titleText,
 	onChangeTextTitle,
 }) => {
-	const { setIsOpenDialogShare, dataText } = useContextTextEdit();
+	const { setIsOpenDialogShare, dataText } = useTextEditContext();
 
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
