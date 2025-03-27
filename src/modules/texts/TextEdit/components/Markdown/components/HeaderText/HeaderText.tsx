@@ -5,7 +5,7 @@ import {
 	Nav,
 	TextField,
 	TextTitle,
-} from "modules/texts/TextEdit/components/Markdown/components/HeaderText/style";
+} from "modules/texts/TextEdit/components/Markdown/components/HeaderText/header-text.style";
 import React, { memo } from "react";
 import { FiArrowLeft, FiShare2 } from "react-icons/fi";
 import { Link, useSearchParams } from "react-router-dom";
