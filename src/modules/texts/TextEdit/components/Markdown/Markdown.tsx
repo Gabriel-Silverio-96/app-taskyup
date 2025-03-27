@@ -8,8 +8,8 @@ import {
 } from "modules/texts/TextEdit/Context";
 import MarkdownView from "modules/texts/TextEdit/components/Markdown/MarkdownView";
 import {
-	fetchGetOneTextService,
-	fetchPatchTextService,
+	getOneTextService,
+	patchTextService,
 } from "modules/texts/TextEdit/components/Markdown/services";
 
 const Markdown: React.FC = () => {
@@ -26,7 +26,7 @@ const Markdown: React.FC = () => {
 	useEffect(() => {
 		const fetchGetOneText = async () => {
 			try {
-				const data = await fetchGetOneTextService(text_id);
+				const data = await getOneTextService(text_id);
 				setDataText(data);
 			} catch (error) {
 				setDataText(INITIAL_STATE_DATA_TEXT);
@@ -55,7 +55,7 @@ const Markdown: React.FC = () => {
 	const optionsMutation = { onSuccess: onSuccessMutation };
 
 	const mutationFn = () =>
-		fetchPatchTextService({
+		patchTextService({
 			params: { board_id, text_id },
 			data: dataText,
 		});

@@ -1,2 +1,2 @@
-export * from "./fetchGetOneTextService.types";
-export * from "./fetchPatchTextService.types";
+export * from "./get-one-text.types";
+export * from "./patch-text.types";
