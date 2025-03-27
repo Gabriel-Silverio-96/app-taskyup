@@ -10,10 +10,10 @@ import {
 	INITIAL_STATE_DATA,
 } from "modules/texts/TextEdit/components/DialogShare/dialog-share.constants";
 import {
-	fetchGetTextPermissionsService,
-	fetchPatchTextPermissionsService,
+	getTextPermissionsService,
+	patchTextPermissionsService,
 } from "modules/texts/TextEdit/components/DialogShare/services";
-import { IFetchGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
+import { IGetTextPermissionsResponse } from "modules/texts/TextEdit/components/DialogShare/services/types";
 import { IData } from "modules/texts/TextEdit/components/DialogShare/types";
 import { IFetchDefaultResponse } from "shared/common/types";
 import { AxiosResponse } from "axios";
@@ -33,10 +33,9 @@ const DialogShare: React.FC = () => {
 	const closeDialogShare = () => setIsOpenDialogShare(false);
 
 	const queryFn = () =>
-		fetchGetTextPermissionsService({ params: { text_id, board_id } });
+		getTextPermissionsService({ params: { text_id, board_id } });
 
-	const onSuccessQuery = (data: IFetchGetTextPermissionsResponse) =>
-		setData(data);
+	const onSuccessQuery = (data: IGetTextPermissionsResponse) => setData(data);
 	const optionsQuery = { onSuccess: onSuccessQuery, enabled: false };
 
 	const { refetch, isFetching } = useQuery(
@@ -65,7 +64,7 @@ const DialogShare: React.FC = () => {
 	};
 
 	const mutationFn = () =>
-		fetchPatchTextPermissionsService({
+		patchTextPermissionsService({
 			body: data,
 			params: { board_id, text_id },
 		});
