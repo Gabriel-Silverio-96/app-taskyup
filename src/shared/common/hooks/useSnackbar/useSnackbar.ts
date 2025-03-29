@@ -7,7 +7,7 @@ import {
 } from "shared/common/store/Snackbar/Snackbar.reducer";
 import { ISnackbarState } from "shared/common/store/Snackbar/types/Snackbar.types";
 import { createAction } from "shared/common/store/store.action";
-import { ISnackbarProps } from "shared/common/hooks/useSnackbar/types";
+import type { ISnackbarProps } from "shared/common/hooks/useSnackbar/types";
 
 export default function useSnackbar() {
 	const dispatch = useDispatch();
