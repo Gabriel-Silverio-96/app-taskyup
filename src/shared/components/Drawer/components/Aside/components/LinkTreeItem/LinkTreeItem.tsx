@@ -1,6 +1,6 @@
 import { TreeItem } from "@mui/lab";
 import { Link } from "react-router-dom";
-import { ILinkTreeItem } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/types";
+import type { ILinkTreeItem } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/types";
 import { Fragment } from "react";
 import { defineURLPath } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/utils/define-url-path";
 import { FiLink } from "react-icons/fi";
