@@ -11,7 +11,7 @@ import {
 	Typography,
 } from "@mui/material";
 import React from "react";
-import { IDialogNewBoardView } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
+import type { IDialogNewBoardView } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
 import { BOARD_TYPE_ID } from "shared/constants";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
