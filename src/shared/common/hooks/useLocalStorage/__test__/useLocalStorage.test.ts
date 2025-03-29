@@ -5,11 +5,11 @@ import useLocalStorage from "shared/common/hooks/useLocalStorage";
 const KEY_LOCAL_STORAGE = faker.lorem.word(5);
 const INITIAL_VALUE_LOCAL_STORAGE = faker.lorem.words();
 
-describe("Hook useLocalStorage()", () => {
-	beforeEach(() => {
-		localStorage.clear();
-	});
+beforeEach(() => {
+	localStorage.clear();
+});
 
+describe("Hook useLocalStorage()", () => {
 	it("Should return initialState when localStorage is empty", () => {
 		const { result } = renderHook(() =>
 			useLocalStorage(KEY_LOCAL_STORAGE, INITIAL_VALUE_LOCAL_STORAGE)
