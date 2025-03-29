@@ -1,10 +1,10 @@
 import { GridRowsProp } from "@mui/x-data-grid";
 import { Dispatch, SetStateAction } from "react";
 import { IPaginationModel } from "shared/common/types";
-import { IFetchGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/services/types";
+import { IGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/services/types";
 
 export interface ITableDialogSearchAll {
-	data: IFetchGetSearchAllResponse | undefined;
+	data: IGetSearchAllResponse | undefined;
 	isLoading: boolean;
 	paginationModel: IPaginationModel;
 	setPaginationModel: Dispatch<SetStateAction<IPaginationModel>>;

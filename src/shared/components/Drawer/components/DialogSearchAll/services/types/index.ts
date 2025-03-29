@@ -1,1 +1,1 @@
-export * from "./fetchGetSearchAllService.types";
+export * from "./get-search-all.types";

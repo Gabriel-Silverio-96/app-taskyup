@@ -7,7 +7,7 @@ import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAl
 import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types";
 import { createAction } from "shared/common/store/store.action";
 import DialogSearchAllView from "shared/components/Drawer/components/DialogSearchAll/DialogSearchAllView";
-import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
+import { getSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
 import { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
 import { IPaginationModel } from "shared/common/types";
 import {
@@ -46,7 +46,7 @@ const DialogSearchAll: React.FC = () => {
 		const { page, pageSize } = paginationModel;
 		const params = { ...getValues(), pageNumber: page, pageSize };
 
-		return fetchGetSearchAllService({ params });
+		return getSearchAllService({ params });
 	};
 
 	const {

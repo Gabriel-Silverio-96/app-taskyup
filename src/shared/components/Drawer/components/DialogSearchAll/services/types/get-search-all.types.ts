@@ -6,8 +6,8 @@ export interface IFetchGetSearchAllProps {
 	};
 }
 
-export interface IFetchGetSearchAllService {
-	({ params }: IFetchGetSearchAllProps): Promise<IFetchGetSearchAllResponse>;
+export interface IGetSearchAllService {
+	({ params }: IFetchGetSearchAllProps): Promise<IGetSearchAllResponse>;
 }
 
 export interface IFetchGetSearchAllResponseResults {
@@ -18,7 +18,7 @@ export interface IFetchGetSearchAllResponseResults {
 	type_board: string;
 }
 
-export interface IFetchGetSearchAllResponse {
+export interface IGetSearchAllResponse {
 	pageSize: number;
 	pageNumber: number;
 	offset: number;

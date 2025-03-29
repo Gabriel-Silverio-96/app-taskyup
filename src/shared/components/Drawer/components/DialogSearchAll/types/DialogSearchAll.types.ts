@@ -7,7 +7,7 @@ import {
 import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types";
 import { IPaginationModel } from "shared/common/types";
 import { FunctionReturnsVoid } from "shared/common/types";
-import { IFetchGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/services/types";
+import { IGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/services/types";
 
 export interface IDialogSearchAllForm {
 	query: string;
@@ -20,7 +20,7 @@ export interface IDialogSearchAllView {
 	errors: FieldErrors<IDialogSearchAllForm>;
 	dialogSearchAll: IDialogSearchAllState;
 	handleClickCloseDialogSearchAll: FunctionReturnsVoid;
-	data: IFetchGetSearchAllResponse | undefined;
+	data: IGetSearchAllResponse | undefined;
 	isLoading: boolean;
 	paginationModel: IPaginationModel;
 	setPaginationModel: Dispatch<SetStateAction<IPaginationModel>>;
