@@ -4,7 +4,7 @@ import {
 	UseFormHandleSubmit,
 	UseFormRegister,
 } from "react-hook-form";
-import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types/DialogSearchAll.types";
+import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types";
 import { IPaginationModel } from "shared/common/types";
 import { FunctionReturnsVoid } from "shared/common/types";
 import { IFetchGetSearchAllResponse } from "shared/components/Drawer/components/DialogSearchAll/services/types";

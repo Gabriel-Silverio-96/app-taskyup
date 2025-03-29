@@ -5,7 +5,7 @@ import {
 	SNACKBAR_CLOSE_TYPE,
 	SNACKBAR_OPEN_TYPE,
 } from "shared/common/store/Snackbar/Snackbar.reducer";
-import { ISnackbarState } from "shared/common/store/Snackbar/types/Snackbar.types";
+import { ISnackbarState } from "shared/common/store/Snackbar/types";
 import { createAction } from "shared/common/store/store.action";
 import type { ISnackbarProps } from "shared/common/hooks/useSnackbar/types";
 

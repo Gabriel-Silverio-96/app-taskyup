@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { IAuthState } from "shared/common/store/Auth/types/Auth.types";
+import { IAuthState } from "shared/common/store/Auth/types";
 import Drawer from "../Drawer";
 import { Box } from "./style";
 import { IRequiredAuth } from "./types/RequiredAuth.component";

@@ -1,4 +1,4 @@
-import { ISnackbarAction, ISnackbarState } from "shared/common/store/Snackbar/types";
+import type { ISnackbarAction, ISnackbarState } from "shared/common/store/Snackbar/types";
 
 export const SNACKBAR_OPEN_TYPE = "SNACKBAR_OPEN";
 export const SNACKBAR_CLOSE_TYPE = "SNACKBAR_CLOSE";
