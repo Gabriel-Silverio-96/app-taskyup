@@ -1,7 +1,5 @@
 import * as Yup from "yup";
-import {
-	BOARD_TYPE_ID
-} from "shared/constants";
+import { BOARD_TYPE_ID } from "shared/constants";
 
 const BOARD_TYPE_IDS = [
 	BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID,

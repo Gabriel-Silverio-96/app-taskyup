@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import { BOARD_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import DialogNewBoardView from "shared/components/Drawer/components/Aside/components/DialogNewBoard/DialogNewBoardView";
 import { fetchPostBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/services";
-import { DialogNewBoardSchema } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/schema";
-import {
+import { DialogNewBoardSchema } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/dialog-new-board.constants";
+import type {
 	IDialogNewBoard,
 	IDialogNewBoardForm,
 } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
