@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { forwardRef, memo } from "react";
-import { ColorPickerContainer } from "shared/components/ColorPicker/style";
-import { IColorPicker } from "shared/components/ColorPicker/types/ColorPicker.types";
+import { ColorPickerContainer } from "shared/components/ColorPicker/color-picker.style";
+import type { IColorPicker } from "shared/components/ColorPicker/types";
 
 const ColorPicker = forwardRef<HTMLInputElement, IColorPicker>((props, ref) => {
 	const { label, id, ...rest } = props;
