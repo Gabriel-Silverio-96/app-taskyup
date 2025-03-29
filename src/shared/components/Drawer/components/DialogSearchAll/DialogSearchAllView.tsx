@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 import TableDialogSearchAll from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/TableDialogSearchAll";
-import { TextFieldWithIconButton } from "shared/components/Drawer/components/DialogSearchAll/style";
+import { TextFieldWithIconButton } from "shared/components/Drawer/components/DialogSearchAll/dialog-search-all.style";
 import { IDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/types";
 import { FiX } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
