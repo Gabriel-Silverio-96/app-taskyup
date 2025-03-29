@@ -1,5 +1,5 @@
 import { TypeBoard } from "shared/common/types";
-import { ITypeBoardMappings } from "./types";
+import type { ITypeBoardMappings } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/getSubDirectory/types";
 
 export const DEFAULT_SUBDIRECTORY = "/note/edit";
 
