@@ -1,2 +1,1 @@
-export * as default from "./LinkTreeItem.types";
-export * from "./LinkTreeItem.types";
+export * from "./link-tree-item.types";
