@@ -1,5 +1,8 @@
 import { styled } from "@mui/material";
-import { IAsideStyle } from "./types/Aside.style";
+
+export interface IAsideStyle {
+    open: boolean;
+}
 
 export const Aside = styled("aside")<IAsideStyle>(
 	({ open, theme }) => `                
