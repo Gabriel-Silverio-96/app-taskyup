@@ -36,7 +36,8 @@ describe("Hook useSnackbar()", () => {
 			const { result } = renderHook(() => useSnackbar());
 
 			act(() => {
-				(result.current as CurrentRenderHook)[actionName]({ message });
+				const action = result.current as CurrentRenderHook;
+				action[actionName]({ message });
 			});
 
 			expect(dispatchMock).toHaveBeenCalledWith({
