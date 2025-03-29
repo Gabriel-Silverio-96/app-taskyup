@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React, { memo } from "react";
-import { IDoodleMessage } from "shared/components/DoodleMessage/types";
+import type { IDoodleMessage } from "shared/components/DoodleMessage/types";
 
 const DoodleMessage: React.FC<IDoodleMessage> = ({
 	show,
