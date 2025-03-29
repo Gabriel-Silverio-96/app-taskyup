@@ -1,6 +1,6 @@
 import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
-import { ITableDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/types";
+import type { ITableDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/types";
 import { TableDialogSearchAllContainer } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/table-dialog-search-all.style";
 import { COLUMNS } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/table-dialog-search-all.constants";
 
