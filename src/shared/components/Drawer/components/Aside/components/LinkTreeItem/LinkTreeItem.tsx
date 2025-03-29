@@ -9,7 +9,7 @@ import {
 	TreeItemContainer,
 	LinkIcon,
 	TreeItemLabel,
-} from "shared/components/Drawer/components/Aside/components/LinkTreeItem/style/";
+} from "shared/components/Drawer/components/Aside/components/LinkTreeItem/link-tree-item.style";
 
 const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, propertyName }) => {
 	if (!data) return null;
