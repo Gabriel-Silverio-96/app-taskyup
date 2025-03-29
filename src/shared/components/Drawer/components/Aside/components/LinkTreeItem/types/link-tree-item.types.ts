@@ -1,4 +1,4 @@
-import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
+import { IGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
 
 type PropertyName = "notes" | "texts";
 
@@ -9,7 +9,7 @@ export interface ILinkTreeItem {
 	/**
 	 * The data associated with the menu response
 	 */
-	data: IFetchGetMenuResponse | undefined;
+	data: IGetMenuResponse | undefined;
 	/**
 	 * The name of the property associated with the menu response
 	 */

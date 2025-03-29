@@ -23,7 +23,7 @@ export interface IMenu {
 	items: IMenuItems[];
 }
 
-export interface IFetchGetMenuResponse {
+export interface IGetMenuResponse {
 	notes: IMenu[];
 	texts: IMenu[];
 	favorites: IFavorites[];

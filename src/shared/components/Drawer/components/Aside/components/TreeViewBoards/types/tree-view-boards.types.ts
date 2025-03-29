@@ -1,7 +1,7 @@
-import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
+import { IGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
 
 export interface ITreeViewBoards {
 	expanded: string[];
 	onNodeToggle: (event: React.SyntheticEvent, nodeIds: string[]) => void;
-	data: IFetchGetMenuResponse | undefined;
+	data: IGetMenuResponse | undefined;
 }
