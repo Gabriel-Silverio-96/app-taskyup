@@ -1,4 +1,4 @@
-import { ISnackbarProps } from "shared/common/hook/useSnackbar/types";
+import { ISnackbarProps } from "shared/common/hooks/useSnackbar/types";
 import { FunctionReturnsVoid } from "shared/common/types";
 
 export interface ISnackbarView {

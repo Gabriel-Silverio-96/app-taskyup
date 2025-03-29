@@ -4,7 +4,7 @@ import type {
 	INoteContextProvider,
 } from "modules/notes/Note/Context/types";
 import { VIEW_MODE } from "shared/constants";
-import useLocalStorage from "shared/common/hook/useLocalStorage";
+import useLocalStorage from "shared/common/hooks/useLocalStorage";
 import { ViewMode } from "shared/common/types";
 
 export const NoteContext = createContext<INoteContext | undefined>(undefined);

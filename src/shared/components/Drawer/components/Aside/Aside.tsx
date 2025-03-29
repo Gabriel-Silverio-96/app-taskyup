@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
-import useLocalStorage from "shared/common/hook/useLocalStorage";
+import useLocalStorage from "shared/common/hooks/useLocalStorage";
 import AsideView from "shared/components/Drawer/components/Aside/AsideView";
 import { fetchGetMenuService } from "shared/components/Drawer/components/Aside/services";
 import { IOnNodeToggle } from "shared/components/Drawer/components/Aside/types";

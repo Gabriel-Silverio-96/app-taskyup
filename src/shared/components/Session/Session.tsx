@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import useLocalStorage from "shared/common/hook/useLocalStorage";
+import useLocalStorage from "shared/common/hooks/useLocalStorage";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { IAuthState } from "shared/common/store/Auth/types/Auth.types";
 import { createAction } from "shared/common/store/store.action";

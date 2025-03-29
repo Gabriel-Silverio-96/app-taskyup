@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import useSnackbar from "shared/common/hook/useSnackbar";
+import useSnackbar from "shared/common/hooks/useSnackbar";
 import { ISnackbarState } from "shared/common/store/Snackbar/types/Snackbar.types";
 import SnackbarView from "./SnackbarView";
 

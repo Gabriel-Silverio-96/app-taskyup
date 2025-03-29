@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { UseLocalStorage } from "shared/common/hook/useLocalStorage/types/UseLocalStorage.types";
+import { UseLocalStorage } from "shared/common/hooks/useLocalStorage/types/UseLocalStorage.types";
 
 const useLocalStorage = <T>(
 	key: string,

@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { act, renderHook } from "@testing-library/react";
-import useLocalStorage from "shared/common/hook/useLocalStorage/useLocalStorage";
+import useLocalStorage from "shared/common/hooks/useLocalStorage";
 
 const KEY_LOCAL_STORAGE = faker.lorem.word(5);
 const INITIAL_VALUE_LOCAL_STORAGE = faker.lorem.words();

@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { useDispatch } from "react-redux";
-import useSnackbar from "shared/common/hook/useSnackbar";
+import useSnackbar from "shared/common/hooks/useSnackbar";
 import {
 	SNACKBAR_CLOSE_TYPE,
 	SNACKBAR_OPEN_TYPE,
