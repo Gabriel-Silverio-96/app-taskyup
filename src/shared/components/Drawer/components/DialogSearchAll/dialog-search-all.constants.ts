@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 export const INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY = {
 	countResult: 0,
 	offset: 0,
@@ -11,3 +13,7 @@ export const INTIAL_STATE_PAGINATION_MODEL = { pageSize: 10, page: 0 };
 export const DIALOG_SEARCH_ALL_QUERY_KEY = {
 	FETCH_GET_SEARCH_ALL: "FETCH_GET_SEARCH_ALL",
 };
+
+export const DIALOG_SEARCH_ALL_SCHEMA = Yup.object({
+	query: Yup.string().required("Required field"),
+});

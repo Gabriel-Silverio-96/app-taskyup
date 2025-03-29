@@ -7,7 +7,6 @@ import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAl
 import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types";
 import { createAction } from "shared/common/store/store.action";
 import DialogSearchAllView from "shared/components/Drawer/components/DialogSearchAll/DialogSearchAllView";
-import { DialogSearchAllSchema } from "shared/components/Drawer/components/DialogSearchAll/schema";
 import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
 import { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
 import { IPaginationModel } from "shared/common/types";
@@ -15,6 +14,7 @@ import {
 	DIALOG_SEARCH_ALL_QUERY_KEY,
 	INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
 	INTIAL_STATE_PAGINATION_MODEL,
+	DIALOG_SEARCH_ALL_SCHEMA,
 } from "shared/components/Drawer/components/DialogSearchAll/dialog-search-all.constants";
 
 const DialogSearchAll: React.FC = () => {
@@ -26,7 +26,7 @@ const DialogSearchAll: React.FC = () => {
 		reset,
 		getValues,
 	} = useForm<IDialogSearchAllForm>({
-		resolver: yupResolver(DialogSearchAllSchema),
+		resolver: yupResolver(DIALOG_SEARCH_ALL_SCHEMA),
 		mode: "all",
 	});
 
