@@ -1,4 +1,4 @@
-import { getSubDirectory } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/getSubDirectory";
+import { getSubDirectory } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActions/utils/getSubDirectory";
 
 describe("Function getSubDirectory()", () => {
 	it("Should return the correct subdirectory for texts", () => {

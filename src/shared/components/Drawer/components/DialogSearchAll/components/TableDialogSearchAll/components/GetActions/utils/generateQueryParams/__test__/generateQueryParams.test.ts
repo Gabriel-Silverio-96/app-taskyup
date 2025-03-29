@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
-import { generateQueryParams } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/generateQueryParams";
-import { IGenerateQueryParams } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/generateQueryParams/types";
+import { generateQueryParams } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActions/utils/generateQueryParams";
+import { IGenerateQueryParams } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActions/utils/generateQueryParams/types";
 
 describe("Function generateQueryParams()", () => {
 	it("Should return the correct query params for type_board 'texts'", () => {

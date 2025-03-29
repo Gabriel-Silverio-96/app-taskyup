@@ -9,8 +9,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAll/DialogSearchAll.reduce";
 import { createAction } from "shared/common/store/store.action";
-import { generateQueryParams } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/generateQueryParams";
-import { getSubDirectory } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/getSubDirectory";
+import { generateQueryParams } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActions/utils/generateQueryParams";
+import { getSubDirectory } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActions/utils/getSubDirectory";
 import { ICON_SIZE } from "shared/constants";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
 

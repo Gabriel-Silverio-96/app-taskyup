@@ -1,7 +1,7 @@
 import type {
 	IGenerateQueryParams,
 	IGenerateQueryParamsReturn,
-} from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/utils/generateQueryParams/types";
+} from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActions/utils/generateQueryParams/types";
 
 const generateQueryParams = ({
 	type_board,
