@@ -4,12 +4,12 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAll/DialogSearchAll.reduce";
-import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types";
+import type { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types";
 import { createAction } from "shared/common/store/store.action";
 import DialogSearchAllView from "shared/components/Drawer/components/DialogSearchAll/DialogSearchAllView";
 import { getSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
-import { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
-import { IPaginationModel } from "shared/common/types";
+import type { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
+import type { IPaginationModel } from "shared/common/types";
 import {
 	DIALOG_SEARCH_ALL_QUERY_KEY,
 	INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
