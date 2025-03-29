@@ -15,7 +15,7 @@ import {
 	DIALOG_SEARCH_ALL_QUERY_KEY,
 	INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
 	INTIAL_STATE_PAGINATION_MODEL,
-} from "./constants";
+} from "shared/components/Drawer/components/DialogSearchAll/dialog-search-all.constants";
 
 const DialogSearchAll: React.FC = () => {
 	const dispatch = useDispatch();
