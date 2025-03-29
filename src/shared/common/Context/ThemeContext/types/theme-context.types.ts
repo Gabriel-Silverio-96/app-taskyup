@@ -8,6 +8,6 @@ export interface IThemeContext {
 	theme: any;
 }
 
-export interface IThemeProvider {
+export interface IThemeContextProvider {
 	children?: React.ReactNode;
 }

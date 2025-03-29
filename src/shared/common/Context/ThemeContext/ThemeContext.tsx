@@ -8,11 +8,11 @@ import React, {
 	useMemo,
 	useState,
 } from "react";
-import {
-	IThemeProvider,
+import type {
+	IThemeContextProvider,
 	IThemeContext,
 	ThemeName,
-} from "./types/ThemeContext.types";
+} from "shared/common/Context/ThemeContext/types";
 import { THEME_NAME } from "shared/constants";
 
 export const THEME_KEY_LOCAL_STORAGE = "@taskyup.theme";
@@ -20,7 +20,9 @@ export const THEME_KEY_LOCAL_STORAGE = "@taskyup.theme";
 export const ThemeContext = createContext({} as IThemeContext);
 export const useThemeContext = () => useContext(ThemeContext);
 
-export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
+export const ThemeContextProvider: React.FC<IThemeContextProvider> = ({
+	children,
+}) => {
 	const [themeName, setThemeName] = useState<ThemeName>(() => {
 		const themeStorage = localStorage.getItem(
 			THEME_KEY_LOCAL_STORAGE
