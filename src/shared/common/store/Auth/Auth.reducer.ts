@@ -1,4 +1,4 @@
-import { IAuthAction, IAuthState } from "./types/Auth.types";
+import type { IAuthAction, IAuthState } from "shared/common/store/Auth/types";
 
 export const SIGNIN_TYPE = "SIGNIN_TYPE";
 export const LOGOUT_TYPE = "LOGOUT_TYPE";
