@@ -14,7 +14,7 @@ import { getSubDirectory } from "shared/components/Drawer/components/DialogSearc
 import { ICON_SIZE } from "shared/constants";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
 
-const GetActionsTableDialogSearchAll = (
+const GetActions = (
 	params: GridRowParams
 ): ReactElement<GridActionsCellItemProps>[] => {
 	const navigate = useNavigate();
@@ -41,4 +41,4 @@ const GetActionsTableDialogSearchAll = (
 	];
 };
 
-export default GetActionsTableDialogSearchAll;
+export default GetActions;

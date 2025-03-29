@@ -1,5 +1,5 @@
 import { GridColDef } from "@mui/x-data-grid";
-import GetActionsTableDialogSearchAll from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActionsTableDialogSearchAll";
+import GetActions from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/components/GetActions";
 
 export const columns: GridColDef[] = [
 	{ field: "title", headerName: "Title", width: 250 },
@@ -8,6 +8,6 @@ export const columns: GridColDef[] = [
 	{
 		field: "actions",
 		type: "actions",
-		getActions: GetActionsTableDialogSearchAll,
+		getActions: GetActions,
 	},
 ];
