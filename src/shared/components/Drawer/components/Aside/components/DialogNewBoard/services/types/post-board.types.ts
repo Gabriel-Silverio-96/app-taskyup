@@ -5,6 +5,6 @@ export interface IFetchPostBoardProps {
 	body: IDialogNewBoardForm;
 }
 
-export interface IFetchPostBoardService {
+export interface IPostBoardService {
 	({ body }: IFetchPostBoardProps): Promise<IFetchDefaultResponse>;
 }
