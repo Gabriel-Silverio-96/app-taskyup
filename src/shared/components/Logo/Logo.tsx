@@ -1,7 +1,7 @@
 import { useThemeContext } from "shared/common/Context/ThemeContext";
 import React, { memo } from "react";
 import LogoView from "./LogoView";
-import { ILogo } from "./types/Logo.component";
+import type { ILogo } from "shared/components/Logo/types";
 import { THEME_NAME } from "shared/constants";
 
 const Logo: React.FC<ILogo> = ({ size = 143.146, isoType }) => {
