@@ -1,6 +1,6 @@
 import { Backdrop, CircularProgress, Fade, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
-import { Loading } from "./style";
+import { Loading } from "shared/components/Loading/loading.style";
 import type { ILoading } from "shared/components/Loading/types";
 
 const LoadingView: React.FC<ILoading> = props => {
