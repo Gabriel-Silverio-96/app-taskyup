@@ -1,2 +1,1 @@
-export * as default from "./Greeting.component";
-export * from "./Greeting.component";
+export * from "./greeting.type";
