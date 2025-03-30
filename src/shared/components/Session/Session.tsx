@@ -6,7 +6,6 @@ import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
 import { IAuthState } from "shared/common/store/Auth/types";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
-import SessionView from "./SessionView";
 import { ISession } from "./types/Session.component";
 
 const Session: React.FC<ISession> = ({ children }) => {
@@ -57,7 +56,7 @@ const Session: React.FC<ISession> = ({ children }) => {
 		}
 	}, []);
 
-	return <SessionView {...{ children }} />;
+	return <>{children}</>;
 };
 
 export default Session;
