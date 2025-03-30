@@ -1,9 +1,14 @@
 import { memo } from "react";
-import LayoutView from "./LayoutView";
-import { ILayout } from "./types/Layout.component";
+import type { ILayout } from "shared/components/Layout/types";
+import Snackbar from "./Snackbar";
 
-const Layout: React.FC<ILayout> = ({ children }) => {	
-	return <LayoutView {...{ children }} />;
+const Layout: React.FC<ILayout> = ({ children }) => {
+	return (
+		<main>
+			<Snackbar />
+			{children}
+		</main>
+	);
 };
 
 export default memo(Layout);
