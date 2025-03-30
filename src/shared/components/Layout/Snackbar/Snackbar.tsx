@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import useSnackbar from "shared/common/hooks/useSnackbar";
-import { ISnackbarState } from "shared/common/store/Snackbar/types";
-import SnackbarView from "./SnackbarView";
+import type { ISnackbarState } from "shared/common/store/Snackbar/types";
+import SnackbarView from "shared/components/Layout/Snackbar/SnackbarView";
 
 const THREE_SECONDS_AUTO_HIDE_DURATION = 3000;
 
