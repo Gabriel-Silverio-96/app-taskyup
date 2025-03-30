@@ -8,7 +8,7 @@ import {
 import GlobalStylesMui from "assets/theme/override/GlobalStyles";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "shared/common/Context/ThemeContext";
+import { ThemeContextProvider } from "shared/common/Context/ThemeContext";
 import { store } from "shared/common/store";
 import Layout from "shared/components/Layout";
 import Session from "shared/components/Session";
@@ -24,7 +24,7 @@ const render = (
 	return renderTestLibrary(
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
-				<ThemeProvider>
+				<ThemeContextProvider>
 					<BrowserRouter>
 						<Session>
 							<Layout>
@@ -34,7 +34,7 @@ const render = (
 							</Layout>
 						</Session>
 					</BrowserRouter>
-				</ThemeProvider>
+				</ThemeContextProvider>
 			</QueryClientProvider>
 		</Provider>,
 		option

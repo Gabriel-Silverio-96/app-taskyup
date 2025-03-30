@@ -1,13 +1,12 @@
 import { useEffect, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import useLocalStorage from "shared/common/hook/useLocalStorage";
+import useLocalStorage from "shared/common/hooks/useLocalStorage";
 import { SIGNIN_TYPE } from "shared/common/store/Auth/Auth.reducer";
-import { IAuthState } from "shared/common/store/Auth/types/Auth.types";
+import type { IAuthState } from "shared/common/store/Auth/types";
 import { createAction } from "shared/common/store/store.action";
 import api from "shared/services/api";
-import SessionView from "./SessionView";
-import { ISession } from "./types/Session.component";
+import type { ISession } from "shared/components/Session/types";
 
 const Session: React.FC<ISession> = ({ children }) => {
 	const [searchParams] = useSearchParams();
@@ -57,7 +56,7 @@ const Session: React.FC<ISession> = ({ children }) => {
 		}
 	}, []);
 
-	return <SessionView {...{ children }} />;
+	return <>{children}</>;
 };
 
 export default Session;

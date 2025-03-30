@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import DialogNewBoard from "shared/components/Drawer/components/Aside/components/DialogNewBoard";
 import { IAsideView } from "shared/components/Drawer/components/Aside/types";
 import { ICON_SIZE } from "shared/constants";
-import IconMenu from "./components/IconMenu";
-import TreeViewBoards from "./components/TreeViewBoards";
+import IconMenu from "shared/components/Drawer/components/Aside/components/IconMenu";
+import TreeViewBoards from "shared/components/Drawer/components/Aside/components/TreeViewBoards";
 import {
 	Aside,
 	AsideHeader,
 	TreeViewContainer,
 	TreeViewContainerItem,
-} from "./style";
-import TreeViewDashboard from "./components/TreeViewDashboard";
+} from "shared/components/Drawer/components/Aside/aside.style";
+import TreeViewDashboard from "shared/components/Drawer/components/Aside/components/TreeViewDashboard";
 
 const AsideView: React.FC<IAsideView> = props => {
 	const {

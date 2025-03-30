@@ -5,9 +5,9 @@ import React, { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { BOARD_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 import DialogNewBoardView from "shared/components/Drawer/components/Aside/components/DialogNewBoard/DialogNewBoardView";
-import { fetchPostBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/services";
-import { DialogNewBoardSchema } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/schema";
-import {
+import { postBoardService } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/services";
+import { DialogNewBoardSchema } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/dialog-new-board.constants";
+import type {
 	IDialogNewBoard,
 	IDialogNewBoardForm,
 } from "shared/components/Drawer/components/Aside/components/DialogNewBoard/types";
@@ -35,7 +35,7 @@ const DialogNewBoard: React.FC<IDialogNewBoard> = ({
 	}, [openDialog]);
 
 	const mutationFn = (form: IDialogNewBoardForm) =>
-		fetchPostBoardService({ body: form });
+		postBoardService({ body: form });
 
 	const onSuccess = async () => {
 		closeDialogNewBoard();

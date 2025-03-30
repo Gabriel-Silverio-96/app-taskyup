@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
+import { IGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
 
-export const MENU_MOCK: IFetchGetMenuResponse = {
+export const MENU_MOCK: IGetMenuResponse = {
 	notes: [
 		{
 			board_id: faker.datatype.uuid(),

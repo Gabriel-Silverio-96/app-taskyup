@@ -5,7 +5,7 @@ import { ICON_SIZE } from "shared/constants";
 import LinkTreeItem from "../LinkTreeItem";
 import { MdOutlineNotes, MdOutlineSpaceDashboard } from "react-icons/md";
 import { Tooltip } from "@mui/material";
-import { ITreeViewBoards } from "./types";
+import type { ITreeViewBoards } from "shared/components/Drawer/components/Aside/components/TreeViewBoards/types";
 
 const TreeViewBoards: React.FC<ITreeViewBoards> = ({
 	expanded,

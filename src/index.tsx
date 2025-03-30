@@ -12,7 +12,7 @@ import Session from "shared/components/Session";
 import queryClient from "infra/queryClient";
 import setupInterceptors from "infra/setupInterceptors";
 import MainRoutes from "./MainRoutes";
-import { ThemeProvider } from "./shared/common/Context/ThemeContext";
+import { ThemeContextProvider } from "./shared/common/Context/ThemeContext";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -22,7 +22,7 @@ setupInterceptors(store);
 root.render(
 	<Provider store={store}>
 		<QueryClientProvider client={queryClient}>
-			<ThemeProvider>
+			<ThemeContextProvider>
 				<BrowserRouter>
 					<Session>
 						<Layout>
@@ -32,7 +32,7 @@ root.render(
 						</Layout>
 					</Session>
 				</BrowserRouter>
-			</ThemeProvider>
+			</ThemeContextProvider>
 		</QueryClientProvider>
 	</Provider>
 );

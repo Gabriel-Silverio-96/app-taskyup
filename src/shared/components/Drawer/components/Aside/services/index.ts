@@ -1,1 +1,1 @@
-export * from "./fetchGetMenuService";
+export * from "./get-menu.service";

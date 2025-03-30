@@ -2,7 +2,7 @@ import { FiChevronDown, FiChevronRight, FiStar } from "react-icons/fi";
 import { TreeView, TreeItem } from "@mui/lab";
 import { ICON_SIZE } from "shared/constants";
 import LinkFavoritesTreeItem from "shared/components/Drawer/components/Aside/components/LinkFavoritesTreeItem";
-import { ITreeViewDashboard } from "./types";
+import type { ITreeViewDashboard } from "shared/components/Drawer/components/Aside/components/TreeViewDashboard/types";
 
 const TreeViewDashboard: React.FC<ITreeViewDashboard> = ({
 	expanded,

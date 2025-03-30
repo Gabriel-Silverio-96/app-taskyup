@@ -1,1 +1,1 @@
-export * from "./fetchGetMenuService.types";
+export * from "./get-menu.types";

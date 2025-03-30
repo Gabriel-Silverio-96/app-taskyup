@@ -2,8 +2,11 @@ import { TextField } from "@mui/material";
 import React, { forwardRef, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { ICON_SIZE } from "shared/constants";
-import { IconButton, TextFieldPasswordContainer } from "./style";
-import { ITextFieldPassword } from "./types";
+import {
+	IconButton,
+	TextFieldPasswordContainer,
+} from "shared/components/TextFieldPassword/text-field-password.style";
+import type { ITextFieldPassword } from "shared/components/TextFieldPassword/types";
 import { fieldErrors } from "shared/utils/field-errors";
 
 const TextFieldPassword: React.FC<ITextFieldPassword> = forwardRef(

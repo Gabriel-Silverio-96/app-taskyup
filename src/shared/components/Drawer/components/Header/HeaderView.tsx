@@ -5,9 +5,12 @@ import { FiUser } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Logo from "shared/components/Logo";
 import { ICON_SIZE } from "shared/constants";
-import Dropdown from "./Dropdown";
-import { Header, Nav } from "./style";
-import { IHeaderView } from "./types/Header.component";
+import Dropdown from "shared/components/Drawer/components/Header/components/Dropdown";
+import {
+	Header,
+	Nav,
+} from "shared/components/Drawer/components/Header/header.style";
+import type { IHeaderView } from "shared/components/Drawer/components/Header/types";
 
 const HeaderView: React.FC<IHeaderView> = props => {
 	const {

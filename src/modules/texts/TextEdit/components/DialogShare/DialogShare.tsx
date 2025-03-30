@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTextEditContext } from "modules/texts/TextEdit/Context";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import useSnackbar from "shared/common/hook/useSnackbar";
+import useSnackbar from "shared/common/hooks/useSnackbar";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
 import DialogShareView from "modules/texts/TextEdit/components/DialogShare/DialogShareView";
 import {

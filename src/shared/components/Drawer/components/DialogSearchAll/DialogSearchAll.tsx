@@ -4,18 +4,18 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { CLOSE_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAll/DialogSearchAll.reduce";
-import { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types/DialogSearchAll.types";
+import type { IDialogSearchAllState } from "shared/common/store/DialogSearchAll/types";
 import { createAction } from "shared/common/store/store.action";
 import DialogSearchAllView from "shared/components/Drawer/components/DialogSearchAll/DialogSearchAllView";
-import { DialogSearchAllSchema } from "shared/components/Drawer/components/DialogSearchAll/schema";
-import { fetchGetSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
-import { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
-import { IPaginationModel } from "shared/common/types";
+import { getSearchAllService } from "shared/components/Drawer/components/DialogSearchAll/services";
+import type { IDialogSearchAllForm } from "shared/components/Drawer/components/DialogSearchAll/types";
+import type { IPaginationModel } from "shared/common/types";
 import {
 	DIALOG_SEARCH_ALL_QUERY_KEY,
 	INTIAL_STATE_GET_SEARCH_ALL_USE_QUERY,
 	INTIAL_STATE_PAGINATION_MODEL,
-} from "./constants";
+	DIALOG_SEARCH_ALL_SCHEMA,
+} from "shared/components/Drawer/components/DialogSearchAll/dialog-search-all.constants";
 
 const DialogSearchAll: React.FC = () => {
 	const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const DialogSearchAll: React.FC = () => {
 		reset,
 		getValues,
 	} = useForm<IDialogSearchAllForm>({
-		resolver: yupResolver(DialogSearchAllSchema),
+		resolver: yupResolver(DIALOG_SEARCH_ALL_SCHEMA),
 		mode: "all",
 	});
 
@@ -46,7 +46,7 @@ const DialogSearchAll: React.FC = () => {
 		const { page, pageSize } = paginationModel;
 		const params = { ...getValues(), pageNumber: page, pageSize };
 
-		return fetchGetSearchAllService({ params });
+		return getSearchAllService({ params });
 	};
 
 	const {

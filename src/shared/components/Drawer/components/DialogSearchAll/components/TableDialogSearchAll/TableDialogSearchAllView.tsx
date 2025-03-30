@@ -1,8 +1,8 @@
 import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
-import { ITableDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/types";
-import { TableDialogSearchAllContainer } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/style";
-import { columns } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/constants";
+import type { ITableDialogSearchAllView } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/types";
+import { TableDialogSearchAllContainer } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/table-dialog-search-all.style";
+import { COLUMNS } from "shared/components/Drawer/components/DialogSearchAll/components/TableDialogSearchAll/table-dialog-search-all.constants";
 
 const TableDialogSearchAllView: React.FC<ITableDialogSearchAllView> = props => {
 	const {
@@ -18,7 +18,7 @@ const TableDialogSearchAllView: React.FC<ITableDialogSearchAllView> = props => {
 			<DataGrid
 				loading={isLoading}
 				rows={rows}
-				columns={columns}
+				columns={COLUMNS}
 				rowCount={data?.countResult}
 				pagination
 				pageSizeOptions={[10, 25, 50]}

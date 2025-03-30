@@ -1,5 +1,5 @@
-import { IFetchGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
+import { IGetMenuResponse } from "shared/components/Drawer/components/Aside/services/types";
 
 export interface ILinkFavoritesTreeItem {
-	data: IFetchGetMenuResponse | undefined;
+	data: IGetMenuResponse | undefined;
 }

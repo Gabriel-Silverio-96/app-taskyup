@@ -1,7 +1,7 @@
 import { Backdrop, CircularProgress, Fade, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
-import { Loading } from "./style";
-import { ILoading } from "./types/Loading.component";
+import { Loading } from "shared/components/Loading/loading.style";
+import type { ILoading } from "shared/components/Loading/types";
 
 const LoadingView: React.FC<ILoading> = props => {
 	const {
@@ -16,9 +16,7 @@ const LoadingView: React.FC<ILoading> = props => {
 	const LoadingComponent = forwardRef<HTMLDivElement>((_, ref) => (
 		<Loading ref={ref}>
 			<CircularProgress size={size} color={color} {...rest} />
-			{message && (
-				<Typography variant="caption">{message}</Typography>
-			)}
+			{message && <Typography variant="caption">{message}</Typography>}
 		</Loading>
 	));
 

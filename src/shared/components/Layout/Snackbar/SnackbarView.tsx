@@ -1,6 +1,6 @@
 import { Alert, Snackbar } from "@mui/material";
 import React from "react";
-import { ISnackbarView } from "shared/components/Layout/Snackbar/types";
+import type { ISnackbarView } from "shared/components/Layout/Snackbar/types";
 
 const SnackbarView: React.FC<ISnackbarView> = ({
 	snackbarProps,

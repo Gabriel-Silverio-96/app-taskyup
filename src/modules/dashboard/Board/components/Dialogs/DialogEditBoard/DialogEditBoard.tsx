@@ -16,7 +16,7 @@ import { invalidateBoardRelatedQueries } from "modules/dashboard/Board/component
 import { useDialogBoard } from "modules/dashboard/Board/shared/hooks/useDialogBoard";
 import { memo, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import useSnackbar from "shared/common/hook/useSnackbar";
+import useSnackbar from "shared/common/hooks/useSnackbar";
 import { dateFormat } from "shared/utils/date-format";
 import { defineValueCreatedAt } from "shared/utils/define-value-created-at";
 

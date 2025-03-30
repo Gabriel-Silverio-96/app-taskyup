@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
-import useLocalStorage from "shared/common/hook/useLocalStorage";
+import useLocalStorage from "shared/common/hooks/useLocalStorage";
 import AsideView from "shared/components/Drawer/components/Aside/AsideView";
-import { fetchGetMenuService } from "shared/components/Drawer/components/Aside/services";
+import { getMenuService } from "shared/components/Drawer/components/Aside/services";
 import { IOnNodeToggle } from "shared/components/Drawer/components/Aside/types";
 import { MENU_QUERY_KEY } from "shared/constants";
 
@@ -27,10 +27,7 @@ const Aside: React.FC = () => {
 		setTreeViewExpanded(nodeIds);
 	};
 
-	const { data } = useQuery(
-		[MENU_QUERY_KEY.FETCH_GET_MENU],
-		fetchGetMenuService
-	);
+	const { data } = useQuery([MENU_QUERY_KEY.FETCH_GET_MENU], getMenuService);
 
 	return (
 		<AsideView
