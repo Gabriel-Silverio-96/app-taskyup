@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { OPEN_DIALOG_SEARCH_ALL_TYPE } from "shared/common/store/DialogSearchAll/DialogSearchAll.reduce";
 import { createAction } from "shared/common/store/store.action";
-import HeaderView from "./HeaderView";
+import HeaderView from "shared/components/Drawer/components/Header/HeaderView";
 
 const Header: React.FC = () => {
 	const dispatch = useDispatch();
