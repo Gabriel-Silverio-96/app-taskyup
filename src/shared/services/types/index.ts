@@ -1,2 +1,2 @@
-export * from "./fetchDeleteFavoriteService.types";
-export * from "./fetchPostFavoriteService.types";
+export * from "./delete-favorite.types";
+export * from "./post-favorite.types";
