@@ -9,7 +9,7 @@ export interface IFetchDeleteFavoriteProps {
 	};
 }
 
-export interface IFetchDeleteFavoriteService {
+export interface IDeleteFavoriteService {
 	({ params }: IFetchDeleteFavoriteProps):
 		| AxiosPromise<IFetchDefaultResponse>
 		| any;

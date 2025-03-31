@@ -8,7 +8,7 @@ import { FiEye, FiStar, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { BOARD_TYPE_ID, ICON_SIZE, MENU_QUERY_KEY } from "shared/constants";
 import {
-	fetchDeleteFavoriteService,
+	deleteFavoriteService,
 	fetchPostFavoriteService,
 } from "shared/services";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
@@ -34,7 +34,7 @@ const CardAction: React.FC<ICardAction> = ({
 		try {
 			if (favorite) {
 				const params = { favorite_id, board_id, related_id: note_id };
-				await fetchDeleteFavoriteService({ params });
+				await deleteFavoriteService({ params });
 				return;
 			}
 
