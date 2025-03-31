@@ -7,10 +7,7 @@ import { useDialogNote } from "modules/notes/Note/shared/hooks/useDialogNote";
 import { FiEye, FiStar, FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { BOARD_TYPE_ID, ICON_SIZE, MENU_QUERY_KEY } from "shared/constants";
-import {
-	deleteFavoriteService,
-	fetchPostFavoriteService,
-} from "shared/services";
+import { deleteFavoriteService, postFavoriteService } from "shared/services";
 import { createURLQueryParams } from "shared/utils/create-url-query-params";
 
 const CardAction: React.FC<ICardAction> = ({
@@ -44,7 +41,7 @@ const CardAction: React.FC<ICardAction> = ({
 				board_type_id: BOARD_TYPE_ID.NOTES_BOARD_TYPE_ID,
 			};
 
-			const { data } = await fetchPostFavoriteService({ body });
+			const { data } = await postFavoriteService({ body });
 
 			favoriteId = data.results.favorite_id;
 		} catch (error) {
