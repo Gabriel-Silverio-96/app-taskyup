@@ -31,7 +31,6 @@ export const Aside = styled("aside")<IAsideStyle>(
                     margin-top: ${theme.spacing(0.5)};                              
                     padding: ${theme.spacing(0.8, 0.8, 0.8, 0)};
                     border-radius: ${theme.spacing(0.625)};
-                    background: red;
                     
                     .MuiTreeItem-iconContainer {
                         margin-right: 0;
