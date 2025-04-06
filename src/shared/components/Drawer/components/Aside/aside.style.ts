@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import { styled } from "@mui/material";
 
 export interface IAsideStyle {
@@ -29,12 +28,8 @@ export const Aside = styled("aside")<IAsideStyle>(
                 }
 
                 .MuiTreeItem-content {         
-                    margin-top: ${theme.spacing(
-						0.5
-					)};                              
-                    padding: ${theme.spacing(0.8)} ${theme.spacing(
-		0.8
-	)} ${theme.spacing(0.8)} 0;
+                    margin-top: ${theme.spacing(0.5)};                              
+                    padding: ${theme.spacing(0.8)} ${theme.spacing(0.8)} ${theme.spacing(0.8)} 0;
                     border-radius: ${theme.spacing(0.625)};
                     
                     .MuiTreeItem-iconContainer {
@@ -73,8 +68,7 @@ export const Aside = styled("aside")<IAsideStyle>(
 
 export const AsideHeader = styled("div")<IAsideStyle>(
 	({ open, theme }) => `        
-        margin-top: ${theme.spacing(0.8)};
-        margin-bottom: ${theme.spacing(6)};
+        margin-top: ${theme.spacing(0.8)};        margin-bottom: ${theme.spacing(6)};
         display: flex;
         align-items: center;
         gap: ${theme.spacing(1)};
