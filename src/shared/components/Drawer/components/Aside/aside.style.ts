@@ -1,7 +1,8 @@
+/* eslint-disable indent */
 import { styled } from "@mui/material";
 
 export interface IAsideStyle {
-    open: boolean;
+	open: boolean;
 }
 
 export const Aside = styled("aside")<IAsideStyle>(
@@ -12,7 +13,7 @@ export const Aside = styled("aside")<IAsideStyle>(
         padding: ${theme.spacing(2)};          
         transition: width 0.2s ease-out;
         border-style: ${open ? "solid" : "none"};
-        border-width: ${theme.spacing(0, 0.0500, 0, 0)};
+        border-width: ${theme.spacing(0, 0.05, 0, 0)};
         border-color: ${theme.palette.grey[900]};
 
         .MuiTreeView-root {            
@@ -28,8 +29,12 @@ export const Aside = styled("aside")<IAsideStyle>(
                 }
 
                 .MuiTreeItem-content {         
-                    margin-top: ${theme.spacing(0.5)};                              
-                    padding: ${theme.spacing(0.8)} ${theme.spacing(0.8)} ${theme.spacing(0.8)} 0;
+                    margin-top: ${theme.spacing(
+						0.5
+					)};                              
+                    padding: ${theme.spacing(0.8)} ${theme.spacing(
+		0.8
+	)} ${theme.spacing(0.8)} 0;
                     border-radius: ${theme.spacing(0.625)};
                     
                     .MuiTreeItem-iconContainer {
@@ -55,6 +60,7 @@ export const Aside = styled("aside")<IAsideStyle>(
 
         > button {
             display: ${open ? "flex" : "none"};
+           
         }
 
         > div {
@@ -75,19 +81,19 @@ export const AsideHeader = styled("div")<IAsideStyle>(
 
         .MuiButton-root {
             visibility: ${open ? "visible" : "hidden"};
-        }
-
-        .MuiButton-root {
-            visibility: ${open ? "visible" : "hidden"};
+            min-width: ${open ? "inherit" : "0"};
+            padding: ${open ? theme.spacing(1, 2) : theme.spacing(0.8)};
+            opacity: ${open ? 1 : 0};
+            transition: opacity 0.5s ease-in-out;
+            transition-delay: 0.05s; 
         }
 
         .MuiIconButton-root {
-            left: ${open ? 0 : theme.spacing(-1.5) };
-            top: ${open ? 0 : theme.spacing(0.625) };
+            left: ${open ? 0 : theme.spacing(-1.5)};
+            top: ${open ? 0 : theme.spacing(0.625)};
         }
     `
 );
-
 
 export const TreeViewContainer = styled("div")<IAsideStyle>(
 	({ open, theme }) => `        

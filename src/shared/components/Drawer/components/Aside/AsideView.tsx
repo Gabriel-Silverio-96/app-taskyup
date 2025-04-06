@@ -33,7 +33,6 @@ const AsideView: React.FC<IAsideView> = props => {
 				<Button
 					variant="contained"
 					fullWidth
-					sx={!openAside ? { minWidth: "0", padding: "5px" } : {}}
 					onClick={openDialogNewBoard}>
 					New board
 				</Button>
