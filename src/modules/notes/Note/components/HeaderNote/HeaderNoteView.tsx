@@ -1,5 +1,5 @@
-import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
-import { Nav } from "modules/notes/Note/components/HeaderNote/header-note.style";
+import { Grid, IconButton, Tooltip } from "@mui/material";
+import { Nav, TypographyTitle } from "modules/notes/Note/components/HeaderNote/header-note.style";
 import type { IHeaderNoteView } from "modules/notes/Note/components/HeaderNote/types";
 import React from "react";
 import { FiColumns, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
@@ -24,12 +24,14 @@ const HeaderNoteView: React.FC<IHeaderNoteView> = props => {
 				message={isLoading ? "Creating note" : ""}
 			/>
 			<Grid container alignItems="center" sx={{ mb: 3 }}>
-				<Grid item xl={6} md={6} sm={8} xs={8}>
-					<Typography variant="h6" fontWeight={800}>
-						{title}
-					</Typography>
+				<Grid item xl={6} md={6} sm={8} xs={12}>
+					<Tooltip arrow title={title || ""} placement="top">
+						<TypographyTitle variant="h6" fontWeight={800}>
+							{title}
+						</TypographyTitle>
+					</Tooltip>
 				</Grid>
-				<Grid item xl={6} md={6} sm={4} xs={4}>
+				<Grid item xl={6} md={6} sm={4} xs={12}>
 					<Nav>
 						<Tooltip arrow title="Create note" placement="top">
 							<IconButton onClick={() => mutate()}>
