@@ -1,4 +1,8 @@
-import { styled } from "@mui/material";
+import { styled, Theme } from "@mui/material";
+
+interface IBreadcrumbsStyle {
+	titleboard: string;
+}
 
 export const Nav = styled("nav")(
 	({ theme }) => `
@@ -27,15 +31,22 @@ export const TextTitle = styled("div")(
     `
 );
 
-export const Breadcrumbs = styled("div")(
-	({ theme }) => `
+const defineWidth = (titleboard: string, theme: Theme) =>
+	titleboard.length > 10 ? theme.spacing(8.2) : "auto";
+
+export const Breadcrumbs = styled("div")<IBreadcrumbsStyle>(
+	({ theme, titleboard }) => `
         display: flex;
         align-items: center;
         justify-content: center;
         gap: ${theme.spacing(0.8)};
 
         > span {
-            color: ${theme.palette.grey[600]};           
+            color: ${theme.palette.grey[600]};   
+            width: ${defineWidth(titleboard, theme)};        
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     `
 );
@@ -66,5 +77,11 @@ export const TextField = styled("input")(
         :focus-visible {
             outline: none;
         }
+    `
+);
+
+export const Slash = styled("div")(
+	() => `
+        width: auto
     `
 );
