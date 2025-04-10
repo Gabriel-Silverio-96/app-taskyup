@@ -1,10 +1,18 @@
-import { Button, Grid, IconButton, Typography } from "@mui/material";
+import {
+	Button,
+	Grid,
+	IconButton,
+	Tooltip,
+	Typography,
+	useMediaQuery,
+} from "@mui/material";
 import { useTextEditContext } from "modules/texts/TextEdit/Context";
 import {
 	Breadcrumbs,
 	Nav,
 	TextField,
 	TextTitle,
+	Slash,
 } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/header-text.style";
 import React, { memo } from "react";
 import { FiArrowLeft, FiShare2 } from "react-icons/fi";
@@ -14,6 +22,7 @@ import IconPublic from "shared/components/IconPublic";
 import { ICON_SIZE } from "shared/constants";
 import type { IHeaderText } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/types";
 import { validateTitleText } from "modules/texts/TextEdit/components/Markdown/components/HeaderText/utils/validate-title-text";
+import { useTheme } from "@mui/material/styles";
 
 const HeaderText: React.FC<IHeaderText> = ({
 	handleClickSaveText,
@@ -22,6 +31,8 @@ const HeaderText: React.FC<IHeaderText> = ({
 	onChangeTextTitle,
 }) => {
 	const { setIsOpenDialogShare, dataText } = useTextEditContext();
+	const theme = useTheme();
+	const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const [searchParams] = useSearchParams();
 	const board_id = searchParams.get("board_id");
@@ -33,20 +44,26 @@ const HeaderText: React.FC<IHeaderText> = ({
 	const handleClickOpenDialogShare = () => setIsOpenDialogShare(true);
 
 	return (
-		<Grid
-			container
-			alignItems="center"
-			justifyContent="space-between"
-			sx={{ mb: 3 }}>
-			<Grid item md={3}>
+		<Grid container sx={{ mb: 3 }}>
+			<Grid
+				item
+				lg={4}
+				md={4}
+				sm={12}
+				xs={12}
+				display="flex"
+				alignItems="center"
+				gap={4}
+				mb={isSmallScreen ? 2 : 0}>
 				<Link to="/dashboard">
 					<Logo size={100} />
 				</Link>
-			</Grid>
-			<Grid item md={3}>
-				<Breadcrumbs>
+				<Breadcrumbs titleboard={titleBoard}>
 					<IconPublic isPublic={dataText.public} />
-					<Typography variant="caption">{titleBoard} /</Typography>
+					<Tooltip title={titleBoard} arrow>
+						<Typography variant="caption">{titleBoard}</Typography>
+					</Tooltip>
+					<Slash>/</Slash>
 					<TextTitle>
 						<TextField
 							value={titleText}
@@ -56,7 +73,7 @@ const HeaderText: React.FC<IHeaderText> = ({
 					</TextTitle>
 				</Breadcrumbs>
 			</Grid>
-			<Grid item md={3}>
+			<Grid item lg={8} md={8} sm={12} xs={12} justifyContent="right">
 				<Nav>
 					<Link to={linkPreviousPage}>
 						<IconButton>
