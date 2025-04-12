@@ -14,4 +14,5 @@ export interface IAsideView {
 	closeDialogNewBoard: FunctionReturnsVoid;
 	treeViewExpanded: [] | string[];
 	onNodeToggle: IOnNodeToggle;
+	isSmallScreen: boolean;
 }
