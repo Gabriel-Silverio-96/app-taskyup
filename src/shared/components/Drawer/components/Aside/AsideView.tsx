@@ -25,10 +25,11 @@ const AsideView: React.FC<IAsideView> = props => {
 		closeDialogNewBoard,
 		treeViewExpanded,
 		onNodeToggle,
+		isSmallScreen,
 	} = props;
 
 	return (
-		<Aside open={openAside}>
+		<Aside open={openAside} smallscreen={isSmallScreen}>
 			<AsideHeader open={openAside}>
 				<Button
 					variant="contained"

@@ -1,14 +1,38 @@
-import { styled } from "@mui/material";
+import { styled, Theme } from "@mui/material";
 
 export interface IAsideStyle {
 	open: boolean;
+	smallscreen?: boolean;
 }
 
+interface IDefineWidth {
+	({
+		smallscreen,
+		open,
+		theme,
+	}: {
+		smallscreen?: boolean;
+		open: boolean;
+		theme: Theme;
+	}): string;
+}
+
+const defineAsideWidth: IDefineWidth = ({ smallscreen, open, theme }) => {
+	if (open === false) return theme.spacing(7);
+
+	if (smallscreen && open) {
+		const asideFullWidth = "calc(100vw / 1.09) !important";
+		return asideFullWidth;
+	}
+
+	return theme.spacing(25);
+};
+
 export const Aside = styled("aside")<IAsideStyle>(
-	({ open, theme }) => `                
+	({ open, theme, smallscreen }) => `                
         position: relative;
         background-color: ${open ? theme.palette.common.black : "transparent"};
-        width: ${open ? theme.spacing(25) : theme.spacing(7)};
+        width: ${defineAsideWidth({ smallscreen, open, theme })};
         padding: ${theme.spacing(2)};          
         transition: width 0.2s ease-out;
         border-style: ${open ? "solid" : "none"};

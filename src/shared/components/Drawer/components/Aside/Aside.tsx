@@ -1,3 +1,4 @@
+import { useMediaQuery, useTheme } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React, { memo, useState } from "react";
 import useLocalStorage from "shared/common/hooks/useLocalStorage";
@@ -7,10 +8,14 @@ import { IOnNodeToggle } from "shared/components/Drawer/components/Aside/types";
 import { MENU_QUERY_KEY } from "shared/constants";
 
 const Aside: React.FC = () => {
+	const theme = useTheme();
+	const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
 	const [openAside, setOpenAside] = useLocalStorage(
 		"@taskyup.aside.open",
 		true
 	);
+
 	const [treeViewExpanded, setTreeViewExpanded] = useLocalStorage<string[]>(
 		"@taskyup.tree_view_expanded",
 		[]
@@ -40,6 +45,7 @@ const Aside: React.FC = () => {
 				closeDialogNewBoard,
 				treeViewExpanded,
 				onNodeToggle,
+				isSmallScreen,
 			}}
 		/>
 	);
