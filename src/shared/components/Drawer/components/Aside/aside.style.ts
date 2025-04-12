@@ -5,7 +5,7 @@ export interface IAsideStyle {
 	smallscreen?: boolean;
 }
 
-interface IDefineWidth {
+interface IDefineAsideWidth {
 	({
 		smallscreen,
 		open,
@@ -17,7 +17,7 @@ interface IDefineWidth {
 	}): string;
 }
 
-const defineAsideWidth: IDefineWidth = ({ smallscreen, open, theme }) => {
+const defineAsideWidth: IDefineAsideWidth = ({ smallscreen, open, theme }) => {
 	if (open === false) return theme.spacing(7);
 
 	if (smallscreen && open) {
