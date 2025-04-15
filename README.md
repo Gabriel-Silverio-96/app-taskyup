@@ -1,7 +1,7 @@
 
 ---
 <p align="center">
-<img alt="Background taskyup" src="https://private-user-images.githubusercontent.com/53228013/433047323-9adf1e14-210c-48c8-8749-a94a15298e50.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQ0NjMzMjQsIm5iZiI6MTc0NDQ2MzAyNCwicGF0aCI6Ii81MzIyODAxMy80MzMwNDczMjMtOWFkZjFlMTQtMjEwYy00OGM4LTg3NDktYTk0YTE1Mjk4ZTUwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDEyVDEzMDM0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY0ZDU5MGI4ZWY1OTZmYzgyODIxMDY4NTFjMTZiZmUxYjIzMTM5MzFhNTIyNWQ1MTY1OWExZTNiNTAwYzMzN2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.0ohEFUmIh0-5hQEKJHXLQODXF-KHwaYMNYP5y8cjBYU"/>
+<img alt="Background taskyup" src="https://github.com/user-attachments/assets/7fbc91ab-08d0-4e25-a296-083f42b238aa"/>
 </p>
 
 <h1 align="center">
