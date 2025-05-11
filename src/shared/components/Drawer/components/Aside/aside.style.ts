@@ -28,7 +28,9 @@ const defineAsideWidth: IDefineAsideWidth = ({ smallscreen, open, theme }) => {
 	return theme.spacing(25);
 };
 
-export const Aside = styled("aside")<IAsideStyle>(
+export const Aside = styled("aside", {
+	shouldForwardProp: (prop) => prop !== "smallscreen",
+})<IAsideStyle>(
 	({ open, theme, smallscreen }) => `                
         position: relative;
         background-color: ${open ? theme.palette.common.black : "transparent"};
