@@ -35,6 +35,15 @@ const EDIT_BOARD_DATA_MOCK = {
 	),
 };
 
+const DELETE_BOARD_DATA_MOCK = {
+	board_id,
+	title: board_name_edited,
+	created_at: faker.date.between(
+		"2020-01-01T00:00:00.000Z",
+		"2030-01-01T00:00:00.000Z"
+	),
+};
+
 const EDIT_BOARD_SUCCESS_RESPONSE_MOCK = {
 	message: "Board edited successfully",
 	type_message: "success",
@@ -45,10 +54,17 @@ const CREATE_BOARD_SUCCESS_RESPONSE_MOCK = {
 	type_message: "success",
 };
 
+const DELETE_BOARD_SUCCESS_RESPONSE_MOCK = {
+	message: "Board notes deleted successfully",
+	type_message: "success",
+};
+
 export {
 	BOARD_MOCK,
 	LIST_BOARD_MOCK_SUCCESS_RESPONSE_MOCK,
 	CREATE_BOARD_SUCCESS_RESPONSE_MOCK,
 	EDIT_BOARD_DATA_MOCK,
 	EDIT_BOARD_SUCCESS_RESPONSE_MOCK,
+	DELETE_BOARD_DATA_MOCK,
+	DELETE_BOARD_SUCCESS_RESPONSE_MOCK,
 };
