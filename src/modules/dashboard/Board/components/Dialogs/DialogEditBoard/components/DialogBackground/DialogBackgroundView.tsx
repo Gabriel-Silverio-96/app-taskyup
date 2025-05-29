@@ -38,8 +38,7 @@ const DialogBackgroundView: React.FC<IDialogBackgroundView> = props => {
 	} = props;
 
 	return (
-		// Why backgroundimage lower case > Warning: React does not recognize the `backgroundImage` prop on a DOM element.
-		<DialogBackground backgroundimage={dialogBackgroundImage}>
+		<DialogBackground backgroundImage={dialogBackgroundImage}>
 			<Button
 				variant="contained"
 				size="small"
