@@ -3,11 +3,13 @@ import { Theme } from "@emotion/react";
 
 export interface IDialogBackgroundStyled {
 	theme?: Theme;
-	backgroundimage: string;
+	backgroundImage: string;
 }
 
-export const DialogBackground = styled("div")<IDialogBackgroundStyled>(
-	({ theme, backgroundimage }) => `
+export const DialogBackground = styled("div", {
+	shouldForwardProp: prop => prop !== "backgroundImage",
+})<IDialogBackgroundStyled>(
+	({ theme, backgroundImage }) => `
         width: 100%;
         height: ${theme.spacing(15)};
         background: #00000059;
@@ -18,7 +20,7 @@ export const DialogBackground = styled("div")<IDialogBackgroundStyled>(
         justify-content: end;
         align-items: baseline;
         
-        background-image: linear-gradient(#1a191a82, #1a191a82), url(${backgroundimage});
+        background-image: linear-gradient(#1a191a82, #1a191a82), url(${backgroundImage});
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;

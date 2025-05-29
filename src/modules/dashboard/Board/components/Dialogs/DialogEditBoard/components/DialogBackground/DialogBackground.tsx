@@ -60,8 +60,7 @@ const DialogBackground: React.FC = () => {
 	};
 
 	useEffect(() => {
-		const shouldFetchImages = query && pagination !== 1;
-		if (shouldFetchImages) dialogBackgroundSubmit();
+		if (query) dialogBackgroundSubmit();
 	}, [pagination]);
 
 	const menuScrollTop = () => {
