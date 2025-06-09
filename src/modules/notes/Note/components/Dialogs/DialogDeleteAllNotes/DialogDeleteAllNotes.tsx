@@ -5,10 +5,12 @@ import { deleteAllNotesService } from "modules/notes/Note/components/Dialogs/Dia
 import { useDialogNote } from "modules/notes/Note/shared/hooks/useDialogNote";
 import React, { memo } from "react";
 import { useParams } from "react-router-dom";
+import { useLatestAccess } from "shared/common/hooks/useLatestAccess";
 import { NOTE_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
 
 const DialogDeleteAllNotes: React.FC = () => {
 	const queryClient = useQueryClient();
+	const { deleteLatestAccess } = useLatestAccess();
 	const { board_id } = useParams();
 
 	const { isOpenDialogDeleteAllNotes } = useNoteContext();
@@ -18,6 +20,7 @@ const DialogDeleteAllNotes: React.FC = () => {
 		queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]);
 		queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]);
 		closeDialogDeleteAllNotes();
+		deleteLatestAccess({ board_id });
 	};
 
 	const mutationFn = () => deleteAllNotesService(board_id);
