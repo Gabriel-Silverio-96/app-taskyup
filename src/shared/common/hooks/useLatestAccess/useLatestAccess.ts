@@ -21,15 +21,13 @@ const useLatestAccess = (): IUseLatestAccess => {
 			setStorage(prevState => {
 				const isStoraged = prevState.some(state => state.id === id);
 				if (isStoraged) return prevState;
+
+				const path = `${location.pathname}${location.search}`;
 				const result = [
-					{
-						id,
-						title,
-						path: location.pathname + location.search,
-						board_id,
-					},
+					{ id, title, path, board_id },
 					...prevState.slice(0, 3),
 				];
+
 				return result;
 			});
 		},
@@ -37,19 +35,11 @@ const useLatestAccess = (): IUseLatestAccess => {
 	);
 
 	const editLatestAccess: EditLatestAccess = useCallback(({ id, title }) => {
-		setStorage(prevState => {
-			const isStoraged = prevState.some(state => state.id === id);
-			if (isStoraged)
-				return prevState.map(state => {
-					if (state.id === id) {
-						return { ...state, title };
-					}
-
-					return state;
-				});
-
-			return prevState;
-		});
+		setStorage(prevState =>
+			prevState.map(state =>
+				state.id === id ? { ...state, title } : state
+			)
+		);
 	}, []);
 
 	const deleteLatestAccess: DeleteLatestAccess = useCallback(
