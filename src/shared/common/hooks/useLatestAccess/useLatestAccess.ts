@@ -9,6 +9,8 @@ import {
 	LatestAccess,
 } from "shared/common/hooks/useLatestAccess/types";
 
+const MAX_ITEMS = 3;
+
 const useLatestAccess = (): IUseLatestAccess => {
 	const location = useLocation();
 	const [storage, setStorage] = useLocalStorage<Array<LatestAccess>>(
@@ -25,7 +27,7 @@ const useLatestAccess = (): IUseLatestAccess => {
 				const path = `${location.pathname}${location.search}`;
 				const result = [
 					{ id, title, path, board_id },
-					...prevState.slice(0, 3),
+					...prevState.slice(0, MAX_ITEMS),
 				];
 
 				return result;
