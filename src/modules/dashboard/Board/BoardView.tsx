@@ -6,6 +6,7 @@ import { BoardContextProvider } from "modules/dashboard/Board/Context";
 import Loading from "shared/components/Loading";
 import DoodleMessage from "shared/components/DoodleMessage";
 import type { IBoardView } from "modules/dashboard/Board/types";
+import CardBoardLatestAccess from "./components/CardBoardLatestAccess";
 
 const BoardView: React.FC<IBoardView> = props => {
 	const { data, isFetching, isShowDoodleMessage } = props;
@@ -18,6 +19,7 @@ const BoardView: React.FC<IBoardView> = props => {
 				title="You have not created any board"
 				message="Create a board 😊"
 			/>
+			<CardBoardLatestAccess />
 			<CardBoard {...{ data, isFetching }} />
 			<DialogEditBoard />
 			<DialogDeleteOneBoard />

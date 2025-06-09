@@ -10,8 +10,18 @@ import { Link } from "react-router-dom";
 import type { ICardBoard } from "modules/dashboard/Board/components/CardBoard/types";
 
 const CardBoard: React.FC<ICardBoard> = ({ data, isFetching }) => {
+	const isHiddenTitle = data?.length === 0;
 	return (
 		<Grid container spacing={2}>
+			<Grid
+				item
+				md={12}
+				hidden={isHiddenTitle}
+				aria-hidden={isHiddenTitle}>
+				<Typography variant="h6" fontWeight={800}>
+					Boards
+				</Typography>
+			</Grid>
 			{data?.map(
 				({
 					title,
