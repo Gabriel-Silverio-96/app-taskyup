@@ -5,11 +5,9 @@ import { useDialogText } from "modules/texts/Text/shared/hooks/useDialogText";
 import DialogDeleteOneTextView from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/DialogDeleteOneTextView";
 import { deleteOneTextService } from "modules/texts/Text/components/Dialogs/DialogDeleteOneText/services";
 import { TEXT_QUERY_KEY, MENU_QUERY_KEY } from "shared/constants";
-import { useLatestAccess } from "shared/common/hooks/useLatestAccess";
 
 const DialogDeleteOneText: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { deleteLatestAccess } = useLatestAccess();
 	const { closeDialogDeleteOneText } = useDialogText();
 	const { dialogDeleteOneText } = useTextContext();
 	const { textID } = dialogDeleteOneText;
@@ -18,7 +16,6 @@ const DialogDeleteOneText: React.FC = () => {
 		queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]);
 		queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]);
 		closeDialogDeleteOneText();
-		deleteLatestAccess({ id: textID });
 	};
 	const onError = () => closeDialogDeleteOneText();
 
