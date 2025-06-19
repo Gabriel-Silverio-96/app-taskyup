@@ -34,6 +34,7 @@ const Markdown: React.FC = () => {
 					id: text_id,
 					title: data.title_text,
 					board_id,
+					board_type: "texts",
 				});
 			} catch (error) {
 				setDataText(INITIAL_STATE_DATA_TEXT);

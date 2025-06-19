@@ -19,14 +19,14 @@ const useLatestAccess = (): IUseLatestAccess => {
 	);
 
 	const addLatestAccess: AddLatestAccess = useCallback(
-		({ id, title, board_id }) => {
+		({ id, title, board_id, board_type }) => {
 			setStorage(prevState => {
 				const isStoraged = prevState.some(state => state.id === id);
 				if (isStoraged) return prevState;
 
 				const path = `${location.pathname}${location.search}`;
 				const result = [
-					{ id, title, path, board_id },
+					{ id, title, path, board_id, board_type },
 					...prevState.slice(0, MAX_ITEMS),
 				];
 

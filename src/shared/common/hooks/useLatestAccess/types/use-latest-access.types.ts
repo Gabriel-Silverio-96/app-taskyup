@@ -1,8 +1,11 @@
+import { TypeBoard } from "shared/common/types";
+
 export interface LatestAccess {
 	id: string | null;
 	title: string;
 	board_id: string | null;
 	path?: string;
+	board_type: TypeBoard;
 }
 
 export interface DeleteLatestAccessParams {
@@ -10,7 +13,9 @@ export interface DeleteLatestAccessParams {
 	board_id?: string | null;
 }
 export type AddLatestAccess = (params: LatestAccess) => void;
-export type EditLatestAccess = (params: Omit<LatestAccess, "board_id">) => void;
+export type EditLatestAccess = (
+	params: Omit<LatestAccess, "board_id" | "board_type">
+) => void;
 export type DeleteLatestAccess = (params: DeleteLatestAccessParams) => void;
 
 export interface IUseLatestAccess {

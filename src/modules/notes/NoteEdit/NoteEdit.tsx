@@ -58,7 +58,12 @@ const NoteEdit: React.FC = () => {
 		setValue("observation", note.observation);
 
 		setTodoData(todo);
-		addLatestAccess({ id: note_id, board_id, title: note.title_note });
+		addLatestAccess({
+			id: note_id,
+			board_id,
+			title: note.title_note,
+			board_type: "notes",
+		});
 	};
 
 	const queryFn = async () => {
