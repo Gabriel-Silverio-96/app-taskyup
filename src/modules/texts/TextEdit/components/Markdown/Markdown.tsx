@@ -11,9 +11,11 @@ import {
 	getOneTextService,
 	patchTextService,
 } from "modules/texts/TextEdit/components/Markdown/services";
+import { useLatestAccess } from "shared/common/hooks/useLatestAccess";
 
 const Markdown: React.FC = () => {
 	const queryClient = useQueryClient();
+	const { addLatestAccess, editLatestAccess } = useLatestAccess();
 
 	const { dataText, setDataText } = useTextEditContext();
 
@@ -28,6 +30,12 @@ const Markdown: React.FC = () => {
 			try {
 				const data = await getOneTextService(text_id);
 				setDataText(data);
+				addLatestAccess({
+					id: text_id,
+					title: data.title_text,
+					board_id,
+					board_type: "texts",
+				});
 			} catch (error) {
 				setDataText(INITIAL_STATE_DATA_TEXT);
 			} finally {
@@ -46,6 +54,11 @@ const Markdown: React.FC = () => {
 	};
 
 	const onSuccessMutation = async () => {
+		editLatestAccess({
+			id: text_id,
+			title: dataText.title_text,
+		});
+
 		return await Promise.all([
 			queryClient.invalidateQueries([TEXT_QUERY_KEY.FETCH_GET_ALL_TEXTS]),
 			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
