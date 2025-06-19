@@ -22,11 +22,9 @@ import type {
 	TypeTodoIdsToDelete,
 } from "modules/notes/NoteEdit/types";
 import { MENU_QUERY_KEY, NOTE_QUERY_KEY } from "shared/constants";
-import { useLatestAccess } from "shared/common/hooks/useLatestAccess";
 
 const NoteEdit: React.FC = () => {
 	const queryClient = useQueryClient();
-	const { addLatestAccess, editLatestAccess } = useLatestAccess();
 
 	const [searchParams] = useSearchParams();
 	const note_id = searchParams.get("note_id");
@@ -45,7 +43,6 @@ const NoteEdit: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 		setValue,
-		getValues,
 	} = useForm<INoteEditForm>({
 		resolver: yupResolver(NOTE_EDIT_SCHEMA),
 		mode: "all",
@@ -58,12 +55,6 @@ const NoteEdit: React.FC = () => {
 		setValue("observation", note.observation);
 
 		setTodoData(todo);
-		addLatestAccess({
-			id: note_id,
-			board_id,
-			title: note.title_note,
-			board_type: "notes",
-		});
 	};
 
 	const queryFn = async () => {
@@ -85,11 +76,6 @@ const NoteEdit: React.FC = () => {
 
 	const onSuccessMutation = async () => {
 		setTodoIdsToDelete([]);
-		editLatestAccess({
-			id: note_id,
-			title: getValues("title_note"),
-		});
-
 		return await Promise.all([
 			queryClient.invalidateQueries([MENU_QUERY_KEY.FETCH_GET_MENU]),
 			queryClient.invalidateQueries([NOTE_QUERY_KEY.FETCH_GET_NOTES]),
