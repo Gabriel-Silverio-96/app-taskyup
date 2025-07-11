@@ -43,6 +43,7 @@ const NoteEdit: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 		setValue,
+		watch,
 	} = useForm<INoteEditForm>({
 		resolver: yupResolver(NOTE_EDIT_SCHEMA),
 		mode: "all",
@@ -53,6 +54,7 @@ const NoteEdit: React.FC = () => {
 		setValue("color_note", note.color_note);
 		setValue("title_note", note.title_note);
 		setValue("observation", note.observation);
+		setValue("emoji_image_url", note.emoji_image_url);
 
 		setTodoData(todo);
 	};
@@ -115,6 +117,8 @@ const NoteEdit: React.FC = () => {
 				todoData,
 				setTodoData,
 				setTodoIdsToDelete,
+				setValue,
+				watch,
 			}}
 		/>
 	);

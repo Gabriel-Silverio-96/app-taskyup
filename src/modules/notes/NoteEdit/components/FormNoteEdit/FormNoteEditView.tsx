@@ -11,13 +11,23 @@ import {
 	TextFieldMutiline,
 } from "modules/notes/NoteEdit/components/FormNoteEdit/form-note-edit.style";
 import { fieldErrors } from "shared/utils/field-errors";
+import EmojiPicker from "shared/components/EmojiPicker";
 
 const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
-	const { register, handleSubmit, mutate, errors, linkPreviousPage } = props;
+	const {
+		register,
+		handleSubmit,
+		mutate,
+		errors,
+		linkPreviousPage,
+		onEmojiClick,
+		onEmojiRemove,
+		watch,
+	} = props;
 
 	return (
 		<form onSubmit={handleSubmit(mutate)}>
-			<Grid container spacing={4} justifyContent="space-between">
+			<Grid container spacing={2} justifyContent="space-between">
 				<Grid item md="auto" xs={9}>
 					<FormHeaderNoteEdit>
 						<TextField
@@ -44,6 +54,13 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 					<ColorPicker
 						{...register("color_note")}
 						label="Select color"
+					/>
+				</Grid>
+				<Grid item md={12} xs={12} ml={-0.9} pt={1}>
+					<EmojiPicker
+						onEmojiClick={onEmojiClick}
+						onEmojiRemove={onEmojiRemove}
+						emojiUrl={watch("emoji_image_url")}
 					/>
 				</Grid>
 				<Grid item md={12} xs={12} sx={{ mb: 5 }}>
