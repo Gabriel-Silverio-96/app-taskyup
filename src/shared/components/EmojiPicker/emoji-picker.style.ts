@@ -10,7 +10,7 @@ export const IconButton = styled(IconButtonMui, {
 })<IIconButton>(
 	({ emojiUrl }) => `
        background-image: url(${emojiUrl});
-       background-size: 80%;
+       background-size: 70%;
        background-repeat: no-repeat;
        background-position: center;
 	`
