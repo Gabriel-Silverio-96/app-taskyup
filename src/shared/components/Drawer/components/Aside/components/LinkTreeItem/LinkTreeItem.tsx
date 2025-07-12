@@ -9,9 +9,9 @@ import {
 	TreeItemContainer,
 	LinkIcon,
 	TreeItemLabel,
-	EmojiIndicator,
 } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/link-tree-item.style";
 import { Grid, Typography } from "@mui/material";
+import EmojiDisplay from "shared/components/EmojiDisplay";
 
 const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, propertyName }) => {
 	if (!data) return null;
@@ -47,7 +47,7 @@ const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, propertyName }) => {
 																display="flex"
 																alignItems="center"
 																gap={0.5}>
-																<EmojiIndicator
+																<EmojiDisplay
 																	src={
 																		emoji_image_url
 																	}

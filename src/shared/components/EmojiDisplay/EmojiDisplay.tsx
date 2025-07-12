@@ -1,7 +1,18 @@
-import { EmojiDisplayContainer } from "shared/components/EmojiDisplay/emoji-display.style";
+const EmojiDisplay = ({ src }: { src: string }) => {
+	if (src) {
+		return (
+			<img
+				src={src}
+				width={20}
+				height={20}
+				style={{ verticalAlign: "middle" }}
+				loading="lazy"
+				alt="Emoji"
+			/>
+		);
+	}
 
-const EmojiDisplay = ({ src }: { src: string }) => (
-	<EmojiDisplayContainer src={src} />
-);
+	return null;
+};
 
 export default EmojiDisplay;

@@ -36,17 +36,3 @@ export const TreeItemLabel = styled("div")(
         text-overflow: ellipsis;
     `
 );
-
-const defineDisplay = (src: string) => (src ? "block" : "none");
-
-export const EmojiIndicator = styled("span")<IEmojiStyle>(
-	({ theme, src }) => `        
-        display: ${defineDisplay(src)};
-        background-image: url(${src});  
-        width: ${theme.spacing(2.375)};
-        height: ${theme.spacing(2.375)};
-        background-position: center;
-        background-size: 100%;
-        background-repeat: no-repeat;   
-`
-);

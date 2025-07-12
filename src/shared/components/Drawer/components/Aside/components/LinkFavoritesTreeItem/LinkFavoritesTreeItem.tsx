@@ -3,8 +3,8 @@ import { defineURLPath } from "shared/components/Drawer/components/Aside/compone
 import { Link } from "react-router-dom";
 import React from "react";
 import { ILinkFavoritesTreeItem } from "shared/components/Drawer/components/Aside/components/LinkFavoritesTreeItem/types";
-import { EmojiIndicator } from "../LinkTreeItem/link-tree-item.style";
 import { Grid, Typography } from "@mui/material";
+import EmojiDisplay from "shared/components/EmojiDisplay";
 
 const LinkFavoritesTreeItem: React.FC<ILinkFavoritesTreeItem> = ({ data }) => {
 	if (!data) return null;
@@ -26,8 +26,7 @@ const LinkFavoritesTreeItem: React.FC<ILinkFavoritesTreeItem> = ({ data }) => {
 						<Link
 							key={favorite_id}
 							to={`${definedURLPath}${related_id}&board_id=${board_id}`}
-							title={title}
-						>
+							title={title}>
 							<TreeItem
 								nodeId={favorite_id}
 								label={
@@ -35,7 +34,7 @@ const LinkFavoritesTreeItem: React.FC<ILinkFavoritesTreeItem> = ({ data }) => {
 										display="flex"
 										alignItems="center"
 										gap={0.5}>
-										<EmojiIndicator src={emoji_image_url} />
+										<EmojiDisplay src={emoji_image_url} />
 										<Typography variant="inherit">
 											{title}
 										</Typography>
@@ -49,7 +48,5 @@ const LinkFavoritesTreeItem: React.FC<ILinkFavoritesTreeItem> = ({ data }) => {
 		</>
 	);
 };
-
-
 
 export default LinkFavoritesTreeItem;
