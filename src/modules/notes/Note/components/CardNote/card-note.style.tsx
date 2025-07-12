@@ -82,6 +82,7 @@ export const CardContent = styled(CardContentMui)(
             overflow: hidden;
             text-overflow: ellipsis;
             -webkit-line-clamp: 2;
+            width: ${theme.spacing(22)}
         }
 
         .MuiTypography-body1 {
@@ -91,29 +92,6 @@ export const CardContent = styled(CardContentMui)(
         p:nth-of-type(2) {
             width: ${theme.spacing(26)};
         }
-`
-);
-
-export const CardDot = styled("div")<ICardDotStyle>(
-	({ theme, color }) => `
-        width: ${theme.spacing(2)};
-        height: ${theme.spacing(2)};
-        background-color: ${color};     
-        border-radius: 100%;
-`
-);
-
-const defineDisplay = (src: string) => (src ? "block" : "none");
-
-export const CardEmoji = styled("div")<ICardEmojiStyle>(
-	({ theme, src }) => `
-        display: ${defineDisplay(src)};  
-        background-image: url(${src});  
-        width: ${theme.spacing(2.375)};
-        height: ${theme.spacing(2.375)};
-        background-position: center;
-        background-size: 100%;
-        background-repeat: no-repeat;   
 `
 );
 

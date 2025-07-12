@@ -2,8 +2,6 @@ import { Grid, Typography } from "@mui/material";
 import {
 	Card,
 	CardContent,
-	CardDot,
-	CardEmoji,
 	CardHeader,
 	CardNoteContainer,
 } from "modules/notes/Note/components/CardNote/card-note.style";
@@ -15,6 +13,7 @@ import CardAction from "modules/notes/Note/components/CardNote/components/CardAc
 import { useNoteContext } from "modules/notes/Note/Context";
 import { defineGridSize } from "modules/notes/Note/components/CardNote/utils";
 import { VIEW_MODE } from "shared/constants";
+import EmojiDisplay from "shared/components/EmojiDisplay";
 
 const CardNote: React.FC<ICardNotes> = ({ data }) => {
 	const { board_id } = useParams();
@@ -31,14 +30,12 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 						note_id,
 						title_note,
 						observation,
-						color_note,
 						created_at,
 						todos,
 						favorite,
 						favorite_id,
 						emoji_image_url,
 					}) => {
-						const isHiddenCardDot = Boolean(emoji_image_url);
 						return (
 							<Grid
 								item
@@ -48,15 +45,8 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 									<Card className={defineViewModeClassName}>
 										<CardContent>
 											<CardHeader>
-												<CardEmoji
+												<EmojiDisplay
 													src={emoji_image_url}
-												/>
-												<CardDot
-													color={color_note}
-													hidden={isHiddenCardDot}
-													aria-hidden={
-														isHiddenCardDot
-													}
 												/>
 												<Typography
 													variant="body1"
