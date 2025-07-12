@@ -51,10 +51,9 @@ const NoteEdit: React.FC = () => {
 
 	const onSuccessQuery = (data: TuplesNoteAndTodoResponse) => {
 		const [note, todo] = data;
-		setValue("color_note", note.color_note);
+		setValue("emoji_image_url", note.emoji_image_url);
 		setValue("title_note", note.title_note);
 		setValue("observation", note.observation);
-		setValue("emoji_image_url", note.emoji_image_url);
 
 		setTodoData(todo);
 	};

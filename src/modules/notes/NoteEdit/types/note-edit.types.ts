@@ -22,7 +22,6 @@ export interface ITodoData {
 }
 
 export interface INoteEditForm {
-	color_note: string;
 	title_note: string;
 	observation: string;
 	emoji_image_url: string;

@@ -3,7 +3,6 @@ import type { IFormNoteEditView } from "modules/notes/NoteEdit/components/FormNo
 import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import ColorPicker from "shared/components/ColorPicker";
 import { ICON_SIZE } from "shared/constants";
 import {
 	FormActionNoteEdit,
@@ -49,12 +48,6 @@ const FormNoteEditView: React.FC<IFormNoteEditView> = props => {
 							Save
 						</Button>
 					</FormActionNoteEdit>
-				</Grid>
-				<Grid item md={12} xs={12}>
-					<ColorPicker
-						{...register("color_note")}
-						label="Select color"
-					/>
 				</Grid>
 				<Grid item md={12} xs={12} ml={-0.9} pt={1}>
 					<EmojiPicker
