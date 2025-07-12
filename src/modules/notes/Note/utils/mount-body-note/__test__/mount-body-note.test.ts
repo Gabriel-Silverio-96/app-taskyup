@@ -12,12 +12,16 @@ describe("Function mountBodyNote()", () => {
 	});
 
 	test("Should change the object's default values", () => {
-		const color_note = faker.internet.color();
+		const emoji_image_url = faker.internet.url();
 		const title_note = faker.lorem.word(5);
 		const observation = faker.lorem.text();
 
-		const body = mountBodyNote({ color_note, title_note, observation });
-		const expected = { color_note, title_note, observation };
+		const body = mountBodyNote({
+			emoji_image_url,
+			title_note,
+			observation,
+		});
+		const expected = { emoji_image_url, title_note, observation };
 
 		expect(body).toEqual(expected);
 	});

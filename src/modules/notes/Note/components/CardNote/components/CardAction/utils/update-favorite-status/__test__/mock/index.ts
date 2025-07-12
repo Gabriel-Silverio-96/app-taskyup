@@ -56,6 +56,7 @@ const EXPECTED_UPDATED_DATA = {
 			created_at,
 			favorite: true,
 			favorite_id,
+			emoji_image_url,
 			todos: {
 				total: 0,
 				total_checked: 0,
@@ -69,6 +70,7 @@ const EXPECTED_UPDATED_DATA = {
 			created_at,
 			favorite: false,
 			favorite_id: null,
+			emoji_image_url,
 			todos: {
 				total: 0,
 				total_checked: 0,
