@@ -13,6 +13,7 @@ export interface IMenuItems {
 	board_id: string;
 	item_id: string;
 	title: string;
+	emoji_image_url: string;
 }
 
 export interface IMenu {
