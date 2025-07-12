@@ -1,5 +1,5 @@
 import EmojiPickerReact, { Theme } from "emoji-picker-react";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { FiSmile, FiTrash } from "react-icons/fi";
 import type { IEmojiPicker } from "shared/components/EmojiPicker/types";
 import { IconButton } from "./emoji-picker.style";
@@ -23,6 +23,26 @@ const EmojiPicker = ({
 
 	const defineIconVisibility = emojiUrl ? "hidden" : "visible";
 	const defineTrashButtonVisibility = emojiUrl ? "visible" : "hidden";
+
+	useEffect(() => {
+		function handleClickOutside(event: MouseEvent) {
+			const target = event.target as HTMLElement;
+
+			const shouldCloseEmojiPicker =
+				target?.closest("aside")?.tagName !== "ASIDE" &&
+				target?.closest("button")?.tagName !== "BUTTON";
+
+			if (shouldCloseEmojiPicker) {
+				handleClose();
+			}
+		}
+
+		document.addEventListener("click", handleClickOutside);
+
+		return () => {
+			document.removeEventListener("click", handleClickOutside);
+		};
+	}, []);
 
 	return (
 		<div>
@@ -51,11 +71,9 @@ const EmojiPicker = ({
 					<FiTrash size={ICON_SIZE.SMALL} />
 				</IconButton>
 			</Grid>
-			<div
-				onClick={handleClose}
-				aria-label="Close emoji picker"
-				role="presentation">
+			<div aria-label="Close emoji picker" role="presentation">
 				<EmojiPickerReact
+					className="emoji-picker"
 					theme={Theme.DARK}
 					open={isOpen}
 					onEmojiClick={onEmojiClick}

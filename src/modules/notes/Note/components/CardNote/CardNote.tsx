@@ -3,6 +3,7 @@ import {
 	Card,
 	CardContent,
 	CardDot,
+	CardEmoji,
 	CardHeader,
 	CardNoteContainer,
 } from "modules/notes/Note/components/CardNote/card-note.style";
@@ -35,7 +36,9 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 						todos,
 						favorite,
 						favorite_id,
+						emoji_image_url,
 					}) => {
+						const isHiddenCardDot = Boolean(emoji_image_url);
 						return (
 							<Grid
 								item
@@ -45,7 +48,16 @@ const CardNote: React.FC<ICardNotes> = ({ data }) => {
 									<Card className={defineViewModeClassName}>
 										<CardContent>
 											<CardHeader>
-												<CardDot color={color_note} />
+												<CardEmoji
+													src={emoji_image_url}
+												/>
+												<CardDot
+													color={color_note}
+													hidden={isHiddenCardDot}
+													aria-hidden={
+														isHiddenCardDot
+													}
+												/>
 												<Typography
 													variant="body1"
 													fontWeight={800}>

@@ -6,6 +6,7 @@ export interface INote {
 	title_note: string;
 	observation: string;
 	created_at: string | Date;
+	emoji_image_url: string;
 	todos: {
 		total: number;
 		total_checked: number;

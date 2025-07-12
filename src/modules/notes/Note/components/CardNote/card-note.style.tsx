@@ -16,6 +16,11 @@ export interface ICardDotStyle {
 	color: string;
 }
 
+export interface ICardEmojiStyle {
+	theme?: Theme;
+	src: string;
+}
+
 const defineHeightCard = (viewmode: string, theme: Theme) =>
 	viewmode === VIEW_MODE.GRID ? theme.spacing(17.5) : theme.spacing(6);
 
@@ -95,6 +100,20 @@ export const CardDot = styled("div")<ICardDotStyle>(
         height: ${theme.spacing(2)};
         background-color: ${color};     
         border-radius: 100%;
+`
+);
+
+const defineDisplay = (src: string) => (src ? "block" : "none");
+
+export const CardEmoji = styled("div")<ICardEmojiStyle>(
+	({ theme, src }) => `
+        display: ${defineDisplay(src)};  
+        background-image: url(${src});  
+        width: ${theme.spacing(2.375)};
+        height: ${theme.spacing(2.375)};
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;   
 `
 );
 
