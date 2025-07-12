@@ -4,7 +4,7 @@ import { IFetchDefaultResponse } from "shared/common/types";
 export interface Params {
 	board_id: string | undefined;
 	body: {
-		color_note: string;
+		emoji_image_url: string;
 		title_note: string;
 		observation: string;
 	};

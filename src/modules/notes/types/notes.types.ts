@@ -1,5 +1,5 @@
 export interface IBodyNote {
-	color_note: string;
+	emoji_image_url: string;
 	title_note: string;
 	observation: string;
 }
