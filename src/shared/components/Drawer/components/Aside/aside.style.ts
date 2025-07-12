@@ -130,10 +130,9 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         .MuiCollapse-root {
             .MuiCollapse-wrapper {
                 .MuiCollapse-wrapperInner {
-                    a > li > div .MuiTreeItem-label {
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
+                    a > li > div .MuiTreeItem-label > div > p {
+                        white-space: nowrap;
+                        width: 100px;
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }

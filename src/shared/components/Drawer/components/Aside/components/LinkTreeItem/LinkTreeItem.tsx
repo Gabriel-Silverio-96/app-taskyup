@@ -11,7 +11,7 @@ import {
 	TreeItemLabel,
 	EmojiIndicator,
 } from "shared/components/Drawer/components/Aside/components/LinkTreeItem/link-tree-item.style";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, propertyName }) => {
 	if (!data) return null;
@@ -38,12 +38,12 @@ const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, propertyName }) => {
 											return (
 												<Link
 													to={`${definedURLPath}${item_id}&board_id=${board_id}`}
-													key={item_id}>
+													key={item_id}
+													title={title}>
 													<TreeItem
 														nodeId={item_id}
 														label={
 															<Grid
-																container
 																display="flex"
 																alignItems="center"
 																gap={0.5}>
@@ -52,7 +52,9 @@ const LinkTreeItem: React.FC<ILinkTreeItem> = ({ data, propertyName }) => {
 																		emoji_image_url
 																	}
 																/>
-																{title}
+																<Typography variant="inherit">
+																	{title}
+																</Typography>
 															</Grid>
 														}
 													/>
