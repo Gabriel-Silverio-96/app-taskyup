@@ -3,6 +3,7 @@ import { defineURLPath } from "shared/components/Drawer/components/Aside/compone
 import { Link } from "react-router-dom";
 import React from "react";
 import { ILinkFavoritesTreeItem } from "shared/components/Drawer/components/Aside/components/LinkFavoritesTreeItem/types";
+import { EmojiIndicator } from "../LinkTreeItem/link-tree-item.style";
 
 const LinkFavoritesTreeItem: React.FC<ILinkFavoritesTreeItem> = ({ data }) => {
 	if (!data) return null;
@@ -16,6 +17,7 @@ const LinkFavoritesTreeItem: React.FC<ILinkFavoritesTreeItem> = ({ data }) => {
 					title,
 					related_id,
 					board_id,
+					emoji_image_url,
 				}) => {
 					const definedURLPath = defineURLPath(board_type_title);
 
@@ -25,7 +27,9 @@ const LinkFavoritesTreeItem: React.FC<ILinkFavoritesTreeItem> = ({ data }) => {
 							nodeId={favorite_id}
 							label={
 								<Link
-									to={`${definedURLPath}${related_id}&board_id=${board_id}`}>
+									to={`${definedURLPath}${related_id}&board_id=${board_id}`}
+									style={{ display: "flex", gap: 4 }}>
+									<EmojiIndicator src={emoji_image_url} />
 									{title}
 								</Link>
 							}

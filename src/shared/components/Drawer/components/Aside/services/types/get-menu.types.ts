@@ -7,6 +7,7 @@ export interface IFavorites {
 	board_type_id: string;
 	board_type_title: TypeBoard;
 	title: string;
+	emoji_image_url: string;
 }
 
 export interface IMenuItems {

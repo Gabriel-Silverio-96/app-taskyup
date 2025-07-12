@@ -70,6 +70,7 @@ export const MENU_MOCK: IGetMenuResponse = {
 			board_type_id: faker.datatype.uuid(),
 			board_type_title: "notes",
 			title: faker.lorem.word(5),
+			emoji_image_url: faker.internet.url(),
 		},
 	],
 };
