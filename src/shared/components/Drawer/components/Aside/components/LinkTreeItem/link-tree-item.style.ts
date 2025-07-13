@@ -1,5 +1,10 @@
-import { styled } from "@mui/material";
+import { styled, Theme } from "@mui/material";
 import { Link } from "react-router-dom";
+
+export interface IEmojiStyle {
+	theme?: Theme;
+	src: string;
+}
 
 export const TreeItemContainer = styled("div")(
 	() => `                

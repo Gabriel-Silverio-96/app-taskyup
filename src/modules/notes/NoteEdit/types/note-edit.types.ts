@@ -3,6 +3,8 @@ import {
 	FieldErrors,
 	UseFormHandleSubmit,
 	UseFormRegister,
+	UseFormSetValue,
+	UseFormWatch,
 } from "react-hook-form";
 
 export interface ITodo {
@@ -20,9 +22,9 @@ export interface ITodoData {
 }
 
 export interface INoteEditForm {
-	color_note: string;
 	title_note: string;
 	observation: string;
+	emoji_image_url: string;
 }
 
 export interface INoteEditView {
@@ -35,6 +37,8 @@ export interface INoteEditView {
 	todoData: ITodoData;
 	setTodoData: Dispatch<SetStateAction<ITodoData | any>>;
 	setTodoIdsToDelete: Dispatch<SetStateAction<Array<string>>>;
+	setValue: UseFormSetValue<INoteEditForm>;
+	watch: UseFormWatch<INoteEditForm>;
 }
 
 export type TypeTodoIdsToDelete = Array<string | any>;

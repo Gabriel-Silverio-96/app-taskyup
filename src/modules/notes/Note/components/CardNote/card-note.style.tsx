@@ -16,6 +16,11 @@ export interface ICardDotStyle {
 	color: string;
 }
 
+export interface ICardEmojiStyle {
+	theme?: Theme;
+	src: string;
+}
+
 const defineHeightCard = (viewmode: string, theme: Theme) =>
 	viewmode === VIEW_MODE.GRID ? theme.spacing(17.5) : theme.spacing(6);
 
@@ -77,6 +82,7 @@ export const CardContent = styled(CardContentMui)(
             overflow: hidden;
             text-overflow: ellipsis;
             -webkit-line-clamp: 2;
+            width: ${theme.spacing(22)}
         }
 
         .MuiTypography-body1 {
@@ -86,15 +92,6 @@ export const CardContent = styled(CardContentMui)(
         p:nth-of-type(2) {
             width: ${theme.spacing(26)};
         }
-`
-);
-
-export const CardDot = styled("div")<ICardDotStyle>(
-	({ theme, color }) => `
-        width: ${theme.spacing(2)};
-        height: ${theme.spacing(2)};
-        background-color: ${color};     
-        border-radius: 100%;
 `
 );
 

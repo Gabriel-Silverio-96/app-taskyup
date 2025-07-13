@@ -7,6 +7,7 @@ const created_at = faker.datatype.datetime();
 const title_note = faker.lorem.lines(1);
 const title = faker.lorem.lines(1);
 const color_note = faker.internet.color();
+const emoji_image_url = faker.internet.url();
 
 const MOCK_DATA: IGetNotesResponse = {
 	title,
@@ -20,6 +21,7 @@ const MOCK_DATA: IGetNotesResponse = {
 			created_at,
 			favorite: false,
 			favorite_id: null,
+			emoji_image_url,
 			todos: {
 				total: 0,
 				total_checked: 0,
@@ -33,6 +35,7 @@ const MOCK_DATA: IGetNotesResponse = {
 			created_at,
 			favorite: false,
 			favorite_id: null,
+			emoji_image_url,
 			todos: {
 				total: 0,
 				total_checked: 0,
@@ -53,6 +56,7 @@ const EXPECTED_UPDATED_DATA = {
 			created_at,
 			favorite: true,
 			favorite_id,
+			emoji_image_url,
 			todos: {
 				total: 0,
 				total_checked: 0,
@@ -66,6 +70,7 @@ const EXPECTED_UPDATED_DATA = {
 			created_at,
 			favorite: false,
 			favorite_id: null,
+			emoji_image_url,
 			todos: {
 				total: 0,
 				total_checked: 0,

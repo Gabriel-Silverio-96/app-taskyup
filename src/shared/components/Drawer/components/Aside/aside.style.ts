@@ -18,14 +18,14 @@ interface IDefineAsideWidth {
 }
 
 const defineAsideWidth: IDefineAsideWidth = ({ smallscreen, open, theme }) => {
-	if (open === false) return theme.spacing(7);
+	if (open === false) return theme.spacing(2.5);
 
 	if (smallscreen && open) {
-		const asideFullWidth = "calc(100vw / 1.09) !important";
+		const asideFullWidth = "calc(100vw / 1.0)";
 		return asideFullWidth;
 	}
 
-	return theme.spacing(25);
+	return theme.spacing(28.75);
 };
 
 export const Aside = styled("aside", {
@@ -35,7 +35,7 @@ export const Aside = styled("aside", {
         position: relative;
         background-color: ${open ? theme.palette.common.black : "transparent"};
         width: ${defineAsideWidth({ smallscreen, open, theme })};
-        padding: ${theme.spacing(2)};          
+        padding: ${open ? theme.spacing(2) : 0};           
         transition: width 0.2s ease-out;
         border-style: ${open ? "solid" : "none"};
         border-width: ${theme.spacing(0, 0.05, 0, 0)};
@@ -74,10 +74,7 @@ export const Aside = styled("aside", {
                     gap: 0.5rem;
                 }
             }
-        }
-
-        width: ${open ? theme.spacing(25) : theme.spacing(1)};
-        padding: ${open ? theme.spacing(2) : 0};            
+        }      
 
         > button {
             display: ${open ? "flex" : "none"};
@@ -130,10 +127,9 @@ export const TreeViewContainer = styled("div")<IAsideStyle>(
         .MuiCollapse-root {
             .MuiCollapse-wrapper {
                 .MuiCollapse-wrapperInner {
-                    a > li > div .MuiTreeItem-label {
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
+                    a > li > div .MuiTreeItem-label > div > p {
+                        white-space: nowrap;
+                        width: 100px;
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }
